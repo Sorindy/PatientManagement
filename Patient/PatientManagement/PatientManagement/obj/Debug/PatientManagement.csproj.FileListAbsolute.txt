@@ -1,0 +1,12 @@
+C:\Users\Shiwu\Desktop\PatientManagement\PatientManagement\bin\Debug\PatientManagement.exe.config
+D:\PatientManagement\PatientManagement\bin\Debug\PatientManagement.exe.config
+C:\Users\Shiwu\Downloads\Verson1\PatientManagement\PatientManagement\bin\Debug\PatientManagement.exe.config
+C:\Users\Shiwu\Downloads\Verson1\PatientManagement\PatientManagement\bin\Debug\PatientManagement.exe
+C:\Users\Shiwu\Downloads\Verson1\PatientManagement\PatientManagement\bin\Debug\PatientManagement.pdb
+C:\Users\Shiwu\Downloads\Verson1\PatientManagement\PatientManagement\bin\Debug\Hospital Entity Framework.dll
+C:\Users\Shiwu\Downloads\Verson1\PatientManagement\PatientManagement\bin\Debug\Hospital Entity Framework.pdb
+C:\Users\Shiwu\Downloads\Verson1\PatientManagement\PatientManagement\obj\Debug\PatientManagement.csprojResolveAssemblyReference.cache
+C:\Users\Shiwu\Downloads\Verson1\PatientManagement\PatientManagement\obj\Debug\PatientManagement.Properties.Resources.resources
+C:\Users\Shiwu\Downloads\Verson1\PatientManagement\PatientManagement\obj\Debug\PatientManagement.csproj.GenerateResource.Cache
+C:\Users\Shiwu\Downloads\Verson1\PatientManagement\PatientManagement\obj\Debug\PatientManagement.exe
+C:\Users\Shiwu\Downloads\Verson1\PatientManagement\PatientManagement\obj\Debug\PatientManagement.pdb
