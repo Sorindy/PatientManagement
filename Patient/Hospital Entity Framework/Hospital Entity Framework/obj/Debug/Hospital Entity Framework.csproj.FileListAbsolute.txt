@@ -1,0 +1,16 @@
+E:\Work\Hospital_Projects\Hospital Entity Framework\Hospital Entity Framework\bin\Debug\Hospital Entity Framework.dll.config
+E:\Work\Hospital_Projects\Hospital Entity Framework\Hospital Entity Framework\bin\Debug\Hospital Entity Framework.dll
+E:\Work\Hospital_Projects\Hospital Entity Framework\Hospital Entity Framework\bin\Debug\Hospital Entity Framework.pdb
+E:\Work\Hospital_Projects\Hospital Entity Framework\Hospital Entity Framework\bin\Debug\EntityFramework.dll
+E:\Work\Hospital_Projects\Hospital Entity Framework\Hospital Entity Framework\bin\Debug\EntityFramework.xml
+E:\Work\Hospital_Projects\Hospital Entity Framework\Hospital Entity Framework\obj\Debug\Hospital Entity Framework.csprojResolveAssemblyReference.cache
+E:\Work\Hospital_Projects\Hospital Entity Framework\Hospital Entity Framework\obj\Debug\Hospital Entity Framework.dll
+E:\Work\Hospital_Projects\Hospital Entity Framework\Hospital Entity Framework\obj\Debug\Hospital Entity Framework.pdb
+D:\PatientManagement\Hospital Entity Framework\Hospital Entity Framework\bin\Debug\Hospital Entity Framework.dll.config
+D:\PatientManagement\Hospital Entity Framework\Hospital Entity Framework\bin\Debug\Hospital Entity Framework.dll
+D:\PatientManagement\Hospital Entity Framework\Hospital Entity Framework\bin\Debug\Hospital Entity Framework.pdb
+D:\PatientManagement\Hospital Entity Framework\Hospital Entity Framework\bin\Debug\EntityFramework.dll
+D:\PatientManagement\Hospital Entity Framework\Hospital Entity Framework\bin\Debug\EntityFramework.xml
+D:\PatientManagement\Hospital Entity Framework\Hospital Entity Framework\obj\Debug\Hospital Entity Framework.csprojResolveAssemblyReference.cache
+D:\PatientManagement\Hospital Entity Framework\Hospital Entity Framework\obj\Debug\Hospital Entity Framework.dll
+D:\PatientManagement\Hospital Entity Framework\Hospital Entity Framework\obj\Debug\Hospital Entity Framework.pdb
