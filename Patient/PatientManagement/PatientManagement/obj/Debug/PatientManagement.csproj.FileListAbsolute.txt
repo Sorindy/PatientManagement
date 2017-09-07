@@ -10,3 +10,15 @@ C:\Users\Shiwu\Downloads\Verson1\PatientManagement\PatientManagement\obj\Debug\P
 C:\Users\Shiwu\Downloads\Verson1\PatientManagement\PatientManagement\obj\Debug\PatientManagement.csproj.GenerateResource.Cache
 C:\Users\Shiwu\Downloads\Verson1\PatientManagement\PatientManagement\obj\Debug\PatientManagement.exe
 C:\Users\Shiwu\Downloads\Verson1\PatientManagement\PatientManagement\obj\Debug\PatientManagement.pdb
+E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\PatientManagement.exe.config
+E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.exe
+E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.pdb
+E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\PatientManagement.exe
+E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\PatientManagement.pdb
+E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.csprojResolveAssemblyReference.cache
+E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.Properties.Resources.resources
+E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.csproj.GenerateResource.Cache
+E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.CheckInForm.resources
+E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.AccountRecoveryForm.resources
+E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.Background.resources
+E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.CategoryForm.resources
