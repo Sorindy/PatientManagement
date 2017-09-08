@@ -7,8 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;*/
 using System.Windows.Forms;
+using PatientManagement;
 
-namespace PatientManagement
+namespace PatientManagment
 {
     public partial class SearchForm : Form
     {
@@ -17,20 +18,12 @@ namespace PatientManagement
             InitializeComponent();
         }
 
-        public Patient Pt = new Patient();
+        private Patient _patient = new Patient();
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            try
-            {
-                dtgInformation.DataSource = Pt.Search_Patient(txtSearch.Text);
-                Refresh();
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show(exception.Message);
-            }
-
+            dtgInformation.DataSource = _patient.Search(txtSearch.Text);
+            Refresh();    
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -43,9 +36,9 @@ namespace PatientManagement
         {
             var getid = dtgInformation.CurrentRow.Cells[0].Value.ToString();
             Hide();
-            var ptrf = new PatientRegistrationForm();
-            ptrf.Show();
-            ptrf.TextId = getid;
+            var _patientRegistrationForm = new PatientRegistrationForm();
+            _patientRegistrationForm.Show();
+            _patientRegistrationForm.TextId = getid;
 
         }
 

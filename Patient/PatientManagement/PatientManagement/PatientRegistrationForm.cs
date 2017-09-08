@@ -7,13 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;*/
 using System.Windows.Forms;
+using PatientManagment;
 
 namespace PatientManagement
 {
     public partial class PatientRegistrationForm : Form
     {
 
-        public Patient Pt = new Patient();
+        private Patient _patient = new Patient();
 
         public PatientRegistrationForm()
         {
@@ -34,20 +35,14 @@ namespace PatientManagement
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            try
-            {
 
-                Pt.Cheack_Control(txtName.Text, cmbGender.Text, txtAddress.Text, txtPhone1.Text, txtWeight.Text, txtHeight.Text);
-                Pt.Insert_Patient(txtID.Text, txtName.Text, cmbGender.Text, dtpDOB.Value.Date, Convert.ToByte(txtAge.Text), txtAddress.Text, txtPhone1.Text, txtPhone2.Text, txtEmail.Text, Convert.ToInt16(txtHeight.Text), Convert.ToInt16(txtHeight.Text));
+                _patient.Cheack_Control(txtName.Text, cmbGender.Text, txtAddress.Text, txtPhone1.Text, txtWeight.Text, txtHeight.Text);
+                _patient.Insert(txtID.Text, txtName.Text, cmbGender.Text, dtpDOB.Value.Date, Convert.ToByte(txtAge.Text), txtAddress.Text, txtPhone1.Text, txtPhone2.Text, txtEmail.Text, Convert.ToInt16(txtWeight.Text), Convert.ToInt16(txtHeight.Text));
                 Clear_Control();
                 btnNew.Visible = true;
                 btnInsert.Visible = false;
                 Refresh();
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show(exception.Message);
-            }
+         
 
         }
 
@@ -75,7 +70,7 @@ namespace PatientManagement
         {
             try
             {
-                Pt.Update_Patient(txtID.Text, txtName.Text, cmbGender.Text, dtpDOB.Value.Date, Convert.ToByte(txtAge.Text), txtAddress.Text, txtPhone1.Text, txtPhone2.Text, txtEmail.Text, Convert.ToInt16(txtHeight.Text), Convert.ToInt16(txtHeight.Text));
+                _patient.Update(txtID.Text, txtName.Text, cmbGender.Text, dtpDOB.Value.Date, Convert.ToByte(txtAge.Text), txtAddress.Text, txtPhone1.Text, txtPhone2.Text, txtEmail.Text, Convert.ToInt16(txtWeight.Text), Convert.ToInt16(txtHeight.Text));
                 Clear_Control();
                 Refresh();
             }
@@ -104,26 +99,31 @@ namespace PatientManagement
         }
 
         private void btnNew_Click(object sender, EventArgs e)
-        {
+        {    
+            txtID.Text =_patient.AutoId();
             Clear_Control();
-            txtID.Text = Pt.AutoId_Patient();
             btnInsert.Visible = true;
             btnNew.Visible = false;
         }
 
         private void txtID_TextChanged(object sender, EventArgs e)
         {
-            Pt.Select_Patient(txtID.Text);
-            txtName.Text = Pt.Name;
-            txtAge.Text = Pt.Age.ToString();
-            txtAddress.Text = Pt.Address;
-            txtEmail.Text = Pt.Email;
-            txtPhone1.Text = Pt.Phone1;
-            txtPhone2.Text = Pt.Phone2;
-            txtHeight.Text = Pt.Height.ToString();
-            txtWeight.Text = Pt.Weight.ToString();
-            cmbGender.Text = Pt.Gender;
-            dtpDOB.Text = Convert.ToString(Pt.DOB);
+            var select = _patient.Select(txtID.Text);
+            
+                txtID.Text = select.Id;
+                txtName.Text = select.Name;
+                txtAge.Text = select.Age.ToString();
+                txtAddress.Text = select.Address;
+                txtEmail.Text = select.Email;
+                txtPhone1.Text = select.Phone1;
+                txtPhone2.Text = select.Phone2;
+                txtHeight.Text = select.Height.ToString();
+                txtWeight.Text = select.Weight.ToString();
+                cmbGender.Text = select.Gender;
+                dtpDOB.Text = Convert.ToString(select.DOB);
+            
+
+            
         }
 
        

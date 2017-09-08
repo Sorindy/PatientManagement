@@ -25,3 +25,17 @@ E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\PatientManagement.exe.config
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.exe
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.pdb
+D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.csprojResolveAssemblyReference.cache
+D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.AccountRecoveryForm.resources
+D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.PatientRegistrationForm.resources
+D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.Properties.Resources.resources
+D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.csproj.GenerateResource.Cache
+D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\PatientManagement.exe
+D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\PatientManagement.pdb
+D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\EntityFramework.dll
+D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\EntityFramework.SqlServer.dll
+D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\Hospital Entity Framework.dll
+D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\EntityFramework.xml
+D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\EntityFramework.SqlServer.xml
+D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\Hospital Entity Framework.pdb
+D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagment.SearchForm.resources

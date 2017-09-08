@@ -32,10 +32,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Hospital Entity Framework">
-      <HintPath>..\Hospital Entity Framework\Hospital Entity Framework\obj\Debug\Hospital Entity Framework.dll</HintPath>
+      <HintPath>..\..\Hospital Entity Framework\Hospital Entity Framework\obj\Debug\Hospital Entity Framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -53,64 +60,26 @@
     <Compile Include="AccountRecoveryForm.Designer.cs">
       <DependentUpon>AccountRecoveryForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Background.cs">
+    <Compile Include="Patient.cs" />
+    <Compile Include="PatientRegistrationForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Background.Designer.cs">
-      <DependentUpon>Background.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CategoryForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CategoryForm.Designer.cs">
-      <DependentUpon>CategoryForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CheckInForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CheckInForm.designer.cs">
-      <DependentUpon>CheckInForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CreateAccountForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CreateAccountForm.designer.cs">
-      <DependentUpon>CreateAccountForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="LoginForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LoginForm.designer.cs">
-      <DependentUpon>LoginForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ManagementForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ManagementForm.designer.cs">
-      <DependentUpon>ManagementForm.cs</DependentUpon>
+    <Compile Include="PatientRegistrationForm.designer.cs">
+      <DependentUpon>PatientRegistrationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchForm.designer.cs">
+      <DependentUpon>SearchForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AccountRecoveryForm.resx">
       <DependentUpon>AccountRecoveryForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Background.resx">
-      <DependentUpon>Background.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CategoryForm.resx">
-      <DependentUpon>CategoryForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CheckInForm.resx">
-      <DependentUpon>CheckInForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CreateAccountForm.resx">
-      <DependentUpon>CreateAccountForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="LoginForm.resx">
-      <DependentUpon>LoginForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ManagementForm.resx">
-      <DependentUpon>ManagementForm.cs</DependentUpon>
+    <EmbeddedResource Include="PatientRegistrationForm.resx">
+      <DependentUpon>PatientRegistrationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -121,6 +90,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SearchForm.resx">
+      <DependentUpon>SearchForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -133,6 +106,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
