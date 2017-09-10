@@ -42,7 +42,6 @@ namespace  PatientManagement
             string phone2,
             string email, short weigh, short heigh)
         {
-            
                 var insert = new Hospital_Entity_Framework.Patient()
                 {
                     Id = id,
@@ -59,8 +58,6 @@ namespace  PatientManagement
                 };
                 _db.Patients.Add(insert);
                 _db.SaveChanges();
-            
-          
         }
 
         public void Update(string id, string name, string gender, DateTime dob, byte age, string address, string phone1,
@@ -77,10 +74,8 @@ namespace  PatientManagement
             update.Email = email;
             update.Weight = weigh;
             update.Height = heigh;
-
             _db.Patients.AddOrUpdate(update);
             _db.SaveChanges();
-
         }
 
         public object Search(string text)

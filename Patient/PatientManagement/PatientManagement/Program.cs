@@ -3,6 +3,7 @@
 using System.Linq;
 using System.Threading.Tasks;*/
 using System.Windows.Forms;
+using PatientManagmentment;
 
 namespace PatientManagement
 {
@@ -13,7 +14,7 @@ namespace PatientManagement
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PatientRegistrationForm());
+            Application.Run(new CategoryForm());
         }
     }
 }

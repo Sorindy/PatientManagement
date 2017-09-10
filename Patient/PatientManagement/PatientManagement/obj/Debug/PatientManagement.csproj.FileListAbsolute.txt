@@ -39,3 +39,4 @@ D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\Entit
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\EntityFramework.SqlServer.xml
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\Hospital Entity Framework.pdb
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagment.SearchForm.resources
+D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagmentment.CategoryForm.resources
