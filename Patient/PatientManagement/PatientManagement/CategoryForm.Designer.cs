@@ -1,4 +1,4 @@
-﻿namespace PatientManagmentment
+﻿namespace PatientManagement
 {
     partial class CategoryForm
     {

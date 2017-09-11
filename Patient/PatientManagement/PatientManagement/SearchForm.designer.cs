@@ -1,4 +1,4 @@
-﻿namespace PatientManagment
+﻿namespace PatientManagement
 {
     partial class SearchForm
     {

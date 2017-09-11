@@ -20,24 +20,6 @@ namespace  PatientManagement
 
         }
 
-        public Patient(string id, string name, string gender, DateTime dob, byte age, string address, string phone1,
-            string phone2,
-            string email, short weigh, short heigh)
-        {
-            _patient.Id = id;
-            _patient.Name = name;
-            _patient.Gender = gender;
-            _patient.DOB = dob;
-            _patient.Age = age;
-            _patient.Address = address;
-            _patient.Phone1 = phone1;
-            _patient.Phone2 = phone2;
-            _patient.Email = email;
-            _patient.Weight = weigh;
-            _patient.Height = heigh;
-
-        }
-
         public void Insert(string id, string name, string gender, DateTime dob, byte age, string address, string phone1,
             string phone2,
             string email, short weigh, short heigh)

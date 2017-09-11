@@ -7,9 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;*/
 using System.Windows.Forms;
-using PatientManagement;
 
-namespace PatientManagment
+namespace PatientManagement
 {
     public partial class SearchForm : Form
     {

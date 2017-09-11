@@ -38,5 +38,6 @@ D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\Hospi
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\EntityFramework.xml
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\EntityFramework.SqlServer.xml
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\Hospital Entity Framework.pdb
-D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagment.SearchForm.resources
-D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagmentment.CategoryForm.resources
+D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.SampleForm.resources
+D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.SearchForm.resources
+D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.CategoryForm.resources
