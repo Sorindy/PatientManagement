@@ -32,16 +32,14 @@
             this.dgvShow = new System.Windows.Forms.DataGridView();
             this.cboControl = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.gboControlName = new System.Windows.Forms.GroupBox();
+            this.gboPreview = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvShow)).BeginInit();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -83,33 +81,26 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Management Form";
             // 
-            // groupBox1
+            // gboControlName
             // 
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 58);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(538, 432);
-            this.groupBox1.TabIndex = 4;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Control\'s Name";
+            this.gboControlName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gboControlName.Location = new System.Drawing.Point(12, 58);
+            this.gboControlName.Name = "gboControlName";
+            this.gboControlName.Size = new System.Drawing.Size(538, 432);
+            this.gboControlName.TabIndex = 4;
+            this.gboControlName.TabStop = false;
+            this.gboControlName.Text = "Control\'s Name";
+            this.gboControlName.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.gboControlName_ControlAdded);
             // 
-            // groupBox2
+            // gboPreview
             // 
-            this.groupBox2.Controls.Add(this.flowLayoutPanel2);
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(12, 496);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(538, 233);
-            this.groupBox2.TabIndex = 5;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Preview Management";
-            // 
-            // flowLayoutPanel2
-            // 
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(6, 29);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(526, 189);
-            this.flowLayoutPanel2.TabIndex = 0;
+            this.gboPreview.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gboPreview.Location = new System.Drawing.Point(12, 496);
+            this.gboPreview.Name = "gboPreview";
+            this.gboPreview.Size = new System.Drawing.Size(538, 233);
+            this.gboPreview.TabIndex = 5;
+            this.gboPreview.TabStop = false;
+            this.gboPreview.Text = "Preview Management";
             // 
             // label2
             // 
@@ -169,8 +160,8 @@
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gboPreview);
+            this.Controls.Add(this.gboControlName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cboControl);
             this.Controls.Add(this.dgvShow);
@@ -179,7 +170,6 @@
             this.Text = "ManagementForm";
             this.Load += new System.EventHandler(this.ManagementForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvShow)).EndInit();
-            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -191,9 +181,8 @@
         private System.Windows.Forms.DataGridView dgvShow;
         private System.Windows.Forms.ComboBox cboControl;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.GroupBox gboControlName;
+        private System.Windows.Forms.GroupBox gboPreview;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtSearch;
