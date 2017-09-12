@@ -1,0 +1,25 @@
+﻿using System;
+/*using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;*/
+using System.Windows.Forms;
+using PatientManagement;
+using PatientManagement;
+
+namespace PatientManagement
+{
+    static class Program
+    {
+        [STAThread]
+        static void Main()
+        {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+<<<<<<< HEAD
+            Application.Run(new ManagementForm());
+=======
+            Application.Run(new SampleForm());
+>>>>>>> a5a755c95228183e0fc4bd99105c5e3555cf09db
+        }
+    }
+}
