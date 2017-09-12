@@ -135,13 +135,22 @@
     <Compile Include="PatientRegistrationForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="PatientRegistrationForm.designer.cs">
+      <DependentUpon>PatientRegistrationForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SampleForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="SampleForm.designer.cs">
+      <DependentUpon>SampleForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="SearchForm.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchForm.designer.cs">
+      <DependentUpon>SearchForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UpdateAccountForm.cs">
       <SubType>Form</SubType>
@@ -167,6 +176,9 @@
     <EmbeddedResource Include="ManagementForm.resx">
       <DependentUpon>ManagementForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PatientRegistrationForm.resx">
+      <DependentUpon>PatientRegistrationForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -176,6 +188,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SampleForm.resx">
+      <DependentUpon>SampleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SearchForm.resx">
+      <DependentUpon>SearchForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UpdateAccountForm.resx">
       <DependentUpon>UpdateAccountForm.cs</DependentUpon>
     </EmbeddedResource>
