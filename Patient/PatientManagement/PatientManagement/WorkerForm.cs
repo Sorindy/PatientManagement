@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;*/
 using System.Windows.Forms;
+using PatientManagement.Class;
 
 namespace PatientManagement
 {
@@ -18,23 +19,16 @@ namespace PatientManagement
             InitializeComponent();
         }
 
-       
-        public Worker Wk=new Worker();
-        public Account Acc = new Account();
+        Worker worker=new Worker();
+        protected Hospital_Entity_Framework.Worker Wk;
+        private Account _account=new Account();
 
         private void WorkerForm_Load(object sender, EventArgs e)
-        {
-            try
-            {
-                dgvWorker.DataSource = Wk.ShowData();
+        {            
+                dgvWorker.DataSource = worker.ShowAll();
                 Clears();
-                txtID.Text = Wk.AutoId_Worker();
+                txtID.Text = worker.AutoId();
                 btnNew.Hide();
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show(exception.Message);
-            }
         }
 
         private void Clears()
@@ -118,30 +112,22 @@ namespace PatientManagement
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            try
-            {
                 if (dgvWorker.CurrentRow != null)
                 {
-                    Wk.Delete_Worker(dgvWorker.CurrentRow.Cells[0].Value.ToString());
+                    worker.Delete(dgvWorker.CurrentRow.Cells[0].Value.ToString());
                     LostFocus += new EventHandler(FormRefresh);
                     MouseLeave += new EventHandler(FormRefresh);
                     Leave += new EventHandler(FormRefresh);
                 
-                    Wk.Delete_Worker(dgvWorker.CurrentRow.Cells[0].Value.ToString());
+                    worker.Delete(dgvWorker.CurrentRow.Cells[0].Value.ToString());
                 }
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show(exception.Message);
-            }
         }
 
         private void dgvWorker_SelectionChanged(object sender, EventArgs e)
         {
-            try
-            {
                 var getid = dgvWorker.CurrentRow.Cells[0].Value.ToString();
-                Wk.SelectedChange(getid);
+                 Wk = worker.SelectedChange(getid);
+            
                 
                 txtID.Text = Wk.Id ;
                 txtName.Text = Wk.Name;
@@ -156,14 +142,7 @@ namespace PatientManagement
                 txtSalary.Text = Wk.Salary.ToString();
                 dtpSWD.Value = Wk.SWD .GetValueOrDefault();
 
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show(exception.Message);
-            }
-            try
-            {
-                if (Acc.Check_Account(Wk.Id)==txtID.Text)
+                if (_account.CheckAccount(txtID.Text) == txtID.Text)
                 {
                     btnUpdateAcc.Visible = true;
                     btnCreateAcc.Visible = false;
@@ -173,19 +152,14 @@ namespace PatientManagement
                     btnUpdateAcc.Visible = false;
                     btnCreateAcc.Visible = true;
                 }
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show(exception.Message);
-            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             try
             {
-                Wk.Insert_Worker(txtID.Text,txtName.Text,cboGender.Text,dtpDOB.Value.Date,Convert.ToInt16(txtAge.Text),txtAddress.Text,txtPhone1.Text,
-                    txtPhone2.Text,txtEmail.Text,txtPosition.Text,Convert.ToInt32(txtSalary.Text),dtpSWD.Value.Date);
+                worker.Insert(txtID.Text, txtName.Text, cboGender.Text, dtpDOB.Value.Date, Convert.ToInt16(txtAge.Text), txtAddress.Text, txtPhone1.Text,
+                    txtPhone2.Text, txtEmail.Text, txtPosition.Text, Convert.ToInt32(txtSalary.Text), dtpSWD.Value.Date);
                 LostFocus += new EventHandler(FormRefresh);
                 MouseLeave +=new EventHandler(FormRefresh);
                 Leave +=new EventHandler(FormRefresh);
@@ -205,7 +179,7 @@ namespace PatientManagement
         {
             try
             {
-                dgvWorker.DataSource = Wk.Search_Worker(txtSearch.Text);
+                dgvWorker.DataSource = worker.Search(txtSearch.Text);
                 Refresh();
             }
             catch (Exception exception)
@@ -237,25 +211,17 @@ namespace PatientManagement
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            try
-            {
-                Wk.Update_Worker(txtID.Text, txtName.Text, cboGender.Text, dtpDOB.Value.Date, Convert.ToInt16(txtAge.Text), txtAddress.Text, txtPhone1.Text,
+                worker.Update(txtID.Text, txtName.Text, cboGender.Text, dtpDOB.Value.Date, Convert.ToInt16(txtAge.Text), txtAddress.Text, txtPhone1.Text,
                     txtPhone2.Text, txtEmail.Text, txtPosition.Text, Convert.ToInt32(txtSalary.Text), dtpSWD.Value.Date);
                 LostFocus += new EventHandler(FormRefresh);
                 MouseLeave += new EventHandler(FormRefresh);
                 Leave += new EventHandler(FormRefresh);
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show(exception.Message);
-            }
         }
 
         private void btnCreateAcc_Click(object sender, EventArgs e)
         {
             var formAcc = new CreateAccountForm();
-
-            formAcc.Worker = Wk;
+            formAcc.Workers =Wk;
             formAcc.Show();
             formAcc.WorkerForm = this;
             this.Hide();
@@ -269,22 +235,11 @@ namespace PatientManagement
 
         private void btnUpdateAcc_Click(object sender, EventArgs e)
         {
-            try
-            {
-
                 UpdateAccountForm updateAcc = new UpdateAccountForm();
-                updateAcc.Worker= Wk;
+                updateAcc.Workers= Wk;
                 updateAcc.Show();
                 updateAcc.WorkerForm = this;
                 this.Hide();
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show(exception.Message);
-            }
         }
-
-    }
-
-       
+    }       
 }

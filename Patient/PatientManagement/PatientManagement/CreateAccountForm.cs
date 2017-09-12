@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
+using PatientManagement.Class;
+using Worker = Hospital_Entity_Framework.Worker;
+
 /*using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,11 +15,10 @@ namespace PatientManagement
 {
     public partial class CreateAccountForm : Form
     {
-        public Account Acc = new Account();
-
-        public Worker Worker;
+        public Worker Workers;
         public WorkerForm WorkerForm;
-
+        public Account Account=new Account();
+        private Hospital_Entity_Framework.Account _account=new Hospital_Entity_Framework.Account();
         public CreateAccountForm()
         {
             InitializeComponent();
@@ -42,8 +44,7 @@ namespace PatientManagement
             {
                 if (txtConfirm.Text == txtPassword.Text && txtConfirm.Text != null && txtPassword.Text != null)
                 {
-                    Acc.Worker = Worker;
-                    Acc.Insert_Account(Acc.AutoId_Account(), txtUsername.Text, txtPassword.Text);
+                    Account.Insert(Account.AutoId(),Workers.Id,txtUsername.Text,txtPassword.Text);
                     WorkerForm.Show();
                     Close();
                 }

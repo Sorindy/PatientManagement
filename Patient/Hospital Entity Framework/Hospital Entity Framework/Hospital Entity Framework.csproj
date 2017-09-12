@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3F8E3F29-2F9B-4AA5-BCD3-7ED43972E8C6}</ProjectGuid>
+    <ProjectGuid>{BD351B46-E108-46B1-8DDD-5E9B6431B9CC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Hospital_Entity_Framework</RootNamespace>
@@ -208,9 +208,7 @@
     </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.Config">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="App.Config" />
     <None Include="Hospital.edmx.diagram">
       <DependentUpon>Hospital.edmx</DependentUpon>
     </None>

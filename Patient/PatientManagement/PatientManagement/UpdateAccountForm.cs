@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;*/
 using System.Windows.Forms;
+using PatientManagement.Class;
+using Worker = Hospital_Entity_Framework.Worker;
 
 namespace PatientManagement
 {
@@ -17,18 +19,18 @@ namespace PatientManagement
             InitializeComponent();
         }
 
-        public Worker Worker;
-        public Account acc=new Account();
+        public Worker Workers;
         public WorkerForm WorkerForm;
+        public Account Account=new Account();
+        private Hospital_Entity_Framework.Account _account=new Hospital_Entity_Framework.Account();
 
         private void UpdateAccountForm_Load(object sender, EventArgs e)
         {
-            acc.Worker = Worker;
-            acc.Selection_Account();
+            _account= Account.Selection(Workers);
            
-            txtUsername.Text = acc.UserName;
-            txtPassword.Text = acc.Password;
-            txtConfirm.Text = acc.Password;
+            txtUsername.Text = _account.UserName;
+            txtPassword.Text = _account.Password;
+            txtConfirm.Text = _account.Password;
 
             txtPassword.PasswordChar = '*';
             txtConfirm.PasswordChar = '*';
@@ -45,7 +47,7 @@ namespace PatientManagement
             {
                 if (txtConfirm.Text == txtPassword.Text && txtConfirm.Text != null && txtPassword.Text != null)
                 {
-                    acc.Update_Account(txtUsername.Text, txtPassword.Text);
+                    Account.Update(_account.Id,txtUsername.Text, txtPassword.Text);
                     Close();
                     WorkerForm.Show();
                 }
