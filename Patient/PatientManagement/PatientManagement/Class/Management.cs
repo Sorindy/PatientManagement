@@ -146,11 +146,11 @@ namespace PatientManagement.Class
             }
             if (str == "Patient's Form")
             {
-                treeNode = WorkerNode();
+                treeNode = PatientNode();
             }
             if (str == "CheckIn's Form")
             {
-                treeNode = WorkerNode();
+                treeNode = CheckInNode();
             }
             if (str == "Management's Form")
             {
@@ -196,8 +196,7 @@ namespace PatientManagement.Class
         private TreeNode WorkerNode()
         {
 
-            TreeNode treeNode = new TreeNode();
-            treeNode.Text = "Worker's Form";
+            TreeNode treeNode = new TreeNode {Text = @"Worker's Form"};
 
             return treeNode;
         }
@@ -212,8 +211,9 @@ namespace PatientManagement.Class
 
         private TreeNode CheckInNode()
         {
-
-            return null;
+            TreeNode treeNode=new TreeNode();
+            treeNode.Text = "CheckIn's Form";
+            return treeNode;
         }
     }
 
