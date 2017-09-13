@@ -115,7 +115,7 @@ namespace PatientManagement.Class
             treeView.Size = new Size(461, 330);
             treeView.CheckBoxes = true;
 
-            LineShape line = new LineShape
+            var line = new LineShape
             {
                 X1 = 298,
                 X2 = 525,
@@ -123,7 +123,7 @@ namespace PatientManagement.Class
                 Y2 = 39
             };
 
-            ShapeContainer sc = new ShapeContainer();
+            var sc = new ShapeContainer();
             line.Parent = sc;
 
             treeView.Nodes.Add(ChoosenForm(str));
@@ -137,13 +137,15 @@ namespace PatientManagement.Class
 
         public Panel PreviewManagement()
         {
-            var panel=new Panel();
-            panel.Name = "panelControl";
-            panel.AutoScroll = true;
-            panel.Location = new Point(6, 29);
-            panel.Size = new Size(526, 189);
+            var panel = new Panel
+            {
+                Name = "panelControl",
+                AutoScroll = true,
+                Location = new Point(6, 29),
+                Size = new Size(526, 189)
+            };
 
-            ComboBox comboBox = new ComboBox();
+            var comboBox = new ComboBox();
             comboBox.Controls.Clear();
             comboBox.Name = "cboChoosen";
             comboBox.Font = new Font("Oswald", 16);
@@ -151,7 +153,34 @@ namespace PatientManagement.Class
             comboBox.Size = new Size(285, 39);
             comboBox.DataSource = Show_Control();
 
+            var line = new LineShape
+            {
+                X1 = 298,
+                X2 = 525,
+                Y1 = 39,
+                Y2 = 39
+            };
+
+            var sc = new ShapeContainer();
+            line.Parent = sc;
+
+            var flpnPreview=new FlowLayoutPanel();
+            flpnPreview.Controls.Clear();
+            flpnPreview.Location = new Point(40, 89);
+            flpnPreview.Size = new Size(429,136);
+            flpnPreview.Name = "flpnPreview";
+            flpnPreview.AutoScroll = true;
+
+            var checkBox=new CheckBox();
+            checkBox.Font = new Font("Pristina", 16);
+            checkBox.AutoSize = true;
+            checkBox.Text = @"BlahBlah";
+
+            flpnPreview.Controls.Add(checkBox);
+
             panel.Controls.Add(comboBox);
+            panel.Controls.Add(sc);
+            panel.Controls.Add(flpnPreview);
             
             return panel;
         }

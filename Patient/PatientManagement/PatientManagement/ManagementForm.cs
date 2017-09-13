@@ -24,7 +24,8 @@ namespace PatientManagement
             cboControl.DataSource = _management.Show_Control();
           //  cboControl.Text = "";
             dgvShow.DataSource = _management.Show_WorkerHasAccount();
-        //    groupBox1.Controls.Add(management.Show_ControlForm());            
+            
+            //    groupBox1.Controls.Add(management.Show_ControlForm());            
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
