@@ -29,7 +29,7 @@ namespace PatientManagement
                 num += 1;
                 _medicalImagingSample.Id = string.Concat("MedicalImagingSample", num);
             }
-            catch (Exception exception)
+            catch
             {
                 _medicalImagingSample.Id = "MedicalImagingSample1";
             }

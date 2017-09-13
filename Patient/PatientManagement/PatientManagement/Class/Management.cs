@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Channels;
 using System.Windows.Forms;
 using Hospital_Entity_Framework;
 using Microsoft.VisualBasic.PowerPacks;
+
 
 namespace PatientManagement.Class
 {
@@ -127,7 +129,8 @@ namespace PatientManagement.Class
             line.Parent = sc;
 
             treeView.Nodes.Add(ChoosenForm(str));
-
+            treeView.AfterSelect += GetCheckedItem;
+            
             panelControl.Controls.Add(treeView);
             panelControl.Controls.Add(sc);
             panelControl.Controls.Add(textBox);
@@ -135,7 +138,7 @@ namespace PatientManagement.Class
             return panelControl;
         }
 
-        public Panel PreviewManagement()
+        public Panel PreviewManagements(TreeNode node)
         {
             var panel = new Panel
             {
@@ -174,7 +177,9 @@ namespace PatientManagement.Class
             var checkBox=new CheckBox();
             checkBox.Font = new Font("Pristina", 16);
             checkBox.AutoSize = true;
-            checkBox.Text = @"BlahBlah";
+            checkBox.Enabled = false;
+            checkBox.Checked = true;
+            checkBox.Text = node.Text;
 
             flpnPreview.Controls.Add(checkBox);
 
@@ -183,6 +188,20 @@ namespace PatientManagement.Class
             panel.Controls.Add(flpnPreview);
             
             return panel;
+        }
+
+        public void GetCheckedItem(object sender,EventArgs e)
+        {
+            var treeView = sender as TreeView;
+            if (treeView == null) return;
+            var nodes = treeView.SelectedNode.Nodes;
+            var node=new TreeNode();
+            for (var i = 0; i < nodes.Count; i++)
+            {
+                node = nodes[i];
+                
+            }
+            PreviewManagements(node);
         }
 
         private void CheckedNodes(TreeNodeCollection treeNodeCollection)
@@ -208,8 +227,6 @@ namespace PatientManagement.Class
             if (str == "Worker's Form")
             {
                 treeNode = WorkerNode();
-
-                
             }
             if (str == "Patient's Form")
             {
@@ -280,6 +297,8 @@ namespace PatientManagement.Class
             var treeNode = new TreeNode {Text = @"CheckIn's Form"};
             return treeNode;
         }
+
+        public TreeNode node { get; set; }
     }
 
 }

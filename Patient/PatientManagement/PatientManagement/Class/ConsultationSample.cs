@@ -29,7 +29,7 @@ namespace PatientManagement
                 num += 1;
                 _consultationSample.Id = string.Concat("ConsultationSample", num);
             }
-            catch (Exception exception)
+            catch
             {
                 _consultationSample.Id = "ConsultationSample1";
             }

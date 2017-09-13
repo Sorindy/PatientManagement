@@ -30,7 +30,7 @@ namespace PatientManagement
                 num += 1;
                 _variousDocumentSample.Id = string.Concat("VariousDocumentSample", num);
             }
-            catch (Exception exception)
+            catch
             {
                 _variousDocumentSample.Id = "VariousDocumentSample1";
             }
