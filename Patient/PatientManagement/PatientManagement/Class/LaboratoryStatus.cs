@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Hospital_Entity_Framework;
 
@@ -11,7 +8,7 @@ namespace PatientManagement.Class
 {
     public class LaboratoryStatus:IStatus
     {
-        private HospitalDbContext _db=new HospitalDbContext();
+        private readonly HospitalDbContext _db=new HospitalDbContext();
 
         public void Insert(string id, bool status)
         {
@@ -40,11 +37,11 @@ namespace PatientManagement.Class
 
         public string AutoId()
         {
-            LaboratoryStatu statu=new LaboratoryStatu();
+            var statu=new LaboratoryStatu();
             try
             {
                 var getLastId = _db.LaboratoryStatus.OrderByDescending(v => v.LaboratoryId).First();
-                var getvalue = getLastId.LaboratoryId.ToString();
+                var getvalue = getLastId.LaboratoryId;
                 var num = Convert.ToInt32(getvalue.Substring(16));
                 num += 1;
                 statu.LaboratoryId = string.Concat("LaboratoryStatus", num);
@@ -58,10 +55,9 @@ namespace PatientManagement.Class
 
         public TreeNode ShowCategory()
         {
-            TreeNode treeNode = new TreeNode();
-            treeNode.Text = "Laboratory";
+            var treeNode = new TreeNode {Text = @"Laboratory"};
 
-                var getLaboratoryStatus = from v in _db.LaboratoryCategories
+            var getLaboratoryStatus = from v in _db.LaboratoryCategories
                     select new
                     {
                         v.Name

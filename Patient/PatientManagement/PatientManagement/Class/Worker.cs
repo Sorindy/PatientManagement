@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity.Core.Mapping;
 using System.Data.Entity.Migrations;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Hospital_Entity_Framework;
 
@@ -12,10 +8,8 @@ namespace PatientManagement.Class
 {
     public class Worker
     {
-        private HospitalDbContext _db=new HospitalDbContext();
+        private readonly HospitalDbContext _db=new HospitalDbContext();
         public Account Account { get; set; }
-
-        public Worker(){}
 
         public void Insert(string id, string name, string gender, DateTime dob, short age, string address,
             string phone1, string phone2, string email, string position, int salary, DateTime workdate)
@@ -120,7 +114,7 @@ namespace PatientManagement.Class
             try
             {
                 var getLastId = _db.Workers.OrderByDescending(v => v.Id).First();
-                var getvalue = getLastId.Id.ToString();
+                var getvalue = getLastId.Id;
                 var num = Convert.ToInt32(getvalue.Substring(6));
                 num += 1;
                 worker.Id = string.Concat("Worker", num);

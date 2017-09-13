@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Hospital_Entity_Framework;
 using Microsoft.VisualBasic.PowerPacks;
@@ -12,7 +9,7 @@ namespace PatientManagement.Class
 {
     public class Management
     {
-        private HospitalDbContext _db=new HospitalDbContext();
+        private readonly HospitalDbContext _db=new HospitalDbContext();
         private IStatus _status;
 
         public void Insert(string id, string accId)
@@ -43,11 +40,11 @@ namespace PatientManagement.Class
 
         public object Show_WorkerHasAccount()
         {
-            BindingSource bs = new BindingSource();
+            var bs = new BindingSource();
 
-                var Show = _db.Accounts;
+                var show = _db.Accounts;
 
-                bs.DataSource = Show.Select(s => new { s.Worker.Id, s.Worker.Name, s.Worker.Gender, s.Worker.Position, s.UserName }).ToList();
+                bs.DataSource = show.Select(s => new { s.Worker.Id, s.Worker.Name, s.Worker.Gender, s.Worker.Position, s.UserName }).ToList();
 
             return bs;
         }
@@ -67,11 +64,11 @@ namespace PatientManagement.Class
 
         public string AutoId()
         {
-            Hospital_Entity_Framework.Management management=new Hospital_Entity_Framework.Management();
+            var management=new Hospital_Entity_Framework.Management();
             try
             {
                 var getLastId = _db.Managements.OrderByDescending(m => m.Id).First();
-                var getvalue = getLastId.Id.ToString();
+                var getvalue = getLastId.Id;
                 var num = Convert.ToInt32(getvalue.Substring(10));
                 num += 1;
                 management.Id = string.Concat("Management", num);
@@ -85,7 +82,7 @@ namespace PatientManagement.Class
 
         public Panel ShowControlForm(string str)
         {
-            Panel panelControl = new Panel();
+            var panelControl = new Panel();
             panelControl.Controls.Clear();
             panelControl.Name = "panelControl";
             panelControl.AutoScroll = true;
@@ -100,7 +97,7 @@ namespace PatientManagement.Class
             //comboBox.Size = new Size(285, 39);
             //comboBox.DataSource = bs;
 
-            TextBox textBox = new TextBox();
+            var textBox = new TextBox();
             textBox.Controls.Clear();
             textBox.Name = "txtChoosen";
             textBox.Location = new Point(6, 29);
@@ -111,20 +108,22 @@ namespace PatientManagement.Class
 
 
 
-            TreeView treeView = new TreeView();
+            var treeView = new TreeView();
             treeView.Controls.Clear();
             treeView.Name = "treeViewList";
             treeView.Location = new Point(51, 64);
             treeView.Size = new Size(461, 330);
             treeView.CheckBoxes = true;
 
-            LineShape line=new LineShape();
-            line.X1 = 298;
-            line.X2 = 525;
-            line.Y1 = 39;
-            line.Y2 = 39;
+            var line = new LineShape
+            {
+                X1 = 298,
+                X2 = 525,
+                Y1 = 39,
+                Y2 = 39
+            };
 
-            ShapeContainer sc = new ShapeContainer();
+            var sc = new ShapeContainer();
             line.Parent = sc;
 
             treeView.Nodes.Add(ChoosenForm(str));
@@ -136,6 +135,72 @@ namespace PatientManagement.Class
             return panelControl;
         }
 
+        public Panel PreviewManagement()
+        {
+            var panel = new Panel
+            {
+                Name = "panelControl",
+                AutoScroll = true,
+                Location = new Point(6, 29),
+                Size = new Size(526, 189)
+            };
+
+            var comboBox = new ComboBox();
+            comboBox.Controls.Clear();
+            comboBox.Name = "cboChoosen";
+            comboBox.Font = new Font("Oswald", 16);
+            comboBox.Location = new Point(15, 19);
+            comboBox.Size = new Size(285, 39);
+            comboBox.DataSource = Show_Control();
+
+            var line = new LineShape
+            {
+                X1 = 298,
+                X2 = 525,
+                Y1 = 39,
+                Y2 = 39
+            };
+
+            var sc = new ShapeContainer();
+            line.Parent = sc;
+
+            var flpnPreview=new FlowLayoutPanel();
+            flpnPreview.Controls.Clear();
+            flpnPreview.Location = new Point(40, 89);
+            flpnPreview.Size = new Size(429,136);
+            flpnPreview.Name = "flpnPreview";
+            flpnPreview.AutoScroll = true;
+
+            var checkBox=new CheckBox();
+            checkBox.Font = new Font("Pristina", 16);
+            checkBox.AutoSize = true;
+            checkBox.Text = @"BlahBlah";
+
+            flpnPreview.Controls.Add(checkBox);
+
+            panel.Controls.Add(comboBox);
+            panel.Controls.Add(sc);
+            panel.Controls.Add(flpnPreview);
+            
+            return panel;
+        }
+
+        private void CheckedNodes(TreeNodeCollection treeNodeCollection)
+        {
+            foreach (TreeNode aNode in treeNodeCollection)
+            {
+                if (aNode.Checked)
+                {
+                    
+                }
+                if (aNode.Nodes.Count != 0)
+                {
+                    CheckedNodes(aNode.Nodes);
+                }
+            }
+            
+        }
+
         private TreeNode ChoosenForm(string str)
         {
             TreeNode treeNode = new TreeNode();
@@ -143,6 +208,8 @@ namespace PatientManagement.Class
             if (str == "Worker's Form")
             {
                 treeNode = WorkerNode();
+
+                
             }
             if (str == "Patient's Form")
             {
@@ -174,7 +241,7 @@ namespace PatientManagement.Class
 
         private TreeNode MedicalManagement()
         {
-            TreeNode treeNode = new TreeNode();
+            var treeNode = new TreeNode();
 
             _status=new ConsultationStatus();
             var showConsultation= _status.ShowCategory();
@@ -187,8 +254,8 @@ namespace PatientManagement.Class
             _status=new VariousDocumentStatus();
             var showVariousDoc = _status.ShowCategory();
      
-            treeNode.Text = "MedicalManagement";
-            treeNode.Nodes.AddRange(new TreeNode[]{showConsultation,showLaboratory,showMedicalImaging,showPrescription,showVariousDoc});
+            treeNode.Text = @"MedicalManagement";
+            treeNode.Nodes.AddRange(new []{showConsultation,showLaboratory,showMedicalImaging,showPrescription,showVariousDoc});
 
             return treeNode;
         }
@@ -196,23 +263,21 @@ namespace PatientManagement.Class
         private TreeNode WorkerNode()
         {
 
-            TreeNode treeNode = new TreeNode {Text = @"Worker's Form"};
+            var treeNode = new TreeNode {Text = @"Worker's Form"};
 
             return treeNode;
         }
 
         private TreeNode PatientNode()
         {
-            TreeNode treeNode = new TreeNode();
-            treeNode.Text = "Patient's Form";
+            var treeNode = new TreeNode {Text = @"Patient's Form"};
 
             return treeNode;
         }
 
         private TreeNode CheckInNode()
         {
-            TreeNode treeNode=new TreeNode();
-            treeNode.Text = "CheckIn's Form";
+            var treeNode = new TreeNode {Text = @"CheckIn's Form"};
             return treeNode;
         }
     }

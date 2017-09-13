@@ -24,7 +24,8 @@ namespace PatientManagement
             cboControl.DataSource = _management.Show_Control();
           //  cboControl.Text = "";
             dgvShow.DataSource = _management.Show_WorkerHasAccount();
-        //    groupBox1.Controls.Add(management.Show_ControlForm());            
+            
+            //    groupBox1.Controls.Add(management.Show_ControlForm());            
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
@@ -39,8 +40,14 @@ namespace PatientManagement
 
         private void cboControl_SelectedIndexChanged(object sender, EventArgs e)
         {
-        groupBox1.Controls.Clear();
-          groupBox1.Controls.Add(_management.ShowControlForm(cboControl.Text));  
+            gboControlName.Controls.Clear();
+            gboControlName.Controls.Add(_management.ShowControlForm(cboControl.Text));  
+        }
+
+        private void gboControlName_ControlAdded(object sender, ControlEventArgs e)
+        {
+            gboPreview.Controls.Clear();
+            gboPreview.Controls.Add(_management.PreviewManagement());
         }
 
     }
