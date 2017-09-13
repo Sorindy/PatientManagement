@@ -129,7 +129,6 @@ namespace PatientManagement.Class
             line.Parent = sc;
 
             treeView.Nodes.Add(ChoosenForm(str));
-            treeView.AfterSelect += GetCheckedItem;
             
             panelControl.Controls.Add(treeView);
             panelControl.Controls.Add(sc);

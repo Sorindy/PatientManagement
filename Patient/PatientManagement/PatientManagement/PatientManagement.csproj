@@ -100,23 +100,29 @@
     </Compile>
     <Compile Include="Class\Account.cs" />
     <Compile Include="Class\ConsultationCategory.cs" />
+    <Compile Include="Class\ConsultationEstimate.cs" />
     <Compile Include="Class\ConsultationSample.cs" />
     <Compile Include="Class\ConsultationStatus.cs" />
     <Compile Include="Class\ICategory.cs" />
+    <Compile Include="Class\IEstimate.cs" />
     <Compile Include="Class\ISample.cs" />
     <Compile Include="Class\IStatus.cs" />
     <Compile Include="Class\LaboratoryCategory.cs" />
+    <Compile Include="Class\LaboratoryEstimate.cs" />
     <Compile Include="Class\LaboratorySample.cs" />
     <Compile Include="Class\LaboratoryStatus.cs" />
     <Compile Include="Class\Management.cs" />
     <Compile Include="Class\MedicalImagingCategory.cs" />
+    <Compile Include="Class\MedicalImagingEstimate.cs" />
     <Compile Include="Class\MedicalImagingSample.cs" />
     <Compile Include="Class\MedicalImagingStatus.cs" />
     <Compile Include="Class\Patient.cs" />
     <Compile Include="Class\PrescriptionCategory.cs" />
+    <Compile Include="Class\PrescriptionEstimate.cs" />
     <Compile Include="Class\PrescriptionSample.cs" />
     <Compile Include="Class\PrescriptionStatus.cs" />
     <Compile Include="Class\VariousDocumentCategory.cs" />
+    <Compile Include="Class\VariousDocumentEstimate.cs" />
     <Compile Include="Class\VariousDocumentSample.cs" />
     <Compile Include="Class\VariousDocumentStatus.cs" />
     <Compile Include="Class\Worker.cs" />
@@ -131,6 +137,12 @@
     </Compile>
     <Compile Include="ManagementForm.designer.cs">
       <DependentUpon>ManagementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MedicalForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MedicalForm.designer.cs">
+      <DependentUpon>MedicalForm.cs</DependentUpon>
     </Compile>
     <Compile Include="PatientRegistrationForm.cs">
       <SubType>Form</SubType>
@@ -175,6 +187,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ManagementForm.resx">
       <DependentUpon>ManagementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MedicalForm.resx">
+      <DependentUpon>MedicalForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PatientRegistrationForm.resx">
       <DependentUpon>PatientRegistrationForm.cs</DependentUpon>

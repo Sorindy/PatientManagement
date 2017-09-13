@@ -17,10 +17,11 @@ namespace PatientManagement
             InitializeComponent();
         }
 
-        private Patient _patient = new Patient();
+        private Patient _patient;
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
+            _patient = new Patient();
             dtgInformation.DataSource = _patient.Search(txtSearch.Text);
             Refresh();    
         }
@@ -35,9 +36,9 @@ namespace PatientManagement
         {
             var getid = dtgInformation.CurrentRow.Cells[0].Value.ToString();
             Hide();
-            var _patientRegistrationForm = new PatientRegistrationForm();
-            _patientRegistrationForm.Show();
-            _patientRegistrationForm.TextId = getid;
+            var patientRegistrationForm = new PatientRegistrationForm();
+            patientRegistrationForm.Show();
+            patientRegistrationForm.TextId = getid;
 
         }
 
