@@ -12,7 +12,6 @@ namespace PatientManagement
    public class VariousDocumentSample: ISample 
     {
         private HospitalDbContext _db = new HospitalDbContext();
-
         private Hospital_Entity_Framework.VariousDocumentSample _variousDocumentSample = new Hospital_Entity_Framework.VariousDocumentSample();
         private BindingSource _bs = new BindingSource();
 
@@ -30,7 +29,7 @@ namespace PatientManagement
                 num += 1;
                 _variousDocumentSample.Id = string.Concat("VariousDocumentSample", num);
             }
-            catch (Exception exception)
+            catch 
             {
                 _variousDocumentSample.Id = "VariousDocumentSample1";
             }
