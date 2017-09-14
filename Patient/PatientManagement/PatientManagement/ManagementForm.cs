@@ -47,7 +47,7 @@ namespace PatientManagement
         private void gboControlName_ControlAdded(object sender, ControlEventArgs e)
         {
             gboPreview.Controls.Clear();
-            gboPreview.Controls.Add(_management.PreviewManagement());
+            //gboPreview.Controls.Add();
         }
 
     }

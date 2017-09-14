@@ -29,7 +29,11 @@ namespace PatientManagement
                 num += 1;
                 _medicalImagingSample.Id = string.Concat("MedicalImagingSample", num);
             }
+<<<<<<< HEAD
             catch 
+=======
+            catch
+>>>>>>> ce4b36877cb2e7e77d13f2de45c1012755a3a1af
             {
                 _medicalImagingSample.Id = "MedicalImagingSample1";
             }
