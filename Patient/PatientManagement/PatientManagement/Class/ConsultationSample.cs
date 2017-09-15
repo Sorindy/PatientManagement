@@ -2,10 +2,10 @@
 using System.Windows.Forms;
 using Hospital_Entity_Framework;
 using System.Data.Entity.Migrations;
-using System.Collections.Generic;
 using System.Linq;
+/*using System.Collections.Generic;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading.Tasks;*/
 
 namespace PatientManagement
 {
@@ -14,10 +14,6 @@ namespace PatientManagement
         private HospitalDbContext _db = new HospitalDbContext();
         private Hospital_Entity_Framework.ConsultationSample _consultationSample = new Hospital_Entity_Framework.ConsultationSample();
         private BindingSource _bs = new BindingSource();
-
-        public ConsultationSample()
-        {
-        }
 
         public string AutoId()
         {
@@ -29,11 +25,7 @@ namespace PatientManagement
                 num += 1;
                 _consultationSample.Id = string.Concat("ConsultationSample", num);
             }
-<<<<<<< HEAD
-            catch 
-=======
             catch
->>>>>>> ce4b36877cb2e7e77d13f2de45c1012755a3a1af
             {
                 _consultationSample.Id = "ConsultationSample1";
             }

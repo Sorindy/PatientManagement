@@ -112,6 +112,7 @@
     <Compile Include="Class\LaboratorySample.cs" />
     <Compile Include="Class\LaboratoryStatus.cs" />
     <Compile Include="Class\Management.cs" />
+    <Compile Include="Class\MedicalHistory.cs" />
     <Compile Include="Class\MedicalImagingCategory.cs" />
     <Compile Include="Class\MedicalImagingEstimate.cs" />
     <Compile Include="Class\MedicalImagingSample.cs" />
@@ -131,6 +132,12 @@
     </Compile>
     <Compile Include="CreateAccountForm.designer.cs">
       <DependentUpon>CreateAccountForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DatingListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DatingListForm.Designer.cs">
+      <DependentUpon>DatingListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ManagementForm.cs">
       <SubType>Form</SubType>
@@ -184,6 +191,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CreateAccountForm.resx">
       <DependentUpon>CreateAccountForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DatingListForm.resx">
+      <DependentUpon>DatingListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManagementForm.resx">
       <DependentUpon>ManagementForm.cs</DependentUpon>

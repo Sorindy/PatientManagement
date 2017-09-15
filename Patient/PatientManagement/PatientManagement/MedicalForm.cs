@@ -18,6 +18,8 @@ namespace PatientManagement
             InitializeComponent();
         }
 
+        
+
         private void MedicalForm_Load(object sender, EventArgs e)
         {
 
@@ -71,6 +73,18 @@ namespace PatientManagement
         {
 
         }
+
+        private void btnDatinglist_Click(object sender, EventArgs e)
+        {
+            var dating = new DatingListForm();
+            dating.StaffId = txtStaffID.Text;
+            dating.PatientId = txtPatientID.Text;
+            Hide();
+            dating.Show();
+            Refresh();
+        }
+
+        
     }
 }
 

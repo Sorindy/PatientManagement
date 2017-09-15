@@ -34,15 +34,12 @@ namespace PatientManagement
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-
                 _patient.Cheack_Control(txtName.Text, cmbGender.Text, txtAddress.Text, txtPhone1.Text, txtWeight.Text, txtHeight.Text);
                 _patient.Insert(txtID.Text, txtName.Text, cmbGender.Text, dtpDOB.Value.Date, Convert.ToByte(txtAge.Text), txtAddress.Text, txtPhone1.Text, txtPhone2.Text, txtEmail.Text, Convert.ToInt16(txtWeight.Text), Convert.ToInt16(txtHeight.Text));
                 Clear_Control();
                 btnNew.Visible = true;
                 btnInsert.Visible = false;
                 Refresh();
-         
-
         }
 
         private void dtpDOB_ValueChanged(object sender, EventArgs e)
@@ -67,16 +64,9 @@ namespace PatientManagement
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            try
-            {
                 _patient.Update(txtID.Text, txtName.Text, cmbGender.Text, dtpDOB.Value.Date, Convert.ToByte(txtAge.Text), txtAddress.Text, txtPhone1.Text, txtPhone2.Text, txtEmail.Text, Convert.ToInt16(txtWeight.Text), Convert.ToInt16(txtHeight.Text));
                 Clear_Control();
                 Refresh();
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show(exception.Message);
-            }
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -120,12 +110,7 @@ namespace PatientManagement
                 txtWeight.Text = select.Weight.ToString();
                 cmbGender.Text = select.Gender;
                 dtpDOB.Text = Convert.ToString(select.DOB);
-            
-
-            
+               
         }
-
-       
-
     }
 }

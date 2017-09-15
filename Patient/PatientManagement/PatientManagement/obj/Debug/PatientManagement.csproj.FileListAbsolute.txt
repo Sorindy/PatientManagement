@@ -82,3 +82,4 @@ E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.SampleForm.resources
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.SearchForm.resources
 >>>>>>> d45df4f2c83cc970f2720d70395c3bf2bed41cf4
+D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.DatingListForm.resources

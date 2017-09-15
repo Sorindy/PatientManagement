@@ -42,7 +42,7 @@
             this.lineShape2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtStaffPosition = new System.Windows.Forms.TextBox();
+            this.cmbCategory = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtStaffName = new System.Windows.Forms.TextBox();
             this.txtStaffID = new System.Windows.Forms.TextBox();
@@ -61,14 +61,14 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
             this.cmbMedicalRecord = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnDatinglist = new System.Windows.Forms.Button();
+            this.btnWaitinglist = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.shapeContainer2 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape4 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnAddDating = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.gbPatient.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -203,7 +203,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txtStaffPosition);
+            this.groupBox1.Controls.Add(this.cmbCategory);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.txtStaffName);
             this.groupBox1.Controls.Add(this.txtStaffID);
@@ -216,22 +216,22 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Doctor Information";
             // 
-            // txtStaffPosition
+            // cmbCategory
             // 
-            this.txtStaffPosition.Location = new System.Drawing.Point(106, 76);
-            this.txtStaffPosition.Name = "txtStaffPosition";
-            this.txtStaffPosition.ReadOnly = true;
-            this.txtStaffPosition.Size = new System.Drawing.Size(197, 20);
-            this.txtStaffPosition.TabIndex = 9;
+            this.cmbCategory.FormattingEnabled = true;
+            this.cmbCategory.Location = new System.Drawing.Point(106, 76);
+            this.cmbCategory.Name = "cmbCategory";
+            this.cmbCategory.Size = new System.Drawing.Size(197, 21);
+            this.cmbCategory.TabIndex = 9;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(21, 79);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(79, 13);
+            this.label6.Size = new System.Drawing.Size(84, 13);
             this.label6.TabIndex = 8;
-            this.label6.Text = "Doctor Position";
+            this.label6.Text = "Doctor-Category";
             // 
             // txtStaffName
             // 
@@ -248,6 +248,7 @@
             this.txtStaffID.ReadOnly = true;
             this.txtStaffID.Size = new System.Drawing.Size(197, 20);
             this.txtStaffID.TabIndex = 6;
+            this.txtStaffID.Text = "Woker1";
             // 
             // label4
             // 
@@ -256,16 +257,16 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(70, 13);
             this.label4.TabIndex = 5;
-            this.label4.Text = "Doctor Name";
+            this.label4.Text = "Doctor-Name";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(21, 29);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(53, 13);
+            this.label5.Size = new System.Drawing.Size(51, 13);
             this.label5.TabIndex = 4;
-            this.label5.Text = "Doctor ID";
+            this.label5.Text = "Doctor-Id";
             // 
             // btnMedicalHistory
             // 
@@ -402,23 +403,24 @@
             this.cmbMedicalRecord.TabIndex = 41;
             this.cmbMedicalRecord.Text = "Medical Record";
             // 
-            // button1
+            // btnDatinglist
             // 
-            this.button1.Location = new System.Drawing.Point(6, 19);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(183, 33);
-            this.button1.TabIndex = 42;
-            this.button1.Text = "Dating-List";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnDatinglist.Location = new System.Drawing.Point(6, 19);
+            this.btnDatinglist.Name = "btnDatinglist";
+            this.btnDatinglist.Size = new System.Drawing.Size(183, 33);
+            this.btnDatinglist.TabIndex = 42;
+            this.btnDatinglist.Text = "Dating-List";
+            this.btnDatinglist.UseVisualStyleBackColor = true;
+            this.btnDatinglist.Click += new System.EventHandler(this.btnDatinglist_Click);
             // 
-            // button2
+            // btnWaitinglist
             // 
-            this.button2.Location = new System.Drawing.Point(6, 58);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(183, 33);
-            this.button2.TabIndex = 43;
-            this.button2.Text = "Wating-List";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnWaitinglist.Location = new System.Drawing.Point(6, 58);
+            this.btnWaitinglist.Name = "btnWaitinglist";
+            this.btnWaitinglist.Size = new System.Drawing.Size(183, 33);
+            this.btnWaitinglist.TabIndex = 43;
+            this.btnWaitinglist.Text = "Wating-List";
+            this.btnWaitinglist.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
@@ -437,8 +439,8 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.button1);
-            this.groupBox3.Controls.Add(this.button2);
+            this.groupBox3.Controls.Add(this.btnDatinglist);
+            this.groupBox3.Controls.Add(this.btnWaitinglist);
             this.groupBox3.Controls.Add(this.shapeContainer2);
             this.groupBox3.Location = new System.Drawing.Point(7, 546);
             this.groupBox3.Name = "groupBox3";
@@ -468,7 +470,7 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.button3);
+            this.groupBox4.Controls.Add(this.btnAddDating);
             this.groupBox4.Controls.Add(this.dateTimePicker1);
             this.groupBox4.Location = new System.Drawing.Point(7, 652);
             this.groupBox4.Name = "groupBox4";
@@ -477,14 +479,14 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Dating-Patient";
             // 
-            // button3
+            // btnAddDating
             // 
-            this.button3.Location = new System.Drawing.Point(112, 30);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(74, 28);
-            this.button3.TabIndex = 44;
-            this.button3.Text = "Add";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnAddDating.Location = new System.Drawing.Point(112, 30);
+            this.btnAddDating.Name = "btnAddDating";
+            this.btnAddDating.Size = new System.Drawing.Size(74, 28);
+            this.btnAddDating.TabIndex = 44;
+            this.btnAddDating.Text = "Add";
+            this.btnAddDating.UseVisualStyleBackColor = true;
             // 
             // dateTimePicker1
             // 
@@ -540,7 +542,6 @@
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape2;
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txtStaffPosition;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtStaffName;
         private System.Windows.Forms.TextBox txtStaffID;
@@ -561,8 +562,8 @@
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.ComboBox cmbMedicalRecord;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnDatinglist;
+        private System.Windows.Forms.Button btnWaitinglist;
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape6;
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape5;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -570,7 +571,8 @@
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer2;
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape4;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnAddDating;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.ComboBox cmbCategory;
     }
 }

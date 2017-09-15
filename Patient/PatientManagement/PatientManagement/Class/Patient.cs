@@ -16,11 +16,6 @@ namespace  PatientManagement
         private BindingSource _binding = new BindingSource();
         private Hospital_Entity_Framework.Patient _patient = new Hospital_Entity_Framework.Patient();
 
-        public Patient()
-        {
-
-        }
-
         public void Insert(string id, string name, string gender, DateTime dob, byte age, string address, string phone1,
             string phone2,
             string email, short weigh, short heigh)

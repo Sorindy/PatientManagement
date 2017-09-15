@@ -2,10 +2,10 @@
 using System.Windows.Forms;
 using System.Data.Entity.Migrations;
 using Hospital_Entity_Framework;
-using System.Collections.Generic;
 using System.Linq;
+/*using System.Collections.Generic;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading.Tasks;*/
 
 namespace PatientManagement
 {
@@ -15,11 +15,7 @@ namespace PatientManagement
         private Hospital_Entity_Framework.MedicalImagingSample _medicalImagingSample  = new Hospital_Entity_Framework.MedicalImagingSample();
         private BindingSource _bs = new BindingSource();
 
-        public MedicalImagingSample ()
-        {
-        }
-
-        public string AutoId()
+      public string AutoId()
         {
             try
             {
@@ -29,11 +25,7 @@ namespace PatientManagement
                 num += 1;
                 _medicalImagingSample.Id = string.Concat("MedicalImagingSample", num);
             }
-<<<<<<< HEAD
-            catch 
-=======
             catch
->>>>>>> ce4b36877cb2e7e77d13f2de45c1012755a3a1af
             {
                 _medicalImagingSample.Id = "MedicalImagingSample1";
             }
