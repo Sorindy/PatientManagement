@@ -452,5 +452,16 @@
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="HospitalModel.Store.sp_renamediagram" />
     <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="HospitalModel.Store.sp_upgraddiagrams" />
+    <EntitySetMapping Name="TempManagements">
+      <EntityTypeMapping TypeName="HospitalModel.TempManagement">
+        <MappingFragment StoreEntitySet="TempManagement">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Categorys" ColumnName="Categorys" />
+          <ScalarProperty Name="Services" ColumnName="Services" />
+          <ScalarProperty Name="Forms" ColumnName="Forms" />
+          <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

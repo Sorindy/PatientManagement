@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.Remoting.Channels;
+using System.Runtime.Remoting.Messaging;
 using System.Windows.Forms;
 using Hospital_Entity_Framework;
 using Microsoft.VisualBasic.PowerPacks;
@@ -82,125 +84,143 @@ namespace PatientManagement.Class
             return management.Id;
         }
 
-        public Panel ShowControlForm(string str)
-        {
-            var panelControl = new Panel();
-            panelControl.Controls.Clear();
-            panelControl.Name = "panelControl";
-            panelControl.AutoScroll = true;
-            panelControl.Location = new Point(6, 29);
-            panelControl.Size = new Size(526, 394);
+        //public Panel ShowControlForm(string str)
+        //{
+        //    var panelControl = new Panel();
+        //    panelControl.Controls.Clear();
+        //    panelControl.Name = "panelControl";
+        //    panelControl.AutoScroll = true;
+        //    panelControl.Location = new Point(6, 29);
+        //    panelControl.Size = new Size(526, 394);
 
-            //ComboBox comboBox = new ComboBox();
-            //comboBox.Controls.Clear();
-            //comboBox.Name = "cboChoosen";
-            //comboBox.Font = new Font("Oswald", 16);
-            //comboBox.Location = new Point(15, 19);
-            //comboBox.Size = new Size(285, 39);
-            //comboBox.DataSource = bs;
+        //    //ComboBox comboBox = new ComboBox();
+        //    //comboBox.Controls.Clear();
+        //    //comboBox.Name = "cboChoosen";
+        //    //comboBox.Font = new Font("Oswald", 16);
+        //    //comboBox.Location = new Point(15, 19);
+        //    //comboBox.Size = new Size(285, 39);
+        //    //comboBox.DataSource = bs;
 
-            var textBox = new TextBox();
-            textBox.Controls.Clear();
-            textBox.Name = "txtChoosen";
-            textBox.Location = new Point(6, 29);
-            textBox.Size = new Size(285, 39);
-            textBox.Text = str;
-            textBox.ReadOnly = true;
-
-
+        //    var textBox = new TextBox();
+        //    textBox.Controls.Clear();
+        //    textBox.Name = "txtChoosen";
+        //    textBox.Location = new Point(6, 29);
+        //    textBox.Size = new Size(285, 39);
+        //    textBox.Text = str;
+        //    textBox.ReadOnly = true;
 
 
-            var treeView = new TreeView();
-            treeView.Controls.Clear();
-            treeView.Name = "treeViewList";
-            treeView.Location = new Point(51, 64);
-            treeView.Size = new Size(461, 330);
-            treeView.CheckBoxes = true;
 
-            var line = new LineShape
-            {
-                X1 = 298,
-                X2 = 525,
-                Y1 = 39,
-                Y2 = 39
-            };
 
-            var sc = new ShapeContainer();
-            line.Parent = sc;
+        //    var treeView = new TreeView();
+        //    treeView.Controls.Clear();
+        //    treeView.Name = "treeViewList";
+        //    treeView.Location = new Point(51, 64);
+        //    treeView.Size = new Size(461, 330);
+        //    treeView.CheckBoxes = true;
 
-            treeView.Nodes.Add(ChoosenForm(str));
+        //    var line = new LineShape
+        //    {
+        //        X1 = 298,
+        //        X2 = 525,
+        //        Y1 = 39,
+        //        Y2 = 39
+        //    };
+
+        //    var sc = new ShapeContainer();
+        //    line.Parent = sc;
+
+        //    treeView.Nodes.Add(ChoosenForm(str));
             
-            panelControl.Controls.Add(treeView);
-            panelControl.Controls.Add(sc);
-            panelControl.Controls.Add(textBox);
+        //    panelControl.Controls.Add(treeView);
+        //    panelControl.Controls.Add(sc);
+        //    panelControl.Controls.Add(textBox);
 
-            return panelControl;
-        }
+        //    return panelControl;
+        //}
 
-        public Panel PreviewManagements(TreeNode node)
-        {
-            var panel = new Panel
-            {
-                Name = "panelControl",
-                AutoScroll = true,
-                Location = new Point(6, 29),
-                Size = new Size(526, 189)
-            };
+        //public Panel PreviewManagements(TreeNode node)
+        //{
+        //    var panel = new Panel
+        //    {
+        //        Name = "panelControl",
+        //        AutoScroll = true,
+        //        Location = new Point(6, 29),
+        //        Size = new Size(526, 189)
+        //    };
 
-            var comboBox = new ComboBox();
-            comboBox.Controls.Clear();
-            comboBox.Name = "cboChoosen";
-            comboBox.Font = new Font("Oswald", 16);
-            comboBox.Location = new Point(15, 19);
-            comboBox.Size = new Size(285, 39);
-            comboBox.DataSource = Show_Control();
+        //    var comboBox = new ComboBox();
+        //    comboBox.Controls.Clear();
+        //    comboBox.Name = "cboChoosen";
+        //    comboBox.Font = new Font("Oswald", 16);
+        //    comboBox.Location = new Point(15, 19);
+        //    comboBox.Size = new Size(285, 39);
+        //    comboBox.DataSource = Show_Control();
 
-            var line = new LineShape
-            {
-                X1 = 298,
-                X2 = 525,
-                Y1 = 39,
-                Y2 = 39
-            };
+        //    var line = new LineShape
+        //    {
+        //        X1 = 298,
+        //        X2 = 525,
+        //        Y1 = 39,
+        //        Y2 = 39
+        //    };
 
-            var sc = new ShapeContainer();
-            line.Parent = sc;
+        //    var sc = new ShapeContainer();
+        //    line.Parent = sc;
 
-            var flpnPreview=new FlowLayoutPanel();
-            flpnPreview.Controls.Clear();
-            flpnPreview.Location = new Point(40, 89);
-            flpnPreview.Size = new Size(429,136);
-            flpnPreview.Name = "flpnPreview";
-            flpnPreview.AutoScroll = true;
+        //    var flpnPreview=new FlowLayoutPanel();
+        //    flpnPreview.Controls.Clear();
+        //    flpnPreview.Location = new Point(40, 89);
+        //    flpnPreview.Size = new Size(429,136);
+        //    flpnPreview.Name = "flpnPreview";
+        //    flpnPreview.AutoScroll = true;
 
-            var checkBox=new CheckBox();
-            checkBox.Font = new Font("Pristina", 16);
-            checkBox.AutoSize = true;
-            checkBox.Enabled = false;
-            checkBox.Checked = true;
-            checkBox.Text = node.Text;
+        //    var checkBox=new CheckBox();
+        //    checkBox.Font = new Font("Pristina", 16);
+        //    checkBox.AutoSize = true;
+        //    checkBox.Enabled = false;
+        //    checkBox.Checked = true;
+        //    checkBox.Text = node.Text;
 
-            flpnPreview.Controls.Add(checkBox);
+        //    flpnPreview.Controls.Add(checkBox);
 
-            panel.Controls.Add(comboBox);
-            panel.Controls.Add(sc);
-            panel.Controls.Add(flpnPreview);
+        //    panel.Controls.Add(comboBox);
+        //    panel.Controls.Add(sc);
+        //    panel.Controls.Add(flpnPreview);
             
-            return panel;
-        }
-
-        public void GetCheckedItem(object sender,EventArgs e)
+        //    return panel;
+        //}
+        
+        public List<TreeNode> GetCheckedNodes(TreeNode node)
         {
-            var treeView = sender as TreeView;
-            if (treeView == null) return;
-            var nodes = treeView.SelectedNode.Nodes;
-            var node=new TreeNode();
-            for (var i = 0; i < nodes.Count; i++)
+            var nodes = new List<TreeNode>();
+
+            foreach (TreeNode childNode in node.Nodes)
             {
-                node = nodes[i];
-                
+                nodes.AddRange(GetCheckedNodes(childNode));
             }
-            PreviewManagements(node);
+
+            if (node.Checked)
+            {
+                nodes.Add(node);
+            }
+
+            return nodes;
+        }
+
+        private object SaveTemp(string form,string service,string category,bool status)
+        {
+            var temp=new Tuple<string,string,string,bool>(form,service,category,status);
+            return temp;
+        }
+
+        public FlowLayoutPanel FlowLayoutPanel()
+        {
+            var flpn=new FlowLayoutPanel();
+
+            
+            
+            return flpn;
         }
 
         private void CheckedNodes(TreeNodeCollection treeNodeCollection)
@@ -219,7 +239,7 @@ namespace PatientManagement.Class
             
         }
 
-        private TreeNode ChoosenForm(string str)
+        public TreeNode ChoosenForm(string str)
         {
             TreeNode treeNode = new TreeNode();
 
@@ -297,7 +317,6 @@ namespace PatientManagement.Class
             return treeNode;
         }
 
-        public TreeNode node { get; set; }
     }
 
 }

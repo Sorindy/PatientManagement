@@ -367,6 +367,7 @@
       <Parameter Name="new_diagramname" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="sp_upgraddiagrams" />
+    <EntitySet Name="TempManagements" EntityType="HospitalModel.TempManagement" />
   </EntityContainer>
   <EntityType Name="Account">
     <Key>
@@ -1772,4 +1773,16 @@
     <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
     <Property Type="Int32" Name="OwnerID" Nullable="false" />
   </ComplexType>
+  <EntityType Name="TempManagement">
+    <Key>
+      <PropertyRef Name="WorkerId" />
+      <PropertyRef Name="Forms" />
+      <PropertyRef Name="Status" />
+    </Key>
+    <Property Type="String" Name="WorkerId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Forms" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Services" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Categorys" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="Status" Nullable="false" />
+  </EntityType>
 </Schema>

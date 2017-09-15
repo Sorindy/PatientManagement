@@ -18,14 +18,14 @@ namespace PatientManagement
             InitializeComponent();
         }
 
-        private Management _management=new Management();
+        private Management _management = new Management();
+
         private void ManagementForm_Load(object sender, EventArgs e)
         {
-            cboControl.DataSource = _management.Show_Control();
-          //  cboControl.Text = "";
+           // cboControl.DataSource = _management.Show_Control();
             dgvShow.DataSource = _management.Show_WorkerHasAccount();
-            
-            //    groupBox1.Controls.Add(management.Show_ControlForm());            
+            cboPreview.DataSource = _management.Show_Control();
+
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
@@ -40,15 +40,22 @@ namespace PatientManagement
 
         private void cboControl_SelectedIndexChanged(object sender, EventArgs e)
         {
-            gboControlName.Controls.Clear();
-            gboControlName.Controls.Add(_management.ShowControlForm(cboControl.Text));  
+            txtControl.Text = cboControl.Text;
+            tviewControl.CheckBoxes = true;
+            tviewControl.Nodes.Clear();
+            tviewControl.Nodes.Add(_management.ChoosenForm(cboControl.Text));
         }
 
-        private void gboControlName_ControlAdded(object sender, ControlEventArgs e)
+        private void dgvShow_SelectionChanged(object sender, EventArgs e)
         {
-            gboPreview.Controls.Clear();
-            //gboPreview.Controls.Add();
+            if (dgvShow.CurrentRow != null)
+                gboControlName.Text = dgvShow.CurrentRow.Cells[4].Value.ToString() + @"'s Control";
+            cboControl.DataSource = _management.Show_Control();
         }
 
+        private void cboPreview_TextChanged(object sender, EventArgs e)
+        {
+           // flpnPreview tviewControl.SelectedNode;
+        }
     }
 }
