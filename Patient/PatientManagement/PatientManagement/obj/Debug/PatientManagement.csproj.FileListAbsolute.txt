@@ -1,33 +1,9 @@
-C:\Users\Shiwu\Desktop\PatientManagement\PatientManagement\bin\Debug\PatientManagement.exe.config
-D:\PatientManagement\PatientManagement\bin\Debug\PatientManagement.exe.config
-C:\Users\Shiwu\Downloads\Verson1\PatientManagement\PatientManagement\bin\Debug\PatientManagement.exe.config
-C:\Users\Shiwu\Downloads\Verson1\PatientManagement\PatientManagement\bin\Debug\PatientManagement.exe
-C:\Users\Shiwu\Downloads\Verson1\PatientManagement\PatientManagement\bin\Debug\PatientManagement.pdb
-C:\Users\Shiwu\Downloads\Verson1\PatientManagement\PatientManagement\bin\Debug\Hospital Entity Framework.dll
-C:\Users\Shiwu\Downloads\Verson1\PatientManagement\PatientManagement\bin\Debug\Hospital Entity Framework.pdb
-C:\Users\Shiwu\Downloads\Verson1\PatientManagement\PatientManagement\obj\Debug\PatientManagement.csprojResolveAssemblyReference.cache
-C:\Users\Shiwu\Downloads\Verson1\PatientManagement\PatientManagement\obj\Debug\PatientManagement.Properties.Resources.resources
-C:\Users\Shiwu\Downloads\Verson1\PatientManagement\PatientManagement\obj\Debug\PatientManagement.csproj.GenerateResource.Cache
-C:\Users\Shiwu\Downloads\Verson1\PatientManagement\PatientManagement\obj\Debug\PatientManagement.exe
-C:\Users\Shiwu\Downloads\Verson1\PatientManagement\PatientManagement\obj\Debug\PatientManagement.pdb
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\PatientManagement.exe.config
-E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.exe
-E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.pdb
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\PatientManagement.exe
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\PatientManagement.pdb
-E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.csprojResolveAssemblyReference.cache
-E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.Properties.Resources.resources
-E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.csproj.GenerateResource.Cache
-E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.CreateAccountForm.resources
-E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.UpdateAccountForm.resources
-E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.WorkerForm.resources
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\EntityFramework.dll
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\EntityFramework.SqlServer.dll
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\Hospital Entity Framework.dll
-E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\EntityFramework.xml
-E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\EntityFramework.SqlServer.xml
-E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\Hospital Entity Framework.pdb
-E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.ManagementForm.resources
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\Manager_database.dll
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\Manager_scheduler.dll
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\Microsoft.VisualBasic.PowerPacks.Vs.dll
@@ -37,49 +13,31 @@ E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\NDbUnit.SqlServerCe.dll
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\System.Data.SqlServerCe.dll
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\Tools4Libraries.dll
+E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\EntityFramework.xml
+E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\EntityFramework.SqlServer.xml
+E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\Hospital Entity Framework.pdb
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\fr\Microsoft.VisualBasic.PowerPacks.Vs.resources.dll
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\fr\System.Data.SqlServerCe.resources.dll
+E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.csprojResolveAssemblyReference.cache
+E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.AccountRecoveryForm.resources
+E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.CategoryForm.resources
+E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.CreateAccountForm.resources
+E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.ManagementForm.resources
+E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.MedicalForm.resources
+E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.PatientRegistrationForm.resources
+E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.Properties.Resources.resources
+E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.SampleForm.resources
+E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.SearchForm.resources
+<<<<<<< HEAD
+>>>>>>> d45df4f2c83cc970f2720d70395c3bf2bed41cf4
+D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.DatingListForm.resources
+=======
+E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.UpdateAccountForm.resources
+E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.WorkerForm.resources
+E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.csproj.GenerateResource.Cache
+E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.exe
+E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.pdb
+>>>>>>> 7a9fd30b4fae7f15b0d165189898fda9ec5bf7a5
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\PatientManagement.exe.config
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.exe
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.pdb
-<<<<<<< HEAD
-D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\PatientManagement.exe
-D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\PatientManagement.pdb
-D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\EntityFramework.dll
-D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\EntityFramework.SqlServer.dll
-D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\Hospital Entity Framework.dll
-D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\Manager_database.dll
-D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\Manager_scheduler.dll
-D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\Microsoft.VisualBasic.PowerPacks.Vs.dll
-D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\MySql.Data.dll
-D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\mysql.data.entity.EF6.dll
-D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\NDbUnit.Core.dll
-D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\NDbUnit.SqlServerCe.dll
-D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\System.Data.SqlServerCe.dll
-D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\Tools4Libraries.dll
-D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\EntityFramework.xml
-D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\EntityFramework.SqlServer.xml
-D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\Hospital Entity Framework.pdb
-D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\fr\Microsoft.VisualBasic.PowerPacks.Vs.resources.dll
-D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\fr\System.Data.SqlServerCe.resources.dll
-D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.csprojResolveAssemblyReference.cache
-D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.AccountRecoveryForm.resources
-D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.CategoryForm.resources
-D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.CreateAccountForm.resources
-D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.ManagementForm.resources
-D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.PatientRegistrationForm.resources
-D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.Properties.Resources.resources
-D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.SampleForm.resources
-D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.SearchForm.resources
-D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.UpdateAccountForm.resources
-D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.WorkerForm.resources
-D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.csproj.GenerateResource.Cache
-D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.MedicalForm.resources
-=======
-E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.AccountRecoveryForm.resources
-E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.CategoryForm.resources
-E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.PatientRegistrationForm.resources
-E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.SampleForm.resources
-E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.SearchForm.resources
->>>>>>> d45df4f2c83cc970f2720d70395c3bf2bed41cf4
-D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.DatingListForm.resources

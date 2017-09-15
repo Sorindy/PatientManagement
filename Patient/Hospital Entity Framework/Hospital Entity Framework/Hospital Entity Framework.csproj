@@ -170,6 +170,9 @@
     <Compile Include="sysdiagram.cs">
       <DependentUpon>Hospital.tt</DependentUpon>
     </Compile>
+    <Compile Include="TempManagement.cs">
+      <DependentUpon>Hospital.tt</DependentUpon>
+    </Compile>
     <Compile Include="VariousDocument.cs">
       <DependentUpon>Hospital.tt</DependentUpon>
     </Compile>

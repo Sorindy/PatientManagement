@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatientManagement", "Patien
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C96FC0D9-AD58-4845-A6BE-73C346B43A43}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hospital Entity Framework", "..\Hospital Entity Framework\Hospital Entity Framework\Hospital Entity Framework.csproj", "{BD351B46-E108-46B1-8DDD-5E9B6431B9CC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{29069968-6E0D-46B5-AD0F-FB2526642113}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29069968-6E0D-46B5-AD0F-FB2526642113}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29069968-6E0D-46B5-AD0F-FB2526642113}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD351B46-E108-46B1-8DDD-5E9B6431B9CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD351B46-E108-46B1-8DDD-5E9B6431B9CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD351B46-E108-46B1-8DDD-5E9B6431B9CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD351B46-E108-46B1-8DDD-5E9B6431B9CC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -72,6 +72,7 @@ namespace Hospital_Entity_Framework
         public DbSet<VisitService> VisitServices { get; set; }
         public DbSet<Wait> Waits { get; set; }
         public DbSet<Worker> Workers { get; set; }
+        public DbSet<TempManagement> TempManagements { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

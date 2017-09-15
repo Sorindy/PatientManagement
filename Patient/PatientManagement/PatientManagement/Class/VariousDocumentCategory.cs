@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Hospital_Entity_Framework;
 using System.Windows.Forms;
 using System.Data.Entity.Migrations;
+using PatientManagement.Class;
 
 namespace PatientManagement
 {
