@@ -62,6 +62,7 @@ namespace Hospital_Entity_Framework
         public DbSet<ServiceCategory> ServiceCategories { get; set; }
         public DbSet<ServiceEstimate> ServiceEstimates { get; set; }
         public DbSet<sysdiagram> sysdiagrams { get; set; }
+        public DbSet<TempManagement> TempManagements { get; set; }
         public DbSet<VariousDocument> VariousDocuments { get; set; }
         public DbSet<VariousDocumentCategory> VariousDocumentCategories { get; set; }
         public DbSet<VariousDocumentCategoryStatu> VariousDocumentCategoryStatus { get; set; }
@@ -72,7 +73,6 @@ namespace Hospital_Entity_Framework
         public DbSet<VisitService> VisitServices { get; set; }
         public DbSet<Wait> Waits { get; set; }
         public DbSet<Worker> Workers { get; set; }
-        public DbSet<TempManagement> TempManagements { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

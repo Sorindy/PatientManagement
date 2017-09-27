@@ -33,23 +33,13 @@
             this.cboControl = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.gboControlName = new System.Windows.Forms.GroupBox();
-            this.tviewControl = new System.Windows.Forms.TreeView();
-            this.txtControl = new System.Windows.Forms.TextBox();
-            this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
-            this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.gboPreview = new System.Windows.Forms.GroupBox();
-            this.flpnPreview = new System.Windows.Forms.FlowLayoutPanel();
-            this.cboPreview = new System.Windows.Forms.ComboBox();
-            this.shapeContainer3 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
-            this.lineShape2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnPreview = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvShow)).BeginInit();
-            this.gboControlName.SuspendLayout();
-            this.gboPreview.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnSubmit
@@ -94,9 +84,6 @@
             // 
             // gboControlName
             // 
-            this.gboControlName.Controls.Add(this.tviewControl);
-            this.gboControlName.Controls.Add(this.txtControl);
-            this.gboControlName.Controls.Add(this.shapeContainer1);
             this.gboControlName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gboControlName.Location = new System.Drawing.Point(12, 58);
             this.gboControlName.Name = "gboControlName";
@@ -105,46 +92,8 @@
             this.gboControlName.TabStop = false;
             this.gboControlName.Text = "Control\'s Name";
             // 
-            // tviewControl
-            // 
-            this.tviewControl.Location = new System.Drawing.Point(30, 102);
-            this.tviewControl.Name = "tviewControl";
-            this.tviewControl.Size = new System.Drawing.Size(502, 324);
-            this.tviewControl.TabIndex = 2;
-            // 
-            // txtControl
-            // 
-            this.txtControl.Location = new System.Drawing.Point(6, 45);
-            this.txtControl.Name = "txtControl";
-            this.txtControl.ReadOnly = true;
-            this.txtControl.Size = new System.Drawing.Size(282, 30);
-            this.txtControl.TabIndex = 0;
-            // 
-            // shapeContainer1
-            // 
-            this.shapeContainer1.Location = new System.Drawing.Point(3, 26);
-            this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
-            this.shapeContainer1.Name = "shapeContainer1";
-            this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
-            this.lineShape1});
-            this.shapeContainer1.Size = new System.Drawing.Size(532, 403);
-            this.shapeContainer1.TabIndex = 1;
-            this.shapeContainer1.TabStop = false;
-            // 
-            // lineShape1
-            // 
-            this.lineShape1.BorderWidth = 2;
-            this.lineShape1.Name = "lineShape1";
-            this.lineShape1.X1 = 277;
-            this.lineShape1.X2 = 537;
-            this.lineShape1.Y1 = 35;
-            this.lineShape1.Y2 = 35;
-            // 
             // gboPreview
             // 
-            this.gboPreview.Controls.Add(this.flpnPreview);
-            this.gboPreview.Controls.Add(this.cboPreview);
-            this.gboPreview.Controls.Add(this.shapeContainer3);
             this.gboPreview.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gboPreview.Location = new System.Drawing.Point(12, 496);
             this.gboPreview.Name = "gboPreview";
@@ -152,44 +101,6 @@
             this.gboPreview.TabIndex = 5;
             this.gboPreview.TabStop = false;
             this.gboPreview.Text = "Preview Management";
-            // 
-            // flpnPreview
-            // 
-            this.flpnPreview.Location = new System.Drawing.Point(30, 91);
-            this.flpnPreview.Name = "flpnPreview";
-            this.flpnPreview.Size = new System.Drawing.Size(502, 134);
-            this.flpnPreview.TabIndex = 13;
-            // 
-            // cboPreview
-            // 
-            this.cboPreview.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboPreview.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboPreview.FormattingEnabled = true;
-            this.cboPreview.Location = new System.Drawing.Point(6, 46);
-            this.cboPreview.Name = "cboPreview";
-            this.cboPreview.Size = new System.Drawing.Size(282, 39);
-            this.cboPreview.TabIndex = 11;
-            this.cboPreview.TextChanged += new System.EventHandler(this.cboPreview_TextChanged);
-            // 
-            // shapeContainer3
-            // 
-            this.shapeContainer3.Location = new System.Drawing.Point(3, 26);
-            this.shapeContainer3.Margin = new System.Windows.Forms.Padding(0);
-            this.shapeContainer3.Name = "shapeContainer3";
-            this.shapeContainer3.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
-            this.lineShape2});
-            this.shapeContainer3.Size = new System.Drawing.Size(532, 204);
-            this.shapeContainer3.TabIndex = 12;
-            this.shapeContainer3.TabStop = false;
-            // 
-            // lineShape2
-            // 
-            this.lineShape2.BorderWidth = 2;
-            this.lineShape2.Name = "lineShape2";
-            this.lineShape2.X1 = 284;
-            this.lineShape2.X2 = 537;
-            this.lineShape2.Y1 = 39;
-            this.lineShape2.Y2 = 39;
             // 
             // label2
             // 
@@ -259,9 +170,6 @@
             this.Text = "ManagementForm";
             this.Load += new System.EventHandler(this.ManagementForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvShow)).EndInit();
-            this.gboControlName.ResumeLayout(false);
-            this.gboControlName.PerformLayout();
-            this.gboPreview.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -280,13 +188,5 @@
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnPreview;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.TreeView tviewControl;
-        private System.Windows.Forms.TextBox txtControl;
-        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
-        private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
-        private System.Windows.Forms.FlowLayoutPanel flpnPreview;
-        private System.Windows.Forms.ComboBox cboPreview;
-        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer3;
-        private Microsoft.VisualBasic.PowerPacks.LineShape lineShape2;
     }
 }
