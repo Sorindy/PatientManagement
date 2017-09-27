@@ -53,6 +53,7 @@ namespace PatientManagement
             var search = new SearchForm();
             search.Show();
             Refresh();
+            search.AddDatingButton = false;
             Hide();
         }
 

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.gbPatient = new System.Windows.Forms.GroupBox();
             this.btnPatientDetail = new System.Windows.Forms.Button();
@@ -63,27 +64,30 @@
             this.cmbMedicalRecord = new System.Windows.Forms.ComboBox();
             this.btnDatinglist = new System.Windows.Forms.Button();
             this.btnWaitinglist = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.gbActivity = new System.Windows.Forms.GroupBox();
+            this.gbDating_waiting = new System.Windows.Forms.GroupBox();
             this.shapeContainer2 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape4 = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.gbDating = new System.Windows.Forms.GroupBox();
             this.btnAddDating = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpDating = new System.Windows.Forms.DateTimePicker();
+            this.tmDate = new System.Windows.Forms.Timer(this.components);
+            this.txtMedicalId = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.gbPatient.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
+            this.gbActivity.SuspendLayout();
+            this.gbDating_waiting.SuspendLayout();
+            this.gbDating.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(547, 9);
+            this.label1.Font = new System.Drawing.Font("Modern No. 20", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(604, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(131, 21);
+            this.label1.Size = new System.Drawing.Size(228, 36);
             this.label1.TabIndex = 0;
             this.label1.Text = "Medical Form";
             // 
@@ -94,7 +98,7 @@
             this.gbPatient.Controls.Add(this.txtPatientID);
             this.gbPatient.Controls.Add(this.label3);
             this.gbPatient.Controls.Add(this.label2);
-            this.gbPatient.Location = new System.Drawing.Point(110, 64);
+            this.gbPatient.Location = new System.Drawing.Point(7, 64);
             this.gbPatient.Name = "gbPatient";
             this.gbPatient.Size = new System.Drawing.Size(294, 109);
             this.gbPatient.TabIndex = 1;
@@ -113,20 +117,24 @@
             // 
             // txtPatientName
             // 
+            this.txtPatientName.Font = new System.Drawing.Font("Modern No. 20", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPatientName.Location = new System.Drawing.Point(91, 52);
             this.txtPatientName.Name = "txtPatientName";
             this.txtPatientName.ReadOnly = true;
-            this.txtPatientName.Size = new System.Drawing.Size(197, 20);
+            this.txtPatientName.Size = new System.Drawing.Size(197, 19);
             this.txtPatientName.TabIndex = 3;
+            this.txtPatientName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtPatientID
             // 
+            this.txtPatientID.Font = new System.Drawing.Font("Modern No. 20", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPatientID.Location = new System.Drawing.Point(91, 26);
             this.txtPatientID.Name = "txtPatientID";
             this.txtPatientID.ReadOnly = true;
-            this.txtPatientID.Size = new System.Drawing.Size(197, 20);
+            this.txtPatientID.Size = new System.Drawing.Size(197, 19);
             this.txtPatientID.TabIndex = 2;
             this.txtPatientID.Text = "Patient1";
+            this.txtPatientID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label3
             // 
@@ -209,7 +217,7 @@
             this.groupBox1.Controls.Add(this.txtStaffID);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Location = new System.Drawing.Point(551, 64);
+            this.groupBox1.Location = new System.Drawing.Point(310, 64);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(309, 109);
             this.groupBox1.TabIndex = 3;
@@ -235,20 +243,24 @@
             // 
             // txtStaffName
             // 
+            this.txtStaffName.Font = new System.Drawing.Font("Modern No. 20", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtStaffName.Location = new System.Drawing.Point(106, 52);
             this.txtStaffName.Name = "txtStaffName";
             this.txtStaffName.ReadOnly = true;
-            this.txtStaffName.Size = new System.Drawing.Size(197, 20);
+            this.txtStaffName.Size = new System.Drawing.Size(197, 19);
             this.txtStaffName.TabIndex = 7;
+            this.txtStaffName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtStaffID
             // 
+            this.txtStaffID.Font = new System.Drawing.Font("Modern No. 20", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtStaffID.Location = new System.Drawing.Point(106, 26);
             this.txtStaffID.Name = "txtStaffID";
             this.txtStaffID.ReadOnly = true;
-            this.txtStaffID.Size = new System.Drawing.Size(197, 20);
+            this.txtStaffID.Size = new System.Drawing.Size(197, 19);
             this.txtStaffID.TabIndex = 6;
-            this.txtStaffID.Text = "Woker1";
+            this.txtStaffID.Text = "Worker1";
+            this.txtStaffID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label4
             // 
@@ -320,7 +332,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(459, 203);
+            this.label9.Location = new System.Drawing.Point(540, 203);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(111, 21);
             this.label9.TabIndex = 16;
@@ -329,7 +341,7 @@
             // txtDescriptioinName
             // 
             this.txtDescriptioinName.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescriptioinName.Location = new System.Drawing.Point(576, 202);
+            this.txtDescriptioinName.Location = new System.Drawing.Point(657, 202);
             this.txtDescriptioinName.Name = "txtDescriptioinName";
             this.txtDescriptioinName.ReadOnly = true;
             this.txtDescriptioinName.Size = new System.Drawing.Size(333, 25);
@@ -340,7 +352,7 @@
             // 
             this.lbTodaydate.AutoSize = true;
             this.lbTodaydate.Font = new System.Drawing.Font("Modern No. 20", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTodaydate.Location = new System.Drawing.Point(956, 64);
+            this.lbTodaydate.Location = new System.Drawing.Point(1020, 64);
             this.lbTodaydate.Name = "lbTodaydate";
             this.lbTodaydate.Size = new System.Drawing.Size(134, 25);
             this.lbTodaydate.TabIndex = 19;
@@ -389,19 +401,20 @@
             // cmbMedicalRecord
             // 
             this.cmbMedicalRecord.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.cmbMedicalRecord.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbMedicalRecord.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbMedicalRecord.FormattingEnabled = true;
             this.cmbMedicalRecord.Items.AddRange(new object[] {
             "Consultation",
-            "Medical Imaging",
             "Prescription",
+            "Medical Imaging",
             "Laboratory",
             "Variou Document"});
             this.cmbMedicalRecord.Location = new System.Drawing.Point(7, 258);
             this.cmbMedicalRecord.Name = "cmbMedicalRecord";
-            this.cmbMedicalRecord.Size = new System.Drawing.Size(200, 28);
+            this.cmbMedicalRecord.Size = new System.Drawing.Size(200, 26);
             this.cmbMedicalRecord.TabIndex = 41;
-            this.cmbMedicalRecord.Text = "Medical Record";
+            this.cmbMedicalRecord.Text = "Medical-Record";
+            this.cmbMedicalRecord.SelectedIndexChanged += new System.EventHandler(this.cmbMedicalRecord_SelectedIndexChanged);
             // 
             // btnDatinglist
             // 
@@ -422,32 +435,32 @@
             this.btnWaitinglist.Text = "Wating-List";
             this.btnWaitinglist.UseVisualStyleBackColor = true;
             // 
-            // groupBox2
+            // gbActivity
             // 
-            this.groupBox2.Controls.Add(this.btnClose);
-            this.groupBox2.Controls.Add(this.btnNew);
-            this.groupBox2.Controls.Add(this.btnClear);
-            this.groupBox2.Controls.Add(this.btnPrint);
-            this.groupBox2.Controls.Add(this.btnSubmit);
-            this.groupBox2.Controls.Add(this.btnUpdate);
-            this.groupBox2.Location = new System.Drawing.Point(7, 303);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(201, 237);
-            this.groupBox2.TabIndex = 44;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Activity";
+            this.gbActivity.Controls.Add(this.btnClose);
+            this.gbActivity.Controls.Add(this.btnNew);
+            this.gbActivity.Controls.Add(this.btnClear);
+            this.gbActivity.Controls.Add(this.btnPrint);
+            this.gbActivity.Controls.Add(this.btnSubmit);
+            this.gbActivity.Controls.Add(this.btnUpdate);
+            this.gbActivity.Location = new System.Drawing.Point(7, 303);
+            this.gbActivity.Name = "gbActivity";
+            this.gbActivity.Size = new System.Drawing.Size(201, 237);
+            this.gbActivity.TabIndex = 44;
+            this.gbActivity.TabStop = false;
+            this.gbActivity.Text = "Activity";
             // 
-            // groupBox3
+            // gbDating_waiting
             // 
-            this.groupBox3.Controls.Add(this.btnDatinglist);
-            this.groupBox3.Controls.Add(this.btnWaitinglist);
-            this.groupBox3.Controls.Add(this.shapeContainer2);
-            this.groupBox3.Location = new System.Drawing.Point(7, 546);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(200, 100);
-            this.groupBox3.TabIndex = 45;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Patient-List";
+            this.gbDating_waiting.Controls.Add(this.btnDatinglist);
+            this.gbDating_waiting.Controls.Add(this.btnWaitinglist);
+            this.gbDating_waiting.Controls.Add(this.shapeContainer2);
+            this.gbDating_waiting.Location = new System.Drawing.Point(7, 546);
+            this.gbDating_waiting.Name = "gbDating_waiting";
+            this.gbDating_waiting.Size = new System.Drawing.Size(200, 100);
+            this.gbDating_waiting.TabIndex = 45;
+            this.gbDating_waiting.TabStop = false;
+            this.gbDating_waiting.Text = "Patient-List";
             // 
             // shapeContainer2
             // 
@@ -468,16 +481,16 @@
             this.lineShape4.Y1 = -17;
             this.lineShape4.Y2 = -17;
             // 
-            // groupBox4
+            // gbDating
             // 
-            this.groupBox4.Controls.Add(this.btnAddDating);
-            this.groupBox4.Controls.Add(this.dateTimePicker1);
-            this.groupBox4.Location = new System.Drawing.Point(7, 652);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(201, 78);
-            this.groupBox4.TabIndex = 46;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Dating-Patient";
+            this.gbDating.Controls.Add(this.btnAddDating);
+            this.gbDating.Controls.Add(this.dtpDating);
+            this.gbDating.Location = new System.Drawing.Point(7, 652);
+            this.gbDating.Name = "gbDating";
+            this.gbDating.Size = new System.Drawing.Size(201, 78);
+            this.gbDating.TabIndex = 46;
+            this.gbDating.TabStop = false;
+            this.gbDating.Text = "Dating-Patient";
             // 
             // btnAddDating
             // 
@@ -487,22 +500,49 @@
             this.btnAddDating.TabIndex = 44;
             this.btnAddDating.Text = "Add";
             this.btnAddDating.UseVisualStyleBackColor = true;
+            this.btnAddDating.Click += new System.EventHandler(this.btnAddDating_Click);
             // 
-            // dateTimePicker1
+            // dtpDating
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(9, 32);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(74, 20);
-            this.dateTimePicker1.TabIndex = 0;
+            this.dtpDating.Location = new System.Drawing.Point(9, 32);
+            this.dtpDating.Name = "dtpDating";
+            this.dtpDating.Size = new System.Drawing.Size(74, 20);
+            this.dtpDating.TabIndex = 0;
+            // 
+            // tmDate
+            // 
+            this.tmDate.Tick += new System.EventHandler(this.tmDate_Tick);
+            // 
+            // txtMedicalId
+            // 
+            this.txtMedicalId.Font = new System.Drawing.Font("Modern No. 20", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMedicalId.Location = new System.Drawing.Point(310, 207);
+            this.txtMedicalId.Name = "txtMedicalId";
+            this.txtMedicalId.ReadOnly = true;
+            this.txtMedicalId.Size = new System.Drawing.Size(197, 19);
+            this.txtMedicalId.TabIndex = 48;
+            this.txtMedicalId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Modern No. 20", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(231, 209);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(73, 15);
+            this.label8.TabIndex = 47;
+            this.label8.Text = "Medical-Id";
             // 
             // MedicalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1328, 733);
-            this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.txtMedicalId);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.gbDating);
+            this.Controls.Add(this.gbDating_waiting);
+            this.Controls.Add(this.gbActivity);
             this.Controls.Add(this.cmbMedicalRecord);
             this.Controls.Add(this.lbTodaydate);
             this.Controls.Add(this.txtDescriptioinName);
@@ -522,9 +562,9 @@
             this.gbPatient.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
+            this.gbActivity.ResumeLayout(false);
+            this.gbDating_waiting.ResumeLayout(false);
+            this.gbDating.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -566,13 +606,16 @@
         private System.Windows.Forms.Button btnWaitinglist;
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape6;
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape5;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox gbActivity;
+        private System.Windows.Forms.GroupBox gbDating_waiting;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer2;
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape4;
-        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox gbDating;
         private System.Windows.Forms.Button btnAddDating;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpDating;
         private System.Windows.Forms.ComboBox cmbCategory;
+        private System.Windows.Forms.Timer tmDate;
+        private System.Windows.Forms.TextBox txtMedicalId;
+        private System.Windows.Forms.Label label8;
     }
 }

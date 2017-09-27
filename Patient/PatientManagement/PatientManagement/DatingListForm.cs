@@ -1,17 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
+/*using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading.Tasks;*/
 using System.Windows.Forms;
+using PatientManagement.Class;
 
 namespace PatientManagement
 {
     public partial class DatingListForm : Form
     {
+
+        private Dating _dating = new Dating();
+        private Worker _worker = new Worker();
+        private Patient _patient = new Patient();
+
         public DatingListForm()
         {
             InitializeComponent();
@@ -25,26 +31,97 @@ namespace PatientManagement
 
         public string PatientId 
         {
-            get { return txtId.Text; }
-            set { txtId.Text = value; }
+            get { return txtPatientId.Text; }
+            set { txtPatientId.Text = value; }
         }
 
         private void DatingListForm_Load(object sender, EventArgs e)
         {
             btnAdd.Visible = false;
             btnNew.Visible = true;
+            Refresh();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             btnNew.Visible = true;
             btnAdd.Visible = false;
+           _dating.Insert(txtDatingId.Text,txtPatientId.Text,txtStaffID.Text,dtpDating.Value.Date);
+            Refresh();
         }
 
         private void btnNew_Click(object sender, EventArgs e)
         {
             btnNew.Visible = false;
             btnAdd.Visible = true;
+           txtDatingId.Text= _dating.AutoId();
+            Refresh();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Refresh();
+            Close();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            var search = new SearchForm();
+            Hide();
+            search.Show();
+            Refresh();
+            search.SubmitButton = false;
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            _dating.Update(txtDatingId.Text, dtpDating.Value.Date);
+            Refresh();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            _dating.Delete(txtDatingId.Text);
+            Refresh();
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            Clear();
+            Refresh();
+        }
+
+        public void Clear()
+        {
+            txtDatingId.Text = "";
+            dtpDating.Text = Convert.ToString(DateTime.Now);
+            Refresh();
+        }
+
+        private void btnShow_Click(object sender, EventArgs e)
+        {
+           dtgInformation.DataSource= _dating.Show();
+            Refresh();
+        }
+
+        private void txtStaffID_TextChanged(object sender, EventArgs e)
+        {
+            var select = _worker.SelectedChange(txtStaffID.Text);
+            txtStaffName.Text = select.Name;
+        }
+
+        private void txtPatientId_TextChanged(object sender, EventArgs e)
+        {
+            var select = _patient.Select(txtPatientId.Text);
+            txtPatientName.Text = select.Name;
+
+        }
+
+        private void dtgInformation_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtDatingId.Text = dtgInformation.CurrentRow.Cells[0].Value.ToString();
+            txtPatientId.Text = dtgInformation.CurrentRow.Cells[1].Value.ToString();
+            txtStaffID.Text = dtgInformation.CurrentRow.Cells[2].Value.ToString();
         }
     }
 }

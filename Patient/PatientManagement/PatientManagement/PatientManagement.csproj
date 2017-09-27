@@ -103,6 +103,7 @@
     <Compile Include="Class\ConsultationEstimate.cs" />
     <Compile Include="Class\ConsultationSample.cs" />
     <Compile Include="Class\ConsultationStatus.cs" />
+    <Compile Include="Class\Dating.cs" />
     <Compile Include="Class\ICategory.cs" />
     <Compile Include="Class\IEstimate.cs" />
     <Compile Include="Class\ISample.cs" />

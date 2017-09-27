@@ -18,10 +18,6 @@ namespace PatientManagement
         private Hospital_Entity_Framework.ConsultationCategory _consultationCategory =new Hospital_Entity_Framework.ConsultationCategory();
         private BindingSource _bs = new BindingSource();
 
-        public ConsultationCategory()
-        {
-        }
-
         public string AutoId()
         {
             try

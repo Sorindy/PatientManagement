@@ -34,6 +34,7 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSumit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnAddDating = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgInformation)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,17 +72,17 @@
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(142, 53);
             this.btnClose.TabIndex = 3;
-            this.btnClose.Text = "CLOSE";
+            this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnSumit
             // 
-            this.btnSumit.Location = new System.Drawing.Point(507, 59);
+            this.btnSumit.Location = new System.Drawing.Point(507, 61);
             this.btnSumit.Name = "btnSumit";
             this.btnSumit.Size = new System.Drawing.Size(152, 53);
             this.btnSumit.TabIndex = 2;
-            this.btnSumit.Text = "SUBMIT";
+            this.btnSumit.Text = "Submit-Patient";
             this.btnSumit.UseVisualStyleBackColor = true;
             this.btnSumit.Click += new System.EventHandler(this.btnSumit_Click);
             // 
@@ -95,11 +96,22 @@
             this.label1.TabIndex = 12;
             this.label1.Text = "Patient-Information";
             // 
+            // btnAddDating
+            // 
+            this.btnAddDating.Location = new System.Drawing.Point(507, 59);
+            this.btnAddDating.Name = "btnAddDating";
+            this.btnAddDating.Size = new System.Drawing.Size(152, 53);
+            this.btnAddDating.TabIndex = 13;
+            this.btnAddDating.Text = "Submit-Dating";
+            this.btnAddDating.UseVisualStyleBackColor = true;
+            this.btnAddDating.Click += new System.EventHandler(this.btnAddDating_Click);
+            // 
             // SearchForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(862, 380);
+            this.Controls.Add(this.btnAddDating);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSumit);
@@ -124,5 +136,6 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnSumit;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnAddDating;
     }
 }
