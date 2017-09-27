@@ -56,15 +56,7 @@
       FROM [dbo].[ServiceEstimate] AS [ServiceEstimate]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="sysdiagrams" EntityType="HospitalModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="TempManagement" EntityType="HospitalModel.Store.TempManagement" store:Type="Tables" store:Schema="dbo" store:Name="TempManagement">
-      <DefiningQuery>SELECT 
-      [TempManagement].[WorkerId] AS [WorkerId], 
-      [TempManagement].[Forms] AS [Forms], 
-      [TempManagement].[Services] AS [Services], 
-      [TempManagement].[Categorys] AS [Categorys], 
-      [TempManagement].[Status] AS [Status]
-      FROM [dbo].[TempManagement] AS [TempManagement]</DefiningQuery>
-    </EntitySet>
+    <EntitySet Name="TempManagement" EntityType="HospitalModel.Store.TempManagement" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="VariousDocument" EntityType="HospitalModel.Store.VariousDocument" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="VariousDocumentCategory" EntityType="HospitalModel.Store.VariousDocumentCategory" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="VariousDocumentCategoryStatus" EntityType="HospitalModel.Store.VariousDocumentCategoryStatus" store:Type="Tables" Schema="dbo" />
@@ -685,19 +677,15 @@
     <Property Name="version" Type="int" />
     <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
-  <!--Errors Found During Generation:
-      warning 6002: The table/view 'Hospital.dbo.TempManagement' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
   <EntityType Name="TempManagement">
     <Key>
-      <PropertyRef Name="WorkerId" />
-      <PropertyRef Name="Forms" />
-      <PropertyRef Name="Status" />
+      <PropertyRef Name="Id" />
     </Key>
+    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="WorkerId" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="Forms" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="Services" Type="nvarchar" MaxLength="50" />
-    <Property Name="Categorys" Type="nvarchar" MaxLength="50" />
+    <Property Name="Services" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Categorys" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="Status" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="VariousDocument">

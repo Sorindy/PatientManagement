@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="HospitalModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="HospitalModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="HospitalModelStoreContainer">
           <EntitySet Name="Account" EntityType="HospitalModel.Store.Account" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Consultation" EntityType="HospitalModel.Store.Consultation" store:Type="Tables" Schema="dbo" />
@@ -61,15 +61,7 @@
       FROM [dbo].[ServiceEstimate] AS [ServiceEstimate]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="sysdiagrams" EntityType="HospitalModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="TempManagement" EntityType="HospitalModel.Store.TempManagement" store:Type="Tables" store:Schema="dbo" store:Name="TempManagement">
-            <DefiningQuery>SELECT 
-      [TempManagement].[WorkerId] AS [WorkerId], 
-      [TempManagement].[Forms] AS [Forms], 
-      [TempManagement].[Services] AS [Services], 
-      [TempManagement].[Categorys] AS [Categorys], 
-      [TempManagement].[Status] AS [Status]
-      FROM [dbo].[TempManagement] AS [TempManagement]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="TempManagement" EntityType="HospitalModel.Store.TempManagement" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="VariousDocument" EntityType="HospitalModel.Store.VariousDocument" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="VariousDocumentCategory" EntityType="HospitalModel.Store.VariousDocumentCategory" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="VariousDocumentCategoryStatus" EntityType="HospitalModel.Store.VariousDocumentCategoryStatus" store:Type="Tables" Schema="dbo" />
@@ -690,19 +682,15 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'Hospital.dbo.TempManagement' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
         <EntityType Name="TempManagement">
           <Key>
-            <PropertyRef Name="WorkerId" />
-            <PropertyRef Name="Forms" />
-            <PropertyRef Name="Status" />
+            <PropertyRef Name="Id" />
           </Key>
+          <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="WorkerId" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="Forms" Type="nvarchar" Nullable="false" MaxLength="50" />
-          <Property Name="Services" Type="nvarchar" MaxLength="50" />
-          <Property Name="Categorys" Type="nvarchar" MaxLength="50" />
+          <Property Name="Services" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Categorys" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="Status" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="VariousDocument">
@@ -1718,7 +1706,8 @@
           <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="HospitalModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1757,6 +1746,7 @@
           <EntitySet Name="ServiceCategories" EntityType="HospitalModel.ServiceCategory" />
           <EntitySet Name="ServiceEstimates" EntityType="HospitalModel.ServiceEstimate" />
           <EntitySet Name="sysdiagrams" EntityType="HospitalModel.sysdiagram" />
+          <EntitySet Name="TempManagements" EntityType="HospitalModel.TempManagement" />
           <EntitySet Name="VariousDocuments" EntityType="HospitalModel.VariousDocument" />
           <EntitySet Name="VariousDocumentCategories" EntityType="HospitalModel.VariousDocumentCategory" />
           <EntitySet Name="VariousDocumentCategoryStatus" EntityType="HospitalModel.VariousDocumentCategoryStatu" />
@@ -1819,11 +1809,11 @@
             <End Role="ConsultationStatus" EntitySet="ConsultationStatus" />
             <End Role="ServiceCategory" EntitySet="ServiceCategories" />
           </AssociationSet>
-          <AssociationSet Name="FK_Date_Patient" Association="HospitalModel.FK_Date_Patient">
+          <AssociationSet Name="FK_Dating_Patient" Association="HospitalModel.FK_Dating_Patient">
             <End Role="Patient" EntitySet="Patients" />
             <End Role="Dating" EntitySet="Datings" />
           </AssociationSet>
-          <AssociationSet Name="FK_Date_Worker" Association="HospitalModel.FK_Date_Worker">
+          <AssociationSet Name="FK_Dating_Worker" Association="HospitalModel.FK_Dating_Worker">
             <End Role="Worker" EntitySet="Workers" />
             <End Role="Dating" EntitySet="Datings" />
           </AssociationSet>
@@ -2089,7 +2079,6 @@
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
-          <EntitySet Name="TempManagements" EntityType="HospitalModel.TempManagement" />
         </EntityContainer>
         <EntityType Name="Account">
           <Key>
@@ -2172,8 +2161,8 @@
           <Property Name="PatientId" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="WorkerId" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="Patient" Relationship="HospitalModel.FK_Date_Patient" FromRole="Dating" ToRole="Patient" />
-          <NavigationProperty Name="Worker" Relationship="HospitalModel.FK_Date_Worker" FromRole="Dating" ToRole="Worker" />
+          <NavigationProperty Name="Patient" Relationship="HospitalModel.FK_Dating_Patient" FromRole="Dating" ToRole="Patient" />
+          <NavigationProperty Name="Worker" Relationship="HospitalModel.FK_Dating_Worker" FromRole="Dating" ToRole="Worker" />
         </EntityType>
         <EntityType Name="Laboratory">
           <Key>
@@ -2364,7 +2353,7 @@
           <Property Name="Weight" Type="Int16" />
           <Property Name="Height" Type="Int16" />
           <NavigationProperty Name="Consultations" Relationship="HospitalModel.FK_Consultation_Patient1" FromRole="Patient" ToRole="Consultation" />
-          <NavigationProperty Name="Datings" Relationship="HospitalModel.FK_Date_Patient" FromRole="Patient" ToRole="Dating" />
+          <NavigationProperty Name="Datings" Relationship="HospitalModel.FK_Dating_Patient" FromRole="Patient" ToRole="Dating" />
           <NavigationProperty Name="Laboratories" Relationship="HospitalModel.FK_Laboratory_Patient1" FromRole="Patient" ToRole="Laboratory" />
           <NavigationProperty Name="MedicalHistories" Relationship="HospitalModel.FK_MedicalHistory_Patient" FromRole="Patient" ToRole="MedicalHistory" />
           <NavigationProperty Name="MedicalImagings" Relationship="HospitalModel.FK_MedicalImaging_Patient1" FromRole="Patient" ToRole="MedicalImaging" />
@@ -2488,6 +2477,17 @@
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
+        <EntityType Name="TempManagement">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="WorkerId" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Forms" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Services" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Categorys" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+        </EntityType>
         <EntityType Name="VariousDocument">
           <Key>
             <PropertyRef Name="Id" />
@@ -2606,7 +2606,7 @@
           <NavigationProperty Name="Accounts" Relationship="HospitalModel.FK_Account_Worker" FromRole="Worker" ToRole="Account" />
           <NavigationProperty Name="Consultations" Relationship="HospitalModel.FK_Consultation_Worker" FromRole="Worker" ToRole="Consultation" />
           <NavigationProperty Name="ConsultationEstimates" Relationship="HospitalModel.FK_ConsultationEstimate_Worker" FromRole="Worker" ToRole="ConsultationEstimate" />
-          <NavigationProperty Name="Datings" Relationship="HospitalModel.FK_Date_Worker" FromRole="Worker" ToRole="Dating" />
+          <NavigationProperty Name="Datings" Relationship="HospitalModel.FK_Dating_Worker" FromRole="Worker" ToRole="Dating" />
           <NavigationProperty Name="Laboratories" Relationship="HospitalModel.FK_Laboratory_Worker" FromRole="Worker" ToRole="Laboratory" />
           <NavigationProperty Name="LaboratoryEstimates" Relationship="HospitalModel.FK_LaboratoryEstimate_Worker" FromRole="Worker" ToRole="LaboratoryEstimate" />
           <NavigationProperty Name="MedicalImagings" Relationship="HospitalModel.FK_MedicalImaging_Worker" FromRole="Worker" ToRole="MedicalImaging" />
@@ -2772,7 +2772,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Date_Patient">
+        <Association Name="FK_Dating_Patient">
           <End Role="Patient" Type="HospitalModel.Patient" Multiplicity="1" />
           <End Role="Dating" Type="HospitalModel.Dating" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2784,7 +2784,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Date_Worker">
+        <Association Name="FK_Dating_Worker">
           <End Role="Worker" Type="HospitalModel.Worker" Multiplicity="1" />
           <End Role="Dating" Type="HospitalModel.Dating" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3495,18 +3495,6 @@
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
-        <EntityType Name="TempManagement">
-          <Key>
-            <PropertyRef Name="WorkerId" />
-            <PropertyRef Name="Forms" />
-            <PropertyRef Name="Status" />
-          </Key>
-          <Property Type="String" Name="WorkerId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Forms" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Services" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Categorys" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="Boolean" Name="Status" Nullable="false" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3832,6 +3820,18 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="TempManagements">
+            <EntityTypeMapping TypeName="HospitalModel.TempManagement">
+              <MappingFragment StoreEntitySet="TempManagement">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
+                <ScalarProperty Name="Forms" ColumnName="Forms" />
+                <ScalarProperty Name="Services" ColumnName="Services" />
+                <ScalarProperty Name="Categorys" ColumnName="Categorys" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="VariousDocuments">
             <EntityTypeMapping TypeName="HospitalModel.VariousDocument">
               <MappingFragment StoreEntitySet="VariousDocument">
@@ -3964,17 +3964,6 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="HospitalModel.Store.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="HospitalModel.Store.sp_upgraddiagrams" />
-          <EntitySetMapping Name="TempManagements">
-            <EntityTypeMapping TypeName="HospitalModel.TempManagement">
-              <MappingFragment StoreEntitySet="TempManagement">
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="Categorys" ColumnName="Categorys" />
-                <ScalarProperty Name="Services" ColumnName="Services" />
-                <ScalarProperty Name="Forms" ColumnName="Forms" />
-                <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

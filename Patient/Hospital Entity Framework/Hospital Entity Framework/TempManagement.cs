@@ -14,6 +14,7 @@ namespace Hospital_Entity_Framework
     
     public partial class TempManagement
     {
+        public string Id { get; set; }
         public string WorkerId { get; set; }
         public string Forms { get; set; }
         public string Services { get; set; }

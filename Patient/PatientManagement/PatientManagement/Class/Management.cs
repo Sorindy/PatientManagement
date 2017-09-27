@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.Remoting.Channels;
@@ -190,53 +191,285 @@ namespace PatientManagement.Class
             
         //    return panel;
         //}
-        
-        public List<TreeNode> GetCheckedNodes(TreeNode node)
-        {
-            var nodes = new List<TreeNode>();
 
-            foreach (TreeNode childNode in node.Nodes)
+        private FlowLayoutPanel MedicalPanel()
+        {
+            var panel = new FlowLayoutPanel();
+            panel.Controls.Clear();
+            panel.AutoScroll = true;
+            panel.Location = new Point(6, 50);
+            panel.Size = new Size(526, 378);
+
+            _status = new ConsultationStatus();
+            var showConsultation = _status.ShowCategoryBox();
+            _status = new LaboratoryStatus();
+            var showLaboratory = _status.ShowCategoryBox();
+            _status = new MedicalImagingStatus();
+            var showMedicalImaging = _status.ShowCategoryBox();
+            _status = new PrescriptionStatus();
+            var showPrescription = _status.ShowCategoryBox();
+            _status = new VariousDocumentStatus();
+            var showVariousDoc = _status.ShowCategoryBox();
+
+            panel.Controls.AddRange(new Control[] { showConsultation, showLaboratory, showMedicalImaging, showPrescription, showVariousDoc });
+            return panel;
+        }
+
+        private FlowLayoutPanel WorkerPanel()
+        {
+            var panel = new FlowLayoutPanel();
+            panel.Controls.Clear();
+            panel.AutoScroll = true;
+            panel.Location = new Point(6, 50);
+            panel.Size = new Size(526, 378);
+
+            var checkListBox = new CheckedListBox();
+            var groupBox = new GroupBox { Text = @"Worker's Form" };
+            var flpn = new FlowLayoutPanel
             {
-                nodes.AddRange(GetCheckedNodes(childNode));
+                FlowDirection = FlowDirection.TopDown,
+                Dock = DockStyle.Fill,
+                Size = new Size(508, 54),
+                AutoScroll = true
+            };
+            groupBox.Size = new Size(520, 100);
+            checkListBox.Size = new Size(508, 54);
+
+            checkListBox.Items.Add("Worker's Form");
+            flpn.Controls.Add(checkListBox);
+            groupBox.Controls.Add(flpn);
+
+            panel.Controls.Add(groupBox);
+
+            return panel;
+        }
+
+        private FlowLayoutPanel CategoryPanel()
+        {
+            var panel = new FlowLayoutPanel();
+            panel.Controls.Clear();
+            panel.AutoScroll = true;
+            panel.Location = new Point(6, 50);
+            panel.Size = new Size(526, 378);
+
+            var checkListBox = new CheckedListBox();
+            var groupBox = new GroupBox { Text = @"Category's Form" };
+            var flpn = new FlowLayoutPanel
+            {
+                FlowDirection = FlowDirection.TopDown,
+                Dock = DockStyle.Fill,
+                Size = new Size(508, 54),
+                AutoScroll = true
+            };
+            groupBox.Size = new Size(520, 100);
+            checkListBox.Size = new Size(508, 54);
+
+            checkListBox.Items.Add("Category's Form");
+            flpn.Controls.Add(checkListBox);
+            groupBox.Controls.Add(flpn);
+
+            panel.Controls.Add(groupBox);
+
+            return panel;
+        }
+
+        private FlowLayoutPanel PatientPanel()
+        {
+            var panel = new FlowLayoutPanel();
+            panel.Controls.Clear();
+            panel.AutoScroll = true;
+            panel.Location = new Point(6, 50);
+            panel.Size = new Size(526, 378);
+
+            var checkListBox = new CheckedListBox();
+            var groupBox = new GroupBox { Text = @"Patient's Form" };
+            var flpn = new FlowLayoutPanel
+            {
+                FlowDirection = FlowDirection.TopDown,
+                Dock = DockStyle.Fill,
+                Size = new Size(508, 54),
+                AutoScroll = true
+            };
+            groupBox.Size = new Size(520, 100);
+            checkListBox.Size = new Size(508, 54);
+
+            checkListBox.Items.Add("Patient's Form");
+            flpn.Controls.Add(checkListBox);
+            groupBox.Controls.Add(flpn);
+
+            panel.Controls.Add(groupBox);
+
+            return panel;
+        }
+
+        private FlowLayoutPanel CheckInPanel()
+        {
+            var panel = new FlowLayoutPanel();
+            panel.Controls.Clear();
+            panel.AutoScroll = true;
+            panel.Location = new Point(6, 50);
+            panel.Size = new Size(526, 378);
+
+            var checkListBox = new CheckedListBox();
+            var groupBox = new GroupBox { Text = @"CheckIn's Form" };
+            var flpn = new FlowLayoutPanel
+            {
+                FlowDirection = FlowDirection.TopDown,
+                Dock = DockStyle.Fill,
+                Size = new Size(508, 54),
+                AutoScroll = true
+            };
+            groupBox.Size = new Size(520, 100);
+            checkListBox.Size = new Size(508, 54);
+
+            checkListBox.Items.Add("CheckIn's Form");
+            flpn.Controls.Add(checkListBox);
+            groupBox.Controls.Add(flpn);
+
+            panel.Controls.Add(groupBox);
+
+            return panel;
+        }
+
+        private FlowLayoutPanel ManagementPanel()
+        {
+            var panel = new FlowLayoutPanel();
+            panel.Controls.Clear();
+            panel.AutoScroll = true;
+            panel.Location = new Point(6, 50);
+            panel.Size = new Size(526, 378);
+
+            var checkListBox = new CheckedListBox();
+            var groupBox = new GroupBox { Text = @"Management's Form" };
+            var flpn = new FlowLayoutPanel
+            {
+                FlowDirection = FlowDirection.TopDown,
+                Dock = DockStyle.Fill,
+                Size = new Size(508, 54),
+                AutoScroll = true
+            };
+            groupBox.Size = new Size(520, 100);
+            checkListBox.Size = new Size(508, 54);
+
+            checkListBox.Items.Add("Management's Form");
+            flpn.Controls.Add(checkListBox);
+            groupBox.Controls.Add(flpn);
+
+            panel.Controls.Add(groupBox);
+
+            return panel;
+        }
+
+        private FlowLayoutPanel AdminPanel()
+        {
+            var panel = new FlowLayoutPanel();
+            panel.Controls.Clear();
+            panel.AutoScroll = true;
+            panel.Location = new Point(6, 50);
+            panel.Size = new Size(526, 378);
+
+            var checkListBox = new CheckedListBox();
+            var groupBox = new GroupBox { Text = @"Admin's Form" };
+            var flpn = new FlowLayoutPanel
+            {
+                FlowDirection = FlowDirection.TopDown,
+                Dock = DockStyle.Fill,
+                Size = new Size(508, 54),
+                AutoScroll = true
+            };
+            groupBox.Size = new Size(520, 100);
+            checkListBox.Size = new Size(508, 54);
+
+            checkListBox.Items.Add("Admin's Form");
+            flpn.Controls.Add(checkListBox);
+            groupBox.Controls.Add(flpn);
+
+            panel.Controls.Add(groupBox);
+
+            return panel;
+        }
+
+        public FlowLayoutPanel ChoosenFormPanel(string str)
+        {
+            var panel = new FlowLayoutPanel();
+            panel.Controls.Clear();
+
+            if (str == "Worker's Form")
+            {
+                panel = WorkerPanel();
+            }
+            if (str == "Patient's Form")
+            {
+                panel = PatientPanel();
+            }
+            if (str == "CheckIn's Form")
+            {
+                panel = CheckInPanel();
+            }
+            if (str == "Management's Form")
+            {
+                panel = ManagementPanel();
+            }
+            if (str == "Admin's Form")
+            {
+                panel = AdminPanel();
+            }
+            if (str == "Medical's Form")
+            {
+                panel = MedicalPanel();
+            }
+            if (str == "Category's Form")
+            {
+                panel = CategoryPanel();
             }
 
-            if (node.Checked)
-            {
-                nodes.Add(node);
-            }
-
-            return nodes;
+            return panel;
         }
 
-        private object SaveTemp(string form,string service,string category,bool status)
+        public void CheckedItems(string workerId, string form, string service, string category, bool check)
         {
-            var temp=new Tuple<string,string,string,bool>(form,service,category,status);
-            return temp;
-        }
+            var checkTemp = _db.TempManagements.FirstOrDefault(v => v.Categorys==category);
 
-        public FlowLayoutPanel FlowLayoutPanel()
-        {
-            var flpn=new FlowLayoutPanel();
-
-            
-            
-            return flpn;
-        }
-
-        private void CheckedNodes(TreeNodeCollection treeNodeCollection)
-        {
-            foreach (TreeNode aNode in treeNodeCollection)
-            {
-                if (aNode.Checked)
+            if (checkTemp!=null){}
+            else{
+                var insertTemp = new TempManagement()
                 {
-                    
-                }
-                if (aNode.Nodes.Count != 0)
-                {
-                    CheckedNodes(aNode.Nodes);
-                }
+                    Id = AutoIdChecked(),
+                    WorkerId = workerId,
+                    Forms = form,
+                    Categorys = category,
+                    Services = service,
+                    Status = check
+                };
+                _db.TempManagements.AddOrUpdate(insertTemp);
+                _db.SaveChanges();
             }
-            
+        }
+
+        private string AutoIdChecked()
+        {
+            var management = new TempManagement();
+            try
+            {
+                var getLastId = _db.TempManagements.OrderByDescending(m => m.Id).First();
+                var getvalue = getLastId.Id;
+                var num = Convert.ToInt32(getvalue.Substring(4));
+                num += 1;
+                management.Id = string.Concat("Temp", num);
+            }
+            catch
+            {
+                management.Id = "Temp1";
+            }
+            return management.Id;
+        }
+
+        public void ClearTemp()
+        {
+            var clear = _db.TempManagements;
+
+            _db.TempManagements.RemoveRange(clear);
+            _db.SaveChanges();
         }
 
         public TreeNode ChoosenForm(string str)
@@ -315,6 +548,21 @@ namespace PatientManagement.Class
         {
             var treeNode = new TreeNode {Text = @"CheckIn's Form"};
             return treeNode;
+        }
+
+        public TabControl TabControlPreview()
+        {
+            var tabControl = new TabControl { Size = new Size(526, 196), Location = new Point(6, 29),Name = @"tabControlPreview"};
+            tabControl.Controls.Clear();
+
+            var getCheckedItems = _db.TempManagements.Select(v=>v.Forms);
+
+            foreach (var formTab in getCheckedItems)
+            {
+                tabControl.TabPages.Add(formTab);
+            }
+
+            return tabControl;
         }
 
     }

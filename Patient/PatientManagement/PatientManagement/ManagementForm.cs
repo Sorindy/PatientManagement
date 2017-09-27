@@ -18,13 +18,12 @@ namespace PatientManagement
             InitializeComponent();
         }
 
-        private Management _management = new Management();
+        private readonly Management _management = new Management();
 
         private void ManagementForm_Load(object sender, EventArgs e)
         {
-           // cboControl.DataSource = _management.Show_Control();
             dgvShow.DataSource = _management.Show_WorkerHasAccount();
-            cboPreview.DataSource = _management.Show_Control();
+            _management.ClearTemp();
 
         }
 
@@ -40,22 +39,50 @@ namespace PatientManagement
 
         private void cboControl_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txtControl.Text = cboControl.Text;
-            tviewControl.CheckBoxes = true;
-            tviewControl.Nodes.Clear();
-            tviewControl.Nodes.Add(_management.ChoosenForm(cboControl.Text));
+            gboControlName.Controls.Clear();
+            var btn = new Button { Name = "btnAddtoPreview", Text = @"Add to Preview",
+                Size = new Size(155, 36), Location = new Point(381, 14) };
+            btn.Click += btnAddtoPreview_Click;
+            gboControlName.Controls.Add(_management.ChoosenFormPanel(cboControl.Text));
+            gboControlName.Controls.Add(btn);
+            return;
+        }
+
+        private void btnAddtoPreview_Click(object sender, EventArgs e)
+        {
+            var collection = gboControlName.Controls.OfType<FlowLayoutPanel>();
+ 
+            foreach (var itemConFlowLayoutPanel in collection)
+            {
+                foreach (var itemGroupBox in itemConFlowLayoutPanel.Controls.OfType<GroupBox>())
+                {
+                    foreach (var itemFlowLayoutPanel in itemGroupBox.Controls.OfType<FlowLayoutPanel>())
+                    {
+                        foreach (var itemBox in itemFlowLayoutPanel.Controls.OfType<CheckedListBox>())
+                        {
+                            for (var i = 0; i < itemBox.CheckedItems.Count; i++)
+                            {
+                                var getCheckedItem = itemBox.CheckedItems[i];
+                                if (dgvShow.CurrentRow != null)
+                                {
+                                    _management.CheckedItems(dgvShow.CurrentRow.Cells[0].Value.ToString(),
+                                        cboControl.Text, itemGroupBox.Text, getCheckedItem.ToString(), true);
+                                }
+                            }
+                        }
+                    }                    
+                }
+            }
+            gboPreview.Controls.Clear();
+            gboPreview.Controls.Add(_management.TabControlPreview());
         }
 
         private void dgvShow_SelectionChanged(object sender, EventArgs e)
         {
             if (dgvShow.CurrentRow != null)
-                gboControlName.Text = dgvShow.CurrentRow.Cells[4].Value.ToString() + @"'s Control";
+                gboControlName.Text = dgvShow.CurrentRow.Cells[4].Value + @"'s Control";
             cboControl.DataSource = _management.Show_Control();
         }
 
-        private void cboPreview_TextChanged(object sender, EventArgs e)
-        {
-           // flpnPreview tviewControl.SelectedNode;
-        }
     }
 }
