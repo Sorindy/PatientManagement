@@ -188,33 +188,31 @@ namespace PatientManagement
             if (cmbMedicalRecord.SelectedIndex.Equals(0))
             {
                 _sample = new ConsultationSample();
-                txtDescription.Text = _sample.Search_Title(cmbSample.Text).ToString();
+                txtDescription.Text = _sample.Search_Title(cmbSample.Text);
             }
             //if (cmbType.Text == "Prescription")
             if (cmbMedicalRecord.SelectedIndex.Equals(1))
             {
-                _estimate = new PrescriptionEstimate();
-                _estimate.Insert(_estimate.AutoId(), cmbCategory.Text, txtStaffID.Text, DateTime.Now, txtDescription.Text);
+                _sample = new PrescriptionSample();
+                txtDescription.Text = _sample.Search_Title(cmbSample.Text);
             }
             //if (cmbType.Text == "MedicalImaging")
             if (cmbMedicalRecord.SelectedIndex.Equals(2))
             {
-                _estimate = new MedicalImagingEstimate();
-                _estimate.Insert(_estimate.AutoId(), cmbCategory.Text, txtStaffID.Text, DateTime.Now, txtDescription.Text);
-
+                _sample = new MedicalImagingSample();
+                txtDescription.Text = _sample.Search_Title(cmbSample.Text);
             }
             //if (cmbType.Text == "Laboratory")
             if (cmbMedicalRecord.SelectedIndex.Equals(3))
             {
-                _estimate = new LaboratoryEstimate();
-                _estimate.Insert(_estimate.AutoId(), cmbCategory.Text, txtStaffID.Text, DateTime.Now, txtDescription.Text);
-
+                _sample = new LaboratorySample();
+                txtDescription.Text = _sample.Search_Title(cmbSample.Text);
             }
             //if (cmbType.Text == "VariousDocument")
             if (cmbMedicalRecord.SelectedIndex.Equals(4))
             {
-                _estimate = new VariousDocumentEstimate();
-                _estimate.Insert(_estimate.AutoId(), cmbCategory.Text, txtStaffID.Text, DateTime.Now, txtDescription.Text);
+                _sample = new VariousDocumentSample();
+                txtDescription.Text = _sample.Search_Title(cmbSample.Text);
             }
         }
     }

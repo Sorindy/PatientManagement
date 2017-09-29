@@ -16,7 +16,6 @@ namespace PatientManagement
         void Delete(string id);
         object Show();
         object Show_Sample_Title();
-        string  Search_Title(string  title);
-        
+        string Search_Title(string  title);
     }
 }
