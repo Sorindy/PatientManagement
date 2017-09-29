@@ -553,34 +553,49 @@ namespace PatientManagement.Class
 
         public TabControl TabControlPreview()
         {
-            var tabControl = new TabControl { Size = new Size(526, 196), Location = new Point(6, 29),Name = @"tabControlPreview"};
+            var tabControl = new TabControl
+            {
+                Size = new Size(526, 196),
+                Location = new Point(6, 29),
+                Name = @"tabControlPreview"
+            };
             tabControl.Controls.Clear();
-            var flpn = new FlowLayoutPanel { Size = new Size(506, 146), Location = new Point(6, 6), Name = @"flowCheckedItems" };
-            var checkListBox = new CheckedListBox { Location = new Point(3, 3), Size = new Size(503, 143), Name = @"ChecklistBoxItems" };
+            var flpn = new FlowLayoutPanel
+            {
+                Size = new Size(506, 146),
+                Location = new Point(6, 6),
+                Name = @"flowCheckedItems"
+            };
+            var checkListBox = new CheckedListBox
+            {
+                Location = new Point(3, 3),
+                Size = new Size(503, 143),
+                Name = @"ChecklistBoxItems"
+            };
 
-            var getCheckedItems = _db.TempManagements.Select(v=>v.Forms);
+            var getCheckedItems = _db.TempManagements.Select(v => v.Forms);
 
             foreach (var formTab in getCheckedItems)
             {
                 tabControl.TabPages.Add(formTab);
 
-                foreach (var item in tabControl.TabPages)
-                {
-                    var getCheckedItem = from v in _db.TempManagements
-                        where v.Forms == formTab
-                        select new
-                        {
-                            v.Categorys
-                        };
-                    foreach (var value in getCheckedItem)
-                    {
-                        checkListBox.Items.Add(value,true);                        
-                    }
-                    flpn.Controls.Clear();
-                    flpn.Controls.Add(checkListBox);
-                    tabControl.TabPages[formTab].Controls.Add(flpn);
-                }
-                
+                //foreach (var item in tabControl.TabPages)
+                //{
+                //    var getCheckedItem = from v in _db.TempManagements
+                //        where v.Forms == formTab
+                //        select new
+                //        {
+                //            v.Categorys
+                //        };
+                //    foreach (var value in getCheckedItem)
+                //    {
+                //        checkListBox.Items.Add(value,true);                        
+                //    }
+                //    flpn.Controls.Clear();
+                //    flpn.Controls.Add(checkListBox);
+                //    tabControl.TabPages[formTab].Controls.Add(flpn);
+
+
             }
 
             //foreach (var getitemsChecked in tabControl.TabPages)
@@ -593,12 +608,12 @@ namespace PatientManagement.Class
             //        checkListBox.Items.Add(items, true);
             //        flpn.Controls.Add(checkListBox);
             //    }
-               
+
 
             //    tabControl.TabPages[getitemsChecked.ToString()].Controls.Add(flpn);
-            //}
+        //}
 
-            return tabControl;
+        return tabControl;
         }
 
     }
