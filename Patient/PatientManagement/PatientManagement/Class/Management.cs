@@ -616,6 +616,11 @@ namespace PatientManagement.Class
         return tabControl;
         }
 
+        public void SubmitManagement()
+        {
+            
+        }
+
     }
 
 }

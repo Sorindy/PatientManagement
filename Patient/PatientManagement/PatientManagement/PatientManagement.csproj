@@ -100,14 +100,16 @@
     </Compile>
     <Compile Include="Class\Account.cs" />
     <Compile Include="Class\ConsultationCategory.cs" />
+    <Compile Include="Class\ConsultationCategoryStatus.cs" />
     <Compile Include="Class\ConsultationEstimate.cs" />
     <Compile Include="Class\ConsultationSample.cs" />
     <Compile Include="Class\ConsultationStatus.cs" />
     <Compile Include="Class\Dating.cs" />
-    <Compile Include="Class\ICategory.cs" />
-    <Compile Include="Class\IEstimate.cs" />
-    <Compile Include="Class\ISample.cs" />
-    <Compile Include="Class\IStatus.cs" />
+    <Compile Include="Interface\ICategory.cs" />
+    <Compile Include="Interface\ICategoryStatus.cs" />
+    <Compile Include="Interface\IEstimate.cs" />
+    <Compile Include="Interface\ISample.cs" />
+    <Compile Include="Interface\IStatus.cs" />
     <Compile Include="Class\LaboratoryCategory.cs" />
     <Compile Include="Class\LaboratoryEstimate.cs" />
     <Compile Include="Class\LaboratorySample.cs" />

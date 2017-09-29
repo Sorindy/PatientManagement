@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Hospital_Entity_Framework;
 
@@ -41,11 +38,11 @@ namespace PatientManagement.Class
 
         public string AutoId()
         {
-            Hospital_Entity_Framework.ConsultationStatu consultationStatu = new Hospital_Entity_Framework.ConsultationStatu();
+            var consultationStatu = new ConsultationStatu();
             try
             {
                 var getLastId = _db.ConsultationStatus.OrderByDescending(v => v.ConsultationId).First();
-                var getvalue = getLastId.ConsultationId.ToString();
+                var getvalue = getLastId.ConsultationId;
                 var num = Convert.ToInt32(getvalue.Substring(18));
                 num += 1;
                 consultationStatu.ConsultationId = string.Concat("ConsultationStatus", num);
@@ -59,8 +56,7 @@ namespace PatientManagement.Class
 
         public TreeNode ShowCategory()
         {
-            TreeNode treeNode = new TreeNode();
-            treeNode.Text = @"Consultation";
+            var treeNode = new TreeNode {Text = @"Consultation"};
 
             var getCategory = from v in _db.ConsultationCategories
                 select new { v.Name };
@@ -75,14 +71,13 @@ namespace PatientManagement.Class
         {
             var checkListBox = new CheckedListBox();
             var groupBox = new GroupBox();
-            var checkBox = new CheckBox();
-            var flpn = new FlowLayoutPanel()
+            var flpn = new FlowLayoutPanel
             {
                 FlowDirection = FlowDirection.TopDown,
-                Dock = DockStyle.Fill
+                Dock = DockStyle.Fill,
+                Size = new Size(508, 54),
+                AutoScroll = true
             };
-            flpn.Size = new Size(508, 54);
-            flpn.AutoScroll = true;
             groupBox.Size = new Size(520, 100);
             checkListBox.Size = new Size(508, 54);
 
