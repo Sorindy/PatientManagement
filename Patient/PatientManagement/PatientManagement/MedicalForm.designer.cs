@@ -74,6 +74,8 @@
             this.tmDate = new System.Windows.Forms.Timer(this.components);
             this.txtMedicalId = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.cmbSample = new System.Windows.Forms.ComboBox();
             this.gbPatient.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.gbActivity.SuspendLayout();
@@ -533,11 +535,32 @@
             this.label8.TabIndex = 47;
             this.label8.Text = "Medical-Id";
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Modern No. 20", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(1022, 208);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(51, 15);
+            this.label10.TabIndex = 49;
+            this.label10.Text = "Sample";
+            // 
+            // cmbSample
+            // 
+            this.cmbSample.FormattingEnabled = true;
+            this.cmbSample.Location = new System.Drawing.Point(1101, 205);
+            this.cmbSample.Name = "cmbSample";
+            this.cmbSample.Size = new System.Drawing.Size(197, 21);
+            this.cmbSample.TabIndex = 50;
+            this.cmbSample.SelectedIndexChanged += new System.EventHandler(this.cmbSample_SelectedIndexChanged);
+            // 
             // MedicalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1328, 733);
+            this.Controls.Add(this.cmbSample);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.txtMedicalId);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.gbDating);
@@ -617,5 +640,7 @@
         private System.Windows.Forms.Timer tmDate;
         private System.Windows.Forms.TextBox txtMedicalId;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox cmbSample;
     }
 }

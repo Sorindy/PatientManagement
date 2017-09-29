@@ -72,5 +72,27 @@ namespace PatientManagement
             _bs.DataSource = getsample.ToList();
             return _bs;
         }
+
+        public object Show_Sample_Title()
+        {
+            var getsample = from v in _db.LaboratorySamples
+                select new
+                {
+                    v.Title,
+                };
+            _bs.DataSource = getsample.ToList();
+            return _bs;
+        }
+
+        public object Search_Title(string title)
+        {
+            var getsample = from v in _db.LaboratorySamples 
+                where v.Title == title
+                select new
+                {
+                    v.Description,
+                };
+            return getsample;
+        }
     }
 }
