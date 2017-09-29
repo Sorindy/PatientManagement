@@ -9,8 +9,9 @@ using System.Threading.Tasks;*/
 
 namespace PatientManagement
 {
-   public class LaboratorySample : ISample 
-    {
+   public class LaboratorySample : ISample
+   {
+        
         private HospitalDbContext _db = new HospitalDbContext();
         private Hospital_Entity_Framework.LaboratorySample _laboratorySample  = new Hospital_Entity_Framework.LaboratorySample();
         private BindingSource _bs = new BindingSource();
@@ -73,26 +74,17 @@ namespace PatientManagement
             return _bs;
         }
 
-        public object Show_Sample_Title()
-        {
-            var getsample = from v in _db.LaboratorySamples
-                select new
-                {
-                    v.Title,
-                };
-            _bs.DataSource = getsample.ToList();
-            return _bs;
-        }
+       public object Show_Sample_Title()
+       {
+           var getsample = _db.LaboratorySamples.Select(v => v.Title);
+           return getsample.ToList();
+       }
 
-        public object Search_Title(string title)
-        {
-            var getsample = from v in _db.LaboratorySamples 
-                where v.Title == title
-                select new
-                {
-                    v.Description,
-                };
-            return getsample;
-        }
-    }
+       public string Search_Title(string title)
+       {
+           var getsample = _db.LaboratorySamples.Single(v => v.Title == title);
+           return getsample.Description;
+       }
+
+   }
 }

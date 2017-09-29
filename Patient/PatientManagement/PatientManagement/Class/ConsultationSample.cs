@@ -11,6 +11,7 @@ namespace PatientManagement
 {
    public class ConsultationSample: ISample
    {
+        
         private HospitalDbContext _db = new HospitalDbContext();
         private Hospital_Entity_Framework.ConsultationSample _consultationSample = new Hospital_Entity_Framework.ConsultationSample();
         private BindingSource _bs = new BindingSource();
@@ -75,25 +76,15 @@ namespace PatientManagement
 
        public object Show_Sample_Title()
        {
-           var getsample = from v in _db.ConsultationSamples
-               select new
-               {
-                   v.Title,
-               };
+           var getsample = _db.ConsultationSamples.Select(v=>v.Title);
            return getsample.ToList();
        }
 
-       public string  Search_Title(string  title)
+       public string Search_Title(string title)
        {
-           string[] separators = { "{", "}"," "};
-           title.Split(separators, StringSplitOptions.RemoveEmptyEntries);
-           var getsample = from v in _db.ConsultationSamples
-               where v.Title == title 
-               select new
-               {
-                   v.Description,
-               };
-           return getsample.ToString();
+           var getsample = _db.ConsultationSamples.Single(v => v.Title ==title);
+           return getsample.Description;
        }
+
    }
 }
