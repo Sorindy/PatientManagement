@@ -37,24 +37,11 @@ namespace PatientManagement
 
         private void DatingListForm_Load(object sender, EventArgs e)
         {
-            btnAdd.Visible = false;
-            btnNew.Visible = true;
-            Refresh();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            btnNew.Visible = true;
-            btnAdd.Visible = false;
-           _dating.Insert(txtDatingId.Text,txtPatientId.Text,txtStaffID.Text,dtpDating.Value.Date);
-            Refresh();
-        }
-
-        private void btnNew_Click(object sender, EventArgs e)
-        {
-            btnNew.Visible = false;
-            btnAdd.Visible = true;
-           txtDatingId.Text= _dating.AutoId();
+           _dating.Insert(_dating.AutoId(),txtPatientId.Text,txtStaffID.Text,dtpDating.Value.Date);
             Refresh();
         }
 

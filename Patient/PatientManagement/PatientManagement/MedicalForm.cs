@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 /*using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,9 +16,10 @@ namespace PatientManagement
     public partial class MedicalForm : Form
     {
 
+        private ISample _sample;
         private Dating _dating = new Dating();
         private IEstimate _estimate;
-
+        
         public MedicalForm()
         {
             InitializeComponent();
@@ -27,7 +29,6 @@ namespace PatientManagement
         {
             tmDate.Start();
             gbActivity.Enabled = false;
-            gbDating_waiting.Enabled = false;
             gbDating.Enabled = false;
             txtDescription.Enabled = false;
         }
@@ -57,33 +58,33 @@ namespace PatientManagement
             if (cmbMedicalRecord.SelectedIndex.Equals(0))
             {
                 _estimate = new ConsultationEstimate();
-                _estimate.Insert(txtMedicalId.Text, cmbCategory.Text, txtStaffID.Text, DateTime.Now,txtDescription.Text);
+                _estimate.Insert(_estimate.AutoId(), cmbCategory.Text, txtStaffID.Text, DateTime.Now,txtDescription.Text);
             }
             //if (cmbType.Text == "Prescription")
             if (cmbMedicalRecord.SelectedIndex.Equals(1))
             {
                 _estimate = new PrescriptionEstimate();
-                _estimate.Insert(txtMedicalId.Text, cmbCategory.Text, txtStaffID.Text, DateTime.Now, txtDescription.Text);
+                _estimate.Insert(_estimate.AutoId(), cmbCategory.Text, txtStaffID.Text, DateTime.Now, txtDescription.Text);
             }
             //if (cmbType.Text == "MedicalImaging")
             if (cmbMedicalRecord.SelectedIndex.Equals(2))
             {
                 _estimate = new MedicalImagingEstimate();
-                _estimate.Insert(txtMedicalId.Text, cmbCategory.Text, txtStaffID.Text, DateTime.Now, txtDescription.Text);
+                _estimate.Insert(_estimate.AutoId(), cmbCategory.Text, txtStaffID.Text, DateTime.Now, txtDescription.Text);
 
             }
             //if (cmbType.Text == "Laboratory")
             if (cmbMedicalRecord.SelectedIndex.Equals(3))
             {
                 _estimate = new LaboratoryEstimate();
-                _estimate.Insert(txtMedicalId.Text, cmbCategory.Text, txtStaffID.Text, DateTime.Now, txtDescription.Text);
+                _estimate.Insert(_estimate.AutoId(), cmbCategory.Text, txtStaffID.Text, DateTime.Now, txtDescription.Text);
 
             }
             //if (cmbType.Text == "VariousDocument")
             if (cmbMedicalRecord.SelectedIndex.Equals(4))
             {
                 _estimate = new VariousDocumentEstimate();
-                _estimate.Insert(txtMedicalId.Text, cmbCategory.Text, txtStaffID.Text, DateTime.Now, txtDescription.Text);
+                _estimate.Insert(_estimate.AutoId(), cmbCategory.Text, txtStaffID.Text, DateTime.Now, txtDescription.Text);
             }   
             btnSubmit.Visible = false;
             btnNew.Visible = true;
@@ -95,32 +96,43 @@ namespace PatientManagement
             //if (cmbType.Text == "Consultation")
             if (cmbMedicalRecord.SelectedIndex.Equals(0))
             {
-                _estimate = new ConsultationEstimate();
-                txtMedicalId.Text = _estimate.AutoId();
+               // _estimate = new ConsultationEstimate();
+               // txtMedicalId.Text = _estimate.AutoId();
+                _sample = new ConsultationSample();
+                cmbSample.DataSource = _sample.Show_Sample_Title();
+
             }
             //if (cmbType.Text == "Prescription")
             if (cmbMedicalRecord.SelectedIndex.Equals(1))
             {
-                _estimate = new PrescriptionEstimate();
-                txtMedicalId.Text = _estimate.AutoId();
+                //_estimate = new PrescriptionEstimate();
+                //txtMedicalId.Text = _estimate.AutoId();
+                _sample = new PrescriptionSample();
+                cmbSample.DataSource = _sample.Show_Sample_Title();
             }
             //if (cmbType.Text == "MedicalImaging")
             if (cmbMedicalRecord.SelectedIndex.Equals(2))
             {
-                _estimate = new MedicalImagingEstimate();
-                txtMedicalId.Text = _estimate.AutoId();
+                //_estimate = new MedicalImagingEstimate();
+                //txtMedicalId.Text = _estimate.AutoId();
+                _sample = new MedicalImagingSample();
+                cmbSample.DataSource = _sample.Show_Sample_Title();
             }
             //if (cmbType.Text == "Laboratory")
             if (cmbMedicalRecord.SelectedIndex.Equals(3))
             {
-                _estimate = new LaboratoryEstimate();
-                txtMedicalId.Text = _estimate.AutoId();
+                //_estimate = new LaboratoryEstimate();
+                //txtMedicalId.Text = _estimate.AutoId();
+                _sample = new LaboratorySample();
+                cmbSample.DataSource = _sample.Show_Sample_Title();
             }
             //if (cmbType.Text == "VariousDocument")
             if (cmbMedicalRecord.SelectedIndex.Equals(4))
             {
-                _estimate = new VariousDocumentEstimate();
-                txtMedicalId.Text = _estimate.AutoId();
+                //_estimate = new VariousDocumentEstimate();
+                //txtMedicalId.Text = _estimate.AutoId();
+                _sample = new VariousDocumentSample();
+                cmbSample.DataSource = _sample.Show_Sample_Title();
             }
             btnNew.Visible = false;
             btnSubmit.Visible = true;
@@ -139,7 +151,7 @@ namespace PatientManagement
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-
+            btnNew.Visible = true;
         }
 
         private void btnDatinglist_Click(object sender, EventArgs e)
@@ -166,9 +178,44 @@ namespace PatientManagement
         {
             txtDescriptioinName.Text = cmbMedicalRecord.SelectedItem.ToString();
             gbActivity.Enabled = true;
-            gbDating_waiting.Enabled = true;
             gbDating.Enabled = true;
             txtDescription.Enabled = true;
+        }
+
+        private void cmbSample_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //if (cmbType.Text == "Consultation")
+            if (cmbMedicalRecord.SelectedIndex.Equals(0))
+            {
+                _sample = new ConsultationSample();
+                txtDescription.Text = _sample.Search_Title(cmbSample.Text).ToString();
+            }
+            //if (cmbType.Text == "Prescription")
+            if (cmbMedicalRecord.SelectedIndex.Equals(1))
+            {
+                _estimate = new PrescriptionEstimate();
+                _estimate.Insert(_estimate.AutoId(), cmbCategory.Text, txtStaffID.Text, DateTime.Now, txtDescription.Text);
+            }
+            //if (cmbType.Text == "MedicalImaging")
+            if (cmbMedicalRecord.SelectedIndex.Equals(2))
+            {
+                _estimate = new MedicalImagingEstimate();
+                _estimate.Insert(_estimate.AutoId(), cmbCategory.Text, txtStaffID.Text, DateTime.Now, txtDescription.Text);
+
+            }
+            //if (cmbType.Text == "Laboratory")
+            if (cmbMedicalRecord.SelectedIndex.Equals(3))
+            {
+                _estimate = new LaboratoryEstimate();
+                _estimate.Insert(_estimate.AutoId(), cmbCategory.Text, txtStaffID.Text, DateTime.Now, txtDescription.Text);
+
+            }
+            //if (cmbType.Text == "VariousDocument")
+            if (cmbMedicalRecord.SelectedIndex.Equals(4))
+            {
+                _estimate = new VariousDocumentEstimate();
+                _estimate.Insert(_estimate.AutoId(), cmbCategory.Text, txtStaffID.Text, DateTime.Now, txtDescription.Text);
+            }
         }
     }
 }

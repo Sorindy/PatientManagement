@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;*/
 
+using System.Collections.Generic;
+
 namespace PatientManagement
 {
    public  interface ISample
@@ -13,5 +15,8 @@ namespace PatientManagement
         void Update(string id, string title,string description);
         void Delete(string id);
         object Show();
+        object Show_Sample_Title();
+        string  Search_Title(string  title);
+        
     }
 }
