@@ -4,7 +4,6 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using Hospital_Entity_Framework;
-using PatientManagement.Interface;
 
 
 namespace PatientManagement.Class
@@ -13,7 +12,6 @@ namespace PatientManagement.Class
     {
         private readonly HospitalDbContext _db=new HospitalDbContext();
         private IStatus _status;
-        private ICategoryStatus _categoryStatus;
 
         public void Insert(string id, string accId)
         {
@@ -429,42 +427,111 @@ namespace PatientManagement.Class
         return tabControl;
         }
 
-        public void SubmitManagement()
+        public void SubmitManagement(string workerId)
         {
-            var getWorkerId = _db.TempManagements.Select(v => v.WorkerId);
-            var getAccId = _db.Accounts.Where(v => v.WorkerId == getWorkerId.ToString()).Select(v=>v.Id);
-            var getConsultation = _db.TempManagements.Single(v => v.Services == "Consutation");
-            var getLaboratory = _db.TempManagements.Single(v => v.Services == "Laboratory");
-            var getMedicalImaging = _db.TempManagements.Single(v => v.Services == "MedicalImaging");
-            var getPrescription = _db.TempManagements.Single(v => v.Services == "Presciption");
-            var getVariousDocument = _db.TempManagements.Single(v => v.Services == "VariousDocument");
-            Insert(AutoId(),getAccId.ToString());
+            //var getWorkerId = _db.TempManagements.First(v => v.WorkerId==workerId).;
+            string getAccId = _db.Accounts.First(v => v.WorkerId == workerId).Id;
+            var getConsultation = _db.TempManagements.Where(v => v.Services == "Consutation");
+            var checkConsultation = _db.TempManagements.Any(v => v.Services == "Consutation");
+            var getLaboratory = _db.TempManagements.Where(v => v.Services == "Laboratory");
+            var checkLaboratory = _db.TempManagements.Any(v => v.Services == "Laboratory");
+            var getMedicalImaging = _db.TempManagements.Where(v => v.Services == "MedicalImaging");
+            var checkMedicalImaging = _db.TempManagements.Any(v => v.Services == "MedicalImaging");
+            var getPrescription = _db.TempManagements.Where(v => v.Services == "Presciption");
+            var checkPrescription = _db.TempManagements.Any(v => v.Services == "Presciption");
+            var getVariousDocument = _db.TempManagements.Where(v => v.Services == "VariousDocument");
+            var checkVariousDocument = _db.TempManagements.Any(v => v.Services == "VariousDocument");
+            Insert(AutoId(),getAccId);
 
-            if (getConsultation != null)
+            if (checkConsultation)
             {
                 _status = new ConsultationStatus();
-                _status.Insert(_status.AutoId(), true);
+                var id = _status.AutoId();
+                _status.Insert(id, true);
+
+                var service=new ServiceCategory();
+                var consulCatStatus=new ConsultationCategoryStatus();
+                foreach (var item in getConsultation)
+                {
+                    var catId = _db.ConsultationCategories.First(v => v.Name == item.Categorys).Id;
+                    var concatId = consulCatStatus.AutoId();
+                    consulCatStatus.Insert(concatId,catId,true);
+
+                    service.Insert(id,concatId);
+                }
+                
             }
-            if (getLaboratory != null)
+            if (checkLaboratory)
             {
                 _status=new LaboratoryStatus();
-                _status.Insert(_status.AutoId(),true);
+                var id = _status.AutoId();
+                _status.Insert(id, true);
+
+                var service = new ServiceCategory();
+                var labCatStatus = new LaboratoryCategoryStatus();
+                foreach (var item in getLaboratory)
+                {
+                    var catId = _db.LaboratoryCategories.Where(v => v.Name == item.Categorys).Select(v => v.Id);
+                    var concatId = labCatStatus.AutoId();
+                    labCatStatus.Insert(concatId, catId.ToString(), true);
+
+                    service.Insert(id, concatId);
+                }
+
+
             }
-            if (getMedicalImaging != null)
+            if (checkMedicalImaging)
             {
                 _status=new MedicalImagingStatus();
-                _status.Insert(_status.AutoId(),true);
+                var id = _status.AutoId();
+                _status.Insert(id, true);
+
+                var service = new ServiceCategory();
+                var medCatStatus = new MedicalImagingCategoryStatus();
+                foreach (var item in getMedicalImaging)
+                {
+                    var catId = _db.MedicalImagingCategories.Where(v => v.Name == item.Categorys).Select(v => v.Id);
+                    var concatId = medCatStatus.AutoId();
+                    medCatStatus.Insert(concatId, catId.ToString(), true);
+
+                    service.Insert(id, concatId);
+                }
             }
-            if (getPrescription != null)
+            if (checkPrescription)
             {
                 _status=new PrescriptionStatus();
-                _status.Insert(_status.AutoId(),true);
+                var id = _status.AutoId();
+                _status.Insert(id, true);
+
+                var service = new ServiceCategory();
+                var presciptCatStatus = new PrescriptionCategoryStatus();
+                foreach (var item in getPrescription)
+                {
+                    var catId = _db.PrescriptionCategories.Where(v => v.Name == item.Categorys).Select(v => v.Id);
+                    var concatId = presciptCatStatus.AutoId();
+                    presciptCatStatus.Insert(concatId, catId.ToString(), true);
+
+                    service.Insert(id, concatId);
+                }
             }
-            if (getVariousDocument != null)
+            if (checkVariousDocument)
             {
                 _status = new VariousDocumentStatus();
-                _status.Insert(_status.AutoId(), true);
+                var id = _status.AutoId();
+                _status.Insert(id, true);
+
+                var service = new ServiceCategory();
+                var vardocCatStatus = new VariousDocumentCategoryStatus();
+                foreach (var item in getVariousDocument)
+                {
+                    var catId = _db.VariousDocumentCategories.Where(v => v.Name == item.Categorys).Select(v => v.Id);
+                    var concatId = vardocCatStatus.AutoId();
+                    vardocCatStatus.Insert(concatId, catId.ToString(), true);
+
+                    service.Insert(id, concatId);
+                }
             }
+            _db.SaveChanges();
         }
 
     }

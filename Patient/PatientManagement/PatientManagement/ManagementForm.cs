@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using PatientManagement.Class;
 
@@ -34,7 +29,7 @@ namespace PatientManagement
 
         private void button3_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void cboControl_SelectedIndexChanged(object sender, EventArgs e)
@@ -45,7 +40,6 @@ namespace PatientManagement
             btn.Click += btnAddtoPreview_Click;
             gboControlName.Controls.Add(_management.ChoosenFormPanel(cboControl.Text));
             gboControlName.Controls.Add(btn);
-            return;
         }
 
         private void btnAddtoPreview_Click(object sender, EventArgs e)
@@ -82,6 +76,11 @@ namespace PatientManagement
             if (dgvShow.CurrentRow != null)
                 gboControlName.Text = dgvShow.CurrentRow.Cells[4].Value + @"'s Control";
             cboControl.DataSource = _management.Show_Control();
+        }
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            if (dgvShow.CurrentRow != null) _management.SubmitManagement(dgvShow.CurrentRow.Cells[0].Value.ToString());
         }
 
     }
