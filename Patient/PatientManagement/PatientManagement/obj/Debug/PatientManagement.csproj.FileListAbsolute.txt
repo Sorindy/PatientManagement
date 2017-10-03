@@ -75,3 +75,4 @@ D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\Patie
 >>>>>>> f52470db8b3ecb55b11ea620479920b391f4932a
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.DatingListForm.resources
 >>>>>>> e833b8d1af89f927ecf373988115a04e7e2ffb8b
+D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.MedicalHistoryForm.resources
