@@ -218,6 +218,23 @@ namespace PatientManagement
                 txtDescription.Text = _sample.Search_Title(cmbSample.Text);
             }
         }
+
+        private void btnFort_Click(object sender, EventArgs e)
+        {
+            FontDialog fd = new FontDialog();
+            fd = new FontDialog();
+            fd.ShowColor = true;
+            fd.ShowApply = true;
+            fd.ShowEffects = true;
+            fd.ShowHelp = true;
+            if (fd.ShowDialog() == DialogResult.OK & !string.IsNullOrEmpty(txtDescription.Text))
+            {
+
+                txtDescription.SelectionFont = fd.Font;
+                txtDescription.SelectionColor = fd.Color;
+                
+            }
+        }
     }
 }
 

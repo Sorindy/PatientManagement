@@ -50,7 +50,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnMedicalHistory = new System.Windows.Forms.Button();
-            this.txtDescription = new System.Windows.Forms.TextBox();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
@@ -76,6 +75,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.cmbSample = new System.Windows.Forms.ComboBox();
+            this.btnFort = new System.Windows.Forms.Button();
+            this.txtDescription = new System.Windows.Forms.RichTextBox();
             this.gbPatient.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.gbActivity.SuspendLayout();
@@ -291,14 +292,6 @@
             this.btnMedicalHistory.Text = "Medical History";
             this.btnMedicalHistory.UseVisualStyleBackColor = true;
             this.btnMedicalHistory.Click += new System.EventHandler(this.btnMedicalHistory_Click);
-            // 
-            // txtDescription
-            // 
-            this.txtDescription.Location = new System.Drawing.Point(234, 233);
-            this.txtDescription.Multiline = true;
-            this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(1082, 488);
-            this.txtDescription.TabIndex = 11;
             // 
             // btnSubmit
             // 
@@ -539,7 +532,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Modern No. 20", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(1022, 208);
+            this.label10.Location = new System.Drawing.Point(996, 207);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(51, 15);
             this.label10.TabIndex = 49;
@@ -548,17 +541,37 @@
             // cmbSample
             // 
             this.cmbSample.FormattingEnabled = true;
-            this.cmbSample.Location = new System.Drawing.Point(1101, 205);
+            this.cmbSample.Location = new System.Drawing.Point(1053, 205);
             this.cmbSample.Name = "cmbSample";
             this.cmbSample.Size = new System.Drawing.Size(197, 21);
             this.cmbSample.TabIndex = 50;
             this.cmbSample.SelectedIndexChanged += new System.EventHandler(this.cmbSample_SelectedIndexChanged);
+            // 
+            // btnFort
+            // 
+            this.btnFort.Location = new System.Drawing.Point(1253, 204);
+            this.btnFort.Name = "btnFort";
+            this.btnFort.Size = new System.Drawing.Size(63, 23);
+            this.btnFort.TabIndex = 51;
+            this.btnFort.Text = "Font";
+            this.btnFort.UseVisualStyleBackColor = true;
+            this.btnFort.Click += new System.EventHandler(this.btnFort_Click);
+            // 
+            // txtDescription
+            // 
+            this.txtDescription.Location = new System.Drawing.Point(234, 233);
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(1082, 488);
+            this.txtDescription.TabIndex = 52;
+            this.txtDescription.Text = "";
             // 
             // MedicalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1328, 733);
+            this.Controls.Add(this.txtDescription);
+            this.Controls.Add(this.btnFort);
             this.Controls.Add(this.cmbSample);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.txtMedicalId);
@@ -571,7 +584,6 @@
             this.Controls.Add(this.txtDescriptioinName);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.btnMedicalHistory);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gbPatient);
@@ -613,7 +625,6 @@
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape3;
         private System.Windows.Forms.Button btnMedicalHistory;
         private System.Windows.Forms.Button btnPatientDetail;
-        private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Label label7;
@@ -642,5 +653,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cmbSample;
+        private System.Windows.Forms.Button btnFort;
+        private System.Windows.Forms.RichTextBox txtDescription;
     }
 }
