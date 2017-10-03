@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 /*using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -49,6 +48,10 @@ namespace PatientManagement
 
         private void btnMedicalHistory_Click(object sender, EventArgs e)
         {
+            Hide();
+            var medicalhistoryform = new MedicalHistoryForm();
+            medicalhistoryform.Show();
+            Refresh();
             
         }
 
