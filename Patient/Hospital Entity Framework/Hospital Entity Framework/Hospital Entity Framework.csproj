@@ -33,6 +33,10 @@
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="Hospital Entity Framework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Hospital Entity Framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -49,13 +53,7 @@
     <Compile Include="Account.cs">
       <DependentUpon>Hospital.tt</DependentUpon>
     </Compile>
-    <Compile Include="Consultation.cs">
-      <DependentUpon>Hospital.tt</DependentUpon>
-    </Compile>
     <Compile Include="ConsultationCategory.cs">
-      <DependentUpon>Hospital.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ConsultationCategoryStatu.cs">
       <DependentUpon>Hospital.tt</DependentUpon>
     </Compile>
     <Compile Include="ConsultationEstimate.cs">
@@ -64,10 +62,10 @@
     <Compile Include="ConsultationSample.cs">
       <DependentUpon>Hospital.tt</DependentUpon>
     </Compile>
-    <Compile Include="ConsultationStatu.cs">
+    <Compile Include="Dating.cs">
       <DependentUpon>Hospital.tt</DependentUpon>
     </Compile>
-    <Compile Include="Dating.cs">
+    <Compile Include="Form.cs">
       <DependentUpon>Hospital.tt</DependentUpon>
     </Compile>
     <Compile Include="Hospital.Context.cs">
@@ -85,13 +83,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Hospital.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Laboratory.cs">
-      <DependentUpon>Hospital.tt</DependentUpon>
-    </Compile>
     <Compile Include="LaboratoryCategory.cs">
-      <DependentUpon>Hospital.tt</DependentUpon>
-    </Compile>
-    <Compile Include="LaboratoryCategoryStatu.cs">
       <DependentUpon>Hospital.tt</DependentUpon>
     </Compile>
     <Compile Include="LaboratoryEstimate.cs">
@@ -100,25 +92,13 @@
     <Compile Include="LaboratorySample.cs">
       <DependentUpon>Hospital.tt</DependentUpon>
     </Compile>
-    <Compile Include="LaboratoryStatu.cs">
-      <DependentUpon>Hospital.tt</DependentUpon>
-    </Compile>
     <Compile Include="Management.cs">
-      <DependentUpon>Hospital.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ManagementService.cs">
       <DependentUpon>Hospital.tt</DependentUpon>
     </Compile>
     <Compile Include="MedicalHistory.cs">
       <DependentUpon>Hospital.tt</DependentUpon>
     </Compile>
-    <Compile Include="MedicalImaging.cs">
-      <DependentUpon>Hospital.tt</DependentUpon>
-    </Compile>
     <Compile Include="MedicalImagingCategory.cs">
-      <DependentUpon>Hospital.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MedicalImagingCategoryStatu.cs">
       <DependentUpon>Hospital.tt</DependentUpon>
     </Compile>
     <Compile Include="MedicalImagingEstimate.cs">
@@ -127,22 +107,13 @@
     <Compile Include="MedicalImagingSample.cs">
       <DependentUpon>Hospital.tt</DependentUpon>
     </Compile>
-    <Compile Include="MedicalImagingStatu.cs">
-      <DependentUpon>Hospital.tt</DependentUpon>
-    </Compile>
     <Compile Include="MedicalRecord.cs">
       <DependentUpon>Hospital.tt</DependentUpon>
     </Compile>
     <Compile Include="Patient.cs">
       <DependentUpon>Hospital.tt</DependentUpon>
     </Compile>
-    <Compile Include="Prescription.cs">
-      <DependentUpon>Hospital.tt</DependentUpon>
-    </Compile>
     <Compile Include="PrescriptionCategory.cs">
-      <DependentUpon>Hospital.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PrescriptionCategoryStatu.cs">
       <DependentUpon>Hospital.tt</DependentUpon>
     </Compile>
     <Compile Include="PrescriptionEstimate.cs">
@@ -151,20 +122,11 @@
     <Compile Include="PrescriptionSample.cs">
       <DependentUpon>Hospital.tt</DependentUpon>
     </Compile>
-    <Compile Include="PrescriptionStatu.cs">
-      <DependentUpon>Hospital.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
-    <Compile Include="ServiceCategory.cs">
-      <DependentUpon>Hospital.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ServiceEstimate.cs">
-      <DependentUpon>Hospital.tt</DependentUpon>
     </Compile>
     <Compile Include="sp_helpdiagramdefinition_Result.cs">
       <DependentUpon>Hospital.tt</DependentUpon>
@@ -178,31 +140,22 @@
     <Compile Include="TempManagement.cs">
       <DependentUpon>Hospital.tt</DependentUpon>
     </Compile>
-    <Compile Include="VariousDocument.cs">
+    <Compile Include="TempWait.cs">
       <DependentUpon>Hospital.tt</DependentUpon>
     </Compile>
     <Compile Include="VariousDocumentCategory.cs">
       <DependentUpon>Hospital.tt</DependentUpon>
     </Compile>
-    <Compile Include="VariousDocumentCategoryStatu.cs">
-      <DependentUpon>Hospital.tt</DependentUpon>
-    </Compile>
-    <Compile Include="VariousDocumentEstimante.cs">
+    <Compile Include="VariousDocumentEstimate.cs">
       <DependentUpon>Hospital.tt</DependentUpon>
     </Compile>
     <Compile Include="VariousDocumentSample.cs">
       <DependentUpon>Hospital.tt</DependentUpon>
     </Compile>
-    <Compile Include="VariousDocumentStatu.cs">
-      <DependentUpon>Hospital.tt</DependentUpon>
-    </Compile>
     <Compile Include="Visit.cs">
       <DependentUpon>Hospital.tt</DependentUpon>
     </Compile>
-    <Compile Include="VisitService.cs">
-      <DependentUpon>Hospital.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Wait.cs">
+    <Compile Include="WaitingList.cs">
       <DependentUpon>Hospital.tt</DependentUpon>
     </Compile>
     <Compile Include="Worker.cs">
@@ -210,7 +163,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.Config" />
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
     <EntityDeploy Include="Hospital.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Hospital.Designer.cs</LastGenOutput>
@@ -218,7 +173,9 @@
     <None Include="Hospital.edmx.diagram">
       <DependentUpon>Hospital.edmx</DependentUpon>
     </None>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

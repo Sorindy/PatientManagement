@@ -1,17 +1,11 @@
-﻿/*using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;*/
-
-namespace PatientManagement.Class
+﻿namespace PatientManagement.Interface
 {
-   public  interface ICategory
-   {
-       string AutoId();
-       void Insert(string id, string name);
-       void Update(string id, string name);
-       void Delete(string id);
-       object Show();
-   }
+    interface ICategory
+    {
+        string AutoId();
+        void Insert(string id, string name);
+        void Update(string id, string name);
+        void Delete(string id);
+        object Show();
+    }
 }

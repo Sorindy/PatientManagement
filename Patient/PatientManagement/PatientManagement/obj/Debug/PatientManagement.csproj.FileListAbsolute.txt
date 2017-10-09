@@ -18,6 +18,7 @@ E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\Hospital Entity Framework.pdb
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\fr\Microsoft.VisualBasic.PowerPacks.Vs.resources.dll
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\fr\System.Data.SqlServerCe.resources.dll
+E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.csprojResolveAssemblyReference.cache
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.AccountRecoveryForm.resources
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.CategoryForm.resources
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.CreateAccountForm.resources

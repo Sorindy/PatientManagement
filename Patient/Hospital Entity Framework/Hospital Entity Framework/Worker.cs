@@ -17,17 +17,11 @@ namespace Hospital_Entity_Framework
         public Worker()
         {
             this.Accounts = new HashSet<Account>();
-            this.Consultations = new HashSet<Consultation>();
             this.ConsultationEstimates = new HashSet<ConsultationEstimate>();
             this.Datings = new HashSet<Dating>();
-            this.Laboratories = new HashSet<Laboratory>();
             this.LaboratoryEstimates = new HashSet<LaboratoryEstimate>();
-            this.MedicalImagings = new HashSet<MedicalImaging>();
             this.MedicalImagingEstimates = new HashSet<MedicalImagingEstimate>();
-            this.Prescriptions = new HashSet<Prescription>();
-            this.PrescriptionEstimates = new HashSet<PrescriptionEstimate>();
-            this.VariousDocuments = new HashSet<VariousDocument>();
-            this.VariousDocumentEstimantes = new HashSet<VariousDocumentEstimante>();
+            this.VariousDocumentEstimates = new HashSet<VariousDocumentEstimate>();
         }
     
         public string Id { get; set; }
@@ -41,19 +35,14 @@ namespace Hospital_Entity_Framework
         public string Email { get; set; }
         public string Position { get; set; }
         public Nullable<int> Salary { get; set; }
-        public Nullable<System.DateTime> SWD { get; set; }
+        public Nullable<System.DateTime> StartWorkDate { get; set; }
     
         public virtual ICollection<Account> Accounts { get; set; }
-        public virtual ICollection<Consultation> Consultations { get; set; }
         public virtual ICollection<ConsultationEstimate> ConsultationEstimates { get; set; }
         public virtual ICollection<Dating> Datings { get; set; }
-        public virtual ICollection<Laboratory> Laboratories { get; set; }
         public virtual ICollection<LaboratoryEstimate> LaboratoryEstimates { get; set; }
-        public virtual ICollection<MedicalImaging> MedicalImagings { get; set; }
         public virtual ICollection<MedicalImagingEstimate> MedicalImagingEstimates { get; set; }
-        public virtual ICollection<Prescription> Prescriptions { get; set; }
-        public virtual ICollection<PrescriptionEstimate> PrescriptionEstimates { get; set; }
-        public virtual ICollection<VariousDocument> VariousDocuments { get; set; }
-        public virtual ICollection<VariousDocumentEstimante> VariousDocumentEstimantes { get; set; }
+        public virtual PrescriptionEstimate PrescriptionEstimate { get; set; }
+        public virtual ICollection<VariousDocumentEstimate> VariousDocumentEstimates { get; set; }
     }
 }

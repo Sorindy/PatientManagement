@@ -12,12 +12,21 @@ namespace Hospital_Entity_Framework
     using System;
     using System.Collections.Generic;
     
-    public partial class TempManagement
+    public partial class VariousDocumentEstimate
     {
+        public VariousDocumentEstimate()
+        {
+            this.Visits = new HashSet<Visit>();
+        }
+    
         public string Id { get; set; }
+        public string CategoryId { get; set; }
         public string WorkerId { get; set; }
-        public string Forms { get; set; }
-        public string Services { get; set; }
-        public string Categorys { get; set; }
+        public System.DateTime Date { get; set; }
+        public string Description { get; set; }
+    
+        public virtual VariousDocumentCategory VariousDocumentCategory { get; set; }
+        public virtual Worker Worker { get; set; }
+        public virtual ICollection<Visit> Visits { get; set; }
     }
 }

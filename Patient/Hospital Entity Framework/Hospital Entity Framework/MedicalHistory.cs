@@ -14,16 +14,8 @@ namespace Hospital_Entity_Framework
     
     public partial class MedicalHistory
     {
-        public MedicalHistory()
-        {
-            this.ManagementServices = new HashSet<ManagementService>();
-        }
-    
         public string Id { get; set; }
         public string PatientId { get; set; }
         public string Description { get; set; }
-    
-        public virtual ICollection<ManagementService> ManagementServices { get; set; }
-        public virtual Patient Patient { get; set; }
     }
 }

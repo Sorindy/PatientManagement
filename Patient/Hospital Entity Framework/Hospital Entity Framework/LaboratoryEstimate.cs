@@ -16,7 +16,7 @@ namespace Hospital_Entity_Framework
     {
         public LaboratoryEstimate()
         {
-            this.ServiceEstimates = new HashSet<ServiceEstimate>();
+            this.Visits = new HashSet<Visit>();
         }
     
         public string Id { get; set; }
@@ -27,6 +27,6 @@ namespace Hospital_Entity_Framework
     
         public virtual LaboratoryCategory LaboratoryCategory { get; set; }
         public virtual Worker Worker { get; set; }
-        public virtual ICollection<ServiceEstimate> ServiceEstimates { get; set; }
+        public virtual ICollection<Visit> Visits { get; set; }
     }
 }

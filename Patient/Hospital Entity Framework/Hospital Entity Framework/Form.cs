@@ -12,12 +12,16 @@ namespace Hospital_Entity_Framework
     using System;
     using System.Collections.Generic;
     
-    public partial class TempManagement
+    public partial class Form
     {
+        public Form()
+        {
+            this.Managements = new HashSet<Management>();
+        }
+    
         public string Id { get; set; }
-        public string WorkerId { get; set; }
-        public string Forms { get; set; }
-        public string Services { get; set; }
-        public string Categorys { get; set; }
+        public string Name { get; set; }
+    
+        public virtual ICollection<Management> Managements { get; set; }
     }
 }

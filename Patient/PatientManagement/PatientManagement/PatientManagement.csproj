@@ -106,9 +106,9 @@
     <Compile Include="Class\ConsultationStatus.cs" />
     <Compile Include="Class\Dating.cs" />
     <Compile Include="Class\LaboratoryCategoryStatus.cs" />
+    <Compile Include="Class\ManagementService.cs" />
     <Compile Include="Class\MedicalImagingCategoryStatus.cs" />
     <Compile Include="Class\PrescriptionCategoryStatus.cs" />
-    <Compile Include="Class\ServiceCategory.cs" />
     <Compile Include="Class\VariousDocumentCategoryStatus.cs" />
     <Compile Include="Interface\ICategory.cs" />
     <Compile Include="Interface\ICategoryStatus.cs" />

@@ -16,14 +16,16 @@ namespace Hospital_Entity_Framework
     {
         public VariousDocumentCategory()
         {
-            this.VariousDocumentCategoryStatus = new HashSet<VariousDocumentCategoryStatu>();
-            this.VariousDocumentEstimantes = new HashSet<VariousDocumentEstimante>();
+            this.VariousDocumentEstimates = new HashSet<VariousDocumentEstimate>();
+            this.Managements = new HashSet<Management>();
+            this.WaitingLists = new HashSet<WaitingList>();
         }
     
         public string Id { get; set; }
         public string Name { get; set; }
     
-        public virtual ICollection<VariousDocumentCategoryStatu> VariousDocumentCategoryStatus { get; set; }
-        public virtual ICollection<VariousDocumentEstimante> VariousDocumentEstimantes { get; set; }
+        public virtual ICollection<VariousDocumentEstimate> VariousDocumentEstimates { get; set; }
+        public virtual ICollection<Management> Managements { get; set; }
+        public virtual ICollection<WaitingList> WaitingLists { get; set; }
     }
 }

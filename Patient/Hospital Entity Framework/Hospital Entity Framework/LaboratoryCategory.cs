@@ -16,14 +16,16 @@ namespace Hospital_Entity_Framework
     {
         public LaboratoryCategory()
         {
-            this.LaboratoryCategoryStatus = new HashSet<LaboratoryCategoryStatu>();
             this.LaboratoryEstimates = new HashSet<LaboratoryEstimate>();
+            this.Managements = new HashSet<Management>();
+            this.WaitingLists = new HashSet<WaitingList>();
         }
     
         public string Id { get; set; }
         public string Name { get; set; }
     
-        public virtual ICollection<LaboratoryCategoryStatu> LaboratoryCategoryStatus { get; set; }
         public virtual ICollection<LaboratoryEstimate> LaboratoryEstimates { get; set; }
+        public virtual ICollection<Management> Managements { get; set; }
+        public virtual ICollection<WaitingList> WaitingLists { get; set; }
     }
 }

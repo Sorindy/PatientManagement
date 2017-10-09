@@ -16,13 +16,23 @@ namespace Hospital_Entity_Framework
     {
         public Management()
         {
-            this.ManagementServices = new HashSet<ManagementService>();
+            this.ConsultationCategories = new HashSet<ConsultationCategory>();
+            this.Forms = new HashSet<Form>();
+            this.LaboratoryCategories = new HashSet<LaboratoryCategory>();
+            this.MedicalImagingCategories = new HashSet<MedicalImagingCategory>();
+            this.PrescriptionCategories = new HashSet<PrescriptionCategory>();
+            this.VariousDocumentCategories = new HashSet<VariousDocumentCategory>();
         }
     
         public string Id { get; set; }
         public string AccountId { get; set; }
     
         public virtual Account Account { get; set; }
-        public virtual ICollection<ManagementService> ManagementServices { get; set; }
+        public virtual ICollection<ConsultationCategory> ConsultationCategories { get; set; }
+        public virtual ICollection<Form> Forms { get; set; }
+        public virtual ICollection<LaboratoryCategory> LaboratoryCategories { get; set; }
+        public virtual ICollection<MedicalImagingCategory> MedicalImagingCategories { get; set; }
+        public virtual ICollection<PrescriptionCategory> PrescriptionCategories { get; set; }
+        public virtual ICollection<VariousDocumentCategory> VariousDocumentCategories { get; set; }
     }
 }

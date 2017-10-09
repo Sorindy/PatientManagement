@@ -29,49 +29,32 @@ namespace Hospital_Entity_Framework
         }
     
         public DbSet<Account> Accounts { get; set; }
-        public DbSet<Consultation> Consultations { get; set; }
         public DbSet<ConsultationCategory> ConsultationCategories { get; set; }
-        public DbSet<ConsultationCategoryStatu> ConsultationCategoryStatus { get; set; }
         public DbSet<ConsultationEstimate> ConsultationEstimates { get; set; }
         public DbSet<ConsultationSample> ConsultationSamples { get; set; }
-        public DbSet<ConsultationStatu> ConsultationStatus { get; set; }
         public DbSet<Dating> Datings { get; set; }
-        public DbSet<Laboratory> Laboratories { get; set; }
+        public DbSet<Form> Forms { get; set; }
         public DbSet<LaboratoryCategory> LaboratoryCategories { get; set; }
-        public DbSet<LaboratoryCategoryStatu> LaboratoryCategoryStatus { get; set; }
         public DbSet<LaboratoryEstimate> LaboratoryEstimates { get; set; }
         public DbSet<LaboratorySample> LaboratorySamples { get; set; }
-        public DbSet<LaboratoryStatu> LaboratoryStatus { get; set; }
         public DbSet<Management> Managements { get; set; }
-        public DbSet<ManagementService> ManagementServices { get; set; }
         public DbSet<MedicalHistory> MedicalHistories { get; set; }
-        public DbSet<MedicalImaging> MedicalImagings { get; set; }
         public DbSet<MedicalImagingCategory> MedicalImagingCategories { get; set; }
-        public DbSet<MedicalImagingCategoryStatu> MedicalImagingCategoryStatus { get; set; }
         public DbSet<MedicalImagingEstimate> MedicalImagingEstimates { get; set; }
         public DbSet<MedicalImagingSample> MedicalImagingSamples { get; set; }
-        public DbSet<MedicalImagingStatu> MedicalImagingStatus { get; set; }
         public DbSet<MedicalRecord> MedicalRecords { get; set; }
         public DbSet<Patient> Patients { get; set; }
-        public DbSet<Prescription> Prescriptions { get; set; }
         public DbSet<PrescriptionCategory> PrescriptionCategories { get; set; }
-        public DbSet<PrescriptionCategoryStatu> PrescriptionCategoryStatus { get; set; }
         public DbSet<PrescriptionEstimate> PrescriptionEstimates { get; set; }
         public DbSet<PrescriptionSample> PrescriptionSamples { get; set; }
-        public DbSet<PrescriptionStatu> PrescriptionStatus { get; set; }
-        public DbSet<ServiceCategory> ServiceCategories { get; set; }
-        public DbSet<ServiceEstimate> ServiceEstimates { get; set; }
         public DbSet<sysdiagram> sysdiagrams { get; set; }
         public DbSet<TempManagement> TempManagements { get; set; }
-        public DbSet<VariousDocument> VariousDocuments { get; set; }
+        public DbSet<TempWait> TempWaits { get; set; }
         public DbSet<VariousDocumentCategory> VariousDocumentCategories { get; set; }
-        public DbSet<VariousDocumentCategoryStatu> VariousDocumentCategoryStatus { get; set; }
-        public DbSet<VariousDocumentEstimante> VariousDocumentEstimantes { get; set; }
+        public DbSet<VariousDocumentEstimate> VariousDocumentEstimates { get; set; }
         public DbSet<VariousDocumentSample> VariousDocumentSamples { get; set; }
-        public DbSet<VariousDocumentStatu> VariousDocumentStatus { get; set; }
         public DbSet<Visit> Visits { get; set; }
-        public DbSet<VisitService> VisitServices { get; set; }
-        public DbSet<Wait> Waits { get; set; }
+        public DbSet<WaitingList> WaitingLists { get; set; }
         public DbSet<Worker> Workers { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)

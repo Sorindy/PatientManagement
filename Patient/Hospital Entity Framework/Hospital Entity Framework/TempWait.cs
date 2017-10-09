@@ -12,12 +12,10 @@ namespace Hospital_Entity_Framework
     using System;
     using System.Collections.Generic;
     
-    public partial class TempManagement
+    public partial class TempWait
     {
         public string Id { get; set; }
-        public string WorkerId { get; set; }
-        public string Forms { get; set; }
-        public string Services { get; set; }
-        public string Categorys { get; set; }
+        public string ServiceId { get; set; }
+        public string CategoryId { get; set; }
     }
 }
