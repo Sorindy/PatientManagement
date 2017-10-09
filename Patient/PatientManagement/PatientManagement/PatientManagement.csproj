@@ -106,7 +106,6 @@
     <Compile Include="Interface\ICategory.cs" />
     <Compile Include="Interface\IEstimate.cs" />
     <Compile Include="Interface\ISample.cs" />
-    <Compile Include="Interface\IStatus.cs" />
     <Compile Include="Class\LaboratoryCategory.cs" />
     <Compile Include="Class\LaboratoryEstimate.cs" />
     <Compile Include="Class\LaboratorySample.cs" />

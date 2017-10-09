@@ -61,53 +61,51 @@ namespace PatientManagement
         {
             if (txtName.Text.Trim() == "" || txtName.Text == null)
             {
-                MessageBox.Show("Please fill Name.");
+                MessageBox.Show(@"Please fill Name.");
                 txtName.Focus();
             }
             if (txtAddress.Text.Trim() == "" || txtAddress.Text == null)
             {
-                MessageBox.Show("Please fill Address.");
+                MessageBox.Show(@"Please fill Address.");
                 txtAddress.Focus();
             }
             if (txtPhone1.Text.Trim() == "" || txtPhone1.Text == null)
             {
-                MessageBox.Show("Please fill Phone1.");
+                MessageBox.Show(@"Please fill Phone1.");
                 txtName.Focus();
             }
             if (txtPhone2.Text.Trim() == "" || txtPhone2.Text == null)
             {
-                txtPhone2.Text = "None";
+                txtPhone2.Text = @"None";
             }
             if (txtEmail.Text.Trim() == "" || txtEmail.Text == null)
             {
-                txtEmail.Text = "None";
+                txtEmail.Text = @"None";
             }
             if (txtPosition.Text.Trim() == "" || txtPosition.Text == null)
             {
-                MessageBox.Show("Please fill Position.");
+                MessageBox.Show(@"Please fill Position.");
                 txtPosition.Focus();
             }
             if   (txtSalary.Text.Trim() == "" || txtSalary.Text == null)
             {
-                MessageBox.Show("Please fill Salary");
+                MessageBox.Show(@"Please fill Salary");
                 txtSalary.Focus();
             }
             if (dtpSWD.Value.Date == DateTime.Now.AddDays(1))
             {
-                MessageBox.Show("You can't hire " + txtName.Text + " over today.");
+                MessageBox.Show(@"You can't hire " + txtName.Text + @" over today.");
             }
             if (dtpDOB.Value.Date == DateTime.Today)
             {
-                MessageBox.Show("Make sure " + txtName.Text + " date of birth correct.");
+                MessageBox.Show(@"Make sure " + txtName.Text + @" date of birth correct.");
             }
         }
 
         private void FormRefresh(object sender, EventArgs e)
         {
             WorkerForm_Load(this,e);
-            LostFocus -= new EventHandler(FormRefresh);
-            MouseLeave -= new EventHandler(FormRefresh);
-            Leave -= new EventHandler(FormRefresh);
+            MouseLeave -=FormRefresh;
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -115,9 +113,7 @@ namespace PatientManagement
                 if (dgvWorker.CurrentRow != null)
                 {
                     worker.Delete(dgvWorker.CurrentRow.Cells[0].Value.ToString());
-                    LostFocus += new EventHandler(FormRefresh);
-                    MouseLeave += new EventHandler(FormRefresh);
-                    Leave += new EventHandler(FormRefresh);
+                    MouseLeave +=FormRefresh;
                 
                     worker.Delete(dgvWorker.CurrentRow.Cells[0].Value.ToString());
                 }
@@ -125,11 +121,14 @@ namespace PatientManagement
 
         private void dgvWorker_SelectionChanged(object sender, EventArgs e)
         {
+            if (dgvWorker.CurrentRow != null)
+            {
                 var getid = dgvWorker.CurrentRow.Cells[0].Value.ToString();
-                 Wk = worker.SelectedChange(getid);
-            
-                
-                txtID.Text = Wk.Id ;
+                Wk = worker.SelectedChange(getid);
+            }
+
+
+            txtID.Text = Wk.Id ;
                 txtName.Text = Wk.Name;
                 cboGender.Text = Wk.Gender;
                 dtpDOB.Value= Wk.DOB;
@@ -140,7 +139,7 @@ namespace PatientManagement
                 txtEmail.Text = Wk.Email;
                 txtPosition.Text = Wk.Position;
                 txtSalary.Text = Wk.Salary.ToString();
-                dtpSWD.Value = Wk.SWD .GetValueOrDefault();
+                dtpSWD.Value = Wk.StartWorkDate .GetValueOrDefault();
 
                 if (_account.CheckAccount(txtID.Text) == txtID.Text)
                 {
@@ -160,9 +159,7 @@ namespace PatientManagement
             {
                 worker.Insert(txtID.Text, txtName.Text, cboGender.Text, dtpDOB.Value.Date, Convert.ToInt16(txtAge.Text), txtAddress.Text, txtPhone1.Text,
                     txtPhone2.Text, txtEmail.Text, txtPosition.Text, Convert.ToInt32(txtSalary.Text), dtpSWD.Value.Date);
-                LostFocus += new EventHandler(FormRefresh);
-                MouseLeave +=new EventHandler(FormRefresh);
-                Leave +=new EventHandler(FormRefresh);
+                MouseLeave +=FormRefresh;
             }
             catch
             {
@@ -213,18 +210,15 @@ namespace PatientManagement
         {
                 worker.Update(txtID.Text, txtName.Text, cboGender.Text, dtpDOB.Value.Date, Convert.ToInt16(txtAge.Text), txtAddress.Text, txtPhone1.Text,
                     txtPhone2.Text, txtEmail.Text, txtPosition.Text, Convert.ToInt32(txtSalary.Text), dtpSWD.Value.Date);
-                LostFocus += new EventHandler(FormRefresh);
-                MouseLeave += new EventHandler(FormRefresh);
-                Leave += new EventHandler(FormRefresh);
+                MouseLeave += FormRefresh;
         }
 
         private void btnCreateAcc_Click(object sender, EventArgs e)
         {
-            var formAcc = new CreateAccountForm();
-            formAcc.Workers =Wk;
+            var formAcc = new CreateAccountForm {Workers = Wk};
             formAcc.Show();
             formAcc.WorkerForm = this;
-            this.Hide();
+            Hide();
 
         }
 
@@ -235,11 +229,10 @@ namespace PatientManagement
 
         private void btnUpdateAcc_Click(object sender, EventArgs e)
         {
-                UpdateAccountForm updateAcc = new UpdateAccountForm();
-                updateAcc.Workers= Wk;
-                updateAcc.Show();
+            var updateAcc = new UpdateAccountForm {Workers = Wk};
+            updateAcc.Show();
                 updateAcc.WorkerForm = this;
-                this.Hide();
+                Hide();
         }
     }       
 }

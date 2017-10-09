@@ -11,7 +11,6 @@ namespace PatientManagement.Class
     public class Management
     {
         private readonly HospitalDbContext _db=new HospitalDbContext();
-        private IStatus _status;
 
         private void Insert(string id, string accId)
        {
@@ -89,18 +88,13 @@ namespace PatientManagement.Class
             panel.Location = new Point(6, 50);
             panel.Size = new Size(526, 378);
 
-            _status = new ConsultationStatus();
-            var showConsultation = _status.ShowCategoryBox();
-            _status = new LaboratoryStatus();
-            var showLaboratory = _status.ShowCategoryBox();
-            _status = new MedicalImagingStatus();
-            var showMedicalImaging = _status.ShowCategoryBox();
-            _status = new PrescriptionStatus();
-            var showPrescription = _status.ShowCategoryBox();
-            _status = new VariousDocumentStatus();
-            var showVariousDoc = _status.ShowCategoryBox();
+            var showConsultation= new ConsultationCategory();
+            var showLaboratory =new LaboratoryCategory();
+            var showMedicalImaging = new MedicalImagingCategory();
+            var showPrescription =new PrescriptionCategory();
+            var showVariousDoc = new VariousDocumentCategory();
 
-            panel.Controls.AddRange(new Control[] { showConsultation, showLaboratory, showMedicalImaging, showPrescription, showVariousDoc });
+            panel.Controls.AddRange(new Control[] { showConsultation.ShowCategoryBox(), showLaboratory.ShowCategoryBox(), showMedicalImaging.ShowCategoryBox(), showPrescription.ShowCategoryBox(), showVariousDoc.ShowCategoryBox() });
             return panel;
         }
 
@@ -328,7 +322,6 @@ namespace PatientManagement.Class
                     Forms = form,
                     Categorys = category,
                     Services = service,
-                    Status = check
                 };
                 _db.TempManagements.AddOrUpdate(insertTemp);
                 _db.SaveChanges();
@@ -443,99 +436,62 @@ namespace PatientManagement.Class
             var checkVariousDocument = _db.TempManagements.Any(v => v.Services == "VariousDocument");
             var managementId = AutoId();
             Insert(managementId,getAccId);
-            var managementService = new ManagementService();
 
             if (checkConsultation)
             {
-                _status = new ConsultationStatus();
-                var id = _status.AutoId();
-                _status.Insert(id, true);
-
-                var consulCatStatus=new ConsultationCategoryStatus();
-                var concatId="";
                 foreach (var item in getConsultation)
                 {
-                    var catId = _db.ConsultationCategories.First(v => v.Name == item.Categorys).Id;
-                    concatId = consulCatStatus.AutoId();
-                    consulCatStatus.Insert(concatId,catId,true);
+                    var checkCategory = _db.ConsultationCategories.Single(v => v.Name == item.Categorys);
 
-                    var toarray = _db.ConsultationCategoryStatus.ToArray();
-                    var insert = _db.ConsultationCategoryStatus.Single(v => v.Consult_CategoryId == concatId);
-                    _db.ConsultationStatus.FirstOrDefault(v=>v.ConsultationId==concatId).ConsultationCategoryStatus.Add(insert);
+                    _db.Managements.FirstOrDefault(v=>v.Id==managementId).ConsultationCategories.Add(checkCategory);
+                    
                     _db.SaveChanges();
-                }
-                managementService.Insert(managementId,id);
-                _db.SaveChanges();
-
-                
+                }                
             }
             if (checkLaboratory)
             {
-                _status=new LaboratoryStatus();
-                var id = _status.AutoId();
-                _status.Insert(id, true);
-                managementService.Insert(managementId, id);
-
-                var labCatStatus = new LaboratoryCategoryStatus();
                 foreach (var item in getLaboratory)
                 {
-                    var catId = _db.LaboratoryCategories.Where(v => v.Name == item.Categorys).Select(v => v.Id);
-                    var concatId = labCatStatus.AutoId();
-                    labCatStatus.Insert(concatId, catId.ToString(), true);
+                    var checkCategory = _db.LaboratoryCategories.Single(v => v.Name == item.Categorys);
 
+                    _db.Managements.FirstOrDefault(v=>v.Id==managementId).LaboratoryCategories.Add(checkCategory);
+
+                    _db.SaveChanges();
                 }
 
 
             }
             if (checkMedicalImaging)
             {
-                _status=new MedicalImagingStatus();
-                var id = _status.AutoId();
-                _status.Insert(id, true);
-                managementService.Insert(managementId, id);
-
-                var service = new ServiceCategory();
-                var medCatStatus = new MedicalImagingCategoryStatus();
                 foreach (var item in getMedicalImaging)
                 {
-                    var catId = _db.MedicalImagingCategories.Where(v => v.Name == item.Categorys).Select(v => v.Id);
-                    var concatId = medCatStatus.AutoId();
-                    medCatStatus.Insert(concatId, catId.ToString(), true);
+                    var checkCategory = _db.MedicalImagingCategories.Single(v => v.Name == item.Categorys);
 
+                    _db.Managements.FirstOrDefault(v=>v.Id==managementId).MedicalImagingCategories.Add(checkCategory);
+
+                    _db.SaveChanges();
                 }
             }
             if (checkPrescription)
             {
-                _status=new PrescriptionStatus();
-                var id = _status.AutoId();
-                _status.Insert(id, true);
-                managementService.Insert(managementId, id);
-
-                var service = new ServiceCategory();
-                var presciptCatStatus = new PrescriptionCategoryStatus();
                 foreach (var item in getPrescription)
                 {
-                    var catId = _db.PrescriptionCategories.Where(v => v.Name == item.Categorys).Select(v => v.Id);
-                    var concatId = presciptCatStatus.AutoId();
-                    presciptCatStatus.Insert(concatId, catId.ToString(), true);
+                    var checkCategory = _db.PrescriptionCategories.Single(v => v.Name == item.Categorys);
 
+                    _db.Managements.FirstOrDefault(v=>v.Id==managementId).PrescriptionCategories.Add(checkCategory);
+
+                    _db.SaveChanges();
                 }
             }
             if (checkVariousDocument)
             {
-                _status = new VariousDocumentStatus();
-                var id = _status.AutoId();
-                _status.Insert(id, true);
-                managementService.Insert(managementId, id);
-
-                var service = new ServiceCategory();
-                var vardocCatStatus = new VariousDocumentCategoryStatus();
                 foreach (var item in getVariousDocument)
                 {
-                    var catId = _db.VariousDocumentCategories.Where(v => v.Name == item.Categorys).Select(v => v.Id);
-                    var concatId = vardocCatStatus.AutoId();
-                    vardocCatStatus.Insert(concatId, catId.ToString(), true);
+                    var checkCategory = _db.VariousDocumentCategories.Single(v => v.Name == item.Categorys);
 
+                    _db.Managements.FirstOrDefault(v=>v.Id==managementId).VariousDocumentCategories.Add(checkCategory);
+
+                    _db.SaveChanges();
                 }
             }
         }
