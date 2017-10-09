@@ -40,6 +40,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.gbActivity = new System.Windows.Forms.GroupBox();
             this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnSubmit = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.gbPatient = new System.Windows.Forms.GroupBox();
             this.btnPatientDetail = new System.Windows.Forms.Button();
@@ -56,12 +57,13 @@
             this.txtStaffID = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtDescription = new System.Windows.Forms.TextBox();
             this.cmbVisit = new System.Windows.Forms.ComboBox();
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.lineShape2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.dtgInformation = new System.Windows.Forms.DataGridView();
+            this.btnFort = new System.Windows.Forms.Button();
+            this.txtDescription = new System.Windows.Forms.RichTextBox();
             this.gbActivity.SuspendLayout();
             this.gbPatient.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -80,7 +82,7 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(9, 190);
+            this.btnClose.Location = new System.Drawing.Point(9, 141);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(183, 33);
             this.btnClose.TabIndex = 30;
@@ -90,7 +92,7 @@
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(9, 151);
+            this.btnClear.Location = new System.Drawing.Point(9, 102);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(183, 33);
             this.btnClear.TabIndex = 29;
@@ -99,7 +101,7 @@
             // 
             // btnPrint
             // 
-            this.btnPrint.Location = new System.Drawing.Point(9, 112);
+            this.btnPrint.Location = new System.Drawing.Point(9, 63);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(183, 33);
             this.btnPrint.TabIndex = 20;
@@ -126,7 +128,7 @@
             // txtDescriptioinName
             // 
             this.txtDescriptioinName.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescriptioinName.Location = new System.Drawing.Point(662, 199);
+            this.txtDescriptioinName.Location = new System.Drawing.Point(713, 202);
             this.txtDescriptioinName.Name = "txtDescriptioinName";
             this.txtDescriptioinName.ReadOnly = true;
             this.txtDescriptioinName.Size = new System.Drawing.Size(333, 25);
@@ -140,7 +142,7 @@
             // txtMedicalId
             // 
             this.txtMedicalId.Font = new System.Drawing.Font("Modern No. 20", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMedicalId.Location = new System.Drawing.Point(315, 204);
+            this.txtMedicalId.Location = new System.Drawing.Point(368, 204);
             this.txtMedicalId.Name = "txtMedicalId";
             this.txtMedicalId.ReadOnly = true;
             this.txtMedicalId.Size = new System.Drawing.Size(197, 19);
@@ -153,37 +155,49 @@
             this.label8.Font = new System.Drawing.Font("Modern No. 20", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(236, 206);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(73, 15);
+            this.label8.Size = new System.Drawing.Size(126, 15);
             this.label8.TabIndex = 64;
-            this.label8.Text = "Medical-Id";
+            this.label8.Text = "Medical-History-Id";
             // 
             // gbActivity
             // 
+            this.gbActivity.Controls.Add(this.btnUpdate);
             this.gbActivity.Controls.Add(this.btnClose);
             this.gbActivity.Controls.Add(this.btnClear);
             this.gbActivity.Controls.Add(this.btnPrint);
-            this.gbActivity.Controls.Add(this.btnUpdate);
+            this.gbActivity.Controls.Add(this.btnSubmit);
             this.gbActivity.Location = new System.Drawing.Point(12, 300);
             this.gbActivity.Name = "gbActivity";
-            this.gbActivity.Size = new System.Drawing.Size(201, 237);
+            this.gbActivity.Size = new System.Drawing.Size(201, 194);
             this.gbActivity.TabIndex = 61;
             this.gbActivity.TabStop = false;
             this.gbActivity.Text = "Activity";
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(9, 73);
+            this.btnUpdate.Location = new System.Drawing.Point(9, 24);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(183, 33);
-            this.btnUpdate.TabIndex = 13;
+            this.btnUpdate.TabIndex = 31;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // btnSubmit
+            // 
+            this.btnSubmit.Location = new System.Drawing.Point(9, 24);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(183, 33);
+            this.btnSubmit.TabIndex = 13;
+            this.btnSubmit.Text = "Submit";
+            this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(545, 200);
+            this.label9.Location = new System.Drawing.Point(596, 203);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(111, 21);
             this.label9.TabIndex = 57;
@@ -211,6 +225,7 @@
             this.btnPatientDetail.TabIndex = 5;
             this.btnPatientDetail.Text = "More Detail";
             this.btnPatientDetail.UseVisualStyleBackColor = true;
+            this.btnPatientDetail.Click += new System.EventHandler(this.btnPatientDetail_Click);
             // 
             // txtPatientName
             // 
@@ -230,7 +245,6 @@
             this.txtPatientID.ReadOnly = true;
             this.txtPatientID.Size = new System.Drawing.Size(197, 19);
             this.txtPatientID.TabIndex = 2;
-            this.txtPatientID.Text = "Patient1";
             this.txtPatientID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label3
@@ -342,14 +356,6 @@
             this.label5.TabIndex = 4;
             this.label5.Text = "Doctor-Id";
             // 
-            // txtDescription
-            // 
-            this.txtDescription.Location = new System.Drawing.Point(239, 230);
-            this.txtDescription.Multiline = true;
-            this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(1082, 488);
-            this.txtDescription.TabIndex = 55;
-            // 
             // cmbVisit
             // 
             this.cmbVisit.BackColor = System.Drawing.SystemColors.ScrollBar;
@@ -360,6 +366,7 @@
             this.cmbVisit.Size = new System.Drawing.Size(200, 26);
             this.cmbVisit.TabIndex = 68;
             this.cmbVisit.Text = "Visit";
+            this.cmbVisit.SelectedIndexChanged += new System.EventHandler(this.cmbVisit_SelectedIndexChanged);
             // 
             // lineShape1
             // 
@@ -392,16 +399,36 @@
             // dtgInformation
             // 
             this.dtgInformation.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgInformation.Location = new System.Drawing.Point(239, 230);
+            this.dtgInformation.Location = new System.Drawing.Point(243, 233);
             this.dtgInformation.Name = "dtgInformation";
             this.dtgInformation.Size = new System.Drawing.Size(1082, 488);
             this.dtgInformation.TabIndex = 70;
+            // 
+            // btnFort
+            // 
+            this.btnFort.Location = new System.Drawing.Point(1065, 204);
+            this.btnFort.Name = "btnFort";
+            this.btnFort.Size = new System.Drawing.Size(82, 23);
+            this.btnFort.TabIndex = 71;
+            this.btnFort.Text = "Font";
+            this.btnFort.UseVisualStyleBackColor = true;
+            this.btnFort.Click += new System.EventHandler(this.btnFort_Click);
+            // 
+            // txtDescription
+            // 
+            this.txtDescription.Location = new System.Drawing.Point(244, 233);
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(1082, 488);
+            this.txtDescription.TabIndex = 72;
+            this.txtDescription.Text = "";
             // 
             // MedicalHistoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1328, 733);
+            this.Controls.Add(this.txtDescription);
+            this.Controls.Add(this.btnFort);
             this.Controls.Add(this.dtgInformation);
             this.Controls.Add(this.cmbVisit);
             this.Controls.Add(this.lbTodaydate);
@@ -415,7 +442,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.shapeContainer1);
             this.Name = "MedicalHistoryForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -444,7 +470,7 @@
         private System.Windows.Forms.TextBox txtMedicalId;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.GroupBox gbActivity;
-        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.GroupBox gbPatient;
         private System.Windows.Forms.Button btnPatientDetail;
@@ -461,11 +487,13 @@
         private System.Windows.Forms.TextBox txtStaffID;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.ComboBox cmbVisit;
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape2;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
         private System.Windows.Forms.DataGridView dtgInformation;
+        private System.Windows.Forms.Button btnFort;
+        private System.Windows.Forms.RichTextBox txtDescription;
+        private System.Windows.Forms.Button btnUpdate;
     }
 }

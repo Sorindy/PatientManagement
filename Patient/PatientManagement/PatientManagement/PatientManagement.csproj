@@ -191,6 +191,12 @@
     <Compile Include="UpdateAccountForm.designer.cs">
       <DependentUpon>UpdateAccountForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="WaitingListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaitingListForm.Designer.cs">
+      <DependentUpon>WaitingListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="WorkerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -238,6 +244,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateAccountForm.resx">
       <DependentUpon>UpdateAccountForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaitingListForm.resx">
+      <DependentUpon>WaitingListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WorkerForm.resx">
       <DependentUpon>WorkerForm.cs</DependentUpon>

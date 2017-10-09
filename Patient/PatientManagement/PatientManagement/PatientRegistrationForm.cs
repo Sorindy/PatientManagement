@@ -20,6 +20,11 @@ namespace PatientManagement
             InitializeComponent();
         }
 
+        public bool SearchButtonEnable
+        {
+            get { return btnSearch.Enabled ; }
+            set { btnSearch.Enabled = value; }
+        }
 
         public string TextId
         {

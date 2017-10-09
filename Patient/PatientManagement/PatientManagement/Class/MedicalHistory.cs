@@ -13,7 +13,7 @@ namespace PatientManagement.Class
     {
         private HospitalDbContext _db = new HospitalDbContext();
         private Hospital_Entity_Framework.MedicalHistory  _medicalHistory   =new Hospital_Entity_Framework.MedicalHistory();
-        private BindingSource _bs = new BindingSource();
+       // private BindingSource _bs = new BindingSource();
 
         public string AutoId()
         {
@@ -44,34 +44,34 @@ namespace PatientManagement.Class
             _db.SaveChanges();
         }
 
-        public void Update(string id, string patientid , string description)
+        public void Update(string id , string description)
         {
             var update = _db.MedicalHistories.Single(v => v.Id == id);
-            update.PatientId = patientid;
             update.Description = description;
             _db.MedicalHistories.AddOrUpdate(update);
             _db.SaveChanges();
         }
 
-        public void Delete(string id)
+        public Hospital_Entity_Framework.MedicalHistory  Show_medicalhistory(string patientId)   
         {
-            var delete = _db.MedicalHistories.Single(vid => vid.Id == id);
-            _db.MedicalHistories.Remove(delete);
-            _db.SaveChanges();
-        }
-
-        public object Show()
-        {
-            var getestimate = from v in _db.MedicalHistories 
+            var getmedicalhistory = from v in _db.MedicalHistories 
+                where v.PatientId  == patientId 
                 select new
                 {
                     v.Id,
-                    v.PatientId,
-                    v.Description,
+                    v.PatientId ,
+                    v.Description,  
                 };
-            _bs.DataSource = getestimate.ToList();
-            return _bs;
+            foreach (var item in getmedicalhistory)
+            {
+                _medicalHistory.Id = item.Id;
+                _medicalHistory.PatientId  = item.PatientId ;
+                _medicalHistory.Description  = item.Description ;
+            }
+
+            return _medicalHistory;
         }
+
     }
     }
 

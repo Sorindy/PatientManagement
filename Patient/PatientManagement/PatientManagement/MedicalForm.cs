@@ -41,15 +41,17 @@ namespace PatientManagement
         private void btnPatientDetail_Click(object sender, EventArgs e)
         {
             var getid = txtPatientID.Text;
-            var ptrf = new PatientRegistrationForm();
-            ptrf.Show();
-            ptrf.TextId = getid;
+            var patientRegistrationForm = new PatientRegistrationForm();
+            patientRegistrationForm.Show();
+            patientRegistrationForm.SearchButtonEnable = false;
+            patientRegistrationForm.TextId = getid;
         }
 
         private void btnMedicalHistory_Click(object sender, EventArgs e)
         {
             Hide();
             var medicalhistoryform = new MedicalHistoryForm();
+            medicalhistoryform.PatientIdTextboxChange = txtPatientID.Text;
             medicalhistoryform.Show();
             Refresh();
             

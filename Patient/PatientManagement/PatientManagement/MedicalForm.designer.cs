@@ -327,7 +327,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(540, 203);
+            this.label9.Location = new System.Drawing.Point(521, 203);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(111, 21);
             this.label9.TabIndex = 16;
@@ -336,7 +336,7 @@
             // txtDescriptioinName
             // 
             this.txtDescriptioinName.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescriptioinName.Location = new System.Drawing.Point(657, 202);
+            this.txtDescriptioinName.Location = new System.Drawing.Point(638, 202);
             this.txtDescriptioinName.Name = "txtDescriptioinName";
             this.txtDescriptioinName.ReadOnly = true;
             this.txtDescriptioinName.Size = new System.Drawing.Size(333, 25);
@@ -517,6 +517,7 @@
             this.txtMedicalId.Size = new System.Drawing.Size(197, 19);
             this.txtMedicalId.TabIndex = 48;
             this.txtMedicalId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtMedicalId.Visible = false;
             // 
             // label8
             // 
@@ -527,12 +528,13 @@
             this.label8.Size = new System.Drawing.Size(73, 15);
             this.label8.TabIndex = 47;
             this.label8.Text = "Medical-Id";
+            this.label8.Visible = false;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Modern No. 20", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(996, 207);
+            this.label10.Location = new System.Drawing.Point(977, 207);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(51, 15);
             this.label10.TabIndex = 49;
@@ -541,7 +543,7 @@
             // cmbSample
             // 
             this.cmbSample.FormattingEnabled = true;
-            this.cmbSample.Location = new System.Drawing.Point(1053, 205);
+            this.cmbSample.Location = new System.Drawing.Point(1034, 205);
             this.cmbSample.Name = "cmbSample";
             this.cmbSample.Size = new System.Drawing.Size(197, 21);
             this.cmbSample.TabIndex = 50;
@@ -549,9 +551,9 @@
             // 
             // btnFort
             // 
-            this.btnFort.Location = new System.Drawing.Point(1253, 204);
+            this.btnFort.Location = new System.Drawing.Point(1234, 204);
             this.btnFort.Name = "btnFort";
-            this.btnFort.Size = new System.Drawing.Size(63, 23);
+            this.btnFort.Size = new System.Drawing.Size(82, 23);
             this.btnFort.TabIndex = 51;
             this.btnFort.Text = "Font";
             this.btnFort.UseVisualStyleBackColor = true;
