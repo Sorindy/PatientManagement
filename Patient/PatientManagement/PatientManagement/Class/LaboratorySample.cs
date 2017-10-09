@@ -1,13 +1,14 @@
 ﻿using System;
-using System.Windows.Forms;
 using System.Data.Entity.Migrations;
-using Hospital_Entity_Framework;
 using System.Linq;
+using System.Windows.Forms;
+using Hospital_Entity_Framework;
+
 /*using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;*/
 
-namespace PatientManagement
+namespace PatientManagement.Class
 {
    public class LaboratorySample : ISample
    {

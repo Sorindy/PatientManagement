@@ -17,7 +17,7 @@ namespace PatientManagement.Class
             var insert=new Hospital_Entity_Framework.Worker()
             {
                 Id = id,Name = name,Gender = gender,DOB = dob,Age = age,Address = address,
-                Phone1 = phone1,Phone2 = phone2,Email = email,Position = position,Salary = salary,SWD = workdate
+                Phone1 = phone1,Phone2 = phone2,Email = email,Position = position,Salary = salary,StartWorkDate = workdate
             };
 
             _db.Workers.Add(insert);
@@ -47,7 +47,7 @@ namespace PatientManagement.Class
             update.Email = email;
             update.Position = position;
             update.Salary = salary;
-            update.SWD = workdate;
+            update.StartWorkDate = workdate;
 
             _db.Workers.AddOrUpdate(update);
             _db.SaveChanges();
@@ -71,7 +71,7 @@ namespace PatientManagement.Class
                 v.Email,
                 v.Position,
                 v.Salary,
-                v.SWD
+                v.StartWorkDate
             }).ToList();
             return bs;
         }
@@ -93,7 +93,7 @@ namespace PatientManagement.Class
                     v.Email,
                     v.Position,
                     v.Salary,
-                    v.SWD,
+                    v.StartWorkDate,
                 };
             foreach (var item in getWorker)
             {
@@ -101,7 +101,7 @@ namespace PatientManagement.Class
                 {
                     Id = item.Id,Name = item.Name,Gender = item.Gender,DOB = item.DOB,Age = item.Age,
                     Address = item.Address,Phone1 = item.Phone1,Phone2 = item.Phone2,Email = item.Email,Position = item.Position,
-                    Salary = item.Salary,SWD = item.SWD
+                    Salary = item.Salary,StartWorkDate = item.StartWorkDate
                 };
                 return worker;
             }

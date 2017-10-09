@@ -12,14 +12,14 @@ namespace PatientManagement.Class
    public class VariousDocumentEstimate: IEstimate 
     {
         private HospitalDbContext _db = new HospitalDbContext();
-        private VariousDocumentEstimante _variousDocumentEstimante   =new VariousDocumentEstimante();
+        private Hospital_Entity_Framework.VariousDocumentEstimate _variousDocumentEstimante   =new Hospital_Entity_Framework.VariousDocumentEstimate();
         private BindingSource _bs = new BindingSource();
 
         public string AutoId()
         {
             try
             {
-                var getLastId = _db.VariousDocumentEstimantes.OrderByDescending(v => v.Id).First();
+                var getLastId = _db.VariousDocumentEstimates.OrderByDescending(v => v.Id).First();
                 var getvalue = getLastId.Id;
                 var num = Convert.ToInt32(getvalue.Substring(23));
                 num += 1;
@@ -34,7 +34,7 @@ namespace PatientManagement.Class
 
         public void Insert(string id, string categoryid,string workerid,DateTime date,string description)
         {
-            var insert = new VariousDocumentEstimante() 
+            var insert = new Hospital_Entity_Framework.VariousDocumentEstimate() 
             {
                 Id = id,
                 CategoryId = categoryid,
@@ -42,31 +42,31 @@ namespace PatientManagement.Class
                 Date = date,
                 Description =description,
             };
-            _db.VariousDocumentEstimantes.Add(insert);
+            _db.VariousDocumentEstimates.Add(insert);
             _db.SaveChanges();
         }
 
         public void Update(string id, string categoryid, string workerid, DateTime date, string description)
         {
-            var update = _db.VariousDocumentEstimantes.Single(v => v.Id == id);
+            var update = _db.VariousDocumentEstimates.Single(v => v.Id == id);
             update.CategoryId  = categoryid ;
             update.WorkerId = workerid;
             update.Date = date;
             update.Description = description;
-            _db.VariousDocumentEstimantes.AddOrUpdate(update);
+            _db.VariousDocumentEstimates.AddOrUpdate(update);
             _db.SaveChanges();
         }
 
         public void Delete(string id)
         {
-            var delete = _db.VariousDocumentEstimantes.Single(vid => vid.Id == id);
-            _db.VariousDocumentEstimantes.Remove(delete);
+            var delete = _db.VariousDocumentEstimates.Single(vid => vid.Id == id);
+            _db.VariousDocumentEstimates.Remove(delete);
             _db.SaveChanges();
         }
 
         public object Show()
         {
-            var getestimate = from v in _db.VariousDocumentEstimantes 
+            var getestimate = from v in _db.VariousDocumentEstimates 
                 select new
                 {
                     v.Id,

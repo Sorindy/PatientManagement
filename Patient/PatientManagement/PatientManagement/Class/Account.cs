@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using Hospital_Entity_Framework;
 
 namespace PatientManagement.Class
@@ -46,7 +42,7 @@ namespace PatientManagement.Class
             try
             {
                 var getLastId = _db.Accounts.OrderByDescending(v => v.Id).First();
-                var getvalue = getLastId.Id.ToString();
+                var getvalue = getLastId.Id;
                 var num = Convert.ToInt32(getvalue.Substring(7));
                 num += 1;
                 account.Id = string.Concat("Account", num);
@@ -83,7 +79,7 @@ namespace PatientManagement.Class
             try
             {
                 var check = _db.Accounts.Single(v => v.WorkerId == id);
-                return s = check.WorkerId;
+                s = check.WorkerId;
             }
             catch
             {

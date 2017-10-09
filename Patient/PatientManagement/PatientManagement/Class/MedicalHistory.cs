@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Windows.Forms;
 using System.Data.Entity.Migrations;
 using Hospital_Entity_Framework;
 using System.Linq;

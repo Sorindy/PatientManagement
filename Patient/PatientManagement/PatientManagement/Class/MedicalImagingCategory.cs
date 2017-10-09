@@ -1,25 +1,18 @@
 ﻿using System;
-using System.Windows.Forms;
 using System.Data.Entity.Migrations;
-using Hospital_Entity_Framework;
-using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using PatientManagement.Class;
+using System.Windows.Forms;
+using Hospital_Entity_Framework;
+using PatientManagement.Interface;
 
-namespace PatientManagement
+namespace PatientManagement.Class
 {
    public  class MedicalImagingCategory: ICategory 
     {
         private HospitalDbContext _db = new HospitalDbContext();
         private Hospital_Entity_Framework.MedicalImagingCategory  _medicalImagingCategory = new Hospital_Entity_Framework.MedicalImagingCategory();
         private BindingSource _bs = new BindingSource();
-
-        public MedicalImagingCategory()
-        {
-
-        }
 
         public string AutoId()
         {
@@ -74,6 +67,32 @@ namespace PatientManagement
                 };
             _bs.DataSource = getcategory.ToList();
             return _bs;
+        }
+
+        public GroupBox ShowCategoryBox()
+        {
+            var checkListBox = new CheckedListBox();
+            var groupBox = new GroupBox();
+            var flpn = new FlowLayoutPanel
+            {
+                FlowDirection = FlowDirection.TopDown,
+                Dock = DockStyle.Fill,
+                Size = new Size(508, 54),
+                AutoScroll = true
+            };
+            groupBox.Size = new Size(520, 100);
+            checkListBox.Size = new Size(508, 54);
+
+            groupBox.Text = @"MedicalImaging";
+            var getCategroy = from v in _db.MedicalImagingCategories select new { v.Name };
+            foreach (var item in getCategroy)
+            {
+                checkListBox.Items.Add(item.Name);
+            }
+
+            flpn.Controls.Add(checkListBox);
+            groupBox.Controls.Add(flpn);
+            return groupBox;
         }
     }
 }

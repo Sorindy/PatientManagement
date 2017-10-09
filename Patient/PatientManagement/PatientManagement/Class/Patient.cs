@@ -3,12 +3,13 @@ using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Windows.Forms;
 using Hospital_Entity_Framework;
+
 /*using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;*/
 
 
-namespace  PatientManagement
+namespace PatientManagement.Class
 {
     public class Patient
     {
@@ -84,27 +85,27 @@ namespace  PatientManagement
         {
             if (name == "")
             {
-                MessageBox.Show("Please fill Name");
+                MessageBox.Show(@"Please fill Name");
             }
             if (gender == "")
             {
-                MessageBox.Show("Please fill Gender");
+                MessageBox.Show(@"Please fill Gender");
             }
             if (address == "")
             {
-                MessageBox.Show("Please fill address");
+                MessageBox.Show(@"Please fill address");
             }
             if (phone1 == "")
             {
-                MessageBox.Show("Please fill Phone1");
+                MessageBox.Show(@"Please fill Phone1");
             }
             if (weigh == "")
             {
-                MessageBox.Show("Please fill Weigh");
+                MessageBox.Show(@"Please fill Weigh");
             }
             if (heigh == "")
             {
-                MessageBox.Show("Please fill heigh");
+                MessageBox.Show(@"Please fill heigh");
             }
         }
 
