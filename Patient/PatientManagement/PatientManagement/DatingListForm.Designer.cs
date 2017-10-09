@@ -145,6 +145,7 @@
             // 
             // dtpDating
             // 
+            this.dtpDating.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dtpDating.Location = new System.Drawing.Point(80, 45);
             this.dtpDating.Name = "dtpDating";
             this.dtpDating.Size = new System.Drawing.Size(223, 20);

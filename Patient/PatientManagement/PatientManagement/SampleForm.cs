@@ -33,17 +33,18 @@ namespace PatientManagement
             _fd.ShowApply = true;
             _fd.ShowEffects = true;
             _fd.ShowHelp = true;
-            if (_fd.ShowDialog() == DialogResult.OK)
+            if (_fd.ShowDialog() == DialogResult.OK & !string.IsNullOrEmpty( txtDescription.Text))
             {
-                txtDescription.Font = _fd.Font;
-                txtDescription.ForeColor = _fd.Color;
+               
+               txtDescription.SelectionFont = _fd.Font;
+               txtDescription.SelectionColor = _fd.Color;
             }
+         
         }
 
         private void _fd_Apply(object sender, EventArgs e)
         {
-            txtDescription.Font = _fd.Font;
-            txtDescription.ForeColor  = _fd.Color;
+            
         }
 
         private void btnNew_Click(object sender, EventArgs e)

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq.Expressions;
 /*using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -32,6 +31,7 @@ namespace PatientManagement
         }
 
         private Patient _patient;
+        public string Staffid;
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
@@ -65,10 +65,12 @@ namespace PatientManagement
 
         private void btnAddDating_Click(object sender, EventArgs e)
         {
+            
             var getid = dtgInformation.CurrentRow.Cells[0].Value.ToString();
             Hide();
             var datingForm = new DatingListForm();
             datingForm.Show();
+            datingForm.StaffId = Staffid;
             datingForm.PatientId  = getid;
             Refresh();
         }

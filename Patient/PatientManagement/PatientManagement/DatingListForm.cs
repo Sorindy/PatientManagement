@@ -42,6 +42,7 @@ namespace PatientManagement
         private void btnAdd_Click(object sender, EventArgs e)
         {
            _dating.Insert(_dating.AutoId(),txtPatientId.Text,txtStaffID.Text,dtpDating.Value.Date);
+            btnShow.PerformClick();
             Refresh();
         }
 
@@ -56,6 +57,7 @@ namespace PatientManagement
             var search = new SearchForm();
             Hide();
             search.Show();
+            search.Staffid = txtStaffID.Text;
             Refresh();
             search.SubmitButton = false;
         }
@@ -63,12 +65,14 @@ namespace PatientManagement
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             _dating.Update(txtDatingId.Text, dtpDating.Value.Date);
+            btnShow.PerformClick();
             Refresh();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
             _dating.Delete(txtDatingId.Text);
+            btnShow.PerformClick();
             Refresh();
         }
 
@@ -95,13 +99,14 @@ namespace PatientManagement
         {
             var select = _worker.SelectedChange(txtStaffID.Text);
             txtStaffName.Text = select.Name;
+            Refresh();
         }
 
         private void txtPatientId_TextChanged(object sender, EventArgs e)
         {
             var select = _patient.Select(txtPatientId.Text);
             txtPatientName.Text = select.Name;
-
+            Refresh();
         }
 
         private void dtgInformation_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -109,6 +114,7 @@ namespace PatientManagement
             txtDatingId.Text = dtgInformation.CurrentRow.Cells[0].Value.ToString();
             txtPatientId.Text = dtgInformation.CurrentRow.Cells[1].Value.ToString();
             txtStaffID.Text = dtgInformation.CurrentRow.Cells[2].Value.ToString();
+            Refresh();
         }
     }
 }

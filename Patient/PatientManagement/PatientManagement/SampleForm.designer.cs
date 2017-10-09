@@ -45,10 +45,10 @@
             this.cmbType = new System.Windows.Forms.ComboBox();
             this.txtId = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtDescription = new System.Windows.Forms.RichTextBox();
             this.dtgInformation = new System.Windows.Forms.DataGridView();
             this.btnFort = new System.Windows.Forms.Button();
             this._fd = new System.Windows.Forms.FontDialog();
-            this.txtDescription = new System.Windows.Forms.RichTextBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -233,6 +233,14 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Description";
             // 
+            // txtDescription
+            // 
+            this.txtDescription.Location = new System.Drawing.Point(6, 19);
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(703, 321);
+            this.txtDescription.TabIndex = 19;
+            this.txtDescription.Text = "";
+            // 
             // dtgInformation
             // 
             this.dtgInformation.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -256,14 +264,6 @@
             // _fd
             // 
             this._fd.Apply += new System.EventHandler(this._fd_Apply);
-            // 
-            // txtDescription
-            // 
-            this.txtDescription.Location = new System.Drawing.Point(6, 19);
-            this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(703, 321);
-            this.txtDescription.TabIndex = 19;
-            this.txtDescription.Text = "";
             // 
             // SampleForm
             // 

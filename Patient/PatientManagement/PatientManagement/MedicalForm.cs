@@ -41,15 +41,17 @@ namespace PatientManagement
         private void btnPatientDetail_Click(object sender, EventArgs e)
         {
             var getid = txtPatientID.Text;
-            var ptrf = new PatientRegistrationForm();
-            ptrf.Show();
-            ptrf.TextId = getid;
+            var patientRegistrationForm = new PatientRegistrationForm();
+            patientRegistrationForm.Show();
+            patientRegistrationForm.SearchButtonEnable = false;
+            patientRegistrationForm.TextId = getid;
         }
 
         private void btnMedicalHistory_Click(object sender, EventArgs e)
         {
             Hide();
             var medicalhistoryform = new MedicalHistoryForm();
+            medicalhistoryform.PatientIdTextboxChange = txtPatientID.Text;
             medicalhistoryform.Show();
             Refresh();
             
@@ -216,6 +218,23 @@ namespace PatientManagement
             {
                 _sample = new VariousDocumentSample();
                 txtDescription.Text = _sample.Search_Title(cmbSample.Text);
+            }
+        }
+
+        private void btnFort_Click(object sender, EventArgs e)
+        {
+            FontDialog fd = new FontDialog();
+            fd = new FontDialog();
+            fd.ShowColor = true;
+            fd.ShowApply = true;
+            fd.ShowEffects = true;
+            fd.ShowHelp = true;
+            if (fd.ShowDialog() == DialogResult.OK & !string.IsNullOrEmpty(txtDescription.Text))
+            {
+
+                txtDescription.SelectionFont = fd.Font;
+                txtDescription.SelectionColor = fd.Color;
+                
             }
         }
     }
