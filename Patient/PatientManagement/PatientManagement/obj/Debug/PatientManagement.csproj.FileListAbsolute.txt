@@ -72,4 +72,3 @@ D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\Patie
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.UpdateAccountForm.resources
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.WorkerForm.resources
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.csproj.GenerateResource.Cache
-D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.WaitingListForm.resources

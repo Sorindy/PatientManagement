@@ -114,6 +114,7 @@ namespace PatientManagement
                 _sample = new VariousDocumentSample();
                 _sample.Insert(txtId.Text, txtTitle.Text, txtDescription.Text);
             }
+            btnShow.PerformClick();
             Clear_Control();
             btnInsert.Visible = false;
             btnNew.Visible = true;
@@ -169,6 +170,7 @@ namespace PatientManagement
                 _sample = new VariousDocumentSample();
                 _sample.Update(txtId.Text, txtTitle.Text, txtDescription.Text);
             }
+            btnShow.PerformClick();
             Clear_Control();
             Refresh();
         }
@@ -205,6 +207,7 @@ namespace PatientManagement
                 _sample = new VariousDocumentSample();
                 _sample.Delete(txtId.Text);
             }
+            btnShow.PerformClick();
             Clear_Control();
             Refresh();
         }
@@ -252,6 +255,7 @@ namespace PatientManagement
             txtDescription.Text = dtgInformation.CurrentRow.Cells[2].Value.ToString();
             dtgInformation.Visible = false;
             txtDescription.Visible = true;
+            Refresh();
         }
 
     }
