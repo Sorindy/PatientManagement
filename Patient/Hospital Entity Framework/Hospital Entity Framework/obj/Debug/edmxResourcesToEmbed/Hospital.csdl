@@ -85,10 +85,6 @@
       <End Role="PrescriptionCategory" EntitySet="PrescriptionCategories" />
       <End Role="PrescriptionEstimate" EntitySet="PrescriptionEstimates" />
     </AssociationSet>
-    <AssociationSet Name="FK_Worker_PrescriptionEstimate" Association="HospitalModel.FK_Worker_PrescriptionEstimate">
-      <End Role="PrescriptionEstimate" EntitySet="PrescriptionEstimates" />
-      <End Role="Worker" EntitySet="Workers" />
-    </AssociationSet>
     <AssociationSet Name="FK_VariousDocumentEstimate_VariousDocumentCategory" Association="HospitalModel.FK_VariousDocumentEstimate_VariousDocumentCategory">
       <End Role="VariousDocumentCategory" EntitySet="VariousDocumentCategories" />
       <End Role="VariousDocumentEstimate" EntitySet="VariousDocumentEstimates" />
@@ -195,6 +191,10 @@
       <Parameter Name="new_diagramname" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="sp_upgraddiagrams" />
+    <AssociationSet Name="FK_PrescriptionEstimate_Worker" Association="HospitalModel.FK_PrescriptionEstimate_Worker">
+      <End Role="Worker" EntitySet="Workers" />
+      <End Role="PrescriptionEstimate" EntitySet="PrescriptionEstimates" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Account">
     <Key>
@@ -390,8 +390,8 @@
     <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
     <NavigationProperty Name="PrescriptionCategory" Relationship="HospitalModel.FK_PrescriptionEstimate_PrescriptionCategory" FromRole="PrescriptionEstimate" ToRole="PrescriptionCategory" />
-    <NavigationProperty Name="Worker" Relationship="HospitalModel.FK_Worker_PrescriptionEstimate" FromRole="PrescriptionEstimate" ToRole="Worker" />
     <NavigationProperty Name="Visits" Relationship="HospitalModel.VisitPrescription" FromRole="PrescriptionEstimate" ToRole="Visit" />
+    <NavigationProperty Name="Worker1" Relationship="HospitalModel.FK_PrescriptionEstimate_Worker" FromRole="PrescriptionEstimate" ToRole="Worker" />
   </EntityType>
   <EntityType Name="PrescriptionSample">
     <Key>
@@ -510,8 +510,8 @@
     <NavigationProperty Name="Datings" Relationship="HospitalModel.FK_Dating_Worker" FromRole="Worker" ToRole="Dating" />
     <NavigationProperty Name="LaboratoryEstimates" Relationship="HospitalModel.FK_LaboratoryEstimate_Worker" FromRole="Worker" ToRole="LaboratoryEstimate" />
     <NavigationProperty Name="MedicalImagingEstimates" Relationship="HospitalModel.FK_MedicalImagingEstimate_Worker" FromRole="Worker" ToRole="MedicalImagingEstimate" />
-    <NavigationProperty Name="PrescriptionEstimate" Relationship="HospitalModel.FK_Worker_PrescriptionEstimate" FromRole="Worker" ToRole="PrescriptionEstimate" />
     <NavigationProperty Name="VariousDocumentEstimates" Relationship="HospitalModel.FK_VariousDocumentEstimate_Worker" FromRole="Worker" ToRole="VariousDocumentEstimate" />
+    <NavigationProperty Name="PrescriptionEstimates" Relationship="HospitalModel.FK_PrescriptionEstimate_Worker" FromRole="Worker" ToRole="PrescriptionEstimate" />
   </EntityType>
   <Association Name="FK_Account_Worker">
     <End Role="Worker" Type="HospitalModel.Worker" Multiplicity="1" />
@@ -681,18 +681,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Worker_PrescriptionEstimate">
-    <End Role="PrescriptionEstimate" Type="HospitalModel.PrescriptionEstimate" Multiplicity="1" />
-    <End Role="Worker" Type="HospitalModel.Worker" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="PrescriptionEstimate">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Worker">
-        <PropertyRef Name="Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_VariousDocumentEstimate_VariousDocumentCategory">
     <End Role="VariousDocumentCategory" Type="HospitalModel.VariousDocumentCategory" Multiplicity="1" />
     <End Role="VariousDocumentEstimate" Type="HospitalModel.VariousDocumentEstimate" Multiplicity="*" />
@@ -796,4 +784,16 @@
     <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
     <Property Type="Int32" Name="OwnerID" Nullable="false" />
   </ComplexType>
+  <Association Name="FK_PrescriptionEstimate_Worker">
+    <End Type="HospitalModel.Worker" Role="Worker" Multiplicity="1" />
+    <End Type="HospitalModel.PrescriptionEstimate" Role="PrescriptionEstimate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Worker">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PrescriptionEstimate">
+        <PropertyRef Name="WorkerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

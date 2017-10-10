@@ -420,9 +420,13 @@ namespace PatientManagement.Class
         return tabControl;
         }
 
+        private void DeleteOldManagement(string workerId)
+        {
+            
+        }
+
         public void SubmitManagement(string workerId)
         {
-            //var getWorkerId = _db.TempManagements.First(v => v.WorkerId==workerId).;
             string getAccId = _db.Accounts.First(v => v.WorkerId == workerId).Id;
             var getConsultation = _db.TempManagements.Where(v => v.Services == "Consutation");
             var checkConsultation = _db.TempManagements.Any(v => v.Services == "Consutation");
@@ -434,6 +438,13 @@ namespace PatientManagement.Class
             var checkPrescription = _db.TempManagements.Any(v => v.Services == "Presciption");
             var getVariousDocument = _db.TempManagements.Where(v => v.Services == "VariousDocument");
             var checkVariousDocument = _db.TempManagements.Any(v => v.Services == "VariousDocument");
+            var checkWorkerForm = _db.TempManagements.Any(v => v.Forms == "Worker's Form");
+            var checkPatientForm = _db.TempManagements.Any(v => v.Forms == "Patient's Form");
+            var checkCheckInForm = _db.TempManagements.Any(v => v.Forms == "CheckIn's Form");
+            var checkManagementForm = _db.TempManagements.Any(v => v.Forms == "Management's Form");
+            var checkCategoryForm = _db.TempManagements.Any(v => v.Forms == "Category's Form");
+            var checkAdminForm = _db.TempManagements.Any(v => v.Forms == "Admin's Form");
+
             var managementId = AutoId();
             Insert(managementId,getAccId);
 
@@ -493,6 +504,54 @@ namespace PatientManagement.Class
 
                     _db.SaveChanges();
                 }
+            }
+            if (checkWorkerForm)
+            {
+                var check = _db.Forms.Single(v => v.Name == "Worker's Form");
+
+                _db.Managements.FirstOrDefault(v=>v.Id==managementId).Forms.Add(check);
+
+                _db.SaveChanges();
+            }
+            if(checkPatientForm)
+            {
+                var check = _db.Forms.Single(v => v.Name == "Patient's Form");
+
+                _db.Managements.FirstOrDefault(v => v.Id == managementId).Forms.Add(check);
+
+                _db.SaveChanges();
+            }
+            if(checkAdminForm)
+            {
+                var check = _db.Forms.Single(v => v.Name == "Admin's Form");
+
+                _db.Managements.FirstOrDefault(v => v.Id == managementId).Forms.Add(check);
+
+                _db.SaveChanges();
+            }
+            if(checkCategoryForm)
+            {
+                var check = _db.Forms.Single(v => v.Name == "Category's Form");
+
+                _db.Managements.FirstOrDefault(v => v.Id == managementId).Forms.Add(check);
+
+                _db.SaveChanges();
+            }
+            if(checkManagementForm)
+            {
+                var check = _db.Forms.Single(v => v.Name == "Management's Form");
+
+                _db.Managements.FirstOrDefault(v => v.Id == managementId).Forms.Add(check);
+
+                _db.SaveChanges();
+            }
+            if(checkCheckInForm)
+            {
+                var check = _db.Forms.Single(v => v.Name == "CheckIn's Form");
+
+                _db.Managements.FirstOrDefault(v => v.Id == managementId).Forms.Add(check);
+
+                _db.SaveChanges();
             }
         }
 

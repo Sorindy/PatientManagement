@@ -22,6 +22,7 @@ namespace Hospital_Entity_Framework
             this.LaboratoryEstimates = new HashSet<LaboratoryEstimate>();
             this.MedicalImagingEstimates = new HashSet<MedicalImagingEstimate>();
             this.VariousDocumentEstimates = new HashSet<VariousDocumentEstimate>();
+            this.PrescriptionEstimates = new HashSet<PrescriptionEstimate>();
         }
     
         public string Id { get; set; }
@@ -42,7 +43,7 @@ namespace Hospital_Entity_Framework
         public virtual ICollection<Dating> Datings { get; set; }
         public virtual ICollection<LaboratoryEstimate> LaboratoryEstimates { get; set; }
         public virtual ICollection<MedicalImagingEstimate> MedicalImagingEstimates { get; set; }
-        public virtual PrescriptionEstimate PrescriptionEstimate { get; set; }
         public virtual ICollection<VariousDocumentEstimate> VariousDocumentEstimates { get; set; }
+        public virtual ICollection<PrescriptionEstimate> PrescriptionEstimates { get; set; }
     }
 }
