@@ -146,8 +146,12 @@
       <End Role="Visit" EntitySet="Visit" />
       <End Role="MedicalVisit" EntitySet="MedicalVisit" />
     </AssociationSet>
-    <AssociationSet Name="FK_PrescriptionEstimate_PrescriptionCategory" Association="HospitalModel.Store.FK_PrescriptionEstimate_PrescriptionCategory">
+    <AssociationSet Name="FK_PrescriptionEstimate_PrescriptionCategory1" Association="HospitalModel.Store.FK_PrescriptionEstimate_PrescriptionCategory1">
       <End Role="PrescriptionCategory" EntitySet="PrescriptionCategory" />
+      <End Role="PrescriptionEstimate" EntitySet="PrescriptionEstimate" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PrescriptionEstimate_Worker" Association="HospitalModel.Store.FK_PrescriptionEstimate_Worker">
+      <End Role="Worker" EntitySet="Worker" />
       <End Role="PrescriptionEstimate" EntitySet="PrescriptionEstimate" />
     </AssociationSet>
     <AssociationSet Name="FK_VariousDocumentEstimate_VariousDocumentCategory" Association="HospitalModel.Store.FK_VariousDocumentEstimate_VariousDocumentCategory">
@@ -186,11 +190,11 @@
       <End Role="Visit" EntitySet="Visit" />
       <End Role="VisitMedicalImaging" EntitySet="VisitMedicalImaging" />
     </AssociationSet>
-    <AssociationSet Name="FK_VisitPrescription_PrescriptionEstimate" Association="HospitalModel.Store.FK_VisitPrescription_PrescriptionEstimate">
+    <AssociationSet Name="FK_VisitPrescription_PrescriptionEstimate1" Association="HospitalModel.Store.FK_VisitPrescription_PrescriptionEstimate1">
       <End Role="PrescriptionEstimate" EntitySet="PrescriptionEstimate" />
       <End Role="VisitPrescription" EntitySet="VisitPrescription" />
     </AssociationSet>
-    <AssociationSet Name="FK_VisitPrescription_Visit" Association="HospitalModel.Store.FK_VisitPrescription_Visit">
+    <AssociationSet Name="FK_VisitPrescription_Visit1" Association="HospitalModel.Store.FK_VisitPrescription_Visit1">
       <End Role="Visit" EntitySet="Visit" />
       <End Role="VisitPrescription" EntitySet="VisitPrescription" />
     </AssociationSet>
@@ -245,10 +249,6 @@
     <AssociationSet Name="FK_WaitingVariousDocument_WaitingList" Association="HospitalModel.Store.FK_WaitingVariousDocument_WaitingList">
       <End Role="WaitingList" EntitySet="WaitingList" />
       <End Role="WaitingVariousDocument" EntitySet="WaitingVariousDocument" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Worker_PrescriptionEstimate" Association="HospitalModel.Store.FK_Worker_PrescriptionEstimate">
-      <End Role="PrescriptionEstimate" EntitySet="PrescriptionEstimate" />
-      <End Role="Worker" EntitySet="Worker" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Account">
@@ -936,7 +936,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_PrescriptionEstimate_PrescriptionCategory">
+  <Association Name="FK_PrescriptionEstimate_PrescriptionCategory1">
     <End Role="PrescriptionCategory" Type="HospitalModel.Store.PrescriptionCategory" Multiplicity="1" />
     <End Role="PrescriptionEstimate" Type="HospitalModel.Store.PrescriptionEstimate" Multiplicity="*" />
     <ReferentialConstraint>
@@ -945,6 +945,18 @@
       </Principal>
       <Dependent Role="PrescriptionEstimate">
         <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PrescriptionEstimate_Worker">
+    <End Role="Worker" Type="HospitalModel.Store.Worker" Multiplicity="1" />
+    <End Role="PrescriptionEstimate" Type="HospitalModel.Store.PrescriptionEstimate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Worker">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PrescriptionEstimate">
+        <PropertyRef Name="WorkerId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1056,7 +1068,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_VisitPrescription_PrescriptionEstimate">
+  <Association Name="FK_VisitPrescription_PrescriptionEstimate1">
     <End Role="PrescriptionEstimate" Type="HospitalModel.Store.PrescriptionEstimate" Multiplicity="1" />
     <End Role="VisitPrescription" Type="HospitalModel.Store.VisitPrescription" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1068,7 +1080,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_VisitPrescription_Visit">
+  <Association Name="FK_VisitPrescription_Visit1">
     <End Role="Visit" Type="HospitalModel.Store.Visit" Multiplicity="1" />
     <End Role="VisitPrescription" Type="HospitalModel.Store.VisitPrescription" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1233,18 +1245,6 @@
       </Principal>
       <Dependent Role="WaitingVariousDocument">
         <PropertyRef Name="WaitId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Worker_PrescriptionEstimate">
-    <End Role="PrescriptionEstimate" Type="HospitalModel.Store.PrescriptionEstimate" Multiplicity="1" />
-    <End Role="Worker" Type="HospitalModel.Store.Worker" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="PrescriptionEstimate">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Worker">
-        <PropertyRef Name="Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

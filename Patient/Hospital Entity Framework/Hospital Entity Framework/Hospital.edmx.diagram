@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="b438ef475b9e4835bd9460ca896b92ba" Name="Diagram1" ZoomLevel="21">
+      <Diagram DiagramId="b438ef475b9e4835bd9460ca896b92ba" Name="Diagram1" ZoomLevel="121">
         <EntityTypeShape EntityType="HospitalModel.Account" Width="1.5" PointX="15" PointY="13.5" IsExpanded="true" />
         <EntityTypeShape EntityType="HospitalModel.ConsultationCategory" Width="1.5" PointX="0.75" PointY="13.5" IsExpanded="true" />
         <EntityTypeShape EntityType="HospitalModel.ConsultationEstimate" Width="1.5" PointX="3" PointY="13.25" IsExpanded="true" />
@@ -47,7 +47,6 @@
         <AssociationConnector Association="HospitalModel.FK_Visit_Patient" ManuallyRouted="false" />
         <AssociationConnector Association="HospitalModel.FK_WaitingList_Patient" ManuallyRouted="false" />
         <AssociationConnector Association="HospitalModel.FK_PrescriptionEstimate_PrescriptionCategory" ManuallyRouted="false" />
-        <AssociationConnector Association="HospitalModel.FK_Worker_PrescriptionEstimate" ManuallyRouted="false" />
         <AssociationConnector Association="HospitalModel.FK_VariousDocumentEstimate_VariousDocumentCategory" ManuallyRouted="false" />
         <AssociationConnector Association="HospitalModel.FK_VariousDocumentEstimate_Worker" ManuallyRouted="false" />
         <AssociationConnector Association="HospitalModel.ManagementConsultation" ManuallyRouted="false" />
@@ -67,6 +66,7 @@
         <AssociationConnector Association="HospitalModel.WaitingMedicalImaging" ManuallyRouted="false" />
         <AssociationConnector Association="HospitalModel.WaitingPrescription" ManuallyRouted="false" />
         <AssociationConnector Association="HospitalModel.WaitingVariousDocument" ManuallyRouted="false" />
+        <AssociationConnector Association="HospitalModel.FK_PrescriptionEstimate_Worker" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -19,16 +19,17 @@ namespace PatientManagement
             InitializeComponent();
         }
 
-        Worker worker=new Worker();
+        readonly Worker _worker=new Worker();
         protected Hospital_Entity_Framework.Worker Wk;
-        private Account _account=new Account();
+        private readonly Account _account=new Account();
 
         private void WorkerForm_Load(object sender, EventArgs e)
         {            
-                dgvWorker.DataSource = worker.ShowAll();
+                dgvWorker.DataSource = _worker.ShowAll();
                 Clears();
-                txtID.Text = worker.AutoId();
+                txtID.Text = _worker.AutoId();
                 btnNew.Hide();
+             //   _worker.Insert("Worker1","Sorindy","Male",Convert.ToDateTime("01-03-1995"),22,"Phnom Penh","010456036","012296012","hot.sorindy@gmail.com","Admin",400,Convert.ToDateTime("10-08-2017"));
         }
 
         private void Clears()
@@ -105,17 +106,17 @@ namespace PatientManagement
         private void FormRefresh(object sender, EventArgs e)
         {
             WorkerForm_Load(this,e);
-            MouseLeave -=FormRefresh;
+            MouseLeave -= new EventHandler(FormRefresh);
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
                 if (dgvWorker.CurrentRow != null)
                 {
-                    worker.Delete(dgvWorker.CurrentRow.Cells[0].Value.ToString());
-                    MouseLeave +=FormRefresh;
+                    _worker.Delete(dgvWorker.CurrentRow.Cells[0].Value.ToString());
+                    MouseLeave +=new EventHandler(FormRefresh);
                 
-                    worker.Delete(dgvWorker.CurrentRow.Cells[0].Value.ToString());
+                    _worker.Delete(dgvWorker.CurrentRow.Cells[0].Value.ToString());
                 }
         }
 
@@ -124,7 +125,7 @@ namespace PatientManagement
             if (dgvWorker.CurrentRow != null)
             {
                 var getid = dgvWorker.CurrentRow.Cells[0].Value.ToString();
-                Wk = worker.SelectedChange(getid);
+                Wk = _worker.SelectedChange(getid);
             }
 
 
@@ -139,7 +140,7 @@ namespace PatientManagement
                 txtEmail.Text = Wk.Email;
                 txtPosition.Text = Wk.Position;
                 txtSalary.Text = Wk.Salary.ToString();
-                dtpSWD.Value = Wk.StartWorkDate .GetValueOrDefault();
+                dtpSWD.Value = Wk.StartWorkDate.GetValueOrDefault();
 
                 if (_account.CheckAccount(txtID.Text) == txtID.Text)
                 {
@@ -157,9 +158,9 @@ namespace PatientManagement
         {
             try
             {
-                worker.Insert(txtID.Text, txtName.Text, cboGender.Text, dtpDOB.Value.Date, Convert.ToInt16(txtAge.Text), txtAddress.Text, txtPhone1.Text,
+                _worker.Insert(txtID.Text, txtName.Text, cboGender.Text, dtpDOB.Value.Date, Convert.ToInt16(txtAge.Text), txtAddress.Text, txtPhone1.Text,
                     txtPhone2.Text, txtEmail.Text, txtPosition.Text, Convert.ToInt32(txtSalary.Text), dtpSWD.Value.Date);
-                MouseLeave +=FormRefresh;
+                MouseLeave += new EventHandler(FormRefresh);
             }
             catch
             {
@@ -176,7 +177,7 @@ namespace PatientManagement
         {
             try
             {
-                dgvWorker.DataSource = worker.Search(txtSearch.Text);
+                dgvWorker.DataSource = _worker.Search(txtSearch.Text);
                 Refresh();
             }
             catch (Exception exception)
@@ -208,9 +209,9 @@ namespace PatientManagement
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-                worker.Update(txtID.Text, txtName.Text, cboGender.Text, dtpDOB.Value.Date, Convert.ToInt16(txtAge.Text), txtAddress.Text, txtPhone1.Text,
+                _worker.Update(txtID.Text, txtName.Text, cboGender.Text, dtpDOB.Value.Date, Convert.ToInt16(txtAge.Text), txtAddress.Text, txtPhone1.Text,
                     txtPhone2.Text, txtEmail.Text, txtPosition.Text, Convert.ToInt32(txtSalary.Text), dtpSWD.Value.Date);
-                MouseLeave += FormRefresh;
+            MouseLeave += new EventHandler(FormRefresh);
         }
 
         private void btnCreateAcc_Click(object sender, EventArgs e)
