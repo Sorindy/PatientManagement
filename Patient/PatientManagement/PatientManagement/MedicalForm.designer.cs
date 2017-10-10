@@ -52,7 +52,6 @@
             this.btnMedicalHistory = new System.Windows.Forms.Button();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.txtDescriptioinName = new System.Windows.Forms.TextBox();
             this.lbTodaydate = new System.Windows.Forms.Label();
@@ -77,11 +76,13 @@
             this.cmbSample = new System.Windows.Forms.ComboBox();
             this.btnFort = new System.Windows.Forms.Button();
             this.txtDescription = new System.Windows.Forms.RichTextBox();
+            this.gbMedicalItem = new System.Windows.Forms.GroupBox();
             this.gbPatient.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.gbActivity.SuspendLayout();
             this.gbDating_waiting.SuspendLayout();
             this.gbDating.SuspendLayout();
+            this.gbMedicalItem.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -285,9 +286,9 @@
             // 
             // btnMedicalHistory
             // 
-            this.btnMedicalHistory.Location = new System.Drawing.Point(7, 224);
+            this.btnMedicalHistory.Location = new System.Drawing.Point(9, 25);
             this.btnMedicalHistory.Name = "btnMedicalHistory";
-            this.btnMedicalHistory.Size = new System.Drawing.Size(200, 28);
+            this.btnMedicalHistory.Size = new System.Drawing.Size(183, 28);
             this.btnMedicalHistory.TabIndex = 4;
             this.btnMedicalHistory.Text = "Medical History";
             this.btnMedicalHistory.UseVisualStyleBackColor = true;
@@ -312,16 +313,6 @@
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(3, 192);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(126, 21);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "Medical-Item";
             // 
             // label9
             // 
@@ -404,9 +395,9 @@
             "Medical Imaging",
             "Laboratory",
             "Variou Document"});
-            this.cmbMedicalRecord.Location = new System.Drawing.Point(7, 258);
+            this.cmbMedicalRecord.Location = new System.Drawing.Point(9, 59);
             this.cmbMedicalRecord.Name = "cmbMedicalRecord";
-            this.cmbMedicalRecord.Size = new System.Drawing.Size(200, 26);
+            this.cmbMedicalRecord.Size = new System.Drawing.Size(183, 26);
             this.cmbMedicalRecord.TabIndex = 41;
             this.cmbMedicalRecord.Text = "Medical-Record";
             this.cmbMedicalRecord.SelectedIndexChanged += new System.EventHandler(this.cmbMedicalRecord_SelectedIndexChanged);
@@ -429,6 +420,7 @@
             this.btnWaitinglist.TabIndex = 43;
             this.btnWaitinglist.Text = "Wating-List";
             this.btnWaitinglist.UseVisualStyleBackColor = true;
+            this.btnWaitinglist.Click += new System.EventHandler(this.btnWaitinglist_Click);
             // 
             // gbActivity
             // 
@@ -489,9 +481,9 @@
             // 
             // btnAddDating
             // 
-            this.btnAddDating.Location = new System.Drawing.Point(112, 30);
+            this.btnAddDating.Location = new System.Drawing.Point(123, 30);
             this.btnAddDating.Name = "btnAddDating";
-            this.btnAddDating.Size = new System.Drawing.Size(74, 28);
+            this.btnAddDating.Size = new System.Drawing.Size(74, 22);
             this.btnAddDating.TabIndex = 44;
             this.btnAddDating.Text = "Add";
             this.btnAddDating.UseVisualStyleBackColor = true;
@@ -499,9 +491,10 @@
             // 
             // dtpDating
             // 
+            this.dtpDating.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dtpDating.Location = new System.Drawing.Point(9, 32);
             this.dtpDating.Name = "dtpDating";
-            this.dtpDating.Size = new System.Drawing.Size(74, 20);
+            this.dtpDating.Size = new System.Drawing.Size(113, 20);
             this.dtpDating.TabIndex = 0;
             // 
             // tmDate
@@ -561,17 +554,30 @@
             // 
             // txtDescription
             // 
+            this.txtDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescription.Location = new System.Drawing.Point(234, 233);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(1082, 488);
             this.txtDescription.TabIndex = 52;
             this.txtDescription.Text = "";
             // 
+            // gbMedicalItem
+            // 
+            this.gbMedicalItem.Controls.Add(this.btnMedicalHistory);
+            this.gbMedicalItem.Controls.Add(this.cmbMedicalRecord);
+            this.gbMedicalItem.Location = new System.Drawing.Point(7, 193);
+            this.gbMedicalItem.Name = "gbMedicalItem";
+            this.gbMedicalItem.Size = new System.Drawing.Size(200, 91);
+            this.gbMedicalItem.TabIndex = 53;
+            this.gbMedicalItem.TabStop = false;
+            this.gbMedicalItem.Text = "Medical-Item";
+            // 
             // MedicalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1328, 733);
+            this.Controls.Add(this.gbMedicalItem);
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.btnFort);
             this.Controls.Add(this.cmbSample);
@@ -581,12 +587,9 @@
             this.Controls.Add(this.gbDating);
             this.Controls.Add(this.gbDating_waiting);
             this.Controls.Add(this.gbActivity);
-            this.Controls.Add(this.cmbMedicalRecord);
             this.Controls.Add(this.lbTodaydate);
             this.Controls.Add(this.txtDescriptioinName);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.btnMedicalHistory);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gbPatient);
             this.Controls.Add(this.label1);
@@ -602,6 +605,7 @@
             this.gbActivity.ResumeLayout(false);
             this.gbDating_waiting.ResumeLayout(false);
             this.gbDating.ResumeLayout(false);
+            this.gbMedicalItem.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -629,7 +633,6 @@
         private System.Windows.Forms.Button btnPatientDetail;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtDescriptioinName;
         private System.Windows.Forms.Label lbTodaydate;
@@ -657,5 +660,6 @@
         private System.Windows.Forms.ComboBox cmbSample;
         private System.Windows.Forms.Button btnFort;
         private System.Windows.Forms.RichTextBox txtDescription;
+        private System.Windows.Forms.GroupBox gbMedicalItem;
     }
 }
