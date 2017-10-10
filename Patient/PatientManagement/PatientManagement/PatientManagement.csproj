@@ -31,6 +31,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>PatientManagement.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -40,9 +43,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Manager_scheduler.1.0.0\lib\4.0\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="Hospital Entity Framework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Hospital Entity Framework\Hospital Entity Framework\bin\Debug\Hospital Entity Framework.dll</HintPath>
+    <Reference Include="Hospital Entity Framework">
+      <HintPath>..\..\Hospital Entity Framework\Hospital Entity Framework\obj\Debug\Hospital Entity Framework.dll</HintPath>
     </Reference>
     <Reference Include="Manager_database">
       <HintPath>..\packages\Manager_scheduler.1.0.0\lib\4.0\Manager_database.dll</HintPath>
@@ -241,7 +243,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

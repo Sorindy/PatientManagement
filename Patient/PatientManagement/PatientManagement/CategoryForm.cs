@@ -75,7 +75,7 @@ namespace PatientManagement
                 _category = new VariousDocumentCategory();
                 _category.Insert(txtId.Text, txtName.Text);
             }
-            Clear_Control();
+            btnShow.PerformClick();
             btnInsert.Visible = false;
             btnNew.Visible = true;
             Refresh();
@@ -108,36 +108,32 @@ namespace PatientManagement
                 _category = new VariousDocumentCategory();
                 _category.Update(txtId.Text, txtName.Text);
             }
+            btnShow.PerformClick();
             Refresh();
         }
 
         private void btnShow_Click(object sender, EventArgs e)
         {
-            //if (cmbType.Text == "Consultation")
             if (cmbType.SelectedIndex.Equals(0))
             {
                 _category = new ConsultationCategory();
                 dtgInformation.DataSource = _category.Show();
             }
-            //if (cmbType.Text == "Prescription")
             if (cmbType.SelectedIndex.Equals(1))
             {
                 _category = new PrescriptionCategory();
                 dtgInformation.DataSource = _category.Show();
             }
-            //if (cmbType.Text == "MedicalImaging")
             if (cmbType.SelectedIndex.Equals(2))
             {
                 _category = new MedicalImagingCategory();
                 dtgInformation.DataSource = _category.Show();
             }
-            //if (cmbType.Text == "Laboratory")
             if (cmbType.SelectedIndex.Equals(3))
             {
                 _category = new LaboratoryCategory();
                 dtgInformation.DataSource = _category.Show();
             }
-            //if (cmbType.Text == "VariousDocument")
             if (cmbType.SelectedIndex.Equals(4))
             {
                 _category = new VariousDocumentCategory();
@@ -148,66 +144,57 @@ namespace PatientManagement
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            //if (cmbType.Text == "Consultation")
             if (cmbType.SelectedIndex.Equals(0))
             {
                 _category = new ConsultationCategory();
                 _category.Delete(txtId.Text);
             }
-            //if (cmbType.Text == "Prescription")
             if (cmbType.SelectedIndex.Equals(1))
             {
                 _category = new PrescriptionCategory();
                 _category.Delete(txtId.Text);
             }
-            //if (cmbType.Text == "MedicalImaging")
             if (cmbType.SelectedIndex.Equals(2))
             {
                 _category = new MedicalImagingCategory();
                 _category.Delete(txtId.Text);
             }
-            //if (cmbType.Text == "Laboratory")
             if (cmbType.SelectedIndex.Equals(3))
             {
                 _category = new LaboratoryCategory();
                 _category.Delete(txtId.Text);
             }
-            //if (cmbType.Text == "VariousDocument")
             if (cmbType.SelectedIndex.Equals(4))
             {
                 _category = new VariousDocumentCategory();
                 _category.Delete(txtId.Text);
             }
+            btnShow.PerformClick();
             Refresh();
         }
 
         private void btnNew_Click(object sender, EventArgs e)
         {
-            //if (cmbType.Text == "Consultation")
             if (cmbType.SelectedIndex.Equals(0))
             {
                 _category = new ConsultationCategory();
                 txtId.Text = _category.AutoId();
             }
-            //if (cmbType.Text == "Prescription")
-            if (cmbType.SelectedIndex.Equals(1))
+           if (cmbType.SelectedIndex.Equals(1))
             {
                 _category = new PrescriptionCategory();
                 txtId.Text = _category.AutoId();
             }
-            //if (cmbType.Text == "MedicalImaging")
-            if (cmbType.SelectedIndex.Equals(2))
+           if (cmbType.SelectedIndex.Equals(2))
             {
                 _category = new MedicalImagingCategory();
                 txtId.Text = _category.AutoId();
             }
-            //if (cmbType.Text == "Laboratory")
             if (cmbType.SelectedIndex.Equals(3))
             {
                 _category = new LaboratoryCategory();
                 txtId.Text = _category.AutoId();
             }
-            //if (cmbType.Text == "VariousDocument")
             if (cmbType.SelectedIndex.Equals(4))
             {
                 _category = new VariousDocumentCategory();
@@ -220,7 +207,9 @@ namespace PatientManagement
 
         private void dtgInformation_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            txtId.Text = dtgInformation.CurrentRow.Cells[0].Value.ToString();
+            txtName.Text = dtgInformation.CurrentRow.Cells[1].Value.ToString();
+            Refresh();
         }
 
        

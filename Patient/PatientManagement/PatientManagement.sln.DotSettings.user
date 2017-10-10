@@ -4,4 +4,5 @@
   &lt;Assembly Path="E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\Hospital Entity Framework.dll" /&gt;&#xD;
   &lt;Assembly Path="E:\Work\PatientManagement\Patient\PatientManagement\packages\Manager_scheduler.1.0.0\lib\4.0\EntityFramework.dll" /&gt;&#xD;
   &lt;Assembly Path="E:\Work\PatientManagement\Patient\Hospital Entity Framework\Hospital Entity Framework\bin\Debug\Hospital Entity Framework.dll" /&gt;&#xD;
+  &lt;Assembly Path="D:\PatientManagement\Patient\Hospital Entity Framework\Hospital Entity Framework\obj\Debug\Hospital Entity Framework.dll" /&gt;&#xD;
 &lt;/AssemblyExplorer&gt;</s:String></wpf:ResourceDictionary>
