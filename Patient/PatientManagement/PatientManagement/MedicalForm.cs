@@ -1,12 +1,4 @@
 ﻿using System;
-/*using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;*/
 using System.Windows.Forms;
 using PatientManagement.Class;
 
@@ -18,7 +10,14 @@ namespace PatientManagement
         private ISample _sample;
         private Dating _dating = new Dating();
         private IEstimate _estimate;
-        
+        private Patient _patient;
+
+        public string GetPatientId 
+        {
+            get { return txtPatientID.Text; }
+            set { txtPatientID.Text = value; }
+        }
+
         public MedicalForm()
         {
             InitializeComponent();
@@ -100,8 +99,6 @@ namespace PatientManagement
         {
             if (cmbMedicalRecord.SelectedIndex.Equals(0))
             {
-               // _estimate = new ConsultationEstimate();
-               // txtMedicalId.Text = _estimate.AutoId();
                 _sample = new ConsultationSample();
                 cmbSample.DataSource = _sample.Show_Sample_Title();
             }
@@ -177,6 +174,7 @@ namespace PatientManagement
         private void cmbMedicalRecord_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtDescriptioinName.Text = cmbMedicalRecord.SelectedItem.ToString();
+            gbActivity.Enabled = true;
             Refresh();
         }
 
@@ -228,7 +226,21 @@ namespace PatientManagement
 
         private void btnWaitinglist_Click(object sender, EventArgs e)
         {
-            gbActivity.Enabled = true;
+            var waitinglistform = new WaitingListForm();
+            waitinglistform.Show();
+            Hide();
+            Refresh();
+        }
+
+        private void txtPatientID_TextChanged(object sender, EventArgs e)
+        {
+            _patient = new Patient();
+            txtPatientName.Text = _patient.Select(txtPatientID.Text).Name;
+            Refresh();
+        }
+
+        private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
             gbDating.Enabled = true;
             gbMedicalItem.Enabled = true;
             btnDatinglist.Enabled = true;

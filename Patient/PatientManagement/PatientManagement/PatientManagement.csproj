@@ -106,6 +106,8 @@
     <Compile Include="Class\ConsultationEstimate.cs" />
     <Compile Include="Class\ConsultationSample.cs" />
     <Compile Include="Class\Dating.cs" />
+    <Compile Include="Class\MedicalRecord.cs" />
+    <Compile Include="Class\WaitingList.cs" />
     <Compile Include="Interface\ICategory.cs" />
     <Compile Include="Interface\IEstimate.cs" />
     <Compile Include="Interface\ISample.cs" />
@@ -181,6 +183,12 @@
     <Compile Include="UpdateAccountForm.designer.cs">
       <DependentUpon>UpdateAccountForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="WaitingListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaitingListForm.Designer.cs">
+      <DependentUpon>WaitingListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="WorkerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -228,6 +236,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateAccountForm.resx">
       <DependentUpon>UpdateAccountForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaitingListForm.resx">
+      <DependentUpon>WaitingListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WorkerForm.resx">
       <DependentUpon>WorkerForm.cs</DependentUpon>
