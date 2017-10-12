@@ -58,7 +58,6 @@ namespace PatientManagement
             medicalhistoryform.PatientIdTextboxChange = txtPatientID.Text;
             medicalhistoryform.Show();
             Refresh();
-            
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
@@ -104,29 +103,21 @@ namespace PatientManagement
             }
             if (cmbMedicalRecord.SelectedIndex.Equals(1))
             {
-                //_estimate = new PrescriptionEstimate();
-                //txtMedicalId.Text = _estimate.AutoId();
                 _sample = new PrescriptionSample();
                 cmbSample.DataSource = _sample.Show_Sample_Title();
             }
             if (cmbMedicalRecord.SelectedIndex.Equals(2))
             {
-                //_estimate = new MedicalImagingEstimate();
-                //txtMedicalId.Text = _estimate.AutoId();
                 _sample = new MedicalImagingSample();
                 cmbSample.DataSource = _sample.Show_Sample_Title();
             }
             if (cmbMedicalRecord.SelectedIndex.Equals(3))
             {
-                //_estimate = new LaboratoryEstimate();
-                //txtMedicalId.Text = _estimate.AutoId();
                 _sample = new LaboratorySample();
                 cmbSample.DataSource = _sample.Show_Sample_Title();
             }
             if (cmbMedicalRecord.SelectedIndex.Equals(4))
             {
-                //_estimate = new VariousDocumentEstimate();
-                //txtMedicalId.Text = _estimate.AutoId();
                 _sample = new VariousDocumentSample();
                 cmbSample.DataSource = _sample.Show_Sample_Title();
             }
@@ -162,7 +153,7 @@ namespace PatientManagement
 
         private void btnAddDating_Click(object sender, EventArgs e)
         {
-            _dating.Insert(_dating.AutoId(), txtPatientID.Text, txtStaffID.Text, dtpDating.Value.Date);
+            _dating.Insert(_dating.AutoId(), txtPatientID.Text, txtStaffID.Text, dtpDating.Value);
             Refresh();
         }
 
@@ -227,6 +218,7 @@ namespace PatientManagement
         private void btnWaitinglist_Click(object sender, EventArgs e)
         {
             var waitinglistform = new WaitingListForm();
+            waitinglistform.GetStaffCategory = cmbCategory.Text;
             waitinglistform.Show();
             Hide();
             Refresh();

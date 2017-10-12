@@ -38,6 +38,7 @@ namespace PatientManagement
             dgvShowPatient.ReadOnly = true;
             dgvShowDatingPatient.ReadOnly = true;
             dgvShowPatient.DataSource = null;
+            dgvShowDatingPatient.DataSource = null;
         }
 
         private void btnPreview_Click(object sender, EventArgs e)

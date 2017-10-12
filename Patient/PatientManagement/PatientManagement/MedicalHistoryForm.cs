@@ -1,11 +1,4 @@
 ﻿using System;
-/*using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;*/
 using System.Windows.Forms;
 using PatientManagement.Class;
 
@@ -30,13 +23,11 @@ namespace PatientManagement
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            
             Hide();
             var mediccalform = new MedicalForm();
             mediccalform.GetPatientId = txtPatientID.Text;
             mediccalform.Show();
             Refresh();
-            
         }
 
         private void MedicalHistoryForm_Load(object sender, EventArgs e)
@@ -53,6 +44,7 @@ namespace PatientManagement
                 btnSubmit.Visible = true;
                 btnUpdate.Visible = false;
             }
+            Refresh();
         }
 
         private void tmTime_Tick(object sender, EventArgs e)
@@ -75,11 +67,10 @@ namespace PatientManagement
             fd.ShowHelp = true;
             if (fd.ShowDialog() == DialogResult.OK & !string.IsNullOrEmpty(txtDescription.Text))
             {
-
                 txtDescription.SelectionFont = fd.Font;
                 txtDescription.SelectionColor = fd.Color;
-
-            }
+                }
+            Refresh();
         }
 
         private void btnPatientDetail_Click(object sender, EventArgs e)
@@ -89,6 +80,7 @@ namespace PatientManagement
             patientRegistrationForm.Show();
             patientRegistrationForm.SearchButtonEnable = false;
             patientRegistrationForm.TextId = getid;
+            Refresh();
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
@@ -102,7 +94,5 @@ namespace PatientManagement
             _medicalHistory.Update(txtMedicalId.Text, txtDescription.Text);
             Refresh();
         }
-
-       
-    }
+        }
 }

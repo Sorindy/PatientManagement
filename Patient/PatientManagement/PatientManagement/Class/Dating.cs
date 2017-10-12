@@ -60,15 +60,16 @@ namespace PatientManagement.Class
             _db.SaveChanges();
         }
 
-        public object Show()
+        public object Show(string workerid)
         {
             var getcategory = from v in _db.Datings 
+                where v.WorkerId==workerid 
                 select new
                 {
                     v.Id,
+                    v.Date,
                     v.PatientId,
-                    v.WorkerId,
-                    v.Date ,
+                    v.Patient.Name,
                 };
             _bs.DataSource = getcategory.ToList();
             return _bs;

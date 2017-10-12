@@ -37,6 +37,7 @@ namespace PatientManagement
 
         private void DatingListForm_Load(object sender, EventArgs e)
         {
+            Refresh();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -64,7 +65,7 @@ namespace PatientManagement
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            _dating.Update(txtDatingId.Text, dtpDating.Value.Date);
+            _dating.Update(txtDatingId.Text, dtpDating.Value);
             btnShow.PerformClick();
             Refresh();
         }
@@ -92,7 +93,7 @@ namespace PatientManagement
 
         private void btnShow_Click(object sender, EventArgs e)
         {
-           dtgInformation.DataSource= _dating.Show();
+           dtgInformation.DataSource= _dating.Show(txtStaffID.Text);
             Refresh();
         }
 
@@ -103,19 +104,18 @@ namespace PatientManagement
             Refresh();
         }
 
+        private void dtgInformation_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtDatingId.Text = dtgInformation.CurrentRow.Cells[0].Value.ToString();
+            dtpDating.Text = dtgInformation.CurrentRow.Cells[1].Value.ToString();
+            txtPatientId.Text = dtgInformation.CurrentRow.Cells[2].Value.ToString();
+            Refresh();
+        }
+
         private void txtPatientId_TextChanged(object sender, EventArgs e)
         {
             var select = _patient.Select(txtPatientId.Text);
             txtPatientName.Text = select.Name;
-            Refresh();
-        }
-
-        private void dtgInformation_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            txtDatingId.Text = dtgInformation.CurrentRow.Cells[0].Value.ToString();
-            txtPatientId.Text = dtgInformation.CurrentRow.Cells[1].Value.ToString();
-            txtStaffID.Text = dtgInformation.CurrentRow.Cells[2].Value.ToString();
-            dtpDating.Text = dtgInformation.CurrentRow.Cells[3].Value.ToString();
             Refresh();
         }
     }

@@ -49,15 +49,15 @@
             // 
             this.dtgConsultationWaiting.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgConsultationWaiting.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgConsultationWaiting.Location = new System.Drawing.Point(81, 53);
+            this.dtgConsultationWaiting.Location = new System.Drawing.Point(12, 53);
             this.dtgConsultationWaiting.Name = "dtgConsultationWaiting";
-            this.dtgConsultationWaiting.Size = new System.Drawing.Size(347, 253);
+            this.dtgConsultationWaiting.Size = new System.Drawing.Size(960, 253);
             this.dtgConsultationWaiting.TabIndex = 1;
             this.dtgConsultationWaiting.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgConsultationWaiting_CellContentClick);
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(434, 210);
+            this.btnSubmit.Location = new System.Drawing.Point(118, 309);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(75, 23);
             this.btnSubmit.TabIndex = 2;
@@ -67,7 +67,7 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(434, 239);
+            this.btnClose.Location = new System.Drawing.Point(199, 310);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 3;
@@ -77,7 +77,7 @@
             // 
             // txtPatientId
             // 
-            this.txtPatientId.Location = new System.Drawing.Point(434, 108);
+            this.txtPatientId.Location = new System.Drawing.Point(12, 312);
             this.txtPatientId.Name = "txtPatientId";
             this.txtPatientId.Size = new System.Drawing.Size(100, 20);
             this.txtPatientId.TabIndex = 4;
