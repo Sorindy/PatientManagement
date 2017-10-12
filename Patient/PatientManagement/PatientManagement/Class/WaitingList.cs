@@ -13,45 +13,86 @@ namespace PatientManagement.Class
     {
         private HospitalDbContext _db = new HospitalDbContext();
         private Hospital_Entity_Framework.WaitingList _waitingList = new Hospital_Entity_Framework.WaitingList();
-        private BindingSource _bs = new BindingSource();
 
-        public object ShowWaiting(string categoryid)
+        public BindingSource ShowWaiting(string categoryid)
         {
-            if (categoryid.StartsWith("C"))
+            var bs=new BindingSource();
+
+            var checkConsultationCategory = _db.WaitingLists.Any(v => v.ConsultationCategories.Any(a => a.Id == categoryid));
+            var checkLaboratoryCategory = _db.WaitingLists.Any(v => v.LaboratoryCategories.Any(a => a.Id == categoryid));
+            var checkMedicalImagingCategory = _db.WaitingLists.Any(v => v.MedicalImagingCategories.Any(a => a.Id == categoryid));
+            var checkPrescriptionCategory = _db.WaitingLists.Any(v => v.PrescriptionCategories.Any(a => a.Id == categoryid));
+            var checkVariousDocumentCategory = _db.WaitingLists.Any(v => v.VariousDocumentCategories.Any(a => a.Id == categoryid));
+
+            if (checkConsultationCategory)
             {
-                //var getwaiting = _db.WaitingLists.Select(v => v.ConsultationCategories.Select(item => item.Id == categoryid));
-                var getwaiting = from v in _db.WaitingLists
-                    where v.ConsultationCategories.Single( ).Id  == categoryid
+                var getList = from b in _db.WaitingLists
+                    where b.ConsultationCategories.Any(v => v.Id == categoryid)
                     select new
                     {
-                        v.Id,
-                        v.PatientId,
-                        v.Patient.Name,
-                        v.Time,
+                        b.Id,
+                        b.Patient.Name,
+                        b.Time
                     };
-                _bs.DataSource = getwaiting.ToList();
+                bs.DataSource = getList.ToList();
             }
-            if (categoryid.StartsWith("P"))
+            if (checkLaboratoryCategory)
             {
-                var getwaiting = _db.WaitingLists.Select(v => v.PrescriptionCategories.Select(item => item.Id == categoryid));
-                _bs.DataSource = getwaiting.ToList();
+                var getList = from b in _db.WaitingLists
+                    where b.LaboratoryCategories.Any(v => v.Id == categoryid)
+                    select new
+                    {
+                        b.Id,
+                        b.Patient.Name,
+                        b.Time
+                    };
+                bs.DataSource = getList.ToList();
             }
-            if (categoryid.StartsWith("L"))
+            if (checkMedicalImagingCategory)
             {
-                var getwaiting = _db.WaitingLists.Select(v => v.LaboratoryCategories.Select(item => item.Id == categoryid));
-                _bs.DataSource = getwaiting.ToList();
+                var getList = from b in _db.WaitingLists
+                    where b.ConsultationCategories.Any(v => v.Id == categoryid)
+                    select new
+                    {
+                        b.Id,
+                        b.Patient.Name,
+                        b.Time
+                    };
+                bs.DataSource = getList.ToList();
             }
-            if (categoryid.StartsWith("M"))
+            if (checkPrescriptionCategory)
             {
-                var getwaiting = _db.WaitingLists.Select(v => v.MedicalImagingCategories.Select(item => item.Id == categoryid));
-                _bs.DataSource = getwaiting.ToList();
+                var getList = from b in _db.WaitingLists
+                    where b.PrescriptionCategories.Any(v => v.Id == categoryid)
+                    select new
+                    {
+                        b.Id,
+                        b.Patient.Name,
+                        b.Time
+                    };
+                bs.DataSource = getList.ToList();
             }
-            if (categoryid.StartsWith("v"))
+            if (checkVariousDocumentCategory)
             {
-                var getwaiting = _db.WaitingLists.Select(v => v.VariousDocumentCategories.Select(item => item.Id == categoryid));
-                _bs.DataSource = getwaiting.ToList();
+                var getList = from b in _db.WaitingLists
+                    where b.VariousDocumentCategories.Any(v => v.Id == categoryid)
+                    select new
+                    {
+                        b.Id,
+                        b.Patient.Name,
+                        b.Time
+                    };
+                bs.DataSource = getList.ToList();
             }
-            return _bs;
+
+            return bs;
+        }
+
+        public Hospital_Entity_Framework.WaitingList GetWaitingListObject(string id)
+        {
+            var check = _db.WaitingLists.Single(v => v.Id == id);
+
+            return check;
         }
 
         

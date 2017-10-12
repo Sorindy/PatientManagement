@@ -32,7 +32,6 @@
             this.dtgConsultationWaiting = new System.Windows.Forms.DataGridView();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.txtPatientId = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgConsultationWaiting)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,7 +52,6 @@
             this.dtgConsultationWaiting.Name = "dtgConsultationWaiting";
             this.dtgConsultationWaiting.Size = new System.Drawing.Size(960, 253);
             this.dtgConsultationWaiting.TabIndex = 1;
-            this.dtgConsultationWaiting.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgConsultationWaiting_CellContentClick);
             // 
             // btnSubmit
             // 
@@ -75,21 +73,11 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // txtPatientId
-            // 
-            this.txtPatientId.Location = new System.Drawing.Point(12, 312);
-            this.txtPatientId.Name = "txtPatientId";
-            this.txtPatientId.Size = new System.Drawing.Size(100, 20);
-            this.txtPatientId.TabIndex = 4;
-            this.txtPatientId.Visible = false;
-            this.txtPatientId.TextChanged += new System.EventHandler(this.txtPatientId_TextChanged);
-            // 
             // WaitingListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 461);
-            this.Controls.Add(this.txtPatientId);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.dtgConsultationWaiting);
@@ -110,6 +98,5 @@
         private System.Windows.Forms.DataGridView dtgConsultationWaiting;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.TextBox txtPatientId;
     }
 }

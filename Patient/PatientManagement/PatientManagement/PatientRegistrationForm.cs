@@ -71,7 +71,15 @@ namespace PatientManagement
         {
             Refresh();
             Close();
-            Chkform.Show();
+            try
+            {
+                Chkform.Show();
+
+            }
+            catch (Exception exception)
+            {
+                
+            }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
