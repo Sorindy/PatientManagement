@@ -230,6 +230,7 @@
             // 
             // dtgInformation
             // 
+            this.dtgInformation.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgInformation.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgInformation.Location = new System.Drawing.Point(366, 48);
             this.dtgInformation.Name = "dtgInformation";

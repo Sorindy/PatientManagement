@@ -41,7 +41,7 @@ namespace PatientManagement
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-           _dating.Insert(_dating.AutoId(),txtPatientId.Text,txtStaffID.Text,dtpDating.Value.Date);
+           _dating.Insert(_dating.AutoId(),txtPatientId.Text,txtStaffID.Text,dtpDating.Value);
             btnShow.PerformClick();
             Refresh();
         }
@@ -73,6 +73,7 @@ namespace PatientManagement
         {
             _dating.Delete(txtDatingId.Text);
             btnShow.PerformClick();
+            Clear();
             Refresh();
         }
 
@@ -114,6 +115,7 @@ namespace PatientManagement
             txtDatingId.Text = dtgInformation.CurrentRow.Cells[0].Value.ToString();
             txtPatientId.Text = dtgInformation.CurrentRow.Cells[1].Value.ToString();
             txtStaffID.Text = dtgInformation.CurrentRow.Cells[2].Value.ToString();
+            dtpDating.Text = dtgInformation.CurrentRow.Cells[3].Value.ToString();
             Refresh();
         }
     }

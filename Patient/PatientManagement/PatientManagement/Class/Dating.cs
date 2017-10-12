@@ -39,7 +39,7 @@ namespace PatientManagement.Class
                 Id = id,
                 PatientId = patientid,
                 WorkerId = workerid,
-                Date = date,
+                Date = date ,
             };
             _db.Datings.Add(insert);
             _db.SaveChanges();
@@ -68,7 +68,7 @@ namespace PatientManagement.Class
                     v.Id,
                     v.PatientId,
                     v.WorkerId,
-                    v.Date,
+                    v.Date ,
                 };
             _bs.DataSource = getcategory.ToList();
             return _bs;

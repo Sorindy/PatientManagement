@@ -16,7 +16,7 @@ namespace PatientManagement
 
         private Patient _patient = new Patient();
         public CheckInForm Chkform;
-        
+        private MedicalRecord _medicalRecord = new MedicalRecord();
 
         public PatientRegistrationForm()
         {
@@ -44,6 +44,7 @@ namespace PatientManagement
         {
                 _patient.Cheack_Control(txtName.Text, cmbGender.Text, txtAddress.Text, txtPhone1.Text, txtWeight.Text, txtHeight.Text);
                 _patient.Insert(txtID.Text, txtName.Text, cmbGender.Text, dtpDOB.Value.Date, Convert.ToByte(txtAge.Text), txtAddress.Text, txtPhone1.Text, txtPhone2.Text, txtEmail.Text, Convert.ToInt16(txtWeight.Text), Convert.ToInt16(txtHeight.Text));
+                _medicalRecord.Insert(_medicalRecord.AutoId(), txtID.Text);
                 Clear_Control();
                 btnNew.Visible = true;
                 btnInsert.Visible = false;

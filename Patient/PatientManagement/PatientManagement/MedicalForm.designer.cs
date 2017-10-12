@@ -52,7 +52,6 @@
             this.btnMedicalHistory = new System.Windows.Forms.Button();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.txtDescriptioinName = new System.Windows.Forms.TextBox();
             this.lbTodaydate = new System.Windows.Forms.Label();
@@ -77,11 +76,13 @@
             this.cmbSample = new System.Windows.Forms.ComboBox();
             this.btnFort = new System.Windows.Forms.Button();
             this.txtDescription = new System.Windows.Forms.RichTextBox();
+            this.gbMedicalItem = new System.Windows.Forms.GroupBox();
             this.gbPatient.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.gbActivity.SuspendLayout();
             this.gbDating_waiting.SuspendLayout();
             this.gbDating.SuspendLayout();
+            this.gbMedicalItem.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -136,8 +137,8 @@
             this.txtPatientID.ReadOnly = true;
             this.txtPatientID.Size = new System.Drawing.Size(197, 19);
             this.txtPatientID.TabIndex = 2;
-            this.txtPatientID.Text = "Patient1";
             this.txtPatientID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtPatientID.TextChanged += new System.EventHandler(this.txtPatientID_TextChanged);
             // 
             // label3
             // 
@@ -230,10 +231,15 @@
             // cmbCategory
             // 
             this.cmbCategory.FormattingEnabled = true;
+            this.cmbCategory.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3"});
             this.cmbCategory.Location = new System.Drawing.Point(106, 76);
             this.cmbCategory.Name = "cmbCategory";
             this.cmbCategory.Size = new System.Drawing.Size(197, 21);
             this.cmbCategory.TabIndex = 9;
+            this.cmbCategory.SelectedIndexChanged += new System.EventHandler(this.cmbCategory_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -285,9 +291,9 @@
             // 
             // btnMedicalHistory
             // 
-            this.btnMedicalHistory.Location = new System.Drawing.Point(7, 224);
+            this.btnMedicalHistory.Location = new System.Drawing.Point(9, 25);
             this.btnMedicalHistory.Name = "btnMedicalHistory";
-            this.btnMedicalHistory.Size = new System.Drawing.Size(200, 28);
+            this.btnMedicalHistory.Size = new System.Drawing.Size(183, 28);
             this.btnMedicalHistory.TabIndex = 4;
             this.btnMedicalHistory.Text = "Medical History";
             this.btnMedicalHistory.UseVisualStyleBackColor = true;
@@ -313,21 +319,11 @@
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(3, 192);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(126, 21);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "Medical-Item";
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(521, 203);
+            this.label9.Location = new System.Drawing.Point(230, 205);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(111, 21);
             this.label9.TabIndex = 16;
@@ -336,7 +332,7 @@
             // txtDescriptioinName
             // 
             this.txtDescriptioinName.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescriptioinName.Location = new System.Drawing.Point(638, 202);
+            this.txtDescriptioinName.Location = new System.Drawing.Point(347, 203);
             this.txtDescriptioinName.Name = "txtDescriptioinName";
             this.txtDescriptioinName.ReadOnly = true;
             this.txtDescriptioinName.Size = new System.Drawing.Size(333, 25);
@@ -404,9 +400,9 @@
             "Medical Imaging",
             "Laboratory",
             "Variou Document"});
-            this.cmbMedicalRecord.Location = new System.Drawing.Point(7, 258);
+            this.cmbMedicalRecord.Location = new System.Drawing.Point(9, 59);
             this.cmbMedicalRecord.Name = "cmbMedicalRecord";
-            this.cmbMedicalRecord.Size = new System.Drawing.Size(200, 26);
+            this.cmbMedicalRecord.Size = new System.Drawing.Size(183, 26);
             this.cmbMedicalRecord.TabIndex = 41;
             this.cmbMedicalRecord.Text = "Medical-Record";
             this.cmbMedicalRecord.SelectedIndexChanged += new System.EventHandler(this.cmbMedicalRecord_SelectedIndexChanged);
@@ -429,6 +425,7 @@
             this.btnWaitinglist.TabIndex = 43;
             this.btnWaitinglist.Text = "Wating-List";
             this.btnWaitinglist.UseVisualStyleBackColor = true;
+            this.btnWaitinglist.Click += new System.EventHandler(this.btnWaitinglist_Click);
             // 
             // gbActivity
             // 
@@ -489,9 +486,9 @@
             // 
             // btnAddDating
             // 
-            this.btnAddDating.Location = new System.Drawing.Point(112, 30);
+            this.btnAddDating.Location = new System.Drawing.Point(123, 30);
             this.btnAddDating.Name = "btnAddDating";
-            this.btnAddDating.Size = new System.Drawing.Size(74, 28);
+            this.btnAddDating.Size = new System.Drawing.Size(74, 22);
             this.btnAddDating.TabIndex = 44;
             this.btnAddDating.Text = "Add";
             this.btnAddDating.UseVisualStyleBackColor = true;
@@ -499,9 +496,10 @@
             // 
             // dtpDating
             // 
+            this.dtpDating.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dtpDating.Location = new System.Drawing.Point(9, 32);
             this.dtpDating.Name = "dtpDating";
-            this.dtpDating.Size = new System.Drawing.Size(74, 20);
+            this.dtpDating.Size = new System.Drawing.Size(113, 20);
             this.dtpDating.TabIndex = 0;
             // 
             // tmDate
@@ -511,7 +509,7 @@
             // txtMedicalId
             // 
             this.txtMedicalId.Font = new System.Drawing.Font("Modern No. 20", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMedicalId.Location = new System.Drawing.Point(310, 207);
+            this.txtMedicalId.Location = new System.Drawing.Point(347, 209);
             this.txtMedicalId.Name = "txtMedicalId";
             this.txtMedicalId.ReadOnly = true;
             this.txtMedicalId.Size = new System.Drawing.Size(197, 19);
@@ -534,7 +532,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Modern No. 20", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(977, 207);
+            this.label10.Location = new System.Drawing.Point(687, 210);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(51, 15);
             this.label10.TabIndex = 49;
@@ -543,7 +541,7 @@
             // cmbSample
             // 
             this.cmbSample.FormattingEnabled = true;
-            this.cmbSample.Location = new System.Drawing.Point(1034, 205);
+            this.cmbSample.Location = new System.Drawing.Point(744, 208);
             this.cmbSample.Name = "cmbSample";
             this.cmbSample.Size = new System.Drawing.Size(197, 21);
             this.cmbSample.TabIndex = 50;
@@ -551,7 +549,7 @@
             // 
             // btnFort
             // 
-            this.btnFort.Location = new System.Drawing.Point(1234, 204);
+            this.btnFort.Location = new System.Drawing.Point(944, 207);
             this.btnFort.Name = "btnFort";
             this.btnFort.Size = new System.Drawing.Size(82, 23);
             this.btnFort.TabIndex = 51;
@@ -561,17 +559,30 @@
             // 
             // txtDescription
             // 
+            this.txtDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescription.Location = new System.Drawing.Point(234, 233);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(1082, 488);
             this.txtDescription.TabIndex = 52;
             this.txtDescription.Text = "";
             // 
+            // gbMedicalItem
+            // 
+            this.gbMedicalItem.Controls.Add(this.btnMedicalHistory);
+            this.gbMedicalItem.Controls.Add(this.cmbMedicalRecord);
+            this.gbMedicalItem.Location = new System.Drawing.Point(7, 193);
+            this.gbMedicalItem.Name = "gbMedicalItem";
+            this.gbMedicalItem.Size = new System.Drawing.Size(200, 91);
+            this.gbMedicalItem.TabIndex = 53;
+            this.gbMedicalItem.TabStop = false;
+            this.gbMedicalItem.Text = "Medical-Item";
+            // 
             // MedicalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1328, 733);
+            this.Controls.Add(this.gbMedicalItem);
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.btnFort);
             this.Controls.Add(this.cmbSample);
@@ -581,12 +592,9 @@
             this.Controls.Add(this.gbDating);
             this.Controls.Add(this.gbDating_waiting);
             this.Controls.Add(this.gbActivity);
-            this.Controls.Add(this.cmbMedicalRecord);
             this.Controls.Add(this.lbTodaydate);
             this.Controls.Add(this.txtDescriptioinName);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.btnMedicalHistory);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gbPatient);
             this.Controls.Add(this.label1);
@@ -602,6 +610,7 @@
             this.gbActivity.ResumeLayout(false);
             this.gbDating_waiting.ResumeLayout(false);
             this.gbDating.ResumeLayout(false);
+            this.gbMedicalItem.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -629,7 +638,6 @@
         private System.Windows.Forms.Button btnPatientDetail;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtDescriptioinName;
         private System.Windows.Forms.Label lbTodaydate;
@@ -657,5 +665,6 @@
         private System.Windows.Forms.ComboBox cmbSample;
         private System.Windows.Forms.Button btnFort;
         private System.Windows.Forms.RichTextBox txtDescription;
+        private System.Windows.Forms.GroupBox gbMedicalItem;
     }
 }

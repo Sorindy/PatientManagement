@@ -12,7 +12,7 @@ namespace PatientManagement.Class
 
         public void InsertWaiting(string id, string patientId, TimeSpan date)
         {
-            var insert=new WaitingList(){Id = id,PatientId = patientId,Time = date};
+            var insert=new Hospital_Entity_Framework.WaitingList(){Id = id,PatientId = patientId,Time = date};
 
             _db.WaitingLists.Add(insert);
             _db.SaveChanges();
@@ -274,7 +274,7 @@ namespace PatientManagement.Class
         public void SubmitService(string patientId,TimeSpan timeSpan)
         {
             var id = AutoIdWaiting();
-            var insertWaitingList=new WaitingList(){Id = id,PatientId = patientId,Time = timeSpan };
+            var insertWaitingList=new Hospital_Entity_Framework.WaitingList(){Id = id,PatientId = patientId,Time = timeSpan };
             _db.WaitingLists.Add(insertWaitingList);
             _db.SaveChanges();
 
@@ -391,7 +391,7 @@ namespace PatientManagement.Class
 
         private string AutoIdWaiting()
         {
-            var wait = new WaitingList();
+            var wait = new Hospital_Entity_Framework.WaitingList();
             try
             {
                 var getLastId = _db.WaitingLists.OrderByDescending(v => v.Id).First();
@@ -409,10 +409,10 @@ namespace PatientManagement.Class
        
         public void ClearTemp()
         {
-            var clear = _db.TempWaits;
+            //var clear = _db.TempWaits;
 
-            _db.TempWaits.RemoveRange(clear);
-            _db.SaveChanges();
+            //_db.TempWaits.RemoveRange(clear);
+            //_db.SaveChanges();
         }
 
     }
