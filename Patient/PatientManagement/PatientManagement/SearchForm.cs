@@ -33,6 +33,8 @@ namespace PatientManagement
 
         private Patient _patient;
         public string Staffid;
+        protected Hospital_Entity_Framework.Patient Patient;
+        public PatientRegistrationForm PatientRegistrationForm;
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
@@ -59,15 +61,26 @@ namespace PatientManagement
         }
 
         private void btnSumit_Click(object sender, EventArgs e)
-        {
-            
-                var getid = dtgInformation.CurrentRow.Cells[0].Value.ToString();
-                Hide();
-                var patientRegistrationForm = new PatientRegistrationForm();
-                patientRegistrationForm.Show();
-                patientRegistrationForm.TextId = getid;
-            
-                Refresh(); 
+        {            
+            var getid = dtgInformation.CurrentRow.Cells[0].Value.ToString();
+            Patient= _patient.Select(getid);
+            var form = (PatientRegistrationForm) Application.OpenForms["PatientRegistrationForm"];
+
+            form.txtID.Text = Patient.Id;
+            form.txtName.Text = Patient.Name;
+            form.cmbGender.Text = Patient.Gender;
+            form.dtpDOB.Value = Patient.DOB;
+            form.txtAge.Text = Patient.Age.ToString();
+            form.txtAddress.Text = Patient.Address;
+            form.txtPhone1.Text = Patient.Phone1;
+            form.txtPhone2.Text = Patient.Phone2;
+            form.txtEmail.Text = Patient.Email;
+            form.txtHeight.Text = Patient.Height.ToString();
+            form.txtWeight.Text = Patient.Weight.ToString();
+
+            PatientRegistrationForm.Show();
+            Refresh();
+            Close();
         }
 
         private void SearchForm_Load(object sender, EventArgs e)

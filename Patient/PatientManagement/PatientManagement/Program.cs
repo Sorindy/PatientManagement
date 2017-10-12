@@ -13,7 +13,6 @@ namespace PatientManagement
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MedicalForm());
-        }
+            Application.Run(new CheckInForm());        }
     }
 }

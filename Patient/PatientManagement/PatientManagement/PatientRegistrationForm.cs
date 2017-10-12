@@ -15,6 +15,7 @@ namespace PatientManagement
     {
 
         private Patient _patient = new Patient();
+        public CheckInForm Chkform;
         private MedicalRecord _medicalRecord = new MedicalRecord();
 
         public PatientRegistrationForm()
@@ -36,7 +37,7 @@ namespace PatientManagement
 
         private void PatientRegistrationForm_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btnInsert_Click(object sender, EventArgs e)
@@ -62,6 +63,7 @@ namespace PatientManagement
             search.Show();
             Refresh();
             search.AddDatingButton = false;
+            search.PatientRegistrationForm = this;
             Hide();
         }
 
@@ -69,6 +71,7 @@ namespace PatientManagement
         {
             Refresh();
             Close();
+            Chkform.Show();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -97,17 +100,17 @@ namespace PatientManagement
         }
 
         private void btnNew_Click(object sender, EventArgs e)
-        {    
-            txtID.Text =_patient.AutoId();
+        {
             Clear_Control();
+            txtID.Text =_patient.AutoId();
             btnInsert.Visible = true;
             btnNew.Visible = false;
         }
 
         private void txtID_TextChanged(object sender, EventArgs e)
         {
-            var select = _patient.Select(txtID.Text);
             
+<<<<<<< HEAD
                 txtID.Text = select.Id;
                 txtName.Text = select.Name;
                 txtAge.Text = select.Age.ToString();
@@ -120,6 +123,8 @@ namespace PatientManagement
                 cmbGender.Text = select.Gender;
                 dtpDOB.Value = select.DOB;
                
+=======
+>>>>>>> 81981ee740bf089702b10c4cc6bea9abc6f7f753
         }
     }
 }

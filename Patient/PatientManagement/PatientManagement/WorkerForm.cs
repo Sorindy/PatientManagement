@@ -29,7 +29,6 @@ namespace PatientManagement
                 Clears();
                 txtID.Text = _worker.AutoId();
                 btnNew.Hide();
-             //   _worker.Insert("Worker1","Sorindy","Male",Convert.ToDateTime("01-03-1995"),22,"Phnom Penh","010456036","012296012","hot.sorindy@gmail.com","Admin",400,Convert.ToDateTime("10-08-2017"));
         }
 
         private void Clears()
