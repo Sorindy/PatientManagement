@@ -72,7 +72,7 @@ namespace PatientManagement.Class
 
             var search = _db.Patients.Where(v => v.Id.Contains(text) || v.Name.Contains(text) ||
                                                  v.Phone1.Contains(text) || v.Phone2.Contains(text));
-            bs.DataSource = search.ToList();
+            bs.DataSource = search.Select(v=>new {v.Id,v.Name,v.Gender,v.Phone1,v.Phone2,v.Email,v.Address,v.Height,v.Weight}).ToList();
 
             return bs;
         }
@@ -409,10 +409,10 @@ namespace PatientManagement.Class
        
         public void ClearTemp()
         {
-            //var clear = _db.TempWaits;
+            var clear = _db.TempWaits;
 
-            //_db.TempWaits.RemoveRange(clear);
-            //_db.SaveChanges();
+            _db.TempWaits.RemoveRange(clear);
+            _db.SaveChanges();
         }
 
     }

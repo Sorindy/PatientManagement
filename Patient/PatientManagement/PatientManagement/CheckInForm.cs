@@ -15,18 +15,29 @@ namespace PatientManagement
         private CheckIn _chkIn=new CheckIn();
         public void CheckInForm_Load(object sender, EventArgs e)
         {
+            
             timer1.Enabled = true;
             this.timer1_Tick(this,e);
             gboService.Controls.Clear();
             gboCategory.Controls.Clear();
             gboService.Controls.Add(_chkIn.ShowService());
-            gboService.Enabled = false;
-            gboCategory.Enabled = false;
+            ClearControl();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             lblTime.Text = DateTime.Now.ToLongDateString() + " \n  " + DateTime.Now.ToLongTimeString();
+        }
+
+        private void ClearControl()
+        {
+            txtSearch4Patient.Text = "";
+            txtSearchDating.Text = "";
+            gboCategory.Enabled = false;
+            gboService.Enabled = false;
+            dgvShowPatient.ReadOnly = true;
+            dgvShowDatingPatient.ReadOnly = true;
+            dgvShowPatient.DataSource = null;
         }
 
         private void btnPreview_Click(object sender, EventArgs e)
