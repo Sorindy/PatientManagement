@@ -100,7 +100,14 @@
     <Compile Include="CategoryForm.designer.cs">
       <DependentUpon>CategoryForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CheckInForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CheckInForm.designer.cs">
+      <DependentUpon>CheckInForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Class\Account.cs" />
+    <Compile Include="Class\CheckIn.cs" />
     <Compile Include="Class\ConsultationCategory.cs" />
     <Compile Include="Class\ConsultationEstimate.cs" />
     <Compile Include="Class\ConsultationSample.cs" />
@@ -191,6 +198,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CategoryForm.resx">
       <DependentUpon>CategoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CheckInForm.resx">
+      <DependentUpon>CheckInForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CreateAccountForm.resx">
       <DependentUpon>CreateAccountForm.cs</DependentUpon>

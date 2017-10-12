@@ -147,20 +147,23 @@ namespace PatientManagement.Class
                     };
                 foreach (var item in getpatient)
                 {
-                    _patient.Id = item.Id;
-                    _patient.Name = item.Name;
-                    _patient.Gender = item.Gender;
-                    _patient.DOB = item.DOB;
-                    _patient.Age = item.Age;
-                    _patient.Address = item.Address;
-                    _patient.Phone1 = item.Phone1;
-                    _patient.Phone2 = item.Phone2;
-                    _patient.Email = item.Email;
-                    _patient.Weight = item.Weight;
-                    _patient.Height = item.Height;
+                    var patient=new Hospital_Entity_Framework.Patient(){
+                        Id = item.Id,
+                        Name = item.Name,
+                        Gender = item.Gender,
+                        DOB = item.DOB,
+                        Age = item.Age,
+                        Address = item.Address,
+                        Phone1 = item.Phone1,
+                        Phone2 = item.Phone2,
+                        Email = item.Email,
+                        Weight = item.Weight,
+                        Height = item.Height,
+                    };
+                    return patient;
                 }
             
-            return _patient;
+            return null;
         }
     }
 

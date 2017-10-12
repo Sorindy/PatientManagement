@@ -424,15 +424,7 @@
 
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox txtHeight;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox txtWeight;
-        private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.TextBox txtPhone2;
-        private System.Windows.Forms.TextBox txtPhone1;
-        private System.Windows.Forms.TextBox txtAddress;
-        private System.Windows.Forms.TextBox txtAge;
-        private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
@@ -443,16 +435,24 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dtpDOB;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnInsert;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.ComboBox cmbGender;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnNew;
+        internal System.Windows.Forms.TextBox txtHeight;
+        internal System.Windows.Forms.TextBox txtWeight;
+        internal System.Windows.Forms.TextBox txtEmail;
+        internal System.Windows.Forms.TextBox txtPhone2;
+        internal System.Windows.Forms.TextBox txtPhone1;
+        internal System.Windows.Forms.TextBox txtAddress;
+        internal System.Windows.Forms.TextBox txtAge;
+        internal System.Windows.Forms.TextBox txtName;
+        internal System.Windows.Forms.TextBox txtID;
+        internal System.Windows.Forms.DateTimePicker dtpDOB;
+        internal System.Windows.Forms.ComboBox cmbGender;
     }
 }
