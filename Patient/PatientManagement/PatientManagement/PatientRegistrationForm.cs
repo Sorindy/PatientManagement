@@ -118,7 +118,7 @@ namespace PatientManagement
                 txtHeight.Text = select.Height.ToString();
                 txtWeight.Text = select.Weight.ToString();
                 cmbGender.Text = select.Gender;
-                dtpDOB.Text = Convert.ToString(select.DOB);
+                dtpDOB.Value = select.DOB;
                
         }
     }

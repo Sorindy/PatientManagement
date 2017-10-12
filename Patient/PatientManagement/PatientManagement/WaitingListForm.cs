@@ -16,6 +16,8 @@ namespace PatientManagement
 
         private WaitingList _waitingList = new WaitingList();
 
+        public string GetStaffCategory;
+
         public WaitingListForm()
         {
             InitializeComponent();
@@ -38,7 +40,7 @@ namespace PatientManagement
 
         private void WaitingListForm_Load(object sender, EventArgs e)
         {
-            dtgConsultationWaiting.DataSource = _waitingList.Show();
+            dtgConsultationWaiting.DataSource = _waitingList.ShowWaiting(GetStaffCategory);
             btnSubmit.Enabled = false;
             Refresh();
         }

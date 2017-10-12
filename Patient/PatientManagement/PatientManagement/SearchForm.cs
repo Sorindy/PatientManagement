@@ -44,7 +44,18 @@ namespace PatientManagement
         private void btnClose_Click(object sender, EventArgs e)
         {
             Refresh();
-            Close();
+            if (btnSumit.Visible == true)
+            {
+                var patientregisterform = new PatientRegistrationForm();
+                patientregisterform.Show();
+            }
+            else if (btnAddDating.Visible == true)
+            {
+                var datinglistform = new DatingListForm();
+                datinglistform.Show();
+            }
+            Refresh();
+            Hide();
         }
 
         private void btnSumit_Click(object sender, EventArgs e)

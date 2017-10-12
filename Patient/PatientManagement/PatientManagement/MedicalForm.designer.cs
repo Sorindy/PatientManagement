@@ -232,9 +232,7 @@
             // 
             this.cmbCategory.FormattingEnabled = true;
             this.cmbCategory.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3"});
+            "ConsultationCategory1"});
             this.cmbCategory.Location = new System.Drawing.Point(106, 76);
             this.cmbCategory.Name = "cmbCategory";
             this.cmbCategory.Size = new System.Drawing.Size(197, 21);
@@ -268,7 +266,7 @@
             this.txtStaffID.ReadOnly = true;
             this.txtStaffID.Size = new System.Drawing.Size(197, 19);
             this.txtStaffID.TabIndex = 6;
-            this.txtStaffID.Text = "Worker1";
+            this.txtStaffID.Text = "Worker2";
             this.txtStaffID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label4
