@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using PatientManagement.Class;
 
@@ -14,46 +7,36 @@ namespace PatientManagement
     public partial class WaitingListForm : Form
     {
 
-        private WaitingList _waitingList = new WaitingList();
-
+        private readonly WaitingList _waitingList = new WaitingList();
+        public MedicalForm MedicalForm;
         public string GetStaffCategory;
 
         public WaitingListForm()
         {
             InitializeComponent();
+           
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            var medicalform = new MedicalForm();
-            medicalform.GetPatientId = txtPatientId.Text;
-            medicalform.Show();
-            Hide();
-            Refresh();
+            if (dtgConsultationWaiting.CurrentRow != null)
+            MedicalForm.WaitingList=_waitingList.GetWaitingListObject(dtgConsultationWaiting.CurrentRow.Cells[0].Value.ToString());
+            MedicalForm.Show();
+            Close();
+            MedicalForm.txtPatientID.Text = MedicalForm.WaitingList.PatientId;
+            MedicalForm.txtPatientName.Text = MedicalForm.WaitingList.Patient.Name;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            Refresh();
+            MedicalForm.Show();
             Close();
         }
 
         private void WaitingListForm_Load(object sender, EventArgs e)
         {
             dtgConsultationWaiting.DataSource = _waitingList.ShowWaiting(GetStaffCategory);
-            btnSubmit.Enabled = false;
-            Refresh();
         }
 
-        private void dtgConsultationWaiting_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            txtPatientId.Text = dtgConsultationWaiting.CurrentRow.Cells[1].Value.ToString();
-            Refresh();
-        }
-
-        private void txtPatientId_TextChanged(object sender, EventArgs e)
-        {
-            btnSubmit.Enabled = true;
-        }
     }
 }

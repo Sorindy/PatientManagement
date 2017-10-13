@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Globalization;
 using System.Windows.Forms;
 using PatientManagement.Class;
+using WaitingList = Hospital_Entity_Framework.WaitingList;
 
 namespace PatientManagement
 {
@@ -11,6 +13,7 @@ namespace PatientManagement
         private Dating _dating = new Dating();
         private IEstimate _estimate;
         private Patient _patient;
+        public WaitingList WaitingList;
 
         public string GetPatientId 
         {
@@ -32,6 +35,7 @@ namespace PatientManagement
             txtDescription.Enabled = false;
             btnDatinglist.Enabled = false;
             btnPatientDetail.Enabled = false;
+            btnWaitinglist.Enabled = false;
             Refresh();
         }
 
@@ -159,7 +163,7 @@ namespace PatientManagement
 
         private void tmDate_Tick(object sender, EventArgs e)
         {
-            lbTodaydate.Text = Convert.ToString(DateTime.Now);
+            lbTodaydate.Text = Convert.ToString(DateTime.Now, CultureInfo.InvariantCulture);
         }
 
         private void cmbMedicalRecord_SelectedIndexChanged(object sender, EventArgs e)
@@ -201,12 +205,14 @@ namespace PatientManagement
 
         private void btnFort_Click(object sender, EventArgs e)
         {
-            FontDialog fd = new FontDialog();
-            fd = new FontDialog();
-            fd.ShowColor = true;
-            fd.ShowApply = true;
-            fd.ShowEffects = true;
-            fd.ShowHelp = true;
+            FontDialog fd;
+            fd = new FontDialog
+            {
+                ShowColor = true,
+                ShowApply = true,
+                ShowEffects = true,
+                ShowHelp = true
+            };
             if (fd.ShowDialog() == DialogResult.OK & !string.IsNullOrEmpty(txtDescription.Text))
             {
                 txtDescription.SelectionFont = fd.Font;
@@ -220,8 +226,13 @@ namespace PatientManagement
             var waitinglistform = new WaitingListForm();
             waitinglistform.GetStaffCategory = cmbCategory.Text;
             waitinglistform.Show();
+            waitinglistform.MedicalForm = this;
+            gbDating.Enabled = true;
+            gbMedicalItem.Enabled = true;
+            btnDatinglist.Enabled = true;
+            txtDescription.Enabled = true;
+            btnPatientDetail.Enabled = true;
             Hide();
-            Refresh();
         }
 
         private void txtPatientID_TextChanged(object sender, EventArgs e)
@@ -233,11 +244,8 @@ namespace PatientManagement
 
         private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
-            gbDating.Enabled = true;
-            gbMedicalItem.Enabled = true;
-            btnDatinglist.Enabled = true;
-            txtDescription.Enabled = true;
-            btnPatientDetail.Enabled = true;
+
+            btnWaitinglist.Enabled = true;
             Refresh();
         }
     }

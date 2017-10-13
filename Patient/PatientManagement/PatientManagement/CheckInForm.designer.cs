@@ -67,6 +67,7 @@
             // 
             // dgvShowPatient
             // 
+            this.dgvShowPatient.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvShowPatient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvShowPatient.Location = new System.Drawing.Point(12, 175);
             this.dgvShowPatient.Name = "dgvShowPatient";
@@ -195,6 +196,7 @@
             // 
             // dgvShowDatingPatient
             // 
+            this.dgvShowDatingPatient.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvShowDatingPatient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvShowDatingPatient.Location = new System.Drawing.Point(12, 389);
             this.dgvShowDatingPatient.Name = "dgvShowDatingPatient";

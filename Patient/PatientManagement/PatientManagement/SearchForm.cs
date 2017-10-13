@@ -1,11 +1,4 @@
 ﻿using System;
-/*using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;*/
 using System.Windows.Forms;
 using PatientManagement.Class;
 
@@ -46,12 +39,12 @@ namespace PatientManagement
         private void btnClose_Click(object sender, EventArgs e)
         {
             Refresh();
-            if (btnSumit.Visible == true)
+            if (btnSumit.Visible.Equals( true ))
             {
                 var patientregisterform = new PatientRegistrationForm();
                 patientregisterform.Show();
             }
-            else if (btnAddDating.Visible == true)
+            else if (btnAddDating.Visible.Equals( true))
             {
                 var datinglistform = new DatingListForm();
                 datinglistform.Show();
@@ -61,9 +54,12 @@ namespace PatientManagement
         }
 
         private void btnSumit_Click(object sender, EventArgs e)
-        {            
-            var getid = dtgInformation.CurrentRow.Cells[0].Value.ToString();
-            Patient= _patient.Select(getid);
+        {
+            if (dtgInformation.CurrentRow != null)
+            {
+                var getid = dtgInformation.CurrentRow.Cells[0].Value.ToString();
+                Patient = _patient.Select(getid);
+            }
             var form = (PatientRegistrationForm) Application.OpenForms["PatientRegistrationForm"];
 
             form.txtID.Text = Patient.Id;
@@ -90,13 +86,15 @@ namespace PatientManagement
 
         private void btnAddDating_Click(object sender, EventArgs e)
         {
-            
-            var getid = dtgInformation.CurrentRow.Cells[0].Value.ToString();
-            Hide();
-            var datingForm = new DatingListForm();
-            datingForm.Show();
-            datingForm.StaffId = Staffid;
-            datingForm.PatientId  = getid;
+            if (dtgInformation.CurrentRow != null)
+            {
+                var getid = dtgInformation.CurrentRow.Cells[0].Value.ToString();
+                Hide();
+                var datingForm = new DatingListForm();
+                datingForm.Show();
+                datingForm.StaffId = Staffid;
+                datingForm.PatientId = getid;
+            } 
             Refresh();
         }
 

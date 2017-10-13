@@ -618,8 +618,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox gbPatient;
-        private System.Windows.Forms.TextBox txtPatientName;
-        private System.Windows.Forms.TextBox txtPatientID;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
@@ -664,5 +662,7 @@
         private System.Windows.Forms.Button btnFort;
         private System.Windows.Forms.RichTextBox txtDescription;
         private System.Windows.Forms.GroupBox gbMedicalItem;
+        internal System.Windows.Forms.TextBox txtPatientName;
+        internal System.Windows.Forms.TextBox txtPatientID;
     }
 }

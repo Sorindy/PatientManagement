@@ -25,7 +25,6 @@ namespace PatientManagement
         {
             Hide();
             var mediccalform = new MedicalForm();
-            mediccalform.GetPatientId = txtPatientID.Text;
             mediccalform.Show();
             Refresh();
         }

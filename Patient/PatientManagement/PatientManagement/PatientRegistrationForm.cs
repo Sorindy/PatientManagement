@@ -15,7 +15,7 @@ namespace PatientManagement
     {
 
         private Patient _patient = new Patient();
-        public CheckInForm Chkform;
+        public CheckInForm Checkinkform;
         private MedicalRecord _medicalRecord = new MedicalRecord();
 
         public PatientRegistrationForm()
@@ -71,7 +71,15 @@ namespace PatientManagement
         {
             Refresh();
             Close();
-            Chkform.Show();
+            try
+            {
+                Checkinkform.Show();
+
+            }
+            catch (Exception exception)
+            {
+                
+            }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -109,22 +117,7 @@ namespace PatientManagement
 
         private void txtID_TextChanged(object sender, EventArgs e)
         {
-            
-<<<<<<< HEAD
-                txtID.Text = select.Id;
-                txtName.Text = select.Name;
-                txtAge.Text = select.Age.ToString();
-                txtAddress.Text = select.Address;
-                txtEmail.Text = select.Email;
-                txtPhone1.Text = select.Phone1;
-                txtPhone2.Text = select.Phone2;
-                txtHeight.Text = select.Height.ToString();
-                txtWeight.Text = select.Weight.ToString();
-                cmbGender.Text = select.Gender;
-                dtpDOB.Value = select.DOB;
-               
-=======
->>>>>>> 81981ee740bf089702b10c4cc6bea9abc6f7f753
+           
         }
     }
 }
