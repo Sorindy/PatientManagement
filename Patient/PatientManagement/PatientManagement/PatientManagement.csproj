@@ -35,6 +35,10 @@
     <StartupObject>PatientManagement.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Manager_scheduler.1.0.0\lib\4.0\EntityFramework.dll</HintPath>
@@ -43,6 +47,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Manager_scheduler.1.0.0\lib\4.0\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="Hospital Entity Framework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Hospital Entity Framework\Hospital Entity Framework\obj\Debug\Hospital Entity Framework.dll</HintPath>
@@ -76,6 +81,8 @@
       <Private>True</Private>
       <HintPath>..\packages\Manager_scheduler.1.0.0\lib\4.0\System.Data.SqlServerCe.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -170,6 +177,12 @@
     <Compile Include="PatientRegistrationForm.designer.cs">
       <DependentUpon>PatientRegistrationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="PrintWaitingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrintWaitingForm.Designer.cs">
+      <DependentUpon>PrintWaitingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SampleForm.cs">
@@ -189,6 +202,12 @@
     </Compile>
     <Compile Include="UpdateAccountForm.designer.cs">
       <DependentUpon>UpdateAccountForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Waiting.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Waiting.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="WaitingListForm.cs">
       <SubType>Form</SubType>
@@ -229,6 +248,9 @@
     <EmbeddedResource Include="PatientRegistrationForm.resx">
       <DependentUpon>PatientRegistrationForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PrintWaitingForm.resx">
+      <DependentUpon>PrintWaitingForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -246,6 +268,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateAccountForm.resx">
       <DependentUpon>UpdateAccountForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Waiting.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Waiting.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="WaitingListForm.resx">
       <DependentUpon>WaitingListForm.cs</DependentUpon>
@@ -271,6 +297,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -19,7 +19,7 @@ namespace PatientManagement.Class
         {
             try
             {
-                var getLastId = _db.VariousDocumentCategories.OrderByDescending(v => v.Id).First();
+                var getLastId = _db.VariousDocumentCategories.OrderByDescending(v => v.Id.Length).First();
                 var getvalue = getLastId.Id;
                 var num = Convert.ToInt32(getvalue.Substring(23));
                 num += 1;

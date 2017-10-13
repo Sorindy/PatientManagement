@@ -13,7 +13,7 @@ namespace PatientManagement.Class
         {
             try
             {
-                var getLastId = _db.MedicalRecords.OrderByDescending(v => v.Id).First();
+                var getLastId = _db.MedicalRecords.OrderByDescending(v => v.Id.Length).First();
                 var getvalue = getLastId.Id;
                 var num = Convert.ToInt32(getvalue.Substring(13));
                 num += 1;

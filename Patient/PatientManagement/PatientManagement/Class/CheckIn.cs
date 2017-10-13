@@ -9,6 +9,7 @@ namespace PatientManagement.Class
     class CheckIn
     {
         private readonly HospitalDbContext _db=new HospitalDbContext();
+        private string _id = "";
 
         public void InsertWaiting(string id, string patientId, TimeSpan date)
         {
@@ -273,8 +274,8 @@ namespace PatientManagement.Class
 
         public void SubmitService(string patientId,TimeSpan timeSpan)
         {
-            var id = AutoIdWaiting();
-            var insertWaitingList=new Hospital_Entity_Framework.WaitingList(){Id = id,PatientId = patientId,Time = timeSpan };
+            _id = AutoIdWaiting();
+            var insertWaitingList=new Hospital_Entity_Framework.WaitingList(){Id = _id,PatientId = patientId,Time = timeSpan };
             _db.WaitingLists.Add(insertWaitingList);
             _db.SaveChanges();
 
@@ -286,37 +287,45 @@ namespace PatientManagement.Class
                 {
                     var insert = _db.ConsultationCategories.Single(v => v.Name == item.CategoryId);
 
-                    _db.WaitingLists.Single(v=>v.Id==id).ConsultationCategories.Add(insert);
+                    _db.WaitingLists.Single(v=>v.Id==_id).ConsultationCategories.Add(insert);
                     _db.SaveChanges();
                 }
                 if (item.ServiceId == "Laboratory")
                 {
                     var insert = _db.LaboratoryCategories.Single(v => v.Name == item.CategoryId);
 
-                    _db.WaitingLists.Single(v => v.Id == id).LaboratoryCategories.Add(insert);
+                    _db.WaitingLists.Single(v => v.Id == _id).LaboratoryCategories.Add(insert);
                     _db.SaveChanges();
                 }
                 if (item.ServiceId == "MedicalImaging")
                 {
                     var insert = _db.MedicalImagingCategories.Single(v => v.Name == item.CategoryId);
 
-                    _db.WaitingLists.Single(v => v.Id == id).MedicalImagingCategories.Add(insert);
+                    _db.WaitingLists.Single(v => v.Id == _id).MedicalImagingCategories.Add(insert);
                     _db.SaveChanges();
                 }
                 if (item.ServiceId == "Prescription")
                 {
                     var insert = _db.PrescriptionCategories.Single(v => v.Name == item.CategoryId);
 
-                    _db.WaitingLists.Single(v => v.Id == id).PrescriptionCategories.Add(insert);
+                    _db.WaitingLists.Single(v => v.Id == _id).PrescriptionCategories.Add(insert);
                     _db.SaveChanges();
                 }
                 if (item.ServiceId == "VariousDocument")
                 {
                     var insert = _db.VariousDocumentCategories.Single(v => v.Name == item.CategoryId);
 
-                    _db.WaitingLists.Single(v => v.Id == id).VariousDocumentCategories.Add(insert);
+                    _db.WaitingLists.Single(v => v.Id == _id).VariousDocumentCategories.Add(insert);
                     _db.SaveChanges();
                 }
+            }
+            var getData = _db.WaitingLists.Single(v => v.Id == _id);
+            var form = (CheckInForm)Application.OpenForms["CheckInForm"];
+            if (form != null) form.WaitingList = getData;
+            if (form != null)
+            {
+                form.Show();
+                form.ClearControl();
             }
         }
 
@@ -376,7 +385,7 @@ namespace PatientManagement.Class
             var tempWait = new TempWait();
             try
             {
-                var getLastId = _db.TempWaits.OrderByDescending(v => v.Id).First();
+                var getLastId = _db.TempWaits.OrderByDescending(v => v.Id.Length).First();
                 var getvalue = getLastId.Id;
                 var num = Convert.ToInt32(getvalue.Substring(8));
                 num += 1;
@@ -394,7 +403,7 @@ namespace PatientManagement.Class
             var wait = new Hospital_Entity_Framework.WaitingList();
             try
             {
-                var getLastId = _db.WaitingLists.OrderByDescending(v => v.Id).First();
+                var getLastId = _db.WaitingLists.OrderByDescending(v=>v.Id.Length).First();
                 var getvalue = getLastId.Id;
                 var num = Convert.ToInt32(getvalue.Substring(4));
                 num += 1;

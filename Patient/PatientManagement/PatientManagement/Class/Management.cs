@@ -67,7 +67,7 @@ namespace PatientManagement.Class
             var management=new Hospital_Entity_Framework.Management();
             try
             {
-                var getLastId = _db.Managements.OrderByDescending(m => m.Id).First();
+                var getLastId = _db.Managements.OrderByDescending(m => m.Id.Length).First();
                 var getvalue = getLastId.Id;
                 var num = Convert.ToInt32(getvalue.Substring(10));
                 num += 1;
@@ -333,7 +333,7 @@ namespace PatientManagement.Class
             var management = new TempManagement();
             try
             {
-                var getLastId = _db.TempManagements.OrderByDescending(m => m.Id).First();
+                var getLastId = _db.TempManagements.OrderByDescending(m => m.Id.Length).First();
                 var getvalue = getLastId.Id;
                 var num = Convert.ToInt32(getvalue.Substring(4));
                 num += 1;

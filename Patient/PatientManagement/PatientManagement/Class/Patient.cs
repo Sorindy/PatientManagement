@@ -108,7 +108,7 @@ namespace PatientManagement.Class
         {
             try
             {
-                var getLastId = _db.Patients.OrderByDescending(v => v.Id).First();
+                var getLastId = _db.Patients.OrderByDescending(v => v.Id.Length).First();
                 var getvalue = getLastId.Id;
                 var num = Convert.ToInt32(getvalue.Substring(7));
                 num += 1;

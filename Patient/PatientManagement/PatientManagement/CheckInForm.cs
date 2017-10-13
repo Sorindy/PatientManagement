@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Windows.Forms;
 using PatientManagement.Class;
+using WaitingList = Hospital_Entity_Framework.WaitingList;
 
 namespace PatientManagement
 {
@@ -13,11 +14,12 @@ namespace PatientManagement
             InitializeComponent();
         }
         private CheckIn _chkIn=new CheckIn();
+        public WaitingList WaitingList;
         public void CheckInForm_Load(object sender, EventArgs e)
         {
             
             timer1.Enabled = true;
-            this.timer1_Tick(this,e);
+            timer1_Tick(this,e);
             gboService.Controls.Clear();
             gboCategory.Controls.Clear();
             gboService.Controls.Add(_chkIn.ShowService());
@@ -29,7 +31,7 @@ namespace PatientManagement
             lblTime.Text = DateTime.Now.ToLongDateString() + " \n  " + DateTime.Now.ToLongTimeString();
         }
 
-        private void ClearControl()
+        internal void ClearControl()
         {
             txtSearch4Patient.Text = "";
             txtSearchDating.Text = "";
@@ -70,6 +72,9 @@ namespace PatientManagement
             var getid = dgvShowPatient.CurrentRow.Cells[0].Value.ToString();
             var now = DateTime.Now.TimeOfDay;
             _chkIn.SubmitService(getid,now);
+            var print=new PrintWaitingForm();
+            if (WaitingList != null) print.WaitingList = WaitingList;
+            print.Show();
 
             CheckInForm_Load(this,e);
         }
