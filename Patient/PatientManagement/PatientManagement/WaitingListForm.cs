@@ -25,6 +25,7 @@ namespace PatientManagement
             Close();
             MedicalForm.txtPatientID.Text = MedicalForm.WaitingList.PatientId;
             MedicalForm.txtPatientName.Text = MedicalForm.WaitingList.Patient.Name;
+           
         }
 
         private void btnClose_Click(object sender, EventArgs e)

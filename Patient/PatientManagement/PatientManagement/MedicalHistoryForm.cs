@@ -8,6 +8,8 @@ namespace PatientManagement
     {
 
         private MedicalHistory _medicalHistory = new MedicalHistory();
+        private Patient _patient = new Patient();
+        private Visit _visit = new Visit();
 
         public string PatientIdTextboxChange 
         {
@@ -93,5 +95,41 @@ namespace PatientManagement
             _medicalHistory.Update(txtMedicalId.Text, txtDescription.Text);
             Refresh();
         }
+
+        private void txtPatientID_TextChanged(object sender, EventArgs e)
+        {
+            txtPatientName.Text =_patient.Select(txtPatientID.Text).Name;
+            Refresh();
         }
+
+        private void txtStaffName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbMedicalRecord_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbMedicalRecord.SelectedIndex.Equals(0))
+            {
+                //dtgInformation.DataSource = _visit.ShowVisit();
+            }
+            if (cmbMedicalRecord.SelectedIndex.Equals(1))
+            {
+                
+            }
+            if (cmbMedicalRecord.SelectedIndex.Equals(2))
+            {
+
+            }
+            if (cmbMedicalRecord.SelectedIndex.Equals(3))
+            {
+                
+            }
+            if (cmbMedicalRecord.SelectedIndex.Equals(4))
+            {
+                
+            }
+        }
+        
+    }
 }

@@ -7,10 +7,11 @@ namespace PatientManagement.Class
     class WaitingList
     {
         private HospitalDbContext _db = new HospitalDbContext();
+        private BindingSource _bs = new BindingSource();
 
         public BindingSource ShowWaiting(string categoryid)
         {
-            var bs=new BindingSource();
+            
 
             var checkConsultationCategory = _db.WaitingLists.Any(v => v.ConsultationCategories.Any(a => a.Id == categoryid));
             var checkLaboratoryCategory = _db.WaitingLists.Any(v => v.LaboratoryCategories.Any(a => a.Id == categoryid));
@@ -28,7 +29,7 @@ namespace PatientManagement.Class
                         b.Patient.Name,
                         b.Time
                     };
-                bs.DataSource = getList.ToList();
+                _bs.DataSource = getList.ToList();
             }
             if (checkLaboratoryCategory)
             {
@@ -40,7 +41,7 @@ namespace PatientManagement.Class
                         b.Patient.Name,
                         b.Time
                     };
-                bs.DataSource = getList.ToList();
+                _bs.DataSource = getList.ToList();
             }
             if (checkMedicalImagingCategory)
             {
@@ -52,7 +53,7 @@ namespace PatientManagement.Class
                         b.Patient.Name,
                         b.Time
                     };
-                bs.DataSource = getList.ToList();
+                _bs.DataSource = getList.ToList();
             }
             if (checkPrescriptionCategory)
             {
@@ -64,7 +65,7 @@ namespace PatientManagement.Class
                         b.Patient.Name,
                         b.Time
                     };
-                bs.DataSource = getList.ToList();
+                _bs.DataSource = getList.ToList();
             }
             if (checkVariousDocumentCategory)
             {
@@ -76,10 +77,10 @@ namespace PatientManagement.Class
                         b.Patient.Name,
                         b.Time
                     };
-                bs.DataSource = getList.ToList();
+                _bs.DataSource = getList.ToList();
             }
 
-            return bs;
+            return _bs;
         }
 
         public Hospital_Entity_Framework.WaitingList GetWaitingListObject(string id)
