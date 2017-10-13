@@ -207,8 +207,11 @@ namespace PatientManagement
 
         private void dtgInformation_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtId.Text = dtgInformation.CurrentRow.Cells[0].Value.ToString();
-            txtName.Text = dtgInformation.CurrentRow.Cells[1].Value.ToString();
+           if (dtgInformation.CurrentRow != null )
+           {
+               txtId.Text = dtgInformation.CurrentRow.Cells[0].Value.ToString();
+               txtName.Text = dtgInformation.CurrentRow.Cells[1].Value.ToString();
+           } 
             Refresh();
         }
 

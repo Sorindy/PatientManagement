@@ -15,7 +15,7 @@ namespace PatientManagement
     {
 
         private Patient _patient = new Patient();
-        public CheckInForm Chkform;
+        public CheckInForm Checkinkform;
         private MedicalRecord _medicalRecord = new MedicalRecord();
 
         public PatientRegistrationForm()
@@ -73,10 +73,10 @@ namespace PatientManagement
             Close();
             try
             {
-                Chkform.Show();
+                Checkinkform.Show();
 
             }
-            catch (Exception exception)
+            catch
             {
                 
             }

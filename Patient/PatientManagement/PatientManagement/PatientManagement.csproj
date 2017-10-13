@@ -121,6 +121,7 @@
     <Compile Include="Class\ConsultationSample.cs" />
     <Compile Include="Class\Dating.cs" />
     <Compile Include="Class\MedicalRecord.cs" />
+    <Compile Include="Class\Visit.cs" />
     <Compile Include="Class\WaitingList.cs" />
     <Compile Include="Interface\ICategory.cs" />
     <Compile Include="Interface\IEstimate.cs" />

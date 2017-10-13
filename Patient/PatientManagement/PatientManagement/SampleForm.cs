@@ -1,12 +1,4 @@
 ﻿using System;
-/*using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;*/
 using System.Windows.Forms;
 using PatientManagement.Class;
 
@@ -250,9 +242,12 @@ namespace PatientManagement
 
         private void dtgInformation_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtId.Text = dtgInformation.CurrentRow.Cells[0].Value.ToString();
-            txtTitle.Text = dtgInformation.CurrentRow.Cells[1].Value.ToString();
-            txtDescription.Text = dtgInformation.CurrentRow.Cells[2].Value.ToString();
+            if (dtgInformation.CurrentRow != null)
+            {
+                txtId.Text = dtgInformation.CurrentRow.Cells[0].Value.ToString();
+                txtTitle.Text = dtgInformation.CurrentRow.Cells[1].Value.ToString();
+                txtDescription.Text = dtgInformation.CurrentRow.Cells[2].Value.ToString();
+            }
             dtgInformation.Visible = false;
             txtDescription.Visible = true;
             Refresh();

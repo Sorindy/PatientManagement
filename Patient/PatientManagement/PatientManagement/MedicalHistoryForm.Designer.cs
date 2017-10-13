@@ -124,6 +124,7 @@
             this.cmbMedicalRecord.Size = new System.Drawing.Size(200, 26);
             this.cmbMedicalRecord.TabIndex = 60;
             this.cmbMedicalRecord.Text = "Medical-Record";
+            this.cmbMedicalRecord.SelectedIndexChanged += new System.EventHandler(this.cmbMedicalRecord_SelectedIndexChanged);
             // 
             // txtDescriptioinName
             // 
@@ -246,6 +247,7 @@
             this.txtPatientID.Size = new System.Drawing.Size(197, 19);
             this.txtPatientID.TabIndex = 2;
             this.txtPatientID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtPatientID.TextChanged += new System.EventHandler(this.txtPatientID_TextChanged);
             // 
             // label3
             // 
@@ -326,6 +328,7 @@
             this.txtStaffName.Size = new System.Drawing.Size(197, 19);
             this.txtStaffName.TabIndex = 7;
             this.txtStaffName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtStaffName.TextChanged += new System.EventHandler(this.txtStaffName_TextChanged);
             // 
             // txtStaffID
             // 

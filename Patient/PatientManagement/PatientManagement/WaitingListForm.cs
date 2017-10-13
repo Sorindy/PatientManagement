@@ -14,17 +14,18 @@ namespace PatientManagement
         public WaitingListForm()
         {
             InitializeComponent();
+           
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             if (dtgConsultationWaiting.CurrentRow != null)
-                MedicalForm.WaitingList=
-                    _waitingList.GetWaitingListObject(dtgConsultationWaiting.CurrentRow.Cells[0].Value.ToString());
+            MedicalForm.WaitingList=_waitingList.GetWaitingListObject(dtgConsultationWaiting.CurrentRow.Cells[0].Value.ToString());
             MedicalForm.Show();
             Close();
             MedicalForm.txtPatientID.Text = MedicalForm.WaitingList.PatientId;
             MedicalForm.txtPatientName.Text = MedicalForm.WaitingList.Patient.Name;
+           
         }
 
         private void btnClose_Click(object sender, EventArgs e)

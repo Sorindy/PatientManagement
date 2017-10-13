@@ -3,14 +3,6 @@ using System.Windows.Forms;
 using PatientManagement.Class;
 using Worker = Hospital_Entity_Framework.Worker;
 
-/*using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;*/
-
 namespace PatientManagement
 {
     public partial class CreateAccountForm : Form
@@ -18,7 +10,7 @@ namespace PatientManagement
         public Worker Workers;
         public WorkerForm WorkerForm;
         public Account Account=new Account();
-        private Hospital_Entity_Framework.Account _account=new Hospital_Entity_Framework.Account();
+       // private Hospital_Entity_Framework.Account _account=new Hospital_Entity_Framework.Account();
         public CreateAccountForm()
         {
             InitializeComponent();

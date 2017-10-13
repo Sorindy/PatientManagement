@@ -35,6 +35,7 @@ namespace PatientManagement
             txtDescription.Enabled = false;
             btnDatinglist.Enabled = false;
             btnPatientDetail.Enabled = false;
+            btnWaitinglist.Enabled = false;
             Refresh();
         }
 
@@ -226,6 +227,11 @@ namespace PatientManagement
             waitinglistform.GetStaffCategory = cmbCategory.Text;
             waitinglistform.Show();
             waitinglistform.MedicalForm = this;
+            gbDating.Enabled = true;
+            gbMedicalItem.Enabled = true;
+            btnDatinglist.Enabled = true;
+            txtDescription.Enabled = true;
+            btnPatientDetail.Enabled = true;
             Hide();
         }
 
@@ -238,11 +244,8 @@ namespace PatientManagement
 
         private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
-            gbDating.Enabled = true;
-            gbMedicalItem.Enabled = true;
-            btnDatinglist.Enabled = true;
-            txtDescription.Enabled = true;
-            btnPatientDetail.Enabled = true;
+
+            btnWaitinglist.Enabled = true;
             Refresh();
         }
     }

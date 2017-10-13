@@ -64,7 +64,7 @@ namespace PatientManagement
 
             patientForm.Show();
             Hide();
-            patientForm.Chkform = this;
+            patientForm.Checkinkform = this;
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
