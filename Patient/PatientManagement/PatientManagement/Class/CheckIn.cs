@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Hospital_Entity_Framework;
 
@@ -385,7 +386,7 @@ namespace PatientManagement.Class
             var tempWait = new TempWait();
             try
             {
-                var getLastId = _db.TempWaits.OrderByDescending(v => v.Id.Length).First();
+                var getLastId = _db.TempWaits.OrderByDescending(v => v.Id).First();
                 var getvalue = getLastId.Id;
                 var num = Convert.ToInt32(getvalue.Substring(8));
                 num += 1;
@@ -403,7 +404,8 @@ namespace PatientManagement.Class
             var wait = new Hospital_Entity_Framework.WaitingList();
             try
             {
-                var getLastId = _db.WaitingLists.OrderByDescending(v=>v.Id.Length).First();
+
+                var getLastId = _db.WaitingLists.OrderByDescending(v => v.Id).First();
                 var getvalue = getLastId.Id;
                 var num = Convert.ToInt32(getvalue.Substring(4));
                 num += 1;
