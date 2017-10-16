@@ -13,8 +13,10 @@ namespace PatientManagement
         {
             InitializeComponent();
         }
+        
         private CheckIn _chkIn=new CheckIn();
         public WaitingList WaitingList;
+
         public void CheckInForm_Load(object sender, EventArgs e)
         {
             

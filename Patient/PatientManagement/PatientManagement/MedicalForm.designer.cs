@@ -266,7 +266,7 @@
             this.txtStaffID.ReadOnly = true;
             this.txtStaffID.Size = new System.Drawing.Size(197, 19);
             this.txtStaffID.TabIndex = 6;
-            this.txtStaffID.Text = "Worker2";
+            this.txtStaffID.Text = "Worker1";
             this.txtStaffID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label4

@@ -113,7 +113,7 @@ namespace PatientManagement.Class
             Hospital_Entity_Framework.Worker worker=new Hospital_Entity_Framework.Worker();
             try
             {
-                var getLastId = _db.Workers.OrderByDescending(v => v.Id.Length).First();
+                var getLastId = _db.Workers.OrderByDescending(v => v.Id).First();
                 var getvalue = getLastId.Id;
                 var num = Convert.ToInt32(getvalue.Substring(6));
                 num += 1;

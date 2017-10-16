@@ -20,7 +20,7 @@ namespace PatientManagement.Class
         {
             try
             {
-                var getLastId = _db.PrescriptionCategories.OrderByDescending(v => v.Id.Length).First();
+                var getLastId = _db.PrescriptionCategories.OrderByDescending(v => v.Id).First();
                 var getvalue = getLastId.Id;
                 var num = Convert.ToInt32(getvalue.Substring(20));
                 num += 1;

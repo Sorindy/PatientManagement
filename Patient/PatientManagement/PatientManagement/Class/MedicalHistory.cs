@@ -2,9 +2,7 @@
 using System.Data.Entity.Migrations;
 using Hospital_Entity_Framework;
 using System.Linq;
-/*using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;*/
+//using System.Windows.Forms;
 
 namespace PatientManagement.Class
 {
@@ -18,7 +16,7 @@ namespace PatientManagement.Class
         {
             try
             {
-                var getLastId = _db.MedicalHistories.OrderByDescending(v => v.Id.Length).First();
+                var getLastId = _db.MedicalHistories.OrderByDescending(v => v.Id).First();
                 var getvalue = getLastId.Id;
                 var num = Convert.ToInt32(getvalue.Substring(14));
                 num += 1;

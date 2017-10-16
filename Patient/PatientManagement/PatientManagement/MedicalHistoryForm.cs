@@ -111,7 +111,9 @@ namespace PatientManagement
         {
             if (cmbMedicalRecord.SelectedIndex.Equals(0))
             {
-                //dtgInformation.DataSource = _visit.ShowVisit();
+                dtgInformation.DataSource = _visit.ShowVisitEstimate(txtPatientID.Text);
+                dtgInformation.Visible = true;
+                txtDescription.Visible = false;
             }
             if (cmbMedicalRecord.SelectedIndex.Equals(1))
             {
