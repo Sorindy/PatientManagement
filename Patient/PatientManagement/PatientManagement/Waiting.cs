@@ -90,7 +90,7 @@ namespace PatientManagement {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_pPatientName {
+        public CrystalDecisions.Shared.IParameterField Parameter_pName {
             get {
                 return this.DataDefinition.ParameterFields[0];
             }

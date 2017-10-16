@@ -41,7 +41,7 @@ namespace PatientManagement.Class
             Hospital_Entity_Framework.Account account=new Hospital_Entity_Framework.Account();
             try
             {
-                var getLastId = _db.Accounts.OrderByDescending(v => v.Id.Length).First();
+                var getLastId = _db.Accounts.OrderByDescending(v => v.Id).First();
                 var getvalue = getLastId.Id;
                 var num = Convert.ToInt32(getvalue.Substring(7));
                 num += 1;

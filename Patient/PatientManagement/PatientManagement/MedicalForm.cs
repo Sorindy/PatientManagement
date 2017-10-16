@@ -1,7 +1,22 @@
 ﻿using System;
 using System.Globalization;
+using System.Linq;
 using System.Windows.Forms;
+using Hospital_Entity_Framework;
 using PatientManagement.Class;
+using ConsultationEstimate = PatientManagement.Class.ConsultationEstimate;
+using ConsultationSample = PatientManagement.Class.ConsultationSample;
+using Dating = PatientManagement.Class.Dating;
+using Form = System.Windows.Forms.Form;
+using LaboratoryEstimate = PatientManagement.Class.LaboratoryEstimate;
+using LaboratorySample = PatientManagement.Class.LaboratorySample;
+using MedicalImagingEstimate = PatientManagement.Class.MedicalImagingEstimate;
+using MedicalImagingSample = PatientManagement.Class.MedicalImagingSample;
+using Patient = PatientManagement.Class.Patient;
+using PrescriptionEstimate = PatientManagement.Class.PrescriptionEstimate;
+using PrescriptionSample = PatientManagement.Class.PrescriptionSample;
+using VariousDocumentEstimate = PatientManagement.Class.VariousDocumentEstimate;
+using VariousDocumentSample = PatientManagement.Class.VariousDocumentSample;
 using WaitingList = Hospital_Entity_Framework.WaitingList;
 
 namespace PatientManagement
@@ -66,10 +81,15 @@ namespace PatientManagement
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-           if (cmbMedicalRecord.SelectedIndex.Equals(0))
+           var db=new HospitalDbContext();
+            if (cmbMedicalRecord.SelectedIndex.Equals(0))
             {
                 _estimate = new ConsultationEstimate();
-                _estimate.Insert(_estimate.AutoId(), cmbCategory.Text, txtStaffID.Text, DateTime.Now,txtDescription.Text);
+                var id = _estimate.AutoId();
+                _estimate.Insert(id, cmbCategory.Text, txtStaffID.Text, DateTime.Now,txtDescription.Text);
+                var selectVisit = db.Visits.OrderByDescending(v => v.Id).First();
+                var selectConsultEsitmate = db.ConsultationEstimates.Single(v => v.Id == id);
+                db.Visits.Single(v=>v.Id==selectVisit.Id).ConsultationEstimates.Add(selectConsultEsitmate);
             }
             if (cmbMedicalRecord.SelectedIndex.Equals(1))
             {
@@ -248,6 +268,7 @@ namespace PatientManagement
             btnWaitinglist.Enabled = true;
             Refresh();
         }
+
     }
 }
 
