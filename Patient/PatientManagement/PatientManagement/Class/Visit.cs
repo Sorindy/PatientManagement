@@ -84,7 +84,7 @@ namespace PatientManagement.Class
         public object ShowVisitEstimate(string patientid)
         {
             var getconsultationestimate =
-       _db.ConsultationEstimates.Select(v => v.Visits.Any(s => s.PatientId == patientid));
+       _db.ConsultationEstimates.Where(v => v.Visits.Any(s => s.PatientId == patientid));
             _bs.DataSource = getconsultationestimate.ToList();
             return _bs ;
         }
