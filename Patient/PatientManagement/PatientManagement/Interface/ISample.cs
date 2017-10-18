@@ -9,7 +9,7 @@ namespace PatientManagement.Interface
    public  interface ISample
     {
         void Insert(string title,string description);
-        void Update(string title,string description);
+        void Update(int id,string title,string description);
         void Delete(int id);
         object Show();
         object Show_Sample_Title();

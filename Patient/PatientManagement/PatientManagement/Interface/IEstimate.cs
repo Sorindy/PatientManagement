@@ -10,7 +10,7 @@ namespace PatientManagement.Interface
     public interface IEstimate
     {
         void Insert(int categoryid, int workerid, DateTime date, string description);
-        void Update(int categoryid, int workerid, DateTime date, string description);
+        void Update(int id,int categoryid, int workerid, DateTime date, string description);
         void Delete(int id);
         object Show();
     }

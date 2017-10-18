@@ -1,5 +1,4 @@
-﻿using System;
-using System.Data.Entity.Migrations;
+﻿using System.Data.Entity.Migrations;
 using Hospital_Entity_Framework;
 using System.Linq;
 //using System.Windows.Forms;
@@ -10,30 +9,11 @@ namespace PatientManagement.Class
     {
         private HospitalDbContext _db = new HospitalDbContext();
         private Hospital_Entity_Framework.MedicalHistory  _medicalHistory   =new Hospital_Entity_Framework.MedicalHistory();
-       // private BindingSource _bs = new BindingSource();
-
-        public string AutoId()
-        {
-            try
-            {
-                var getLastId = _db.MedicalHistories.OrderByDescending(v => v.Id).First();
-                var getvalue = getLastId.Id;
-                var num = Convert.ToInt32(getvalue.Substring(14));
-                num += 1;
-                _medicalHistory.Id = string.Concat("MedicalHistory", num);
-            }
-            catch
-            {
-                _medicalHistory.Id = "MedicalHistory1";
-            }
-            return _medicalHistory.Id;
-        }
-
-        public void Insert(string id,string patientid,string description)
+ 
+        public void Insert(int patientid,string description)
         {
             var insert = new Hospital_Entity_Framework.MedicalHistory() 
             {
-                Id = id,
                 PatientId=patientid,
                 Description =description,
             };
@@ -41,7 +21,7 @@ namespace PatientManagement.Class
             _db.SaveChanges();
         }
 
-        public void Update(string id , string description)
+        public void Update(int id , string description)
         {
             var update = _db.MedicalHistories.Single(v => v.Id == id);
             update.Description = description;
@@ -49,7 +29,7 @@ namespace PatientManagement.Class
             _db.SaveChanges();
         }
 
-        public Hospital_Entity_Framework.MedicalHistory  Show_medicalhistory(string patientId)   
+        public Hospital_Entity_Framework.MedicalHistory  Show_medicalhistory(int patientId)   
         {
             var getmedicalhistory = from v in _db.MedicalHistories 
                 where v.PatientId  == patientId 

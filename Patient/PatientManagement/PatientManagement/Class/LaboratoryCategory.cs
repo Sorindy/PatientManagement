@@ -1,5 +1,4 @@
-﻿using System;
-using System.Data.Entity.Migrations;
+﻿using System.Data.Entity.Migrations;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -11,38 +10,19 @@ namespace PatientManagement.Class
    public  class LaboratoryCategory: ICategory 
     {
         private HospitalDbContext _db = new HospitalDbContext();
-        private Hospital_Entity_Framework.LaboratoryCategory   _laboratoryCategory  = new Hospital_Entity_Framework.LaboratoryCategory();
         private BindingSource _bs = new BindingSource();
 
-        public string AutoId()
-        {
-            try
-            {
-                var getLastId = _db.LaboratoryCategories.OrderByDescending(v => v.Id).First();
-                var getvalue = getLastId.Id;
-                var num = Convert.ToInt32(getvalue.Substring(18));
-                num += 1;
-                _laboratoryCategory.Id = string.Concat("LaboratoryCategory", num);
-            }
-            catch
-            {
-                _laboratoryCategory.Id = "LaboratoryCategory1";
-            }
-            return _laboratoryCategory.Id;
-        }
-
-        public void Insert(string id, string name)
+        public void Insert(string name)
         {
             var insert = new Hospital_Entity_Framework.LaboratoryCategory()
             {
-                Id = id,
                 Name = name,
             };
             _db.LaboratoryCategories.Add(insert);
             _db.SaveChanges();
         }
 
-        public void Update(string id, string name)
+        public void Update(int id, string name)
         {
             var update = _db.LaboratoryCategories.Single(v => v.Id == id);
             update.Name = name;
@@ -50,7 +30,7 @@ namespace PatientManagement.Class
             _db.SaveChanges();
         }
 
-        public void Delete(string id)
+        public void Delete(int id)
         {
             var delete = _db.LaboratoryCategories.Single(vid => vid.Id == id);
             _db.LaboratoryCategories.Remove(delete);

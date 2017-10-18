@@ -1,5 +1,4 @@
-﻿using System;
-using System.Data.Entity.Migrations;
+﻿using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Windows.Forms;
 using Hospital_Entity_Framework;
@@ -15,31 +14,12 @@ namespace PatientManagement.Class
    {
        
         private HospitalDbContext _db = new HospitalDbContext();
-        private Hospital_Entity_Framework.VariousDocumentSample _variousDocumentSample = new Hospital_Entity_Framework.VariousDocumentSample();
         private BindingSource _bs = new BindingSource();
 
-        public string AutoId()
-        {
-            try
-            {
-                var getLastId = _db.VariousDocumentSamples.OrderByDescending(v => v.Id).First();
-                var getvalue = getLastId.Id;
-                var num = Convert.ToInt32(getvalue.Substring(21));
-                num += 1;
-                _variousDocumentSample.Id = string.Concat("VariousDocumentSample", num);
-            }
-            catch
-            {
-                _variousDocumentSample.Id = "VariousDocumentSample1";
-            }
-            return _variousDocumentSample.Id;
-        }
-
-        public void Insert(string id, string title, string description)
+        public void Insert(string title, string description)
         {
             var insert = new Hospital_Entity_Framework.VariousDocumentSample() 
             {
-                Id = id,
                 Title=title,
                 Description=description,
             };
@@ -47,7 +27,7 @@ namespace PatientManagement.Class
             _db.SaveChanges();
         }
 
-        public void Update(string id, string title, string description)
+       public void Update(int id, string title, string description)
         {
             var update = _db.VariousDocumentSamples.Single(v => v.Id == id);
             update.Title = title;
@@ -56,7 +36,7 @@ namespace PatientManagement.Class
             _db.SaveChanges();
         }
 
-        public void Delete(string id)
+        public void Delete(int id)
         {
             var delete = _db.VariousDocumentSamples.Single(vid => vid.Id == id);
             _db.VariousDocumentSamples.Remove(delete);

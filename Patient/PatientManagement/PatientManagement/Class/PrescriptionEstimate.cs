@@ -14,31 +14,12 @@ namespace PatientManagement.Class
     public class PrescriptionEstimate : IEstimate 
     {
         private HospitalDbContext _db = new HospitalDbContext();
-        private Hospital_Entity_Framework.PrescriptionEstimate   _prescriptionEstimate   =new Hospital_Entity_Framework.PrescriptionEstimate();
         private BindingSource _bs = new BindingSource();
-
-        public string AutoId()
-        {
-            try
-            {
-                var getLastId = _db.PrescriptionEstimates.OrderByDescending(v => v.Id).First();
-                var getvalue = getLastId.Id;
-                var num = Convert.ToInt32(getvalue.Substring(20));
-                num += 1;
-                _prescriptionEstimate.Id = string.Concat("PrescriptionEstimate", num);
-            }
-            catch
-            {
-                _prescriptionEstimate.Id = "PrescriptionEstimate1";
-            }
-            return _prescriptionEstimate.Id;
-        }
-
-        public void Insert(string id, string categoryid,string workerid,DateTime date,string description)
+        
+        public void Insert(int categoryid,int workerid,DateTime date,string description)
         {
             var insert = new Hospital_Entity_Framework.PrescriptionEstimate() 
             {
-                Id = id,
                 CategoryId = categoryid,
                 WorkerId = workerid,
                 Date = date,
@@ -48,7 +29,7 @@ namespace PatientManagement.Class
             _db.SaveChanges();
         }
 
-        public void Update(string id, string categoryid, string workerid, DateTime date, string description)
+        public void Update(int id, int categoryid, int workerid, DateTime date, string description)
         {
             var update = _db.PrescriptionEstimates.Single(v => v.Id == id);
             update.CategoryId  = categoryid ;
@@ -59,7 +40,7 @@ namespace PatientManagement.Class
             _db.SaveChanges();
         }
 
-        public void Delete(string id)
+        public void Delete(int id)
         {
             var delete = _db.PrescriptionEstimates.Single(vid => vid.Id == id);
             _db.PrescriptionEstimates.Remove(delete);

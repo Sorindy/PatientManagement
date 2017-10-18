@@ -9,31 +9,12 @@ namespace PatientManagement.Class
    public class Dating
     {
         private HospitalDbContext _db = new HospitalDbContext();
-        private Hospital_Entity_Framework.Dating _dating = new Hospital_Entity_Framework.Dating();
         private BindingSource _bs = new BindingSource();
 
-        public string AutoId()
-        {
-            try
-            {
-                var getLastId = _db.Datings.OrderByDescending(v => v.Id).First();
-                var getvalue = getLastId.Id;
-                var num = Convert.ToInt32(getvalue.Substring(6));
-                num += 1;
-                _dating.Id = string.Concat("Dating", num);
-            }
-            catch
-            {
-                _dating.Id = "Dating1";
-            }
-            return _dating.Id;
-        }
-
-        public void Insert(string id, string patientid,string workerid, DateTime date)
+        public void Insert(int patientid,int workerid, DateTime date)
         {
             var insert = new Hospital_Entity_Framework.Dating() 
             {
-                Id = id,
                 PatientId = patientid,
                 WorkerId = workerid,
                 Date = date ,
@@ -42,7 +23,7 @@ namespace PatientManagement.Class
             _db.SaveChanges();
         }
 
-        public void Update(string id, DateTime date)
+        public void Update(int id, DateTime date)
         {
             var update = _db.Datings.Single(v => v.Id == id);
             update.Date = date;
@@ -50,14 +31,14 @@ namespace PatientManagement.Class
             _db.SaveChanges();
         }
 
-        public void Delete(string id)
+        public void Delete(int id)
         {
             var delete = _db.Datings.Single(vid => vid.Id == id);
             _db.Datings.Remove(delete);
             _db.SaveChanges();
         }
 
-        public object Show(string workerid)
+        public object Show(int workerid)
         {
             var getcategory = from v in _db.Datings 
                 where v.WorkerId==workerid 
