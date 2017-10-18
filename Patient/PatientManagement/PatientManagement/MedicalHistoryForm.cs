@@ -141,6 +141,18 @@ namespace PatientManagement
                 txtDescription.Visible = false;
             }
         }
+
+        private void dtgInformation_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dtgInformation.CurrentRow != null)
+            {
+                //txtId.Text = dtgInformation.CurrentRow.Cells[0].Value.ToString();
+                //txtTitle.Text = dtgInformation.CurrentRow.Cells[1].Value.ToString();
+                //txtDescription.Text = dtgInformation.CurrentRow.Cells[2].Value.ToString();
+            }
+        }
+
+       
         
     }
 }

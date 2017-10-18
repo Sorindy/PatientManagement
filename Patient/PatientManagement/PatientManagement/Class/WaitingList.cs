@@ -9,7 +9,7 @@ namespace PatientManagement.Class
         private HospitalDbContext _db = new HospitalDbContext();
         private BindingSource _bs = new BindingSource();
 
-        public BindingSource ShowWaiting(string categoryid)
+        public BindingSource ShowWaiting(int categoryid)
         {
             
 
@@ -83,7 +83,7 @@ namespace PatientManagement.Class
             return _bs;
         }
 
-        public Hospital_Entity_Framework.WaitingList GetWaitingListObject(string id)
+        public Hospital_Entity_Framework.WaitingList GetWaitingListObject(int id)
         {
             var check = _db.WaitingLists.Single(v => v.Id == id);
             return check;

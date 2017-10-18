@@ -26,5 +26,7 @@ namespace PatientManagement
             crystalReportViewer2.PrintReport();
             Close();
         }
+
+        
     }
 }

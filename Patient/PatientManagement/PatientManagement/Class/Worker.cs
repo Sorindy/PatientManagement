@@ -32,7 +32,7 @@ namespace PatientManagement.Class
             _db.SaveChanges();
         }
 
-        public void Update(string id, string name, string gender, DateTime dob, short age, string address,
+        public void Update(int id, string name, string gender, DateTime dob, short age, string address,
             string phone1, string phone2, string email, string position, int salary, DateTime workdate)
         {
             var update = _db.Workers.Single(v => v.Id == id);
@@ -76,7 +76,7 @@ namespace PatientManagement.Class
             return bs;
         }
 
-        public Hospital_Entity_Framework.Worker SelectedChange(string id)
+        public Hospital_Entity_Framework.Worker SelectedChange(int id)
         {
             var getWorker = from v in _db.Workers
                 where v.Id == id
@@ -108,30 +108,13 @@ namespace PatientManagement.Class
             return null;
         }
 
-        public string AutoId()
-        {
-            Hospital_Entity_Framework.Worker worker=new Hospital_Entity_Framework.Worker();
-            try
-            {
-                var getLastId = _db.Workers.OrderByDescending(v => v.Id).First();
-                var getvalue = getLastId.Id;
-                var num = Convert.ToInt32(getvalue.Substring(6));
-                num += 1;
-                worker.Id = string.Concat("Worker", num);
-            }
-            catch
-            {
-                worker.Id = "Worker1";
-            }
-            return worker.Id;
-        }
-
         public object Search(string text)
         {
             BindingSource bs=new BindingSource();
 
-            var search = _db.Workers.Where(v => v.Id.Contains(text) || v.Name.Contains(text) ||
-                                                v.Phone1.Contains(text) || v.Phone2.Contains(text));
+            var search = _db.Workers.Where(v => v.Name.Contains(text) ||
+                                                v.Phone1.Contains(text) || 
+                                                v.Phone2.Contains(text));
             return bs.DataSource = search.ToList();
         }
 

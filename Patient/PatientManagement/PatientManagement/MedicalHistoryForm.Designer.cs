@@ -57,7 +57,6 @@
             this.txtStaffID = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.cmbVisit = new System.Windows.Forms.ComboBox();
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.lineShape2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
@@ -167,7 +166,7 @@
             this.gbActivity.Controls.Add(this.btnClear);
             this.gbActivity.Controls.Add(this.btnPrint);
             this.gbActivity.Controls.Add(this.btnSubmit);
-            this.gbActivity.Location = new System.Drawing.Point(12, 300);
+            this.gbActivity.Location = new System.Drawing.Point(12, 258);
             this.gbActivity.Name = "gbActivity";
             this.gbActivity.Size = new System.Drawing.Size(201, 194);
             this.gbActivity.TabIndex = 61;
@@ -359,18 +358,6 @@
             this.label5.TabIndex = 4;
             this.label5.Text = "Doctor-Id";
             // 
-            // cmbVisit
-            // 
-            this.cmbVisit.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.cmbVisit.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbVisit.FormattingEnabled = true;
-            this.cmbVisit.Location = new System.Drawing.Point(4, 258);
-            this.cmbVisit.Name = "cmbVisit";
-            this.cmbVisit.Size = new System.Drawing.Size(200, 26);
-            this.cmbVisit.TabIndex = 68;
-            this.cmbVisit.Text = "Visit";
-            this.cmbVisit.SelectedIndexChanged += new System.EventHandler(this.cmbVisit_SelectedIndexChanged);
-            // 
             // lineShape1
             // 
             this.lineShape1.Name = "lineShape1";
@@ -401,11 +388,13 @@
             // 
             // dtgInformation
             // 
+            this.dtgInformation.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgInformation.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgInformation.Location = new System.Drawing.Point(243, 233);
             this.dtgInformation.Name = "dtgInformation";
             this.dtgInformation.Size = new System.Drawing.Size(1082, 488);
             this.dtgInformation.TabIndex = 70;
+            this.dtgInformation.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgInformation_CellContentClick);
             // 
             // btnFort
             // 
@@ -434,7 +423,6 @@
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.btnFort);
             this.Controls.Add(this.dtgInformation);
-            this.Controls.Add(this.cmbVisit);
             this.Controls.Add(this.lbTodaydate);
             this.Controls.Add(this.cmbMedicalRecord);
             this.Controls.Add(this.txtDescriptioinName);
@@ -491,7 +479,6 @@
         private System.Windows.Forms.TextBox txtStaffID;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox cmbVisit;
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape2;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
