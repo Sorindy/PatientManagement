@@ -11,12 +11,12 @@ namespace PatientManagement.Class
         private readonly HospitalDbContext _db=new HospitalDbContext();
         public Account Account { get; set; }
 
-        public void Insert(string id, string name, string gender, DateTime dob, short age, string address,
+        public void Insert(string name, string gender, DateTime dob, short age, string address,
             string phone1, string phone2, string email, string position, int salary, DateTime workdate)
         {
             var insert=new Hospital_Entity_Framework.Worker()
             {
-                Id = id,Name = name,Gender = gender,DOB = dob,Age = age,Address = address,
+                Name = name,Gender = gender,DOB = dob,Age = age,Address = address,
                 Phone1 = phone1,Phone2 = phone2,Email = email,Position = position,Salary = salary,StartWorkDate = workdate
             };
 
@@ -24,9 +24,9 @@ namespace PatientManagement.Class
             _db.SaveChanges();
         }
 
-        public void Delete(string id)
+        public void Delete(int id)
         {
-            var delete = _db.Workers.Single(v => v.Id == id);
+            var delete = _db.Workers.Single(v=>v.Id==id);
 
             _db.Workers.Remove(delete);
             _db.SaveChanges();

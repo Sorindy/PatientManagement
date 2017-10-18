@@ -81,12 +81,40 @@ namespace PatientManagement.Class
         //    return _bs;
         //}
 
-        public object ShowVisitEstimate(string patientid)
+        public object ShowConsultationVisitEstimate(string patientid)
         {
-            var getconsultationestimate =
-       _db.ConsultationEstimates.Where(v => v.Visits.Any(s => s.PatientId == patientid));
-            _bs.DataSource = getconsultationestimate.Select(n=>new{n.Id,n.CategoryId,n.Worker.Name,n.Date,n.Description}).ToList();
+            var getestimate =
+            _db.ConsultationEstimates.Where(v => v.Visits.Any(s => s.PatientId == patientid));
+            _bs.DataSource = getestimate.Select(n=>new{n.Id,n.ConsultationCategory.Name,n.Date,n.Description}).ToList();
             return _bs ;
+        }
+        public object ShowLaboratoryVisitEstimate(string patientid)
+        {
+            var getestimate =
+                _db.LaboratoryEstimates.Where(v => v.Visits.Any(s => s.PatientId == patientid));
+            _bs.DataSource = getestimate.Select(n => new { n.Id, n.LaboratoryCategory.Name, n.Date, n.Description }).ToList();
+            return _bs;
+        }
+        public object ShowMedicalImagingVisitEstimate(string patientid)
+        {
+            var getestimate =
+                _db.MedicalImagingEstimates.Where(v => v.Visits.Any(s => s.PatientId == patientid));
+            _bs.DataSource = getestimate.Select(n => new { n.Id, n.MedicalImagingCategory.Name, n.Date, n.Description }).ToList();
+            return _bs;
+        }
+        public object ShowPrescriptionVisitEstimate(string patientid)
+        {
+            var getestimate =
+                _db.PrescriptionEstimates.Where(v => v.Visits.Any(s => s.PatientId == patientid));
+            _bs.DataSource = getestimate.Select(n => new { n.Id, n.PrescriptionCategory.Name, n.Date, n.Description }).ToList();
+            return _bs;
+        }
+        public object ShowVariousDocumentVisitEstimate(string patientid)
+        {
+            var getestimate =
+                _db.VariousDocumentEstimates.Where(v => v.Visits.Any(s => s.PatientId == patientid));
+            _bs.DataSource = getestimate.Select(n => new { n.Id, n.VariousDocumentCategory.Name, n.Date, n.Description }).ToList();
+            return _bs;
         }
 
     }

@@ -23,6 +23,8 @@ namespace PatientManagement
             var num = Convert.ToInt32(getvalue.Substring(4));
             waiting1.SetParameterValue("pNumber", num.ToString());
             crystalReportViewer2.ReportSource = waiting1;
+            crystalReportViewer2.PrintReport();
+            Close();
         }
     }
 }

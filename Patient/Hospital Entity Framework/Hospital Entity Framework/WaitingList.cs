@@ -23,11 +23,15 @@ namespace Hospital_Entity_Framework
             this.VariousDocumentCategories = new HashSet<VariousDocumentCategory>();
         }
     
-        public string Id { get; set; }
-        public string PatientId { get; set; }
+        public int Id { get; set; }
+        public int PatientId { get; set; }
+        public int VisitId { get; set; }
+        public int VisitCount { get; set; }
         public System.TimeSpan Time { get; set; }
+        public Nullable<bool> Status { get; set; }
     
         public virtual Patient Patient { get; set; }
+        public virtual Visit Visit { get; set; }
         public virtual ICollection<ConsultationCategory> ConsultationCategories { get; set; }
         public virtual ICollection<LaboratoryCategory> LaboratoryCategories { get; set; }
         public virtual ICollection<MedicalImagingCategory> MedicalImagingCategories { get; set; }

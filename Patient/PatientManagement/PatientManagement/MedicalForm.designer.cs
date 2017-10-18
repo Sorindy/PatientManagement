@@ -232,7 +232,10 @@
             // 
             this.cmbCategory.FormattingEnabled = true;
             this.cmbCategory.Items.AddRange(new object[] {
-            "ConsultationCategory1"});
+            "ConsultationCategory1",
+            "ConsultationCategory2",
+            "LaboratoryCategory1",
+            "PrescriptionCategory1"});
             this.cmbCategory.Location = new System.Drawing.Point(106, 76);
             this.cmbCategory.Name = "cmbCategory";
             this.cmbCategory.Size = new System.Drawing.Size(197, 21);

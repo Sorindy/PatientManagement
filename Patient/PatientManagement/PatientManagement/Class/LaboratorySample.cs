@@ -3,6 +3,7 @@ using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Windows.Forms;
 using Hospital_Entity_Framework;
+using PatientManagement.Interface;
 
 /*using System.Collections.Generic;
 using System.Text;

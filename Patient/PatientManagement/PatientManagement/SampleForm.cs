@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using PatientManagement.Class;
+using PatientManagement.Interface;
 
 namespace PatientManagement
 {

@@ -24,8 +24,8 @@ namespace Hospital_Entity_Framework
             this.VariousDocumentCategories = new HashSet<VariousDocumentCategory>();
         }
     
-        public string Id { get; set; }
-        public string AccountId { get; set; }
+        public int Id { get; set; }
+        public int AccountId { get; set; }
     
         public virtual Account Account { get; set; }
         public virtual ICollection<ConsultationCategory> ConsultationCategories { get; set; }

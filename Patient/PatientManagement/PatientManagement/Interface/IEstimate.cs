@@ -1,17 +1,17 @@
 ﻿using System;
+
 /*using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;*/
 
-namespace PatientManagement.Class
+namespace PatientManagement.Interface
 {
     public interface IEstimate
     {
-        string AutoId();
-        void Insert(string id, string categoryid, string workerid, DateTime date, string description);
-        void Update(string id, string categoryid, string workerid, DateTime date, string description);
-        void Delete(string id);
+        void Insert(int categoryid, int workerid, DateTime date, string description);
+        void Update(int categoryid, int workerid, DateTime date, string description);
+        void Delete(int id);
         object Show();
     }
 }

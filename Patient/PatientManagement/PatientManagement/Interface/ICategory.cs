@@ -2,10 +2,9 @@
 {
     interface ICategory
     {
-        string AutoId();
-        void Insert(string id, string name);
-        void Update(string id, string name);
-        void Delete(string id);
+        void Insert(string name);
+        void Update(string name);
+        void Delete(int id);
         object Show();
     }
 }

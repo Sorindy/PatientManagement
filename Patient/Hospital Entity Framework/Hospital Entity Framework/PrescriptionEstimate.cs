@@ -19,14 +19,15 @@ namespace Hospital_Entity_Framework
             this.Visits = new HashSet<Visit>();
         }
     
-        public string Id { get; set; }
-        public string CategoryId { get; set; }
-        public string WorkerId { get; set; }
+        public int Id { get; set; }
+        public int PatientId { get; set; }
+        public int CategoryId { get; set; }
+        public int WorkerId { get; set; }
         public System.DateTime Date { get; set; }
         public string Description { get; set; }
     
         public virtual PrescriptionCategory PrescriptionCategory { get; set; }
+        public virtual Worker Worker { get; set; }
         public virtual ICollection<Visit> Visits { get; set; }
-        public virtual Worker Worker1 { get; set; }
     }
 }
