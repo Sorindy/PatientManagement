@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.crystalReportViewer2 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.waiting1 = new PatientManagement.Waiting();
             this.SuspendLayout();
             // 
             // crystalReportViewer2
@@ -41,6 +42,10 @@
             this.crystalReportViewer2.Name = "crystalReportViewer2";
             this.crystalReportViewer2.Size = new System.Drawing.Size(719, 446);
             this.crystalReportViewer2.TabIndex = 0;
+            // 
+            // waiting1
+            // 
+           
             // 
             // PrintWaitingForm
             // 
@@ -60,5 +65,6 @@
         private CrystalDecisions.CrystalReports.Engine.ReportDocument reportDocument1;
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer2;
+        private Waiting waiting1;
     }
 }

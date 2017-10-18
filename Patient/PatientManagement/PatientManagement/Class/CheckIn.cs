@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Hospital_Entity_Framework;
 
@@ -319,6 +320,10 @@ namespace PatientManagement.Class
                     _db.SaveChanges();
                 }
             }
+            var idVist = AutoIdVisit();
+            var insertVisti = new Hospital_Entity_Framework.Visit(){Id = idVist,PatientId = patientId,Date = DateTime.Now};
+            _db.Visits.Add(insertVisti);
+            _db.SaveChanges();
             var getData = _db.WaitingLists.Single(v => v.Id == _id);
             var form = (CheckInForm)Application.OpenForms["CheckInForm"];
             if (form != null) form.WaitingList = getData;
@@ -327,6 +332,24 @@ namespace PatientManagement.Class
                 form.Show();
                 form.ClearControl();
             }
+        }
+
+        private string AutoIdVisit()
+        {
+            var visit = new Hospital_Entity_Framework.Visit();
+            try
+            {
+                var getLastId = _db.Visits.OrderByDescending(v => v.Id).First();
+                var getvalue = getLastId.Id;
+                var num = Convert.ToInt32(getvalue.Substring(5));
+                num += 1;
+                visit.Id = string.Concat("Visit", num);
+            }
+            catch
+            {
+                visit.Id = "Visit1";
+            }
+            return visit.Id;
         }
 
         private void CheckRadioButton_Click(object sender, EventArgs e)
@@ -385,7 +408,7 @@ namespace PatientManagement.Class
             var tempWait = new TempWait();
             try
             {
-                var getLastId = _db.TempWaits.OrderByDescending(v => v.Id.Length).First();
+                var getLastId = _db.TempWaits.OrderByDescending(v => v.Id).First();
                 var getvalue = getLastId.Id;
                 var num = Convert.ToInt32(getvalue.Substring(8));
                 num += 1;
@@ -403,7 +426,8 @@ namespace PatientManagement.Class
             var wait = new Hospital_Entity_Framework.WaitingList();
             try
             {
-                var getLastId = _db.WaitingLists.OrderByDescending(v=>v.Id.Length).First();
+
+                var getLastId = _db.WaitingLists.OrderByDescending(v => v.Id).First();
                 var getvalue = getLastId.Id;
                 var num = Convert.ToInt32(getvalue.Substring(4));
                 num += 1;

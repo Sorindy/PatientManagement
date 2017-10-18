@@ -85,7 +85,7 @@ namespace PatientManagement.Class
         {
             var getconsultationestimate =
        _db.ConsultationEstimates.Where(v => v.Visits.Any(s => s.PatientId == patientid));
-            _bs.DataSource = getconsultationestimate.ToList();
+            _bs.DataSource = getconsultationestimate.Select(n=>new{n.Id,n.CategoryId,n.Worker.Name,n.Date,n.Description}).ToList();
             return _bs ;
         }
 

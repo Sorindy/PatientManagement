@@ -17,19 +17,14 @@ namespace PatientManagement
         {
             var db=new HospitalDbContext();
             var name = db.Patients.Single(v => v.Id == WaitingList.PatientId).Name;
-           /* waiting.SetParameterValue("pPatientName",name);
-            waiting.SetParameterValue("pTime", WaitingList.Time.ToString());
+            waiting1.SetParameterValue("pName", name);
+            waiting1.SetParameterValue("pTime", WaitingList.Time.ToString());
             var getvalue = WaitingList.Id;
             var num = Convert.ToInt32(getvalue.Substring(4));
-            waiting.SetParameterValue("pNumber", num.ToString());
-            crystalReportViewer2.ReportSource = waiting;*/
-            crystalReportViewer2.PrintReport();
-            Close();
+            waiting1.SetParameterValue("pNumber", num.ToString());
+            crystalReportViewer2.ReportSource = waiting1;
         }
 
-        private void waiting1_InitReport(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }
