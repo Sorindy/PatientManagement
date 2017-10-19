@@ -19,8 +19,8 @@ namespace Hospital_Entity_Framework
             this.Managements = new HashSet<Management>();
         }
     
-        public string Id { get; set; }
-        public string WorkerId { get; set; }
+        public int Id { get; set; }
+        public int WorkerId { get; set; }
         public string UserName { get; set; }
         public string Password { get; set; }
     

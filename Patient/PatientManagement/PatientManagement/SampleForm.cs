@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using PatientManagement.Class;
+using PatientManagement.Interface;
 
 namespace PatientManagement
 {
@@ -42,36 +43,7 @@ namespace PatientManagement
 
         private void btnNew_Click(object sender, EventArgs e)
         {
-            //if (cmbType.Text == "Consultation")
-            if (cmbType.SelectedIndex.Equals(0))
-            {
-                _sample = new ConsultationSample();
-                txtId.Text = _sample.AutoId();
-            }
-            //if (cmbType.Text == "Prescription")
-            if (cmbType.SelectedIndex.Equals(1))
-            {
-                _sample = new PrescriptionSample();
-                txtId.Text = _sample.AutoId();
-            }
-            //if (cmbType.Text == "MedicalImaging")
-            if (cmbType.SelectedIndex.Equals(2))
-            {
-                _sample = new MedicalImagingSample();
-                txtId.Text = _sample.AutoId();
-            }
-            //if (cmbType.Text == "Laboratory")
-            if (cmbType.SelectedIndex.Equals(3))
-            {
-                _sample = new LaboratorySample();
-                txtId.Text = _sample.AutoId();
-            }
-            //if (cmbType.Text == "VariousDocument")
-            if (cmbType.SelectedIndex.Equals(4))
-            {
-                _sample = new VariousDocumentSample();
-                txtId.Text = _sample.AutoId();
-            }
+           
             btnNew.Visible = false;
             btnInsert.Visible = true;
             txtDescription.Visible = true;
@@ -84,27 +56,27 @@ namespace PatientManagement
             if (cmbType.SelectedIndex.Equals(0))
             {
                 _sample = new ConsultationSample();
-                _sample.Insert(txtId.Text, txtTitle.Text, txtDescription.Text);
+                _sample.Insert( txtTitle.Text, txtDescription.Text);
             }
             if (cmbType.SelectedIndex.Equals(1))
             {
                 _sample = new PrescriptionSample();
-                _sample.Insert(txtId.Text, txtTitle.Text, txtDescription.Text);
+                _sample.Insert( txtTitle.Text, txtDescription.Text);
             }
             if (cmbType.SelectedIndex.Equals(2))
             {
                 _sample = new MedicalImagingSample();
-                _sample.Insert(txtId.Text, txtTitle.Text, txtDescription.Text);
+                _sample.Insert( txtTitle.Text, txtDescription.Text);
             }
             if (cmbType.SelectedIndex.Equals(3))
             {
                 _sample = new LaboratorySample();
-                _sample.Insert(txtId.Text, txtTitle.Text, txtDescription.Text);
+                _sample.Insert( txtTitle.Text, txtDescription.Text);
             }
             if (cmbType.SelectedIndex.Equals(4))
             {
                 _sample = new VariousDocumentSample();
-                _sample.Insert(txtId.Text, txtTitle.Text, txtDescription.Text);
+                _sample.Insert( txtTitle.Text, txtDescription.Text);
             }
             btnShow.PerformClick();
             Clear_Control();
@@ -140,27 +112,27 @@ namespace PatientManagement
             if (cmbType.SelectedIndex.Equals(0))
             {
                 _sample = new ConsultationSample();
-                _sample.Update(txtId.Text, txtTitle.Text, txtDescription.Text);
+                _sample.Update(Convert.ToInt32(txtId.Text), txtTitle.Text, txtDescription.Text);
             }
             if (cmbType.SelectedIndex.Equals(1))
             {
                 _sample = new PrescriptionSample();
-                _sample.Update(txtId.Text, txtTitle.Text, txtDescription.Text);
+                _sample.Update(Convert.ToInt32(txtId.Text), txtTitle.Text, txtDescription.Text);
             }
             if (cmbType.SelectedIndex.Equals(2))
             {
                 _sample = new MedicalImagingSample();
-                _sample.Update(txtId.Text, txtTitle.Text, txtDescription.Text);
+                _sample.Update(Convert.ToInt32(txtId.Text), txtTitle.Text, txtDescription.Text);
             }
             if (cmbType.SelectedIndex.Equals(3))
             {
                 _sample = new LaboratorySample();
-                _sample.Update(txtId.Text, txtTitle.Text, txtDescription.Text);
+                _sample.Update(Convert.ToInt32(txtId.Text), txtTitle.Text, txtDescription.Text);
             }
             if (cmbType.SelectedIndex.Equals(4))
             {
                 _sample = new VariousDocumentSample();
-                _sample.Update(txtId.Text, txtTitle.Text, txtDescription.Text);
+                _sample.Update(Convert.ToInt32(txtId.Text), txtTitle.Text, txtDescription.Text);
             }
             btnShow.PerformClick();
             Clear_Control();
@@ -173,31 +145,31 @@ namespace PatientManagement
             if (cmbType.SelectedIndex.Equals(0))
             {
                 _sample = new ConsultationSample();
-                _sample.Delete(txtId.Text);
+                _sample.Delete(Convert.ToInt32(txtId.Text));
             }
             //if (cmbType.Text == "Prescription")
             if (cmbType.SelectedIndex.Equals(1))
             {
                 _sample = new PrescriptionSample();
-                _sample.Delete(txtId.Text);
+                _sample.Delete(Convert.ToInt32(txtId.Text));
             }
             //if (cmbType.Text == "MedicalImaging")
             if (cmbType.SelectedIndex.Equals(2))
             {
                 _sample = new MedicalImagingSample();
-                _sample.Delete(txtId.Text);
+                _sample.Delete(Convert.ToInt32(txtId.Text));
             }
             //if (cmbType.Text == "Laboratory")
             if (cmbType.SelectedIndex.Equals(3))
             {
                 _sample = new LaboratorySample();
-                _sample.Delete(txtId.Text);
+                _sample.Delete(Convert.ToInt32(txtId.Text));
             }
             //if (cmbType.Text == "VariousDocument")
             if (cmbType.SelectedIndex.Equals(4))
             {
                 _sample = new VariousDocumentSample();
-                _sample.Delete(txtId.Text);
+                _sample.Delete(Convert.ToInt32(txtId.Text));
             }
             btnShow.PerformClick();
             Clear_Control();

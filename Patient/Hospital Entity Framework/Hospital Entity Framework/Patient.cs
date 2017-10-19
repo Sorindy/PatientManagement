@@ -20,9 +20,10 @@ namespace Hospital_Entity_Framework
             this.MedicalRecords = new HashSet<MedicalRecord>();
             this.Visits = new HashSet<Visit>();
             this.WaitingLists = new HashSet<WaitingList>();
+            this.MedicalHistories = new HashSet<MedicalHistory>();
         }
     
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Gender { get; set; }
         public System.DateTime DOB { get; set; }
@@ -38,5 +39,6 @@ namespace Hospital_Entity_Framework
         public virtual ICollection<MedicalRecord> MedicalRecords { get; set; }
         public virtual ICollection<Visit> Visits { get; set; }
         public virtual ICollection<WaitingList> WaitingLists { get; set; }
+        public virtual ICollection<MedicalHistory> MedicalHistories { get; set; }
     }
 }

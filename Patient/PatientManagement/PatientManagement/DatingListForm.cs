@@ -42,7 +42,7 @@ namespace PatientManagement
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-           _dating.Insert(_dating.AutoId(),txtPatientId.Text,txtStaffID.Text,dtpDating.Value);
+            _dating.Insert(Convert.ToInt32(txtPatientId.Text), Convert.ToInt32(txtStaffID.Text), dtpDating.Value);
             btnShow.PerformClick();
             Refresh();
         }
@@ -65,14 +65,14 @@ namespace PatientManagement
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            _dating.Update(txtDatingId.Text, dtpDating.Value);
+            _dating.Update(Convert.ToInt32(txtDatingId.Text), dtpDating.Value);
             btnShow.PerformClick();
             Refresh();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            _dating.Delete(txtDatingId.Text);
+            _dating.Delete(Convert.ToInt32( txtDatingId.Text));
             btnShow.PerformClick();
             Clear();
             Refresh();
@@ -93,28 +93,31 @@ namespace PatientManagement
 
         private void btnShow_Click(object sender, EventArgs e)
         {
-           dtgInformation.DataSource= _dating.Show(txtStaffID.Text);
+           dtgInformation.DataSource= _dating.Show(Convert.ToInt32( txtStaffID.Text));
             Refresh();
         }
 
         private void txtStaffID_TextChanged(object sender, EventArgs e)
         {
-            var select = _worker.SelectedChange(txtStaffID.Text);
+            var select = _worker.SelectedChange(Convert.ToInt32( txtStaffID.Text));
             txtStaffName.Text = select.Name;
             Refresh();
         }
 
         private void dtgInformation_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtDatingId.Text = dtgInformation.CurrentRow.Cells[0].Value.ToString();
-            dtpDating.Text = dtgInformation.CurrentRow.Cells[1].Value.ToString();
-            txtPatientId.Text = dtgInformation.CurrentRow.Cells[2].Value.ToString();
+            if (dtgInformation.CurrentRow != null)
+            {
+                txtDatingId.Text = dtgInformation.CurrentRow.Cells[0].Value.ToString();
+                dtpDating.Text = dtgInformation.CurrentRow.Cells[1].Value.ToString();
+                txtPatientId.Text = dtgInformation.CurrentRow.Cells[2].Value.ToString();
+            }
             Refresh();
         }
 
         private void txtPatientId_TextChanged(object sender, EventArgs e)
         {
-            var select = _patient.Select(txtPatientId.Text);
+            var select = _patient.Select(Convert.ToInt32( txtPatientId.Text));
             txtPatientName.Text = select.Name;
             Refresh();
         }

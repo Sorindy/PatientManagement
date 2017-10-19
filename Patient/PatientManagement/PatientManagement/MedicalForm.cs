@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows.Forms;
 using Hospital_Entity_Framework;
 using PatientManagement.Class;
+using PatientManagement.Interface;
 using ConsultationEstimate = PatientManagement.Class.ConsultationEstimate;
 using ConsultationSample = PatientManagement.Class.ConsultationSample;
 using Dating = PatientManagement.Class.Dating;
@@ -85,34 +86,51 @@ namespace PatientManagement
             if (cmbMedicalRecord.SelectedIndex.Equals(0))
             {
                 _estimate = new ConsultationEstimate();
-                var id = _estimate.AutoId();
-                _estimate.Insert(id, cmbCategory.Text, txtStaffID.Text, DateTime.Now,txtDescription.Text);
+                
+                _estimate.Insert( cmbCategory.Text, txtStaffID.Text, DateTime.Now,txtDescription.Text);
                 var selectVisit = db.Visits.OrderByDescending(v => v.Id).First();
                 var selectConsultEsitmate = db.ConsultationEstimates.Single(v => v.Id == id);
-                db.Visits.Single(v=>v.Id==selectVisit.Id).ConsultationEstimates.Add(selectConsultEsitmate);
                 db.SaveChanges();
             }
             if (cmbMedicalRecord.SelectedIndex.Equals(1))
             {
                 _estimate = new PrescriptionEstimate();
-                _estimate.Insert(_estimate.AutoId(), cmbCategory.Text, txtStaffID.Text, DateTime.Now, txtDescription.Text);
+                var id = _estimate.AutoId();
+                _estimate.Insert(id, cmbCategory.Text, txtStaffID.Text, DateTime.Now, txtDescription.Text);
+                var selectVisit = db.Visits.OrderByDescending(v => v.Id).First();
+                var selectConsultEsitmate = db.PrescriptionEstimates.Single(v => v.Id == id);
+                db.Visits.FirstOrDefault(v => v.Id == selectVisit.Id).PrescriptionEstimates.Add(selectConsultEsitmate);
+                db.SaveChanges();
             }
             if (cmbMedicalRecord.SelectedIndex.Equals(2))
             {
                 _estimate = new MedicalImagingEstimate();
-                _estimate.Insert(_estimate.AutoId(), cmbCategory.Text, txtStaffID.Text, DateTime.Now, txtDescription.Text);
-
+                var id = _estimate.AutoId();
+                _estimate.Insert(id, cmbCategory.Text, txtStaffID.Text, DateTime.Now, txtDescription.Text);
+                var selectVisit = db.Visits.OrderByDescending(v => v.Id).First();
+                var selectConsultEsitmate = db.MedicalImagingEstimates.Single(v => v.Id == id);
+                db.Visits.FirstOrDefault(v => v.Id == selectVisit.Id).MedicalImagingEstimates.Add(selectConsultEsitmate);
+                db.SaveChanges();
             }
             if (cmbMedicalRecord.SelectedIndex.Equals(3))
             {
                 _estimate = new LaboratoryEstimate();
-                _estimate.Insert(_estimate.AutoId(), cmbCategory.Text, txtStaffID.Text, DateTime.Now, txtDescription.Text);
-
+                var id = _estimate.AutoId();
+                _estimate.Insert(id, cmbCategory.Text, txtStaffID.Text, DateTime.Now, txtDescription.Text);
+                var selectVisit = db.Visits.OrderByDescending(v => v.Id).First();
+                var selectConsultEsitmate = db.LaboratoryEstimates.Single(v => v.Id == id);
+                db.Visits.FirstOrDefault(v => v.Id == selectVisit.Id).LaboratoryEstimates.Add(selectConsultEsitmate);
+                db.SaveChanges();
             }
             if (cmbMedicalRecord.SelectedIndex.Equals(4))
             {
                 _estimate = new VariousDocumentEstimate();
-                _estimate.Insert(_estimate.AutoId(), cmbCategory.Text, txtStaffID.Text, DateTime.Now, txtDescription.Text);
+                var id = _estimate.AutoId();
+                _estimate.Insert(id, cmbCategory.Text, txtStaffID.Text, DateTime.Now, txtDescription.Text);
+                var selectVisit = db.Visits.OrderByDescending(v => v.Id).First();
+                var selectConsultEsitmate = db.VariousDocumentEstimates.Single(v => v.Id == id);
+                db.Visits.FirstOrDefault(v => v.Id == selectVisit.Id).VariousDocumentEstimates.Add(selectConsultEsitmate);
+                db.SaveChanges();
             }   
             btnSubmit.Visible = false;
             btnNew.Visible = true;
@@ -178,7 +196,7 @@ namespace PatientManagement
 
         private void btnAddDating_Click(object sender, EventArgs e)
         {
-            _dating.Insert(_dating.AutoId(), txtPatientID.Text, txtStaffID.Text, dtpDating.Value);
+            _dating.Insert(Convert.ToInt32(txtPatientID.Text), Convert.ToInt32(txtStaffID.Text), dtpDating.Value);
             Refresh();
         }
 
@@ -259,7 +277,7 @@ namespace PatientManagement
         private void txtPatientID_TextChanged(object sender, EventArgs e)
         {
             _patient = new Patient();
-            txtPatientName.Text = _patient.Select(txtPatientID.Text).Name;
+            txtPatientName.Text = _patient.Select(Convert.ToInt32(txtPatientID.Text)).Name;
             Refresh();
         }
 

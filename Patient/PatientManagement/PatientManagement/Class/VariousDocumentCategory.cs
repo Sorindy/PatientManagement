@@ -1,5 +1,4 @@
-﻿using System;
-using System.Data.Entity.Migrations;
+﻿using System.Data.Entity.Migrations;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -12,38 +11,19 @@ namespace PatientManagement.Class
     {
 
         private HospitalDbContext _db = new HospitalDbContext();
-        private Hospital_Entity_Framework.VariousDocumentCategory  _variousDocumentCategory= new Hospital_Entity_Framework.VariousDocumentCategory();
         private BindingSource _bs = new BindingSource();
 
-        public string AutoId()
-        {
-            try
-            {
-                var getLastId = _db.VariousDocumentCategories.OrderByDescending(v => v.Id).First();
-                var getvalue = getLastId.Id;
-                var num = Convert.ToInt32(getvalue.Substring(23));
-                num += 1;
-                _variousDocumentCategory.Id = string.Concat("VariousDocumentCategory", num);
-            }
-            catch
-            {
-                _variousDocumentCategory.Id = "VariousDocumentCategory1";
-            }
-            return _variousDocumentCategory.Id;
-        }
-
-        public void Insert(string id, string name)
+        public void Insert(string name)
         {
             var insert = new Hospital_Entity_Framework.VariousDocumentCategory()
             {
-                Id = id,
                 Name = name,
             };
             _db.VariousDocumentCategories.Add(insert);
             _db.SaveChanges();
         }
 
-        public void Update(string id, string name)
+        public void Update(int id, string name)
         {
             var update = _db.VariousDocumentCategories.Single(v => v.Id == id);
             update.Name = name;
@@ -51,7 +31,7 @@ namespace PatientManagement.Class
             _db.SaveChanges();
         }
 
-        public void Delete(string id)
+        public void Delete(int id)
         {
             var delete = _db.VariousDocumentCategories.Single(vid => vid.Id == id);
             _db.VariousDocumentCategories.Remove(delete);

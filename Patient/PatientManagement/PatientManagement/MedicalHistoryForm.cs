@@ -111,25 +111,34 @@ namespace PatientManagement
         {
             if (cmbMedicalRecord.SelectedIndex.Equals(0))
             {
-                dtgInformation.DataSource = _visit.ShowVisitEstimate(txtPatientID.Text);
+                dtgInformation.DataSource = _visit.ShowConsultationVisitEstimate(txtPatientID.Text);
                 dtgInformation.Visible = true;
                 txtDescription.Visible = false;
             }
+           
             if (cmbMedicalRecord.SelectedIndex.Equals(1))
             {
-                
+                dtgInformation.DataSource = _visit.ShowPrescriptionVisitEstimate(txtPatientID.Text);
+                dtgInformation.Visible = true;
+                txtDescription.Visible = false;
             }
             if (cmbMedicalRecord.SelectedIndex.Equals(2))
             {
-
+                dtgInformation.DataSource = _visit.ShowMedicalImagingVisitEstimate(txtPatientID.Text);
+                dtgInformation.Visible = true;
+                txtDescription.Visible = false;
             }
             if (cmbMedicalRecord.SelectedIndex.Equals(3))
             {
-                
+                dtgInformation.DataSource = _visit.ShowLaboratoryVisitEstimate(txtPatientID.Text);
+                dtgInformation.Visible = true;
+                txtDescription.Visible = false;
             }
             if (cmbMedicalRecord.SelectedIndex.Equals(4))
             {
-                
+                dtgInformation.DataSource = _visit.ShowVariousDocumentVisitEstimate(txtPatientID.Text);
+                dtgInformation.Visible = true;
+                txtDescription.Visible = false;
             }
         }
 

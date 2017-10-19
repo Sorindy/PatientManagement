@@ -334,24 +334,6 @@ namespace PatientManagement.Class
             }
         }
 
-        private string AutoIdVisit()
-        {
-            var visit = new Hospital_Entity_Framework.Visit();
-            try
-            {
-                var getLastId = _db.Visits.OrderByDescending(v => v.Id).First();
-                var getvalue = getLastId.Id;
-                var num = Convert.ToInt32(getvalue.Substring(5));
-                num += 1;
-                visit.Id = string.Concat("Visit", num);
-            }
-            catch
-            {
-                visit.Id = "Visit1";
-            }
-            return visit.Id;
-        }
-
         private void CheckRadioButton_Click(object sender, EventArgs e)
         {
             var text = (RadioButton)sender;

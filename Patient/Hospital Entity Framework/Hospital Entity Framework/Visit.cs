@@ -16,6 +16,7 @@ namespace Hospital_Entity_Framework
     {
         public Visit()
         {
+            this.WaitingLists = new HashSet<WaitingList>();
             this.MedicalRecords = new HashSet<MedicalRecord>();
             this.ConsultationEstimates = new HashSet<ConsultationEstimate>();
             this.LaboratoryEstimates = new HashSet<LaboratoryEstimate>();
@@ -24,11 +25,13 @@ namespace Hospital_Entity_Framework
             this.VariousDocumentEstimates = new HashSet<VariousDocumentEstimate>();
         }
     
-        public string Id { get; set; }
-        public string PatientId { get; set; }
+        public int Id { get; set; }
+        public int VisitCount { get; set; }
+        public int PatientId { get; set; }
         public System.DateTime Date { get; set; }
     
         public virtual Patient Patient { get; set; }
+        public virtual ICollection<WaitingList> WaitingLists { get; set; }
         public virtual ICollection<MedicalRecord> MedicalRecords { get; set; }
         public virtual ICollection<ConsultationEstimate> ConsultationEstimates { get; set; }
         public virtual ICollection<LaboratoryEstimate> LaboratoryEstimates { get; set; }

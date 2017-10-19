@@ -21,7 +21,7 @@ namespace Hospital_Entity_Framework
             this.WaitingLists = new HashSet<WaitingList>();
         }
     
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
     
         public virtual ICollection<LaboratoryEstimate> LaboratoryEstimates { get; set; }

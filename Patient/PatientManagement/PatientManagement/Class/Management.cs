@@ -12,9 +12,9 @@ namespace PatientManagement.Class
     {
         private readonly HospitalDbContext _db=new HospitalDbContext();
 
-        private void Insert(string id, string accId)
+        private void Insert(int accId)
        {
-            var insert=new Hospital_Entity_Framework.Management(){Id = id,AccountId = accId};
+            var insert=new Hospital_Entity_Framework.Management(){AccountId = accId};
 
             _db.Managements.Add(insert);
             _db.SaveChanges();
@@ -53,31 +53,13 @@ namespace PatientManagement.Class
         {
             BindingSource bs2 = new BindingSource();
 
-            var searchs = _db.Accounts.Where(v => v.Worker.Id.Contains(search) || v.Worker.Name.Contains(search) ||
+            var searchs = _db.Accounts.Where(v => v.Worker.Name.Contains(search) ||
                                                   v.Worker.Position.Contains(search));
 
             bs2.DataSource = searchs
                 .Select(s => new {s.Worker.Id, s.Worker.Name, s.Worker.Gender, s.Worker.Position, s.UserName}).ToList();
 
             return bs2;
-        }
-
-        public string AutoId()
-        {
-            var management=new Hospital_Entity_Framework.Management();
-            try
-            {
-                var getLastId = _db.Managements.OrderByDescending(m => m.Id).First();
-                var getvalue = getLastId.Id;
-                var num = Convert.ToInt32(getvalue.Substring(10));
-                num += 1;
-                management.Id = string.Concat("Management", num);
-            }
-            catch
-            {
-                management.Id = "Management1";
-            }
-            return management.Id;
         }
 
         private FlowLayoutPanel MedicalPanel()
@@ -317,7 +299,6 @@ namespace PatientManagement.Class
             else{
                 var insertTemp = new TempManagement()
                 {
-                    Id = AutoIdChecked(),
                     WorkerId = workerId,
                     Forms = form,
                     Categorys = category,
@@ -326,24 +307,6 @@ namespace PatientManagement.Class
                 _db.TempManagements.AddOrUpdate(insertTemp);
                 _db.SaveChanges();
             }
-        }
-
-        private string AutoIdChecked()
-        {
-            var management = new TempManagement();
-            try
-            {
-                var getLastId = _db.TempManagements.OrderByDescending(m => m.Id.Length).First();
-                var getvalue = getLastId.Id;
-                var num = Convert.ToInt32(getvalue.Substring(4));
-                num += 1;
-                management.Id = string.Concat("Temp", num);
-            }
-            catch
-            {
-                management.Id = "Temp1";
-            }
-            return management.Id;
         }
 
         public void ClearTemp()

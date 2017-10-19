@@ -14,9 +14,9 @@ namespace Hospital_Entity_Framework
     
     public partial class Dating
     {
-        public string Id { get; set; }
-        public string PatientId { get; set; }
-        public string WorkerId { get; set; }
+        public int Id { get; set; }
+        public int PatientId { get; set; }
+        public int WorkerId { get; set; }
         public System.DateTime Date { get; set; }
     
         public virtual Patient Patient { get; set; }

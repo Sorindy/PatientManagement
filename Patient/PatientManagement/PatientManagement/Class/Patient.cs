@@ -10,15 +10,13 @@ namespace PatientManagement.Class
     {
         private HospitalDbContext _db = new HospitalDbContext();
         private BindingSource _binding = new BindingSource();
-        private Hospital_Entity_Framework.Patient _patient = new Hospital_Entity_Framework.Patient();
 
-        public void Insert(string id, string name, string gender, DateTime dob, byte age, string address, string phone1,
+        public void Insert(string name, string gender, DateTime dob, byte age, string address, string phone1,
             string phone2,
             string email, short weigh, short heigh)
         {
                 var insert = new Hospital_Entity_Framework.Patient()
                 {
-                    Id = id,
                     Name = name,
                     Gender = gender,
                     DOB = dob,
@@ -34,7 +32,7 @@ namespace PatientManagement.Class
                 _db.SaveChanges();
         }
 
-        public void Update(string id, string name, string gender, DateTime dob, byte age, string address, string phone1,
+        public void Update(int id, string name, string gender, DateTime dob, byte age, string address, string phone1,
             string phone2, string email, short weigh, short heigh)
         {
             var update = _db.Patients.Single(v => v.Id == id);
@@ -55,7 +53,7 @@ namespace PatientManagement.Class
         public object Search(string text)
         {
             var getpatient = from v in _db.Patients
-                where v.Id == text || v.Name == text || v.Phone1 == text || v.Phone2 == text || v.Email == text
+                where v.Name == text || v.Phone1 == text || v.Phone2 == text || v.Email == text
                 select new
                 {
                     v.Id,
@@ -104,24 +102,7 @@ namespace PatientManagement.Class
             }
         }
 
-        public string AutoId()
-        {
-            try
-            {
-                var getLastId = _db.Patients.OrderByDescending(v => v.Id.Length).First();
-                var getvalue = getLastId.Id;
-                var num = Convert.ToInt32(getvalue.Substring(7));
-                num += 1;
-                _patient.Id = string.Concat("Patient", num);
-            }
-            catch
-            {
-                _patient.Id = "Patient1";
-            }
-            return _patient.Id;
-        }
-
-        public Hospital_Entity_Framework.Patient Select(string id)
+        public Hospital_Entity_Framework.Patient Select(int id)
         {
             
                 var getpatient = from v in _db.Patients

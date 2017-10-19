@@ -19,8 +19,8 @@ namespace Hospital_Entity_Framework
             this.Visits = new HashSet<Visit>();
         }
     
-        public string Id { get; set; }
-        public string PatientId { get; set; }
+        public int Id { get; set; }
+        public int PatientId { get; set; }
     
         public virtual Patient Patient { get; set; }
         public virtual ICollection<Visit> Visits { get; set; }

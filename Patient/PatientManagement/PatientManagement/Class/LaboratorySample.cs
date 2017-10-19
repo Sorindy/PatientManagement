@@ -1,8 +1,8 @@
-﻿using System;
-using System.Data.Entity.Migrations;
+﻿using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Windows.Forms;
 using Hospital_Entity_Framework;
+using PatientManagement.Interface;
 
 /*using System.Collections.Generic;
 using System.Text;
@@ -14,31 +14,12 @@ namespace PatientManagement.Class
    {
         
         private HospitalDbContext _db = new HospitalDbContext();
-        private Hospital_Entity_Framework.LaboratorySample _laboratorySample  = new Hospital_Entity_Framework.LaboratorySample();
         private BindingSource _bs = new BindingSource();
 
-        public string AutoId()
-        {
-            try
-            {
-                var getLastId = _db.LaboratorySamples.OrderByDescending(v => v.Id).First();
-                var getvalue = getLastId.Id;
-                var num = Convert.ToInt32(getvalue.Substring(16));
-                num += 1;
-                _laboratorySample.Id = string.Concat("LaboratorySample", num);
-            }
-            catch
-            {
-                _laboratorySample.Id = "LaboratorySample1";
-            }
-            return _laboratorySample.Id;
-        }
-
-        public void Insert(string id, string title, string description)
+        public void Insert(string title, string description)
         {
             var insert = new Hospital_Entity_Framework.LaboratorySample()
             {
-                Id = id,
                 Title=title,
                 Description=description,
             };
@@ -46,7 +27,7 @@ namespace PatientManagement.Class
             _db.SaveChanges();
         }
 
-        public void Update(string id, string title, string description)
+        public void Update(int id, string title, string description)
         {
             var update = _db.LaboratorySamples.Single(v => v.Id == id);
             update.Title = title;
@@ -55,7 +36,7 @@ namespace PatientManagement.Class
             _db.SaveChanges();
         }
 
-        public void Delete(string id)
+        public void Delete(int id)
         {
             var delete = _db.LaboratorySamples.Single(vid => vid.Id == id);
             _db.LaboratorySamples.Remove(delete);

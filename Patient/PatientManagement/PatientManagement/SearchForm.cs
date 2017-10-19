@@ -58,11 +58,11 @@ namespace PatientManagement
             if (dtgInformation.CurrentRow != null)
             {
                 var getid = dtgInformation.CurrentRow.Cells[0].Value.ToString();
-                Patient = _patient.Select(getid);
+                Patient = _patient.Select(Convert.ToInt32(getid));
             }
             var form = (PatientRegistrationForm) Application.OpenForms["PatientRegistrationForm"];
 
-            form.txtID.Text = Patient.Id;
+            form.txtID.Text = Patient.Id.ToString( );
             form.txtName.Text = Patient.Name;
             form.cmbGender.Text = Patient.Gender;
             form.dtpDOB.Value = Patient.DOB;

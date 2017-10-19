@@ -36,24 +36,6 @@ namespace PatientManagement.Class
             _db.SaveChanges();
         }
 
-        public string AutoId()
-        {
-            Hospital_Entity_Framework.Account account=new Hospital_Entity_Framework.Account();
-            try
-            {
-                var getLastId = _db.Accounts.OrderByDescending(v => v.Id).First();
-                var getvalue = getLastId.Id;
-                var num = Convert.ToInt32(getvalue.Substring(7));
-                num += 1;
-                account.Id = string.Concat("Account", num);
-            }
-            catch
-            {
-                account.Id = "Account1";
-            }
-            return account.Id;
-        }
-
         public Hospital_Entity_Framework.Account Selection(Hospital_Entity_Framework.Worker worker)
         {
             var selection = from v in _db.Accounts
@@ -73,9 +55,9 @@ namespace PatientManagement.Class
             return null;
         }
 
-        public string CheckAccount(string id)
+        public int CheckAccount(int id)
         {
-            string s;
+            int s;
             try
             {
                 var check = _db.Accounts.Single(v => v.WorkerId == id);
@@ -83,7 +65,7 @@ namespace PatientManagement.Class
             }
             catch
             {
-                s = "";
+                s = 0;
             }
             return s;
         }
