@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Drawing;
 using System.Linq;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Hospital_Entity_Framework;
 
@@ -10,27 +9,21 @@ namespace PatientManagement.Class
     class CheckIn
     {
         private readonly HospitalDbContext _db=new HospitalDbContext();
-        private string _id = "";
 
-        public void InsertWaiting(string id, string patientId, TimeSpan date)
+        public void InsertWaiting(int patientId, TimeSpan date)
         {
-            var insert=new Hospital_Entity_Framework.WaitingList(){Id = id,PatientId = patientId,Time = date};
+            var insert=new Hospital_Entity_Framework.WaitingList(){PatientId = patientId,Time = date};
 
             _db.WaitingLists.Add(insert);
             _db.SaveChanges();
         }
 
-        public void DeleteWaiting(string id)
+        public void DeleteWaiting(int id)
         {
             var delete = _db.WaitingLists.Single(v => v.Id == id);
 
             _db.WaitingLists.Remove(delete);
             _db.SaveChanges();
-        }
-
-        public void UpdateWaiting(string id)
-        {
-            
         }
 
         public BindingSource ShowDatingList()
@@ -72,7 +65,7 @@ namespace PatientManagement.Class
         {
             var bs=new BindingSource();
 
-            var search = _db.Patients.Where(v => v.Id.Contains(text) || v.Name.Contains(text) ||
+            var search = _db.Patients.Where(v => v.Name.Contains(text) ||
                                                  v.Phone1.Contains(text) || v.Phone2.Contains(text));
             bs.DataSource = search.Select(v=>new {v.Id,v.Name,v.Gender,v.Phone1,v.Phone2,v.Email,v.Address,v.Height,v.Weight}).ToList();
 
@@ -83,8 +76,7 @@ namespace PatientManagement.Class
         {
             var bs = new BindingSource();
 
-            var search = _db.Datings.Where(v => v.Id.Contains(text)||v.Patient.Name.Contains(text)||v.PatientId.Contains(text)
-                ||v.WorkerId.Contains(text)||v.Worker.Name.Contains(text));
+            var search = _db.Datings.Where(v => v.Patient.Name.Contains(text)||v.Worker.Name.Contains(text));
             bs.DataSource = search.ToList();
 
             return bs;
@@ -273,10 +265,9 @@ namespace PatientManagement.Class
             return flpn;
         }
 
-        public void SubmitService(string patientId,TimeSpan timeSpan)
+        public void SubmitService(int patientId,TimeSpan timeSpan)
         {
-            _id = AutoIdWaiting();
-            var insertWaitingList=new Hospital_Entity_Framework.WaitingList(){Id = _id,PatientId = patientId,Time = timeSpan };
+            var insertWaitingList=new Hospital_Entity_Framework.WaitingList(){PatientId = patientId,Time = timeSpan };
             _db.WaitingLists.Add(insertWaitingList);
             _db.SaveChanges();
 
@@ -288,43 +279,42 @@ namespace PatientManagement.Class
                 {
                     var insert = _db.ConsultationCategories.Single(v => v.Name == item.CategoryId);
 
-                    _db.WaitingLists.Single(v=>v.Id==_id).ConsultationCategories.Add(insert);
+                    _db.WaitingLists.Single(v=>v.PatientId==patientId).ConsultationCategories.Add(insert);
                     _db.SaveChanges();
                 }
                 if (item.ServiceId == "Laboratory")
                 {
                     var insert = _db.LaboratoryCategories.Single(v => v.Name == item.CategoryId);
 
-                    _db.WaitingLists.Single(v => v.Id == _id).LaboratoryCategories.Add(insert);
+                    _db.WaitingLists.Single(v => v.PatientId == patientId).LaboratoryCategories.Add(insert);
                     _db.SaveChanges();
                 }
                 if (item.ServiceId == "MedicalImaging")
                 {
                     var insert = _db.MedicalImagingCategories.Single(v => v.Name == item.CategoryId);
 
-                    _db.WaitingLists.Single(v => v.Id == _id).MedicalImagingCategories.Add(insert);
+                    _db.WaitingLists.Single(v => v.PatientId == patientId).MedicalImagingCategories.Add(insert);
                     _db.SaveChanges();
                 }
                 if (item.ServiceId == "Prescription")
                 {
                     var insert = _db.PrescriptionCategories.Single(v => v.Name == item.CategoryId);
 
-                    _db.WaitingLists.Single(v => v.Id == _id).PrescriptionCategories.Add(insert);
+                    _db.WaitingLists.Single(v => v.PatientId == patientId).PrescriptionCategories.Add(insert);
                     _db.SaveChanges();
                 }
                 if (item.ServiceId == "VariousDocument")
                 {
                     var insert = _db.VariousDocumentCategories.Single(v => v.Name == item.CategoryId);
 
-                    _db.WaitingLists.Single(v => v.Id == _id).VariousDocumentCategories.Add(insert);
+                    _db.WaitingLists.Single(v => v.PatientId == patientId).VariousDocumentCategories.Add(insert);
                     _db.SaveChanges();
                 }
             }
-            var idVist = AutoIdVisit();
-            var insertVisti = new Hospital_Entity_Framework.Visit(){Id = idVist,PatientId = patientId,Date = DateTime.Now};
+            var insertVisti = new Hospital_Entity_Framework.Visit(){PatientId = patientId,Date = DateTime.Now};
             _db.Visits.Add(insertVisti);
             _db.SaveChanges();
-            var getData = _db.WaitingLists.Single(v => v.Id == _id);
+            var getData = _db.WaitingLists.Single(v => v.PatientId == patientId);
             var form = (CheckInForm)Application.OpenForms["CheckInForm"];
             if (form != null) form.WaitingList = getData;
             if (form != null)
@@ -353,7 +343,7 @@ namespace PatientManagement.Class
             var getServiceName = check.Name;
             var getCategoryName = check.Text;
 
-            var insert=new TempWait(){Id = AutoIdTemp(),ServiceId = getServiceName,CategoryId = getCategoryName};
+            var insert=new TempWait(){ServiceId = getServiceName,CategoryId = getCategoryName};
             _db.TempWaits.Add(insert);
             _db.SaveChanges();
 
@@ -385,43 +375,6 @@ namespace PatientManagement.Class
             }
         }
 
-        private string AutoIdTemp()
-        {
-            var tempWait = new TempWait();
-            try
-            {
-                var getLastId = _db.TempWaits.OrderByDescending(v => v.Id).First();
-                var getvalue = getLastId.Id;
-                var num = Convert.ToInt32(getvalue.Substring(8));
-                num += 1;
-                tempWait.Id = string.Concat("TempWait", num);
-            }
-            catch
-            {
-                tempWait.Id = "TempWait1";
-            }
-            return tempWait.Id;
-        }
-
-        private string AutoIdWaiting()
-        {
-            var wait = new Hospital_Entity_Framework.WaitingList();
-            try
-            {
-
-                var getLastId = _db.WaitingLists.OrderByDescending(v => v.Id).First();
-                var getvalue = getLastId.Id;
-                var num = Convert.ToInt32(getvalue.Substring(4));
-                num += 1;
-                wait.Id = string.Concat("Wait", num);
-            }
-            catch
-            {
-                wait.Id = "Wait1";
-            }
-            return wait.Id;
-        }
-       
         public void ClearTemp()
         {
             var clear = _db.TempWaits;

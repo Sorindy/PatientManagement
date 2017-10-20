@@ -86,15 +86,11 @@ namespace PatientManagement
             if (cmbMedicalRecord.SelectedIndex.Equals(0))
             {
                 _estimate = new ConsultationEstimate();
-                var id = _estimate.AutoId();
-                _estimate.Insert(id, cmbCategory.Text, txtStaffID.Text, DateTime.Now,txtDescription.Text);
+                _estimate.Insert(cmbCategory.Text, txtStaffID.Text, DateTime.Now,txtDescription.Text);
                 var selectVisit = db.Visits.OrderByDescending(v => v.Id).First();
                 var selectConsultEsitmate = db.ConsultationEstimates.Single(v => v.Id == id);
-<<<<<<< HEAD
                 db.Visits.FirstOrDefault(v=>v.Id==selectVisit.Id).ConsultationEstimates.Add(selectConsultEsitmate);
-=======
-                db.Visits.Single(v=>v.Id==selectVisit.Id).ConsultationEstimates.Add(selectConsultEsitmate);
->>>>>>> 7e2717183c34e3bb0373fd6f8108c9d3f1d40157
+
                 db.SaveChanges();
             }
             if (cmbMedicalRecord.SelectedIndex.Equals(1))

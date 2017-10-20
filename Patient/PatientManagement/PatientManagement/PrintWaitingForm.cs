@@ -20,7 +20,7 @@ namespace PatientManagement
             waiting1.SetParameterValue("pName", name);
             waiting1.SetParameterValue("pTime", WaitingList.Time.ToString());
             var getvalue = WaitingList.Id;
-            var num = Convert.ToInt32(getvalue.Substring(4));
+            var num = getvalue;
             waiting1.SetParameterValue("pNumber", num.ToString());
             crystalReportViewer2.ReportSource = waiting1;
             crystalReportViewer2.PrintReport();
