@@ -4,10 +4,6 @@ using System.Windows.Forms;
 using Hospital_Entity_Framework;
 using PatientManagement.Interface;
 
-/*using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;*/
-
 namespace PatientManagement.Class
 {
    public class ConsultationSample: ISample

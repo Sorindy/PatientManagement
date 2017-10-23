@@ -1,11 +1,4 @@
 ﻿using System;
-/*using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;*/
 using System.Windows.Forms;
 using PatientManagement.Class;
 
@@ -43,8 +36,8 @@ namespace PatientManagement
         private void btnInsert_Click(object sender, EventArgs e)
         {
                 _patient.Cheack_Control(txtName.Text, cmbGender.Text, txtAddress.Text, txtPhone1.Text, txtWeight.Text, txtHeight.Text);
-                _patient.Insert(txtID.Text, txtName.Text, cmbGender.Text, dtpDOB.Value.Date, Convert.ToByte(txtAge.Text), txtAddress.Text, txtPhone1.Text, txtPhone2.Text, txtEmail.Text, Convert.ToInt16(txtWeight.Text), Convert.ToInt16(txtHeight.Text));
-                _medicalRecord.Insert(_medicalRecord.AutoId(), txtID.Text);
+                _patient.Insert( txtName.Text, cmbGender.Text, dtpDOB.Value.Date, Convert.ToByte(txtAge.Text), txtAddress.Text, txtPhone1.Text, txtPhone2.Text, txtEmail.Text, Convert.ToInt16(txtWeight.Text), Convert.ToInt16(txtHeight.Text));
+              //  _medicalRecord.Insert(_medicalRecord.AutoId(), txtID.Text);
                 Clear_Control();
                 btnNew.Visible = true;
                 btnInsert.Visible = false;
@@ -74,7 +67,6 @@ namespace PatientManagement
             try
             {
                 Checkinkform.Show();
-
             }
             catch
             {
@@ -84,7 +76,7 @@ namespace PatientManagement
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-                _patient.Update(txtID.Text, txtName.Text, cmbGender.Text, dtpDOB.Value.Date, Convert.ToByte(txtAge.Text), txtAddress.Text, txtPhone1.Text, txtPhone2.Text, txtEmail.Text, Convert.ToInt16(txtWeight.Text), Convert.ToInt16(txtHeight.Text));
+            _patient.Update(Convert.ToInt32(txtID.Text), txtName.Text, cmbGender.Text, dtpDOB.Value.Date, Convert.ToByte(txtAge.Text), txtAddress.Text, txtPhone1.Text, txtPhone2.Text, txtEmail.Text, Convert.ToInt16(txtWeight.Text), Convert.ToInt16(txtHeight.Text));
                 Clear_Control();
                 Refresh();
         }
@@ -110,7 +102,6 @@ namespace PatientManagement
         private void btnNew_Click(object sender, EventArgs e)
         {
             Clear_Control();
-            txtID.Text =_patient.AutoId();
             btnInsert.Visible = true;
             btnNew.Visible = false;
         }

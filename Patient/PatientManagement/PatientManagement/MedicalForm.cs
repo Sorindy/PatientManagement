@@ -86,11 +86,18 @@ namespace PatientManagement
             if (cmbMedicalRecord.SelectedIndex.Equals(0))
             {
                 _estimate = new ConsultationEstimate();
+<<<<<<< HEAD
                 _estimate.Insert(cmbCategory.Text, txtStaffID.Text, DateTime.Now,txtDescription.Text);
                 var selectVisit = db.Visits.OrderByDescending(v => v.Id).First();
                 var selectConsultEsitmate = db.ConsultationEstimates.Single(v => v.Id == id);
                 db.Visits.FirstOrDefault(v=>v.Id==selectVisit.Id).ConsultationEstimates.Add(selectConsultEsitmate);
 
+=======
+                
+                _estimate.Insert( cmbCategory.Text, txtStaffID.Text, DateTime.Now,txtDescription.Text);
+                var selectVisit = db.Visits.OrderByDescending(v => v.Id).First();
+                var selectConsultEsitmate = db.ConsultationEstimates.Single(v => v.Id == id);
+>>>>>>> e22f8da121bdd77b5c2db0d3f4d3806289d85e07
                 db.SaveChanges();
             }
             if (cmbMedicalRecord.SelectedIndex.Equals(1))
@@ -197,7 +204,7 @@ namespace PatientManagement
 
         private void btnAddDating_Click(object sender, EventArgs e)
         {
-            _dating.Insert(_dating.AutoId(), txtPatientID.Text, txtStaffID.Text, dtpDating.Value);
+            _dating.Insert(Convert.ToInt32(txtPatientID.Text), Convert.ToInt32(txtStaffID.Text), dtpDating.Value);
             Refresh();
         }
 
@@ -278,7 +285,7 @@ namespace PatientManagement
         private void txtPatientID_TextChanged(object sender, EventArgs e)
         {
             _patient = new Patient();
-            txtPatientName.Text = _patient.Select(txtPatientID.Text).Name;
+            txtPatientName.Text = _patient.Select(Convert.ToInt32(txtPatientID.Text)).Name;
             Refresh();
         }
 

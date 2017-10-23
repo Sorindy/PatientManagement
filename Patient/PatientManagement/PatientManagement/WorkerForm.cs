@@ -27,7 +27,6 @@ namespace PatientManagement
         {            
                 dgvWorker.DataSource = _worker.ShowAll();
                 Clears();
-                txtID.Text = _worker.AutoId();
                 btnNew.Hide();
         }
 
