@@ -11,6 +11,7 @@ namespace PatientManagement.Class
     public class Management
     {
         private readonly HospitalDbContext _db=new HospitalDbContext();
+        private int _workerId;
 
         private void Insert(int accId)
        {
@@ -40,13 +41,28 @@ namespace PatientManagement.Class
 
         public object Show_WorkerHasAccount()
         {
-            var bs = new BindingSource();
+            try
+            {
+                var bs = new BindingSource();
 
                 var show = _db.Accounts;
 
-                bs.DataSource = show.Select(s => new { s.Worker.Id, s.Worker.Name, s.Worker.Gender, s.Worker.Position, s.UserName }).ToList();
+                bs.DataSource = show.Select(s => new
+                {
+                    s.Worker.Id,
+                    s.Worker.Name,
+                    s.Worker.Gender,
+                    s.Worker.Position,
+                    s.UserName
+                }).ToList();
 
-            return bs;
+                return bs;
+            }
+            catch
+            {
+                
+            }
+            return null;
         }
 
         public object Search_WorkerHasAccount(string search)
@@ -62,7 +78,7 @@ namespace PatientManagement.Class
             return bs2;
         }
 
-        private FlowLayoutPanel MedicalPanel()
+        internal FlowLayoutPanel MedicalPanel()
         {
             var panel = new FlowLayoutPanel();
             panel.Controls.Clear();
@@ -76,8 +92,20 @@ namespace PatientManagement.Class
             var showPrescription =new PrescriptionCategory();
             var showVariousDoc = new VariousDocumentCategory();
 
-            panel.Controls.AddRange(new Control[] { showConsultation.ShowCategoryBox(), showLaboratory.ShowCategoryBox(), showMedicalImaging.ShowCategoryBox(), showPrescription.ShowCategoryBox(), showVariousDoc.ShowCategoryBox() });
-            return panel;
+            panel.Controls.AddRange(new Control[] { showConsultation.ShowCategoryBox(_workerId),
+                                                    showLaboratory.ShowCategoryBox(_workerId),
+                                                    showMedicalImaging.ShowCategoryBox(_workerId),
+                                                    showPrescription.ShowCategoryBox(_workerId),
+                                                    showVariousDoc.ShowCategoryBox(_workerId)
+                                                    });
+            var form = (ManagementForm)Application.OpenForms["ManagementForm"];
+            if (form != null)
+            {
+                var gbo = form.gboControlName;
+                gbo.Controls.Clear();
+                gbo.Controls.Add(panel);
+            }
+            return null;
         }
 
         private FlowLayoutPanel WorkerPanel()
@@ -88,7 +116,6 @@ namespace PatientManagement.Class
             panel.Location = new Point(6, 50);
             panel.Size = new Size(526, 378);
 
-            var checkListBox = new CheckedListBox();
             var groupBox = new GroupBox { Text = @"Worker's Form" };
             var flpn = new FlowLayoutPanel
             {
@@ -98,10 +125,64 @@ namespace PatientManagement.Class
                 AutoScroll = true
             };
             groupBox.Size = new Size(520, 100);
-            checkListBox.Size = new Size(508, 54);
+            var singleOrDefault = _db.Managements.SingleOrDefault(v => v.Account.WorkerId == _workerId);
+            var checkDatabases = singleOrDefault != null && singleOrDefault.Forms.
+                                     Any(v=>v.Name=="Worker's Form");
 
-            checkListBox.Items.Add("Worker's Form");
-            flpn.Controls.Add(checkListBox);
+            if (checkDatabases)
+            {
+                var checking = _db.TempManagements.Any(v => v.Forms == "Worker's Form");
+                if (checking)
+                {
+                    var checkBox = new CheckBox
+                    {
+                        Size = new Size(508, 54),
+                        Text = @"Worker's Form",
+                        Checked = true
+                    };
+                    flpn.Controls.Add(checkBox);
+                    checkBox.CheckedChanged += FormUnChecked;
+                }
+                else
+                {
+                    var checkBox = new CheckBox
+                    {
+                        Size = new Size(508, 54),
+                        Text = @"Worker's Form",
+                        Checked = false
+                    };
+                    flpn.Controls.Add(checkBox);
+                    checkBox.CheckedChanged += FormChecked;
+                }
+            }
+
+            else
+            {
+                var checking = _db.TempManagements.Any(v => v.Forms == "Worker's Form");
+                if (checking)
+                {
+                    var checkBox = new CheckBox
+                    {
+                        Size = new Size(508, 54),
+                        Text = @"Worker's Form",
+                        Checked = true
+                    };
+                    flpn.Controls.Add(checkBox);
+                    checkBox.CheckedChanged += FormUnChecked;
+                }
+                else
+                {
+                    var checkBox = new CheckBox
+                    {
+                        Size = new Size(508, 54),
+                        Text = @"Worker's Form",
+                        Checked = false
+                    };
+                    flpn.Controls.Add(checkBox);
+                    checkBox.CheckedChanged += FormChecked;
+                }
+            }
+
             groupBox.Controls.Add(flpn);
 
             panel.Controls.Add(groupBox);
@@ -117,7 +198,6 @@ namespace PatientManagement.Class
             panel.Location = new Point(6, 50);
             panel.Size = new Size(526, 378);
 
-            var checkListBox = new CheckedListBox();
             var groupBox = new GroupBox { Text = @"Category's Form" };
             var flpn = new FlowLayoutPanel
             {
@@ -127,10 +207,62 @@ namespace PatientManagement.Class
                 AutoScroll = true
             };
             groupBox.Size = new Size(520, 100);
-            checkListBox.Size = new Size(508, 54);
+            var checkDatabase = _db.Managements.SingleOrDefault(v => v.Account.WorkerId == _workerId).Forms
+                .Any(v => v.Name == "Category's Form");
 
-            checkListBox.Items.Add("Category's Form");
-            flpn.Controls.Add(checkListBox);
+            if (checkDatabase)
+            {
+                var checking = _db.TempManagements.Any(v => v.Forms == "Category's Form");
+                if (checking)
+                {
+                    var checkBox = new CheckBox
+                    {
+                        Size = new Size(508, 54),
+                        Text = @"Category's Form",
+                        Checked = true
+                    };
+                    flpn.Controls.Add(checkBox);
+                    checkBox.CheckedChanged += FormUnChecked;
+                }
+                else
+                {
+                    var checkBox = new CheckBox
+                    {
+                        Size = new Size(508, 54),
+                        Text = @"Category's Form",
+                        Checked = false
+                    };
+                    flpn.Controls.Add(checkBox);
+                    checkBox.CheckedChanged += FormChecked;
+                }
+            }
+            else
+            {
+                var checking = _db.TempManagements.Any(v => v.Forms == "Category's Form");
+                if (checking)
+                {
+                    var checkBox = new CheckBox
+                    {
+                        Size = new Size(508, 54),
+                        Text = @"Category's Form",
+                        Checked = true
+                    };
+                    flpn.Controls.Add(checkBox);
+                    checkBox.CheckedChanged += FormUnChecked;
+                }
+                else
+                {
+                    var checkBox = new CheckBox
+                    {
+                        Size = new Size(508, 54),
+                        Text = @"Category's Form",
+                        Checked = false
+                    };
+                    flpn.Controls.Add(checkBox);
+                    checkBox.CheckedChanged += FormChecked;
+                }
+            }
+
             groupBox.Controls.Add(flpn);
 
             panel.Controls.Add(groupBox);
@@ -146,7 +278,6 @@ namespace PatientManagement.Class
             panel.Location = new Point(6, 50);
             panel.Size = new Size(526, 378);
 
-            var checkListBox = new CheckedListBox();
             var groupBox = new GroupBox { Text = @"Patient's Form" };
             var flpn = new FlowLayoutPanel
             {
@@ -156,10 +287,63 @@ namespace PatientManagement.Class
                 AutoScroll = true
             };
             groupBox.Size = new Size(520, 100);
-            checkListBox.Size = new Size(508, 54);
+            var singleOrDefault = _db.Managements.SingleOrDefault(v => v.Account.WorkerId == _workerId);
+            var checkDatabase = singleOrDefault != null && singleOrDefault.Forms
+                                    .Any(v => v.Name == "Patient's Form");
 
-            checkListBox.Items.Add("Patient's Form");
-            flpn.Controls.Add(checkListBox);
+            if (checkDatabase)
+            {
+                var checking = _db.TempManagements.Any(v => v.Forms == "Patient's Form");
+                if (checking)
+                {
+                    var checkBox = new CheckBox
+                    {
+                        Size = new Size(508, 54),
+                        Text = @"Patient's Form",
+                        Checked = true
+                    };
+                    flpn.Controls.Add(checkBox);
+                    checkBox.CheckedChanged += FormUnChecked;
+                }
+                else
+                {
+                    var checkBox = new CheckBox
+                    {
+                        Size = new Size(508, 54),
+                        Text = @"Patient's Form",
+                        Checked = false
+                    };
+                    flpn.Controls.Add(checkBox);
+                    checkBox.CheckedChanged += FormChecked;
+                }
+            }
+            else
+            {
+                var checking = _db.TempManagements.Any(v => v.Forms == "Patient's Form");
+                if (checking)
+                {
+                    var checkBox = new CheckBox
+                    {
+                        Size = new Size(508, 54),
+                        Text = @"Patient's Form",
+                        Checked = true
+                    };
+                    flpn.Controls.Add(checkBox);
+                    checkBox.CheckedChanged += FormUnChecked;
+                }
+                else
+                {
+                    var checkBox = new CheckBox
+                    {
+                        Size = new Size(508, 54),
+                        Text = @"Patient's Form",
+                        Checked = false
+                    };
+                    flpn.Controls.Add(checkBox);
+                    checkBox.CheckedChanged += FormChecked;
+                }
+            }
+
             groupBox.Controls.Add(flpn);
 
             panel.Controls.Add(groupBox);
@@ -175,7 +359,6 @@ namespace PatientManagement.Class
             panel.Location = new Point(6, 50);
             panel.Size = new Size(526, 378);
 
-            var checkListBox = new CheckedListBox();
             var groupBox = new GroupBox { Text = @"CheckIn's Form" };
             var flpn = new FlowLayoutPanel
             {
@@ -185,10 +368,63 @@ namespace PatientManagement.Class
                 AutoScroll = true
             };
             groupBox.Size = new Size(520, 100);
-            checkListBox.Size = new Size(508, 54);
+            var singleOrDefault = _db.Managements.SingleOrDefault(v => v.Account.WorkerId == _workerId);
+            var checkDatabase = singleOrDefault != null && singleOrDefault.Forms
+                                    .Any(v => v.Name == "CheckIn's Form");
 
-            checkListBox.Items.Add("CheckIn's Form");
-            flpn.Controls.Add(checkListBox);
+            if (checkDatabase)
+            {
+                var checking = _db.TempManagements.Any(v => v.Forms == "CheckIn's Form");
+                if (checking)
+                {
+                    var checkBox = new CheckBox
+                    {
+                        Size = new Size(508, 54),
+                        Text = @"CheckIn's Form",
+                        Checked = true
+                    };
+                    flpn.Controls.Add(checkBox);
+                    checkBox.CheckedChanged += FormUnChecked;
+                }
+                else
+                {
+                    var checkBox = new CheckBox
+                    {
+                        Size = new Size(508, 54),
+                        Text = @"CheckIn's Form",
+                        Checked = false
+                    };
+                    flpn.Controls.Add(checkBox);
+                    checkBox.CheckedChanged += FormChecked;
+                }
+            }
+            else
+            {
+                var checking = _db.TempManagements.Any(v => v.Forms == "CheckIn's Form");
+                if (checking)
+                {
+                    var checkBox = new CheckBox
+                    {
+                        Size = new Size(508, 54),
+                        Text = @"CheckIn's Form",
+                        Checked = true
+                    };
+                    flpn.Controls.Add(checkBox);
+                    checkBox.CheckedChanged += FormUnChecked;
+                }
+                else
+                {
+                    var checkBox = new CheckBox
+                    {
+                        Size = new Size(508, 54),
+                        Text = @"CheckIn's Form",
+                        Checked = false
+                    };
+                    flpn.Controls.Add(checkBox);
+                    checkBox.CheckedChanged += FormChecked;
+                }
+            }
+
             groupBox.Controls.Add(flpn);
 
             panel.Controls.Add(groupBox);
@@ -204,7 +440,6 @@ namespace PatientManagement.Class
             panel.Location = new Point(6, 50);
             panel.Size = new Size(526, 378);
 
-            var checkListBox = new CheckedListBox();
             var groupBox = new GroupBox { Text = @"Management's Form" };
             var flpn = new FlowLayoutPanel
             {
@@ -214,10 +449,63 @@ namespace PatientManagement.Class
                 AutoScroll = true
             };
             groupBox.Size = new Size(520, 100);
-            checkListBox.Size = new Size(508, 54);
+            var singleOrDefault = _db.Managements.SingleOrDefault(v => v.Account.WorkerId == _workerId);
+            var checkDatabase = singleOrDefault != null && singleOrDefault.Forms
+                                    .Any(v => v.Name == "Management's Form");
 
-            checkListBox.Items.Add("Management's Form");
-            flpn.Controls.Add(checkListBox);
+            if (checkDatabase)
+            {
+                var checking = _db.TempManagements.Any(v => v.Forms == "Management's Form");
+                if (checking)
+                {
+                    var checkBox = new CheckBox
+                    {
+                        Size = new Size(508, 54),
+                        Text = @"Management's Form",
+                        Checked = true
+                    };
+                    flpn.Controls.Add(checkBox);
+                    checkBox.CheckedChanged += FormUnChecked;
+                }
+                else
+                {
+                    var checkBox = new CheckBox
+                    {
+                        Size = new Size(508, 54),
+                        Text = @"Management's Form",
+                        Checked = false
+                    };
+                    flpn.Controls.Add(checkBox);
+                    checkBox.CheckedChanged += FormChecked;
+                }
+            }
+            else
+            {
+                var checking = _db.TempManagements.Any(v => v.Forms == "Management's Form");
+                if (checking)
+                {
+                    var checkBox = new CheckBox
+                    {
+                        Size = new Size(508, 54),
+                        Text = @"Management's Form",
+                        Checked = true
+                    };
+                    flpn.Controls.Add(checkBox);
+                    checkBox.CheckedChanged += FormUnChecked;
+                }
+                else
+                {
+                    var checkBox = new CheckBox
+                    {
+                        Size = new Size(508, 54),
+                        Text = @"Management's Form",
+                        Checked = false
+                    };
+                    flpn.Controls.Add(checkBox);
+                    checkBox.CheckedChanged += FormChecked;
+                }
+            }
+
             groupBox.Controls.Add(flpn);
 
             panel.Controls.Add(groupBox);
@@ -233,7 +521,6 @@ namespace PatientManagement.Class
             panel.Location = new Point(6, 50);
             panel.Size = new Size(526, 378);
 
-            var checkListBox = new CheckedListBox();
             var groupBox = new GroupBox { Text = @"Admin's Form" };
             var flpn = new FlowLayoutPanel
             {
@@ -243,10 +530,63 @@ namespace PatientManagement.Class
                 AutoScroll = true
             };
             groupBox.Size = new Size(520, 100);
-            checkListBox.Size = new Size(508, 54);
+            var singleOrDefault = _db.Managements.SingleOrDefault(v => v.Account.WorkerId == _workerId);
+            var checkDatabase = singleOrDefault != null && singleOrDefault.Forms
+                                    .Any(v => v.Name == "Admin's Form");
 
-            checkListBox.Items.Add("Admin's Form");
-            flpn.Controls.Add(checkListBox);
+            if (checkDatabase)
+            {
+                var checking = _db.TempManagements.Any(v => v.Forms == "Admin's Form");
+                if (checking)
+                {
+                    var checkBox = new CheckBox
+                    {
+                        Size = new Size(508, 54),
+                        Text = @"Admin's Form",
+                        Checked = true
+                    };
+                    flpn.Controls.Add(checkBox);
+                    checkBox.CheckedChanged += FormUnChecked;
+                }
+                else
+                {
+                    var checkBox = new CheckBox
+                    {
+                        Size = new Size(508, 54),
+                        Text = @"Admin's Form",
+                        Checked = false
+                    };
+                    flpn.Controls.Add(checkBox);
+                    checkBox.CheckedChanged += FormChecked;
+                }
+            }
+            else
+            {
+                var checking = _db.TempManagements.Any(v => v.Forms == "Admin's Form");
+                if (checking)
+                {
+                    var checkBox = new CheckBox
+                    {
+                        Size = new Size(508, 54),
+                        Text = @"Admin's Form",
+                        Checked = true
+                    };
+                    flpn.Controls.Add(checkBox);
+                    checkBox.CheckedChanged += FormUnChecked;
+                }
+                else
+                {
+                    var checkBox = new CheckBox
+                    {
+                        Size = new Size(508, 54),
+                        Text = @"Admin's Form",
+                        Checked = false
+                    };
+                    flpn.Controls.Add(checkBox);
+                    checkBox.CheckedChanged += FormChecked;
+                }
+            }
+
             groupBox.Controls.Add(flpn);
 
             panel.Controls.Add(groupBox);
@@ -254,8 +594,9 @@ namespace PatientManagement.Class
             return panel;
         }
 
-        public FlowLayoutPanel ChoosenFormPanel(string str)
+        public FlowLayoutPanel ChoosenFormPanel(string str,int workerId)
         {
+            _workerId = workerId;
             var panel = new FlowLayoutPanel();
             panel.Controls.Clear();
 
@@ -291,7 +632,7 @@ namespace PatientManagement.Class
             return panel;
         }
 
-        public void CheckedItems(string workerId, string form, string service, string category, bool check)
+        public void CheckedItems(int workerId, string form, string service, string category, bool check)
         {
             var checkTemp = _db.TempManagements.FirstOrDefault(v => v.Categorys==category);
 
@@ -345,52 +686,14 @@ namespace PatientManagement.Class
             foreach (var formTab in getCheckedItems)
             {
                 tabControl.TabPages.Add(formTab);
-
-                //foreach (var item in tabControl.TabPages)
-                //{
-                //    var getCheckedItem = from v in _db.TempManagements
-                //        where v.Forms == formTab
-                //        select new
-                //        {
-                //            v.Categorys
-                //        };
-                //    foreach (var value in getCheckedItem)
-                //    {
-                //        checkListBox.Items.Add(value,true);                        
-                //    }
-                    flpn.Controls.Clear();
-                //    flpn.Controls.Add(checkListBox);
-                //    tabControl.TabPages[formTab].Controls.Add(flpn);
-
-
+                flpn.Controls.Clear();
             }
-
-            //foreach (var getitemsChecked in tabControl.TabPages)
-            //{
-            //    var checkListBox = new CheckedListBox { Location = new Point(3, 3), Size = new Size(503, 143), Name = @"ChecklistBoxItems" };
-            //    var checkedItem = _db.TempManagements.Where(v => v.Forms == (string) getitemsChecked)
-            //        .Select(v => v.Categorys);
-            //    foreach (var items in checkedItem)
-            //    {
-            //        checkListBox.Items.Add(items, true);
-            //        flpn.Controls.Add(checkListBox);
-            //    }
-
-
-            //    tabControl.TabPages[getitemsChecked.ToString()].Controls.Add(flpn);
-        //}
-
         return tabControl;
         }
 
-        private void DeleteOldManagement(string workerId)
+        public void SubmitManagement(int workerId)
         {
-            
-        }
-
-        public void SubmitManagement(string workerId)
-        {
-            string getAccId = _db.Accounts.First(v => v.WorkerId == workerId).Id;
+            var getAccId = _db.Accounts.First(v => v.WorkerId == workerId).Id;
             var getConsultation = _db.TempManagements.Where(v => v.Services == "Consutation");
             var checkConsultation = _db.TempManagements.Any(v => v.Services == "Consutation");
             var getLaboratory = _db.TempManagements.Where(v => v.Services == "Laboratory");
@@ -408,17 +711,14 @@ namespace PatientManagement.Class
             var checkCategoryForm = _db.TempManagements.Any(v => v.Forms == "Category's Form");
             var checkAdminForm = _db.TempManagements.Any(v => v.Forms == "Admin's Form");
 
-            var managementId = AutoId();
-            Insert(managementId,getAccId);
+            Insert(getAccId);
 
             if (checkConsultation)
             {
                 foreach (var item in getConsultation)
                 {
                     var checkCategory = _db.ConsultationCategories.Single(v => v.Name == item.Categorys);
-
-                    _db.Managements.FirstOrDefault(v=>v.Id==managementId).ConsultationCategories.Add(checkCategory);
-                    
+                    _db.Managements.FirstOrDefault(v=>v.AccountId==getAccId).ConsultationCategories.Add(checkCategory);
                     _db.SaveChanges();
                 }                
             }
@@ -427,9 +727,7 @@ namespace PatientManagement.Class
                 foreach (var item in getLaboratory)
                 {
                     var checkCategory = _db.LaboratoryCategories.Single(v => v.Name == item.Categorys);
-
-                    _db.Managements.FirstOrDefault(v=>v.Id==managementId).LaboratoryCategories.Add(checkCategory);
-
+                    _db.Managements.FirstOrDefault(v=>v.AccountId==getAccId).LaboratoryCategories.Add(checkCategory);
                     _db.SaveChanges();
                 }
 
@@ -440,9 +738,7 @@ namespace PatientManagement.Class
                 foreach (var item in getMedicalImaging)
                 {
                     var checkCategory = _db.MedicalImagingCategories.Single(v => v.Name == item.Categorys);
-
-                    _db.Managements.FirstOrDefault(v=>v.Id==managementId).MedicalImagingCategories.Add(checkCategory);
-
+                    _db.Managements.FirstOrDefault(v=>v.AccountId==getAccId).MedicalImagingCategories.Add(checkCategory);
                     _db.SaveChanges();
                 }
             }
@@ -451,9 +747,7 @@ namespace PatientManagement.Class
                 foreach (var item in getPrescription)
                 {
                     var checkCategory = _db.PrescriptionCategories.Single(v => v.Name == item.Categorys);
-
-                    _db.Managements.FirstOrDefault(v=>v.Id==managementId).PrescriptionCategories.Add(checkCategory);
-
+                    _db.Managements.FirstOrDefault(v=>v.AccountId==getAccId).PrescriptionCategories.Add(checkCategory);
                     _db.SaveChanges();
                 }
             }
@@ -462,62 +756,125 @@ namespace PatientManagement.Class
                 foreach (var item in getVariousDocument)
                 {
                     var checkCategory = _db.VariousDocumentCategories.Single(v => v.Name == item.Categorys);
-
-                    _db.Managements.FirstOrDefault(v=>v.Id==managementId).VariousDocumentCategories.Add(checkCategory);
-
+                    _db.Managements.FirstOrDefault(v=>v.AccountId==getAccId).VariousDocumentCategories.Add(checkCategory);
                     _db.SaveChanges();
                 }
             }
             if (checkWorkerForm)
             {
                 var check = _db.Forms.Single(v => v.Name == "Worker's Form");
-
-                _db.Managements.FirstOrDefault(v=>v.Id==managementId).Forms.Add(check);
-
+                _db.Managements.FirstOrDefault(v=>v.AccountId==getAccId).Forms.Add(check);
                 _db.SaveChanges();
             }
             if(checkPatientForm)
             {
                 var check = _db.Forms.Single(v => v.Name == "Patient's Form");
-
-                _db.Managements.FirstOrDefault(v => v.Id == managementId).Forms.Add(check);
-
+                _db.Managements.FirstOrDefault(v=>v.AccountId==getAccId).Forms.Add(check);
                 _db.SaveChanges();
             }
             if(checkAdminForm)
             {
                 var check = _db.Forms.Single(v => v.Name == "Admin's Form");
-
-                _db.Managements.FirstOrDefault(v => v.Id == managementId).Forms.Add(check);
-
+                _db.Managements.FirstOrDefault(v=>v.AccountId==getAccId).Forms.Add(check);
                 _db.SaveChanges();
             }
             if(checkCategoryForm)
             {
                 var check = _db.Forms.Single(v => v.Name == "Category's Form");
-
-                _db.Managements.FirstOrDefault(v => v.Id == managementId).Forms.Add(check);
-
+                _db.Managements.FirstOrDefault(v=>v.AccountId==getAccId).Forms.Add(check);
                 _db.SaveChanges();
             }
             if(checkManagementForm)
             {
                 var check = _db.Forms.Single(v => v.Name == "Management's Form");
-
-                _db.Managements.FirstOrDefault(v => v.Id == managementId).Forms.Add(check);
-
+                _db.Managements.FirstOrDefault(v =>v.AccountId==getAccId).Forms.Add(check);
                 _db.SaveChanges();
             }
             if(checkCheckInForm)
             {
                 var check = _db.Forms.Single(v => v.Name == "CheckIn's Form");
 
-                _db.Managements.FirstOrDefault(v => v.Id == managementId).Forms.Add(check);
+                _db.Managements.FirstOrDefault(v => v.AccountId==getAccId).Forms.Add(check);
 
                 _db.SaveChanges();
             }
         }
 
+        private void Reload(string getText)
+        {
+            if (getText == "Worker's Form")
+            {
+                var form = (ManagementForm)Application.OpenForms["ManagementForm"];
+                if (form != null)
+                {
+                    var gbo = form.gboControlName;
+                    gbo.Controls.Clear();
+                    gbo.Controls.Add(ChoosenFormPanel("Worker's Form",_workerId));
+                }
+            }
+            if (getText == "Admin's Form")
+            {
+                var form = (ManagementForm)Application.OpenForms["ManagementForm"];
+                if (form != null)
+                {
+                    var gbo = form.gboControlName;
+                    gbo.Controls.Clear();
+                    gbo.Controls.Add(ChoosenFormPanel("Admin's Form",_workerId));
+                }
+            }
+            if (getText == "Patient's Form")
+            {
+                var form = (ManagementForm)Application.OpenForms["ManagementForm"];
+                if (form != null)
+                {
+                    var gbo = form.gboControlName;
+                    gbo.Controls.Clear();
+                    gbo.Controls.Add(ChoosenFormPanel("Patient's Form",_workerId));
+                }
+            }
+            if (getText == "Management's Form")
+            {
+                var form = (ManagementForm)Application.OpenForms["ManagementForm"];
+                if (form != null)
+                {
+                    var gbo = form.gboControlName;
+                    gbo.Controls.Clear();
+                    gbo.Controls.Add(ChoosenFormPanel("Management's Form",_workerId));
+                }
+            }
+            if (getText == "Category's Form")
+            {
+                var form = (ManagementForm)Application.OpenForms["ManagementForm"];
+                if (form != null)
+                {
+                    var gbo = form.gboControlName;
+                    gbo.Controls.Clear();
+                    gbo.Controls.Add(ChoosenFormPanel("Category's Form",_workerId));
+                }
+            }
+        }
+
+        private void FormChecked(object sender, EventArgs e)
+        {
+            var get = (CheckBox) sender;
+            var getText = get.Text;
+            var insert=new TempManagement{WorkerId = _workerId,Forms = getText,Services = getText,Categorys = getText};
+            _db.TempManagements.Add(insert);
+            _db.SaveChanges();
+
+            Reload(getText);
+        }
+
+        private void FormUnChecked(object sender, EventArgs e)
+        {
+            var get = (CheckBox) sender;
+            var getText = get.Text;
+            var delete = _db.TempManagements.Single(v => v.Forms == getText);
+            _db.TempManagements.Remove(delete);
+            _db.SaveChanges();
+
+            Reload(getText);
+        }
     }
 
 }

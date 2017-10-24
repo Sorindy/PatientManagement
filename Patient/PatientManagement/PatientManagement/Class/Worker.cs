@@ -57,23 +57,30 @@ namespace PatientManagement.Class
         {      
             BindingSource bs=new BindingSource();
 
-            var showdata = _db.Workers;
-            bs.DataSource = showdata.Select(v => new
+            try
             {
-                v.Id,
-                v.Name,
-                v.Gender,
-                v.DOB,
-                v.Age,
-                v.Address,
-                v.Phone1,
-                v.Phone2,
-                v.Email,
-                v.Position,
-                v.Salary,
-                v.StartWorkDate
-            }).ToList();
-            return bs;
+                var showdata = _db.Workers;
+                bs.DataSource = showdata.Select(v => new
+                {
+                    v.Id,
+                    v.Name,
+                    v.Gender,
+                    v.DOB,
+                    v.Age,
+                    v.Address,
+                    v.Phone1,
+                    v.Phone2,
+                    v.Email,
+                    v.Position,
+                    v.Salary,
+                    v.StartWorkDate
+                }).ToList();
+                return bs;
+            }
+            catch
+            {
+            }
+            return null;
         }
 
         public Hospital_Entity_Framework.Worker SelectedChange(int id)

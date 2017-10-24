@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.dtgConsultationWaiting = new System.Windows.Forms.DataGridView();
+            this.dgvWaiting = new System.Windows.Forms.DataGridView();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgConsultationWaiting)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvWaiting)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -44,14 +44,14 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Waiting List Form";
             // 
-            // dtgConsultationWaiting
+            // dgvWaiting
             // 
-            this.dtgConsultationWaiting.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtgConsultationWaiting.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgConsultationWaiting.Location = new System.Drawing.Point(12, 53);
-            this.dtgConsultationWaiting.Name = "dtgConsultationWaiting";
-            this.dtgConsultationWaiting.Size = new System.Drawing.Size(960, 253);
-            this.dtgConsultationWaiting.TabIndex = 1;
+            this.dgvWaiting.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvWaiting.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvWaiting.Location = new System.Drawing.Point(12, 53);
+            this.dgvWaiting.Name = "dgvWaiting";
+            this.dgvWaiting.Size = new System.Drawing.Size(960, 253);
+            this.dgvWaiting.TabIndex = 1;
             // 
             // btnSubmit
             // 
@@ -80,13 +80,13 @@
             this.ClientSize = new System.Drawing.Size(984, 461);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSubmit);
-            this.Controls.Add(this.dtgConsultationWaiting);
+            this.Controls.Add(this.dgvWaiting);
             this.Controls.Add(this.label1);
             this.Name = "WaitingListForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "WaitingListForm";
             this.Load += new System.EventHandler(this.WaitingListForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dtgConsultationWaiting)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvWaiting)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -95,7 +95,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dtgConsultationWaiting;
+        private System.Windows.Forms.DataGridView dgvWaiting;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Button btnClose;
     }

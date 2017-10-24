@@ -6,13 +6,11 @@ namespace PatientManagement.Class
 {
     class WaitingList
     {
-        private HospitalDbContext _db = new HospitalDbContext();
-        private BindingSource _bs = new BindingSource();
+        private readonly HospitalDbContext _db = new HospitalDbContext();
+        private readonly BindingSource _bs = new BindingSource();
 
         public BindingSource ShowWaiting(int categoryid)
         {
-            
-
             var checkConsultationCategory = _db.WaitingLists.Any(v => v.ConsultationCategories.Any(a => a.Id == categoryid));
             var checkLaboratoryCategory = _db.WaitingLists.Any(v => v.LaboratoryCategories.Any(a => a.Id == categoryid));
             var checkMedicalImagingCategory = _db.WaitingLists.Any(v => v.MedicalImagingCategories.Any(a => a.Id == categoryid));
@@ -27,7 +25,8 @@ namespace PatientManagement.Class
                     {
                         b.Id,
                         b.Patient.Name,
-                        b.Time
+                        b.Time,
+                        b.Status
                     };
                 _bs.DataSource = getList.ToList();
             }
@@ -39,7 +38,8 @@ namespace PatientManagement.Class
                     {
                         b.Id,
                         b.Patient.Name,
-                        b.Time
+                        b.Time,
+                        b.Status
                     };
                 _bs.DataSource = getList.ToList();
             }
@@ -51,7 +51,8 @@ namespace PatientManagement.Class
                     {
                         b.Id,
                         b.Patient.Name,
-                        b.Time
+                        b.Time,
+                        b.Status
                     };
                 _bs.DataSource = getList.ToList();
             }
@@ -63,7 +64,8 @@ namespace PatientManagement.Class
                     {
                         b.Id,
                         b.Patient.Name,
-                        b.Time
+                        b.Time,
+                        b.Status
                     };
                 _bs.DataSource = getList.ToList();
             }
@@ -75,7 +77,8 @@ namespace PatientManagement.Class
                     {
                         b.Id,
                         b.Patient.Name,
-                        b.Time
+                        b.Time,
+                        b.Status
                     };
                 _bs.DataSource = getList.ToList();
             }

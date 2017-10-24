@@ -17,6 +17,7 @@ namespace Hospital_Entity_Framework
         public LaboratoryCategory()
         {
             this.LaboratoryEstimates = new HashSet<LaboratoryEstimate>();
+            this.LaboratorySamples = new HashSet<LaboratorySample>();
             this.Managements = new HashSet<Management>();
             this.WaitingLists = new HashSet<WaitingList>();
         }
@@ -25,6 +26,7 @@ namespace Hospital_Entity_Framework
         public string Name { get; set; }
     
         public virtual ICollection<LaboratoryEstimate> LaboratoryEstimates { get; set; }
+        public virtual ICollection<LaboratorySample> LaboratorySamples { get; set; }
         public virtual ICollection<Management> Managements { get; set; }
         public virtual ICollection<WaitingList> WaitingLists { get; set; }
     }

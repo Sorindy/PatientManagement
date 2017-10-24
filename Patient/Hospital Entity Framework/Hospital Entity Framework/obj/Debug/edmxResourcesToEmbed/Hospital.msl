@@ -26,6 +26,8 @@
           <ScalarProperty Name="PatientId" ColumnName="PatientId" />
           <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
           <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
+          <ScalarProperty Name="NurseId" ColumnName="NurseId" />
+          <ScalarProperty Name="ReferrerId" ColumnName="ReferrerId" />
           <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="Description" ColumnName="Description" />
         </MappingFragment>
@@ -35,6 +37,7 @@
       <EntityTypeMapping TypeName="HospitalsModel.ConsultationSample">
         <MappingFragment StoreEntitySet="ConsultationSample">
           <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
           <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="Description" ColumnName="Description" />
         </MappingFragment>
@@ -73,6 +76,8 @@
           <ScalarProperty Name="PatientId" ColumnName="PatientId" />
           <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
           <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
+          <ScalarProperty Name="NurseId" ColumnName="NurseId" />
+          <ScalarProperty Name="ReferrerId" ColumnName="ReferrerId" />
           <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="Description" ColumnName="Description" />
         </MappingFragment>
@@ -82,6 +87,7 @@
       <EntityTypeMapping TypeName="HospitalsModel.LaboratorySample">
         <MappingFragment StoreEntitySet="LaboratorySample">
           <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
           <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="Description" ColumnName="Description" />
         </MappingFragment>
@@ -119,6 +125,8 @@
           <ScalarProperty Name="PatientId" ColumnName="PatientId" />
           <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
           <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
+          <ScalarProperty Name="NurseId" ColumnName="NurseId" />
+          <ScalarProperty Name="ReferrerId" ColumnName="ReferrerId" />
           <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="Description" ColumnName="Description" />
         </MappingFragment>
@@ -128,6 +136,7 @@
       <EntityTypeMapping TypeName="HospitalsModel.MedicalImagingSample">
         <MappingFragment StoreEntitySet="MedicalImagingSample">
           <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
           <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="Description" ColumnName="Description" />
         </MappingFragment>
@@ -173,6 +182,8 @@
           <ScalarProperty Name="PatientId" ColumnName="PatientId" />
           <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
           <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
+          <ScalarProperty Name="NurseId" ColumnName="NurseId" />
+          <ScalarProperty Name="ReferrerId" ColumnName="ReferrerId" />
           <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="Description" ColumnName="Description" />
         </MappingFragment>
@@ -182,8 +193,22 @@
       <EntityTypeMapping TypeName="HospitalsModel.PrescriptionSample">
         <MappingFragment StoreEntitySet="PrescriptionSample">
           <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
           <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Referrers">
+      <EntityTypeMapping TypeName="HospitalsModel.Referrer">
+        <MappingFragment StoreEntitySet="Referrer">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Specialty" ColumnName="Specialty" />
+          <ScalarProperty Name="WorkPlace" ColumnName="WorkPlace" />
+          <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+          <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -213,8 +238,8 @@
       <EntityTypeMapping TypeName="HospitalsModel.TempWait">
         <MappingFragment StoreEntitySet="TempWait">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
-          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="ServiceName" ColumnName="ServiceName" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -233,6 +258,8 @@
           <ScalarProperty Name="PatientId" ColumnName="PatientId" />
           <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
           <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
+          <ScalarProperty Name="NurseId" ColumnName="NurseId" />
+          <ScalarProperty Name="ReferrerId" ColumnName="ReferrerId" />
           <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="Description" ColumnName="Description" />
         </MappingFragment>
@@ -242,6 +269,7 @@
       <EntityTypeMapping TypeName="HospitalsModel.VariousDocumentSample">
         <MappingFragment StoreEntitySet="VariousDocumentSample">
           <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CategroyId" ColumnName="CategroyId" />
           <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="Description" ColumnName="Description" />
         </MappingFragment>

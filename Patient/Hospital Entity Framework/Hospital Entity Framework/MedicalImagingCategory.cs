@@ -17,6 +17,7 @@ namespace Hospital_Entity_Framework
         public MedicalImagingCategory()
         {
             this.MedicalImagingEstimates = new HashSet<MedicalImagingEstimate>();
+            this.MedicalImagingSamples = new HashSet<MedicalImagingSample>();
             this.Managements = new HashSet<Management>();
             this.WaitingLists = new HashSet<WaitingList>();
         }
@@ -25,6 +26,7 @@ namespace Hospital_Entity_Framework
         public string Name { get; set; }
     
         public virtual ICollection<MedicalImagingEstimate> MedicalImagingEstimates { get; set; }
+        public virtual ICollection<MedicalImagingSample> MedicalImagingSamples { get; set; }
         public virtual ICollection<Management> Managements { get; set; }
         public virtual ICollection<WaitingList> WaitingLists { get; set; }
     }

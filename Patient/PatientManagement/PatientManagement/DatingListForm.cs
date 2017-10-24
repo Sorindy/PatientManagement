@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 /*using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -72,7 +73,7 @@ namespace PatientManagement
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            _dating.Delete(Convert.ToInt32( txtDatingId.Text));
+            _dating.Delete(Convert.ToInt32(txtDatingId.Text));
             btnShow.PerformClick();
             Clear();
             Refresh();
@@ -87,19 +88,19 @@ namespace PatientManagement
         public void Clear()
         {
             txtDatingId.Text = "";
-            dtpDating.Text = Convert.ToString(DateTime.Now);
+            dtpDating.Text = Convert.ToString(DateTime.Now, CultureInfo.InvariantCulture);
             Refresh();
         }
 
         private void btnShow_Click(object sender, EventArgs e)
         {
-           dtgInformation.DataSource= _dating.Show(Convert.ToInt32( txtStaffID.Text));
+            dtgInformation.DataSource = _dating.Show(Convert.ToInt32(txtStaffID.Text));
             Refresh();
         }
 
         private void txtStaffID_TextChanged(object sender, EventArgs e)
         {
-            var select = _worker.SelectedChange(Convert.ToInt32( txtStaffID.Text));
+            var select = _worker.SelectedChange(Convert.ToInt32(txtStaffID.Text));
             txtStaffName.Text = select.Name;
             Refresh();
         }
@@ -117,7 +118,7 @@ namespace PatientManagement
 
         private void txtPatientId_TextChanged(object sender, EventArgs e)
         {
-            var select = _patient.Select(Convert.ToInt32( txtPatientId.Text));
+            var select = _patient.Select(Convert.ToInt32(txtPatientId.Text));
             txtPatientName.Text = select.Name;
             Refresh();
         }

@@ -17,6 +17,7 @@ namespace Hospital_Entity_Framework
         public VariousDocumentCategory()
         {
             this.VariousDocumentEstimates = new HashSet<VariousDocumentEstimate>();
+            this.VariousDocumentSamples = new HashSet<VariousDocumentSample>();
             this.Managements = new HashSet<Management>();
             this.WaitingLists = new HashSet<WaitingList>();
         }
@@ -25,6 +26,7 @@ namespace Hospital_Entity_Framework
         public string Name { get; set; }
     
         public virtual ICollection<VariousDocumentEstimate> VariousDocumentEstimates { get; set; }
+        public virtual ICollection<VariousDocumentSample> VariousDocumentSamples { get; set; }
         public virtual ICollection<Management> Managements { get; set; }
         public virtual ICollection<WaitingList> WaitingLists { get; set; }
     }

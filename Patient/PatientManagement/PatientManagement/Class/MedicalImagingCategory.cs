@@ -1,4 +1,5 @@
-﻿using System.Data.Entity.Migrations;
+﻿using System;
+using System.Data.Entity.Migrations;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -11,6 +12,7 @@ namespace PatientManagement.Class
     {
         private HospitalDbContext _db = new HospitalDbContext();
         private BindingSource _bs = new BindingSource();
+        private int _workerId;
 
         public void Insert(string name)
         {
@@ -49,9 +51,9 @@ namespace PatientManagement.Class
             return _bs;
         }
 
-        public GroupBox ShowCategoryBox()
+        public GroupBox ShowCategoryBox(int workerId)
         {
-            var checkListBox = new CheckedListBox();
+            _workerId = workerId;
             var groupBox = new GroupBox();
             var flpn = new FlowLayoutPanel
             {
@@ -61,18 +63,69 @@ namespace PatientManagement.Class
                 AutoScroll = true
             };
             groupBox.Size = new Size(520, 100);
-            checkListBox.Size = new Size(508, 54);
-
             groupBox.Text = @"MedicalImaging";
             var getCategroy = from v in _db.MedicalImagingCategories select new { v.Name };
             foreach (var item in getCategroy)
             {
-                checkListBox.Items.Add(item.Name);
-            }
+                var singleOrDefault = _db.Managements.SingleOrDefault(v => v.Account.WorkerId == workerId);
+                var checkCategory = singleOrDefault != null && singleOrDefault.MedicalImagingCategories
+                                        .Any(v => v.Name == item.Name);
 
-            flpn.Controls.Add(checkListBox);
+                if (checkCategory)
+                {
+                    var insert = new TempManagement { WorkerId = _workerId, Forms = "Medical's Form", Services = "MedicalImaging", Categorys = item.Name };
+                    _db.TempManagements.Add(insert);
+                    _db.SaveChanges();
+                }
+                var checking = _db.TempManagements.Any(v => v.Categorys == item.Name);
+                if (checking)
+                {
+                    var checkBox = new CheckBox();
+                    checkBox.Size = new Size(251, 29);
+                    checkBox.Location = new Point(27, 71);
+                    checkBox.Text = item.Name;
+                    checkBox.Checked = true;
+                    flpn.Controls.Add(checkBox);
+                    checkBox.CheckedChanged += CheckedValue;
+                }
+                else
+                {
+                    var checkBox = new CheckBox();
+                    checkBox.Size = new Size(251, 29);
+                    checkBox.Location = new Point(27, 71);
+                    checkBox.Text = item.Name;
+                    checkBox.Checked = false;
+                    flpn.Controls.Add(checkBox);
+                    checkBox.CheckedChanged += UnCheckedValue;
+                }
+            }
             groupBox.Controls.Add(flpn);
             return groupBox;
+        }
+
+        private void CheckedValue(object sender, EventArgs e)
+        {
+            var get = (CheckBox)sender;
+            var getValue = get.Text;
+            var input = new TempManagement { WorkerId = _workerId, Forms = "Medical's Form", Services = "MedicalImaging", Categorys = getValue };
+            _db.TempManagements.Add(input);
+            _db.SaveChanges();
+
+            var medicalPanel = new Management();
+            medicalPanel.MedicalPanel();
+        }
+
+        private void UnCheckedValue(object sender, EventArgs e)
+        {
+            var check = (CheckBox)sender;
+            var getCategoryName = check.Text;
+
+            var delete = _db.TempManagements.Single(v => v.Categorys == getCategoryName);
+            _db.TempManagements.Remove(delete);
+            _db.SaveChanges();
+
+            var medicalPanel = new Management();
+            medicalPanel.MedicalPanel();
         }
     }
 }

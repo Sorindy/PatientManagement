@@ -36,7 +36,7 @@ namespace PatientManagement
             {
                 if (txtConfirm.Text == txtPassword.Text && txtConfirm.Text != null && txtPassword.Text != null)
                 {
-                    Account.Insert(Account.AutoId(),Workers.Id,txtUsername.Text,txtPassword.Text);
+                    Account.Insert(Workers.Id,txtUsername.Text,txtPassword.Text);
                     WorkerForm.Show();
                     Close();
                 }

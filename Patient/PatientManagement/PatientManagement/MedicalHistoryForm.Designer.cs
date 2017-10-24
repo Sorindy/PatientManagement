@@ -246,7 +246,6 @@
             this.txtPatientID.Size = new System.Drawing.Size(197, 19);
             this.txtPatientID.TabIndex = 2;
             this.txtPatientID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtPatientID.TextChanged += new System.EventHandler(this.txtPatientID_TextChanged);
             // 
             // label3
             // 

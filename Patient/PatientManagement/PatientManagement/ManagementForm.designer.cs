@@ -182,12 +182,12 @@
         private System.Windows.Forms.DataGridView dgvShow;
         private System.Windows.Forms.ComboBox cboControl;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox gboControlName;
         private System.Windows.Forms.GroupBox gboPreview;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnPreview;
         private System.Windows.Forms.Button btnClose;
+        internal System.Windows.Forms.GroupBox gboControlName;
     }
 }

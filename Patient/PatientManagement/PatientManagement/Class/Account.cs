@@ -1,5 +1,4 @@
-﻿using System;
-using System.Data.Entity.Migrations;
+﻿using System.Data.Entity.Migrations;
 using System.Linq;
 using Hospital_Entity_Framework;
 
@@ -10,15 +9,15 @@ namespace PatientManagement.Class
 
         private HospitalDbContext _db=new HospitalDbContext();
 
-        public void Insert(string id,string workerId, string username, string password)
+        public void Insert(int workerId, string username, string password)
         {
-            var insert=new Hospital_Entity_Framework.Account(){Id = id,WorkerId =workerId,UserName = username,Password = password};
+            var insert=new Hospital_Entity_Framework.Account(){WorkerId =workerId,UserName = username,Password = password};
 
             _db.Accounts.Add(insert);
             _db.SaveChanges();
         }
 
-        public void Delete(string id)
+        public void Delete(int id)
         {
             var delete = _db.Accounts.Single(v => v.Id == id);
 
@@ -26,7 +25,7 @@ namespace PatientManagement.Class
             _db.SaveChanges();
         }
 
-        public void Update(string id, string username, string password)
+        public void Update(int id, string username, string password)
         {
             var update = _db.Accounts.Single(v => v.Id == id);
             update.UserName = username;

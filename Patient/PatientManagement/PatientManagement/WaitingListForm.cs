@@ -19,13 +19,12 @@ namespace PatientManagement
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            if (dtgConsultationWaiting.CurrentRow != null)
-            MedicalForm.WaitingList=_waitingList.GetWaitingListObject(dtgConsultationWaiting.CurrentRow.Cells[0].Value.ToString());
+            if (dgvWaiting.CurrentRow != null)
+                MedicalForm.WaitingList = _waitingList.GetWaitingListObject(Convert.ToInt32(dgvWaiting.CurrentRow.Cells[0]));
             MedicalForm.Show();
             Close();
-            MedicalForm.txtPatientID.Text = MedicalForm.WaitingList.PatientId;
-            MedicalForm.txtPatientName.Text = MedicalForm.WaitingList.Patient.Name;
-           
+            MedicalForm.txtPatientID.Text = MedicalForm.WaitingList.PatientId.ToString();
+            MedicalForm.txtPatientName.Text = MedicalForm.WaitingList.Patient.Name;           
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -36,7 +35,7 @@ namespace PatientManagement
 
         private void WaitingListForm_Load(object sender, EventArgs e)
         {
-            dtgConsultationWaiting.DataSource = _waitingList.ShowWaiting(GetStaffCategory);
+            dgvWaiting.DataSource = _waitingList.GetWaitingListObject(int.Parse(GetStaffCategory));
         }
 
     }

@@ -15,7 +15,10 @@ namespace Hospital_Entity_Framework
     public partial class MedicalImagingSample
     {
         public int Id { get; set; }
+        public int CategoryId { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
+    
+        public virtual MedicalImagingCategory MedicalImagingCategory { get; set; }
     }
 }
