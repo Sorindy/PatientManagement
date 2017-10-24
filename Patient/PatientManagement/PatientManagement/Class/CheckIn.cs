@@ -96,7 +96,7 @@ namespace PatientManagement.Class
                 var getCategory = _db.ConsultationCategories.Select(v => v.Name);
                 foreach (var item in getCategory)
                 {
-                    var checking = _db.TempWaits.Any(v => v.CategoryId == item);
+                    var checking = _db.TempWaits.Any(v => v.CategoryName == item);
 
                     if (checking)
                     {
@@ -132,7 +132,7 @@ namespace PatientManagement.Class
                 var getCategory = _db.LaboratoryCategories.Select(v => v.Name);
                 foreach (var item in getCategory)
                 {
-                    var checking = _db.TempWaits.Any(v => v.CategoryId == item);
+                    var checking = _db.TempWaits.Any(v => v.CategoryName == item);
                     if (checking)
                     {
                         var btn = new Button
@@ -165,7 +165,7 @@ namespace PatientManagement.Class
                 var getCategory = _db.MedicalImagingCategories.Select(v => v.Name);
                 foreach (var item in getCategory)
                 {
-                    var checking = _db.TempWaits.Any(v => v.CategoryId == item);
+                    var checking = _db.TempWaits.Any(v => v.CategoryName == item);
 
                     if (checking)
                     {
@@ -199,7 +199,7 @@ namespace PatientManagement.Class
                 var getCategory = _db.PrescriptionCategories.Select(v => v.Name);
                 foreach (var item in getCategory)
                 {
-                    var checking = _db.TempWaits.Any(v => v.CategoryId == item);
+                    var checking = _db.TempWaits.Any(v => v.CategoryName == item);
                     if (checking)
                     {
                         var btn = new Button
@@ -234,7 +234,7 @@ namespace PatientManagement.Class
                 var getCategory = _db.VariousDocumentCategories.Select(v => v.Name);
                 foreach (var item in getCategory)
                 {
-                    var checking = _db.TempWaits.Any(v => v.CategoryId == item);
+                    var checking = _db.TempWaits.Any(v => v.CategoryName == item);
                     if (checking)
                     {
                         var btn = new Button
@@ -275,45 +275,43 @@ namespace PatientManagement.Class
 
             foreach (var item in checkTempWait)
             {
-                if (item.ServiceId == "Consultation")
+                if (item.ServiceName == "Consultation")
                 {
-                    var insert = _db.ConsultationCategories.Single(v => v.Name == item.CategoryId);
+                    var insert = _db.ConsultationCategories.Single(v => v.Name == item.CategoryName);
 
                     _db.WaitingLists.Single(v=>v.PatientId==patientId).ConsultationCategories.Add(insert);
                     _db.SaveChanges();
                 }
-                if (item.ServiceId == "Laboratory")
+                if (item.ServiceName == "Laboratory")
                 {
-                    var insert = _db.LaboratoryCategories.Single(v => v.Name == item.CategoryId);
+                    var insert = _db.LaboratoryCategories.Single(v => v.Name == item.CategoryName);
 
                     _db.WaitingLists.Single(v => v.PatientId == patientId).LaboratoryCategories.Add(insert);
                     _db.SaveChanges();
                 }
-                if (item.ServiceId == "MedicalImaging")
+                if (item.ServiceName == "MedicalImaging")
                 {
-                    var insert = _db.MedicalImagingCategories.Single(v => v.Name == item.CategoryId);
+                    var insert = _db.MedicalImagingCategories.Single(v => v.Name == item.CategoryName);
 
                     _db.WaitingLists.Single(v => v.PatientId == patientId).MedicalImagingCategories.Add(insert);
                     _db.SaveChanges();
                 }
-                if (item.ServiceId == "Prescription")
+                if (item.ServiceName == "Prescription")
                 {
-                    var insert = _db.PrescriptionCategories.Single(v => v.Name == item.CategoryId);
+                    var insert = _db.PrescriptionCategories.Single(v => v.Name == item.CategoryName);
 
                     _db.WaitingLists.Single(v => v.PatientId == patientId).PrescriptionCategories.Add(insert);
                     _db.SaveChanges();
                 }
-                if (item.ServiceId == "VariousDocument")
+                if (item.ServiceName == "VariousDocument")
                 {
-                    var insert = _db.VariousDocumentCategories.Single(v => v.Name == item.CategoryId);
+                    var insert = _db.VariousDocumentCategories.Single(v => v.Name == item.CategoryName);
 
                     _db.WaitingLists.Single(v => v.PatientId == patientId).VariousDocumentCategories.Add(insert);
                     _db.SaveChanges();
                 }
             }
-            var insertVisti = new Hospital_Entity_Framework.Visit(){PatientId = patientId,Date = DateTime.Now};
-            _db.Visits.Add(insertVisti);
-            _db.SaveChanges();
+            CheckVisitCount(patientId);
             var getData = _db.WaitingLists.Single(v => v.PatientId == patientId);
             var form = (CheckInForm)Application.OpenForms["CheckInForm"];
             if (form != null) form.WaitingList = getData;
@@ -321,6 +319,24 @@ namespace PatientManagement.Class
             {
                 form.Show();
                 form.ClearControl();
+            }
+        }
+
+        private void CheckVisitCount(int patientId)
+        {
+            try
+            {
+                var checkVisit = _db.Visits.Where(v => v.PatientId == patientId).OrderByDescending(v=>v.VisitCount).Select(v=>v.VisitCount).First();
+
+                var insert=new Hospital_Entity_Framework.Visit{VisitCount = checkVisit+1,PatientId = patientId,Date = DateTime.Now};
+                _db.Visits.Add(insert);
+                _db.SaveChanges();
+            }
+            catch
+            {
+               var insert=new Hospital_Entity_Framework.Visit{VisitCount = 1,PatientId = patientId,Date = DateTime.Now};
+               _db.Visits.Add(insert);
+               _db.SaveChanges();
             }
         }
 
@@ -343,7 +359,7 @@ namespace PatientManagement.Class
             var getServiceName = check.Name;
             var getCategoryName = check.Text;
 
-            var insert=new TempWait(){ServiceId = getServiceName,CategoryId = getCategoryName};
+            var insert=new TempWait(){ServiceName = getServiceName,CategoryName = getCategoryName};
             _db.TempWaits.Add(insert);
             _db.SaveChanges();
 
@@ -362,7 +378,7 @@ namespace PatientManagement.Class
             var getServiceName = check.Name;
             var getCategoryName = check.Text;
 
-            var delete = _db.TempWaits.Single(v => v.CategoryId == getCategoryName);
+            var delete = _db.TempWaits.Single(v => v.CategoryName == getCategoryName);
             _db.TempWaits.Remove(delete);
             _db.SaveChanges();
 

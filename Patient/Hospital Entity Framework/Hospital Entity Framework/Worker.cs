@@ -18,11 +18,16 @@ namespace Hospital_Entity_Framework
         {
             this.Accounts = new HashSet<Account>();
             this.ConsultationEstimates = new HashSet<ConsultationEstimate>();
+            this.ConsultationEstimates1 = new HashSet<ConsultationEstimate>();
             this.Datings = new HashSet<Dating>();
             this.LaboratoryEstimates = new HashSet<LaboratoryEstimate>();
+            this.LaboratoryEstimates1 = new HashSet<LaboratoryEstimate>();
             this.MedicalImagingEstimates = new HashSet<MedicalImagingEstimate>();
+            this.MedicalImagingEstimates1 = new HashSet<MedicalImagingEstimate>();
             this.PrescriptionEstimates = new HashSet<PrescriptionEstimate>();
+            this.PrescriptionEstimates1 = new HashSet<PrescriptionEstimate>();
             this.VariousDocumentEstimates = new HashSet<VariousDocumentEstimate>();
+            this.VariousDocumentEstimates1 = new HashSet<VariousDocumentEstimate>();
         }
     
         public int Id { get; set; }
@@ -40,10 +45,15 @@ namespace Hospital_Entity_Framework
     
         public virtual ICollection<Account> Accounts { get; set; }
         public virtual ICollection<ConsultationEstimate> ConsultationEstimates { get; set; }
+        public virtual ICollection<ConsultationEstimate> ConsultationEstimates1 { get; set; }
         public virtual ICollection<Dating> Datings { get; set; }
         public virtual ICollection<LaboratoryEstimate> LaboratoryEstimates { get; set; }
+        public virtual ICollection<LaboratoryEstimate> LaboratoryEstimates1 { get; set; }
         public virtual ICollection<MedicalImagingEstimate> MedicalImagingEstimates { get; set; }
+        public virtual ICollection<MedicalImagingEstimate> MedicalImagingEstimates1 { get; set; }
         public virtual ICollection<PrescriptionEstimate> PrescriptionEstimates { get; set; }
+        public virtual ICollection<PrescriptionEstimate> PrescriptionEstimates1 { get; set; }
         public virtual ICollection<VariousDocumentEstimate> VariousDocumentEstimates { get; set; }
+        public virtual ICollection<VariousDocumentEstimate> VariousDocumentEstimates1 { get; set; }
     }
 }

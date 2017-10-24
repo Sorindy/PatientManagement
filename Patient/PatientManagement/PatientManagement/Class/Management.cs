@@ -41,13 +41,28 @@ namespace PatientManagement.Class
 
         public object Show_WorkerHasAccount()
         {
-            var bs = new BindingSource();
+            try
+            {
+                var bs = new BindingSource();
 
                 var show = _db.Accounts;
 
-                bs.DataSource = show.Select(s => new { s.Worker.Id, s.Worker.Name, s.Worker.Gender, s.Worker.Position, s.UserName }).ToList();
+                bs.DataSource = show.Select(s => new
+                {
+                    s.Worker.Id,
+                    s.Worker.Name,
+                    s.Worker.Gender,
+                    s.Worker.Position,
+                    s.UserName
+                }).ToList();
 
-            return bs;
+                return bs;
+            }
+            catch
+            {
+                
+            }
+            return null;
         }
 
         public object Search_WorkerHasAccount(string search)
@@ -88,7 +103,7 @@ namespace PatientManagement.Class
             {
                 var gbo = form.gboControlName;
                 gbo.Controls.Clear();
-                gbo.Controls.Add(ChoosenFormPanel("Medical's Form",_workerId));
+                gbo.Controls.Add(panel);
             }
             return null;
         }
@@ -110,10 +125,11 @@ namespace PatientManagement.Class
                 AutoScroll = true
             };
             groupBox.Size = new Size(520, 100);
-            var checkDatabase = _db.Managements.Single(v => v.Account.WorkerId == _workerId).Forms
-                .Any(v => v.Name == "Worker's Form");
+            var singleOrDefault = _db.Managements.SingleOrDefault(v => v.Account.WorkerId == _workerId);
+            var checkDatabases = singleOrDefault != null && singleOrDefault.Forms.
+                                     Any(v=>v.Name=="Worker's Form");
 
-            if (checkDatabase)
+            if (checkDatabases)
             {
                 var checking = _db.TempManagements.Any(v => v.Forms == "Worker's Form");
                 if (checking)
@@ -191,7 +207,7 @@ namespace PatientManagement.Class
                 AutoScroll = true
             };
             groupBox.Size = new Size(520, 100);
-            var checkDatabase = _db.Managements.Single(v => v.Account.WorkerId == _workerId).Forms
+            var checkDatabase = _db.Managements.SingleOrDefault(v => v.Account.WorkerId == _workerId).Forms
                 .Any(v => v.Name == "Category's Form");
 
             if (checkDatabase)
@@ -271,8 +287,9 @@ namespace PatientManagement.Class
                 AutoScroll = true
             };
             groupBox.Size = new Size(520, 100);
-            var checkDatabase = _db.Managements.Single(v => v.Account.WorkerId == _workerId).Forms
-                .Any(v => v.Name == "Patient's Form");
+            var singleOrDefault = _db.Managements.SingleOrDefault(v => v.Account.WorkerId == _workerId);
+            var checkDatabase = singleOrDefault != null && singleOrDefault.Forms
+                                    .Any(v => v.Name == "Patient's Form");
 
             if (checkDatabase)
             {
@@ -351,8 +368,9 @@ namespace PatientManagement.Class
                 AutoScroll = true
             };
             groupBox.Size = new Size(520, 100);
-            var checkDatabase = _db.Managements.Single(v => v.Account.WorkerId == _workerId).Forms
-                .Any(v => v.Name == "CheckIn's Form");
+            var singleOrDefault = _db.Managements.SingleOrDefault(v => v.Account.WorkerId == _workerId);
+            var checkDatabase = singleOrDefault != null && singleOrDefault.Forms
+                                    .Any(v => v.Name == "CheckIn's Form");
 
             if (checkDatabase)
             {
@@ -431,8 +449,9 @@ namespace PatientManagement.Class
                 AutoScroll = true
             };
             groupBox.Size = new Size(520, 100);
-            var checkDatabase = _db.Managements.Single(v => v.Account.WorkerId == _workerId).Forms
-                .Any(v => v.Name == "Management's Form");
+            var singleOrDefault = _db.Managements.SingleOrDefault(v => v.Account.WorkerId == _workerId);
+            var checkDatabase = singleOrDefault != null && singleOrDefault.Forms
+                                    .Any(v => v.Name == "Management's Form");
 
             if (checkDatabase)
             {
@@ -511,8 +530,9 @@ namespace PatientManagement.Class
                 AutoScroll = true
             };
             groupBox.Size = new Size(520, 100);
-            var checkDatabase = _db.Managements.Single(v => v.Account.WorkerId == _workerId).Forms
-                .Any(v => v.Name == "Admin's Form");
+            var singleOrDefault = _db.Managements.SingleOrDefault(v => v.Account.WorkerId == _workerId);
+            var checkDatabase = singleOrDefault != null && singleOrDefault.Forms
+                                    .Any(v => v.Name == "Admin's Form");
 
             if (checkDatabase)
             {
@@ -671,11 +691,6 @@ namespace PatientManagement.Class
         return tabControl;
         }
 
-        private void DeleteOldManagement(string workerId)
-        {
-            
-        }
-
         public void SubmitManagement(int workerId)
         {
             var getAccId = _db.Accounts.First(v => v.WorkerId == workerId).Id;
@@ -703,11 +718,7 @@ namespace PatientManagement.Class
                 foreach (var item in getConsultation)
                 {
                     var checkCategory = _db.ConsultationCategories.Single(v => v.Name == item.Categorys);
-
-                    var firstOrDefault = _db.Managements.FirstOrDefault(v => v.AccountId == getAccId);
-                    firstOrDefault?.ConsultationCategories
-                        .Add(checkCategory);
-
+                    _db.Managements.FirstOrDefault(v=>v.AccountId==getAccId).ConsultationCategories.Add(checkCategory);
                     _db.SaveChanges();
                 }                
             }
@@ -716,11 +727,7 @@ namespace PatientManagement.Class
                 foreach (var item in getLaboratory)
                 {
                     var checkCategory = _db.LaboratoryCategories.Single(v => v.Name == item.Categorys);
-
-                    var firstOrDefault = _db.Managements.FirstOrDefault(v => v.AccountId == getAccId);
-                    firstOrDefault?.LaboratoryCategories
-                        .Add(checkCategory);
-
+                    _db.Managements.FirstOrDefault(v=>v.AccountId==getAccId).LaboratoryCategories.Add(checkCategory);
                     _db.SaveChanges();
                 }
 
@@ -731,11 +738,7 @@ namespace PatientManagement.Class
                 foreach (var item in getMedicalImaging)
                 {
                     var checkCategory = _db.MedicalImagingCategories.Single(v => v.Name == item.Categorys);
-
-                    var firstOrDefault = _db.Managements.FirstOrDefault(v => v.AccountId == getAccId);
-                    firstOrDefault?.MedicalImagingCategories
-                        .Add(checkCategory);
-
+                    _db.Managements.FirstOrDefault(v=>v.AccountId==getAccId).MedicalImagingCategories.Add(checkCategory);
                     _db.SaveChanges();
                 }
             }
@@ -744,11 +747,7 @@ namespace PatientManagement.Class
                 foreach (var item in getPrescription)
                 {
                     var checkCategory = _db.PrescriptionCategories.Single(v => v.Name == item.Categorys);
-
-                    var firstOrDefault = _db.Managements.FirstOrDefault(v => v.AccountId == getAccId);
-                    firstOrDefault?.PrescriptionCategories
-                        .Add(checkCategory);
-
+                    _db.Managements.FirstOrDefault(v=>v.AccountId==getAccId).PrescriptionCategories.Add(checkCategory);
                     _db.SaveChanges();
                 }
             }
@@ -757,56 +756,38 @@ namespace PatientManagement.Class
                 foreach (var item in getVariousDocument)
                 {
                     var checkCategory = _db.VariousDocumentCategories.Single(v => v.Name == item.Categorys);
-
-                    var firstOrDefault = _db.Managements.FirstOrDefault(v => v.AccountId == getAccId);
-                    firstOrDefault?.VariousDocumentCategories
-                        .Add(checkCategory);
-
+                    _db.Managements.FirstOrDefault(v=>v.AccountId==getAccId).VariousDocumentCategories.Add(checkCategory);
                     _db.SaveChanges();
                 }
             }
             if (checkWorkerForm)
             {
                 var check = _db.Forms.Single(v => v.Name == "Worker's Form");
-
-                var firstOrDefault = _db.Managements.FirstOrDefault(v => v.AccountId == getAccId);
-                firstOrDefault?.Forms.Add(check);
-
+                _db.Managements.FirstOrDefault(v=>v.AccountId==getAccId).Forms.Add(check);
                 _db.SaveChanges();
             }
             if(checkPatientForm)
             {
                 var check = _db.Forms.Single(v => v.Name == "Patient's Form");
-
-                var firstOrDefault = _db.Managements.FirstOrDefault(v => v.AccountId == getAccId);
-                firstOrDefault?.Forms.Add(check);
-
+                _db.Managements.FirstOrDefault(v=>v.AccountId==getAccId).Forms.Add(check);
                 _db.SaveChanges();
             }
             if(checkAdminForm)
             {
                 var check = _db.Forms.Single(v => v.Name == "Admin's Form");
-
-                var firstOrDefault = _db.Managements.FirstOrDefault(v => v.AccountId == getAccId);
-                firstOrDefault?.Forms.Add(check);
-
+                _db.Managements.FirstOrDefault(v=>v.AccountId==getAccId).Forms.Add(check);
                 _db.SaveChanges();
             }
             if(checkCategoryForm)
             {
                 var check = _db.Forms.Single(v => v.Name == "Category's Form");
-
-                var firstOrDefault = _db.Managements.FirstOrDefault(v => v.AccountId == getAccId);
-                firstOrDefault?.Forms.Add(check);
-
+                _db.Managements.FirstOrDefault(v=>v.AccountId==getAccId).Forms.Add(check);
                 _db.SaveChanges();
             }
             if(checkManagementForm)
             {
                 var check = _db.Forms.Single(v => v.Name == "Management's Form");
-
                 _db.Managements.FirstOrDefault(v =>v.AccountId==getAccId).Forms.Add(check);
-
                 _db.SaveChanges();
             }
             if(checkCheckInForm)

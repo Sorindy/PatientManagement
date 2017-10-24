@@ -23,11 +23,15 @@ namespace Hospital_Entity_Framework
         public int PatientId { get; set; }
         public int CategoryId { get; set; }
         public int WorkerId { get; set; }
+        public Nullable<int> NurseId { get; set; }
+        public Nullable<int> ReferrerId { get; set; }
         public System.DateTime Date { get; set; }
         public string Description { get; set; }
     
         public virtual LaboratoryCategory LaboratoryCategory { get; set; }
+        public virtual Referrer Referrer { get; set; }
         public virtual Worker Worker { get; set; }
+        public virtual Worker Worker1 { get; set; }
         public virtual ICollection<Visit> Visits { get; set; }
     }
 }

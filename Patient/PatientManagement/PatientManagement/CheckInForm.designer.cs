@@ -220,7 +220,6 @@
             this.btnPreview.TabIndex = 18;
             this.btnPreview.Text = "preview";
             this.btnPreview.UseVisualStyleBackColor = true;
-            this.btnPreview.Click += new System.EventHandler(this.btnPreview_Click);
             // 
             // lblTime
             // 

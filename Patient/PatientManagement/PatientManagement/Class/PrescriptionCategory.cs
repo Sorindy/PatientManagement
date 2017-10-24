@@ -69,8 +69,9 @@ namespace PatientManagement.Class
             var getCategroy = from v in _db.PrescriptionCategories select new { v.Name };
             foreach (var item in getCategroy)
             {
-                var checkCategory = _db.Managements.Single(v => v.Account.WorkerId == workerId).ConsultationCategories
-                    .Any(v => v.Name == item.Name);
+                var singleOrDefault = _db.Managements.SingleOrDefault(v => v.Account.WorkerId == workerId);
+                var checkCategory = singleOrDefault != null && singleOrDefault.ConsultationCategories
+                                        .Any(v => v.Name == item.Name);
 
                 if (checkCategory)
                 {

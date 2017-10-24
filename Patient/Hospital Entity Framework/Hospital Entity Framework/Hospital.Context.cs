@@ -44,6 +44,7 @@ namespace Hospital_Entity_Framework
         public DbSet<PrescriptionCategory> PrescriptionCategories { get; set; }
         public DbSet<PrescriptionEstimate> PrescriptionEstimates { get; set; }
         public DbSet<PrescriptionSample> PrescriptionSamples { get; set; }
+        public DbSet<Referrer> Referrers { get; set; }
         public DbSet<sysdiagram> sysdiagrams { get; set; }
         public DbSet<TempManagement> TempManagements { get; set; }
         public DbSet<TempWait> TempWaits { get; set; }

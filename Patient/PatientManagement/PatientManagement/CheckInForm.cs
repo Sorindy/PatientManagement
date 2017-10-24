@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Windows.Forms;
 using PatientManagement.Class;
 using WaitingList = Hospital_Entity_Framework.WaitingList;
@@ -14,7 +13,7 @@ namespace PatientManagement
             InitializeComponent();
         }
         
-        private CheckIn _chkIn=new CheckIn();
+        private readonly CheckIn _chkIn=new CheckIn();
         public WaitingList WaitingList;
 
         public void CheckInForm_Load(object sender, EventArgs e)
@@ -30,7 +29,7 @@ namespace PatientManagement
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            lblTime.Text = DateTime.Now.ToLongDateString() + " \n  " + DateTime.Now.ToLongTimeString();
+            lblTime.Text = DateTime.Now.ToLongDateString() + @" \n  " + DateTime.Now.ToLongTimeString();
         }
 
         internal void ClearControl()
@@ -45,14 +44,9 @@ namespace PatientManagement
             dgvShowDatingPatient.DataSource = null;
         }
 
-        private void btnPreview_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Close();
+           Close();
         }
 
         private void txtSearch4Patient_TextChanged(object sender, EventArgs e)
@@ -71,9 +65,12 @@ namespace PatientManagement
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            var getid = dgvShowPatient.CurrentRow.Cells[0].Value.ToString();
-            var now = DateTime.Now.TimeOfDay;
-            _chkIn.SubmitService(getid,now);
+            if (dgvShowPatient.CurrentRow != null)
+            {
+                var getid = Convert.ToInt32(dgvShowPatient.CurrentRow.Cells[0]);
+                var now = DateTime.Now.TimeOfDay;
+                _chkIn.SubmitService(getid,now);
+            }
             var print=new PrintWaitingForm();
             if (WaitingList != null) print.WaitingList = WaitingList;
             print.Show();

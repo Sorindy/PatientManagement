@@ -73,11 +73,7 @@ namespace PatientManagement
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
             _dating.Delete(Convert.ToInt32(txtDatingId.Text));
-=======
-            _dating.Delete(Convert.ToInt32( txtDatingId.Text));
->>>>>>> e22f8da121bdd77b5c2db0d3f4d3806289d85e07
             btnShow.PerformClick();
             Clear();
             Refresh();
@@ -98,21 +94,13 @@ namespace PatientManagement
 
         private void btnShow_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
             dtgInformation.DataSource = _dating.Show(Convert.ToInt32(txtStaffID.Text));
-=======
-           dtgInformation.DataSource= _dating.Show(Convert.ToInt32( txtStaffID.Text));
->>>>>>> e22f8da121bdd77b5c2db0d3f4d3806289d85e07
             Refresh();
         }
 
         private void txtStaffID_TextChanged(object sender, EventArgs e)
         {
-<<<<<<< HEAD
             var select = _worker.SelectedChange(Convert.ToInt32(txtStaffID.Text));
-=======
-            var select = _worker.SelectedChange(Convert.ToInt32( txtStaffID.Text));
->>>>>>> e22f8da121bdd77b5c2db0d3f4d3806289d85e07
             txtStaffName.Text = select.Name;
             Refresh();
         }
@@ -130,11 +118,7 @@ namespace PatientManagement
 
         private void txtPatientId_TextChanged(object sender, EventArgs e)
         {
-<<<<<<< HEAD
             var select = _patient.Select(Convert.ToInt32(txtPatientId.Text));
-=======
-            var select = _patient.Select(Convert.ToInt32( txtPatientId.Text));
->>>>>>> e22f8da121bdd77b5c2db0d3f4d3806289d85e07
             txtPatientName.Text = select.Name;
             Refresh();
         }

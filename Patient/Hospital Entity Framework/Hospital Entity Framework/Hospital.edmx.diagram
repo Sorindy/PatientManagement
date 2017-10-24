@@ -4,52 +4,69 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="5e31487f117546c1918251045fc9ff72" Name="Diagram1" ZoomLevel="47">
-        <EntityTypeShape EntityType="HospitalsModel.Account" Width="1.5" PointX="3" PointY="11" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalsModel.ConsultationCategory" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalsModel.ConsultationEstimate" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalsModel.ConsultationSample" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalsModel.Dating" Width="1.5" PointX="3" PointY="14" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalsModel.Form" Width="1.5" PointX="3" PointY="17.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalsModel.LaboratoryCategory" Width="1.5" PointX="6.375" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalsModel.LaboratoryEstimate" Width="1.5" PointX="6" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalsModel.LaboratorySample" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalsModel.Management" Width="1.5" PointX="5.25" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalsModel.MedicalHistory" Width="1.5" PointX="4" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalsModel.MedicalImagingCategory" Width="1.5" PointX="7.5" PointY="10.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalsModel.MedicalImagingEstimate" Width="1.5" PointX="9.75" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalsModel.MedicalImagingSample" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalsModel.MedicalRecord" Width="1.5" PointX="12.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalsModel.Patient" Width="1.5" PointX="12.75" PointY="15.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalsModel.PrescriptionCategory" Width="1.5" PointX="7.5" PointY="13.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalsModel.PrescriptionEstimate" Width="1.5" PointX="12.75" PointY="11" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalsModel.PrescriptionSample" Width="1.5" PointX="3.25" PointY="0.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalsModel.sysdiagram" Width="1.5" PointX="13.5" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalsModel.TempManagement" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalsModel.TempWait" Width="1.5" PointX="0.625" PointY="2.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalsModel.VariousDocumentCategory" Width="1.5" PointX="7.5" PointY="15.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalsModel.VariousDocumentEstimate" Width="1.5" PointX="9.75" PointY="14.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalsModel.VariousDocumentSample" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalsModel.Visit" Width="1.5" PointX="15" PointY="10.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalsModel.WaitingList" Width="1.5" PointX="17.25" PointY="12.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalsModel.Worker" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
-        <AssociationConnector Association="HospitalsModel.FK_Account_Worker" ManuallyRouted="false" />
-        <AssociationConnector Association="HospitalsModel.FK_Management_Account" ManuallyRouted="false" />
+      <Diagram DiagramId="9d060aadf9904b0ebf9fadcdf3fab7fd" Name="Diagram1" ZoomLevel="13">
+        <EntityTypeShape EntityType="HospitalsModel.Account" Width="1.5" PointX="3" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalsModel.ConsultationCategory" Width="1.5" PointX="0.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalsModel.ConsultationEstimate" Width="1.5" PointX="3" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalsModel.ConsultationSample" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalsModel.Dating" Width="1.5" PointX="3" PointY="20.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalsModel.Form" Width="1.5" PointX="3" PointY="23.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalsModel.LaboratoryCategory" Width="1.5" PointX="3.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalsModel.LaboratoryEstimate" Width="1.5" PointX="6" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalsModel.LaboratorySample" Width="1.5" PointX="6" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalsModel.Management" Width="1.5" PointX="5.25" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalsModel.MedicalHistory" Width="1.5" PointX="15" PointY="25.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalsModel.MedicalImagingCategory" Width="1.5" PointX="7.5" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalsModel.MedicalImagingEstimate" Width="1.5" PointX="9.75" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalsModel.MedicalImagingSample" Width="1.5" PointX="9.75" PointY="21.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalsModel.MedicalRecord" Width="1.5" PointX="12.75" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalsModel.Patient" Width="1.5" PointX="12.75" PointY="24" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalsModel.PrescriptionCategory" Width="1.5" PointX="7.5" PointY="25.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalsModel.PrescriptionEstimate" Width="1.5" PointX="12.75" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalsModel.PrescriptionSample" Width="1.5" PointX="9.75" PointY="29.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalsModel.Referrer" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalsModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalsModel.TempManagement" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalsModel.TempWait" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalsModel.VariousDocumentCategory" Width="1.5" PointX="7.5" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalsModel.VariousDocumentEstimate" Width="1.5" PointX="12.75" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalsModel.VariousDocumentSample" Width="1.5" PointX="9.75" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalsModel.Visit" Width="1.5" PointX="15" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalsModel.WaitingList" Width="1.5" PointX="17.25" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalsModel.Worker" Width="1.5" PointX="0.75" PointY="15.5" IsExpanded="true" />
+        <AssociationConnector Association="HospitalsModel.FK_Account_Worker1" ManuallyRouted="false" />
+        <AssociationConnector Association="HospitalsModel.FK_Management_Account1" ManuallyRouted="false" />
         <AssociationConnector Association="HospitalsModel.FK_ConsultationEstimate_ConsultatationCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="HospitalsModel.FK_ConsultationSample_ConsultationCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="HospitalsModel.FK_ConsultationEstimate_Referrer" ManuallyRouted="false" />
         <AssociationConnector Association="HospitalsModel.FK_ConsultationEstimate_Worker" ManuallyRouted="false" />
-        <AssociationConnector Association="HospitalsModel.FK_Dating_Patient" ManuallyRouted="false" />
-        <AssociationConnector Association="HospitalsModel.FK_Dating_Worker" ManuallyRouted="false" />
+        <AssociationConnector Association="HospitalsModel.FK_ConsultationEstimate_Worker1" ManuallyRouted="false" />
+        <AssociationConnector Association="HospitalsModel.FK_Dating_Patient1" ManuallyRouted="false" />
+        <AssociationConnector Association="HospitalsModel.FK_Dating_Worker1" ManuallyRouted="false" />
         <AssociationConnector Association="HospitalsModel.FK_LaboratoryEstimate_LaboratoryCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="HospitalsModel.FK_LaboratorySample_LaboratoryCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="HospitalsModel.FK_LaboratoryEstimate_Referrer" ManuallyRouted="false" />
         <AssociationConnector Association="HospitalsModel.FK_LaboratoryEstimate_Worker" ManuallyRouted="false" />
+        <AssociationConnector Association="HospitalsModel.FK_LaboratoryEstimate_Worker1" ManuallyRouted="false" />
+        <AssociationConnector Association="HospitalsModel.FK_MedicalHistory_Patient1" ManuallyRouted="false" />
         <AssociationConnector Association="HospitalsModel.FK_MedicalImagingEstimate_MedicalImagingCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="HospitalsModel.FK_MedicalImagingSample_MedicalImagingCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="HospitalsModel.FK_MedicalImagingEstimate_Referrer" ManuallyRouted="false" />
         <AssociationConnector Association="HospitalsModel.FK_MedicalImagingEstimate_Worker" ManuallyRouted="false" />
+        <AssociationConnector Association="HospitalsModel.FK_MedicalImagingEstimate_Worker1" ManuallyRouted="false" />
         <AssociationConnector Association="HospitalsModel.FK_MedicalRecord_Patient" ManuallyRouted="false" />
         <AssociationConnector Association="HospitalsModel.FK_Visit_Patient" ManuallyRouted="false" />
         <AssociationConnector Association="HospitalsModel.FK_WaitingList_Patient" ManuallyRouted="false" />
         <AssociationConnector Association="HospitalsModel.FK_PrescriptionEstimate_PrescriptionCategory1" ManuallyRouted="false" />
+        <AssociationConnector Association="HospitalsModel.FK_PrescriptionSample_PrescriptionCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="HospitalsModel.FK_PrescriptionEstimate_Referrer" ManuallyRouted="false" />
         <AssociationConnector Association="HospitalsModel.FK_PrescriptionEstimate_Worker" ManuallyRouted="false" />
+        <AssociationConnector Association="HospitalsModel.FK_PrescriptionEstimate_Worker1" ManuallyRouted="false" />
+        <AssociationConnector Association="HospitalsModel.FK_VariousDocumentEstimate_Referrer" ManuallyRouted="false" />
         <AssociationConnector Association="HospitalsModel.FK_VariousDocumentEstimate_VariousDocumentCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="HospitalsModel.FK_VariousDocumentSample_VariousDocumentCategory" ManuallyRouted="false" />
         <AssociationConnector Association="HospitalsModel.FK_VariousDocumentEstimate_Worker" ManuallyRouted="false" />
+        <AssociationConnector Association="HospitalsModel.FK_VariousDocumentEstimate_Worker1" ManuallyRouted="false" />
         <AssociationConnector Association="HospitalsModel.FK_WaitingList_Visit" ManuallyRouted="false" />
         <AssociationConnector Association="HospitalsModel.ManagementConsultation" ManuallyRouted="false" />
         <AssociationConnector Association="HospitalsModel.ManagementForm" ManuallyRouted="false" />
@@ -68,7 +85,6 @@
         <AssociationConnector Association="HospitalsModel.WaitingMedicalImaging" ManuallyRouted="false" />
         <AssociationConnector Association="HospitalsModel.WaitingPrescription" ManuallyRouted="false" />
         <AssociationConnector Association="HospitalsModel.WaitingVariousDocument" ManuallyRouted="false" />
-        <AssociationConnector Association="HospitalsModel.FK_MedicalHistory_Patient" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

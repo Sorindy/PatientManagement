@@ -15,7 +15,7 @@ namespace Hospital_Entity_Framework
     public partial class TempWait
     {
         public int Id { get; set; }
-        public string ServiceId { get; set; }
-        public string CategoryId { get; set; }
+        public string ServiceName { get; set; }
+        public string CategoryName { get; set; }
     }
 }

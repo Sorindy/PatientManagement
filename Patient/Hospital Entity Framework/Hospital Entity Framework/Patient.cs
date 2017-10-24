@@ -17,10 +17,10 @@ namespace Hospital_Entity_Framework
         public Patient()
         {
             this.Datings = new HashSet<Dating>();
+            this.MedicalHistories = new HashSet<MedicalHistory>();
             this.MedicalRecords = new HashSet<MedicalRecord>();
             this.Visits = new HashSet<Visit>();
             this.WaitingLists = new HashSet<WaitingList>();
-            this.MedicalHistories = new HashSet<MedicalHistory>();
         }
     
         public int Id { get; set; }
@@ -36,9 +36,9 @@ namespace Hospital_Entity_Framework
         public Nullable<short> Height { get; set; }
     
         public virtual ICollection<Dating> Datings { get; set; }
+        public virtual ICollection<MedicalHistory> MedicalHistories { get; set; }
         public virtual ICollection<MedicalRecord> MedicalRecords { get; set; }
         public virtual ICollection<Visit> Visits { get; set; }
         public virtual ICollection<WaitingList> WaitingLists { get; set; }
-        public virtual ICollection<MedicalHistory> MedicalHistories { get; set; }
     }
 }
