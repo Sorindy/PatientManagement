@@ -82,56 +82,56 @@ namespace PatientManagement
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-           var db=new HospitalDbContext();
-            if (cmbMedicalRecord.SelectedIndex.Equals(0))
-            {
-                _estimate = new ConsultationEstimate();
-                
-                _estimate.Insert( cmbCategory.Text, txtStaffID.Text, DateTime.Now,txtDescription.Text);
-                var selectVisit = db.Visits.OrderByDescending(v => v.Id).First();
-                var selectConsultEsitmate = db.ConsultationEstimates.Single(v => v.Id == id);
-                db.SaveChanges();
-            }
-            if (cmbMedicalRecord.SelectedIndex.Equals(1))
-            {
-                _estimate = new PrescriptionEstimate();
-                var id = _estimate.AutoId();
-                _estimate.Insert(id, cmbCategory.Text, txtStaffID.Text, DateTime.Now, txtDescription.Text);
-                var selectVisit = db.Visits.OrderByDescending(v => v.Id).First();
-                var selectConsultEsitmate = db.PrescriptionEstimates.Single(v => v.Id == id);
-                db.Visits.FirstOrDefault(v => v.Id == selectVisit.Id).PrescriptionEstimates.Add(selectConsultEsitmate);
-                db.SaveChanges();
-            }
-            if (cmbMedicalRecord.SelectedIndex.Equals(2))
-            {
-                _estimate = new MedicalImagingEstimate();
-                var id = _estimate.AutoId();
-                _estimate.Insert(id, cmbCategory.Text, txtStaffID.Text, DateTime.Now, txtDescription.Text);
-                var selectVisit = db.Visits.OrderByDescending(v => v.Id).First();
-                var selectConsultEsitmate = db.MedicalImagingEstimates.Single(v => v.Id == id);
-                db.Visits.FirstOrDefault(v => v.Id == selectVisit.Id).MedicalImagingEstimates.Add(selectConsultEsitmate);
-                db.SaveChanges();
-            }
-            if (cmbMedicalRecord.SelectedIndex.Equals(3))
-            {
-                _estimate = new LaboratoryEstimate();
-                var id = _estimate.AutoId();
-                _estimate.Insert(id, cmbCategory.Text, txtStaffID.Text, DateTime.Now, txtDescription.Text);
-                var selectVisit = db.Visits.OrderByDescending(v => v.Id).First();
-                var selectConsultEsitmate = db.LaboratoryEstimates.Single(v => v.Id == id);
-                db.Visits.FirstOrDefault(v => v.Id == selectVisit.Id).LaboratoryEstimates.Add(selectConsultEsitmate);
-                db.SaveChanges();
-            }
-            if (cmbMedicalRecord.SelectedIndex.Equals(4))
-            {
-                _estimate = new VariousDocumentEstimate();
-                var id = _estimate.AutoId();
-                _estimate.Insert(id, cmbCategory.Text, txtStaffID.Text, DateTime.Now, txtDescription.Text);
-                var selectVisit = db.Visits.OrderByDescending(v => v.Id).First();
-                var selectConsultEsitmate = db.VariousDocumentEstimates.Single(v => v.Id == id);
-                db.Visits.FirstOrDefault(v => v.Id == selectVisit.Id).VariousDocumentEstimates.Add(selectConsultEsitmate);
-                db.SaveChanges();
-            }   
+          // var db=new HospitalDbContext();
+            //if (cmbMedicalRecord.SelectedIndex.Equals(0))
+            //{
+            //    _estimate = new ConsultationEstimate();
+
+            //    _estimate.Insert(Convert.ToInt32(cmbCategory.Text), Convert.ToInt32(txtStaffID.Text), DateTime.Now, txtDescription.Text);
+            //    var selectVisit = db.Visits.OrderByDescending(v => v.Id).First();
+            //    var selectConsultEsitmate = db.ConsultationEstimates.Single(v => v.Id == id);
+            //    db.SaveChanges();
+            //}
+            //if (cmbMedicalRecord.SelectedIndex.Equals(1))
+            //{
+            //    _estimate = new PrescriptionEstimate();
+            //    var id = _estimate.AutoId();
+            //    _estimate.Insert(id, cmbCategory.Text, txtStaffID.Text, DateTime.Now, txtDescription.Text);
+            //    var selectVisit = db.Visits.OrderByDescending(v => v.Id).First();
+            //    var selectConsultEsitmate = db.PrescriptionEstimates.Single(v => v.Id == id);
+            //    db.Visits.FirstOrDefault(v => v.Id == selectVisit.Id).PrescriptionEstimates.Add(selectConsultEsitmate);
+            //    db.SaveChanges();
+            //}
+            //if (cmbMedicalRecord.SelectedIndex.Equals(2))
+            //{
+            //    _estimate = new MedicalImagingEstimate();
+            //    var id = _estimate.AutoId();
+            //    _estimate.Insert(id, cmbCategory.Text, txtStaffID.Text, DateTime.Now, txtDescription.Text);
+            //    var selectVisit = db.Visits.OrderByDescending(v => v.Id).First();
+            //    var selectConsultEsitmate = db.MedicalImagingEstimates.Single(v => v.Id == id);
+            //    db.Visits.FirstOrDefault(v => v.Id == selectVisit.Id).MedicalImagingEstimates.Add(selectConsultEsitmate);
+            //    db.SaveChanges();
+            //}
+            //if (cmbMedicalRecord.SelectedIndex.Equals(3))
+            //{
+            //    _estimate = new LaboratoryEstimate();
+            //    var id = _estimate.AutoId();
+            //    _estimate.Insert(id, cmbCategory.Text, txtStaffID.Text, DateTime.Now, txtDescription.Text);
+            //    var selectVisit = db.Visits.OrderByDescending(v => v.Id).First();
+            //    var selectConsultEsitmate = db.LaboratoryEstimates.Single(v => v.Id == id);
+            //    db.Visits.FirstOrDefault(v => v.Id == selectVisit.Id).LaboratoryEstimates.Add(selectConsultEsitmate);
+            //    db.SaveChanges();
+            //}
+            //if (cmbMedicalRecord.SelectedIndex.Equals(4))
+            //{
+            //    _estimate = new VariousDocumentEstimate();
+            //    var id = _estimate.AutoId();
+            //    _estimate.Insert(id, cmbCategory.Text, txtStaffID.Text, DateTime.Now, txtDescription.Text);
+            //    var selectVisit = db.Visits.OrderByDescending(v => v.Id).First();
+            //    var selectConsultEsitmate = db.VariousDocumentEstimates.Single(v => v.Id == id);
+            //    db.Visits.FirstOrDefault(v => v.Id == selectVisit.Id).VariousDocumentEstimates.Add(selectConsultEsitmate);
+            //    db.SaveChanges();
+            //}   
             btnSubmit.Visible = false;
             btnNew.Visible = true;
             Refresh();
