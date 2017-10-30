@@ -72,15 +72,41 @@
             this.tmDate = new System.Windows.Forms.Timer(this.components);
             this.label10 = new System.Windows.Forms.Label();
             this.cmbSample = new System.Windows.Forms.ComboBox();
-            this.btnFort = new System.Windows.Forms.Button();
-            this.txtDescription = new System.Windows.Forms.RichTextBox();
             this.gbMedicalItem = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtDescription = new TXTextControl.TextControl();
+            this.buttonBar1 = new TXTextControl.ButtonBar();
+            this.rulerBar2 = new TXTextControl.RulerBar();
+            this.statusBar1 = new TXTextControl.StatusBar();
+            this.rulerBar1 = new TXTextControl.RulerBar();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fontToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.textColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.foreColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.selectForeColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.frameFillColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.imageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pageColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.formatStyleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cmbRefferCategory = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtRefferName = new System.Windows.Forms.TextBox();
+            this.t = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.gbPatient.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.gbActivity.SuspendLayout();
             this.gbDating_waiting.SuspendLayout();
             this.gbDating.SuspendLayout();
             this.gbMedicalItem.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -266,7 +292,7 @@
             this.txtStaffID.ReadOnly = true;
             this.txtStaffID.Size = new System.Drawing.Size(197, 19);
             this.txtStaffID.TabIndex = 6;
-            this.txtStaffID.Text = "Worker1";
+            this.txtStaffID.Text = "1";
             this.txtStaffID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label4
@@ -341,7 +367,7 @@
             // 
             this.lbTodaydate.AutoSize = true;
             this.lbTodaydate.Font = new System.Drawing.Font("Modern No. 20", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTodaydate.Location = new System.Drawing.Point(1020, 64);
+            this.lbTodaydate.Location = new System.Drawing.Point(1064, 64);
             this.lbTodaydate.Name = "lbTodaydate";
             this.lbTodaydate.Size = new System.Drawing.Size(134, 25);
             this.lbTodaydate.TabIndex = 19;
@@ -523,25 +549,6 @@
             this.cmbSample.TabIndex = 50;
             this.cmbSample.SelectedIndexChanged += new System.EventHandler(this.cmbSample_SelectedIndexChanged);
             // 
-            // btnFort
-            // 
-            this.btnFort.Location = new System.Drawing.Point(944, 207);
-            this.btnFort.Name = "btnFort";
-            this.btnFort.Size = new System.Drawing.Size(82, 23);
-            this.btnFort.TabIndex = 51;
-            this.btnFort.Text = "Font";
-            this.btnFort.UseVisualStyleBackColor = true;
-            this.btnFort.Click += new System.EventHandler(this.btnFort_Click);
-            // 
-            // txtDescription
-            // 
-            this.txtDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescription.Location = new System.Drawing.Point(234, 233);
-            this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(1082, 488);
-            this.txtDescription.TabIndex = 52;
-            this.txtDescription.Text = "";
-            // 
             // gbMedicalItem
             // 
             this.gbMedicalItem.Controls.Add(this.btnMedicalHistory);
@@ -553,14 +560,253 @@
             this.gbMedicalItem.TabStop = false;
             this.gbMedicalItem.Text = "Medical-Item";
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.txtDescription);
+            this.groupBox3.Controls.Add(this.rulerBar1);
+            this.groupBox3.Controls.Add(this.rulerBar2);
+            this.groupBox3.Controls.Add(this.buttonBar1);
+            this.groupBox3.Controls.Add(this.statusBar1);
+            this.groupBox3.Controls.Add(this.menuStrip1);
+            this.groupBox3.Location = new System.Drawing.Point(226, 234);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(1096, 493);
+            this.groupBox3.TabIndex = 54;
+            this.groupBox3.TabStop = false;
+            // 
+            // txtDescription
+            // 
+            this.txtDescription.ButtonBar = this.buttonBar1;
+            this.txtDescription.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtDescription.Font = new System.Drawing.Font("Arial", 10F);
+            this.txtDescription.Location = new System.Drawing.Point(28, 93);
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.RulerBar = this.rulerBar2;
+            this.txtDescription.Size = new System.Drawing.Size(1065, 375);
+            this.txtDescription.StatusBar = this.statusBar1;
+            this.txtDescription.TabIndex = 2;
+            this.txtDescription.VerticalRulerBar = this.rulerBar1;
+            // 
+            // buttonBar1
+            // 
+            this.buttonBar1.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonBar1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonBar1.Location = new System.Drawing.Point(3, 40);
+            this.buttonBar1.Name = "buttonBar1";
+            this.buttonBar1.Size = new System.Drawing.Size(1090, 28);
+            this.buttonBar1.TabIndex = 10;
+            this.buttonBar1.Text = "buttonBar1";
+            // 
+            // rulerBar2
+            // 
+            this.rulerBar2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.rulerBar2.Location = new System.Drawing.Point(3, 68);
+            this.rulerBar2.Name = "rulerBar2";
+            this.rulerBar2.Size = new System.Drawing.Size(1090, 25);
+            this.rulerBar2.TabIndex = 9;
+            this.rulerBar2.Text = "rulerBar2";
+            // 
+            // statusBar1
+            // 
+            this.statusBar1.BackColor = System.Drawing.SystemColors.Control;
+            this.statusBar1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.statusBar1.Location = new System.Drawing.Point(3, 468);
+            this.statusBar1.Name = "statusBar1";
+            this.statusBar1.Size = new System.Drawing.Size(1090, 22);
+            this.statusBar1.TabIndex = 4;
+            // 
+            // rulerBar1
+            // 
+            this.rulerBar1.Alignment = TXTextControl.RulerBarAlignment.Left;
+            this.rulerBar1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.rulerBar1.Location = new System.Drawing.Point(3, 93);
+            this.rulerBar1.Name = "rulerBar1";
+            this.rulerBar1.Size = new System.Drawing.Size(25, 375);
+            this.rulerBar1.TabIndex = 5;
+            this.rulerBar1.Text = "rulerBar1";
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fontToolStripMenuItem,
+            this.textColorToolStripMenuItem,
+            this.foreColorToolStripMenuItem,
+            this.tableToolStripMenuItem,
+            this.imageToolStripMenuItem,
+            this.pageToolStripMenuItem,
+            this.formatStyleToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(3, 16);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1090, 24);
+            this.menuStrip1.TabIndex = 11;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fontToolStripMenuItem
+            // 
+            this.fontToolStripMenuItem.Name = "fontToolStripMenuItem";
+            this.fontToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.fontToolStripMenuItem.Text = "Font";
+            this.fontToolStripMenuItem.Click += new System.EventHandler(this.fontToolStripMenuItem_Click);
+            // 
+            // textColorToolStripMenuItem
+            // 
+            this.textColorToolStripMenuItem.Name = "textColorToolStripMenuItem";
+            this.textColorToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
+            this.textColorToolStripMenuItem.Text = "Text Color";
+            this.textColorToolStripMenuItem.Click += new System.EventHandler(this.textColorToolStripMenuItem_Click);
+            // 
+            // foreColorToolStripMenuItem
+            // 
+            this.foreColorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.selectForeColorToolStripMenuItem,
+            this.frameFillColorToolStripMenuItem});
+            this.foreColorToolStripMenuItem.Name = "foreColorToolStripMenuItem";
+            this.foreColorToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
+            this.foreColorToolStripMenuItem.Text = "Fore Color";
+            // 
+            // selectForeColorToolStripMenuItem
+            // 
+            this.selectForeColorToolStripMenuItem.Name = "selectForeColorToolStripMenuItem";
+            this.selectForeColorToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.selectForeColorToolStripMenuItem.Text = "Select Fore Color";
+            this.selectForeColorToolStripMenuItem.Click += new System.EventHandler(this.selectForeColorToolStripMenuItem_Click);
+            // 
+            // frameFillColorToolStripMenuItem
+            // 
+            this.frameFillColorToolStripMenuItem.Name = "frameFillColorToolStripMenuItem";
+            this.frameFillColorToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.frameFillColorToolStripMenuItem.Text = "Frame Fill Color";
+            this.frameFillColorToolStripMenuItem.Click += new System.EventHandler(this.frameFillColorToolStripMenuItem_Click);
+            // 
+            // tableToolStripMenuItem
+            // 
+            this.tableToolStripMenuItem.Name = "tableToolStripMenuItem";
+            this.tableToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.tableToolStripMenuItem.Text = "Table";
+            this.tableToolStripMenuItem.Click += new System.EventHandler(this.tableToolStripMenuItem_Click);
+            // 
+            // imageToolStripMenuItem
+            // 
+            this.imageToolStripMenuItem.Name = "imageToolStripMenuItem";
+            this.imageToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.imageToolStripMenuItem.Text = "Image";
+            this.imageToolStripMenuItem.Click += new System.EventHandler(this.imageToolStripMenuItem_Click);
+            // 
+            // pageToolStripMenuItem
+            // 
+            this.pageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tabToolStripMenuItem,
+            this.pageColorToolStripMenuItem});
+            this.pageToolStripMenuItem.Name = "pageToolStripMenuItem";
+            this.pageToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
+            this.pageToolStripMenuItem.Text = "Page";
+            // 
+            // tabToolStripMenuItem
+            // 
+            this.tabToolStripMenuItem.Name = "tabToolStripMenuItem";
+            this.tabToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.tabToolStripMenuItem.Text = "Tab";
+            this.tabToolStripMenuItem.Click += new System.EventHandler(this.tabToolStripMenuItem_Click);
+            // 
+            // pageColorToolStripMenuItem
+            // 
+            this.pageColorToolStripMenuItem.Name = "pageColorToolStripMenuItem";
+            this.pageColorToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.pageColorToolStripMenuItem.Text = "Page Color";
+            this.pageColorToolStripMenuItem.Click += new System.EventHandler(this.pageColorToolStripMenuItem_Click);
+            // 
+            // formatStyleToolStripMenuItem
+            // 
+            this.formatStyleToolStripMenuItem.Name = "formatStyleToolStripMenuItem";
+            this.formatStyleToolStripMenuItem.Size = new System.Drawing.Size(85, 20);
+            this.formatStyleToolStripMenuItem.Text = "Format Style";
+            this.formatStyleToolStripMenuItem.Click += new System.EventHandler(this.formatStyleToolStripMenuItem_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.cmbRefferCategory);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.txtRefferName);
+            this.groupBox2.Controls.Add(this.t);
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Location = new System.Drawing.Point(625, 64);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(309, 109);
+            this.groupBox2.TabIndex = 10;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Refferer Information";
+            // 
+            // cmbRefferCategory
+            // 
+            this.cmbRefferCategory.FormattingEnabled = true;
+            this.cmbRefferCategory.Items.AddRange(new object[] {
+            "Bone",
+            "General",
+            "Blood",
+            "General\'s Prescription"});
+            this.cmbRefferCategory.Location = new System.Drawing.Point(117, 76);
+            this.cmbRefferCategory.Name = "cmbRefferCategory";
+            this.cmbRefferCategory.Size = new System.Drawing.Size(186, 21);
+            this.cmbRefferCategory.TabIndex = 9;
+            this.cmbRefferCategory.SelectedIndexChanged += new System.EventHandler(this.cmbRefferCategory_SelectedIndexChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(21, 79);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(90, 13);
+            this.label7.TabIndex = 8;
+            this.label7.Text = "Refferer-Category";
+            // 
+            // txtRefferName
+            // 
+            this.txtRefferName.Font = new System.Drawing.Font("Modern No. 20", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRefferName.Location = new System.Drawing.Point(117, 52);
+            this.txtRefferName.Name = "txtRefferName";
+            this.txtRefferName.ReadOnly = true;
+            this.txtRefferName.Size = new System.Drawing.Size(186, 19);
+            this.txtRefferName.TabIndex = 7;
+            this.txtRefferName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // t
+            // 
+            this.t.Font = new System.Drawing.Font("Modern No. 20", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.t.Location = new System.Drawing.Point(117, 26);
+            this.t.Name = "t";
+            this.t.ReadOnly = true;
+            this.t.Size = new System.Drawing.Size(186, 19);
+            this.t.TabIndex = 6;
+            this.t.Text = "1";
+            this.t.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(21, 55);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(76, 13);
+            this.label8.TabIndex = 5;
+            this.label8.Text = "Refferer-Name";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(21, 29);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(57, 13);
+            this.label11.TabIndex = 4;
+            this.label11.Text = "Refferer-Id";
+            // 
             // MedicalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1328, 733);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.gbMedicalItem);
-            this.Controls.Add(this.txtDescription);
-            this.Controls.Add(this.btnFort);
             this.Controls.Add(this.cmbSample);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.gbDating);
@@ -585,6 +831,12 @@
             this.gbDating_waiting.ResumeLayout(false);
             this.gbDating.ResumeLayout(false);
             this.gbMedicalItem.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -633,10 +885,33 @@
         private System.Windows.Forms.Timer tmDate;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cmbSample;
-        private System.Windows.Forms.Button btnFort;
-        private System.Windows.Forms.RichTextBox txtDescription;
         private System.Windows.Forms.GroupBox gbMedicalItem;
         internal System.Windows.Forms.TextBox txtPatientName;
         internal System.Windows.Forms.TextBox txtPatientID;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private TXTextControl.TextControl txtDescription;
+        private TXTextControl.ButtonBar buttonBar1;
+        private TXTextControl.RulerBar rulerBar2;
+        private TXTextControl.StatusBar statusBar1;
+        private TXTextControl.RulerBar rulerBar1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fontToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem textColorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem foreColorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem selectForeColorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem frameFillColorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tableToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem imageToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pageToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tabToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pageColorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem formatStyleToolStripMenuItem;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.ComboBox cmbRefferCategory;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtRefferName;
+        private System.Windows.Forms.TextBox t;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label11;
     }
 }

@@ -19,12 +19,12 @@ namespace PatientManagement
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            if (dgvWaiting.CurrentRow != null)
-                MedicalForm.WaitingList = _waitingList.GetWaitingListObject(Convert.ToInt32(dgvWaiting.CurrentRow.Cells[0]));
-            MedicalForm.Show();
-            Close();
-            MedicalForm.txtPatientID.Text = MedicalForm.WaitingList.PatientId.ToString();
-            MedicalForm.txtPatientName.Text = MedicalForm.WaitingList.Patient.Name;           
+            //if (dgvWaiting.CurrentRow != null)
+            //    MedicalForm.WaitingList = _waitingList.GetWaitingListObject(Convert.ToInt32(dgvWaiting.CurrentRow.Cells[0]));
+            //MedicalForm.Show();
+            //Close();
+            //MedicalForm.txtPatientID.Text = MedicalForm.WaitingList.PatientId.ToString();
+            //MedicalForm.txtPatientName.Text = MedicalForm.WaitingList.Patient.Name;           
         }
 
         private void btnClose_Click(object sender, EventArgs e)

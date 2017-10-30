@@ -30,24 +30,11 @@ namespace PatientManagement
         {
             tmTime.Start();
             dtgInformation.Visible = false;
-<<<<<<< HEAD
-            txtMedicalId.Text = _medicalHistory.Show_medicalhistory(Convert.ToInt32( txtPatientID.Text)).Id.ToString( );
-            txtDescription.Text = _medicalHistory.Show_medicalhistory(Convert.ToInt32( txtPatientID.Text)).Description;
-            btnSubmit.Visible = false;
-            btnUpdate.Visible = true;
-            if (txtMedicalId.Text == "")
-            {
-             //  txtMedicalId.Text = _medicalHistory.AutoId();
-                btnSubmit.Visible = true;
-                btnUpdate.Visible = false;
-            }
-=======
             txtDescription.Text = _medicalHistory.Show_medicalhistory(Patient.Id).Description;
             btnSubmit.Visible = false;
             btnUpdate.Visible = true;
             txtPatientID.Text =Patient.Id.ToString("0000");
             txtPatientName.Text = Patient.Name;
->>>>>>> d81bd6bac4eaf454095dd6e3c31ba75190502d51
             Refresh();
         }
 
@@ -85,27 +72,22 @@ namespace PatientManagement
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-            _medicalHistory.Insert(Convert.ToInt32(txtPatientID.Text), txtDescription.Text);
-=======
             _medicalHistory.Insert(Patient.Id, txtDescription.Text);
->>>>>>> d81bd6bac4eaf454095dd6e3c31ba75190502d51
+
             Refresh();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
             _medicalHistory.Update(Convert.ToInt32(txtMedicalId.Text), txtDescription.Text);
             Refresh();
         }
 
         private void txtPatientID_TextChanged(object sender, EventArgs e)
         {
-            txtPatientName.Text =_patient.Select(Convert.ToInt32( txtPatientID.Text)).Name;
-=======
+
             _medicalHistory.Update(Patient.MedicalHistories.Select(v=>v.Id).First(),txtDescription.Text);
->>>>>>> d81bd6bac4eaf454095dd6e3c31ba75190502d51
+
             Refresh();
         }
 
@@ -118,52 +100,39 @@ namespace PatientManagement
         {
             if (cmbMedicalRecord.SelectedIndex.Equals(0))
             {
-<<<<<<< HEAD
-                dtgInformation.DataSource = _visit.ShowConsultationVisitEstimate(Convert.ToInt32( txtPatientID.Text));
-=======
+
                 dtgInformation.DataSource = _visit.ShowConsultationVisitEstimate(Patient.Id);
->>>>>>> d81bd6bac4eaf454095dd6e3c31ba75190502d51
                 dtgInformation.Visible = true;
                 txtDescription.Visible = false;
             }
            
             if (cmbMedicalRecord.SelectedIndex.Equals(1))
             {
-<<<<<<< HEAD
-                dtgInformation.DataSource = _visit.ShowPrescriptionVisitEstimate(Convert.ToInt32( txtPatientID.Text));
-=======
+
                 dtgInformation.DataSource = _visit.ShowPrescriptionVisitEstimate(Patient.Id);
->>>>>>> d81bd6bac4eaf454095dd6e3c31ba75190502d51
                 dtgInformation.Visible = true;
                 txtDescription.Visible = false;
             }
             if (cmbMedicalRecord.SelectedIndex.Equals(2))
             {
-<<<<<<< HEAD
-                dtgInformation.DataSource = _visit.ShowMedicalImagingVisitEstimate(Convert.ToInt32( txtPatientID.Text));
-=======
+
                 dtgInformation.DataSource = _visit.ShowMedicalImagingVisitEstimate(Patient.Id);
->>>>>>> d81bd6bac4eaf454095dd6e3c31ba75190502d51
+
                 dtgInformation.Visible = true;
                 txtDescription.Visible = false;
             }
             if (cmbMedicalRecord.SelectedIndex.Equals(3))
             {
-<<<<<<< HEAD
-                dtgInformation.DataSource = _visit.ShowLaboratoryVisitEstimate(Convert.ToInt32( txtPatientID.Text));
-=======
+
                 dtgInformation.DataSource = _visit.ShowLaboratoryVisitEstimate(Patient.Id);
->>>>>>> d81bd6bac4eaf454095dd6e3c31ba75190502d51
+
                 dtgInformation.Visible = true;
                 txtDescription.Visible = false;
             }
             if (cmbMedicalRecord.SelectedIndex.Equals(4))
             {
-<<<<<<< HEAD
-                dtgInformation.DataSource = _visit.ShowVariousDocumentVisitEstimate(Convert.ToInt32( txtPatientID.Text));
-=======
+
                 dtgInformation.DataSource = _visit.ShowVariousDocumentVisitEstimate(Patient.Id);
->>>>>>> d81bd6bac4eaf454095dd6e3c31ba75190502d51
                 dtgInformation.Visible = true;
                 txtDescription.Visible = false;
             }
