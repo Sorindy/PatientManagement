@@ -34,7 +34,6 @@
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.flpnButtonForm = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -67,7 +66,6 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel5, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.panel1, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.flpnButtonForm, 0, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -111,16 +109,6 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(162, 138);
             this.panel4.TabIndex = 0;
-            // 
-            // flpnButtonForm
-            // 
-            this.flpnButtonForm.BackColor = System.Drawing.Color.SteelBlue;
-            this.flpnButtonForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flpnButtonForm.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpnButtonForm.Location = new System.Drawing.Point(3, 147);
-            this.flpnButtonForm.Name = "flpnButtonForm";
-            this.flpnButtonForm.Size = new System.Drawing.Size(162, 571);
-            this.flpnButtonForm.TabIndex = 3;
             // 
             // tableLayoutPanel3
             // 
@@ -187,7 +175,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.FlowLayoutPanel flpnButtonForm;
 
     }
 }

@@ -28,8 +28,7 @@ namespace PatientManagement
         {
             Size = SystemInformation.PrimaryMonitorSize;
             Location = new Point(0, 0);
-            flpnButtonForm.Controls.Clear();
-            flpnButtonForm.Controls.Add(_login.ButtonToForm(Account));
+            
         }
 
     }
