@@ -73,12 +73,21 @@ namespace PatientManagement
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             _medicalHistory.Insert(Patient.Id, txtDescription.Text);
+
             Refresh();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            _medicalHistory.Update(Convert.ToInt32(txtMedicalId.Text), txtDescription.Text);
+            Refresh();
+        }
+
+        private void txtPatientID_TextChanged(object sender, EventArgs e)
+        {
+
             _medicalHistory.Update(Patient.MedicalHistories.Select(v=>v.Id).First(),txtDescription.Text);
+
             Refresh();
         }
 
@@ -91,6 +100,7 @@ namespace PatientManagement
         {
             if (cmbMedicalRecord.SelectedIndex.Equals(0))
             {
+
                 dtgInformation.DataSource = _visit.ShowConsultationVisitEstimate(Patient.Id);
                 dtgInformation.Visible = true;
                 txtDescription.Visible = false;
@@ -98,24 +108,30 @@ namespace PatientManagement
            
             if (cmbMedicalRecord.SelectedIndex.Equals(1))
             {
+
                 dtgInformation.DataSource = _visit.ShowPrescriptionVisitEstimate(Patient.Id);
                 dtgInformation.Visible = true;
                 txtDescription.Visible = false;
             }
             if (cmbMedicalRecord.SelectedIndex.Equals(2))
             {
+
                 dtgInformation.DataSource = _visit.ShowMedicalImagingVisitEstimate(Patient.Id);
+
                 dtgInformation.Visible = true;
                 txtDescription.Visible = false;
             }
             if (cmbMedicalRecord.SelectedIndex.Equals(3))
             {
+
                 dtgInformation.DataSource = _visit.ShowLaboratoryVisitEstimate(Patient.Id);
+
                 dtgInformation.Visible = true;
                 txtDescription.Visible = false;
             }
             if (cmbMedicalRecord.SelectedIndex.Equals(4))
             {
+
                 dtgInformation.DataSource = _visit.ShowVariousDocumentVisitEstimate(Patient.Id);
                 dtgInformation.Visible = true;
                 txtDescription.Visible = false;

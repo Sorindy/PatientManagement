@@ -16,22 +16,24 @@ namespace PatientManagement.Class
         private HospitalDbContext _db = new HospitalDbContext();
         private BindingSource _bs = new BindingSource();
 
-        public void Insert(string title, string description)
+        public void Insert(string title, string description,int categoryid)
         {
             var insert = new Hospital_Entity_Framework.VariousDocumentSample() 
             {
                 Title=title,
                 Description=description,
+                CategroyId=categoryid,
             };
             _db.VariousDocumentSamples.Add(insert);
             _db.SaveChanges();
         }
 
-       public void Update(int id, string title, string description)
+       public void Update(int id, string title, string description,int categoryid)
         {
             var update = _db.VariousDocumentSamples.Single(v => v.Id == id);
             update.Title = title;
             update.Description = description;
+            update.CategroyId = categoryid;
             _db.VariousDocumentSamples.AddOrUpdate(update);
             _db.SaveChanges();
         }
