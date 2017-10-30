@@ -38,3 +38,6 @@ E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\fr\System.Data.SqlServerCe.resources.dll
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.exe
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.pdb
+E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.LoginForm.resources
+E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.SelectionForm.resources
+E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.CatalogForm.resources

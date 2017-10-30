@@ -67,7 +67,7 @@ namespace PatientManagement
         {
             if (dgvShowPatient.CurrentRow != null)
             {
-                var getid = Convert.ToInt32(dgvShowPatient.CurrentRow.Cells[0]);
+                var getid = Convert.ToInt32(dgvShowPatient.CurrentRow.Cells[0].Value);
                 var now = DateTime.Now.TimeOfDay;
                 _chkIn.SubmitService(getid,now);
             }

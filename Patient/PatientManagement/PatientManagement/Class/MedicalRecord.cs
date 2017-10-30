@@ -6,7 +6,7 @@ namespace PatientManagement.Class
 {
     class MedicalRecord
     {
-        private HospitalDbContext _db = new HospitalDbContext();
+        private readonly HospitalDbContext _db = new HospitalDbContext();
 
         public void Insert(int patientid)
         {

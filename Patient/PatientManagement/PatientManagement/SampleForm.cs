@@ -22,11 +22,13 @@ namespace PatientManagement
 
         private void btnFort_Click(object sender, EventArgs e)
         {
-            _fd = new FontDialog();
-            _fd.ShowColor = true;
-            _fd.ShowApply = true;
-            _fd.ShowEffects = true;
-            _fd.ShowHelp = true;
+            _fd = new FontDialog
+            {
+                ShowColor = true,
+                ShowApply = true,
+                ShowEffects = true,
+                ShowHelp = true
+            };
             if (_fd.ShowDialog() == DialogResult.OK & !string.IsNullOrEmpty( txtDescription.Text))
             {
                

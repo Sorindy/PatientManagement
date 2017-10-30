@@ -9,18 +9,18 @@ namespace PatientManagement.Class
         private readonly HospitalDbContext _db = new HospitalDbContext();
         private readonly BindingSource _bs = new BindingSource();
 
-        public BindingSource ShowWaiting(int categoryid)
+        public BindingSource ShowWaiting(string categoryName)
         {
-            var checkConsultationCategory = _db.WaitingLists.Any(v => v.ConsultationCategories.Any(a => a.Id == categoryid));
-            var checkLaboratoryCategory = _db.WaitingLists.Any(v => v.LaboratoryCategories.Any(a => a.Id == categoryid));
-            var checkMedicalImagingCategory = _db.WaitingLists.Any(v => v.MedicalImagingCategories.Any(a => a.Id == categoryid));
-            var checkPrescriptionCategory = _db.WaitingLists.Any(v => v.PrescriptionCategories.Any(a => a.Id == categoryid));
-            var checkVariousDocumentCategory = _db.WaitingLists.Any(v => v.VariousDocumentCategories.Any(a => a.Id == categoryid));
+            var checkConsultationCategory = _db.WaitingLists.Any(v => v.ConsultationCategories.Any(a => a.Name == categoryName));
+            var checkLaboratoryCategory = _db.WaitingLists.Any(v => v.LaboratoryCategories.Any(a => a.Name == categoryName));
+            var checkMedicalImagingCategory = _db.WaitingLists.Any(v => v.MedicalImagingCategories.Any(a => a.Name == categoryName));
+            var checkPrescriptionCategory = _db.WaitingLists.Any(v => v.PrescriptionCategories.Any(a => a.Name == categoryName));
+            var checkVariousDocumentCategory = _db.WaitingLists.Any(v => v.VariousDocumentCategories.Any(a => a.Name == categoryName));
 
             if (checkConsultationCategory)
             {
                 var getList = from b in _db.WaitingLists
-                    where b.ConsultationCategories.Any(v => v.Id == categoryid)
+                    where b.ConsultationCategories.Any(v => v.Name == categoryName)
                     select new
                     {
                         b.Id,
@@ -33,7 +33,7 @@ namespace PatientManagement.Class
             if (checkLaboratoryCategory)
             {
                 var getList = from b in _db.WaitingLists
-                    where b.LaboratoryCategories.Any(v => v.Id == categoryid)
+                    where b.LaboratoryCategories.Any(v => v.Name == categoryName)
                     select new
                     {
                         b.Id,
@@ -46,7 +46,7 @@ namespace PatientManagement.Class
             if (checkMedicalImagingCategory)
             {
                 var getList = from b in _db.WaitingLists
-                    where b.ConsultationCategories.Any(v => v.Id == categoryid)
+                    where b.ConsultationCategories.Any(v => v.Name == categoryName)
                     select new
                     {
                         b.Id,
@@ -59,7 +59,7 @@ namespace PatientManagement.Class
             if (checkPrescriptionCategory)
             {
                 var getList = from b in _db.WaitingLists
-                    where b.PrescriptionCategories.Any(v => v.Id == categoryid)
+                    where b.PrescriptionCategories.Any(v => v.Name == categoryName)
                     select new
                     {
                         b.Id,
@@ -72,7 +72,7 @@ namespace PatientManagement.Class
             if (checkVariousDocumentCategory)
             {
                 var getList = from b in _db.WaitingLists
-                    where b.VariousDocumentCategories.Any(v => v.Id == categoryid)
+                    where b.VariousDocumentCategories.Any(v => v.Name == categoryName)
                     select new
                     {
                         b.Id,

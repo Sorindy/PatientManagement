@@ -11,9 +11,10 @@ namespace PatientManagement.Class
    public  class VariousDocumentCategory: ICategory 
     {
 
-        private HospitalDbContext _db = new HospitalDbContext();
-        private BindingSource _bs = new BindingSource();
+        private readonly HospitalDbContext _db = new HospitalDbContext();
+        private readonly BindingSource _bs = new BindingSource();
         private int _workerId;
+        public Management Management;
 
         public void Insert(string name)
         {
@@ -80,31 +81,63 @@ namespace PatientManagement.Class
                     var insert = new TempManagement { WorkerId = _workerId, Forms = "Medical's Form", Services = "VariousDocument", Categorys = item.Name };
                     _db.TempManagements.Add(insert);
                     _db.SaveChanges();
-                }
-                var checking = _db.TempManagements.Any(v => v.Categorys == item.Name);
-                if (checking)
-                {
-                    var checkBox = new CheckBox();
-                    checkBox.Size = new Size(251, 29);
-                    checkBox.Location = new Point(27, 71);
-                    checkBox.Text = item.Name;
-                    checkBox.Checked = true;
-                    flpn.Controls.Add(checkBox);
-                    checkBox.CheckedChanged += CheckedValue;
+
+                    var checking = _db.TempManagements.Any(v => v.Categorys == item.Name);
+                    if (checking)
+                    {
+                        var checkBox = new CheckBox
+                        {
+                            Size = new Size(251, 29),
+                            Location = new Point(27, 71),
+                            Text = item.Name,
+                            Checked = true
+                        };
+                        flpn.Controls.Add(checkBox);
+                        checkBox.CheckedChanged += UnCheckedValue;
+                    }
+                    else
+                    {
+                        var checkBox = new CheckBox
+                        {
+                            Size = new Size(251, 29),
+                            Location = new Point(27, 71),
+                            Text = item.Name,
+                            Checked = false
+                        };
+                        flpn.Controls.Add(checkBox);
+                        checkBox.CheckedChanged += CheckedValue;
+                    }
                 }
                 else
                 {
-                    var checkBox = new CheckBox();
-                    checkBox.Size = new Size(251, 29);
-                    checkBox.Location = new Point(27, 71);
-                    checkBox.Text = item.Name;
-                    checkBox.Checked = false;
-                    flpn.Controls.Add(checkBox);
-                    checkBox.CheckedChanged += UnCheckedValue;
+                    var checking = _db.TempManagements.Any(v => v.Categorys == item.Name);
+                    if (checking)
+                    {
+                        var checkBox = new CheckBox
+                        {
+                            Size = new Size(251, 29),
+                            Location = new Point(27, 71),
+                            Text = item.Name,
+                            Checked = true
+                        };
+                        flpn.Controls.Add(checkBox);
+                        checkBox.CheckedChanged += UnCheckedValue;
+                    }
+                    else
+                    {
+                        var checkBox = new CheckBox
+                        {
+                            Size = new Size(251, 29),
+                            Location = new Point(27, 71),
+                            Text = item.Name,
+                            Checked = false
+                        };
+                        flpn.Controls.Add(checkBox);
+                        checkBox.CheckedChanged += CheckedValue;
+                    }
                 }
             }
 
-            flpn.Controls.Add(checkListBox);
             groupBox.Controls.Add(flpn);
 
             return groupBox;
@@ -118,8 +151,7 @@ namespace PatientManagement.Class
             _db.TempManagements.Add(input);
             _db.SaveChanges();
 
-            var medicalPanel = new Management();
-            medicalPanel.MedicalPanel();
+            Management.MedicalPanel();
         }
 
         private void UnCheckedValue(object sender, EventArgs e)
@@ -131,8 +163,7 @@ namespace PatientManagement.Class
             _db.TempManagements.Remove(delete);
             _db.SaveChanges();
 
-            var medicalPanel = new Management();
-            medicalPanel.MedicalPanel();
+            Management.MedicalPanel();
         }
     }
 }

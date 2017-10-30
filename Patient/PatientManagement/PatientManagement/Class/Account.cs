@@ -7,7 +7,7 @@ namespace PatientManagement.Class
     public class Account
     {
 
-        private HospitalDbContext _db=new HospitalDbContext();
+        private readonly HospitalDbContext _db=new HospitalDbContext();
 
         public void Insert(int workerId, string username, string password)
         {

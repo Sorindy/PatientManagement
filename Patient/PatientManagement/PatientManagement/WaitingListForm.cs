@@ -20,7 +20,7 @@ namespace PatientManagement
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             if (dgvWaiting.CurrentRow != null)
-                MedicalForm.WaitingList = _waitingList.GetWaitingListObject(Convert.ToInt32(dgvWaiting.CurrentRow.Cells[0]));
+                MedicalForm.WaitingList = _waitingList.GetWaitingListObject(Convert.ToInt32(dgvWaiting.CurrentRow.Cells[0].Value));
             MedicalForm.Show();
             Close();
             MedicalForm.txtPatientID.Text = MedicalForm.WaitingList.PatientId.ToString();
@@ -35,7 +35,7 @@ namespace PatientManagement
 
         private void WaitingListForm_Load(object sender, EventArgs e)
         {
-            dgvWaiting.DataSource = _waitingList.GetWaitingListObject(int.Parse(GetStaffCategory));
+            dgvWaiting.DataSource = _waitingList.ShowWaiting(GetStaffCategory);
         }
 
     }

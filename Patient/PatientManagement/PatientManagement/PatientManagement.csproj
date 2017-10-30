@@ -102,6 +102,12 @@
     <Compile Include="AccountRecoveryForm.designer.cs">
       <DependentUpon>AccountRecoveryForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CatalogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CatalogForm.Designer.cs">
+      <DependentUpon>CatalogForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CategoryForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +126,7 @@
     <Compile Include="Class\ConsultationEstimate.cs" />
     <Compile Include="Class\ConsultationSample.cs" />
     <Compile Include="Class\Dating.cs" />
+    <Compile Include="Class\Login.cs" />
     <Compile Include="Class\MedicalRecord.cs" />
     <Compile Include="Class\Visit.cs" />
     <Compile Include="Class\WaitingList.cs" />
@@ -153,6 +160,12 @@
     </Compile>
     <Compile Include="DatingListForm.Designer.cs">
       <DependentUpon>DatingListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ManagementForm.cs">
       <SubType>Form</SubType>
@@ -198,6 +211,12 @@
     <Compile Include="SearchForm.designer.cs">
       <DependentUpon>SearchForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SelectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelectionForm.Designer.cs">
+      <DependentUpon>SelectionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UpdateAccountForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -225,6 +244,9 @@
     <EmbeddedResource Include="AccountRecoveryForm.resx">
       <DependentUpon>AccountRecoveryForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CatalogForm.resx">
+      <DependentUpon>CatalogForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CategoryForm.resx">
       <DependentUpon>CategoryForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -236,6 +258,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DatingListForm.resx">
       <DependentUpon>DatingListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManagementForm.resx">
       <DependentUpon>ManagementForm.cs</DependentUpon>
@@ -266,6 +291,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SearchForm.resx">
       <DependentUpon>SearchForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelectionForm.resx">
+      <DependentUpon>SelectionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateAccountForm.resx">
       <DependentUpon>UpdateAccountForm.cs</DependentUpon>

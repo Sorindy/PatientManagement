@@ -232,7 +232,8 @@
             "Bone",
             "General",
             "Blood",
-            "General\'s Prescription"});
+            "General\'s Prescription",
+            "Nose"});
             this.cmbCategory.Location = new System.Drawing.Point(106, 76);
             this.cmbCategory.Name = "cmbCategory";
             this.cmbCategory.Size = new System.Drawing.Size(197, 21);
