@@ -22,7 +22,7 @@ namespace PatientManagement
         private readonly Login _login=new Login();
         private Account _account;
 
-        private void Clear()
+        internal void Clear()
         {
             txtUserName.Text = "";
             txtUserName.Focus();
@@ -31,23 +31,25 @@ namespace PatientManagement
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
+            WindowState=FormWindowState.Maximized;
             Clear();
-            LoginPanel.BackColor = Color.FromArgb(220,Color.LimeGreen);
+            tblLogin.BackColor = Color.FromArgb(220,Color.CornflowerBlue);
+            tblLogin.BackColor = Color.FromArgb(220, Color.CornflowerBlue);
+            tblControl.BackColor = Color.FromArgb(0, Color.AntiqueWhite);
+            panel1.BackColor = Color.FromArgb(0, Color.AntiqueWhite);
+            txtPassword.PasswordChar = '*';
+            txtUserName.Focus();
         }
-
-        private void btnClose_Click_1(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void btnOk_Click_1(object sender, EventArgs e)
+        private void btnLogin_Click(object sender, EventArgs e)
         {
             _account = _login.LoginAccount(txtUserName.Text, txtPassword.Text);
             if (_account != null)
             {
-                var form = new CatalogForm();
-                form.Account = _account;
-                form.LoginForm = this;
+                var form = new CatelogForm
+                {
+                    Account = _account,
+                    LoginForm = this
+                };
                 form.Show();
                 Hide();
             }
@@ -58,5 +60,57 @@ namespace PatientManagement
             }
         }
 
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void lbClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void lbLogin_Click(object sender, EventArgs e)
+        {
+            _account = _login.LoginAccount(txtUserName.Text, txtPassword.Text);
+            if (_account != null)
+            {
+                var form = new CatelogForm
+                {
+                    Account = _account,
+                    LoginForm = this
+                };
+                form.Show();
+                Hide();
+            }
+            else
+            {
+                Clear();
+                MessageBox.Show(@"Pleas input correct UserName and Password");
+            }
+        }
+
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnLogin_Click(this,new EventArgs());
+            }
+        }
+
+        private void picMinimize_Click(object sender, EventArgs e)
+        {
+            WindowState=FormWindowState.Minimized;
+        }
+
+        private void picMazimize_Click(object sender, EventArgs e)
+        {
+            WindowState=FormWindowState.Maximized;
+        }
+
+        private void picNormal_Click(object sender, EventArgs e)
+        {
+            WindowState=FormWindowState.Normal;
+        }
     }
 }

@@ -19,40 +19,53 @@ namespace PatientManagement.Class
             return check;
         }
 
-        public TableLayoutPanel ButtonToForm(Hospital_Entity_Framework.Account account)
+        public FlowLayoutPanel ButtonToForm(Hospital_Entity_Framework.Account account)
         {
-            var flpn=new TableLayoutPanel()
+            var flpn=new FlowLayoutPanel()
             {
-                ColumnCount = 2,
-                ColumnStyles = { new ColumnStyle(SizeType.Percent,30F),new ColumnStyle(SizeType.Percent, 70F)},
-                RowCount = 1,
-                RowStyles = { new RowStyle(SizeType.Absolute,50F)},
-                Dock = DockStyle.Fill
+                FlowDirection = FlowDirection.TopDown,
+                Dock = DockStyle.Fill,
+                Name = @"flpnButtonForm",
+                AutoScroll = true,
+                WrapContents = false
             };
             var firstOrDefault = _db.Managements.FirstOrDefault(v => v.AccountId == account.Id);
             if (firstOrDefault != null)
             {
                 var checkForm = firstOrDefault.Forms;
-                int i = -1;
 
                 foreach (var form in checkForm)
                 {
-                    i += 1;
-                    var btn=new Label
+                    var color = ColorTranslator.FromHtml("#3399FF");
+                    var btn=new Button
                     {
-                        Font = new Font("Nova Cut",16),
-                        Text = form.Name
+                        Font=new Font("Nova Cut",12),
+                        Text = form.Name,
+                        Height = 50,
+                        Width = flpn.Width,
+                        BackColor = Color.FromArgb(128,color)
                     };
-                    var pic = new PictureBox
-                    {
-                        Dock = DockStyle.Fill,
-                        ImageLocation = "E:\\Work\\PatientManagement\\Patient\\119040-medical-elements\\119040-medical-elements\\png\\apple.png"
-                    };
-                    flpn.Controls.Add(pic,1,i);
-                    flpn.Controls.Add(btn,2,i);
+
+                    btn.MouseHover += MouseHover;
+                    btn.MouseLeave += MouseLeave;
+
+                    flpn.Controls.Add(btn);
                 }
             }
             return flpn;
+        }
+
+        private void MouseHover(object sender, EventArgs e)
+        {
+            var btn = (Button) sender;
+            btn.BackColor=Color.Green;
+        }
+
+        private void MouseLeave(object sender, EventArgs e)
+        {
+            var btn = (Button) sender;
+            var color = ColorTranslator.FromHtml("#3399FF");
+            btn.BackColor = Color.FromArgb(128,color);
         }
     }
 }
