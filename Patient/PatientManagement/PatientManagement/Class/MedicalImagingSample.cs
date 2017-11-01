@@ -52,6 +52,7 @@ namespace PatientManagement.Class
                 {
                     v.Id,
                     v.Title,
+                    v.MedicalImagingCategory.Name,
                     v.Description,
                 };
             _bs.DataSource = getsample.ToList();

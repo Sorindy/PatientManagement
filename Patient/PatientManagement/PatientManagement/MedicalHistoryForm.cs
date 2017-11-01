@@ -43,23 +43,6 @@ namespace PatientManagement
             lbTodaydate.Text = DateTime.Now.ToLongDateString();
         }
 
-        private void btnFort_Click(object sender, EventArgs e)
-        {
-            var fd = new FontDialog
-            {
-                ShowColor = true,
-                ShowApply = true,
-                ShowEffects = true,
-                ShowHelp = true
-            };
-            if (fd.ShowDialog() == DialogResult.OK & !string.IsNullOrEmpty(txtDescription.Text))
-            {
-                txtDescription.SelectionFont = fd.Font;
-                txtDescription.SelectionColor = fd.Color;
-                }
-            Refresh();
-        }
-
         private void btnPatientDetail_Click(object sender, EventArgs e)
         {
             var getid = txtPatientID.Text;

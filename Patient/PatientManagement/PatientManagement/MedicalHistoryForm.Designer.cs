@@ -61,12 +61,30 @@
             this.lineShape2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.dtgInformation = new System.Windows.Forms.DataGridView();
-            this.btnFort = new System.Windows.Forms.Button();
-            this.txtDescription = new System.Windows.Forms.RichTextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtDescription = new TXTextControl.TextControl();
+            this.buttonBar1 = new TXTextControl.ButtonBar();
+            this.rulerBar2 = new TXTextControl.RulerBar();
+            this.statusBar1 = new TXTextControl.StatusBar();
+            this.rulerBar1 = new TXTextControl.RulerBar();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fontToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.textColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.foreColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.selectForeColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.frameFillColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.imageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pageColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.formatStyleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gbActivity.SuspendLayout();
             this.gbPatient.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgInformation)).BeginInit();
+            this.groupBox3.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbTodaydate
@@ -389,39 +407,172 @@
             // 
             this.dtgInformation.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgInformation.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgInformation.Location = new System.Drawing.Point(243, 233);
+            this.dtgInformation.Location = new System.Drawing.Point(234, 233);
             this.dtgInformation.Name = "dtgInformation";
             this.dtgInformation.Size = new System.Drawing.Size(1082, 488);
             this.dtgInformation.TabIndex = 70;
             this.dtgInformation.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgInformation_CellContentClick);
             // 
-            // btnFort
+            // groupBox3
             // 
-            this.btnFort.Location = new System.Drawing.Point(1065, 204);
-            this.btnFort.Name = "btnFort";
-            this.btnFort.Size = new System.Drawing.Size(82, 23);
-            this.btnFort.TabIndex = 71;
-            this.btnFort.Text = "Font";
-            this.btnFort.UseVisualStyleBackColor = true;
-            this.btnFort.Click += new System.EventHandler(this.btnFort_Click);
+            this.groupBox3.Controls.Add(this.txtDescription);
+            this.groupBox3.Controls.Add(this.rulerBar1);
+            this.groupBox3.Controls.Add(this.rulerBar2);
+            this.groupBox3.Controls.Add(this.buttonBar1);
+            this.groupBox3.Controls.Add(this.statusBar1);
+            this.groupBox3.Controls.Add(this.menuStrip1);
+            this.groupBox3.Location = new System.Drawing.Point(229, 233);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(1096, 493);
+            this.groupBox3.TabIndex = 72;
+            this.groupBox3.TabStop = false;
             // 
             // txtDescription
             // 
-            this.txtDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescription.Location = new System.Drawing.Point(244, 233);
+            this.txtDescription.ButtonBar = this.buttonBar1;
+            this.txtDescription.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtDescription.Font = new System.Drawing.Font("Arial", 10F);
+            this.txtDescription.Location = new System.Drawing.Point(28, 93);
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(1082, 488);
-            this.txtDescription.TabIndex = 72;
-            this.txtDescription.Text = "";
+            this.txtDescription.RulerBar = this.rulerBar2;
+            this.txtDescription.Size = new System.Drawing.Size(1065, 375);
+            this.txtDescription.StatusBar = this.statusBar1;
+            this.txtDescription.TabIndex = 2;
+            this.txtDescription.VerticalRulerBar = this.rulerBar1;
+            // 
+            // buttonBar1
+            // 
+            this.buttonBar1.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonBar1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonBar1.Location = new System.Drawing.Point(3, 40);
+            this.buttonBar1.Name = "buttonBar1";
+            this.buttonBar1.Size = new System.Drawing.Size(1090, 28);
+            this.buttonBar1.TabIndex = 10;
+            this.buttonBar1.Text = "buttonBar1";
+            // 
+            // rulerBar2
+            // 
+            this.rulerBar2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.rulerBar2.Location = new System.Drawing.Point(3, 68);
+            this.rulerBar2.Name = "rulerBar2";
+            this.rulerBar2.Size = new System.Drawing.Size(1090, 25);
+            this.rulerBar2.TabIndex = 9;
+            this.rulerBar2.Text = "rulerBar2";
+            // 
+            // statusBar1
+            // 
+            this.statusBar1.BackColor = System.Drawing.SystemColors.Control;
+            this.statusBar1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.statusBar1.Location = new System.Drawing.Point(3, 468);
+            this.statusBar1.Name = "statusBar1";
+            this.statusBar1.Size = new System.Drawing.Size(1090, 22);
+            this.statusBar1.TabIndex = 4;
+            // 
+            // rulerBar1
+            // 
+            this.rulerBar1.Alignment = TXTextControl.RulerBarAlignment.Left;
+            this.rulerBar1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.rulerBar1.Location = new System.Drawing.Point(3, 93);
+            this.rulerBar1.Name = "rulerBar1";
+            this.rulerBar1.Size = new System.Drawing.Size(25, 375);
+            this.rulerBar1.TabIndex = 5;
+            this.rulerBar1.Text = "rulerBar1";
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fontToolStripMenuItem,
+            this.textColorToolStripMenuItem,
+            this.foreColorToolStripMenuItem,
+            this.tableToolStripMenuItem,
+            this.imageToolStripMenuItem,
+            this.pageToolStripMenuItem,
+            this.formatStyleToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(3, 16);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1090, 24);
+            this.menuStrip1.TabIndex = 11;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fontToolStripMenuItem
+            // 
+            this.fontToolStripMenuItem.Name = "fontToolStripMenuItem";
+            this.fontToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.fontToolStripMenuItem.Text = "Font";
+            // 
+            // textColorToolStripMenuItem
+            // 
+            this.textColorToolStripMenuItem.Name = "textColorToolStripMenuItem";
+            this.textColorToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
+            this.textColorToolStripMenuItem.Text = "Text Color";
+            // 
+            // foreColorToolStripMenuItem
+            // 
+            this.foreColorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.selectForeColorToolStripMenuItem,
+            this.frameFillColorToolStripMenuItem});
+            this.foreColorToolStripMenuItem.Name = "foreColorToolStripMenuItem";
+            this.foreColorToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
+            this.foreColorToolStripMenuItem.Text = "Fore Color";
+            // 
+            // selectForeColorToolStripMenuItem
+            // 
+            this.selectForeColorToolStripMenuItem.Name = "selectForeColorToolStripMenuItem";
+            this.selectForeColorToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.selectForeColorToolStripMenuItem.Text = "Select Fore Color";
+            // 
+            // frameFillColorToolStripMenuItem
+            // 
+            this.frameFillColorToolStripMenuItem.Name = "frameFillColorToolStripMenuItem";
+            this.frameFillColorToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.frameFillColorToolStripMenuItem.Text = "Frame Fill Color";
+            // 
+            // tableToolStripMenuItem
+            // 
+            this.tableToolStripMenuItem.Name = "tableToolStripMenuItem";
+            this.tableToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.tableToolStripMenuItem.Text = "Table";
+            // 
+            // imageToolStripMenuItem
+            // 
+            this.imageToolStripMenuItem.Name = "imageToolStripMenuItem";
+            this.imageToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.imageToolStripMenuItem.Text = "Image";
+            // 
+            // pageToolStripMenuItem
+            // 
+            this.pageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tabToolStripMenuItem,
+            this.pageColorToolStripMenuItem});
+            this.pageToolStripMenuItem.Name = "pageToolStripMenuItem";
+            this.pageToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
+            this.pageToolStripMenuItem.Text = "Page";
+            // 
+            // tabToolStripMenuItem
+            // 
+            this.tabToolStripMenuItem.Name = "tabToolStripMenuItem";
+            this.tabToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.tabToolStripMenuItem.Text = "Tab";
+            // 
+            // pageColorToolStripMenuItem
+            // 
+            this.pageColorToolStripMenuItem.Name = "pageColorToolStripMenuItem";
+            this.pageColorToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.pageColorToolStripMenuItem.Text = "Page Color";
+            // 
+            // formatStyleToolStripMenuItem
+            // 
+            this.formatStyleToolStripMenuItem.Name = "formatStyleToolStripMenuItem";
+            this.formatStyleToolStripMenuItem.Size = new System.Drawing.Size(85, 20);
+            this.formatStyleToolStripMenuItem.Text = "Format Style";
             // 
             // MedicalHistoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1328, 733);
-            this.Controls.Add(this.txtDescription);
-            this.Controls.Add(this.btnFort);
             this.Controls.Add(this.dtgInformation);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.lbTodaydate);
             this.Controls.Add(this.cmbMedicalRecord);
             this.Controls.Add(this.txtDescriptioinName);
@@ -444,6 +595,10 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgInformation)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -482,8 +637,24 @@
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape2;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
         private System.Windows.Forms.DataGridView dtgInformation;
-        private System.Windows.Forms.Button btnFort;
-        private System.Windows.Forms.RichTextBox txtDescription;
         private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private TXTextControl.TextControl txtDescription;
+        private TXTextControl.ButtonBar buttonBar1;
+        private TXTextControl.RulerBar rulerBar2;
+        private TXTextControl.StatusBar statusBar1;
+        private TXTextControl.RulerBar rulerBar1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fontToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem textColorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem foreColorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem selectForeColorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem frameFillColorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tableToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem imageToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pageToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tabToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pageColorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem formatStyleToolStripMenuItem;
     }
 }

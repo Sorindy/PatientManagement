@@ -98,6 +98,7 @@
             this.t = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.txtCategoryId = new System.Windows.Forms.TextBox();
             this.gbPatient.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.gbActivity.SuspendLayout();
@@ -238,6 +239,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtCategoryId);
             this.groupBox1.Controls.Add(this.cmbCategory);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.txtStaffName);
@@ -255,10 +257,9 @@
             // 
             this.cmbCategory.FormattingEnabled = true;
             this.cmbCategory.Items.AddRange(new object[] {
-            "Bone",
-            "General",
-            "Blood",
-            "General\'s Prescription"});
+            "1",
+            "2",
+            "3"});
             this.cmbCategory.Location = new System.Drawing.Point(106, 76);
             this.cmbCategory.Name = "cmbCategory";
             this.cmbCategory.Size = new System.Drawing.Size(197, 21);
@@ -799,6 +800,14 @@
             this.label11.TabIndex = 4;
             this.label11.Text = "Refferer-Id";
             // 
+            // txtCategoryId
+            // 
+            this.txtCategoryId.Location = new System.Drawing.Point(106, 77);
+            this.txtCategoryId.Name = "txtCategoryId";
+            this.txtCategoryId.Size = new System.Drawing.Size(8, 20);
+            this.txtCategoryId.TabIndex = 10;
+            this.txtCategoryId.Visible = false;
+            // 
             // MedicalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -913,5 +922,6 @@
         private System.Windows.Forms.TextBox t;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtCategoryId;
     }
 }

@@ -24,6 +24,7 @@ namespace PatientManagement.Class
                     select new
                     {
                         b.Id,
+                        b.PatientId,
                         b.Patient.Name,
                         b.Time,
                         b.Status
@@ -37,6 +38,7 @@ namespace PatientManagement.Class
                     select new
                     {
                         b.Id,
+                        b.PatientId,
                         b.Patient.Name,
                         b.Time,
                         b.Status
@@ -50,6 +52,7 @@ namespace PatientManagement.Class
                     select new
                     {
                         b.Id,
+                        b.PatientId,
                         b.Patient.Name,
                         b.Time,
                         b.Status
@@ -63,6 +66,7 @@ namespace PatientManagement.Class
                     select new
                     {
                         b.Id,
+                        b.PatientId,
                         b.Patient.Name,
                         b.Time,
                         b.Status
@@ -76,6 +80,7 @@ namespace PatientManagement.Class
                     select new
                     {
                         b.Id,
+                        b.PatientId,
                         b.Patient.Name,
                         b.Time,
                         b.Status

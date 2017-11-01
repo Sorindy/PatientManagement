@@ -14,6 +14,7 @@ namespace PatientManagement
         }
 
         private ISample _sample;
+        private ICategory _category;
 
         private void SampleForm_Load(object sender, EventArgs e)
         {
@@ -39,31 +40,31 @@ namespace PatientManagement
             if (cmbType.SelectedIndex.Equals(0))
             {
                 _sample = new ConsultationSample();
-                _sample.Insert( txtTitle.Text, "D:/PatientManagement/Patient/Hospital Entity Framework/RTF/ConsultationSample/"+txtTitle.Text ,Convert.ToInt32( cmbCategory.Text ));
+                _sample.Insert( txtTitle.Text, "D:/PatientManagement/Patient/Hospital Entity Framework/RTF/ConsultationSample/"+txtTitle.Text ,Convert.ToInt32( txtCategoryId.Text ));
                 txtDescription.Save("D:/PatientManagement/Patient/Hospital Entity Framework/RTF/ConsultationSample/"+txtTitle.Text, StreamType.RichTextFormat);
             }
             if (cmbType.SelectedIndex.Equals(1))
             {
                 _sample = new PrescriptionSample();
-                _sample.Insert(txtTitle.Text, "D:/PatientManagement/Patient/Hospital Entity Framework/RTF/PrescriptionSample/" + txtTitle.Text, Convert.ToInt32(cmbCategory.Text));
+                _sample.Insert(txtTitle.Text, "D:/PatientManagement/Patient/Hospital Entity Framework/RTF/PrescriptionSample/" + txtTitle.Text, Convert.ToInt32(txtCategoryId.Text));
                 txtDescription.Save("D:/PatientManagement/Patient/Hospital Entity Framework/RTF/PrescriptionSample/" + txtTitle.Text, StreamType.RichTextFormat);
             }
             if (cmbType.SelectedIndex.Equals(2))
             {
                 _sample = new MedicalImagingSample();
-                _sample.Insert(txtTitle.Text, "D:/PatientManagement/Patient/Hospital Entity Framework/RTF/MedicalImagingSample/" + txtTitle.Text, Convert.ToInt32(cmbCategory.Text));
+                _sample.Insert(txtTitle.Text, "D:/PatientManagement/Patient/Hospital Entity Framework/RTF/MedicalImagingSample/" + txtTitle.Text, Convert.ToInt32(txtCategoryId.Text));
                 txtDescription.Save("D:/PatientManagement/Patient/Hospital Entity Framework/RTF/MedicalImagingSample/" + txtTitle.Text, StreamType.RichTextFormat);
             }
             if (cmbType.SelectedIndex.Equals(3))
             {
                 _sample = new LaboratorySample();
-                _sample.Insert(txtTitle.Text, "D:/PatientManagement/Patient/Hospital Entity Framework/RTF/LaboratorySample/" + txtTitle.Text, Convert.ToInt32(cmbCategory.Text));
+                _sample.Insert(txtTitle.Text, "D:/PatientManagement/Patient/Hospital Entity Framework/RTF/LaboratorySample/" + txtTitle.Text, Convert.ToInt32(txtCategoryId.Text));
                 txtDescription.Save("D:/PatientManagement/Patient/Hospital Entity Framework/RTF/LaboratorySample/" + txtTitle.Text, StreamType.RichTextFormat);
             }
             if (cmbType.SelectedIndex.Equals(4))
             {
                 _sample = new VariousDocumentSample();
-                _sample.Insert(txtTitle.Text, "D:/PatientManagement/Patient/Hospital Entity Framework/RTF/VariousdocumentSample/" + txtTitle.Text, Convert.ToInt32(cmbCategory.Text));
+                _sample.Insert(txtTitle.Text, "D:/PatientManagement/Patient/Hospital Entity Framework/RTF/VariousdocumentSample/" + txtTitle.Text, Convert.ToInt32(txtCategoryId.Text));
                 txtDescription.Save("D:/PatientManagement/Patient/Hospital Entity Framework/RTF/VariousdocumentSample/" + txtTitle.Text, StreamType.RichTextFormat);
             }
             btnShow.PerformClick();
@@ -100,31 +101,31 @@ namespace PatientManagement
             if (cmbType.SelectedIndex.Equals(0))
             {
                 _sample = new ConsultationSample();
-                _sample.Update(Convert.ToInt32(txtId.Text), txtTitle.Text, "D:/PatientManagement/Patient/Hospital Entity Framework/RTF/ConsultationSample/" + txtTitle.Text, Convert.ToInt32(cmbCategory.Text));
+                _sample.Update(Convert.ToInt32(txtId.Text), txtTitle.Text, "D:/PatientManagement/Patient/Hospital Entity Framework/RTF/ConsultationSample/" + txtTitle.Text, Convert.ToInt32(txtCategoryId.Text));
                 txtDescription.Save("D:/PatientManagement/Patient/Hospital Entity Framework/RTF/ConsultationSample/" + txtTitle.Text, StreamType.RichTextFormat);
             }
             if (cmbType.SelectedIndex.Equals(1))
             {
                 _sample = new PrescriptionSample();
-                _sample.Update(Convert.ToInt32(txtId.Text), txtTitle.Text, "D:/PatientManagement/Patient/Hospital Entity Framework/RTF/PrescriptionSample/" + txtTitle.Text, Convert.ToInt32(cmbCategory.Text));
+                _sample.Update(Convert.ToInt32(txtId.Text), txtTitle.Text, "D:/PatientManagement/Patient/Hospital Entity Framework/RTF/PrescriptionSample/" + txtTitle.Text, Convert.ToInt32(txtCategoryId.Text));
                 txtDescription.Save("D:/PatientManagement/Patient/Hospital Entity Framework/RTF/PrescriptionSample/" + txtTitle.Text, StreamType.RichTextFormat);
             }
             if (cmbType.SelectedIndex.Equals(2))
             {
                 _sample = new MedicalImagingSample();
-                _sample.Update(Convert.ToInt32(txtId.Text), txtTitle.Text, "D:/PatientManagement/Patient/Hospital Entity Framework/RTF/MedicalImagingSample/" + txtTitle.Text, Convert.ToInt32(cmbCategory.Text));
+                _sample.Update(Convert.ToInt32(txtId.Text), txtTitle.Text, "D:/PatientManagement/Patient/Hospital Entity Framework/RTF/MedicalImagingSample/" + txtTitle.Text, Convert.ToInt32(txtCategoryId.Text));
                 txtDescription.Save("D:/PatientManagement/Patient/Hospital Entity Framework/RTF/MedicalImagingSample/" + txtTitle.Text, StreamType.RichTextFormat);
             }
             if (cmbType.SelectedIndex.Equals(3))
             {
                 _sample = new LaboratorySample();
-                _sample.Update(Convert.ToInt32(txtId.Text), txtTitle.Text, "D:/PatientManagement/Patient/Hospital Entity Framework/RTF/LaboratorySample/" + txtTitle.Text, Convert.ToInt32(cmbCategory.Text));
+                _sample.Update(Convert.ToInt32(txtId.Text), txtTitle.Text, "D:/PatientManagement/Patient/Hospital Entity Framework/RTF/LaboratorySample/" + txtTitle.Text, Convert.ToInt32(txtCategoryId.Text));
                 txtDescription.Save("D:/PatientManagement/Patient/Hospital Entity Framework/RTF/LaboratorySample/" + txtTitle.Text, StreamType.RichTextFormat);
             }
             if (cmbType.SelectedIndex.Equals(4))
             {
                 _sample = new VariousDocumentSample();
-                _sample.Update(Convert.ToInt32(txtId.Text), txtTitle.Text, "D:/PatientManagement/Patient/Hospital Entity Framework/RTF/VariousDocumentSample/" + txtTitle.Text, Convert.ToInt32(cmbCategory.Text));
+                _sample.Update(Convert.ToInt32(txtId.Text), txtTitle.Text, "D:/PatientManagement/Patient/Hospital Entity Framework/RTF/VariousDocumentSample/" + txtTitle.Text, Convert.ToInt32(txtCategoryId.Text));
                 txtDescription.Save("D:/PatientManagement/Patient/Hospital Entity Framework/RTF/VariousDocumentSample/" + txtTitle.Text, StreamType.RichTextFormat);
             }
             btnShow.PerformClick();
@@ -204,7 +205,8 @@ namespace PatientManagement
             {
                 txtId.Text = dtgInformation.CurrentRow.Cells[0].Value.ToString();
                 txtTitle.Text = dtgInformation.CurrentRow.Cells[1].Value.ToString();
-                txtDescription.Load(dtgInformation.CurrentRow.Cells[2].Value.ToString(),StreamType.RichTextFormat);
+                cmbCategory.Text = dtgInformation.CurrentRow.Cells[2].Value.ToString();
+                txtDescription.Load(dtgInformation.CurrentRow.Cells[3].Value.ToString(),StreamType.RichTextFormat);
             }
             dtgInformation.Visible = false;
             txtDescription.Visible = true;
@@ -263,7 +265,62 @@ namespace PatientManagement
 
         private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (cmbType.SelectedIndex.Equals(0))
+            {
+                _category = new ConsultationCategory();
+                txtCategoryId.Text = _category.Search_Id(cmbCategory.Text).ToString();
 
+            }
+            if (cmbType.SelectedIndex.Equals(1))
+            {
+                _category = new PrescriptionCategory();
+
+            }
+            if (cmbType.SelectedIndex.Equals(2))
+            {
+                _category = new MedicalImagingCategory();
+
+            }
+            if (cmbType.SelectedIndex.Equals(3))
+            {
+                _category = new LaboratoryCategory();
+
+            }
+            if (cmbType.SelectedIndex.Equals(4))
+            {
+                _category = new VariousDocumentCategory();
+
+            }
+        }
+
+        private void cmbType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbType.SelectedIndex.Equals(0))
+            {
+                _category = new ConsultationCategory();
+                cmbCategory.DataSource = _category.Show_Category_Name();
+
+            }
+            if (cmbType.SelectedIndex.Equals(1))
+            {
+                _category = new PrescriptionCategory();
+
+            }
+            if (cmbType.SelectedIndex.Equals(2))
+            {
+                _category = new MedicalImagingCategory();
+
+            }
+            if (cmbType.SelectedIndex.Equals(3))
+            {
+                _category = new LaboratoryCategory();
+
+            }
+            if (cmbType.SelectedIndex.Equals(4))
+            {
+                _category = new VariousDocumentCategory();
+
+            }
         }
 
     }
