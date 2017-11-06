@@ -111,7 +111,7 @@ namespace PatientManagement
         {
             if (dgvWorker.CurrentRow != null)
             {
-                _worker.Delete(Convert.ToInt32(dgvWorker.CurrentRow.Cells[0]));
+                _worker.Delete(Convert.ToInt32(dgvWorker.CurrentRow.Cells[0].Value));
                 MouseLeave +=FormRefresh;
             }
         }

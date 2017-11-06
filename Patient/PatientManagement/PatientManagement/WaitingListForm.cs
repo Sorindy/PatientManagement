@@ -34,7 +34,7 @@ namespace PatientManagement
 
         private void WaitingListForm_Load(object sender, EventArgs e)
         {
-            dgvWaiting.DataSource = _waitingList.ShowWaiting(int.Parse(GetStaffCategory));
+            dgvWaiting.DataSource = _waitingList.ShowWaiting(GetStaffCategory);
             Refresh();
         }
 

@@ -41,11 +41,11 @@
     <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Manager_scheduler.1.0.0\lib\4.0\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Manager_scheduler.1.0.0\lib\4.0\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="Hospital Entity Framework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -58,6 +58,18 @@
     <Reference Include="Manager_scheduler">
       <HintPath>..\packages\Manager_scheduler.1.0.0\lib\4.0\Manager_scheduler.dll</HintPath>
     </Reference>
+    <Reference Include="MetroFramework">
+      <HintPath>..\packages\MetroFramework.RunTime.1.2.0.3\lib\net40-Client\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Design">
+      <HintPath>..\packages\MetroFramework.Design.1.2.0.3\lib\net40\MetroFramework.Design.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts">
+      <HintPath>..\packages\MetroFramework.Fonts.1.2.0.3\lib\net40\MetroFramework.Fonts.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Manager_scheduler.1.0.0\lib\4.0\Microsoft.VisualBasic.PowerPacks.Vs.dll</HintPath>
@@ -73,6 +85,9 @@
     </Reference>
     <Reference Include="NDbUnit.SqlServerCe">
       <HintPath>..\packages\Manager_scheduler.1.0.0\lib\4.0\NDbUnit.SqlServerCe.dll</HintPath>
+    </Reference>
+    <Reference Include="PictureBoxAbouAmmar">
+      <HintPath>..\packages\PictureBoxAbouAmmar.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -113,6 +128,12 @@
     <Compile Include="CategoryForm.designer.cs">
       <DependentUpon>CategoryForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CatelogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CatelogForm.Designer.cs">
+      <DependentUpon>CatelogForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CheckInForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +146,7 @@
     <Compile Include="Class\ConsultationEstimate.cs" />
     <Compile Include="Class\ConsultationSample.cs" />
     <Compile Include="Class\Dating.cs" />
+    <Compile Include="Class\Login.cs" />
     <Compile Include="Class\MedicalRecord.cs" />
     <Compile Include="Class\Visit.cs" />
     <Compile Include="Class\WaitingList.cs" />
@@ -158,6 +180,12 @@
     </Compile>
     <Compile Include="DatingListForm.Designer.cs">
       <DependentUpon>DatingListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ManagementForm.cs">
       <SubType>Form</SubType>
@@ -233,6 +261,9 @@
     <EmbeddedResource Include="CategoryForm.resx">
       <DependentUpon>CategoryForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CatelogForm.resx">
+      <DependentUpon>CatelogForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CheckInForm.resx">
       <DependentUpon>CheckInForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -241,6 +272,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DatingListForm.resx">
       <DependentUpon>DatingListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManagementForm.resx">
       <DependentUpon>ManagementForm.cs</DependentUpon>
@@ -307,6 +341,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MetroFramework.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

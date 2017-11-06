@@ -16,7 +16,6 @@ namespace PatientManagement
         private IEstimate _estimate;
         public Patient Patient;
         //private  WaitingList _waitingList;
-
         public MedicalForm()
         {
             InitializeComponent();

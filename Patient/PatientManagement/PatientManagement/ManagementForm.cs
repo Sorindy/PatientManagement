@@ -17,7 +17,6 @@ namespace PatientManagement
         {
             dgvShow.DataSource = _management.Show_WorkerHasAccount();
             _management.ClearTemp();
-
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
@@ -49,6 +48,7 @@ namespace PatientManagement
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             if (dgvShow.CurrentRow != null) _management.SubmitManagement(Convert.ToInt32(dgvShow.CurrentRow.Cells[0].Value));
+            ManagementForm_Load(this,e);
         }
 
     }

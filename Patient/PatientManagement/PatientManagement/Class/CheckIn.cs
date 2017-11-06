@@ -267,7 +267,8 @@ namespace PatientManagement.Class
 
         public void SubmitService(int patientId,TimeSpan timeSpan)
         {
-            var insertWaitingList=new Hospital_Entity_Framework.WaitingList(){PatientId = patientId,Time = timeSpan };
+            var getVisit= CheckVisitCount(patientId);
+            var insertWaitingList=new Hospital_Entity_Framework.WaitingList(){PatientId = patientId,Time = timeSpan,VisitId = getVisit.Id,VisitCount = getVisit.VisitCount,Visit = getVisit};
             _db.WaitingLists.Add(insertWaitingList);
             _db.SaveChanges();
 
@@ -322,7 +323,7 @@ namespace PatientManagement.Class
             }
         }
 
-        private void CheckVisitCount(int patientId)
+        private Hospital_Entity_Framework.Visit CheckVisitCount(int patientId)
         {
             try
             {
@@ -331,12 +332,18 @@ namespace PatientManagement.Class
                 var insert=new Hospital_Entity_Framework.Visit{VisitCount = checkVisit+1,PatientId = patientId,Date = DateTime.Now};
                 _db.Visits.Add(insert);
                 _db.SaveChanges();
+
+                var getVisit = _db.Visits.Single(v =>v.PatientId==patientId&&v.VisitCount==checkVisit+1);
+                return getVisit;
             }
             catch
             {
                var insert=new Hospital_Entity_Framework.Visit{VisitCount = 1,PatientId = patientId,Date = DateTime.Now};
                _db.Visits.Add(insert);
                _db.SaveChanges();
+
+                var getVisit = _db.Visits.Single(v => v.PatientId == patientId && v.VisitCount == 1);
+                return getVisit;
             }
         }
 

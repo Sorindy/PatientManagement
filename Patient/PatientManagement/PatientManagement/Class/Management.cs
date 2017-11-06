@@ -41,13 +41,10 @@ namespace PatientManagement.Class
 
         public object Show_WorkerHasAccount()
         {
-            try
-            {
-                var bs = new BindingSource();
+            var bs = new BindingSource();
+            var show = _db.Accounts;
 
-                var show = _db.Accounts;
-
-                bs.DataSource = show.Select(s => new
+            bs.DataSource = show.Select(s => new
                 {
                     s.Worker.Id,
                     s.Worker.Name,
@@ -56,13 +53,7 @@ namespace PatientManagement.Class
                     s.UserName
                 }).ToList();
 
-                return bs;
-            }
-            catch
-            {
-                
-            }
-            return null;
+            return bs;
         }
 
         public object Search_WorkerHasAccount(string search)
@@ -98,6 +89,11 @@ namespace PatientManagement.Class
                                                     showPrescription.ShowCategoryBox(_workerId),
                                                     showVariousDoc.ShowCategoryBox(_workerId)
                                                     });
+            showPrescription.Management = this;
+            showVariousDoc.Management = this;
+            showConsultation.Management = this;
+            showLaboratory.Management = this;
+            showMedicalImaging.Management = this;
             var form = (ManagementForm)Application.OpenForms["ManagementForm"];
             if (form != null)
             {
@@ -207,8 +203,9 @@ namespace PatientManagement.Class
                 AutoScroll = true
             };
             groupBox.Size = new Size(520, 100);
-            var checkDatabase = _db.Managements.SingleOrDefault(v => v.Account.WorkerId == _workerId).Forms
-                .Any(v => v.Name == "Category's Form");
+            var singleOrDefault = _db.Managements.SingleOrDefault(v => v.Account.WorkerId == _workerId);
+            var checkDatabase = singleOrDefault != null && singleOrDefault.Forms
+                                    .Any(v => v.Name == "Category's Form");
 
             if (checkDatabase)
             {
@@ -653,7 +650,6 @@ namespace PatientManagement.Class
         public void ClearTemp()
         {
             var clear = _db.TempManagements;
-
             _db.TempManagements.RemoveRange(clear);
             _db.SaveChanges();
         }
@@ -694,6 +690,57 @@ namespace PatientManagement.Class
         public void SubmitManagement(int workerId)
         {
             var getAccId = _db.Accounts.First(v => v.WorkerId == workerId).Id;
+            var deleteOldManagement = _db.Managements.FirstOrDefault(v => v.AccountId == getAccId);
+            if (deleteOldManagement != null)
+            {
+                var delConsultaion= deleteOldManagement.ConsultationCategories;
+                if (delConsultaion != null)
+                {
+                    foreach (var item in delConsultaion)
+                    {
+                        _db.Managements.FirstOrDefault(v => v.AccountId == getAccId).ConsultationCategories.Remove(item);
+                        _db.SaveChanges();
+                    }
+                }
+                var delLaboratory = deleteOldManagement.LaboratoryCategories;
+                if (delLaboratory != null)
+                {
+                    foreach (var item in delLaboratory)
+                    {
+                        _db.Managements.FirstOrDefault(v => v.AccountId == getAccId).LaboratoryCategories.Remove(item);
+                        _db.SaveChanges();
+                    }
+                }
+                var delMedicalImaging = deleteOldManagement.MedicalImagingCategories;
+                if (delMedicalImaging != null)
+                {
+                    foreach (var item in delMedicalImaging)
+                    {
+                        _db.Managements.FirstOrDefault(v => v.AccountId == getAccId).MedicalImagingCategories.Remove(item);
+                        _db.SaveChanges();
+                    }
+                }
+                var delPrescription = deleteOldManagement.PrescriptionCategories;
+                if (delPrescription != null)
+                {
+                    foreach (var item in delPrescription)
+                    {
+                        _db.Managements.FirstOrDefault(v => v.AccountId == getAccId).PrescriptionCategories.Remove(item);
+                        _db.SaveChanges();
+                    }
+                }
+                var delVariousdocument = deleteOldManagement.VariousDocumentCategories;
+                if (delVariousdocument != null)
+                {
+                    foreach (var item in delVariousdocument)
+                    {
+                        _db.Managements.FirstOrDefault(v => v.AccountId == getAccId).VariousDocumentCategories.Remove(item);
+                        _db.SaveChanges();
+                    }
+                }
+                _db.Managements.Remove(deleteOldManagement);
+                _db.SaveChanges();
+            }
             var getConsultation = _db.TempManagements.Where(v => v.Services == "Consutation");
             var checkConsultation = _db.TempManagements.Any(v => v.Services == "Consutation");
             var getLaboratory = _db.TempManagements.Where(v => v.Services == "Laboratory");

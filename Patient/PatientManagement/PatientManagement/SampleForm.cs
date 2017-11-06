@@ -23,7 +23,6 @@ namespace PatientManagement
             dtgInformation.Visible = false;
         }
 
-
         private void btnNew_Click(object sender, EventArgs e)
         {
            

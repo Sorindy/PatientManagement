@@ -62,8 +62,6 @@
 
         #endregion
 
-        private CrystalDecisions.CrystalReports.Engine.ReportDocument reportDocument1;
-        private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer2;
         private Waiting waiting1;
     }

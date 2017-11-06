@@ -62,17 +62,20 @@ namespace PatientManagement
             }
             var form = (PatientRegistrationForm) Application.OpenForms["PatientRegistrationForm"];
 
-            form.txtID.Text = Patient.Id.ToString( );
-            form.txtName.Text = Patient.Name;
-            form.cmbGender.Text = Patient.Gender;
-            form.dtpDOB.Value = Patient.DOB;
-            form.txtAge.Text = Patient.Age.ToString();
-            form.txtAddress.Text = Patient.Address;
-            form.txtPhone1.Text = Patient.Phone1;
-            form.txtPhone2.Text = Patient.Phone2;
-            form.txtEmail.Text = Patient.Email;
-            form.txtHeight.Text = Patient.Height.ToString();
-            form.txtWeight.Text = Patient.Weight.ToString();
+            if (form != null)
+            {
+                form.txtID.Text = Patient.Id.ToString( );
+                form.txtName.Text = Patient.Name;
+                form.cmbGender.Text = Patient.Gender;
+                form.dtpDOB.Value = Patient.DOB;
+                form.txtAge.Text = Patient.Age.ToString();
+                form.txtAddress.Text = Patient.Address;
+                form.txtPhone1.Text = Patient.Phone1;
+                form.txtPhone2.Text = Patient.Phone2;
+                form.txtEmail.Text = Patient.Email;
+                form.txtHeight.Text = Patient.Height.ToString();
+                form.txtWeight.Text = Patient.Weight.ToString();
+            }
 
             PatientRegistrationForm.Show();
             Refresh();

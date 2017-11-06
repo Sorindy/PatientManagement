@@ -43,6 +43,7 @@
             this.lineShape2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtCategoryId = new System.Windows.Forms.TextBox();
             this.cmbCategory = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtStaffName = new System.Windows.Forms.TextBox();
@@ -98,7 +99,6 @@
             this.t = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.txtCategoryId = new System.Windows.Forms.TextBox();
             this.gbPatient.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.gbActivity.SuspendLayout();
@@ -253,13 +253,20 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Doctor Information";
             // 
+            // txtCategoryId
+            // 
+            this.txtCategoryId.Location = new System.Drawing.Point(106, 77);
+            this.txtCategoryId.Name = "txtCategoryId";
+            this.txtCategoryId.Size = new System.Drawing.Size(8, 20);
+            this.txtCategoryId.TabIndex = 10;
+            this.txtCategoryId.Visible = false;
+            // 
             // cmbCategory
             // 
             this.cmbCategory.FormattingEnabled = true;
             this.cmbCategory.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3"});
+            "General",
+            "Bone"});
             this.cmbCategory.Location = new System.Drawing.Point(106, 76);
             this.cmbCategory.Name = "cmbCategory";
             this.cmbCategory.Size = new System.Drawing.Size(197, 21);
@@ -799,14 +806,6 @@
             this.label11.Size = new System.Drawing.Size(57, 13);
             this.label11.TabIndex = 4;
             this.label11.Text = "Refferer-Id";
-            // 
-            // txtCategoryId
-            // 
-            this.txtCategoryId.Location = new System.Drawing.Point(106, 77);
-            this.txtCategoryId.Name = "txtCategoryId";
-            this.txtCategoryId.Size = new System.Drawing.Size(8, 20);
-            this.txtCategoryId.TabIndex = 10;
-            this.txtCategoryId.Visible = false;
             // 
             // MedicalForm
             // 
