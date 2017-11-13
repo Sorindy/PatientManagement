@@ -1,6 +1,6 @@
 ﻿namespace PatientManagement
 {
-    partial class WorkerForm
+    partial class NewWorker
     {
         /// <summary>
         /// Required designer variable.
@@ -31,11 +31,8 @@
             this.pnlButton = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnClose = new System.Windows.Forms.Button();
-            this.btnAcc = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.pnlShowView = new System.Windows.Forms.Panel();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel24 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel22 = new System.Windows.Forms.TableLayoutPanel();
@@ -75,7 +72,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.pnlButton.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.pnlShowView.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel22.SuspendLayout();
             this.tableLayoutPanel20.SuspendLayout();
@@ -97,17 +93,15 @@
             this.pnlButton.Location = new System.Drawing.Point(824, 0);
             this.pnlButton.Name = "pnlButton";
             this.pnlButton.Size = new System.Drawing.Size(200, 624);
-            this.pnlButton.TabIndex = 0;
+            this.pnlButton.TabIndex = 2;
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.btnClose, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.btnAcc, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.btnDelete, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.btnEdit, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.btnUpdate, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.btnClose, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.btnAdd, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.btnClear, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -126,78 +120,44 @@
             this.btnClose.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnClose.Font = new System.Drawing.Font("Oswald", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.btnClose.Location = new System.Drawing.Point(3, 499);
+            this.btnClose.Location = new System.Drawing.Point(3, 375);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(194, 122);
-            this.btnClose.TabIndex = 15;
+            this.btnClose.Size = new System.Drawing.Size(194, 118);
+            this.btnClose.TabIndex = 13;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            this.btnClose.Leave += new System.EventHandler(this.btnClose_Leave);
             // 
-            // btnAcc
+            // btnAdd
             // 
-            this.btnAcc.BackColor = System.Drawing.Color.Blue;
-            this.btnAcc.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnAcc.Font = new System.Drawing.Font("Oswald", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAcc.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.btnAcc.Location = new System.Drawing.Point(3, 251);
-            this.btnAcc.Name = "btnAcc";
-            this.btnAcc.Size = new System.Drawing.Size(194, 118);
-            this.btnAcc.TabIndex = 13;
-            this.btnAcc.Text = "Create Account";
-            this.btnAcc.UseVisualStyleBackColor = false;
-            this.btnAcc.Click += new System.EventHandler(this.btnAcc_Click);
+            this.btnAdd.BackColor = System.Drawing.Color.Blue;
+            this.btnAdd.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnAdd.Font = new System.Drawing.Font("Oswald", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.btnAdd.Location = new System.Drawing.Point(3, 127);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(194, 118);
+            this.btnAdd.TabIndex = 11;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            this.btnAdd.Leave += new System.EventHandler(this.btnAdd_Leave);
             // 
-            // btnDelete
+            // btnClear
             // 
-            this.btnDelete.BackColor = System.Drawing.Color.Tomato;
-            this.btnDelete.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnDelete.Font = new System.Drawing.Font("Oswald", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.btnDelete.Location = new System.Drawing.Point(3, 375);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(194, 118);
-            this.btnDelete.TabIndex = 14;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.BackColor = System.Drawing.Color.Blue;
-            this.btnEdit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnEdit.Font = new System.Drawing.Font("Oswald", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.btnEdit.Location = new System.Drawing.Point(3, 3);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(194, 118);
-            this.btnEdit.TabIndex = 11;
-            this.btnEdit.Text = "Edit";
-            this.btnEdit.UseVisualStyleBackColor = false;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.BackColor = System.Drawing.Color.Blue;
-            this.btnUpdate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnUpdate.Font = new System.Drawing.Font("Oswald", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.btnUpdate.Location = new System.Drawing.Point(3, 127);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(194, 118);
-            this.btnUpdate.TabIndex = 12;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = false;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-            // 
-            // pnlShowView
-            // 
-            this.pnlShowView.Controls.Add(this.tableLayoutPanel2);
-            this.pnlShowView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlShowView.Location = new System.Drawing.Point(0, 0);
-            this.pnlShowView.Name = "pnlShowView";
-            this.pnlShowView.Size = new System.Drawing.Size(824, 624);
-            this.pnlShowView.TabIndex = 1;
+            this.btnClear.BackColor = System.Drawing.Color.Tomato;
+            this.btnClear.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnClear.Font = new System.Drawing.Font("Oswald", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.btnClear.Location = new System.Drawing.Point(3, 251);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(194, 118);
+            this.btnClear.TabIndex = 12;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            this.btnClear.Leave += new System.EventHandler(this.btnClear_Leave);
             // 
             // tableLayoutPanel2
             // 
@@ -283,6 +243,7 @@
             this.txtPhone1.Name = "txtPhone1";
             this.txtPhone1.Size = new System.Drawing.Size(262, 48);
             this.txtPhone1.TabIndex = 5;
+            this.txtPhone1.Leave += new System.EventHandler(this.txtPhone1_Leave);
             // 
             // tableLayoutPanel20
             // 
@@ -310,6 +271,7 @@
             this.txtSalary.Name = "txtSalary";
             this.txtSalary.Size = new System.Drawing.Size(262, 46);
             this.txtSalary.TabIndex = 10;
+            this.txtSalary.Leave += new System.EventHandler(this.txtSalary_Leave);
             // 
             // tableLayoutPanel18
             // 
@@ -364,6 +326,7 @@
             this.txtPosition.Name = "txtPosition";
             this.txtPosition.Size = new System.Drawing.Size(262, 46);
             this.txtPosition.TabIndex = 9;
+            this.txtPosition.Leave += new System.EventHandler(this.txtPosition_Leave);
             // 
             // tableLayoutPanel14
             // 
@@ -391,7 +354,7 @@
             this.txtAge.Name = "txtAge";
             this.txtAge.ReadOnly = true;
             this.txtAge.Size = new System.Drawing.Size(262, 46);
-            this.txtAge.TabIndex = 23;
+            this.txtAge.TabIndex = 3;
             // 
             // tableLayoutPanel12
             // 
@@ -407,7 +370,7 @@
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel12.Size = new System.Drawing.Size(268, 150);
-            this.tableLayoutPanel12.TabIndex = 20;
+            this.tableLayoutPanel12.TabIndex = 0;
             // 
             // label11
             // 
@@ -433,6 +396,7 @@
             this.dtpSWD.Name = "dtpSWD";
             this.dtpSWD.Size = new System.Drawing.Size(262, 52);
             this.dtpSWD.TabIndex = 8;
+            this.dtpSWD.Leave += new System.EventHandler(this.dtpSWD_Leave);
             // 
             // label13
             // 
@@ -443,7 +407,7 @@
             this.label13.Location = new System.Drawing.Point(400, 465);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(99, 32);
-            this.label13.TabIndex = 23;
+            this.label13.TabIndex = 0;
             this.label13.Text = "Salary";
             // 
             // tableLayoutPanel10
@@ -486,7 +450,6 @@
             this.dtpDOB.Name = "dtpDOB";
             this.dtpDOB.Size = new System.Drawing.Size(262, 52);
             this.dtpDOB.TabIndex = 3;
-            this.dtpDOB.ValueChanged += new System.EventHandler(this.dtpDOB_ValueChanged);
             this.dtpDOB.Leave += new System.EventHandler(this.dtpDOB_Leave);
             // 
             // tableLayoutPanel8
@@ -502,7 +465,7 @@
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel8.Size = new System.Drawing.Size(268, 87);
-            this.tableLayoutPanel8.TabIndex = 16;
+            this.tableLayoutPanel8.TabIndex = 0;
             // 
             // txtEmail
             // 
@@ -515,6 +478,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(262, 46);
             this.txtEmail.TabIndex = 7;
+            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
             // label12
             // 
@@ -525,7 +489,7 @@
             this.label12.Location = new System.Drawing.Point(398, 376);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(103, 25);
-            this.label12.TabIndex = 21;
+            this.label12.TabIndex = 0;
             this.label12.Text = "Position";
             // 
             // label10
@@ -537,7 +501,7 @@
             this.label10.Location = new System.Drawing.Point(402, 216);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(94, 96);
-            this.label10.TabIndex = 25;
+            this.label10.TabIndex = 0;
             this.label10.Text = "Start Work Date";
             // 
             // label6
@@ -549,7 +513,7 @@
             this.label6.Location = new System.Drawing.Point(9, 452);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(99, 58);
-            this.label6.TabIndex = 27;
+            this.label6.TabIndex = 0;
             this.label6.Text = "Address";
             // 
             // tableLayoutPanel6
@@ -565,7 +529,7 @@
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel6.Size = new System.Drawing.Size(268, 87);
-            this.tableLayoutPanel6.TabIndex = 14;
+            this.tableLayoutPanel6.TabIndex = 0;
             // 
             // cboGender
             // 
@@ -581,6 +545,7 @@
             this.cboGender.Name = "cboGender";
             this.cboGender.Size = new System.Drawing.Size(262, 42);
             this.cboGender.TabIndex = 2;
+            this.cboGender.Leave += new System.EventHandler(this.cboGender_Leave);
             // 
             // tableLayoutPanel5
             // 
@@ -595,7 +560,7 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(268, 87);
-            this.tableLayoutPanel5.TabIndex = 13;
+            this.tableLayoutPanel5.TabIndex = 0;
             // 
             // txtPhone2
             // 
@@ -618,7 +583,7 @@
             this.label1.Location = new System.Drawing.Point(13, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(90, 32);
-            this.label1.TabIndex = 8;
+            this.label1.TabIndex = 0;
             this.label1.Text = "Name";
             // 
             // tableLayoutPanel3
@@ -647,6 +612,7 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(262, 46);
             this.txtName.TabIndex = 1;
+            this.txtName.Leave += new System.EventHandler(this.txtName_Leave);
             // 
             // label9
             // 
@@ -657,7 +623,7 @@
             this.label9.Location = new System.Drawing.Point(403, 123);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(92, 32);
-            this.label9.TabIndex = 19;
+            this.label9.TabIndex = 0;
             this.label9.Text = "Email";
             // 
             // label2
@@ -669,7 +635,7 @@
             this.label2.Location = new System.Drawing.Point(7, 125);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(103, 29);
-            this.label2.TabIndex = 10;
+            this.label2.TabIndex = 0;
             this.label2.Text = "Gender";
             // 
             // label3
@@ -681,7 +647,7 @@
             this.label3.Location = new System.Drawing.Point(21, 248);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(74, 32);
-            this.label3.TabIndex = 12;
+            this.label3.TabIndex = 0;
             this.label3.Text = "DOB";
             // 
             // label8
@@ -693,7 +659,7 @@
             this.label8.Location = new System.Drawing.Point(401, 17);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(97, 58);
-            this.label8.TabIndex = 17;
+            this.label8.TabIndex = 0;
             this.label8.Text = "Phone 2";
             // 
             // label5
@@ -705,7 +671,7 @@
             this.label5.Location = new System.Drawing.Point(27, 372);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(62, 32);
-            this.label5.TabIndex = 11;
+            this.label5.TabIndex = 0;
             this.label5.Text = "Age";
             // 
             // label7
@@ -717,24 +683,23 @@
             this.label7.Location = new System.Drawing.Point(10, 547);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(97, 58);
-            this.label7.TabIndex = 15;
+            this.label7.TabIndex = 0;
             this.label7.Text = "Phone 1";
             // 
-            // WorkerForm
+            // NewWorker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(1024, 624);
             this.ControlBox = false;
-            this.Controls.Add(this.pnlShowView);
+            this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.pnlButton);
-            this.Name = "WorkerForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Shown += new System.EventHandler(this.WorkerForm_Shown);
+            this.Name = "NewWorker";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Shown += new System.EventHandler(this.NewWorker_Shown);
             this.pnlButton.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.pnlShowView.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel22.ResumeLayout(false);
@@ -766,49 +731,45 @@
 
         private System.Windows.Forms.Panel pnlButton;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Panel pnlShowView;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Button btnAcc;
-        private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel24;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel22;
+        private System.Windows.Forms.TextBox txtPhone1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel20;
+        private System.Windows.Forms.TextBox txtSalary;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel18;
+        private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel16;
+        private System.Windows.Forms.TextBox txtPosition;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel14;
+        private System.Windows.Forms.TextBox txtAge;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.DateTimePicker dtpSWD;
+        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DateTimePicker dtpDOB;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
+        private System.Windows.Forms.ComboBox cboGender;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.TextBox txtPhone2;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.ComboBox cboGender;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dtpDOB;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtAge;
-        private System.Windows.Forms.TextBox txtAddress;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtPhone1;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtPhone2;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.DateTimePicker dtpSWD;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox txtPosition;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox txtSalary;
-
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label7;
     }
 }

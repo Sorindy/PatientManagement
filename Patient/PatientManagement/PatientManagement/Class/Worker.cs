@@ -36,7 +36,6 @@ namespace PatientManagement.Class
             string phone1, string phone2, string email, string position, int salary, DateTime workdate)
         {
             var update = _db.Workers.Single(v => v.Id == id);
-            update.Id = id;
             update.Name = name;
             update.Gender = gender;
             update.DOB = dob;
@@ -57,62 +56,25 @@ namespace PatientManagement.Class
         {      
             BindingSource bs=new BindingSource();
 
-            try
-            {
                 var showdata = _db.Workers;
                 bs.DataSource = showdata.Select(v => new
                 {
                     v.Id,
                     v.Name,
                     v.Gender,
-                    v.DOB,
                     v.Age,
-                    v.Address,
                     v.Phone1,
-                    v.Phone2,
                     v.Email,
                     v.Position,
-                    v.Salary,
-                    v.StartWorkDate
                 }).ToList();
                 return bs;
-            }
-            catch
-            {
-            }
-            return null;
         }
 
-        public Hospital_Entity_Framework.Worker SelectedChange(int id)
+        public Hospital_Entity_Framework.Worker SelectedWorker(int id)
         {
-            var getWorker = from v in _db.Workers
-                where v.Id == id
-                select new
-                {
-                    v.Id,
-                    v.Name,
-                    v.Gender,
-                    v.DOB,
-                    v.Age,
-                    v.Address,
-                    v.Phone1,
-                    v.Phone2,
-                    v.Email,
-                    v.Position,
-                    v.Salary,
-                    v.StartWorkDate,
-                };
-            foreach (var item in getWorker)
-            {
-                var worker=new Hospital_Entity_Framework.Worker()
-                {
-                    Id = item.Id,Name = item.Name,Gender = item.Gender,DOB = item.DOB,Age = item.Age,
-                    Address = item.Address,Phone1 = item.Phone1,Phone2 = item.Phone2,Email = item.Email,Position = item.Position,
-                    Salary = item.Salary,StartWorkDate = item.StartWorkDate
-                };
-                return worker;
-            }
-            return null;
+            var getWorker = _db.Workers.Single(v => v.Id == id);
+
+            return getWorker;
         }
 
         public object Search(string text)
@@ -121,8 +83,10 @@ namespace PatientManagement.Class
 
             var search = _db.Workers.Where(v => v.Name.Contains(text) ||
                                                 v.Phone1.Contains(text) || 
-                                                v.Phone2.Contains(text));
-            return bs.DataSource = search.ToList();
+                                                v.Phone2.Contains(text)||
+                                                v.Position.Contains(text)||
+                                                v.Gender.Contains(text));
+            return bs.DataSource = search.Select(v=>new{v.Id,v.Name,v.Gender,v.Age,v.Phone1,v.Email,v.Position}).ToList();
         }
 
     }

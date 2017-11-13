@@ -100,7 +100,7 @@ namespace PatientManagement
 
         private void txtStaffID_TextChanged(object sender, EventArgs e)
         {
-            var select = _worker.SelectedChange(Convert.ToInt32(txtStaffID.Text));
+            var select = _worker.SelectedWorker(Convert.ToInt32(txtStaffID.Text));
             txtStaffName.Text = select.Name;
             Refresh();
         }

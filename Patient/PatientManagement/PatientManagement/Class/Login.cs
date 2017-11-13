@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Hospital_Entity_Framework;
 
@@ -40,7 +37,7 @@ namespace PatientManagement.Class
                     var btn=new Button
                     {
                         Font=new Font("Nova Cut",12),
-                        Text = form.Name,
+                        Text = form.Name.Remove(form.Name.Length-7),
                         Height = 50,
                         Width = flpn.Width,
                         BackColor = Color.FromArgb(128,color)
@@ -48,6 +45,7 @@ namespace PatientManagement.Class
 
                     btn.MouseHover += MouseHover;
                     btn.MouseLeave += MouseLeave;
+                    btn.Click += OpenForm;
 
                     flpn.Controls.Add(btn);
                 }
@@ -66,6 +64,42 @@ namespace PatientManagement.Class
             var btn = (Button) sender;
             var color = ColorTranslator.FromHtml("#3399FF");
             btn.BackColor = Color.FromArgb(128,color);
+        }
+
+        private void OpenForm(object sender,EventArgs e)
+        {
+            var btn = (Button) sender;
+            var text = btn.Text;
+
+            var form = (CatelogForm)Application.OpenForms["CatelogForm"];
+            if (form != null)
+            {
+                var gbo = form.pnlFill;
+                gbo.Controls.Clear();
+
+                if (text == "Worker")
+                {
+                    var selectedForm = new WorkerListForm
+                    {
+                        TopLevel = false,
+                        Dock = DockStyle.Fill,
+                        AutoScroll = true
+                    };
+                    gbo.Controls.Add(selectedForm);
+                    selectedForm.Show();
+                }
+                if (text == "Category")
+                {
+                    var selectionForm=new Category
+                    {
+                        TopLevel = false,
+                        Dock = DockStyle.Fill,
+                        AutoScroll =true
+                    };
+                    gbo.Controls.Add(selectionForm);
+                    selectionForm.Show();
+                }
+            }
         }
     }
 }

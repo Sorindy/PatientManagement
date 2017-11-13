@@ -28,7 +28,6 @@ E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.AccountRecoveryForm.resources
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.CategoryForm.resources
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.CheckInForm.resources
-E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.CreateAccountForm.resources
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.DatingListForm.resources
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.LoginForm.resources
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.ManagementForm.resources
@@ -39,7 +38,6 @@ E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.Properties.Resources.resources
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.SampleForm.resources
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.SearchForm.resources
-E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.UpdateAccountForm.resources
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.WaitingListForm.resources
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.WorkerForm.resources
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.csproj.GenerateResource.Cache
@@ -52,3 +50,8 @@ E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.csprojResolveAssemblyReference.cache
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.CatelogForm.resources
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\PictureBoxAbouAmmar.dll
+E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.WorkerListForm.resources
+E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.CreateAccount.resources
+E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.UpdateAccount.resources
+E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.NewWorker.resources
+E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.Category.resources

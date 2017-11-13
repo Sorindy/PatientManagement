@@ -122,6 +122,12 @@
     <Compile Include="AccountRecoveryForm.designer.cs">
       <DependentUpon>AccountRecoveryForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Category.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Category.Designer.cs">
+      <DependentUpon>Category.cs</DependentUpon>
+    </Compile>
     <Compile Include="CategoryForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +156,12 @@
     <Compile Include="Class\MedicalRecord.cs" />
     <Compile Include="Class\Visit.cs" />
     <Compile Include="Class\WaitingList.cs" />
+    <Compile Include="CreateAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateAccount.Designer.cs">
+      <DependentUpon>CreateAccount.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interface\ICategory.cs" />
     <Compile Include="Interface\IEstimate.cs" />
     <Compile Include="Interface\ISample.cs" />
@@ -169,12 +181,6 @@
     <Compile Include="Class\VariousDocumentEstimate.cs" />
     <Compile Include="Class\VariousDocumentSample.cs" />
     <Compile Include="Class\Worker.cs" />
-    <Compile Include="CreateAccountForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CreateAccountForm.designer.cs">
-      <DependentUpon>CreateAccountForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="DatingListForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -205,6 +211,12 @@
     <Compile Include="MedicalHistoryForm.Designer.cs">
       <DependentUpon>MedicalHistoryForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="NewWorker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewWorker.Designer.cs">
+      <DependentUpon>NewWorker.cs</DependentUpon>
+    </Compile>
     <Compile Include="PatientRegistrationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -231,11 +243,11 @@
     <Compile Include="SearchForm.designer.cs">
       <DependentUpon>SearchForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UpdateAccountForm.cs">
+    <Compile Include="UpdateAccount.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UpdateAccountForm.designer.cs">
-      <DependentUpon>UpdateAccountForm.cs</DependentUpon>
+    <Compile Include="UpdateAccount.Designer.cs">
+      <DependentUpon>UpdateAccount.cs</DependentUpon>
     </Compile>
     <Compile Include="Waiting.cs">
       <AutoGen>True</AutoGen>
@@ -252,11 +264,20 @@
     <Compile Include="WorkerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WorkerForm.designer.cs">
+    <Compile Include="WorkerForm.Designer.cs">
       <DependentUpon>WorkerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkerListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkerListForm.Designer.cs">
+      <DependentUpon>WorkerListForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AccountRecoveryForm.resx">
       <DependentUpon>AccountRecoveryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Category.resx">
+      <DependentUpon>Category.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CategoryForm.resx">
       <DependentUpon>CategoryForm.cs</DependentUpon>
@@ -267,8 +288,8 @@
     <EmbeddedResource Include="CheckInForm.resx">
       <DependentUpon>CheckInForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CreateAccountForm.resx">
-      <DependentUpon>CreateAccountForm.cs</DependentUpon>
+    <EmbeddedResource Include="CreateAccount.resx">
+      <DependentUpon>CreateAccount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DatingListForm.resx">
       <DependentUpon>DatingListForm.cs</DependentUpon>
@@ -284,6 +305,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MedicalHistoryForm.resx">
       <DependentUpon>MedicalHistoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewWorker.resx">
+      <DependentUpon>NewWorker.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PatientRegistrationForm.resx">
       <DependentUpon>PatientRegistrationForm.cs</DependentUpon>
@@ -307,8 +331,8 @@
     <EmbeddedResource Include="SearchForm.resx">
       <DependentUpon>SearchForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UpdateAccountForm.resx">
-      <DependentUpon>UpdateAccountForm.cs</DependentUpon>
+    <EmbeddedResource Include="UpdateAccount.resx">
+      <DependentUpon>UpdateAccount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Waiting.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -319,6 +343,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WorkerForm.resx">
       <DependentUpon>WorkerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkerListForm.resx">
+      <DependentUpon>WorkerListForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

@@ -54,12 +54,12 @@ namespace PatientManagement.Class
             return null;
         }
 
-        public int CheckAccount(int id)
+        public int CheckAccount(int workerId)
         {
             int s;
             try
             {
-                var check = _db.Accounts.Single(v => v.WorkerId == id);
+                var check = _db.Accounts.Single(v => v.WorkerId == workerId);
                 s = check.WorkerId;
             }
             catch
