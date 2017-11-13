@@ -5,7 +5,6 @@ using PatientManagement.Class;
 using PatientManagement.Interface;
 using TXTextControl;
 using Patient = Hospital_Entity_Framework.Patient;
-using WaitingList = Hospital_Entity_Framework.WaitingList;
 
 namespace PatientManagement
 {
@@ -16,8 +15,7 @@ namespace PatientManagement
         private readonly Dating _dating=new Dating();
         private IEstimate _estimate;
         public Patient Patient;
-        public WaitingList WaitingList;
-
+        //private  WaitingList _waitingList;
         public MedicalForm()
         {
             InitializeComponent();
@@ -55,15 +53,13 @@ namespace PatientManagement
         private void btnMedicalHistory_Click(object sender, EventArgs e)
         {
             Hide();
-           var medicalhistoryform = new MedicalHistoryForm {Patient = Patient};
+            var medicalhistoryform = new MedicalHistoryForm {Patient = Patient};
             medicalhistoryform.Show();
             Refresh();
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-
-
             if (cmbMedicalRecord.SelectedIndex.Equals(0))
             {
                 _estimate = new ConsultationEstimate();
@@ -185,27 +181,27 @@ namespace PatientManagement
             if (cmbMedicalRecord.SelectedIndex.Equals(0))
             {
                 _sample = new ConsultationSample();
-                txtDescription.Text = _sample.Search_Title(cmbSample.Text);
+                txtDescription.Load(_sample.Search_Title(cmbSample.Text), StreamType.RichTextFormat);
             }
             if (cmbMedicalRecord.SelectedIndex.Equals(1))
             {
                 _sample = new PrescriptionSample();
-                txtDescription.Text = _sample.Search_Title(cmbSample.Text);
+                txtDescription.Load(_sample.Search_Title(cmbSample.Text), StreamType.RichTextFormat);
             }
             if (cmbMedicalRecord.SelectedIndex.Equals(2))
             {
                 _sample = new MedicalImagingSample();
-                txtDescription.Text = _sample.Search_Title(cmbSample.Text);
+                txtDescription.Load(_sample.Search_Title(cmbSample.Text), StreamType.RichTextFormat);
             }
             if (cmbMedicalRecord.SelectedIndex.Equals(3))
             {
                 _sample = new LaboratorySample();
-                txtDescription.Text = _sample.Search_Title(cmbSample.Text);
+                txtDescription.Load(_sample.Search_Title(cmbSample.Text), StreamType.RichTextFormat);
             }
             if (cmbMedicalRecord.SelectedIndex.Equals(4))
             {
                 _sample = new VariousDocumentSample();
-                txtDescription.Text = _sample.Search_Title(cmbSample.Text);
+                txtDescription.Load(_sample.Search_Title(cmbSample.Text), StreamType.RichTextFormat);
             }
             Refresh();
         }

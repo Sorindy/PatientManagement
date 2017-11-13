@@ -52,6 +52,18 @@ namespace PatientManagement.Class
             return _bs;
         }
 
+        public object Show_Category_Name()
+        {
+            var getcategory = _db.LaboratoryCategories.Select(v => v.Name);
+            return getcategory.ToList();
+        }
+
+        public int Search_Id(string name)
+        {
+            var getcategory = _db.LaboratoryCategories.Single(v => v.Name == name);
+            return getcategory.Id;
+        }
+
         public GroupBox ShowCategoryBox(int workerId)
         {
             _workerId = workerId;

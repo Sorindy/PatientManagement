@@ -9,7 +9,7 @@ namespace PatientManagement.Class
         private readonly HospitalDbContext _db = new HospitalDbContext();
         private readonly BindingSource _bs = new BindingSource();
 
-        public BindingSource ShowWaiting(string categoryName)
+        public BindingSource ShowWaiting(string  categoryName)
         {
             var checkConsultationCategory = _db.WaitingLists.Any(v => v.ConsultationCategories.Any(a => a.Name == categoryName));
             var checkLaboratoryCategory = _db.WaitingLists.Any(v => v.LaboratoryCategories.Any(a => a.Name == categoryName));
@@ -24,6 +24,7 @@ namespace PatientManagement.Class
                     select new
                     {
                         b.Id,
+                        b.PatientId,
                         b.Patient.Name,
                         b.Time,
                         b.Status
@@ -37,6 +38,7 @@ namespace PatientManagement.Class
                     select new
                     {
                         b.Id,
+                        b.PatientId,
                         b.Patient.Name,
                         b.Time,
                         b.Status
@@ -50,6 +52,7 @@ namespace PatientManagement.Class
                     select new
                     {
                         b.Id,
+                        b.PatientId,
                         b.Patient.Name,
                         b.Time,
                         b.Status
@@ -63,6 +66,7 @@ namespace PatientManagement.Class
                     select new
                     {
                         b.Id,
+                        b.PatientId,
                         b.Patient.Name,
                         b.Time,
                         b.Status
@@ -76,6 +80,7 @@ namespace PatientManagement.Class
                     select new
                     {
                         b.Id,
+                        b.PatientId,
                         b.Patient.Name,
                         b.Time,
                         b.Status
