@@ -53,3 +53,6 @@ E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.exe.licenses
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.exe
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.pdb
+E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.csprojResolveAssemblyReference.cache
+E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.PatientListForm.resources
+E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.PatientForm.resources
