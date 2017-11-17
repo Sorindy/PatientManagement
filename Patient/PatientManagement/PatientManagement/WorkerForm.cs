@@ -1,14 +1,8 @@
 ﻿using System;
-/*using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;*/
 using System.Windows.Forms;
-using PatientManagement.Class;
+using Hospital_Entity_Framework;
+using Account = PatientManagement.Class.Account;
+using Form = System.Windows.Forms.Form;
 
 namespace PatientManagement
 {
@@ -19,42 +13,10 @@ namespace PatientManagement
             InitializeComponent();
         }
 
-        readonly Worker _worker=new Worker();
-        protected Hospital_Entity_Framework.Worker Wk;
+        internal Worker Worker;
+        private readonly Class.Worker _worker=new Class.Worker();
         private readonly Account _account=new Account();
-
-        private void WorkerForm_Load(object sender, EventArgs e)
-        {            
-                dgvWorker.DataSource = _worker.ShowAll();
-                Clears();
-                btnNew.Hide();
-        }
-
-        private void Clears()
-        {
-            txtName.Text = "";
-            txtAge.Text = "";
-            cboGender.Text = @"Female";
-            txtAddress.Text = "";
-            txtPhone1.Text = "";
-            txtPhone2.Text = "";
-            txtEmail.Text = "";
-            txtSalary.Text = "";
-            txtPosition.Text = "";
-            txtSearch.Text = "";
-            txtSearch.Enabled = false;
-            btnSearch.Visible = true;
-            btnStop.Visible = false;
-            dgvWorker.ReadOnly = true;
-            dgvWorker.Enabled = false;
-            btnEdit.Visible = true;
-            btnUpdate.Visible = false;
-            btnDelete.Enabled = false;
-            dtpSWD.Value=DateTime.Today;
-            dtpDOB.Value=DateTime.Today;
-            btnCreateAcc.Visible = true;
-            btnUpdateAcc.Visible = false;
-        }
+        internal WorkerListForm WorkerListForm;
 
         private void CheckData()
         {
@@ -86,7 +48,7 @@ namespace PatientManagement
                 MessageBox.Show(@"Please fill Position.");
                 txtPosition.Focus();
             }
-            if   (txtSalary.Text.Trim() == "" || txtSalary.Text == null)
+            if (txtSalary.Text.Trim() == "" || txtSalary.Text == null)
             {
                 MessageBox.Show(@"Please fill Salary");
                 txtSalary.Focus();
@@ -101,62 +63,84 @@ namespace PatientManagement
             }
         }
 
-        private void FormRefresh(object sender, EventArgs e)
+        internal void WorkerForm_Shown(object sender, EventArgs e)
         {
-            WorkerForm_Load(this,e);
-            MouseLeave -=FormRefresh;
+            txtName.Text = Worker.Name;
+            txtAge.Text = Worker.Age.ToString();
+            txtAddress.Text = Worker.Address;
+            txtPhone1.Text = Worker.Phone1;
+            txtPhone2.Text = Worker.Phone2;
+            txtEmail.Text = Worker.Email;
+            txtSalary.Text = Worker.Salary.ToString();
+            cboGender.Text = Worker.Gender;
+            dtpDOB.Value = Worker.DOB;
+            txtPosition.Text = Worker.Position;
+            if (Worker.StartWorkDate != null) dtpSWD.Value = (DateTime) Worker.StartWorkDate;
+
+            txtName.Enabled = false;
+            txtAge.Enabled = false;
+            txtAddress.Enabled = false;
+            txtPhone1.Enabled = false;
+            txtPhone2.Enabled = false;
+            txtPosition.Enabled = false;
+            txtSalary.Enabled = false;
+            txtEmail.Enabled = false;
+            cboGender.Enabled = false;
+            dtpDOB.Enabled = false;
+            dtpSWD.Enabled = false;
+
+            btnUpdate.Enabled = false;
+            CheckAccount();
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void btnClose_Click(object sender, EventArgs e)
         {
-            if (dgvWorker.CurrentRow != null)
+            WorkerListForm.dgvListWorker.Columns.RemoveAt(7);
+            WorkerListForm.dgvListWorker.Columns.RemoveAt(7);
+            WorkerListForm.WorkerListForm_Shown(WorkerListForm, new EventArgs());
+            Close();
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            if (btnEdit.Text == @"Edit")
             {
-                _worker.Delete(Convert.ToInt32(dgvWorker.CurrentRow.Cells[0].Value));
-                MouseLeave +=FormRefresh;
+                btnEdit.Text = @"Cancel";
+                btnEdit.Name = @"btnCancel";
+                btnUpdate.Enabled = true;
+                txtName.Enabled = true;
+                txtAge.Enabled = true;
+                txtAddress.Enabled = true;
+                txtPhone1.Enabled = true;
+                txtPhone2.Enabled = true;
+                txtPosition.Enabled = true;
+                txtSalary.Enabled = true;
+                txtEmail.Enabled = true;
+                cboGender.Enabled = true;
+                dtpDOB.Enabled = true;
+                dtpSWD.Enabled = true;
+                btnEdit.Click += btnCancel_Click;
             }
         }
 
-        private void dgvWorker_SelectionChanged(object sender, EventArgs e)
+        private void btnCancel_Click(object sender, EventArgs e)
         {
-            if (dgvWorker.CurrentRow != null)
-            {
-                var getid = Convert.ToInt32(dgvWorker.CurrentRow.Cells[0].Value);
-                Wk = _worker.SelectedChange(getid);
-            }
-
-
-                txtID.Text = Wk.Id.ToString() ;
-                txtName.Text = Wk.Name;
-                cboGender.Text = Wk.Gender;
-                dtpDOB.Value= Wk.DOB;
-                txtAge.Text = Wk.Age.ToString();
-                txtAddress.Text = Wk.Address;
-                txtPhone1.Text = Wk.Phone1;
-                txtPhone2.Text = Wk.Phone2;
-                txtEmail.Text = Wk.Email;
-                txtPosition.Text = Wk.Position;
-                txtSalary.Text = Wk.Salary.ToString();
-                dtpSWD.Value = Wk.StartWorkDate.GetValueOrDefault();
-
-                if (_account.CheckAccount(Convert.ToInt32(txtID.Text)) == Convert.ToInt32(txtID.Text))
-                {
-                    btnUpdateAcc.Visible = true;
-                    btnCreateAcc.Visible = false;
-                }
-                else
-                {
-                    btnUpdateAcc.Visible = false;
-                    btnCreateAcc.Visible = true;
-                }
+            btnEdit.Text = @"Edit";
+            btnEdit.Name = @"btnEdit";
+            btnEdit.Click -= btnCancel_Click;
+            WorkerForm_Shown(this, new EventArgs());
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void btnUpdate_Click(object sender, EventArgs e)
         {
             try
             {
-                _worker.Insert(txtName.Text, cboGender.Text, dtpDOB.Value.Date, Convert.ToInt16(txtAge.Text), txtAddress.Text, txtPhone1.Text,
-                    txtPhone2.Text, txtEmail.Text, txtPosition.Text, Convert.ToInt32(txtSalary.Text), dtpSWD.Value.Date);
-                MouseLeave += FormRefresh;
+                _worker.Update(Worker.Id, txtName.Text, cboGender.Text, dtpDOB.Value, Convert.ToByte(txtAge.Text), txtAddress.Text, txtPhone1.Text,
+                    txtPhone2.Text, txtEmail.Text, txtPosition.Text, Convert.ToInt32(txtSalary.Text), dtpSWD.Value);
+                WorkerListForm.dgvListWorker.Columns.RemoveAt(7);
+                WorkerListForm.dgvListWorker.Columns.RemoveAt(7);
+                WorkerListForm.WorkerListForm_Shown(this, new EventArgs());
+                Close();
             }
             catch
             {
@@ -164,72 +148,67 @@ namespace PatientManagement
             }
         }
 
+        private void dtpDOB_Leave(object sender, EventArgs e)
+        {
+            txtAge.Text = (DateTime.Now.Year - dtpDOB.Value.Year).ToString();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            var showDeleteMsg = MessageBox.Show(@"Are you sure want to delete this?", @"Delete",
+                MessageBoxButtons.YesNo);
+
+            if (showDeleteMsg == DialogResult.Yes)
+            {
+                _worker.Delete(Worker.Id);
+                WorkerListForm.dgvListWorker.Columns.RemoveAt(7);
+                WorkerListForm.dgvListWorker.Columns.RemoveAt(7);
+                WorkerListForm.WorkerListForm_Shown(WorkerListForm, new EventArgs());
+                Close();
+            }
+            if (showDeleteMsg == DialogResult.No)
+            {
+                WorkerForm_Shown(this,new EventArgs());
+            }
+        }
+
+        private void btnAcc_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CheckAccount()
+        {
+            var check= _account.CheckAccount(Worker.Id);
+            if (check == 0)
+            {
+                btnAcc.Text = @"Create Account";
+                btnAcc.Name = @"btnCreate";
+                btnAcc.Click += CreateAccount_Click;
+            }
+            else
+            {
+                btnAcc.Text = @"Update Account";
+                btnAcc.Name = @"btnUpdate";
+                btnAcc.Click += UpdateAccount_Click;
+            }
+        }
+
+        private void CreateAccount_Click(object sender, EventArgs e)
+        {
+            var createform = new CreateAccount {Workers = Worker,WorkerForm = this};
+            createform.ShowDialog();
+        }
+
+        private void UpdateAccount_Click(object sender, EventArgs e)
+        {
+            var updateform=new UpdateAccount{Account = _account.Selection(Worker),WorkerForm = this};
+            updateform.ShowDialog();
+        }
+
         private void dtpDOB_ValueChanged(object sender, EventArgs e)
         {
-            txtAge.Text = (DateTime.Today.Year - dtpDOB.Value.Year).ToString();
+            txtAge.Text = (DateTime.Now.Year - dtpDOB.Value.Year).ToString();
         }
-
-        private void txtSearch_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                dgvWorker.DataSource = _worker.Search(txtSearch.Text);
-                Refresh();
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show(exception.Message);
-            }
-        }
-
-        private void btnStop_Click(object sender, EventArgs e)
-        {
-            WorkerForm_Load(this,e);
-        }
-
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-            txtSearch.Enabled = true;
-            btnStop.Visible = true;
-            btnSearch.Visible = false;
-        }
-
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-            btnDelete.Enabled = true;
-            btnEdit.Visible = false;
-            btnUpdate.Visible = true;
-            dgvWorker.ReadOnly = false;
-            dgvWorker.Enabled = true;
-        }
-
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-                _worker.Update(Convert.ToInt32(txtID.Text),txtName.Text, cboGender.Text, dtpDOB.Value.Date, Convert.ToInt16(txtAge.Text), txtAddress.Text, txtPhone1.Text,
-                    txtPhone2.Text, txtEmail.Text, txtPosition.Text, Convert.ToInt32(txtSalary.Text), dtpSWD.Value.Date);
-            MouseLeave += FormRefresh;
-        }
-
-        private void btnCreateAcc_Click(object sender, EventArgs e)
-        {
-            var formAcc = new CreateAccountForm {Workers = Wk};
-            formAcc.Show();
-            formAcc.WorkerForm = this;
-            Hide();
-
-        }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void btnUpdateAcc_Click(object sender, EventArgs e)
-        {
-            var updateAcc = new UpdateAccountForm {Workers = Wk};
-            updateAcc.Show();
-                updateAcc.WorkerForm = this;
-                Hide();
-        }
-    }       
+    }
 }

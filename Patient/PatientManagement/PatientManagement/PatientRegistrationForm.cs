@@ -7,7 +7,7 @@ namespace PatientManagement
     public partial class PatientRegistrationForm : Form
     {
 
-        private Patient _patient = new Patient();
+        private Class.Patient _patient = new Class.Patient();
         public CheckInForm Checkinkform;
         private MedicalRecord _medicalRecord = new MedicalRecord();
 
@@ -35,7 +35,7 @@ namespace PatientManagement
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-                _patient.Cheack_Control(txtName.Text, cmbGender.Text, txtAddress.Text, txtPhone1.Text, txtWeight.Text, txtHeight.Text);
+                _patient.Check_Control(txtName.Text, cmbGender.Text, txtAddress.Text, txtPhone1.Text, txtWeight.Text, txtHeight.Text);
                 _patient.Insert( txtName.Text, cmbGender.Text, dtpDOB.Value.Date, Convert.ToByte(txtAge.Text), txtAddress.Text, txtPhone1.Text, txtPhone2.Text, txtEmail.Text, Convert.ToInt16(txtWeight.Text), Convert.ToInt16(txtHeight.Text));
               //  _medicalRecord.Insert(_medicalRecord.AutoId(), txtID.Text);
                 Clear_Control();

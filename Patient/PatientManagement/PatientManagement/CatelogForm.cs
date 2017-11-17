@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using PatientManagement.Class;
 using Account = Hospital_Entity_Framework.Account;
@@ -22,11 +16,13 @@ namespace PatientManagement
         private readonly Login _login=new Login();
         internal LoginForm LoginForm;
         internal Account Account;
-
+        
         private void CatelogForm_Shown(object sender, EventArgs e)
         {
             txtUserName.Text = Account.Worker.Name;
-
+            timer1.Enabled = true;
+            timer1_Tick(this,new EventArgs());
+            WindowState=FormWindowState.Maximized;
             pnlLeftFill.Controls.Clear();
             pnlLeftFill.Controls.Add(_login.ButtonToForm(Account));
         }
@@ -54,18 +50,26 @@ namespace PatientManagement
         private void picMazimize_Click(object sender, EventArgs e)
         {
             WindowState=FormWindowState.Maximized;
+            FormBorderStyle=FormBorderStyle.None;
         }
 
         private void pictureBox1_Click_1(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Normal;
+            FormBorderStyle=FormBorderStyle.Sizable;
         }
 
         private void panelLogout_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
             LoginForm.Show();
             LoginForm.Clear();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        
+        {
+            lblDatetime.Text = DateTime.Now.ToLongDateString()+@"   " + DateTime.Now.ToLongTimeString();
         }
     }
 }

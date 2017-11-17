@@ -8,8 +8,8 @@ namespace PatientManagement.Class
 {
     public class Patient
     {
-        private HospitalDbContext _db = new HospitalDbContext();
-        private BindingSource _binding = new BindingSource();
+        private  HospitalDbContext _db = new HospitalDbContext();
+        private  BindingSource _binding = new BindingSource();
 
         public void Insert(string name, string gender, DateTime dob, byte age, string address, string phone1,
             string phone2,
@@ -53,27 +53,23 @@ namespace PatientManagement.Class
         public object Search(string text)
         {
             var getpatient = from v in _db.Patients
-                where v.Name == text || v.Phone1 == text || v.Phone2 == text || v.Email == text
+                             where v.Name.Contains(text) || v.Phone1.Contains(text) || v.Phone2.Contains(text) || v.Email.Contains(text)
                 select new
                 {
                     v.Id,
                     v.Name,
                     v.Gender,
-                    v.DOB,
                     v.Age,
                     v.Address,
                     v.Phone1,
-                    v.Phone2,
                     v.Email,
-                    v.Weight,
-                    v.Height,
                 };
 
             _binding.DataSource = getpatient.ToList();
             return _binding;
         }
 
-        public void Cheack_Control(string name, string gender, string address, string phone1, string weigh,
+        public void Check_Control(string name, string gender, string address, string phone1, string weigh,
             string heigh)
         {
             if (name == "")
@@ -104,42 +100,17 @@ namespace PatientManagement.Class
 
         public Hospital_Entity_Framework.Patient Select(int id)
         {
-            
-                var getpatient = from v in _db.Patients
-                    where v.Id == id
-                    select new
-                    {
-                        v.Id,
-                        v.Name,
-                        v.Gender,
-                        v.DOB,
-                        v.Age,
-                        v.Address,
-                        v.Phone1,
-                        v.Phone2,
-                        v.Email,
-                        v.Weight,
-                        v.Height,
-                    };
-                foreach (var item in getpatient)
-                {
-                    var patient=new Hospital_Entity_Framework.Patient(){
-                        Id = item.Id,
-                        Name = item.Name,
-                        Gender = item.Gender,
-                        DOB = item.DOB,
-                        Age = item.Age,
-                        Address = item.Address,
-                        Phone1 = item.Phone1,
-                        Phone2 = item.Phone2,
-                        Email = item.Email,
-                        Weight = item.Weight,
-                        Height = item.Height,
-                    };
-                    return patient;
-                }
-            
-            return null;
+            var select = _db.Patients.SingleOrDefault(v => v.Id == id);
+            return select;
+        }
+
+        public object ShowAll()
+        {
+            var show = _db.Patients;
+
+            _binding.DataSource = show.Select(v => new {v.Id, v.Name,v.Gender, v.Age, v.Address, v.Phone1, v.Email}).ToList();
+
+            return _binding;
         }
     }
 

@@ -12,7 +12,7 @@ namespace PatientManagement.Class
     {
 
         private readonly HospitalDbContext _db = new HospitalDbContext();
-        private readonly BindingSource _bs = new BindingSource();
+        private BindingSource _bs=new BindingSource();
         private int _workerId;
         public Management Management;
 
@@ -47,7 +47,7 @@ namespace PatientManagement.Class
                 select new
                 {
                     v.Id,
-                    v.Name,
+                    v.Name
                 };
             _bs.DataSource = getcategory.ToList();
             return _bs;

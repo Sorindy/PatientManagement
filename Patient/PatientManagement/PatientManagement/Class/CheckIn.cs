@@ -38,7 +38,7 @@ namespace PatientManagement.Class
   
         public FlowLayoutPanel ShowService()
         {
-            var flpn = new FlowLayoutPanel
+            var flpn = new FlowLayoutPanel()
             {
                 AutoScroll = true,
                 Location = new Point(6, 19),
@@ -53,7 +53,7 @@ namespace PatientManagement.Class
 
             foreach (var item in serviceName)
             {
-                var rdo = new RadioButton { Text = item, Name = item, Size = new Size(120, 17) };
+                var rdo = new RadioButton { Text = item, Name = item, AutoSize = true,Font = new Font("ROLAND",14)};
                 rdo.CheckedChanged += CheckRadioButton_Click;
                 flpn.Controls.Add(rdo);
             }
@@ -106,7 +106,8 @@ namespace PatientManagement.Class
                             Size = new Size(160, 81),
                             Text = item,
                             Name = "Consultation",
-                            BackColor = Color.LimeGreen
+                            BackColor = Color.LimeGreen,
+                            Font = new Font("November",12)
                         };
 
                         flpn.Controls.Add(btn);
@@ -119,7 +120,9 @@ namespace PatientManagement.Class
                             Location = new Point(3, 3),
                             Size = new Size(160, 81),
                             Text = item,
-                            Name = "Consultation"
+                            Name = "Consultation",
+                            BackColor = Color.Khaki,
+                            Font = new Font("November", 12)
                         };
 
                         flpn.Controls.Add(btn);
@@ -141,7 +144,8 @@ namespace PatientManagement.Class
                             Size = new Size(160, 81),
                             Text = item,
                             Name = "Laboratory",
-                            BackColor = Color.LimeGreen
+                            BackColor = Color.LimeGreen,
+                            Font = new Font("November", 12)
                         };
                         flpn.Controls.Add(btn);
                         btn.Click += RemoveService_Click;
@@ -153,7 +157,9 @@ namespace PatientManagement.Class
                             Location = new Point(3, 3),
                             Size = new Size(160, 81),
                             Text = item,
-                            Name = "Laboratory"
+                            Name = "Laboratory",
+                            BackColor = Color.Khaki,
+                            Font = new Font("November", 12)
                         };
                         flpn.Controls.Add(btn);
                         btn.Click += TakeService_Click;
@@ -175,7 +181,8 @@ namespace PatientManagement.Class
                             Size = new Size(160, 81),
                             Text = item,
                             Name = "MedicalImaging",
-                            BackColor = Color.LimeGreen
+                            BackColor = Color.LimeGreen,
+                            Font = new Font("November", 12)
                         };
                         flpn.Controls.Add(btn);
                         btn.Click += RemoveService_Click;
@@ -187,7 +194,9 @@ namespace PatientManagement.Class
                             Location = new Point(3, 3),
                             Size = new Size(160, 81),
                             Text = item,
-                            Name = "MedicalImaging"
+                            Name = "MedicalImaging",
+                            BackColor = Color.Khaki,
+                            Font = new Font("November", 12)
                         };
                         flpn.Controls.Add(btn);
                         btn.Click += TakeService_Click;
@@ -208,7 +217,8 @@ namespace PatientManagement.Class
                             Size = new Size(160, 81),
                             Text = item,
                             Name = "Prescription",
-                            BackColor = Color.LimeGreen
+                            BackColor = Color.LimeGreen,
+                            Font = new Font("November", 12)
                         };
                         flpn.Controls.Add(btn);
                         btn.Click += RemoveService_Click;
@@ -220,7 +230,9 @@ namespace PatientManagement.Class
                             Location = new Point(3, 3),
                             Size = new Size(160, 81),
                             Text = item,
-                            Name = "Prescription"
+                            Name = "Prescription",
+                            BackColor = Color.Khaki,
+                            Font = new Font("November", 12)
                         };
                         flpn.Controls.Add(btn);
 
@@ -243,7 +255,8 @@ namespace PatientManagement.Class
                             Size = new Size(160, 81),
                             Text = item,
                             Name = "VariousDocument",
-                            BackColor = Color.LimeGreen                            
+                            BackColor = Color.LimeGreen,
+                            Font = new Font("November", 12)
                         };
                         flpn.Controls.Add(btn);
                         btn.Click += RemoveService_Click;
@@ -255,7 +268,9 @@ namespace PatientManagement.Class
                             Location = new Point(3, 3),
                             Size = new Size(160, 81),
                             Text = item,
-                            Name = "VariousDocument"
+                            Name = "VariousDocument",
+                            BackColor = Color.Khaki,
+                            Font = new Font("November", 12)
                         };
                         flpn.Controls.Add(btn);
                         btn.Click += TakeService_Click;
@@ -314,7 +329,7 @@ namespace PatientManagement.Class
             }
             CheckVisitCount(patientId);
             var getData = _db.WaitingLists.Single(v => v.PatientId == patientId);
-            var form = (CheckInForm)Application.OpenForms["CheckInForm"];
+            var form = (CheckInsForm)Application.OpenForms["CheckInsForm"];
             if (form != null) form.WaitingList = getData;
             if (form != null)
             {
@@ -351,10 +366,10 @@ namespace PatientManagement.Class
         {
             var text = (RadioButton)sender;
             var service = text.Name;
-            var form = (CheckInForm)Application.OpenForms["CheckInForm"];
+            var form = (CheckInsForm)Application.OpenForms["CheckInsForm"];
             if (form != null)
             {
-                var gbo = form.gboCategory;
+                var gbo = form.pnlSelection;
                 gbo.Controls.Clear();
                 gbo.Controls.Add(ShowServiceCategory(service));
             }
@@ -370,10 +385,10 @@ namespace PatientManagement.Class
             _db.TempWaits.Add(insert);
             _db.SaveChanges();
 
-            var form = (CheckInForm)Application.OpenForms["CheckInForm"];
+            var form = (CheckInsForm)Application.OpenForms["CheckInsForm"];
             if (form != null)
             {
-                var gbo = form.gboCategory;
+                var gbo = form.pnlSelection;
                 gbo.Controls.Clear();
                 gbo.Controls.Add(ShowServiceCategory(getServiceName));
             }
@@ -389,10 +404,10 @@ namespace PatientManagement.Class
             _db.TempWaits.Remove(delete);
             _db.SaveChanges();
 
-            var form = (CheckInForm)Application.OpenForms["CheckInForm"];
+            var form = (CheckInsForm)Application.OpenForms["CheckInsForm"];
             if (form != null)
             {
-                var gbo = form.gboCategory;
+                var gbo = form.pnlSelection;
                 gbo.Controls.Clear();
                 gbo.Controls.Add(ShowServiceCategory(getServiceName));
             }

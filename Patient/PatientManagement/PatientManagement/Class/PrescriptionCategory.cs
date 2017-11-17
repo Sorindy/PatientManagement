@@ -11,7 +11,7 @@ namespace PatientManagement.Class
    public  class PrescriptionCategory: ICategory 
     {
         private readonly HospitalDbContext _db = new HospitalDbContext();
-        private readonly BindingSource _bs = new BindingSource();
+        private BindingSource _bs=new BindingSource();
         private int _workerId=0;
         public Management Management;
 
@@ -42,11 +42,11 @@ namespace PatientManagement.Class
 
         public object Show()
         {
-            var getcategory = from v in _db.PrescriptionCategories 
+            var getcategory = from v in _db.PrescriptionCategories
                 select new
                 {
                     v.Id,
-                    v.Name,
+                    v.Name
                 };
             _bs.DataSource = getcategory.ToList();
             return _bs;
