@@ -43,7 +43,6 @@
             this.lineShape2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtCategoryId = new System.Windows.Forms.TextBox();
             this.cmbCategory = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtStaffName = new System.Windows.Forms.TextBox();
@@ -71,8 +70,6 @@
             this.btnAddDating = new System.Windows.Forms.Button();
             this.dtpDating = new System.Windows.Forms.DateTimePicker();
             this.tmDate = new System.Windows.Forms.Timer(this.components);
-            this.label10 = new System.Windows.Forms.Label();
-            this.cmbSample = new System.Windows.Forms.ComboBox();
             this.gbMedicalItem = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtDescription = new TXTextControl.TextControl();
@@ -93,12 +90,11 @@
             this.pageColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.formatStyleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cmbRefferCategory = new System.Windows.Forms.ComboBox();
+            this.cmbNurseName = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtRefferName = new System.Windows.Forms.TextBox();
-            this.t = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.btnSample = new System.Windows.Forms.Button();
+            this.cmbReferreName = new System.Windows.Forms.ComboBox();
             this.gbPatient.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.gbActivity.SuspendLayout();
@@ -253,14 +249,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Doctor Information";
             // 
-            // txtCategoryId
-            // 
-            this.txtCategoryId.Location = new System.Drawing.Point(106, 77);
-            this.txtCategoryId.Name = "txtCategoryId";
-            this.txtCategoryId.Size = new System.Drawing.Size(8, 20);
-            this.txtCategoryId.TabIndex = 10;
-            this.txtCategoryId.Visible = false;
-            // 
             // cmbCategory
             // 
             this.cmbCategory.FormattingEnabled = true;
@@ -356,7 +344,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(230, 205);
+            this.label9.Location = new System.Drawing.Point(299, 202);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(111, 21);
             this.label9.TabIndex = 16;
@@ -365,7 +353,7 @@
             // txtDescriptioinName
             // 
             this.txtDescriptioinName.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescriptioinName.Location = new System.Drawing.Point(347, 203);
+            this.txtDescriptioinName.Location = new System.Drawing.Point(416, 200);
             this.txtDescriptioinName.Name = "txtDescriptioinName";
             this.txtDescriptioinName.ReadOnly = true;
             this.txtDescriptioinName.Size = new System.Drawing.Size(333, 25);
@@ -538,25 +526,6 @@
             // tmDate
             // 
             this.tmDate.Tick += new System.EventHandler(this.tmDate_Tick);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Modern No. 20", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(687, 210);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(51, 15);
-            this.label10.TabIndex = 49;
-            this.label10.Text = "Sample";
-            // 
-            // cmbSample
-            // 
-            this.cmbSample.FormattingEnabled = true;
-            this.cmbSample.Location = new System.Drawing.Point(744, 208);
-            this.cmbSample.Name = "cmbSample";
-            this.cmbSample.Size = new System.Drawing.Size(197, 21);
-            this.cmbSample.TabIndex = 50;
-            this.cmbSample.SelectedIndexChanged += new System.EventHandler(this.cmbSample_SelectedIndexChanged);
             // 
             // gbMedicalItem
             // 
@@ -733,12 +702,10 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.cmbRefferCategory);
+            this.groupBox2.Controls.Add(this.cmbReferreName);
+            this.groupBox2.Controls.Add(this.cmbNurseName);
             this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.txtRefferName);
-            this.groupBox2.Controls.Add(this.t);
             this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Location = new System.Drawing.Point(625, 64);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(309, 109);
@@ -746,78 +713,69 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Refferer Information";
             // 
-            // cmbRefferCategory
+            // cmbNurseName
             // 
-            this.cmbRefferCategory.FormattingEnabled = true;
-            this.cmbRefferCategory.Items.AddRange(new object[] {
+            this.cmbNurseName.FormattingEnabled = true;
+            this.cmbNurseName.Items.AddRange(new object[] {
             "Bone",
             "General",
             "Blood",
             "General\'s Prescription"});
-            this.cmbRefferCategory.Location = new System.Drawing.Point(117, 76);
-            this.cmbRefferCategory.Name = "cmbRefferCategory";
-            this.cmbRefferCategory.Size = new System.Drawing.Size(186, 21);
-            this.cmbRefferCategory.TabIndex = 9;
-            this.cmbRefferCategory.SelectedIndexChanged += new System.EventHandler(this.cmbRefferCategory_SelectedIndexChanged);
+            this.cmbNurseName.Location = new System.Drawing.Point(117, 62);
+            this.cmbNurseName.Name = "cmbNurseName";
+            this.cmbNurseName.Size = new System.Drawing.Size(186, 21);
+            this.cmbNurseName.TabIndex = 9;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(21, 79);
+            this.label7.Location = new System.Drawing.Point(21, 65);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(90, 13);
+            this.label7.Size = new System.Drawing.Size(66, 13);
             this.label7.TabIndex = 8;
-            this.label7.Text = "Refferer-Category";
-            // 
-            // txtRefferName
-            // 
-            this.txtRefferName.Font = new System.Drawing.Font("Modern No. 20", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRefferName.Location = new System.Drawing.Point(117, 52);
-            this.txtRefferName.Name = "txtRefferName";
-            this.txtRefferName.ReadOnly = true;
-            this.txtRefferName.Size = new System.Drawing.Size(186, 19);
-            this.txtRefferName.TabIndex = 7;
-            this.txtRefferName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // t
-            // 
-            this.t.Font = new System.Drawing.Font("Modern No. 20", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.t.Location = new System.Drawing.Point(117, 26);
-            this.t.Name = "t";
-            this.t.ReadOnly = true;
-            this.t.Size = new System.Drawing.Size(186, 19);
-            this.t.TabIndex = 6;
-            this.t.Text = "1";
-            this.t.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.label7.Text = "Nurse-Name";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(21, 55);
+            this.label8.Location = new System.Drawing.Point(21, 41);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(76, 13);
             this.label8.TabIndex = 5;
             this.label8.Text = "Refferer-Name";
             // 
-            // label11
+            // btnSample
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(21, 29);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(57, 13);
-            this.label11.TabIndex = 4;
-            this.label11.Text = "Refferer-Id";
+            this.btnSample.Location = new System.Drawing.Point(760, 200);
+            this.btnSample.Name = "btnSample";
+            this.btnSample.Size = new System.Drawing.Size(168, 26);
+            this.btnSample.TabIndex = 55;
+            this.btnSample.Text = "Sample";
+            this.btnSample.UseVisualStyleBackColor = true;
+            this.btnSample.Click += new System.EventHandler(this.btnSample_Click);
+            // 
+            // cmbReferreName
+            // 
+            this.cmbReferreName.FormattingEnabled = true;
+            this.cmbReferreName.Items.AddRange(new object[] {
+            "Bone",
+            "General",
+            "Blood",
+            "General\'s Prescription"});
+            this.cmbReferreName.Location = new System.Drawing.Point(117, 38);
+            this.cmbReferreName.Name = "cmbReferreName";
+            this.cmbReferreName.Size = new System.Drawing.Size(186, 21);
+            this.cmbReferreName.TabIndex = 10;
             // 
             // MedicalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1328, 733);
+            this.Controls.Add(this.btnSample);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.gbMedicalItem);
-            this.Controls.Add(this.cmbSample);
-            this.Controls.Add(this.label10);
             this.Controls.Add(this.gbDating);
             this.Controls.Add(this.gbDating_waiting);
             this.Controls.Add(this.gbActivity);
@@ -892,8 +850,6 @@
         private System.Windows.Forms.DateTimePicker dtpDating;
         private System.Windows.Forms.ComboBox cmbCategory;
         private System.Windows.Forms.Timer tmDate;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox cmbSample;
         private System.Windows.Forms.GroupBox gbMedicalItem;
         internal System.Windows.Forms.TextBox txtPatientName;
         internal System.Windows.Forms.TextBox txtPatientID;
@@ -916,12 +872,10 @@
         private System.Windows.Forms.ToolStripMenuItem pageColorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem formatStyleToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ComboBox cmbRefferCategory;
+        private System.Windows.Forms.ComboBox cmbNurseName;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtRefferName;
-        private System.Windows.Forms.TextBox t;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txtCategoryId;
+        private System.Windows.Forms.Button btnSample;
+        private System.Windows.Forms.ComboBox cmbReferreName;
     }
 }

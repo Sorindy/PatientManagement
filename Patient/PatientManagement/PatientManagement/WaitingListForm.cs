@@ -7,8 +7,8 @@ namespace PatientManagement
     public partial class WaitingListForm : Form
     {
 
-        private readonly WaitingList _waitingList = new WaitingList();
-        public MedicalForm MedicalForm;
+        private readonly  WaitingList _waitingList = new WaitingList() ;
+        public  MedicalForm MedicalForm;
        
         public string GetStaffCategory;
 
@@ -21,9 +21,11 @@ namespace PatientManagement
         {
             if (dgvWaiting.CurrentRow != null)
             {
-                
-               
+                MedicalForm.txtPatientID.Text  = dgvWaiting.CurrentRow.Cells[1].Value.ToString();
+                MedicalForm.txtPatientName.Text = dgvWaiting.CurrentRow.Cells[2].Value.ToString();
+                MedicalForm.Show();
             }
+            Hide();
         }
 
         private void btnClose_Click(object sender, EventArgs e)

@@ -16,10 +16,11 @@ namespace PatientManagement.Class
         private HospitalDbContext _db = new HospitalDbContext();
         private BindingSource _bs = new BindingSource();
         
-        public void Insert(int categoryid,int workerid,DateTime date,string description)
+        public void Insert(int patientid,int categoryid,int workerid,DateTime date,string description)
         {
             var insert = new Hospital_Entity_Framework.PrescriptionEstimate() 
             {
+                PatientId=patientid,
                 CategoryId = categoryid,
                 WorkerId = workerid,
                 Date = date,

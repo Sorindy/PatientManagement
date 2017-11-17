@@ -4,10 +4,10 @@ using Hospital_Entity_Framework;
 
 namespace PatientManagement.Class
 {
-    class Visit
+   public class Visit
     {
-        private HospitalDbContext _db = new HospitalDbContext();
-        private BindingSource _bs = new BindingSource();
+        private readonly HospitalDbContext _db = new HospitalDbContext();
+        private readonly  BindingSource _bs = new BindingSource();
 
         public object ShowConsultationVisitEstimate(int patientid)
         {
@@ -16,6 +16,7 @@ namespace PatientManagement.Class
             _bs.DataSource = getestimate.Select(n=>new{n.Id,n.ConsultationCategory.Name,n.Date,n.Description}).ToList();
             return _bs ;
         }
+
         public object ShowLaboratoryVisitEstimate(int patientid)
         {
             var getestimate =
@@ -23,6 +24,7 @@ namespace PatientManagement.Class
             _bs.DataSource = getestimate.Select(n => new { n.Id, n.LaboratoryCategory.Name, n.Date, n.Description }).ToList();
             return _bs;
         }
+
         public object ShowMedicalImagingVisitEstimate(int patientid)
         {
             var getestimate =
@@ -30,6 +32,7 @@ namespace PatientManagement.Class
             _bs.DataSource = getestimate.Select(n => new { n.Id, n.MedicalImagingCategory.Name, n.Date, n.Description }).ToList();
             return _bs;
         }
+
         public object ShowPrescriptionVisitEstimate(int patientid)
         {
             var getestimate =
@@ -37,6 +40,7 @@ namespace PatientManagement.Class
             _bs.DataSource = getestimate.Select(n => new { n.Id, n.PrescriptionCategory.Name, n.Date, n.Description }).ToList();
             return _bs;
         }
+
         public object ShowVariousDocumentVisitEstimate(int patientid)
         {
             var getestimate =

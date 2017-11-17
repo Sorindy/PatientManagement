@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Linq;
 using System.Windows.Forms;
 using PatientManagement.Class;
-using Patient = Hospital_Entity_Framework.Patient;
+using TXTextControl;
+using patient = Hospital_Entity_Framework.Patient ;
 
 namespace PatientManagement
 {
@@ -10,19 +10,22 @@ namespace PatientManagement
     {
 
         private readonly MedicalHistory _medicalHistory = new MedicalHistory();
-        public Patient Patient;
+        public patient Patient;
         private readonly Visit _visit=new Visit();
+        public MedicalForm MedicalForm ;
 
         public MedicalHistoryForm()
         {
             InitializeComponent();
         }
 
+        public string  PatientId;
+        public string  PatientName;
+
         private void btnClose_Click(object sender, EventArgs e)
         {
             Hide();
-            var mediccalform = new MedicalForm();
-            mediccalform.Show();
+            MedicalForm.Show();
             Refresh();
         }
 
@@ -30,11 +33,19 @@ namespace PatientManagement
         {
             tmTime.Start();
             dtgInformation.Visible = false;
-            txtDescription.Text = _medicalHistory.Show_medicalhistory(Patient.Id).Description;
-            btnSubmit.Visible = false;
-            btnUpdate.Visible = true;
-            txtPatientID.Text =Patient.Id.ToString("0000");
-            txtPatientName.Text = Patient.Name;
+            txtPatientID.Text = PatientId;
+            txtPatientName.Text = PatientName;
+            try
+            {
+                txtDescription.Load("D:/PatientManagement/Patient/Hospital Entity Framework/RTF/MedicalHistory/" + txtPatientID.Text + txtPatientName.Text, StreamType.RichTextFormat);
+                btnSubmit.Visible = false;
+                btnUpdate.Visible = true;
+            }
+            catch
+            {
+                btnSubmit.Visible = true;
+                btnUpdate.Visible = false;
+            }
             Refresh();
         }
 
@@ -55,28 +66,18 @@ namespace PatientManagement
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            _medicalHistory.Insert(Patient.Id, txtDescription.Text);
-
+            _medicalHistory.Insert(Convert.ToInt32(txtPatientID.Text) ,"D:/PatientManagement/Patient/Hospital Entity Framework/RTF/MedicalHistory/"+txtPatientID.Text +txtPatientName.Text );
+            txtDescription.Save("D:/PatientManagement/Patient/Hospital Entity Framework/RTF/MedicalHistory/" + txtPatientID.Text + txtPatientName.Text, StreamType.RichTextFormat);
+            btnSubmit.Visible = false;
+            btnUpdate.Visible = true;
             Refresh();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            _medicalHistory.Update(Convert.ToInt32(txtMedicalId.Text), txtDescription.Text);
+            _medicalHistory.Update(Convert.ToInt32(txtMedicalId.Text), "D:/PatientManagement/Patient/Hospital Entity Framework/RTF/MedicalHistory/" + txtPatientID.Text + txtPatientName.Text);
+            txtDescription.Save("D:/PatientManagement/Patient/Hospital Entity Framework/RTF/MedicalHistory/" + txtPatientID.Text + txtPatientName.Text, StreamType.RichTextFormat);               
             Refresh();
-        }
-
-        private void txtPatientID_TextChanged(object sender, EventArgs e)
-        {
-
-            _medicalHistory.Update(Patient.MedicalHistories.Select(v=>v.Id).First(),txtDescription.Text);
-
-            Refresh();
-        }
-
-        private void txtStaffName_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void cmbMedicalRecord_SelectedIndexChanged(object sender, EventArgs e)
@@ -84,7 +85,7 @@ namespace PatientManagement
             if (cmbMedicalRecord.SelectedIndex.Equals(0))
             {
 
-                dtgInformation.DataSource = _visit.ShowConsultationVisitEstimate(Patient.Id);
+                dtgInformation.DataSource = _visit.ShowConsultationVisitEstimate(Convert.ToInt32(txtPatientID.Text ));
                 dtgInformation.Visible = true;
                 txtDescription.Visible = false;
             }
@@ -100,7 +101,6 @@ namespace PatientManagement
             {
 
                 dtgInformation.DataSource = _visit.ShowMedicalImagingVisitEstimate(Patient.Id);
-
                 dtgInformation.Visible = true;
                 txtDescription.Visible = false;
             }
@@ -108,13 +108,11 @@ namespace PatientManagement
             {
 
                 dtgInformation.DataSource = _visit.ShowLaboratoryVisitEstimate(Patient.Id);
-
                 dtgInformation.Visible = true;
                 txtDescription.Visible = false;
             }
             if (cmbMedicalRecord.SelectedIndex.Equals(4))
             {
-
                 dtgInformation.DataSource = _visit.ShowVariousDocumentVisitEstimate(Patient.Id);
                 dtgInformation.Visible = true;
                 txtDescription.Visible = false;

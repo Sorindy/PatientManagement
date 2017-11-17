@@ -345,7 +345,6 @@
             this.txtStaffName.Size = new System.Drawing.Size(197, 19);
             this.txtStaffName.TabIndex = 7;
             this.txtStaffName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtStaffName.TextChanged += new System.EventHandler(this.txtStaffName_TextChanged);
             // 
             // txtStaffID
             // 
