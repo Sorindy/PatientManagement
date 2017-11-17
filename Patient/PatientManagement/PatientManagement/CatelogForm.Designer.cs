@@ -168,7 +168,7 @@
             this.tblpanelPicture.ColumnCount = 3;
             this.tblpanelPicture.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.46597F));
             this.tblpanelPicture.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 78.53403F));
-            this.tblpanelPicture.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
+            this.tblpanelPicture.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 43F));
             this.tblpanelPicture.Controls.Add(this.صورة_دائرة1, 1, 0);
             this.tblpanelPicture.Controls.Add(this.panelLogout, 2, 0);
             this.tblpanelPicture.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -184,7 +184,7 @@
             this.صورة_دائرة1.BackColor = System.Drawing.Color.DarkGray;
             this.صورة_دائرة1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.صورة_دائرة1.Image = ((System.Drawing.Image)(resources.GetObject("صورة_دائرة1.Image")));
-            this.صورة_دائرة1.Location = new System.Drawing.Point(39, 3);
+            this.صورة_دائرة1.Location = new System.Drawing.Point(38, 3);
             this.صورة_دائرة1.Name = "صورة_دائرة1";
             this.صورة_دائرة1.Size = new System.Drawing.Size(125, 95);
             this.صورة_دائرة1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -196,9 +196,9 @@
             this.panelLogout.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelLogout.BackgroundImage")));
             this.panelLogout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelLogout.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelLogout.Location = new System.Drawing.Point(170, 3);
+            this.panelLogout.Location = new System.Drawing.Point(169, 3);
             this.panelLogout.Name = "panelLogout";
-            this.panelLogout.Size = new System.Drawing.Size(37, 32);
+            this.panelLogout.Size = new System.Drawing.Size(38, 32);
             this.panelLogout.TabIndex = 1;
             this.panelLogout.Click += new System.EventHandler(this.panelLogout_Click);
             // 
@@ -307,13 +307,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1280, 768);
+            this.ControlBox = false;
             this.Controls.Add(this.pnlFill);
             this.Controls.Add(this.pnlTop);
             this.Controls.Add(this.pnlMainLeft);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CatelogForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CatelogForm";
             this.Shown += new System.EventHandler(this.CatelogForm_Shown);
             this.pnlMainLeft.ResumeLayout(false);
             this.pnlLeftbuttom.ResumeLayout(false);

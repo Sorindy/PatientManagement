@@ -160,6 +160,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(200, 49);
             this.tableLayoutPanel3.TabIndex = 0;
+            this.tableLayoutPanel3.Click += new System.EventHandler(this.tableLayoutPanel3_Click);
             // 
             // lblNew
             // 
@@ -172,6 +173,7 @@
             this.lblNew.Size = new System.Drawing.Size(127, 23);
             this.lblNew.TabIndex = 1;
             this.lblNew.Text = "New Patient";
+            this.lblNew.Click += new System.EventHandler(this.lblNew_Click);
             // 
             // pictureBox1
             // 
@@ -183,6 +185,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // lblPatient
             // 

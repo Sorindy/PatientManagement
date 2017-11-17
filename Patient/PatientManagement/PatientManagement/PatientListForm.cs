@@ -65,5 +65,23 @@ namespace PatientManagement
                 }
             }
         }
+
+        private void lblNew_Click(object sender, EventArgs e)
+        {
+            var form = new NewPatient {PatientListForm = this};
+            form.ShowDialog();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            var form = new NewPatient { PatientListForm = this };
+            form.ShowDialog();
+        }
+
+        private void tableLayoutPanel3_Click(object sender, EventArgs e)
+        {
+            var form = new NewPatient { PatientListForm = this };
+            form.ShowDialog();
+        }
     }
 }

@@ -134,6 +134,12 @@
     <Compile Include="CatelogForm.Designer.cs">
       <DependentUpon>CatelogForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CheckInsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CheckInsForm.Designer.cs">
+      <DependentUpon>CheckInsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CheckInForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -205,6 +211,12 @@
     <Compile Include="MedicalHistoryForm.Designer.cs">
       <DependentUpon>MedicalHistoryForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="NewPatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewPatient.Designer.cs">
+      <DependentUpon>NewPatient.cs</DependentUpon>
+    </Compile>
     <Compile Include="NewWorker.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -242,6 +254,12 @@
     </Compile>
     <Compile Include="SampleForm.designer.cs">
       <DependentUpon>SampleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Search.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Search.Designer.cs">
+      <DependentUpon>Search.cs</DependentUpon>
     </Compile>
     <Compile Include="SearchForm.cs">
       <SubType>Form</SubType>
@@ -288,6 +306,9 @@
     <EmbeddedResource Include="CatelogForm.resx">
       <DependentUpon>CatelogForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CheckInsForm.resx">
+      <DependentUpon>CheckInsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CheckInForm.resx">
       <DependentUpon>CheckInForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -308,6 +329,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MedicalHistoryForm.resx">
       <DependentUpon>MedicalHistoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewPatient.resx">
+      <DependentUpon>NewPatient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewWorker.resx">
       <DependentUpon>NewWorker.cs</DependentUpon>
@@ -336,6 +360,9 @@
     </Compile>
     <EmbeddedResource Include="SampleForm.resx">
       <DependentUpon>SampleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Search.resx">
+      <DependentUpon>Search.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SearchForm.resx">
       <DependentUpon>SearchForm.cs</DependentUpon>

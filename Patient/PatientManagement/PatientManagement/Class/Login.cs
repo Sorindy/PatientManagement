@@ -110,6 +110,17 @@ namespace PatientManagement.Class
                     gbo.Controls.Add(selectionForm);
                     selectionForm.Show();
                 }
+                if (text == "CheckIn")
+                {
+                    var selectionForm=new CheckInsForm
+                    {
+                        TopLevel = false,
+                        Dock = DockStyle.Fill,
+                        AutoScroll = true
+                    };
+                    gbo.Controls.Add(selectionForm);
+                    selectionForm.Show();
+                }
             }
         }
     }

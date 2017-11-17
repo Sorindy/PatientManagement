@@ -239,8 +239,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txtCategoryId);
             this.groupBox1.Controls.Add(this.cmbCategory);
+            this.groupBox1.Controls.Add(this.txtCategoryId);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.txtStaffName);
             this.groupBox1.Controls.Add(this.txtStaffID);
@@ -266,8 +266,9 @@
             this.cmbCategory.FormattingEnabled = true;
             this.cmbCategory.Items.AddRange(new object[] {
             "General",
-            "Bone"});
-            this.cmbCategory.Location = new System.Drawing.Point(106, 76);
+            "Bone",
+            "Nose"});
+            this.cmbCategory.Location = new System.Drawing.Point(106, 77);
             this.cmbCategory.Name = "cmbCategory";
             this.cmbCategory.Size = new System.Drawing.Size(197, 21);
             this.cmbCategory.TabIndex = 9;
