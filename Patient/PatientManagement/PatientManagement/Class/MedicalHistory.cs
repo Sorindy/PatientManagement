@@ -1,14 +1,14 @@
 ﻿using System.Data.Entity.Migrations;
 using Hospital_Entity_Framework;
 using System.Linq;
-//using System.Windows.Forms;
 
 namespace PatientManagement.Class
 {
    public class MedicalHistory
     {
-        private HospitalDbContext _db = new HospitalDbContext();
-        private Hospital_Entity_Framework.MedicalHistory  _medicalHistory   =new Hospital_Entity_Framework.MedicalHistory();
+      
+       private readonly  HospitalDbContext _db = new HospitalDbContext();
+       private readonly  Hospital_Entity_Framework.MedicalHistory  _medicalHistory   =new Hospital_Entity_Framework.MedicalHistory();
  
         public void Insert(int patientid,string description)
         {

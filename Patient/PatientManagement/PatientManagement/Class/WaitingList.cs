@@ -4,10 +4,11 @@ using Hospital_Entity_Framework;
 
 namespace PatientManagement.Class
 {
-    class WaitingList
+   public class WaitingList
     {
         private readonly HospitalDbContext _db = new HospitalDbContext();
         private readonly BindingSource _bs = new BindingSource();
+        public Hospital_Entity_Framework.Patient Patient;
 
         public BindingSource ShowWaiting(string  categoryName)
         {

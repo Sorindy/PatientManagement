@@ -8,8 +8,8 @@ namespace PatientManagement.Class
 {
    public class Dating
     {
-        private HospitalDbContext _db = new HospitalDbContext();
-        private BindingSource _bs = new BindingSource();
+        private readonly HospitalDbContext _db = new HospitalDbContext();
+        private readonly  BindingSource _bs = new BindingSource();
 
         public void Insert(int patientid,int workerid, DateTime date)
         {
