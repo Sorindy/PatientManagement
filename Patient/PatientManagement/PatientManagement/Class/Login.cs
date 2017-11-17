@@ -121,6 +121,17 @@ namespace PatientManagement.Class
                     gbo.Controls.Add(selectionForm);
                     selectionForm.Show();
                 }
+                if (text == "Sample")
+                {
+                    var selectionForm = new SamplesForm()
+                    {
+                        TopLevel = false,
+                        Dock = DockStyle.Fill,
+                        AutoScroll = true
+                    };
+                    gbo.Controls.Add(selectionForm);
+                    selectionForm.Show();
+                }
             }
         }
     }

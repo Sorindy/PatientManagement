@@ -39,6 +39,7 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.dtgInformation = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtCategoryId = new System.Windows.Forms.TextBox();
             this.cmbCategory = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtTitle = new System.Windows.Forms.TextBox();
@@ -65,7 +66,6 @@
             this.tabToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pageColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.formatStyleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.txtCategoryId = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgInformation)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -195,6 +195,13 @@
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Sample";
+            // 
+            // txtCategoryId
+            // 
+            this.txtCategoryId.Location = new System.Drawing.Point(90, 47);
+            this.txtCategoryId.Name = "txtCategoryId";
+            this.txtCategoryId.Size = new System.Drawing.Size(14, 20);
+            this.txtCategoryId.TabIndex = 7;
             // 
             // cmbCategory
             // 
@@ -435,13 +442,6 @@
             this.formatStyleToolStripMenuItem.Size = new System.Drawing.Size(85, 20);
             this.formatStyleToolStripMenuItem.Text = "Format Style";
             this.formatStyleToolStripMenuItem.Click += new System.EventHandler(this.formatStyleToolStripMenuItem_Click);
-            // 
-            // txtCategoryId
-            // 
-            this.txtCategoryId.Location = new System.Drawing.Point(90, 47);
-            this.txtCategoryId.Name = "txtCategoryId";
-            this.txtCategoryId.Size = new System.Drawing.Size(14, 20);
-            this.txtCategoryId.TabIndex = 7;
             // 
             // SampleForm
             // 
