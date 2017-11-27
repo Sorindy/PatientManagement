@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="9d060aadf9904b0ebf9fadcdf3fab7fd" Name="Diagram1" ZoomLevel="13">
+      <Diagram DiagramId="9d060aadf9904b0ebf9fadcdf3fab7fd" Name="Diagram1" ZoomLevel="108">
         <EntityTypeShape EntityType="HospitalsModel.Account" Width="1.5" PointX="3" PointY="17.125" IsExpanded="true" />
         <EntityTypeShape EntityType="HospitalsModel.ConsultationCategory" Width="1.5" PointX="0.75" PointY="11.125" IsExpanded="true" />
         <EntityTypeShape EntityType="HospitalsModel.ConsultationEstimate" Width="1.5" PointX="3" PointY="12.5" IsExpanded="true" />
@@ -85,6 +85,7 @@
         <AssociationConnector Association="HospitalsModel.WaitingMedicalImaging" ManuallyRouted="false" />
         <AssociationConnector Association="HospitalsModel.WaitingPrescription" ManuallyRouted="false" />
         <AssociationConnector Association="HospitalsModel.WaitingVariousDocument" ManuallyRouted="false" />
+        <AssociationConnector Association="HospitalsModel.FK_Account_Worker" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

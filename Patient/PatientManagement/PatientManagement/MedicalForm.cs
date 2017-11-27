@@ -67,7 +67,7 @@ namespace PatientManagement
                 _estimate = new ConsultationEstimate();
                 _category = new ConsultationCategory();
                 txtDescription.Save("D:/PatientManagement/Patient/Hospital Entity Framework/RTF/ConsultationEstimate/" + txtPatientID.Text + txtPatientName.Text + DateTime.Today.Day + DateTime.Today.Month + DateTime.Today.Year, StreamType.RichTextFormat);
-                _estimate.Insert(Convert.ToInt32(txtPatientID.Text), _category.Search_Id(cmbCategory.Text), Convert.ToInt32(txtStaffID.Text), DateTime.Now, "D:/PatientManagement/Patient/Hospital Entity Framework/RTF/ConsultationEstimate/" + txtPatientID.Text + txtPatientName.Text + DateTime.Today.Day+DateTime.Today.Month+DateTime.Today.Year );
+               // _estimate.Insert(Convert.ToInt32(txtPatientID.Text), _category.Search_Id(cmbCategory.Text), Convert.ToInt32(txtStaffID.Text), DateTime.Now, "D:/PatientManagement/Patient/Hospital Entity Framework/RTF/ConsultationEstimate/" + txtPatientID.Text + txtPatientName.Text + DateTime.Today.Day+DateTime.Today.Month+DateTime.Today.Year );
 
             }
             if (cmbMedicalRecord.SelectedIndex.Equals(1))

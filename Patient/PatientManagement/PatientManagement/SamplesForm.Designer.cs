@@ -28,41 +28,64 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SamplesForm));
             this.pnlTitle = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cboService = new System.Windows.Forms.ComboBox();
+            this.cboCategory = new System.Windows.Forms.ComboBox();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.cboTitle = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.picboxNew = new System.Windows.Forms.PictureBox();
             this.pnlButton = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.pnlHide = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.picboxHide = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.pnlShowDoc = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.picboxHide = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.picboxNew = new System.Windows.Forms.PictureBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtDescription = new TXTextControl.TextControl();
+            this.buttonBar1 = new TXTextControl.ButtonBar();
+            this.rulerBar2 = new TXTextControl.RulerBar();
+            this.statusBar1 = new TXTextControl.StatusBar();
+            this.rulerBar1 = new TXTextControl.RulerBar();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fontToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.textColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.foreColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.selectForeColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.frameFillColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.imageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pageColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.formatStyleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.timerpnlButton = new System.Windows.Forms.Timer(this.components);
             this.pnlTitle.SuspendLayout();
-            this.pnlButton.SuspendLayout();
-            this.pnlHide.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picboxNew)).BeginInit();
+            this.pnlButton.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.pnlHide.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picboxHide)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picboxNew)).BeginInit();
+            this.pnlShowDoc.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlTitle
@@ -74,48 +97,6 @@
             this.pnlTitle.Name = "pnlTitle";
             this.pnlTitle.Size = new System.Drawing.Size(1029, 66);
             this.pnlTitle.TabIndex = 0;
-            // 
-            // pnlButton
-            // 
-            this.pnlButton.Controls.Add(this.tableLayoutPanel2);
-            this.pnlButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlButton.Location = new System.Drawing.Point(829, 66);
-            this.pnlButton.Name = "pnlButton";
-            this.pnlButton.Size = new System.Drawing.Size(200, 575);
-            this.pnlButton.TabIndex = 1;
-            // 
-            // pnlHide
-            // 
-            this.pnlHide.Controls.Add(this.tableLayoutPanel6);
-            this.pnlHide.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlHide.Location = new System.Drawing.Point(798, 66);
-            this.pnlHide.Name = "pnlHide";
-            this.pnlHide.Size = new System.Drawing.Size(31, 575);
-            this.pnlHide.TabIndex = 2;
-            // 
-            // panel4
-            // 
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(0, 612);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(798, 29);
-            this.panel4.TabIndex = 3;
-            // 
-            // panel5
-            // 
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel5.Location = new System.Drawing.Point(0, 66);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(21, 546);
-            this.panel5.TabIndex = 4;
-            // 
-            // pnlShowDoc
-            // 
-            this.pnlShowDoc.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlShowDoc.Location = new System.Drawing.Point(21, 66);
-            this.pnlShowDoc.Name = "pnlShowDoc";
-            this.pnlShowDoc.Size = new System.Drawing.Size(777, 546);
-            this.pnlShowDoc.TabIndex = 5;
             // 
             // tableLayoutPanel1
             // 
@@ -132,28 +113,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1029, 66);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 90.5F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.5F));
-            this.tableLayoutPanel2.Controls.Add(this.button1, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.button2, 0, 3);
-            this.tableLayoutPanel2.Controls.Add(this.button3, 0, 5);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 7;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 101F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 98F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 98F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(200, 575);
-            this.tableLayoutPanel2.TabIndex = 0;
-            // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 2;
@@ -161,8 +120,8 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74.6063F));
             this.tableLayoutPanel3.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.label2, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.comboBox1, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.comboBox2, 1, 1);
+            this.tableLayoutPanel3.Controls.Add(this.cboService, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.cboCategory, 1, 1);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -172,13 +131,67 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(508, 60);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Modern No. 20", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(14, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(99, 29);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Service";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Modern No. 20", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(13, 32);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(102, 25);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Category";
+            // 
+            // cboService
+            // 
+            this.cboService.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.cboService.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cboService.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboService.Font = new System.Drawing.Font("Oswald", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboService.FormattingEnabled = true;
+            this.cboService.Items.AddRange(new object[] {
+            "Consultation",
+            "Laboratory",
+            "Medical Imaging",
+            "Prescription",
+            "Various Document"});
+            this.cboService.Location = new System.Drawing.Point(131, 3);
+            this.cboService.Name = "cboService";
+            this.cboService.Size = new System.Drawing.Size(374, 29);
+            this.cboService.TabIndex = 2;
+            this.cboService.SelectedIndexChanged += new System.EventHandler(this.cboService_SelectedIndexChanged);
+            // 
+            // cboCategory
+            // 
+            this.cboCategory.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.cboCategory.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cboCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboCategory.Font = new System.Drawing.Font("Oswald", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboCategory.FormattingEnabled = true;
+            this.cboCategory.Location = new System.Drawing.Point(131, 33);
+            this.cboCategory.Name = "cboCategory";
+            this.cboCategory.Size = new System.Drawing.Size(374, 25);
+            this.cboCategory.TabIndex = 3;
+            this.cboCategory.SelectedIndexChanged += new System.EventHandler(this.cboCategory_SelectedIndexChanged);
+            // 
             // tableLayoutPanel4
             // 
             this.tableLayoutPanel4.ColumnCount = 4;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.7094F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 73.2906F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 65F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 18F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 28F));
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel5, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.label3, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.picboxNew, 2, 0);
@@ -194,16 +207,131 @@
             // 
             this.tableLayoutPanel5.ColumnCount = 1;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Controls.Add(this.comboBox3, 0, 1);
+            this.tableLayoutPanel5.Controls.Add(this.cboTitle, 0, 1);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(116, 3);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(114, 3);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 3;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.77778F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 82.22222F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(306, 54);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(298, 54);
             this.tableLayoutPanel5.TabIndex = 0;
+            // 
+            // cboTitle
+            // 
+            this.cboTitle.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.cboTitle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cboTitle.Font = new System.Drawing.Font("Oswald", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboTitle.FormattingEnabled = true;
+            this.cboTitle.Location = new System.Drawing.Point(3, 11);
+            this.cboTitle.Name = "cboTitle";
+            this.cboTitle.Size = new System.Drawing.Size(292, 34);
+            this.cboTitle.TabIndex = 0;
+            this.cboTitle.SelectedIndexChanged += new System.EventHandler(this.cboTitle_SelectedIndexChanged);
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Modern No. 20", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(11, 12);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(88, 36);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Title";
+            // 
+            // picboxNew
+            // 
+            this.picboxNew.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.picboxNew.Image = ((System.Drawing.Image)(resources.GetObject("picboxNew.Image")));
+            this.picboxNew.Location = new System.Drawing.Point(418, 3);
+            this.picboxNew.Name = "picboxNew";
+            this.picboxNew.Size = new System.Drawing.Size(59, 54);
+            this.picboxNew.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picboxNew.TabIndex = 2;
+            this.picboxNew.TabStop = false;
+            this.picboxNew.Click += new System.EventHandler(this.picboxNew_Click);
+            // 
+            // pnlButton
+            // 
+            this.pnlButton.BackColor = System.Drawing.Color.DodgerBlue;
+            this.pnlButton.Controls.Add(this.tableLayoutPanel2);
+            this.pnlButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnlButton.Location = new System.Drawing.Point(829, 66);
+            this.pnlButton.Name = "pnlButton";
+            this.pnlButton.Size = new System.Drawing.Size(200, 575);
+            this.pnlButton.TabIndex = 1;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 90.5F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.5F));
+            this.tableLayoutPanel2.Controls.Add(this.btnSave, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.btnDelete, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.btnCancel, 0, 5);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 7;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 101F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 98F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 98F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(200, 575);
+            this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.Color.Blue;
+            this.btnSave.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSave.Font = new System.Drawing.Font("Modern No. 20", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Location = new System.Drawing.Point(3, 104);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(175, 92);
+            this.btnSave.TabIndex = 0;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.Crimson;
+            this.btnDelete.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnDelete.Font = new System.Drawing.Font("Modern No. 20", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Location = new System.Drawing.Point(3, 231);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(175, 94);
+            this.btnDelete.TabIndex = 1;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.BackColor = System.Drawing.Color.Tomato;
+            this.btnCancel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnCancel.Font = new System.Drawing.Font("Modern No. 20", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Location = new System.Drawing.Point(3, 363);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(175, 92);
+            this.btnCancel.TabIndex = 2;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // pnlHide
+            // 
+            this.pnlHide.Controls.Add(this.tableLayoutPanel6);
+            this.pnlHide.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnlHide.Location = new System.Drawing.Point(798, 66);
+            this.pnlHide.Name = "pnlHide";
+            this.pnlHide.Size = new System.Drawing.Size(31, 575);
+            this.pnlHide.TabIndex = 2;
             // 
             // tableLayoutPanel6
             // 
@@ -226,122 +354,200 @@
             this.picboxHide.Location = new System.Drawing.Point(3, 193);
             this.picboxHide.Name = "picboxHide";
             this.picboxHide.Size = new System.Drawing.Size(25, 109);
+            this.picboxHide.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picboxHide.TabIndex = 0;
             this.picboxHide.TabStop = false;
+            this.picboxHide.Click += new System.EventHandler(this.picboxHide_Click);
             // 
-            // label1
+            // panel4
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Modern No. 20", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(15, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 29);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Service";
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel4.Location = new System.Drawing.Point(0, 631);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(798, 10);
+            this.panel4.TabIndex = 3;
             // 
-            // label2
+            // panel5
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Modern No. 20", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(13, 32);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(102, 25);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Category";
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel5.Location = new System.Drawing.Point(0, 66);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(20, 565);
+            this.panel5.TabIndex = 4;
             // 
-            // label3
+            // pnlShowDoc
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Modern No. 20", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 12);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 36);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Title";
+            this.pnlShowDoc.Controls.Add(this.groupBox3);
+            this.pnlShowDoc.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlShowDoc.Location = new System.Drawing.Point(20, 66);
+            this.pnlShowDoc.Name = "pnlShowDoc";
+            this.pnlShowDoc.Size = new System.Drawing.Size(778, 565);
+            this.pnlShowDoc.TabIndex = 5;
             // 
-            // comboBox1
+            // groupBox3
             // 
-            this.comboBox1.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.comboBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox1.Font = new System.Drawing.Font("Oswald", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(132, 3);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(373, 29);
-            this.comboBox1.TabIndex = 2;
+            this.groupBox3.Controls.Add(this.txtDescription);
+            this.groupBox3.Controls.Add(this.rulerBar1);
+            this.groupBox3.Controls.Add(this.rulerBar2);
+            this.groupBox3.Controls.Add(this.buttonBar1);
+            this.groupBox3.Controls.Add(this.statusBar1);
+            this.groupBox3.Controls.Add(this.menuStrip1);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox3.Location = new System.Drawing.Point(0, 0);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(778, 565);
+            this.groupBox3.TabIndex = 18;
+            this.groupBox3.TabStop = false;
             // 
-            // comboBox2
+            // txtDescription
             // 
-            this.comboBox2.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.comboBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox2.Font = new System.Drawing.Font("Oswald", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(132, 33);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(373, 25);
-            this.comboBox2.TabIndex = 3;
+            this.txtDescription.ButtonBar = this.buttonBar1;
+            this.txtDescription.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtDescription.Font = new System.Drawing.Font("Arial", 10F);
+            this.txtDescription.Location = new System.Drawing.Point(28, 93);
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.RulerBar = this.rulerBar2;
+            this.txtDescription.Size = new System.Drawing.Size(747, 447);
+            this.txtDescription.StatusBar = this.statusBar1;
+            this.txtDescription.TabIndex = 2;
+            this.txtDescription.VerticalRulerBar = this.rulerBar1;
             // 
-            // comboBox3
+            // buttonBar1
             // 
-            this.comboBox3.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.comboBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox3.Font = new System.Drawing.Font("Oswald", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(3, 11);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(300, 34);
-            this.comboBox3.TabIndex = 0;
+            this.buttonBar1.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonBar1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonBar1.Location = new System.Drawing.Point(3, 40);
+            this.buttonBar1.Name = "buttonBar1";
+            this.buttonBar1.Size = new System.Drawing.Size(772, 28);
+            this.buttonBar1.TabIndex = 10;
+            this.buttonBar1.Text = "buttonBar1";
             // 
-            // button1
+            // rulerBar2
             // 
-            this.button1.BackColor = System.Drawing.Color.Blue;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.Font = new System.Drawing.Font("Modern No. 20", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(3, 104);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(175, 92);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Save";
-            this.button1.UseVisualStyleBackColor = false;
+            this.rulerBar2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.rulerBar2.Location = new System.Drawing.Point(3, 68);
+            this.rulerBar2.Name = "rulerBar2";
+            this.rulerBar2.Size = new System.Drawing.Size(772, 25);
+            this.rulerBar2.TabIndex = 9;
+            this.rulerBar2.Text = "rulerBar2";
             // 
-            // button2
+            // statusBar1
             // 
-            this.button2.BackColor = System.Drawing.Color.Crimson;
-            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button2.Font = new System.Drawing.Font("Modern No. 20", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(3, 231);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(175, 94);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Delete";
-            this.button2.UseVisualStyleBackColor = false;
+            this.statusBar1.BackColor = System.Drawing.SystemColors.Control;
+            this.statusBar1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.statusBar1.Location = new System.Drawing.Point(3, 540);
+            this.statusBar1.Name = "statusBar1";
+            this.statusBar1.Size = new System.Drawing.Size(772, 22);
+            this.statusBar1.TabIndex = 4;
             // 
-            // button3
+            // rulerBar1
             // 
-            this.button3.BackColor = System.Drawing.Color.Tomato;
-            this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button3.Font = new System.Drawing.Font("Modern No. 20", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(3, 363);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(175, 92);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Cancel";
-            this.button3.UseVisualStyleBackColor = false;
+            this.rulerBar1.Alignment = TXTextControl.RulerBarAlignment.Left;
+            this.rulerBar1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.rulerBar1.Location = new System.Drawing.Point(3, 93);
+            this.rulerBar1.Name = "rulerBar1";
+            this.rulerBar1.Size = new System.Drawing.Size(25, 447);
+            this.rulerBar1.TabIndex = 5;
+            this.rulerBar1.Text = "rulerBar1";
             // 
-            // picboxNew
+            // menuStrip1
             // 
-            this.picboxNew.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.picboxNew.Image = ((System.Drawing.Image)(resources.GetObject("picboxNew.Image")));
-            this.picboxNew.Location = new System.Drawing.Point(428, 3);
-            this.picboxNew.Name = "picboxNew";
-            this.picboxNew.Size = new System.Drawing.Size(59, 54);
-            this.picboxNew.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picboxNew.TabIndex = 2;
-            this.picboxNew.TabStop = false;
-            this.picboxNew.Click += new System.EventHandler(this.picboxNew_Click);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fontToolStripMenuItem,
+            this.textColorToolStripMenuItem,
+            this.foreColorToolStripMenuItem,
+            this.tableToolStripMenuItem,
+            this.imageToolStripMenuItem,
+            this.pageToolStripMenuItem,
+            this.formatStyleToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(3, 16);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(772, 24);
+            this.menuStrip1.TabIndex = 11;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fontToolStripMenuItem
+            // 
+            this.fontToolStripMenuItem.Name = "fontToolStripMenuItem";
+            this.fontToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.fontToolStripMenuItem.Text = "Font";
+            this.fontToolStripMenuItem.Click += new System.EventHandler(this.fontToolStripMenuItem_Click);
+            // 
+            // textColorToolStripMenuItem
+            // 
+            this.textColorToolStripMenuItem.Name = "textColorToolStripMenuItem";
+            this.textColorToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
+            this.textColorToolStripMenuItem.Text = "Text Color";
+            this.textColorToolStripMenuItem.Click += new System.EventHandler(this.textColorToolStripMenuItem_Click);
+            // 
+            // foreColorToolStripMenuItem
+            // 
+            this.foreColorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.selectForeColorToolStripMenuItem,
+            this.frameFillColorToolStripMenuItem});
+            this.foreColorToolStripMenuItem.Name = "foreColorToolStripMenuItem";
+            this.foreColorToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
+            this.foreColorToolStripMenuItem.Text = "Fore Color";
+            this.foreColorToolStripMenuItem.Click += new System.EventHandler(this.foreColorToolStripMenuItem_Click);
+            // 
+            // selectForeColorToolStripMenuItem
+            // 
+            this.selectForeColorToolStripMenuItem.Name = "selectForeColorToolStripMenuItem";
+            this.selectForeColorToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.selectForeColorToolStripMenuItem.Text = "Select Fore Color";
+            this.selectForeColorToolStripMenuItem.Click += new System.EventHandler(this.selectForeColorToolStripMenuItem_Click);
+            // 
+            // frameFillColorToolStripMenuItem
+            // 
+            this.frameFillColorToolStripMenuItem.Name = "frameFillColorToolStripMenuItem";
+            this.frameFillColorToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.frameFillColorToolStripMenuItem.Text = "Frame Fill Color";
+            this.frameFillColorToolStripMenuItem.Click += new System.EventHandler(this.frameFillColorToolStripMenuItem_Click);
+            // 
+            // tableToolStripMenuItem
+            // 
+            this.tableToolStripMenuItem.Name = "tableToolStripMenuItem";
+            this.tableToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.tableToolStripMenuItem.Text = "Table";
+            this.tableToolStripMenuItem.Click += new System.EventHandler(this.tableToolStripMenuItem_Click);
+            // 
+            // imageToolStripMenuItem
+            // 
+            this.imageToolStripMenuItem.Name = "imageToolStripMenuItem";
+            this.imageToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.imageToolStripMenuItem.Text = "Image";
+            this.imageToolStripMenuItem.Click += new System.EventHandler(this.imageToolStripMenuItem_Click);
+            // 
+            // pageToolStripMenuItem
+            // 
+            this.pageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tabToolStripMenuItem,
+            this.pageColorToolStripMenuItem});
+            this.pageToolStripMenuItem.Name = "pageToolStripMenuItem";
+            this.pageToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
+            this.pageToolStripMenuItem.Text = "Page";
+            this.pageToolStripMenuItem.Click += new System.EventHandler(this.pageToolStripMenuItem_Click);
+            // 
+            // tabToolStripMenuItem
+            // 
+            this.tabToolStripMenuItem.Name = "tabToolStripMenuItem";
+            this.tabToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.tabToolStripMenuItem.Text = "Tab";
+            this.tabToolStripMenuItem.Click += new System.EventHandler(this.tabToolStripMenuItem_Click);
+            // 
+            // pageColorToolStripMenuItem
+            // 
+            this.pageColorToolStripMenuItem.Name = "pageColorToolStripMenuItem";
+            this.pageColorToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.pageColorToolStripMenuItem.Text = "Page Color";
+            this.pageColorToolStripMenuItem.Click += new System.EventHandler(this.pageColorToolStripMenuItem_Click);
+            // 
+            // formatStyleToolStripMenuItem
+            // 
+            this.formatStyleToolStripMenuItem.Name = "formatStyleToolStripMenuItem";
+            this.formatStyleToolStripMenuItem.Size = new System.Drawing.Size(85, 20);
+            this.formatStyleToolStripMenuItem.Text = "Format Style";
+            this.formatStyleToolStripMenuItem.Click += new System.EventHandler(this.formatStyleToolStripMenuItem_Click);
             // 
             // SamplesForm
             // 
@@ -356,19 +562,25 @@
             this.Controls.Add(this.pnlButton);
             this.Controls.Add(this.pnlTitle);
             this.Name = "SamplesForm";
+            this.Shown += new System.EventHandler(this.SamplesForm_Shown);
             this.pnlTitle.ResumeLayout(false);
-            this.pnlButton.ResumeLayout(false);
-            this.pnlHide.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picboxNew)).EndInit();
+            this.pnlButton.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.pnlHide.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picboxHide)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picboxNew)).EndInit();
+            this.pnlShowDoc.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -391,12 +603,31 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox cboService;
+        private System.Windows.Forms.ComboBox cboCategory;
         private System.Windows.Forms.PictureBox picboxNew;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private TXTextControl.TextControl txtDescription;
+        private TXTextControl.ButtonBar buttonBar1;
+        private TXTextControl.RulerBar rulerBar2;
+        private TXTextControl.StatusBar statusBar1;
+        private TXTextControl.RulerBar rulerBar1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fontToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem textColorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem foreColorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem selectForeColorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem frameFillColorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tableToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem imageToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pageToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tabToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pageColorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem formatStyleToolStripMenuItem;
+        private System.Windows.Forms.Timer timerpnlButton;
+        internal System.Windows.Forms.ComboBox cboTitle;
     }
 }

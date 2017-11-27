@@ -32,11 +32,25 @@ namespace PatientManagement
             if (btnNew.Name == "btnNew")
             {
                 btnNew.Text = @"Add";
-                btnEdit.Enabled = false;
                 btnNew.Name = @"btnAdd";
                 btnNew.Click += btnAdd_Click;
+                btnEdit.Text = @"Cancel";
+                btnEdit.Name = @"btnCancel";
+                btnEdit.Click += btnCancel_Click;
             }
 
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            btnEdit.Text = @"Edit";
+            btnEdit.Name = @"btnEdit";
+            btnEdit.Click -= btnCancel_Click;
+            btnNew.Text = @"New";
+            btnNew.Name = @"btnNew";
+            btnNew.Click -= btnAdd_Click;
+            txtName.Enabled = false;
+            txtName.Text = "";
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -44,39 +58,36 @@ namespace PatientManagement
             if (btnNew.Name == "btnAdd")
             {
                 btnNew.Text = @"New";
-                btnEdit.Enabled = true;
                 btnNew.Name = @"btnNew";
                 btnNew.Click -=btnAdd_Click;
+                btnEdit.Text = @"Edit";
+                btnEdit.Name = @"btnEdit";
+                btnEdit.Click -= btnCancel_Click;
             }
 
             if (cboService.SelectedIndex.Equals(0))
             {
                 _category = new ConsultationCategory();
-                if (dgvListCategory.CurrentRow != null)
                     _category.Insert(txtName.Text);
             }
             if (cboService.SelectedIndex.Equals(1))
             {
                 _category = new LaboratoryCategory();
-                if (dgvListCategory.CurrentRow != null)
                     _category.Insert(txtName.Text);
             }
             if (cboService.SelectedIndex.Equals(2))
             {
                 _category = new MedicalImagingCategory();
-                if (dgvListCategory.CurrentRow != null)
                     _category.Insert(txtName.Text);
             }
             if (cboService.SelectedIndex.Equals(3))
             {
                 _category = new PrescriptionCategory();
-                if (dgvListCategory.CurrentRow != null)
                     _category.Insert(txtName.Text);
             }
             if (cboService.SelectedIndex.Equals(4))
             {
                 _category = new VariousDocumentCategory();
-                if (dgvListCategory.CurrentRow != null)
                     _category.Insert(txtName.Text);
             }
 

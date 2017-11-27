@@ -234,6 +234,10 @@
       <End Role="VariousDocumentCategory" EntitySet="VariousDocumentCategories" />
       <End Role="WaitingList" EntitySet="WaitingLists" />
     </AssociationSet>
+    <AssociationSet Name="FK_Account_Worker" Association="HospitalsModel.FK_Account_Worker">
+      <End Role="Worker" EntitySet="Workers" />
+      <End Role="Account" EntitySet="Accounts" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Account">
     <Key>
@@ -245,6 +249,7 @@
     <Property Name="Password" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
     <NavigationProperty Name="Worker" Relationship="HospitalsModel.FK_Account_Worker1" FromRole="Account" ToRole="Worker" />
     <NavigationProperty Name="Managements" Relationship="HospitalsModel.FK_Management_Account1" FromRole="Account" ToRole="Management" />
+    <NavigationProperty Name="Worker1" Relationship="HospitalsModel.FK_Account_Worker" FromRole="Account" ToRole="Worker" />
   </EntityType>
   <EntityType Name="ConsultationCategory">
     <Key>
@@ -518,6 +523,7 @@
     <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
     <Property Name="ServiceName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
     <Property Name="CategoryName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Type="Int32" Name="CategoryId" Nullable="false" />
   </EntityType>
   <EntityType Name="VariousDocumentCategory">
     <Key>
@@ -622,6 +628,7 @@
     <NavigationProperty Name="PrescriptionEstimates1" Relationship="HospitalsModel.FK_PrescriptionEstimate_Worker1" FromRole="Worker" ToRole="PrescriptionEstimate" />
     <NavigationProperty Name="VariousDocumentEstimates" Relationship="HospitalsModel.FK_VariousDocumentEstimate_Worker" FromRole="Worker" ToRole="VariousDocumentEstimate" />
     <NavigationProperty Name="VariousDocumentEstimates1" Relationship="HospitalsModel.FK_VariousDocumentEstimate_Worker1" FromRole="Worker" ToRole="VariousDocumentEstimate" />
+    <NavigationProperty Name="Account" Relationship="HospitalsModel.FK_Account_Worker" FromRole="Worker" ToRole="Account" />
   </EntityType>
   <Association Name="FK_Account_Worker1">
     <End Role="Worker" Type="HospitalsModel.Worker" Multiplicity="1" />
@@ -1100,5 +1107,17 @@
   <Association Name="WaitingVariousDocument">
     <End Role="VariousDocumentCategory" Type="HospitalsModel.VariousDocumentCategory" Multiplicity="*" />
     <End Role="WaitingList" Type="HospitalsModel.WaitingList" Multiplicity="*" />
+  </Association>
+  <Association Name="FK_Account_Worker">
+    <End Type="HospitalsModel.Worker" Role="Worker" Multiplicity="1" />
+    <End Type="HospitalsModel.Account" Role="Account" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Worker">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Account">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
 </Schema>

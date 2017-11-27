@@ -55,5 +55,6 @@ namespace Hospital_Entity_Framework
         public virtual ICollection<PrescriptionEstimate> PrescriptionEstimates1 { get; set; }
         public virtual ICollection<VariousDocumentEstimate> VariousDocumentEstimates { get; set; }
         public virtual ICollection<VariousDocumentEstimate> VariousDocumentEstimates1 { get; set; }
+        public virtual Account Account { get; set; }
     }
 }

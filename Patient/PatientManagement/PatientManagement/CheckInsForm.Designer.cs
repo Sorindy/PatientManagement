@@ -46,6 +46,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnlSelection = new System.Windows.Forms.Panel();
             this.pnlShowService = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.picboxHide = new System.Windows.Forms.PictureBox();
             this.pnlTop.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tblSearch.SuspendLayout();
@@ -53,6 +55,9 @@
             this.pnlButton.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.pnlShow.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.tableLayoutPanel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picboxHide)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlTop
@@ -72,7 +77,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.82759F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.17242F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 132F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 170F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 171F));
             this.tableLayoutPanel2.Controls.Add(this.label2, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.label3, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.txtName, 1, 0);
@@ -91,7 +96,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Oswald", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(488, 4);
+            this.label2.Location = new System.Drawing.Point(487, 4);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(121, 47);
             this.label2.TabIndex = 0;
@@ -118,7 +123,7 @@
             this.txtName.Multiline = true;
             this.txtName.Name = "txtName";
             this.txtName.ReadOnly = true;
-            this.txtName.Size = new System.Drawing.Size(319, 49);
+            this.txtName.Size = new System.Drawing.Size(318, 49);
             this.txtName.TabIndex = 2;
             // 
             // txtGender
@@ -126,11 +131,11 @@
             this.txtGender.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.txtGender.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtGender.Font = new System.Drawing.Font("Modern No. 20", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGender.Location = new System.Drawing.Point(618, 3);
+            this.txtGender.Location = new System.Drawing.Point(617, 3);
             this.txtGender.Multiline = true;
             this.txtGender.Name = "txtGender";
             this.txtGender.ReadOnly = true;
-            this.txtGender.Size = new System.Drawing.Size(165, 49);
+            this.txtGender.Size = new System.Drawing.Size(166, 49);
             this.txtGender.TabIndex = 3;
             // 
             // tblSearch
@@ -243,6 +248,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.tableLayoutPanel6);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel1.Location = new System.Drawing.Point(772, 76);
             this.panel1.Name = "panel1";
@@ -266,6 +272,32 @@
             this.pnlShowService.Size = new System.Drawing.Size(806, 76);
             this.pnlShowService.TabIndex = 0;
             // 
+            // tableLayoutPanel6
+            // 
+            this.tableLayoutPanel6.ColumnCount = 1;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.Controls.Add(this.picboxHide, 0, 1);
+            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 3;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 62.24189F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.75811F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 269F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(34, 533);
+            this.tableLayoutPanel6.TabIndex = 1;
+            // 
+            // picboxHide
+            // 
+            this.picboxHide.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.picboxHide.Location = new System.Drawing.Point(3, 167);
+            this.picboxHide.Name = "picboxHide";
+            this.picboxHide.Size = new System.Drawing.Size(28, 93);
+            this.picboxHide.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picboxHide.TabIndex = 0;
+            this.picboxHide.TabStop = false;
+            this.picboxHide.Click += new System.EventHandler(this.picboxHide_Click);
+            // 
             // CheckInsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -287,6 +319,9 @@
             this.pnlButton.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.pnlShow.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.tableLayoutPanel6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picboxHide)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -310,5 +345,7 @@
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Button btnClear;
         internal System.Windows.Forms.Panel pnlSelection;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
+        private System.Windows.Forms.PictureBox picboxHide;
     }
 }

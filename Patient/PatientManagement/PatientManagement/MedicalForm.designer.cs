@@ -236,7 +236,6 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.cmbCategory);
-            this.groupBox1.Controls.Add(this.txtCategoryId);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.txtStaffName);
             this.groupBox1.Controls.Add(this.txtStaffID);

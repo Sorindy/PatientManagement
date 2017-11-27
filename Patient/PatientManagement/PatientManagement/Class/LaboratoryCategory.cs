@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using System.Drawing;
 using System.Linq;
@@ -52,15 +53,20 @@ namespace PatientManagement.Class
             return _bs;
         }
 
-        public object Show_Category_Name()
+        public Dictionary<int, string> ShowCategoryName()
         {
-            var getcategory = _db.LaboratoryCategories.Select(v => v.Name);
-            return getcategory.ToList();
+            var getcategory = _db.LaboratoryCategories;
+            var dic = new Dictionary<int, string>();
+            foreach (var item in getcategory)
+            {
+                dic.Add(item.Id, item.Name);
+            }
+            return dic;
         }
 
-        public int Search_Id(string name)
+        public int SearchId(int categoryId)
         {
-            var getcategory = _db.LaboratoryCategories.Single(v => v.Name == name);
+            var getcategory = _db.LaboratoryCategories.Single(v => v.Id == categoryId);
             return getcategory.Id;
         }
 

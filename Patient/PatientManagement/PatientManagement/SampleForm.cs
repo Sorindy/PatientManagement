@@ -267,7 +267,7 @@ namespace PatientManagement
             if (cmbType.SelectedIndex.Equals(0))
             {
                 _category = new ConsultationCategory();
-                txtCategoryId.Text = _category.Search_Id(cmbCategory.Text).ToString();
+                //txtCategoryId.Text = _category.Search_Id(cmbCategory.Text).ToString();
 
             }
             if (cmbType.SelectedIndex.Equals(1))
@@ -297,7 +297,7 @@ namespace PatientManagement
             if (cmbType.SelectedIndex.Equals(0))
             {
                 _category = new ConsultationCategory();
-                cmbCategory.DataSource = _category.Show_Category_Name();
+                cmbCategory.DataSource = _category.ShowCategoryName();
 
             }
             if (cmbType.SelectedIndex.Equals(1))
@@ -320,6 +320,11 @@ namespace PatientManagement
                 _category = new VariousDocumentCategory();
 
             }
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
 
     }

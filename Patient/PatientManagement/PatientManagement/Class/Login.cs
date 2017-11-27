@@ -112,6 +112,12 @@ namespace PatientManagement.Class
                 }
                 if (text == "CheckIn")
                 {
+                    if(Application.OpenForms.OfType<CheckInsForm>().Count()==1)
+                    {
+                        var firstOrDefault = Application.OpenForms.OfType<CheckInsForm>().FirstOrDefault();
+                        if (firstOrDefault != null)
+                            firstOrDefault.Close();
+                    }
                     var selectionForm=new CheckInsForm
                     {
                         TopLevel = false,

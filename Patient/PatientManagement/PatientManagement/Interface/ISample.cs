@@ -1,4 +1,6 @@
 ﻿
+using System.Collections.Generic;
+
 namespace PatientManagement.Interface
 {
    public  interface ISample
@@ -9,5 +11,7 @@ namespace PatientManagement.Interface
         object Show();
         object Show_Sample_Title();
         string Search_Title(string  title);
+        Dictionary<int, string> ShowDictionary(int categoryId);
+        string Path(int value);
     }
 }

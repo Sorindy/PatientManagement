@@ -17,5 +17,6 @@ namespace Hospital_Entity_Framework
         public int Id { get; set; }
         public string ServiceName { get; set; }
         public string CategoryName { get; set; }
+        public int CategoryId { get; set; }
     }
 }

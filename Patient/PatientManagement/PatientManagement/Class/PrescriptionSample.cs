@@ -1,4 +1,5 @@
-﻿using System.Data.Entity.Migrations;
+﻿using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Windows.Forms;
 using Hospital_Entity_Framework;
@@ -45,6 +46,11 @@ namespace PatientManagement.Class
             _db.SaveChanges();
         }
 
+       public string Path(int id)
+       {
+           var getPath = _db.PrescriptionSamples.First(v => v.Id == id);
+           return getPath.Description;
+       }
         public object Show()
         {
             var getsample = from v in _db.PrescriptionSamples 
@@ -69,6 +75,17 @@ namespace PatientManagement.Class
        {
            var getsample = _db.PrescriptionSamples.Single(v => v.Title == title);
            return getsample.Description;
+       }
+       
+       public Dictionary<int, string> ShowDictionary(int categoryId)
+       {
+           var getTitle = _db.PrescriptionSamples.Where(v => v.CategoryId == categoryId);
+           var dic = new Dictionary<int, string>();
+           foreach (var item in getTitle)
+           {
+               dic.Add(item.Id, item.Title);
+           }
+           return dic;
        }
 
     }

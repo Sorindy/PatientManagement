@@ -1,4 +1,5 @@
-﻿using System.Data.Entity.Migrations;
+﻿using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Windows.Forms;
 using Hospital_Entity_Framework;
@@ -13,8 +14,8 @@ namespace PatientManagement.Class
    public class MedicalImagingSample : ISample
    {
       
-        private HospitalDbContext _db = new HospitalDbContext();
-        private BindingSource _bs = new BindingSource();
+        private readonly HospitalDbContext _db = new HospitalDbContext();
+        private readonly BindingSource _bs = new BindingSource();
 
         public void Insert(string title, string description, int categoryid)
         {
@@ -45,6 +46,11 @@ namespace PatientManagement.Class
             _db.SaveChanges();
         }
 
+       public string Path(int id)
+       {
+           var getPath = _db.MedicalImagingSamples.First(v => v.Id == id);
+           return getPath.Description;
+       }
         public object Show()
         {
             var getsample = from v in _db.MedicalImagingSamples 
@@ -71,5 +77,15 @@ namespace PatientManagement.Class
            return getsample.Description;
        }
 
+       public Dictionary<int, string> ShowDictionary(int categoryId)
+       {
+           var getTitle = _db.MedicalImagingSamples.Where(v => v.CategoryId == categoryId);
+           var dic = new Dictionary<int, string>();
+           foreach (var item in getTitle)
+           {
+               dic.Add(item.Id, item.Title);
+           }
+           return dic;
+       }
     }
 }
