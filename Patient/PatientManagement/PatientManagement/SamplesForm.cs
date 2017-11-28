@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
 using PatientManagement.Class;
 using PatientManagement.Interface;
@@ -25,6 +24,13 @@ namespace PatientManagement
             cboTitle.DataSource = null;
             cboTitle.DropDownStyle=ComboBoxStyle.DropDown;
             txtDescription.Text = "";
+            if (btnSave.Name == "btnUpdate")
+            {
+                btnSave.Text = @"Save";
+                btnSave.Name = @"btnSave";
+                btnSave.Click -= btnUpdate_Click;
+                btnSave.Click += btnSave_Click;
+            }
         }
 
         private void picboxHide_Click(object sender, EventArgs e)
@@ -57,6 +63,8 @@ namespace PatientManagement
             cboTitle.Text = "";
             cboTitle.DropDownStyle=ComboBoxStyle.DropDownList;
             txtDescription.Text = "";
+            btnSave.Text = @"Save";
+            btnSave.Name = @"btnSave";
         }
 
         private void cboService_SelectedIndexChanged(object sender, EventArgs e)
@@ -97,6 +105,66 @@ namespace PatientManagement
                 cboCategory.DisplayMember = "Value";
                 cboCategory.ValueMember = "Key";
             }
+            if (cboTitle.DataSource != null)
+            {
+                if (btnSave.Name == "btnSave")
+                {
+                    btnSave.Text = @"Update";
+                    btnSave.Name = @"btnUpdate";
+                    btnSave.Click += btnUpdate_Click;
+                    btnSave.Click -= btnSave_Click;
+                }
+            }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if(cboTitle.Text==null)return;
+            if (btnSave.Name == "btnUpdate")
+            {
+                btnSave.Text = @"Save";
+                btnSave.Name = @"btnSave";
+                btnSave.Click -= btnUpdate_Click;
+                btnSave.Click += btnSave_Click;
+            }
+
+            if (cboCategory.SelectedItem == null) return;
+            var selectedItem = (KeyValuePair<int, string>)cboCategory.SelectedItem;
+            var keyCategory = selectedItem.Key;
+            var selectedTitle = (KeyValuePair<int, string>) cboTitle.SelectedItem;
+            var keyTitle = selectedTitle.Key;
+            if (cboService.SelectedIndex.Equals(0))
+            {
+                _sample = new ConsultationSample();
+                _sample.Update(keyTitle,cboTitle.Text, _path + @"RTF\ConsultationSample\" + cboTitle.Text, keyCategory);
+                txtDescription.Save(_path + @"RTF\ConsultationSample\" + cboTitle.Text, StreamType.RichTextFormat);
+            }
+            if (cboService.SelectedIndex.Equals(1))
+            {
+                _sample = new LaboratorySample();
+                _sample.Update(keyTitle,cboTitle.Text, _path + @"RTF\LaboratorySample\" + cboTitle.Text, keyCategory);
+                txtDescription.Save(_path + @"RTF\LaboratorySample\" + cboTitle.Text, StreamType.RichTextFormat);
+
+            }
+            if (cboService.SelectedIndex.Equals(2))
+            {
+                _sample = new MedicalImagingSample();
+                _sample.Update(keyTitle,cboTitle.Text, _path + @"RTF\MedicalImagingSample\" + cboTitle.Text, keyCategory);
+                txtDescription.Save(_path + @"RTF\MedicalImagingSample\" + cboTitle.Text, StreamType.RichTextFormat);
+            }
+            if (cboService.SelectedIndex.Equals(3))
+            {
+                _sample = new PrescriptionSample();
+                _sample.Update(keyTitle,cboTitle.Text, _path + @"RTF\PrescriptionSample\" + cboTitle.Text, keyCategory);
+                txtDescription.Save(_path + @"RTF\PrescriptionSample\" + cboTitle.Text, StreamType.RichTextFormat);
+            }
+            if (cboService.SelectedIndex.Equals(4))
+            {
+                _sample = new VariousDocumentSample();
+                _sample.Update(keyTitle,cboTitle.Text, _path + @"RTF\VariousdocumentSample\" + cboTitle.Text, keyCategory);
+                txtDescription.Save(_path + @"RTF\VariousdocumentSample\" + cboTitle.Text, StreamType.RichTextFormat);
+            }
+            SamplesForm_Shown(this,new EventArgs());
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -140,7 +208,42 @@ namespace PatientManagement
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            if(cboTitle.Text==null)return;
 
+            var showDeleteMsg = MessageBox.Show(@"Are you sure want to delete this?", @"Delete",
+                MessageBoxButtons.YesNo);
+
+            if (showDeleteMsg == DialogResult.Yes)
+            {
+                var selectedTitle = (KeyValuePair<int, string>)cboTitle.SelectedItem;
+                var keyTitle = selectedTitle.Key;
+                if (cboService.SelectedIndex.Equals(0))
+                {
+                    _sample = new ConsultationSample();
+                    _sample.Delete(keyTitle);
+                }
+                if (cboService.SelectedIndex.Equals(1))
+                {
+                    _sample = new LaboratorySample();
+                    _sample.Delete(keyTitle);
+                }
+                if (cboService.SelectedIndex.Equals(2))
+                {
+                    _sample = new MedicalImagingSample();
+                    _sample.Delete(keyTitle);
+                }
+                if (cboService.SelectedIndex.Equals(3))
+                {
+                    _sample = new PrescriptionSample();
+                    _sample.Delete(keyTitle);
+                }
+                if (cboService.SelectedIndex.Equals(4))
+                {
+                    _sample = new VariousDocumentSample();
+                    _sample.Delete(keyTitle);
+                }
+                SamplesForm_Shown(this, new EventArgs());
+            }            
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -151,6 +254,7 @@ namespace PatientManagement
         private void cboCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(cboCategory.SelectedItem==null)return;
+            txtDescription.Text = "";
             var selectedItem =(KeyValuePair<int,string>)cboCategory.SelectedItem;
             var key = selectedItem.Key;
             cboTitle.DataSource = null;
@@ -205,11 +309,6 @@ namespace PatientManagement
         private void textColorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             txtDescription.TextBackColorDialog();
-        }
-
-        private void foreColorToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            txtDescription.ForeColorDialog();
         }
 
         private void tableToolStripMenuItem_Click(object sender, EventArgs e)

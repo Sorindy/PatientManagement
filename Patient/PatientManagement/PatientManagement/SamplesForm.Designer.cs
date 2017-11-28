@@ -191,7 +191,7 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.7094F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 73.2906F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 65F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 28F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel5, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.label3, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.picboxNew, 2, 0);
@@ -209,13 +209,13 @@
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.Controls.Add(this.cboTitle, 0, 1);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(114, 3);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(113, 3);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 3;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.77778F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 82.22222F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(298, 54);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(297, 54);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
             // cboTitle
@@ -226,7 +226,7 @@
             this.cboTitle.FormattingEnabled = true;
             this.cboTitle.Location = new System.Drawing.Point(3, 11);
             this.cboTitle.Name = "cboTitle";
-            this.cboTitle.Size = new System.Drawing.Size(292, 34);
+            this.cboTitle.Size = new System.Drawing.Size(291, 34);
             this.cboTitle.TabIndex = 0;
             this.cboTitle.SelectedIndexChanged += new System.EventHandler(this.cboTitle_SelectedIndexChanged);
             // 
@@ -245,7 +245,7 @@
             // 
             this.picboxNew.Dock = System.Windows.Forms.DockStyle.Fill;
             this.picboxNew.Image = ((System.Drawing.Image)(resources.GetObject("picboxNew.Image")));
-            this.picboxNew.Location = new System.Drawing.Point(418, 3);
+            this.picboxNew.Location = new System.Drawing.Point(416, 3);
             this.picboxNew.Name = "picboxNew";
             this.picboxNew.Size = new System.Drawing.Size(59, 54);
             this.picboxNew.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -488,7 +488,6 @@
             this.foreColorToolStripMenuItem.Name = "foreColorToolStripMenuItem";
             this.foreColorToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
             this.foreColorToolStripMenuItem.Text = "Fore Color";
-            this.foreColorToolStripMenuItem.Click += new System.EventHandler(this.foreColorToolStripMenuItem_Click);
             // 
             // selectForeColorToolStripMenuItem
             // 

@@ -14,8 +14,8 @@ namespace PatientManagement.Class
    public class LaboratorySample : ISample
    {
         
-        private HospitalDbContext _db = new HospitalDbContext();
-        private BindingSource _bs = new BindingSource();
+        private readonly HospitalDbContext _db = new HospitalDbContext();
+        private readonly BindingSource _bs = new BindingSource();
 
         public void Insert(string title, string description, int categoryid)
         {
@@ -32,6 +32,7 @@ namespace PatientManagement.Class
         public void Update(int id, string title, string description, int categoryid)
         {
             var update = _db.LaboratorySamples.Single(v => v.Id == id);
+            update.Id = id;
             update.Title = title;
             update.Description = description;
             update.CategoryId = categoryid;

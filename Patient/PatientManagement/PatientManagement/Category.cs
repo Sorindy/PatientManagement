@@ -16,17 +16,20 @@ namespace PatientManagement
 
         private void Category_Shown(object sender, EventArgs e)
         {
-            cboService.Text = "";
+            cboService.Text = null;
+            cboService.Enabled = true;
             txtName.Enabled = false;
             txtName.Text = "";
             dgvListCategory.ReadOnly = true;
             dgvListCategory.Enabled = true;
+            dgvListCategory.DataSource = null;
         }
 
         private void btnNew_Click(object sender, EventArgs e)
         {
             txtName.Enabled = true;
             dgvListCategory.Enabled = false;
+            cboService.Enabled = false;
             txtName.Focus();
 
             if (btnNew.Name == "btnNew")
@@ -43,14 +46,26 @@ namespace PatientManagement
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            btnEdit.Text = @"Edit";
-            btnEdit.Name = @"btnEdit";
-            btnEdit.Click -= btnCancel_Click;
-            btnNew.Text = @"New";
-            btnNew.Name = @"btnNew";
-            btnNew.Click -= btnAdd_Click;
-            txtName.Enabled = false;
-            txtName.Text = "";
+            if (btnEdit.Name == "btnCancel")
+            {
+                btnEdit.Text = @"Edit";
+                btnEdit.Name = @"btnEdit";
+                btnEdit.Click -= btnCancel_Click;
+                btnNew.Text = @"New";
+                btnNew.Name = @"btnNew";
+                btnNew.Click -= btnAdd_Click;
+                Category_Shown(this, new EventArgs());
+            }
+            if (btnNew.Name == "btnCancel")
+            {
+                btnEdit.Text = @"Edit";
+                btnEdit.Name = @"btnEdit";
+                btnEdit.Click -= btnUpdate_Click;
+                btnNew.Text = @"New";
+                btnNew.Name = @"btnNew";
+                btnNew.Click -= btnCancel_Click;
+                Category_Shown(this,new EventArgs());
+            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -130,7 +145,9 @@ namespace PatientManagement
                 btnEdit.Text = @"Update";
                 btnEdit.Name = @"btnUpdate";
                 cboService.Enabled = false;
-                btnNew.Enabled = false;
+                btnNew.Text = @"Canel";
+                btnNew.Name = @"btnCancel";
+                btnNew.Click += btnCancel_Click;
                 btnEdit.Click += btnUpdate_Click;
 
                 if (dgvListCategory.CurrentRow != null)

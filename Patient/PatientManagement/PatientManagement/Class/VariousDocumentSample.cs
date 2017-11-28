@@ -32,6 +32,7 @@ namespace PatientManagement.Class
        public void Update(int id, string title, string description,int categoryid)
         {
             var update = _db.VariousDocumentSamples.Single(v => v.Id == id);
+            update.Id = id;
             update.Title = title;
             update.Description = description;
             update.CategroyId = categoryid;
