@@ -39,7 +39,7 @@ namespace PatientManagement
 
         private void tblSearch_Click(object sender, EventArgs e)
         {
-            var searchForm = new Search { CheckInsForm = this };
+            var searchForm = new SearchPatient { CheckInsForm = this };
             searchForm.ShowDialog();
             if (Patient == null) return;
             txtName.Text = Patient.Name;
@@ -51,7 +51,7 @@ namespace PatientManagement
 
         private void picboxSearch_Click(object sender, EventArgs e)
         {
-            var searchForm = new Search{CheckInsForm = this};
+            var searchForm = new SearchPatient{CheckInsForm = this};
             searchForm.ShowDialog();
             if (Patient == null) return;
             txtName.Text = Patient.Name;
@@ -63,7 +63,7 @@ namespace PatientManagement
 
         private void label1_Click(object sender, EventArgs e)
         {
-            var searchForm = new Search { CheckInsForm = this };
+            var searchForm = new SearchPatient { CheckInsForm = this };
             searchForm.ShowDialog();
             if (Patient == null) return;
             txtName.Text = Patient.Name;

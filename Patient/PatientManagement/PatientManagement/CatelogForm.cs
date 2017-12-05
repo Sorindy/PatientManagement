@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using System.Windows.Forms;
 using PatientManagement.Class;
 using Account = Hospital_Entity_Framework.Account;

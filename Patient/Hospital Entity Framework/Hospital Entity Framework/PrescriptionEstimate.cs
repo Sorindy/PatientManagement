@@ -28,6 +28,7 @@ namespace Hospital_Entity_Framework
         public System.DateTime Date { get; set; }
         public string Description { get; set; }
     
+        public virtual Patient Patient { get; set; }
         public virtual PrescriptionCategory PrescriptionCategory { get; set; }
         public virtual Referrer Referrer { get; set; }
         public virtual Worker Worker { get; set; }

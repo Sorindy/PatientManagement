@@ -177,7 +177,8 @@ namespace PatientManagement
 
         private void btnHistory_Click(object sender, EventArgs e)
         {
-
+            var form=new HistorysForm(){Pateint = Patient};
+            form.ShowDialog();
         }
     }
 }

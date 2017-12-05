@@ -29,6 +29,7 @@ namespace Hospital_Entity_Framework
         public int VisitCount { get; set; }
         public System.TimeSpan Time { get; set; }
         public Nullable<bool> Status { get; set; }
+        public int Number { get; set; }
     
         public virtual Patient Patient { get; set; }
         public virtual Visit Visit { get; set; }

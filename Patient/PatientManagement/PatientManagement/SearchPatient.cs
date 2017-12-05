@@ -4,9 +4,9 @@ using PatientManagement.Class;
 
 namespace PatientManagement
 {
-    public partial class Search : Form
+    public partial class SearchPatient : Form
     {
-        public Search()
+        public SearchPatient()
         {
             InitializeComponent();
         }

@@ -16,9 +16,14 @@ namespace Hospital_Entity_Framework
     {
         public Patient()
         {
+            this.ConsultationEstimates = new HashSet<ConsultationEstimate>();
             this.Datings = new HashSet<Dating>();
+            this.LaboratoryEstimates = new HashSet<LaboratoryEstimate>();
             this.MedicalHistories = new HashSet<MedicalHistory>();
+            this.MedicalImagingEstimates = new HashSet<MedicalImagingEstimate>();
             this.MedicalRecords = new HashSet<MedicalRecord>();
+            this.PrescriptionEstimates = new HashSet<PrescriptionEstimate>();
+            this.VariousDocumentEstimates = new HashSet<VariousDocumentEstimate>();
             this.Visits = new HashSet<Visit>();
             this.WaitingLists = new HashSet<WaitingList>();
         }
@@ -35,9 +40,14 @@ namespace Hospital_Entity_Framework
         public Nullable<short> Weight { get; set; }
         public Nullable<short> Height { get; set; }
     
+        public virtual ICollection<ConsultationEstimate> ConsultationEstimates { get; set; }
         public virtual ICollection<Dating> Datings { get; set; }
+        public virtual ICollection<LaboratoryEstimate> LaboratoryEstimates { get; set; }
         public virtual ICollection<MedicalHistory> MedicalHistories { get; set; }
+        public virtual ICollection<MedicalImagingEstimate> MedicalImagingEstimates { get; set; }
         public virtual ICollection<MedicalRecord> MedicalRecords { get; set; }
+        public virtual ICollection<PrescriptionEstimate> PrescriptionEstimates { get; set; }
+        public virtual ICollection<VariousDocumentEstimate> VariousDocumentEstimates { get; set; }
         public virtual ICollection<Visit> Visits { get; set; }
         public virtual ICollection<WaitingList> WaitingLists { get; set; }
     }

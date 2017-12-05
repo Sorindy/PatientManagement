@@ -48,6 +48,7 @@ namespace Hospital_Entity_Framework
         public DbSet<sysdiagram> sysdiagrams { get; set; }
         public DbSet<TempManagement> TempManagements { get; set; }
         public DbSet<TempWait> TempWaits { get; set; }
+        public DbSet<TempWaitingList> TempWaitingLists { get; set; }
         public DbSet<VariousDocumentCategory> VariousDocumentCategories { get; set; }
         public DbSet<VariousDocumentEstimate> VariousDocumentEstimates { get; set; }
         public DbSet<VariousDocumentSample> VariousDocumentSamples { get; set; }

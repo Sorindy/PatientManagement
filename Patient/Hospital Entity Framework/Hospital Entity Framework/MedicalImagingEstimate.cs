@@ -29,6 +29,7 @@ namespace Hospital_Entity_Framework
         public string Description { get; set; }
     
         public virtual MedicalImagingCategory MedicalImagingCategory { get; set; }
+        public virtual Patient Patient { get; set; }
         public virtual Referrer Referrer { get; set; }
         public virtual Worker Worker { get; set; }
         public virtual Worker Worker1 { get; set; }

@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="HospitalsModelStoreContainer" CdmEntityContainer="HospitalDbContext">
+  <EntityContainerMapping StorageEntityContainer="HospitalModelStoreContainer" CdmEntityContainer="HospitalDbContext">
     <EntitySetMapping Name="Accounts">
-      <EntityTypeMapping TypeName="HospitalsModel.Account">
+      <EntityTypeMapping TypeName="HospitalModel.Account">
         <MappingFragment StoreEntitySet="Account">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
@@ -12,7 +12,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ConsultationCategories">
-      <EntityTypeMapping TypeName="HospitalsModel.ConsultationCategory">
+      <EntityTypeMapping TypeName="HospitalModel.ConsultationCategory">
         <MappingFragment StoreEntitySet="ConsultationCategory">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
@@ -20,7 +20,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ConsultationEstimates">
-      <EntityTypeMapping TypeName="HospitalsModel.ConsultationEstimate">
+      <EntityTypeMapping TypeName="HospitalModel.ConsultationEstimate">
         <MappingFragment StoreEntitySet="ConsultationEstimate">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="PatientId" ColumnName="PatientId" />
@@ -34,7 +34,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ConsultationSamples">
-      <EntityTypeMapping TypeName="HospitalsModel.ConsultationSample">
+      <EntityTypeMapping TypeName="HospitalModel.ConsultationSample">
         <MappingFragment StoreEntitySet="ConsultationSample">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
@@ -44,7 +44,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Datings">
-      <EntityTypeMapping TypeName="HospitalsModel.Dating">
+      <EntityTypeMapping TypeName="HospitalModel.Dating">
         <MappingFragment StoreEntitySet="Dating">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="PatientId" ColumnName="PatientId" />
@@ -54,7 +54,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Forms">
-      <EntityTypeMapping TypeName="HospitalsModel.Form">
+      <EntityTypeMapping TypeName="HospitalModel.Form">
         <MappingFragment StoreEntitySet="Form">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
@@ -62,7 +62,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="LaboratoryCategories">
-      <EntityTypeMapping TypeName="HospitalsModel.LaboratoryCategory">
+      <EntityTypeMapping TypeName="HospitalModel.LaboratoryCategory">
         <MappingFragment StoreEntitySet="LaboratoryCategory">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
@@ -70,7 +70,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="LaboratoryEstimates">
-      <EntityTypeMapping TypeName="HospitalsModel.LaboratoryEstimate">
+      <EntityTypeMapping TypeName="HospitalModel.LaboratoryEstimate">
         <MappingFragment StoreEntitySet="LaboratoryEstimate">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="PatientId" ColumnName="PatientId" />
@@ -84,7 +84,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="LaboratorySamples">
-      <EntityTypeMapping TypeName="HospitalsModel.LaboratorySample">
+      <EntityTypeMapping TypeName="HospitalModel.LaboratorySample">
         <MappingFragment StoreEntitySet="LaboratorySample">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
@@ -94,7 +94,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Managements">
-      <EntityTypeMapping TypeName="HospitalsModel.Management">
+      <EntityTypeMapping TypeName="HospitalModel.Management">
         <MappingFragment StoreEntitySet="Management">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="AccountId" ColumnName="AccountId" />
@@ -102,7 +102,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="MedicalHistories">
-      <EntityTypeMapping TypeName="HospitalsModel.MedicalHistory">
+      <EntityTypeMapping TypeName="HospitalModel.MedicalHistory">
         <MappingFragment StoreEntitySet="MedicalHistory">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="PatientId" ColumnName="PatientId" />
@@ -111,7 +111,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="MedicalImagingCategories">
-      <EntityTypeMapping TypeName="HospitalsModel.MedicalImagingCategory">
+      <EntityTypeMapping TypeName="HospitalModel.MedicalImagingCategory">
         <MappingFragment StoreEntitySet="MedicalImagingCategory">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
@@ -119,7 +119,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="MedicalImagingEstimates">
-      <EntityTypeMapping TypeName="HospitalsModel.MedicalImagingEstimate">
+      <EntityTypeMapping TypeName="HospitalModel.MedicalImagingEstimate">
         <MappingFragment StoreEntitySet="MedicalImagingEstimate">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="PatientId" ColumnName="PatientId" />
@@ -133,7 +133,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="MedicalImagingSamples">
-      <EntityTypeMapping TypeName="HospitalsModel.MedicalImagingSample">
+      <EntityTypeMapping TypeName="HospitalModel.MedicalImagingSample">
         <MappingFragment StoreEntitySet="MedicalImagingSample">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
@@ -143,7 +143,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="MedicalRecords">
-      <EntityTypeMapping TypeName="HospitalsModel.MedicalRecord">
+      <EntityTypeMapping TypeName="HospitalModel.MedicalRecord">
         <MappingFragment StoreEntitySet="MedicalRecord">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="PatientId" ColumnName="PatientId" />
@@ -151,7 +151,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Patients">
-      <EntityTypeMapping TypeName="HospitalsModel.Patient">
+      <EntityTypeMapping TypeName="HospitalModel.Patient">
         <MappingFragment StoreEntitySet="Patient">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
@@ -168,7 +168,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="PrescriptionCategories">
-      <EntityTypeMapping TypeName="HospitalsModel.PrescriptionCategory">
+      <EntityTypeMapping TypeName="HospitalModel.PrescriptionCategory">
         <MappingFragment StoreEntitySet="PrescriptionCategory">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
@@ -176,7 +176,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="PrescriptionEstimates">
-      <EntityTypeMapping TypeName="HospitalsModel.PrescriptionEstimate">
+      <EntityTypeMapping TypeName="HospitalModel.PrescriptionEstimate">
         <MappingFragment StoreEntitySet="PrescriptionEstimate">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="PatientId" ColumnName="PatientId" />
@@ -190,7 +190,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="PrescriptionSamples">
-      <EntityTypeMapping TypeName="HospitalsModel.PrescriptionSample">
+      <EntityTypeMapping TypeName="HospitalModel.PrescriptionSample">
         <MappingFragment StoreEntitySet="PrescriptionSample">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
@@ -200,7 +200,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Referrers">
-      <EntityTypeMapping TypeName="HospitalsModel.Referrer">
+      <EntityTypeMapping TypeName="HospitalModel.Referrer">
         <MappingFragment StoreEntitySet="Referrer">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
@@ -213,7 +213,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="sysdiagrams">
-      <EntityTypeMapping TypeName="HospitalsModel.sysdiagram">
+      <EntityTypeMapping TypeName="HospitalModel.sysdiagram">
         <MappingFragment StoreEntitySet="sysdiagrams">
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -224,7 +224,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TempManagements">
-      <EntityTypeMapping TypeName="HospitalsModel.TempManagement">
+      <EntityTypeMapping TypeName="HospitalModel.TempManagement">
         <MappingFragment StoreEntitySet="TempManagement">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
@@ -235,17 +235,26 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TempWaits">
-      <EntityTypeMapping TypeName="HospitalsModel.TempWait">
+      <EntityTypeMapping TypeName="HospitalModel.TempWait">
         <MappingFragment StoreEntitySet="TempWait">
-          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="ServiceName" ColumnName="ServiceName" />
           <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TempWaitingLists">
+      <EntityTypeMapping TypeName="HospitalModel.TempWaitingList">
+        <MappingFragment StoreEntitySet="TempWaitingList">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="WaitingListId" ColumnName="WaitingListId" />
+          <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="VariousDocumentCategories">
-      <EntityTypeMapping TypeName="HospitalsModel.VariousDocumentCategory">
+      <EntityTypeMapping TypeName="HospitalModel.VariousDocumentCategory">
         <MappingFragment StoreEntitySet="VariousDocumentCategory">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
@@ -253,7 +262,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="VariousDocumentEstimates">
-      <EntityTypeMapping TypeName="HospitalsModel.VariousDocumentEstimate">
+      <EntityTypeMapping TypeName="HospitalModel.VariousDocumentEstimate">
         <MappingFragment StoreEntitySet="VariousDocumentEstimate">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="PatientId" ColumnName="PatientId" />
@@ -267,17 +276,17 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="VariousDocumentSamples">
-      <EntityTypeMapping TypeName="HospitalsModel.VariousDocumentSample">
+      <EntityTypeMapping TypeName="HospitalModel.VariousDocumentSample">
         <MappingFragment StoreEntitySet="VariousDocumentSample">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="CategroyId" ColumnName="CategroyId" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
           <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="Description" ColumnName="Description" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Visits">
-      <EntityTypeMapping TypeName="HospitalsModel.Visit">
+      <EntityTypeMapping TypeName="HospitalModel.Visit">
         <MappingFragment StoreEntitySet="Visit">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="VisitCount" ColumnName="VisitCount" />
@@ -287,7 +296,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="WaitingLists">
-      <EntityTypeMapping TypeName="HospitalsModel.WaitingList">
+      <EntityTypeMapping TypeName="HospitalModel.WaitingList">
         <MappingFragment StoreEntitySet="WaitingList">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="PatientId" ColumnName="PatientId" />
@@ -295,11 +304,12 @@
           <ScalarProperty Name="VisitCount" ColumnName="VisitCount" />
           <ScalarProperty Name="Time" ColumnName="Time" />
           <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Workers">
-      <EntityTypeMapping TypeName="HospitalsModel.Worker">
+      <EntityTypeMapping TypeName="HospitalModel.Worker">
         <MappingFragment StoreEntitySet="Worker">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
@@ -313,10 +323,12 @@
           <ScalarProperty Name="Position" ColumnName="Position" />
           <ScalarProperty Name="Salary" ColumnName="Salary" />
           <ScalarProperty Name="StartWorkDate" ColumnName="StartWorkDate" />
+          <ScalarProperty Name="Hire" ColumnName="Hire" />
+          <ScalarProperty Name="PhotoPath" ColumnName="PhotoPath" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="ManagementConsultation" TypeName="HospitalsModel.ManagementConsultation" StoreEntitySet="ManagementConsultation">
+    <AssociationSetMapping Name="ManagementConsultation" TypeName="HospitalModel.ManagementConsultation" StoreEntitySet="ManagementConsultation">
       <EndProperty Name="ConsultationCategory">
         <ScalarProperty Name="Id" ColumnName="CategoryId" />
       </EndProperty>
@@ -324,15 +336,15 @@
         <ScalarProperty Name="Id" ColumnName="ManagementId" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="ManagementForm" TypeName="HospitalsModel.ManagementForm" StoreEntitySet="ManagementForm">
+    <AssociationSetMapping Name="ManagementForm" TypeName="HospitalModel.ManagementForm" StoreEntitySet="ManagementForm">
       <EndProperty Name="Form">
-        <ScalarProperty Name="Id" ColumnName="formId" />
+        <ScalarProperty Name="Id" ColumnName="FormId" />
       </EndProperty>
       <EndProperty Name="Management">
-        <ScalarProperty Name="Id" ColumnName="managementId" />
+        <ScalarProperty Name="Id" ColumnName="ManagementId" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="ManagementLaboratory" TypeName="HospitalsModel.ManagementLaboratory" StoreEntitySet="ManagementLaboratory">
+    <AssociationSetMapping Name="ManagementLaboratory" TypeName="HospitalModel.ManagementLaboratory" StoreEntitySet="ManagementLaboratory">
       <EndProperty Name="LaboratoryCategory">
         <ScalarProperty Name="Id" ColumnName="CategoryId" />
       </EndProperty>
@@ -340,7 +352,7 @@
         <ScalarProperty Name="Id" ColumnName="ManagementId" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="ManagementMedicalImaging" TypeName="HospitalsModel.ManagementMedicalImaging" StoreEntitySet="ManagementMedicalImaging">
+    <AssociationSetMapping Name="ManagementMedicalImaging" TypeName="HospitalModel.ManagementMedicalImaging" StoreEntitySet="ManagementMedicalImaging">
       <EndProperty Name="Management">
         <ScalarProperty Name="Id" ColumnName="ManagementId" />
       </EndProperty>
@@ -348,7 +360,7 @@
         <ScalarProperty Name="Id" ColumnName="CategoryId" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="ManagementPrescription" TypeName="HospitalsModel.ManagementPrescription" StoreEntitySet="ManagementPrescription">
+    <AssociationSetMapping Name="ManagementPrescription" TypeName="HospitalModel.ManagementPrescription" StoreEntitySet="ManagementPrescription">
       <EndProperty Name="Management">
         <ScalarProperty Name="Id" ColumnName="ManagementId" />
       </EndProperty>
@@ -356,7 +368,7 @@
         <ScalarProperty Name="Id" ColumnName="CategoryId" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="ManagementVariousDocument" TypeName="HospitalsModel.ManagementVariousDocument" StoreEntitySet="ManagementVariousDocument">
+    <AssociationSetMapping Name="ManagementVariousDocument" TypeName="HospitalModel.ManagementVariousDocument" StoreEntitySet="ManagementVariousDocument">
       <EndProperty Name="Management">
         <ScalarProperty Name="Id" ColumnName="ManagementId" />
       </EndProperty>
@@ -364,7 +376,7 @@
         <ScalarProperty Name="Id" ColumnName="CategoryId" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="MedicalVisit" TypeName="HospitalsModel.MedicalVisit" StoreEntitySet="MedicalVisit">
+    <AssociationSetMapping Name="MedicalVisit" TypeName="HospitalModel.MedicalVisit" StoreEntitySet="MedicalVisit">
       <EndProperty Name="MedicalRecord">
         <ScalarProperty Name="Id" ColumnName="MedicalRecordId" />
       </EndProperty>
@@ -373,7 +385,7 @@
         <ScalarProperty Name="VisitCount" ColumnName="VisitCount" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="VisitConsultation" TypeName="HospitalsModel.VisitConsultation" StoreEntitySet="VisitConsultation">
+    <AssociationSetMapping Name="VisitConsultation" TypeName="HospitalModel.VisitConsultation" StoreEntitySet="VisitConsultation">
       <EndProperty Name="ConsultationEstimate">
         <ScalarProperty Name="Id" ColumnName="EstimateId" />
       </EndProperty>
@@ -382,7 +394,7 @@
         <ScalarProperty Name="VisitCount" ColumnName="VisitCount" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="VisitLaboratory" TypeName="HospitalsModel.VisitLaboratory" StoreEntitySet="VisitLaboratory">
+    <AssociationSetMapping Name="VisitLaboratory" TypeName="HospitalModel.VisitLaboratory" StoreEntitySet="VisitLaboratory">
       <EndProperty Name="LaboratoryEstimate">
         <ScalarProperty Name="Id" ColumnName="EstimateId" />
       </EndProperty>
@@ -391,7 +403,7 @@
         <ScalarProperty Name="VisitCount" ColumnName="VisitCount" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="VisitMedicalImaging" TypeName="HospitalsModel.VisitMedicalImaging" StoreEntitySet="VisitMedicalImaging">
+    <AssociationSetMapping Name="VisitMedicalImaging" TypeName="HospitalModel.VisitMedicalImaging" StoreEntitySet="VisitMedicalImaging">
       <EndProperty Name="MedicalImagingEstimate">
         <ScalarProperty Name="Id" ColumnName="EstimateId" />
       </EndProperty>
@@ -400,7 +412,7 @@
         <ScalarProperty Name="VisitCount" ColumnName="VisitCount" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="VisitPrescription" TypeName="HospitalsModel.VisitPrescription" StoreEntitySet="VisitPrescription">
+    <AssociationSetMapping Name="VisitPrescription" TypeName="HospitalModel.VisitPrescription" StoreEntitySet="VisitPrescription">
       <EndProperty Name="PrescriptionEstimate">
         <ScalarProperty Name="Id" ColumnName="EstimateId" />
       </EndProperty>
@@ -409,7 +421,7 @@
         <ScalarProperty Name="VisitCount" ColumnName="VisitCount" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="VisitVariousDocument" TypeName="HospitalsModel.VisitVariousDocument" StoreEntitySet="VisitVariousDocument">
+    <AssociationSetMapping Name="VisitVariousDocument" TypeName="HospitalModel.VisitVariousDocument" StoreEntitySet="VisitVariousDocument">
       <EndProperty Name="VariousDocumentEstimate">
         <ScalarProperty Name="Id" ColumnName="EstimateId" />
       </EndProperty>
@@ -418,7 +430,7 @@
         <ScalarProperty Name="VisitCount" ColumnName="VisitCount" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="WaitingConsultation" TypeName="HospitalsModel.WaitingConsultation" StoreEntitySet="WaitingConsultation">
+    <AssociationSetMapping Name="WaitingConsultation" TypeName="HospitalModel.WaitingConsultation" StoreEntitySet="WaitingConsultation">
       <EndProperty Name="ConsultationCategory">
         <ScalarProperty Name="Id" ColumnName="CategoryId" />
       </EndProperty>
@@ -426,7 +438,7 @@
         <ScalarProperty Name="Id" ColumnName="WaitId" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="WaitingLaboratory" TypeName="HospitalsModel.WaitingLaboratory" StoreEntitySet="WaitingLaboratory">
+    <AssociationSetMapping Name="WaitingLaboratory" TypeName="HospitalModel.WaitingLaboratory" StoreEntitySet="WaitingLaboratory">
       <EndProperty Name="LaboratoryCategory">
         <ScalarProperty Name="Id" ColumnName="CategoryId" />
       </EndProperty>
@@ -434,7 +446,7 @@
         <ScalarProperty Name="Id" ColumnName="WaitId" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="WaitingMedicalImaging" TypeName="HospitalsModel.WaitingMedicalImaging" StoreEntitySet="WaitingMedicalImaging">
+    <AssociationSetMapping Name="WaitingMedicalImaging" TypeName="HospitalModel.WaitingMedicalImaging" StoreEntitySet="WaitingMedicalImaging">
       <EndProperty Name="MedicalImagingCategory">
         <ScalarProperty Name="Id" ColumnName="CategoryId" />
       </EndProperty>
@@ -442,7 +454,7 @@
         <ScalarProperty Name="Id" ColumnName="WaitId" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="WaitingPrescription" TypeName="HospitalsModel.WaitingPrescription" StoreEntitySet="WaitingPrescription">
+    <AssociationSetMapping Name="WaitingPrescription" TypeName="HospitalModel.WaitingPrescription" StoreEntitySet="WaitingPrescription">
       <EndProperty Name="PrescriptionCategory">
         <ScalarProperty Name="Id" ColumnName="CategoryId" />
       </EndProperty>
@@ -450,7 +462,7 @@
         <ScalarProperty Name="Id" ColumnName="WaitId" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="WaitingVariousDocument" TypeName="HospitalsModel.WaitingVariousDocument" StoreEntitySet="WaitingVariousDocument">
+    <AssociationSetMapping Name="WaitingVariousDocument" TypeName="HospitalModel.WaitingVariousDocument" StoreEntitySet="WaitingVariousDocument">
       <EndProperty Name="VariousDocumentCategory">
         <ScalarProperty Name="Id" ColumnName="CategoryId" />
       </EndProperty>

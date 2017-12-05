@@ -49,7 +49,6 @@ E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.Properties.Resources.resources
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.SampleForm.resources
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.SamplesForm.resources
-E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.Search.resources
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.SearchForm.resources
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.UpdateAccount.resources
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.WaitingListForm.resources
@@ -60,3 +59,8 @@ E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.exe
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.pdb
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.csprojResolveAssemblyReference.cache
+E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.Managements.resources
+E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.SearchPatient.resources
+E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.SearchWorker.resources
+E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.MedicalsForm.resources
+E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.HistorysForm.resources

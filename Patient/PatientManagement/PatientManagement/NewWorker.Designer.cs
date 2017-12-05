@@ -123,11 +123,10 @@
             this.btnClose.Location = new System.Drawing.Point(3, 375);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(194, 118);
-            this.btnClose.TabIndex = 13;
+            this.btnClose.TabIndex = 0;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            this.btnClose.Leave += new System.EventHandler(this.btnClose_Leave);
             // 
             // btnAdd
             // 
@@ -138,11 +137,10 @@
             this.btnAdd.Location = new System.Drawing.Point(3, 127);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(194, 118);
-            this.btnAdd.TabIndex = 11;
+            this.btnAdd.TabIndex = 0;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            this.btnAdd.Leave += new System.EventHandler(this.btnAdd_Leave);
             // 
             // btnClear
             // 
@@ -153,11 +151,10 @@
             this.btnClear.Location = new System.Drawing.Point(3, 251);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(194, 118);
-            this.btnClear.TabIndex = 12;
+            this.btnClear.TabIndex = 0;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            this.btnClear.Leave += new System.EventHandler(this.btnClear_Leave);
             // 
             // tableLayoutPanel2
             // 
@@ -242,7 +239,7 @@
             this.txtPhone1.Multiline = true;
             this.txtPhone1.Name = "txtPhone1";
             this.txtPhone1.Size = new System.Drawing.Size(261, 48);
-            this.txtPhone1.TabIndex = 5;
+            this.txtPhone1.TabIndex = 0;
             this.txtPhone1.Leave += new System.EventHandler(this.txtPhone1_Leave);
             // 
             // tableLayoutPanel20
@@ -270,7 +267,7 @@
             this.txtSalary.Multiline = true;
             this.txtSalary.Name = "txtSalary";
             this.txtSalary.Size = new System.Drawing.Size(261, 46);
-            this.txtSalary.TabIndex = 10;
+            this.txtSalary.TabIndex = 0;
             this.txtSalary.Leave += new System.EventHandler(this.txtSalary_Leave);
             // 
             // tableLayoutPanel18
@@ -298,7 +295,8 @@
             this.txtAddress.Multiline = true;
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(261, 46);
-            this.txtAddress.TabIndex = 4;
+            this.txtAddress.TabIndex = 0;
+            this.txtAddress.Leave += new System.EventHandler(this.txtAddress_Leave);
             // 
             // tableLayoutPanel16
             // 
@@ -325,7 +323,7 @@
             this.txtPosition.Multiline = true;
             this.txtPosition.Name = "txtPosition";
             this.txtPosition.Size = new System.Drawing.Size(261, 46);
-            this.txtPosition.TabIndex = 9;
+            this.txtPosition.TabIndex = 999;
             this.txtPosition.Leave += new System.EventHandler(this.txtPosition_Leave);
             // 
             // tableLayoutPanel14
@@ -354,7 +352,7 @@
             this.txtAge.Name = "txtAge";
             this.txtAge.ReadOnly = true;
             this.txtAge.Size = new System.Drawing.Size(261, 46);
-            this.txtAge.TabIndex = 3;
+            this.txtAge.TabIndex = 0;
             // 
             // tableLayoutPanel12
             // 
@@ -395,7 +393,7 @@
             this.dtpSWD.MinDate = new System.DateTime(1940, 1, 1, 0, 0, 0, 0);
             this.dtpSWD.Name = "dtpSWD";
             this.dtpSWD.Size = new System.Drawing.Size(261, 52);
-            this.dtpSWD.TabIndex = 8;
+            this.dtpSWD.TabIndex = 0;
             this.dtpSWD.Leave += new System.EventHandler(this.dtpSWD_Leave);
             // 
             // label13
@@ -449,7 +447,7 @@
             this.dtpDOB.MinDate = new System.DateTime(1940, 1, 1, 0, 0, 0, 0);
             this.dtpDOB.Name = "dtpDOB";
             this.dtpDOB.Size = new System.Drawing.Size(261, 52);
-            this.dtpDOB.TabIndex = 3;
+            this.dtpDOB.TabIndex = 0;
             this.dtpDOB.Leave += new System.EventHandler(this.dtpDOB_Leave);
             // 
             // tableLayoutPanel8
@@ -477,7 +475,7 @@
             this.txtEmail.Multiline = true;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(261, 46);
-            this.txtEmail.TabIndex = 7;
+            this.txtEmail.TabIndex = 0;
             this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
             // label12
@@ -544,7 +542,7 @@
             this.cboGender.Location = new System.Drawing.Point(3, 20);
             this.cboGender.Name = "cboGender";
             this.cboGender.Size = new System.Drawing.Size(261, 42);
-            this.cboGender.TabIndex = 2;
+            this.cboGender.TabIndex = 0;
             this.cboGender.Leave += new System.EventHandler(this.cboGender_Leave);
             // 
             // tableLayoutPanel5
@@ -572,7 +570,8 @@
             this.txtPhone2.Multiline = true;
             this.txtPhone2.Name = "txtPhone2";
             this.txtPhone2.Size = new System.Drawing.Size(261, 46);
-            this.txtPhone2.TabIndex = 6;
+            this.txtPhone2.TabIndex = 0;
+            this.txtPhone2.Leave += new System.EventHandler(this.txtPhone2_Leave);
             // 
             // label1
             // 
@@ -611,7 +610,7 @@
             this.txtName.Multiline = true;
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(261, 46);
-            this.txtName.TabIndex = 1;
+            this.txtName.TabIndex = 0;
             this.txtName.Leave += new System.EventHandler(this.txtName_Leave);
             // 
             // label9

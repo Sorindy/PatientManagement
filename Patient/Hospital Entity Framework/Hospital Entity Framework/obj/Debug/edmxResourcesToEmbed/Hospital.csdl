@@ -1,242 +1,259 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="HospitalsModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="HospitalModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="HospitalDbContext" p1:LazyLoadingEnabled="true">
-    <EntitySet Name="Accounts" EntityType="HospitalsModel.Account" />
-    <EntitySet Name="ConsultationCategories" EntityType="HospitalsModel.ConsultationCategory" />
-    <EntitySet Name="ConsultationEstimates" EntityType="HospitalsModel.ConsultationEstimate" />
-    <EntitySet Name="ConsultationSamples" EntityType="HospitalsModel.ConsultationSample" />
-    <EntitySet Name="Datings" EntityType="HospitalsModel.Dating" />
-    <EntitySet Name="Forms" EntityType="HospitalsModel.Form" />
-    <EntitySet Name="LaboratoryCategories" EntityType="HospitalsModel.LaboratoryCategory" />
-    <EntitySet Name="LaboratoryEstimates" EntityType="HospitalsModel.LaboratoryEstimate" />
-    <EntitySet Name="LaboratorySamples" EntityType="HospitalsModel.LaboratorySample" />
-    <EntitySet Name="Managements" EntityType="HospitalsModel.Management" />
-    <EntitySet Name="MedicalHistories" EntityType="HospitalsModel.MedicalHistory" />
-    <EntitySet Name="MedicalImagingCategories" EntityType="HospitalsModel.MedicalImagingCategory" />
-    <EntitySet Name="MedicalImagingEstimates" EntityType="HospitalsModel.MedicalImagingEstimate" />
-    <EntitySet Name="MedicalImagingSamples" EntityType="HospitalsModel.MedicalImagingSample" />
-    <EntitySet Name="MedicalRecords" EntityType="HospitalsModel.MedicalRecord" />
-    <EntitySet Name="Patients" EntityType="HospitalsModel.Patient" />
-    <EntitySet Name="PrescriptionCategories" EntityType="HospitalsModel.PrescriptionCategory" />
-    <EntitySet Name="PrescriptionEstimates" EntityType="HospitalsModel.PrescriptionEstimate" />
-    <EntitySet Name="PrescriptionSamples" EntityType="HospitalsModel.PrescriptionSample" />
-    <EntitySet Name="Referrers" EntityType="HospitalsModel.Referrer" />
-    <EntitySet Name="sysdiagrams" EntityType="HospitalsModel.sysdiagram" />
-    <EntitySet Name="TempManagements" EntityType="HospitalsModel.TempManagement" />
-    <EntitySet Name="TempWaits" EntityType="HospitalsModel.TempWait" />
-    <EntitySet Name="VariousDocumentCategories" EntityType="HospitalsModel.VariousDocumentCategory" />
-    <EntitySet Name="VariousDocumentEstimates" EntityType="HospitalsModel.VariousDocumentEstimate" />
-    <EntitySet Name="VariousDocumentSamples" EntityType="HospitalsModel.VariousDocumentSample" />
-    <EntitySet Name="Visits" EntityType="HospitalsModel.Visit" />
-    <EntitySet Name="WaitingLists" EntityType="HospitalsModel.WaitingList" />
-    <EntitySet Name="Workers" EntityType="HospitalsModel.Worker" />
-    <AssociationSet Name="FK_Account_Worker1" Association="HospitalsModel.FK_Account_Worker1">
+    <EntitySet Name="Accounts" EntityType="HospitalModel.Account" />
+    <EntitySet Name="ConsultationCategories" EntityType="HospitalModel.ConsultationCategory" />
+    <EntitySet Name="ConsultationEstimates" EntityType="HospitalModel.ConsultationEstimate" />
+    <EntitySet Name="ConsultationSamples" EntityType="HospitalModel.ConsultationSample" />
+    <EntitySet Name="Datings" EntityType="HospitalModel.Dating" />
+    <EntitySet Name="Forms" EntityType="HospitalModel.Form" />
+    <EntitySet Name="LaboratoryCategories" EntityType="HospitalModel.LaboratoryCategory" />
+    <EntitySet Name="LaboratoryEstimates" EntityType="HospitalModel.LaboratoryEstimate" />
+    <EntitySet Name="LaboratorySamples" EntityType="HospitalModel.LaboratorySample" />
+    <EntitySet Name="Managements" EntityType="HospitalModel.Management" />
+    <EntitySet Name="MedicalHistories" EntityType="HospitalModel.MedicalHistory" />
+    <EntitySet Name="MedicalImagingCategories" EntityType="HospitalModel.MedicalImagingCategory" />
+    <EntitySet Name="MedicalImagingEstimates" EntityType="HospitalModel.MedicalImagingEstimate" />
+    <EntitySet Name="MedicalImagingSamples" EntityType="HospitalModel.MedicalImagingSample" />
+    <EntitySet Name="MedicalRecords" EntityType="HospitalModel.MedicalRecord" />
+    <EntitySet Name="Patients" EntityType="HospitalModel.Patient" />
+    <EntitySet Name="PrescriptionCategories" EntityType="HospitalModel.PrescriptionCategory" />
+    <EntitySet Name="PrescriptionEstimates" EntityType="HospitalModel.PrescriptionEstimate" />
+    <EntitySet Name="PrescriptionSamples" EntityType="HospitalModel.PrescriptionSample" />
+    <EntitySet Name="Referrers" EntityType="HospitalModel.Referrer" />
+    <EntitySet Name="sysdiagrams" EntityType="HospitalModel.sysdiagram" />
+    <EntitySet Name="TempManagements" EntityType="HospitalModel.TempManagement" />
+    <EntitySet Name="TempWaits" EntityType="HospitalModel.TempWait" />
+    <EntitySet Name="TempWaitingLists" EntityType="HospitalModel.TempWaitingList" />
+    <EntitySet Name="VariousDocumentCategories" EntityType="HospitalModel.VariousDocumentCategory" />
+    <EntitySet Name="VariousDocumentEstimates" EntityType="HospitalModel.VariousDocumentEstimate" />
+    <EntitySet Name="VariousDocumentSamples" EntityType="HospitalModel.VariousDocumentSample" />
+    <EntitySet Name="Visits" EntityType="HospitalModel.Visit" />
+    <EntitySet Name="WaitingLists" EntityType="HospitalModel.WaitingList" />
+    <EntitySet Name="Workers" EntityType="HospitalModel.Worker" />
+    <AssociationSet Name="FK_Account_Worker" Association="HospitalModel.FK_Account_Worker">
       <End Role="Worker" EntitySet="Workers" />
       <End Role="Account" EntitySet="Accounts" />
     </AssociationSet>
-    <AssociationSet Name="FK_Management_Account1" Association="HospitalsModel.FK_Management_Account1">
+    <AssociationSet Name="FK_Management_Account" Association="HospitalModel.FK_Management_Account">
       <End Role="Account" EntitySet="Accounts" />
       <End Role="Management" EntitySet="Managements" />
     </AssociationSet>
-    <AssociationSet Name="FK_ConsultationEstimate_ConsultatationCategory" Association="HospitalsModel.FK_ConsultationEstimate_ConsultatationCategory">
+    <AssociationSet Name="FK_ConsultationEstimate_ConsultationCategory" Association="HospitalModel.FK_ConsultationEstimate_ConsultationCategory">
       <End Role="ConsultationCategory" EntitySet="ConsultationCategories" />
       <End Role="ConsultationEstimate" EntitySet="ConsultationEstimates" />
     </AssociationSet>
-    <AssociationSet Name="FK_ConsultationSample_ConsultationCategory" Association="HospitalsModel.FK_ConsultationSample_ConsultationCategory">
+    <AssociationSet Name="FK_ConsultationSample_ConsultationCategory" Association="HospitalModel.FK_ConsultationSample_ConsultationCategory">
       <End Role="ConsultationCategory" EntitySet="ConsultationCategories" />
       <End Role="ConsultationSample" EntitySet="ConsultationSamples" />
     </AssociationSet>
-    <AssociationSet Name="FK_ConsultationEstimate_Referrer" Association="HospitalsModel.FK_ConsultationEstimate_Referrer">
+    <AssociationSet Name="FK_ConsultationEstimate_Patient" Association="HospitalModel.FK_ConsultationEstimate_Patient">
+      <End Role="Patient" EntitySet="Patients" />
+      <End Role="ConsultationEstimate" EntitySet="ConsultationEstimates" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ConsultationEstimate_Referrer" Association="HospitalModel.FK_ConsultationEstimate_Referrer">
       <End Role="Referrer" EntitySet="Referrers" />
       <End Role="ConsultationEstimate" EntitySet="ConsultationEstimates" />
     </AssociationSet>
-    <AssociationSet Name="FK_ConsultationEstimate_Worker" Association="HospitalsModel.FK_ConsultationEstimate_Worker">
+    <AssociationSet Name="FK_ConsultationEstimate_Worker" Association="HospitalModel.FK_ConsultationEstimate_Worker">
       <End Role="Worker" EntitySet="Workers" />
       <End Role="ConsultationEstimate" EntitySet="ConsultationEstimates" />
     </AssociationSet>
-    <AssociationSet Name="FK_ConsultationEstimate_Worker1" Association="HospitalsModel.FK_ConsultationEstimate_Worker1">
+    <AssociationSet Name="FK_ConsultationEstimate_Worker1" Association="HospitalModel.FK_ConsultationEstimate_Worker1">
       <End Role="Worker" EntitySet="Workers" />
       <End Role="ConsultationEstimate" EntitySet="ConsultationEstimates" />
     </AssociationSet>
-    <AssociationSet Name="FK_Dating_Patient1" Association="HospitalsModel.FK_Dating_Patient1">
+    <AssociationSet Name="FK_Dating_Patient" Association="HospitalModel.FK_Dating_Patient">
       <End Role="Patient" EntitySet="Patients" />
       <End Role="Dating" EntitySet="Datings" />
     </AssociationSet>
-    <AssociationSet Name="FK_Dating_Worker1" Association="HospitalsModel.FK_Dating_Worker1">
+    <AssociationSet Name="FK_Dating_Worker" Association="HospitalModel.FK_Dating_Worker">
       <End Role="Worker" EntitySet="Workers" />
       <End Role="Dating" EntitySet="Datings" />
     </AssociationSet>
-    <AssociationSet Name="FK_LaboratoryEstimate_LaboratoryCategory" Association="HospitalsModel.FK_LaboratoryEstimate_LaboratoryCategory">
+    <AssociationSet Name="FK_LaboratoryEstimate_LaboratoryCategory" Association="HospitalModel.FK_LaboratoryEstimate_LaboratoryCategory">
       <End Role="LaboratoryCategory" EntitySet="LaboratoryCategories" />
       <End Role="LaboratoryEstimate" EntitySet="LaboratoryEstimates" />
     </AssociationSet>
-    <AssociationSet Name="FK_LaboratorySample_LaboratoryCategory" Association="HospitalsModel.FK_LaboratorySample_LaboratoryCategory">
+    <AssociationSet Name="FK_LaboratorySample_LaboratoryCategory" Association="HospitalModel.FK_LaboratorySample_LaboratoryCategory">
       <End Role="LaboratoryCategory" EntitySet="LaboratoryCategories" />
       <End Role="LaboratorySample" EntitySet="LaboratorySamples" />
     </AssociationSet>
-    <AssociationSet Name="FK_LaboratoryEstimate_Referrer" Association="HospitalsModel.FK_LaboratoryEstimate_Referrer">
+    <AssociationSet Name="FK_LaboratoryEstimate_Patient" Association="HospitalModel.FK_LaboratoryEstimate_Patient">
+      <End Role="Patient" EntitySet="Patients" />
+      <End Role="LaboratoryEstimate" EntitySet="LaboratoryEstimates" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LaboratoryEstimate_Referrer" Association="HospitalModel.FK_LaboratoryEstimate_Referrer">
       <End Role="Referrer" EntitySet="Referrers" />
       <End Role="LaboratoryEstimate" EntitySet="LaboratoryEstimates" />
     </AssociationSet>
-    <AssociationSet Name="FK_LaboratoryEstimate_Worker" Association="HospitalsModel.FK_LaboratoryEstimate_Worker">
+    <AssociationSet Name="FK_LaboratoryEstimate_Worker" Association="HospitalModel.FK_LaboratoryEstimate_Worker">
       <End Role="Worker" EntitySet="Workers" />
       <End Role="LaboratoryEstimate" EntitySet="LaboratoryEstimates" />
     </AssociationSet>
-    <AssociationSet Name="FK_LaboratoryEstimate_Worker1" Association="HospitalsModel.FK_LaboratoryEstimate_Worker1">
+    <AssociationSet Name="FK_LaboratoryEstimate_Worker1" Association="HospitalModel.FK_LaboratoryEstimate_Worker1">
       <End Role="Worker" EntitySet="Workers" />
       <End Role="LaboratoryEstimate" EntitySet="LaboratoryEstimates" />
     </AssociationSet>
-    <AssociationSet Name="FK_MedicalHistory_Patient1" Association="HospitalsModel.FK_MedicalHistory_Patient1">
+    <AssociationSet Name="FK_MedicalHistory_Patient" Association="HospitalModel.FK_MedicalHistory_Patient">
       <End Role="Patient" EntitySet="Patients" />
       <End Role="MedicalHistory" EntitySet="MedicalHistories" />
     </AssociationSet>
-    <AssociationSet Name="FK_MedicalImagingEstimate_MedicalImagingCategory" Association="HospitalsModel.FK_MedicalImagingEstimate_MedicalImagingCategory">
+    <AssociationSet Name="FK_MedicalImagingEstimate_MedicalImagingCategory" Association="HospitalModel.FK_MedicalImagingEstimate_MedicalImagingCategory">
       <End Role="MedicalImagingCategory" EntitySet="MedicalImagingCategories" />
       <End Role="MedicalImagingEstimate" EntitySet="MedicalImagingEstimates" />
     </AssociationSet>
-    <AssociationSet Name="FK_MedicalImagingSample_MedicalImagingCategory" Association="HospitalsModel.FK_MedicalImagingSample_MedicalImagingCategory">
+    <AssociationSet Name="FK_MedicalImagingSample_MedicalImagingCategory" Association="HospitalModel.FK_MedicalImagingSample_MedicalImagingCategory">
       <End Role="MedicalImagingCategory" EntitySet="MedicalImagingCategories" />
       <End Role="MedicalImagingSample" EntitySet="MedicalImagingSamples" />
     </AssociationSet>
-    <AssociationSet Name="FK_MedicalImagingEstimate_Referrer" Association="HospitalsModel.FK_MedicalImagingEstimate_Referrer">
+    <AssociationSet Name="FK_MedicalImagingEstimate_Patient" Association="HospitalModel.FK_MedicalImagingEstimate_Patient">
+      <End Role="Patient" EntitySet="Patients" />
+      <End Role="MedicalImagingEstimate" EntitySet="MedicalImagingEstimates" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MedicalImagingEstimate_Referrer" Association="HospitalModel.FK_MedicalImagingEstimate_Referrer">
       <End Role="Referrer" EntitySet="Referrers" />
       <End Role="MedicalImagingEstimate" EntitySet="MedicalImagingEstimates" />
     </AssociationSet>
-    <AssociationSet Name="FK_MedicalImagingEstimate_Worker" Association="HospitalsModel.FK_MedicalImagingEstimate_Worker">
+    <AssociationSet Name="FK_MedicalImagingEstimate_Worker" Association="HospitalModel.FK_MedicalImagingEstimate_Worker">
       <End Role="Worker" EntitySet="Workers" />
       <End Role="MedicalImagingEstimate" EntitySet="MedicalImagingEstimates" />
     </AssociationSet>
-    <AssociationSet Name="FK_MedicalImagingEstimate_Worker1" Association="HospitalsModel.FK_MedicalImagingEstimate_Worker1">
+    <AssociationSet Name="FK_MedicalImagingEstimate_Worker1" Association="HospitalModel.FK_MedicalImagingEstimate_Worker1">
       <End Role="Worker" EntitySet="Workers" />
       <End Role="MedicalImagingEstimate" EntitySet="MedicalImagingEstimates" />
     </AssociationSet>
-    <AssociationSet Name="FK_MedicalRecord_Patient" Association="HospitalsModel.FK_MedicalRecord_Patient">
+    <AssociationSet Name="FK_MedicalRecord_Patient" Association="HospitalModel.FK_MedicalRecord_Patient">
       <End Role="Patient" EntitySet="Patients" />
       <End Role="MedicalRecord" EntitySet="MedicalRecords" />
     </AssociationSet>
-    <AssociationSet Name="FK_Visit_Patient" Association="HospitalsModel.FK_Visit_Patient">
+    <AssociationSet Name="FK_PrescriptionEstimate_Patient" Association="HospitalModel.FK_PrescriptionEstimate_Patient">
+      <End Role="Patient" EntitySet="Patients" />
+      <End Role="PrescriptionEstimate" EntitySet="PrescriptionEstimates" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VariousDocumentEstimate_Patient" Association="HospitalModel.FK_VariousDocumentEstimate_Patient">
+      <End Role="Patient" EntitySet="Patients" />
+      <End Role="VariousDocumentEstimate" EntitySet="VariousDocumentEstimates" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Visit_Patient" Association="HospitalModel.FK_Visit_Patient">
       <End Role="Patient" EntitySet="Patients" />
       <End Role="Visit" EntitySet="Visits" />
     </AssociationSet>
-    <AssociationSet Name="FK_WaitingList_Patient" Association="HospitalsModel.FK_WaitingList_Patient">
+    <AssociationSet Name="FK_WaitingList_Patient" Association="HospitalModel.FK_WaitingList_Patient">
       <End Role="Patient" EntitySet="Patients" />
       <End Role="WaitingList" EntitySet="WaitingLists" />
     </AssociationSet>
-    <AssociationSet Name="FK_PrescriptionEstimate_PrescriptionCategory1" Association="HospitalsModel.FK_PrescriptionEstimate_PrescriptionCategory1">
+    <AssociationSet Name="FK_PrescriptionEstimate_PrescriptionCategory" Association="HospitalModel.FK_PrescriptionEstimate_PrescriptionCategory">
       <End Role="PrescriptionCategory" EntitySet="PrescriptionCategories" />
       <End Role="PrescriptionEstimate" EntitySet="PrescriptionEstimates" />
     </AssociationSet>
-    <AssociationSet Name="FK_PrescriptionSample_PrescriptionCategory" Association="HospitalsModel.FK_PrescriptionSample_PrescriptionCategory">
+    <AssociationSet Name="FK_PrescriptionSample_PrescriptionCategory" Association="HospitalModel.FK_PrescriptionSample_PrescriptionCategory">
       <End Role="PrescriptionCategory" EntitySet="PrescriptionCategories" />
       <End Role="PrescriptionSample" EntitySet="PrescriptionSamples" />
     </AssociationSet>
-    <AssociationSet Name="FK_PrescriptionEstimate_Referrer" Association="HospitalsModel.FK_PrescriptionEstimate_Referrer">
+    <AssociationSet Name="FK_PrescriptionEstimate_Referrer" Association="HospitalModel.FK_PrescriptionEstimate_Referrer">
       <End Role="Referrer" EntitySet="Referrers" />
       <End Role="PrescriptionEstimate" EntitySet="PrescriptionEstimates" />
     </AssociationSet>
-    <AssociationSet Name="FK_PrescriptionEstimate_Worker" Association="HospitalsModel.FK_PrescriptionEstimate_Worker">
+    <AssociationSet Name="FK_PrescriptionEstimate_Worker" Association="HospitalModel.FK_PrescriptionEstimate_Worker">
       <End Role="Worker" EntitySet="Workers" />
       <End Role="PrescriptionEstimate" EntitySet="PrescriptionEstimates" />
     </AssociationSet>
-    <AssociationSet Name="FK_PrescriptionEstimate_Worker1" Association="HospitalsModel.FK_PrescriptionEstimate_Worker1">
+    <AssociationSet Name="FK_PrescriptionEstimate_Worker1" Association="HospitalModel.FK_PrescriptionEstimate_Worker1">
       <End Role="Worker" EntitySet="Workers" />
       <End Role="PrescriptionEstimate" EntitySet="PrescriptionEstimates" />
     </AssociationSet>
-    <AssociationSet Name="FK_VariousDocumentEstimate_Referrer" Association="HospitalsModel.FK_VariousDocumentEstimate_Referrer">
+    <AssociationSet Name="FK_VariousDocumentEstimate_Referrer" Association="HospitalModel.FK_VariousDocumentEstimate_Referrer">
       <End Role="Referrer" EntitySet="Referrers" />
       <End Role="VariousDocumentEstimate" EntitySet="VariousDocumentEstimates" />
     </AssociationSet>
-    <AssociationSet Name="FK_VariousDocumentEstimate_VariousDocumentCategory" Association="HospitalsModel.FK_VariousDocumentEstimate_VariousDocumentCategory">
+    <AssociationSet Name="FK_VariousDocumentEstimate_VariousDocumentCategory" Association="HospitalModel.FK_VariousDocumentEstimate_VariousDocumentCategory">
       <End Role="VariousDocumentCategory" EntitySet="VariousDocumentCategories" />
       <End Role="VariousDocumentEstimate" EntitySet="VariousDocumentEstimates" />
     </AssociationSet>
-    <AssociationSet Name="FK_VariousDocumentSample_VariousDocumentCategory" Association="HospitalsModel.FK_VariousDocumentSample_VariousDocumentCategory">
+    <AssociationSet Name="FK_VariousDocumentSample_VariousDocumentCategory" Association="HospitalModel.FK_VariousDocumentSample_VariousDocumentCategory">
       <End Role="VariousDocumentCategory" EntitySet="VariousDocumentCategories" />
       <End Role="VariousDocumentSample" EntitySet="VariousDocumentSamples" />
     </AssociationSet>
-    <AssociationSet Name="FK_VariousDocumentEstimate_Worker" Association="HospitalsModel.FK_VariousDocumentEstimate_Worker">
+    <AssociationSet Name="FK_VariousDocumentEstimate_Worker" Association="HospitalModel.FK_VariousDocumentEstimate_Worker">
       <End Role="Worker" EntitySet="Workers" />
       <End Role="VariousDocumentEstimate" EntitySet="VariousDocumentEstimates" />
     </AssociationSet>
-    <AssociationSet Name="FK_VariousDocumentEstimate_Worker1" Association="HospitalsModel.FK_VariousDocumentEstimate_Worker1">
+    <AssociationSet Name="FK_VariousDocumentEstimate_Worker1" Association="HospitalModel.FK_VariousDocumentEstimate_Worker1">
       <End Role="Worker" EntitySet="Workers" />
       <End Role="VariousDocumentEstimate" EntitySet="VariousDocumentEstimates" />
     </AssociationSet>
-    <AssociationSet Name="FK_WaitingList_Visit" Association="HospitalsModel.FK_WaitingList_Visit">
+    <AssociationSet Name="FK_WaitingList_Visit" Association="HospitalModel.FK_WaitingList_Visit">
       <End Role="Visit" EntitySet="Visits" />
       <End Role="WaitingList" EntitySet="WaitingLists" />
     </AssociationSet>
-    <AssociationSet Name="ManagementConsultation" Association="HospitalsModel.ManagementConsultation">
+    <AssociationSet Name="ManagementConsultation" Association="HospitalModel.ManagementConsultation">
       <End Role="ConsultationCategory" EntitySet="ConsultationCategories" />
       <End Role="Management" EntitySet="Managements" />
     </AssociationSet>
-    <AssociationSet Name="ManagementForm" Association="HospitalsModel.ManagementForm">
+    <AssociationSet Name="ManagementForm" Association="HospitalModel.ManagementForm">
       <End Role="Form" EntitySet="Forms" />
       <End Role="Management" EntitySet="Managements" />
     </AssociationSet>
-    <AssociationSet Name="ManagementLaboratory" Association="HospitalsModel.ManagementLaboratory">
+    <AssociationSet Name="ManagementLaboratory" Association="HospitalModel.ManagementLaboratory">
       <End Role="LaboratoryCategory" EntitySet="LaboratoryCategories" />
       <End Role="Management" EntitySet="Managements" />
     </AssociationSet>
-    <AssociationSet Name="ManagementMedicalImaging" Association="HospitalsModel.ManagementMedicalImaging">
+    <AssociationSet Name="ManagementMedicalImaging" Association="HospitalModel.ManagementMedicalImaging">
       <End Role="Management" EntitySet="Managements" />
       <End Role="MedicalImagingCategory" EntitySet="MedicalImagingCategories" />
     </AssociationSet>
-    <AssociationSet Name="ManagementPrescription" Association="HospitalsModel.ManagementPrescription">
+    <AssociationSet Name="ManagementPrescription" Association="HospitalModel.ManagementPrescription">
       <End Role="Management" EntitySet="Managements" />
       <End Role="PrescriptionCategory" EntitySet="PrescriptionCategories" />
     </AssociationSet>
-    <AssociationSet Name="ManagementVariousDocument" Association="HospitalsModel.ManagementVariousDocument">
+    <AssociationSet Name="ManagementVariousDocument" Association="HospitalModel.ManagementVariousDocument">
       <End Role="Management" EntitySet="Managements" />
       <End Role="VariousDocumentCategory" EntitySet="VariousDocumentCategories" />
     </AssociationSet>
-    <AssociationSet Name="MedicalVisit" Association="HospitalsModel.MedicalVisit">
+    <AssociationSet Name="MedicalVisit" Association="HospitalModel.MedicalVisit">
       <End Role="MedicalRecord" EntitySet="MedicalRecords" />
       <End Role="Visit" EntitySet="Visits" />
     </AssociationSet>
-    <AssociationSet Name="VisitConsultation" Association="HospitalsModel.VisitConsultation">
+    <AssociationSet Name="VisitConsultation" Association="HospitalModel.VisitConsultation">
       <End Role="ConsultationEstimate" EntitySet="ConsultationEstimates" />
       <End Role="Visit" EntitySet="Visits" />
     </AssociationSet>
-    <AssociationSet Name="VisitLaboratory" Association="HospitalsModel.VisitLaboratory">
+    <AssociationSet Name="VisitLaboratory" Association="HospitalModel.VisitLaboratory">
       <End Role="LaboratoryEstimate" EntitySet="LaboratoryEstimates" />
       <End Role="Visit" EntitySet="Visits" />
     </AssociationSet>
-    <AssociationSet Name="VisitMedicalImaging" Association="HospitalsModel.VisitMedicalImaging">
+    <AssociationSet Name="VisitMedicalImaging" Association="HospitalModel.VisitMedicalImaging">
       <End Role="MedicalImagingEstimate" EntitySet="MedicalImagingEstimates" />
       <End Role="Visit" EntitySet="Visits" />
     </AssociationSet>
-    <AssociationSet Name="VisitPrescription" Association="HospitalsModel.VisitPrescription">
+    <AssociationSet Name="VisitPrescription" Association="HospitalModel.VisitPrescription">
       <End Role="PrescriptionEstimate" EntitySet="PrescriptionEstimates" />
       <End Role="Visit" EntitySet="Visits" />
     </AssociationSet>
-    <AssociationSet Name="VisitVariousDocument" Association="HospitalsModel.VisitVariousDocument">
+    <AssociationSet Name="VisitVariousDocument" Association="HospitalModel.VisitVariousDocument">
       <End Role="VariousDocumentEstimate" EntitySet="VariousDocumentEstimates" />
       <End Role="Visit" EntitySet="Visits" />
     </AssociationSet>
-    <AssociationSet Name="WaitingConsultation" Association="HospitalsModel.WaitingConsultation">
+    <AssociationSet Name="WaitingConsultation" Association="HospitalModel.WaitingConsultation">
       <End Role="ConsultationCategory" EntitySet="ConsultationCategories" />
       <End Role="WaitingList" EntitySet="WaitingLists" />
     </AssociationSet>
-    <AssociationSet Name="WaitingLaboratory" Association="HospitalsModel.WaitingLaboratory">
+    <AssociationSet Name="WaitingLaboratory" Association="HospitalModel.WaitingLaboratory">
       <End Role="LaboratoryCategory" EntitySet="LaboratoryCategories" />
       <End Role="WaitingList" EntitySet="WaitingLists" />
     </AssociationSet>
-    <AssociationSet Name="WaitingMedicalImaging" Association="HospitalsModel.WaitingMedicalImaging">
+    <AssociationSet Name="WaitingMedicalImaging" Association="HospitalModel.WaitingMedicalImaging">
       <End Role="MedicalImagingCategory" EntitySet="MedicalImagingCategories" />
       <End Role="WaitingList" EntitySet="WaitingLists" />
     </AssociationSet>
-    <AssociationSet Name="WaitingPrescription" Association="HospitalsModel.WaitingPrescription">
+    <AssociationSet Name="WaitingPrescription" Association="HospitalModel.WaitingPrescription">
       <End Role="PrescriptionCategory" EntitySet="PrescriptionCategories" />
       <End Role="WaitingList" EntitySet="WaitingLists" />
     </AssociationSet>
-    <AssociationSet Name="WaitingVariousDocument" Association="HospitalsModel.WaitingVariousDocument">
+    <AssociationSet Name="WaitingVariousDocument" Association="HospitalModel.WaitingVariousDocument">
       <End Role="VariousDocumentCategory" EntitySet="VariousDocumentCategories" />
       <End Role="WaitingList" EntitySet="WaitingLists" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Account_Worker" Association="HospitalsModel.FK_Account_Worker">
-      <End Role="Worker" EntitySet="Workers" />
-      <End Role="Account" EntitySet="Accounts" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Account">
@@ -247,9 +264,8 @@
     <Property Name="WorkerId" Type="Int32" Nullable="false" />
     <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
     <Property Name="Password" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-    <NavigationProperty Name="Worker" Relationship="HospitalsModel.FK_Account_Worker1" FromRole="Account" ToRole="Worker" />
-    <NavigationProperty Name="Managements" Relationship="HospitalsModel.FK_Management_Account1" FromRole="Account" ToRole="Management" />
-    <NavigationProperty Name="Worker1" Relationship="HospitalsModel.FK_Account_Worker" FromRole="Account" ToRole="Worker" />
+    <NavigationProperty Name="Worker" Relationship="HospitalModel.FK_Account_Worker" FromRole="Account" ToRole="Worker" />
+    <NavigationProperty Name="Managements" Relationship="HospitalModel.FK_Management_Account" FromRole="Account" ToRole="Management" />
   </EntityType>
   <EntityType Name="ConsultationCategory">
     <Key>
@@ -257,10 +273,10 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-    <NavigationProperty Name="ConsultationEstimates" Relationship="HospitalsModel.FK_ConsultationEstimate_ConsultatationCategory" FromRole="ConsultationCategory" ToRole="ConsultationEstimate" />
-    <NavigationProperty Name="ConsultationSamples" Relationship="HospitalsModel.FK_ConsultationSample_ConsultationCategory" FromRole="ConsultationCategory" ToRole="ConsultationSample" />
-    <NavigationProperty Name="Managements" Relationship="HospitalsModel.ManagementConsultation" FromRole="ConsultationCategory" ToRole="Management" />
-    <NavigationProperty Name="WaitingLists" Relationship="HospitalsModel.WaitingConsultation" FromRole="ConsultationCategory" ToRole="WaitingList" />
+    <NavigationProperty Name="ConsultationEstimates" Relationship="HospitalModel.FK_ConsultationEstimate_ConsultationCategory" FromRole="ConsultationCategory" ToRole="ConsultationEstimate" />
+    <NavigationProperty Name="ConsultationSamples" Relationship="HospitalModel.FK_ConsultationSample_ConsultationCategory" FromRole="ConsultationCategory" ToRole="ConsultationSample" />
+    <NavigationProperty Name="Managements" Relationship="HospitalModel.ManagementConsultation" FromRole="ConsultationCategory" ToRole="Management" />
+    <NavigationProperty Name="WaitingLists" Relationship="HospitalModel.WaitingConsultation" FromRole="ConsultationCategory" ToRole="WaitingList" />
   </EntityType>
   <EntityType Name="ConsultationEstimate">
     <Key>
@@ -274,11 +290,12 @@
     <Property Name="ReferrerId" Type="Int32" />
     <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-    <NavigationProperty Name="ConsultationCategory" Relationship="HospitalsModel.FK_ConsultationEstimate_ConsultatationCategory" FromRole="ConsultationEstimate" ToRole="ConsultationCategory" />
-    <NavigationProperty Name="Referrer" Relationship="HospitalsModel.FK_ConsultationEstimate_Referrer" FromRole="ConsultationEstimate" ToRole="Referrer" />
-    <NavigationProperty Name="Worker" Relationship="HospitalsModel.FK_ConsultationEstimate_Worker" FromRole="ConsultationEstimate" ToRole="Worker" />
-    <NavigationProperty Name="Worker1" Relationship="HospitalsModel.FK_ConsultationEstimate_Worker1" FromRole="ConsultationEstimate" ToRole="Worker" />
-    <NavigationProperty Name="Visits" Relationship="HospitalsModel.VisitConsultation" FromRole="ConsultationEstimate" ToRole="Visit" />
+    <NavigationProperty Name="ConsultationCategory" Relationship="HospitalModel.FK_ConsultationEstimate_ConsultationCategory" FromRole="ConsultationEstimate" ToRole="ConsultationCategory" />
+    <NavigationProperty Name="Patient" Relationship="HospitalModel.FK_ConsultationEstimate_Patient" FromRole="ConsultationEstimate" ToRole="Patient" />
+    <NavigationProperty Name="Referrer" Relationship="HospitalModel.FK_ConsultationEstimate_Referrer" FromRole="ConsultationEstimate" ToRole="Referrer" />
+    <NavigationProperty Name="Worker" Relationship="HospitalModel.FK_ConsultationEstimate_Worker" FromRole="ConsultationEstimate" ToRole="Worker" />
+    <NavigationProperty Name="Worker1" Relationship="HospitalModel.FK_ConsultationEstimate_Worker1" FromRole="ConsultationEstimate" ToRole="Worker" />
+    <NavigationProperty Name="Visits" Relationship="HospitalModel.VisitConsultation" FromRole="ConsultationEstimate" ToRole="Visit" />
   </EntityType>
   <EntityType Name="ConsultationSample">
     <Key>
@@ -286,9 +303,9 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
     <Property Name="CategoryId" Type="Int32" Nullable="false" />
-    <Property Name="Title" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="Title" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
     <Property Name="Description" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
-    <NavigationProperty Name="ConsultationCategory" Relationship="HospitalsModel.FK_ConsultationSample_ConsultationCategory" FromRole="ConsultationSample" ToRole="ConsultationCategory" />
+    <NavigationProperty Name="ConsultationCategory" Relationship="HospitalModel.FK_ConsultationSample_ConsultationCategory" FromRole="ConsultationSample" ToRole="ConsultationCategory" />
   </EntityType>
   <EntityType Name="Dating">
     <Key>
@@ -298,8 +315,8 @@
     <Property Name="PatientId" Type="Int32" Nullable="false" />
     <Property Name="WorkerId" Type="Int32" Nullable="false" />
     <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
-    <NavigationProperty Name="Patient" Relationship="HospitalsModel.FK_Dating_Patient1" FromRole="Dating" ToRole="Patient" />
-    <NavigationProperty Name="Worker" Relationship="HospitalsModel.FK_Dating_Worker1" FromRole="Dating" ToRole="Worker" />
+    <NavigationProperty Name="Patient" Relationship="HospitalModel.FK_Dating_Patient" FromRole="Dating" ToRole="Patient" />
+    <NavigationProperty Name="Worker" Relationship="HospitalModel.FK_Dating_Worker" FromRole="Dating" ToRole="Worker" />
   </EntityType>
   <EntityType Name="Form">
     <Key>
@@ -307,7 +324,7 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
-    <NavigationProperty Name="Managements" Relationship="HospitalsModel.ManagementForm" FromRole="Form" ToRole="Management" />
+    <NavigationProperty Name="Managements" Relationship="HospitalModel.ManagementForm" FromRole="Form" ToRole="Management" />
   </EntityType>
   <EntityType Name="LaboratoryCategory">
     <Key>
@@ -315,10 +332,10 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-    <NavigationProperty Name="LaboratoryEstimates" Relationship="HospitalsModel.FK_LaboratoryEstimate_LaboratoryCategory" FromRole="LaboratoryCategory" ToRole="LaboratoryEstimate" />
-    <NavigationProperty Name="LaboratorySamples" Relationship="HospitalsModel.FK_LaboratorySample_LaboratoryCategory" FromRole="LaboratoryCategory" ToRole="LaboratorySample" />
-    <NavigationProperty Name="Managements" Relationship="HospitalsModel.ManagementLaboratory" FromRole="LaboratoryCategory" ToRole="Management" />
-    <NavigationProperty Name="WaitingLists" Relationship="HospitalsModel.WaitingLaboratory" FromRole="LaboratoryCategory" ToRole="WaitingList" />
+    <NavigationProperty Name="LaboratoryEstimates" Relationship="HospitalModel.FK_LaboratoryEstimate_LaboratoryCategory" FromRole="LaboratoryCategory" ToRole="LaboratoryEstimate" />
+    <NavigationProperty Name="LaboratorySamples" Relationship="HospitalModel.FK_LaboratorySample_LaboratoryCategory" FromRole="LaboratoryCategory" ToRole="LaboratorySample" />
+    <NavigationProperty Name="Managements" Relationship="HospitalModel.ManagementLaboratory" FromRole="LaboratoryCategory" ToRole="Management" />
+    <NavigationProperty Name="WaitingLists" Relationship="HospitalModel.WaitingLaboratory" FromRole="LaboratoryCategory" ToRole="WaitingList" />
   </EntityType>
   <EntityType Name="LaboratoryEstimate">
     <Key>
@@ -332,11 +349,12 @@
     <Property Name="ReferrerId" Type="Int32" />
     <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-    <NavigationProperty Name="LaboratoryCategory" Relationship="HospitalsModel.FK_LaboratoryEstimate_LaboratoryCategory" FromRole="LaboratoryEstimate" ToRole="LaboratoryCategory" />
-    <NavigationProperty Name="Referrer" Relationship="HospitalsModel.FK_LaboratoryEstimate_Referrer" FromRole="LaboratoryEstimate" ToRole="Referrer" />
-    <NavigationProperty Name="Worker" Relationship="HospitalsModel.FK_LaboratoryEstimate_Worker" FromRole="LaboratoryEstimate" ToRole="Worker" />
-    <NavigationProperty Name="Worker1" Relationship="HospitalsModel.FK_LaboratoryEstimate_Worker1" FromRole="LaboratoryEstimate" ToRole="Worker" />
-    <NavigationProperty Name="Visits" Relationship="HospitalsModel.VisitLaboratory" FromRole="LaboratoryEstimate" ToRole="Visit" />
+    <NavigationProperty Name="LaboratoryCategory" Relationship="HospitalModel.FK_LaboratoryEstimate_LaboratoryCategory" FromRole="LaboratoryEstimate" ToRole="LaboratoryCategory" />
+    <NavigationProperty Name="Patient" Relationship="HospitalModel.FK_LaboratoryEstimate_Patient" FromRole="LaboratoryEstimate" ToRole="Patient" />
+    <NavigationProperty Name="Referrer" Relationship="HospitalModel.FK_LaboratoryEstimate_Referrer" FromRole="LaboratoryEstimate" ToRole="Referrer" />
+    <NavigationProperty Name="Worker" Relationship="HospitalModel.FK_LaboratoryEstimate_Worker" FromRole="LaboratoryEstimate" ToRole="Worker" />
+    <NavigationProperty Name="Worker1" Relationship="HospitalModel.FK_LaboratoryEstimate_Worker1" FromRole="LaboratoryEstimate" ToRole="Worker" />
+    <NavigationProperty Name="Visits" Relationship="HospitalModel.VisitLaboratory" FromRole="LaboratoryEstimate" ToRole="Visit" />
   </EntityType>
   <EntityType Name="LaboratorySample">
     <Key>
@@ -344,9 +362,9 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
     <Property Name="CategoryId" Type="Int32" Nullable="false" />
-    <Property Name="Title" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="Title" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
     <Property Name="Description" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
-    <NavigationProperty Name="LaboratoryCategory" Relationship="HospitalsModel.FK_LaboratorySample_LaboratoryCategory" FromRole="LaboratorySample" ToRole="LaboratoryCategory" />
+    <NavigationProperty Name="LaboratoryCategory" Relationship="HospitalModel.FK_LaboratorySample_LaboratoryCategory" FromRole="LaboratorySample" ToRole="LaboratoryCategory" />
   </EntityType>
   <EntityType Name="Management">
     <Key>
@@ -354,13 +372,13 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
     <Property Name="AccountId" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Account" Relationship="HospitalsModel.FK_Management_Account1" FromRole="Management" ToRole="Account" />
-    <NavigationProperty Name="ConsultationCategories" Relationship="HospitalsModel.ManagementConsultation" FromRole="Management" ToRole="ConsultationCategory" />
-    <NavigationProperty Name="Forms" Relationship="HospitalsModel.ManagementForm" FromRole="Management" ToRole="Form" />
-    <NavigationProperty Name="LaboratoryCategories" Relationship="HospitalsModel.ManagementLaboratory" FromRole="Management" ToRole="LaboratoryCategory" />
-    <NavigationProperty Name="MedicalImagingCategories" Relationship="HospitalsModel.ManagementMedicalImaging" FromRole="Management" ToRole="MedicalImagingCategory" />
-    <NavigationProperty Name="PrescriptionCategories" Relationship="HospitalsModel.ManagementPrescription" FromRole="Management" ToRole="PrescriptionCategory" />
-    <NavigationProperty Name="VariousDocumentCategories" Relationship="HospitalsModel.ManagementVariousDocument" FromRole="Management" ToRole="VariousDocumentCategory" />
+    <NavigationProperty Name="Account" Relationship="HospitalModel.FK_Management_Account" FromRole="Management" ToRole="Account" />
+    <NavigationProperty Name="ConsultationCategories" Relationship="HospitalModel.ManagementConsultation" FromRole="Management" ToRole="ConsultationCategory" />
+    <NavigationProperty Name="Forms" Relationship="HospitalModel.ManagementForm" FromRole="Management" ToRole="Form" />
+    <NavigationProperty Name="LaboratoryCategories" Relationship="HospitalModel.ManagementLaboratory" FromRole="Management" ToRole="LaboratoryCategory" />
+    <NavigationProperty Name="MedicalImagingCategories" Relationship="HospitalModel.ManagementMedicalImaging" FromRole="Management" ToRole="MedicalImagingCategory" />
+    <NavigationProperty Name="PrescriptionCategories" Relationship="HospitalModel.ManagementPrescription" FromRole="Management" ToRole="PrescriptionCategory" />
+    <NavigationProperty Name="VariousDocumentCategories" Relationship="HospitalModel.ManagementVariousDocument" FromRole="Management" ToRole="VariousDocumentCategory" />
   </EntityType>
   <EntityType Name="MedicalHistory">
     <Key>
@@ -369,7 +387,7 @@
     <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
     <Property Name="PatientId" Type="Int32" Nullable="false" />
     <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-    <NavigationProperty Name="Patient" Relationship="HospitalsModel.FK_MedicalHistory_Patient1" FromRole="MedicalHistory" ToRole="Patient" />
+    <NavigationProperty Name="Patient" Relationship="HospitalModel.FK_MedicalHistory_Patient" FromRole="MedicalHistory" ToRole="Patient" />
   </EntityType>
   <EntityType Name="MedicalImagingCategory">
     <Key>
@@ -377,10 +395,10 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-    <NavigationProperty Name="MedicalImagingEstimates" Relationship="HospitalsModel.FK_MedicalImagingEstimate_MedicalImagingCategory" FromRole="MedicalImagingCategory" ToRole="MedicalImagingEstimate" />
-    <NavigationProperty Name="MedicalImagingSamples" Relationship="HospitalsModel.FK_MedicalImagingSample_MedicalImagingCategory" FromRole="MedicalImagingCategory" ToRole="MedicalImagingSample" />
-    <NavigationProperty Name="Managements" Relationship="HospitalsModel.ManagementMedicalImaging" FromRole="MedicalImagingCategory" ToRole="Management" />
-    <NavigationProperty Name="WaitingLists" Relationship="HospitalsModel.WaitingMedicalImaging" FromRole="MedicalImagingCategory" ToRole="WaitingList" />
+    <NavigationProperty Name="MedicalImagingEstimates" Relationship="HospitalModel.FK_MedicalImagingEstimate_MedicalImagingCategory" FromRole="MedicalImagingCategory" ToRole="MedicalImagingEstimate" />
+    <NavigationProperty Name="MedicalImagingSamples" Relationship="HospitalModel.FK_MedicalImagingSample_MedicalImagingCategory" FromRole="MedicalImagingCategory" ToRole="MedicalImagingSample" />
+    <NavigationProperty Name="Managements" Relationship="HospitalModel.ManagementMedicalImaging" FromRole="MedicalImagingCategory" ToRole="Management" />
+    <NavigationProperty Name="WaitingLists" Relationship="HospitalModel.WaitingMedicalImaging" FromRole="MedicalImagingCategory" ToRole="WaitingList" />
   </EntityType>
   <EntityType Name="MedicalImagingEstimate">
     <Key>
@@ -394,11 +412,12 @@
     <Property Name="ReferrerId" Type="Int32" />
     <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-    <NavigationProperty Name="MedicalImagingCategory" Relationship="HospitalsModel.FK_MedicalImagingEstimate_MedicalImagingCategory" FromRole="MedicalImagingEstimate" ToRole="MedicalImagingCategory" />
-    <NavigationProperty Name="Referrer" Relationship="HospitalsModel.FK_MedicalImagingEstimate_Referrer" FromRole="MedicalImagingEstimate" ToRole="Referrer" />
-    <NavigationProperty Name="Worker" Relationship="HospitalsModel.FK_MedicalImagingEstimate_Worker" FromRole="MedicalImagingEstimate" ToRole="Worker" />
-    <NavigationProperty Name="Worker1" Relationship="HospitalsModel.FK_MedicalImagingEstimate_Worker1" FromRole="MedicalImagingEstimate" ToRole="Worker" />
-    <NavigationProperty Name="Visits" Relationship="HospitalsModel.VisitMedicalImaging" FromRole="MedicalImagingEstimate" ToRole="Visit" />
+    <NavigationProperty Name="MedicalImagingCategory" Relationship="HospitalModel.FK_MedicalImagingEstimate_MedicalImagingCategory" FromRole="MedicalImagingEstimate" ToRole="MedicalImagingCategory" />
+    <NavigationProperty Name="Patient" Relationship="HospitalModel.FK_MedicalImagingEstimate_Patient" FromRole="MedicalImagingEstimate" ToRole="Patient" />
+    <NavigationProperty Name="Referrer" Relationship="HospitalModel.FK_MedicalImagingEstimate_Referrer" FromRole="MedicalImagingEstimate" ToRole="Referrer" />
+    <NavigationProperty Name="Worker" Relationship="HospitalModel.FK_MedicalImagingEstimate_Worker" FromRole="MedicalImagingEstimate" ToRole="Worker" />
+    <NavigationProperty Name="Worker1" Relationship="HospitalModel.FK_MedicalImagingEstimate_Worker1" FromRole="MedicalImagingEstimate" ToRole="Worker" />
+    <NavigationProperty Name="Visits" Relationship="HospitalModel.VisitMedicalImaging" FromRole="MedicalImagingEstimate" ToRole="Visit" />
   </EntityType>
   <EntityType Name="MedicalImagingSample">
     <Key>
@@ -406,9 +425,9 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
     <Property Name="CategoryId" Type="Int32" Nullable="false" />
-    <Property Name="Title" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="Title" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
     <Property Name="Description" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
-    <NavigationProperty Name="MedicalImagingCategory" Relationship="HospitalsModel.FK_MedicalImagingSample_MedicalImagingCategory" FromRole="MedicalImagingSample" ToRole="MedicalImagingCategory" />
+    <NavigationProperty Name="MedicalImagingCategory" Relationship="HospitalModel.FK_MedicalImagingSample_MedicalImagingCategory" FromRole="MedicalImagingSample" ToRole="MedicalImagingCategory" />
   </EntityType>
   <EntityType Name="MedicalRecord">
     <Key>
@@ -416,8 +435,8 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
     <Property Name="PatientId" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Patient" Relationship="HospitalsModel.FK_MedicalRecord_Patient" FromRole="MedicalRecord" ToRole="Patient" />
-    <NavigationProperty Name="Visits" Relationship="HospitalsModel.MedicalVisit" FromRole="MedicalRecord" ToRole="Visit" />
+    <NavigationProperty Name="Patient" Relationship="HospitalModel.FK_MedicalRecord_Patient" FromRole="MedicalRecord" ToRole="Patient" />
+    <NavigationProperty Name="Visits" Relationship="HospitalModel.MedicalVisit" FromRole="MedicalRecord" ToRole="Visit" />
   </EntityType>
   <EntityType Name="Patient">
     <Key>
@@ -434,11 +453,16 @@
     <Property Name="Email" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
     <Property Name="Weight" Type="Int16" />
     <Property Name="Height" Type="Int16" />
-    <NavigationProperty Name="Datings" Relationship="HospitalsModel.FK_Dating_Patient1" FromRole="Patient" ToRole="Dating" />
-    <NavigationProperty Name="MedicalHistories" Relationship="HospitalsModel.FK_MedicalHistory_Patient1" FromRole="Patient" ToRole="MedicalHistory" />
-    <NavigationProperty Name="MedicalRecords" Relationship="HospitalsModel.FK_MedicalRecord_Patient" FromRole="Patient" ToRole="MedicalRecord" />
-    <NavigationProperty Name="Visits" Relationship="HospitalsModel.FK_Visit_Patient" FromRole="Patient" ToRole="Visit" />
-    <NavigationProperty Name="WaitingLists" Relationship="HospitalsModel.FK_WaitingList_Patient" FromRole="Patient" ToRole="WaitingList" />
+    <NavigationProperty Name="ConsultationEstimates" Relationship="HospitalModel.FK_ConsultationEstimate_Patient" FromRole="Patient" ToRole="ConsultationEstimate" />
+    <NavigationProperty Name="Datings" Relationship="HospitalModel.FK_Dating_Patient" FromRole="Patient" ToRole="Dating" />
+    <NavigationProperty Name="LaboratoryEstimates" Relationship="HospitalModel.FK_LaboratoryEstimate_Patient" FromRole="Patient" ToRole="LaboratoryEstimate" />
+    <NavigationProperty Name="MedicalHistories" Relationship="HospitalModel.FK_MedicalHistory_Patient" FromRole="Patient" ToRole="MedicalHistory" />
+    <NavigationProperty Name="MedicalImagingEstimates" Relationship="HospitalModel.FK_MedicalImagingEstimate_Patient" FromRole="Patient" ToRole="MedicalImagingEstimate" />
+    <NavigationProperty Name="MedicalRecords" Relationship="HospitalModel.FK_MedicalRecord_Patient" FromRole="Patient" ToRole="MedicalRecord" />
+    <NavigationProperty Name="PrescriptionEstimates" Relationship="HospitalModel.FK_PrescriptionEstimate_Patient" FromRole="Patient" ToRole="PrescriptionEstimate" />
+    <NavigationProperty Name="VariousDocumentEstimates" Relationship="HospitalModel.FK_VariousDocumentEstimate_Patient" FromRole="Patient" ToRole="VariousDocumentEstimate" />
+    <NavigationProperty Name="Visits" Relationship="HospitalModel.FK_Visit_Patient" FromRole="Patient" ToRole="Visit" />
+    <NavigationProperty Name="WaitingLists" Relationship="HospitalModel.FK_WaitingList_Patient" FromRole="Patient" ToRole="WaitingList" />
   </EntityType>
   <EntityType Name="PrescriptionCategory">
     <Key>
@@ -446,10 +470,10 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-    <NavigationProperty Name="PrescriptionEstimates" Relationship="HospitalsModel.FK_PrescriptionEstimate_PrescriptionCategory1" FromRole="PrescriptionCategory" ToRole="PrescriptionEstimate" />
-    <NavigationProperty Name="PrescriptionSamples" Relationship="HospitalsModel.FK_PrescriptionSample_PrescriptionCategory" FromRole="PrescriptionCategory" ToRole="PrescriptionSample" />
-    <NavigationProperty Name="Managements" Relationship="HospitalsModel.ManagementPrescription" FromRole="PrescriptionCategory" ToRole="Management" />
-    <NavigationProperty Name="WaitingLists" Relationship="HospitalsModel.WaitingPrescription" FromRole="PrescriptionCategory" ToRole="WaitingList" />
+    <NavigationProperty Name="PrescriptionEstimates" Relationship="HospitalModel.FK_PrescriptionEstimate_PrescriptionCategory" FromRole="PrescriptionCategory" ToRole="PrescriptionEstimate" />
+    <NavigationProperty Name="PrescriptionSamples" Relationship="HospitalModel.FK_PrescriptionSample_PrescriptionCategory" FromRole="PrescriptionCategory" ToRole="PrescriptionSample" />
+    <NavigationProperty Name="Managements" Relationship="HospitalModel.ManagementPrescription" FromRole="PrescriptionCategory" ToRole="Management" />
+    <NavigationProperty Name="WaitingLists" Relationship="HospitalModel.WaitingPrescription" FromRole="PrescriptionCategory" ToRole="WaitingList" />
   </EntityType>
   <EntityType Name="PrescriptionEstimate">
     <Key>
@@ -463,11 +487,12 @@
     <Property Name="ReferrerId" Type="Int32" />
     <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-    <NavigationProperty Name="PrescriptionCategory" Relationship="HospitalsModel.FK_PrescriptionEstimate_PrescriptionCategory1" FromRole="PrescriptionEstimate" ToRole="PrescriptionCategory" />
-    <NavigationProperty Name="Referrer" Relationship="HospitalsModel.FK_PrescriptionEstimate_Referrer" FromRole="PrescriptionEstimate" ToRole="Referrer" />
-    <NavigationProperty Name="Worker" Relationship="HospitalsModel.FK_PrescriptionEstimate_Worker" FromRole="PrescriptionEstimate" ToRole="Worker" />
-    <NavigationProperty Name="Worker1" Relationship="HospitalsModel.FK_PrescriptionEstimate_Worker1" FromRole="PrescriptionEstimate" ToRole="Worker" />
-    <NavigationProperty Name="Visits" Relationship="HospitalsModel.VisitPrescription" FromRole="PrescriptionEstimate" ToRole="Visit" />
+    <NavigationProperty Name="Patient" Relationship="HospitalModel.FK_PrescriptionEstimate_Patient" FromRole="PrescriptionEstimate" ToRole="Patient" />
+    <NavigationProperty Name="PrescriptionCategory" Relationship="HospitalModel.FK_PrescriptionEstimate_PrescriptionCategory" FromRole="PrescriptionEstimate" ToRole="PrescriptionCategory" />
+    <NavigationProperty Name="Referrer" Relationship="HospitalModel.FK_PrescriptionEstimate_Referrer" FromRole="PrescriptionEstimate" ToRole="Referrer" />
+    <NavigationProperty Name="Worker" Relationship="HospitalModel.FK_PrescriptionEstimate_Worker" FromRole="PrescriptionEstimate" ToRole="Worker" />
+    <NavigationProperty Name="Worker1" Relationship="HospitalModel.FK_PrescriptionEstimate_Worker1" FromRole="PrescriptionEstimate" ToRole="Worker" />
+    <NavigationProperty Name="Visits" Relationship="HospitalModel.VisitPrescription" FromRole="PrescriptionEstimate" ToRole="Visit" />
   </EntityType>
   <EntityType Name="PrescriptionSample">
     <Key>
@@ -475,9 +500,9 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
     <Property Name="CategoryId" Type="Int32" Nullable="false" />
-    <Property Name="Title" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="Title" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
     <Property Name="Description" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
-    <NavigationProperty Name="PrescriptionCategory" Relationship="HospitalsModel.FK_PrescriptionSample_PrescriptionCategory" FromRole="PrescriptionSample" ToRole="PrescriptionCategory" />
+    <NavigationProperty Name="PrescriptionCategory" Relationship="HospitalModel.FK_PrescriptionSample_PrescriptionCategory" FromRole="PrescriptionSample" ToRole="PrescriptionCategory" />
   </EntityType>
   <EntityType Name="Referrer">
     <Key>
@@ -490,11 +515,11 @@
     <Property Name="Phone1" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
     <Property Name="Phone2" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
     <Property Name="Email" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-    <NavigationProperty Name="ConsultationEstimates" Relationship="HospitalsModel.FK_ConsultationEstimate_Referrer" FromRole="Referrer" ToRole="ConsultationEstimate" />
-    <NavigationProperty Name="LaboratoryEstimates" Relationship="HospitalsModel.FK_LaboratoryEstimate_Referrer" FromRole="Referrer" ToRole="LaboratoryEstimate" />
-    <NavigationProperty Name="MedicalImagingEstimates" Relationship="HospitalsModel.FK_MedicalImagingEstimate_Referrer" FromRole="Referrer" ToRole="MedicalImagingEstimate" />
-    <NavigationProperty Name="PrescriptionEstimates" Relationship="HospitalsModel.FK_PrescriptionEstimate_Referrer" FromRole="Referrer" ToRole="PrescriptionEstimate" />
-    <NavigationProperty Name="VariousDocumentEstimates" Relationship="HospitalsModel.FK_VariousDocumentEstimate_Referrer" FromRole="Referrer" ToRole="VariousDocumentEstimate" />
+    <NavigationProperty Name="ConsultationEstimates" Relationship="HospitalModel.FK_ConsultationEstimate_Referrer" FromRole="Referrer" ToRole="ConsultationEstimate" />
+    <NavigationProperty Name="LaboratoryEstimates" Relationship="HospitalModel.FK_LaboratoryEstimate_Referrer" FromRole="Referrer" ToRole="LaboratoryEstimate" />
+    <NavigationProperty Name="MedicalImagingEstimates" Relationship="HospitalModel.FK_MedicalImagingEstimate_Referrer" FromRole="Referrer" ToRole="MedicalImagingEstimate" />
+    <NavigationProperty Name="PrescriptionEstimates" Relationship="HospitalModel.FK_PrescriptionEstimate_Referrer" FromRole="Referrer" ToRole="PrescriptionEstimate" />
+    <NavigationProperty Name="VariousDocumentEstimates" Relationship="HospitalModel.FK_VariousDocumentEstimate_Referrer" FromRole="Referrer" ToRole="VariousDocumentEstimate" />
   </EntityType>
   <EntityType Name="sysdiagram">
     <Key>
@@ -523,7 +548,15 @@
     <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
     <Property Name="ServiceName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
     <Property Name="CategoryName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-    <Property Type="Int32" Name="CategoryId" Nullable="false" />
+    <Property Name="CategoryId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TempWaitingList">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="WaitingListId" Type="Int32" Nullable="false" />
+    <Property Name="WorkerId" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="VariousDocumentCategory">
     <Key>
@@ -531,10 +564,10 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-    <NavigationProperty Name="VariousDocumentEstimates" Relationship="HospitalsModel.FK_VariousDocumentEstimate_VariousDocumentCategory" FromRole="VariousDocumentCategory" ToRole="VariousDocumentEstimate" />
-    <NavigationProperty Name="VariousDocumentSamples" Relationship="HospitalsModel.FK_VariousDocumentSample_VariousDocumentCategory" FromRole="VariousDocumentCategory" ToRole="VariousDocumentSample" />
-    <NavigationProperty Name="Managements" Relationship="HospitalsModel.ManagementVariousDocument" FromRole="VariousDocumentCategory" ToRole="Management" />
-    <NavigationProperty Name="WaitingLists" Relationship="HospitalsModel.WaitingVariousDocument" FromRole="VariousDocumentCategory" ToRole="WaitingList" />
+    <NavigationProperty Name="VariousDocumentEstimates" Relationship="HospitalModel.FK_VariousDocumentEstimate_VariousDocumentCategory" FromRole="VariousDocumentCategory" ToRole="VariousDocumentEstimate" />
+    <NavigationProperty Name="VariousDocumentSamples" Relationship="HospitalModel.FK_VariousDocumentSample_VariousDocumentCategory" FromRole="VariousDocumentCategory" ToRole="VariousDocumentSample" />
+    <NavigationProperty Name="Managements" Relationship="HospitalModel.ManagementVariousDocument" FromRole="VariousDocumentCategory" ToRole="Management" />
+    <NavigationProperty Name="WaitingLists" Relationship="HospitalModel.WaitingVariousDocument" FromRole="VariousDocumentCategory" ToRole="WaitingList" />
   </EntityType>
   <EntityType Name="VariousDocumentEstimate">
     <Key>
@@ -548,21 +581,22 @@
     <Property Name="ReferrerId" Type="Int32" />
     <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-    <NavigationProperty Name="Referrer" Relationship="HospitalsModel.FK_VariousDocumentEstimate_Referrer" FromRole="VariousDocumentEstimate" ToRole="Referrer" />
-    <NavigationProperty Name="VariousDocumentCategory" Relationship="HospitalsModel.FK_VariousDocumentEstimate_VariousDocumentCategory" FromRole="VariousDocumentEstimate" ToRole="VariousDocumentCategory" />
-    <NavigationProperty Name="Worker" Relationship="HospitalsModel.FK_VariousDocumentEstimate_Worker" FromRole="VariousDocumentEstimate" ToRole="Worker" />
-    <NavigationProperty Name="Worker1" Relationship="HospitalsModel.FK_VariousDocumentEstimate_Worker1" FromRole="VariousDocumentEstimate" ToRole="Worker" />
-    <NavigationProperty Name="Visits" Relationship="HospitalsModel.VisitVariousDocument" FromRole="VariousDocumentEstimate" ToRole="Visit" />
+    <NavigationProperty Name="Patient" Relationship="HospitalModel.FK_VariousDocumentEstimate_Patient" FromRole="VariousDocumentEstimate" ToRole="Patient" />
+    <NavigationProperty Name="Referrer" Relationship="HospitalModel.FK_VariousDocumentEstimate_Referrer" FromRole="VariousDocumentEstimate" ToRole="Referrer" />
+    <NavigationProperty Name="VariousDocumentCategory" Relationship="HospitalModel.FK_VariousDocumentEstimate_VariousDocumentCategory" FromRole="VariousDocumentEstimate" ToRole="VariousDocumentCategory" />
+    <NavigationProperty Name="Worker" Relationship="HospitalModel.FK_VariousDocumentEstimate_Worker" FromRole="VariousDocumentEstimate" ToRole="Worker" />
+    <NavigationProperty Name="Worker1" Relationship="HospitalModel.FK_VariousDocumentEstimate_Worker1" FromRole="VariousDocumentEstimate" ToRole="Worker" />
+    <NavigationProperty Name="Visits" Relationship="HospitalModel.VisitVariousDocument" FromRole="VariousDocumentEstimate" ToRole="Visit" />
   </EntityType>
   <EntityType Name="VariousDocumentSample">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-    <Property Name="CategroyId" Type="Int32" Nullable="false" />
-    <Property Name="Title" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CategoryId" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
     <Property Name="Description" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
-    <NavigationProperty Name="VariousDocumentCategory" Relationship="HospitalsModel.FK_VariousDocumentSample_VariousDocumentCategory" FromRole="VariousDocumentSample" ToRole="VariousDocumentCategory" />
+    <NavigationProperty Name="VariousDocumentCategory" Relationship="HospitalModel.FK_VariousDocumentSample_VariousDocumentCategory" FromRole="VariousDocumentSample" ToRole="VariousDocumentCategory" />
   </EntityType>
   <EntityType Name="Visit">
     <Key>
@@ -573,14 +607,14 @@
     <Property Name="VisitCount" Type="Int32" Nullable="false" />
     <Property Name="PatientId" Type="Int32" Nullable="false" />
     <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
-    <NavigationProperty Name="Patient" Relationship="HospitalsModel.FK_Visit_Patient" FromRole="Visit" ToRole="Patient" />
-    <NavigationProperty Name="WaitingLists" Relationship="HospitalsModel.FK_WaitingList_Visit" FromRole="Visit" ToRole="WaitingList" />
-    <NavigationProperty Name="MedicalRecords" Relationship="HospitalsModel.MedicalVisit" FromRole="Visit" ToRole="MedicalRecord" />
-    <NavigationProperty Name="ConsultationEstimates" Relationship="HospitalsModel.VisitConsultation" FromRole="Visit" ToRole="ConsultationEstimate" />
-    <NavigationProperty Name="LaboratoryEstimates" Relationship="HospitalsModel.VisitLaboratory" FromRole="Visit" ToRole="LaboratoryEstimate" />
-    <NavigationProperty Name="MedicalImagingEstimates" Relationship="HospitalsModel.VisitMedicalImaging" FromRole="Visit" ToRole="MedicalImagingEstimate" />
-    <NavigationProperty Name="PrescriptionEstimates" Relationship="HospitalsModel.VisitPrescription" FromRole="Visit" ToRole="PrescriptionEstimate" />
-    <NavigationProperty Name="VariousDocumentEstimates" Relationship="HospitalsModel.VisitVariousDocument" FromRole="Visit" ToRole="VariousDocumentEstimate" />
+    <NavigationProperty Name="Patient" Relationship="HospitalModel.FK_Visit_Patient" FromRole="Visit" ToRole="Patient" />
+    <NavigationProperty Name="WaitingLists" Relationship="HospitalModel.FK_WaitingList_Visit" FromRole="Visit" ToRole="WaitingList" />
+    <NavigationProperty Name="MedicalRecords" Relationship="HospitalModel.MedicalVisit" FromRole="Visit" ToRole="MedicalRecord" />
+    <NavigationProperty Name="ConsultationEstimates" Relationship="HospitalModel.VisitConsultation" FromRole="Visit" ToRole="ConsultationEstimate" />
+    <NavigationProperty Name="LaboratoryEstimates" Relationship="HospitalModel.VisitLaboratory" FromRole="Visit" ToRole="LaboratoryEstimate" />
+    <NavigationProperty Name="MedicalImagingEstimates" Relationship="HospitalModel.VisitMedicalImaging" FromRole="Visit" ToRole="MedicalImagingEstimate" />
+    <NavigationProperty Name="PrescriptionEstimates" Relationship="HospitalModel.VisitPrescription" FromRole="Visit" ToRole="PrescriptionEstimate" />
+    <NavigationProperty Name="VariousDocumentEstimates" Relationship="HospitalModel.VisitVariousDocument" FromRole="Visit" ToRole="VariousDocumentEstimate" />
   </EntityType>
   <EntityType Name="WaitingList">
     <Key>
@@ -592,13 +626,14 @@
     <Property Name="VisitCount" Type="Int32" Nullable="false" />
     <Property Name="Time" Type="Time" Nullable="false" Precision="7" />
     <Property Name="Status" Type="Boolean" />
-    <NavigationProperty Name="Patient" Relationship="HospitalsModel.FK_WaitingList_Patient" FromRole="WaitingList" ToRole="Patient" />
-    <NavigationProperty Name="Visit" Relationship="HospitalsModel.FK_WaitingList_Visit" FromRole="WaitingList" ToRole="Visit" />
-    <NavigationProperty Name="ConsultationCategories" Relationship="HospitalsModel.WaitingConsultation" FromRole="WaitingList" ToRole="ConsultationCategory" />
-    <NavigationProperty Name="LaboratoryCategories" Relationship="HospitalsModel.WaitingLaboratory" FromRole="WaitingList" ToRole="LaboratoryCategory" />
-    <NavigationProperty Name="MedicalImagingCategories" Relationship="HospitalsModel.WaitingMedicalImaging" FromRole="WaitingList" ToRole="MedicalImagingCategory" />
-    <NavigationProperty Name="PrescriptionCategories" Relationship="HospitalsModel.WaitingPrescription" FromRole="WaitingList" ToRole="PrescriptionCategory" />
-    <NavigationProperty Name="VariousDocumentCategories" Relationship="HospitalsModel.WaitingVariousDocument" FromRole="WaitingList" ToRole="VariousDocumentCategory" />
+    <Property Name="Number" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Patient" Relationship="HospitalModel.FK_WaitingList_Patient" FromRole="WaitingList" ToRole="Patient" />
+    <NavigationProperty Name="Visit" Relationship="HospitalModel.FK_WaitingList_Visit" FromRole="WaitingList" ToRole="Visit" />
+    <NavigationProperty Name="ConsultationCategories" Relationship="HospitalModel.WaitingConsultation" FromRole="WaitingList" ToRole="ConsultationCategory" />
+    <NavigationProperty Name="LaboratoryCategories" Relationship="HospitalModel.WaitingLaboratory" FromRole="WaitingList" ToRole="LaboratoryCategory" />
+    <NavigationProperty Name="MedicalImagingCategories" Relationship="HospitalModel.WaitingMedicalImaging" FromRole="WaitingList" ToRole="MedicalImagingCategory" />
+    <NavigationProperty Name="PrescriptionCategories" Relationship="HospitalModel.WaitingPrescription" FromRole="WaitingList" ToRole="PrescriptionCategory" />
+    <NavigationProperty Name="VariousDocumentCategories" Relationship="HospitalModel.WaitingVariousDocument" FromRole="WaitingList" ToRole="VariousDocumentCategory" />
   </EntityType>
   <EntityType Name="Worker">
     <Key>
@@ -616,23 +651,24 @@
     <Property Name="Position" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
     <Property Name="Salary" Type="Int32" />
     <Property Name="StartWorkDate" Type="DateTime" Precision="0" />
-    <NavigationProperty Name="Accounts" Relationship="HospitalsModel.FK_Account_Worker1" FromRole="Worker" ToRole="Account" />
-    <NavigationProperty Name="ConsultationEstimates" Relationship="HospitalsModel.FK_ConsultationEstimate_Worker" FromRole="Worker" ToRole="ConsultationEstimate" />
-    <NavigationProperty Name="ConsultationEstimates1" Relationship="HospitalsModel.FK_ConsultationEstimate_Worker1" FromRole="Worker" ToRole="ConsultationEstimate" />
-    <NavigationProperty Name="Datings" Relationship="HospitalsModel.FK_Dating_Worker1" FromRole="Worker" ToRole="Dating" />
-    <NavigationProperty Name="LaboratoryEstimates" Relationship="HospitalsModel.FK_LaboratoryEstimate_Worker" FromRole="Worker" ToRole="LaboratoryEstimate" />
-    <NavigationProperty Name="LaboratoryEstimates1" Relationship="HospitalsModel.FK_LaboratoryEstimate_Worker1" FromRole="Worker" ToRole="LaboratoryEstimate" />
-    <NavigationProperty Name="MedicalImagingEstimates" Relationship="HospitalsModel.FK_MedicalImagingEstimate_Worker" FromRole="Worker" ToRole="MedicalImagingEstimate" />
-    <NavigationProperty Name="MedicalImagingEstimates1" Relationship="HospitalsModel.FK_MedicalImagingEstimate_Worker1" FromRole="Worker" ToRole="MedicalImagingEstimate" />
-    <NavigationProperty Name="PrescriptionEstimates" Relationship="HospitalsModel.FK_PrescriptionEstimate_Worker" FromRole="Worker" ToRole="PrescriptionEstimate" />
-    <NavigationProperty Name="PrescriptionEstimates1" Relationship="HospitalsModel.FK_PrescriptionEstimate_Worker1" FromRole="Worker" ToRole="PrescriptionEstimate" />
-    <NavigationProperty Name="VariousDocumentEstimates" Relationship="HospitalsModel.FK_VariousDocumentEstimate_Worker" FromRole="Worker" ToRole="VariousDocumentEstimate" />
-    <NavigationProperty Name="VariousDocumentEstimates1" Relationship="HospitalsModel.FK_VariousDocumentEstimate_Worker1" FromRole="Worker" ToRole="VariousDocumentEstimate" />
-    <NavigationProperty Name="Account" Relationship="HospitalsModel.FK_Account_Worker" FromRole="Worker" ToRole="Account" />
+    <Property Name="Hire" Type="Boolean" Nullable="false" />
+    <Property Name="PhotoPath" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Accounts" Relationship="HospitalModel.FK_Account_Worker" FromRole="Worker" ToRole="Account" />
+    <NavigationProperty Name="ConsultationEstimates" Relationship="HospitalModel.FK_ConsultationEstimate_Worker" FromRole="Worker" ToRole="ConsultationEstimate" />
+    <NavigationProperty Name="ConsultationEstimates1" Relationship="HospitalModel.FK_ConsultationEstimate_Worker1" FromRole="Worker" ToRole="ConsultationEstimate" />
+    <NavigationProperty Name="Datings" Relationship="HospitalModel.FK_Dating_Worker" FromRole="Worker" ToRole="Dating" />
+    <NavigationProperty Name="LaboratoryEstimates" Relationship="HospitalModel.FK_LaboratoryEstimate_Worker" FromRole="Worker" ToRole="LaboratoryEstimate" />
+    <NavigationProperty Name="LaboratoryEstimates1" Relationship="HospitalModel.FK_LaboratoryEstimate_Worker1" FromRole="Worker" ToRole="LaboratoryEstimate" />
+    <NavigationProperty Name="MedicalImagingEstimates" Relationship="HospitalModel.FK_MedicalImagingEstimate_Worker" FromRole="Worker" ToRole="MedicalImagingEstimate" />
+    <NavigationProperty Name="MedicalImagingEstimates1" Relationship="HospitalModel.FK_MedicalImagingEstimate_Worker1" FromRole="Worker" ToRole="MedicalImagingEstimate" />
+    <NavigationProperty Name="PrescriptionEstimates" Relationship="HospitalModel.FK_PrescriptionEstimate_Worker" FromRole="Worker" ToRole="PrescriptionEstimate" />
+    <NavigationProperty Name="PrescriptionEstimates1" Relationship="HospitalModel.FK_PrescriptionEstimate_Worker1" FromRole="Worker" ToRole="PrescriptionEstimate" />
+    <NavigationProperty Name="VariousDocumentEstimates" Relationship="HospitalModel.FK_VariousDocumentEstimate_Worker" FromRole="Worker" ToRole="VariousDocumentEstimate" />
+    <NavigationProperty Name="VariousDocumentEstimates1" Relationship="HospitalModel.FK_VariousDocumentEstimate_Worker1" FromRole="Worker" ToRole="VariousDocumentEstimate" />
   </EntityType>
-  <Association Name="FK_Account_Worker1">
-    <End Role="Worker" Type="HospitalsModel.Worker" Multiplicity="1" />
-    <End Role="Account" Type="HospitalsModel.Account" Multiplicity="*" />
+  <Association Name="FK_Account_Worker">
+    <End Role="Worker" Type="HospitalModel.Worker" Multiplicity="1" />
+    <End Role="Account" Type="HospitalModel.Account" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Worker">
         <PropertyRef Name="Id" />
@@ -642,9 +678,9 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Management_Account1">
-    <End Role="Account" Type="HospitalsModel.Account" Multiplicity="1" />
-    <End Role="Management" Type="HospitalsModel.Management" Multiplicity="*" />
+  <Association Name="FK_Management_Account">
+    <End Role="Account" Type="HospitalModel.Account" Multiplicity="1" />
+    <End Role="Management" Type="HospitalModel.Management" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Account">
         <PropertyRef Name="Id" />
@@ -654,9 +690,9 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_ConsultationEstimate_ConsultatationCategory">
-    <End Role="ConsultationCategory" Type="HospitalsModel.ConsultationCategory" Multiplicity="1" />
-    <End Role="ConsultationEstimate" Type="HospitalsModel.ConsultationEstimate" Multiplicity="*" />
+  <Association Name="FK_ConsultationEstimate_ConsultationCategory">
+    <End Role="ConsultationCategory" Type="HospitalModel.ConsultationCategory" Multiplicity="1" />
+    <End Role="ConsultationEstimate" Type="HospitalModel.ConsultationEstimate" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="ConsultationCategory">
         <PropertyRef Name="Id" />
@@ -667,8 +703,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_ConsultationSample_ConsultationCategory">
-    <End Role="ConsultationCategory" Type="HospitalsModel.ConsultationCategory" Multiplicity="1" />
-    <End Role="ConsultationSample" Type="HospitalsModel.ConsultationSample" Multiplicity="*" />
+    <End Role="ConsultationCategory" Type="HospitalModel.ConsultationCategory" Multiplicity="1" />
+    <End Role="ConsultationSample" Type="HospitalModel.ConsultationSample" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="ConsultationCategory">
         <PropertyRef Name="Id" />
@@ -678,9 +714,21 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_ConsultationEstimate_Patient">
+    <End Role="Patient" Type="HospitalModel.Patient" Multiplicity="1" />
+    <End Role="ConsultationEstimate" Type="HospitalModel.ConsultationEstimate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patient">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ConsultationEstimate">
+        <PropertyRef Name="PatientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_ConsultationEstimate_Referrer">
-    <End Role="Referrer" Type="HospitalsModel.Referrer" Multiplicity="0..1" />
-    <End Role="ConsultationEstimate" Type="HospitalsModel.ConsultationEstimate" Multiplicity="*" />
+    <End Role="Referrer" Type="HospitalModel.Referrer" Multiplicity="0..1" />
+    <End Role="ConsultationEstimate" Type="HospitalModel.ConsultationEstimate" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Referrer">
         <PropertyRef Name="Id" />
@@ -691,8 +739,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_ConsultationEstimate_Worker">
-    <End Role="Worker" Type="HospitalsModel.Worker" Multiplicity="1" />
-    <End Role="ConsultationEstimate" Type="HospitalsModel.ConsultationEstimate" Multiplicity="*" />
+    <End Role="Worker" Type="HospitalModel.Worker" Multiplicity="1" />
+    <End Role="ConsultationEstimate" Type="HospitalModel.ConsultationEstimate" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Worker">
         <PropertyRef Name="Id" />
@@ -703,8 +751,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_ConsultationEstimate_Worker1">
-    <End Role="Worker" Type="HospitalsModel.Worker" Multiplicity="0..1" />
-    <End Role="ConsultationEstimate" Type="HospitalsModel.ConsultationEstimate" Multiplicity="*" />
+    <End Role="Worker" Type="HospitalModel.Worker" Multiplicity="0..1" />
+    <End Role="ConsultationEstimate" Type="HospitalModel.ConsultationEstimate" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Worker">
         <PropertyRef Name="Id" />
@@ -714,9 +762,9 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Dating_Patient1">
-    <End Role="Patient" Type="HospitalsModel.Patient" Multiplicity="1" />
-    <End Role="Dating" Type="HospitalsModel.Dating" Multiplicity="*" />
+  <Association Name="FK_Dating_Patient">
+    <End Role="Patient" Type="HospitalModel.Patient" Multiplicity="1" />
+    <End Role="Dating" Type="HospitalModel.Dating" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Patient">
         <PropertyRef Name="Id" />
@@ -726,9 +774,9 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Dating_Worker1">
-    <End Role="Worker" Type="HospitalsModel.Worker" Multiplicity="1" />
-    <End Role="Dating" Type="HospitalsModel.Dating" Multiplicity="*" />
+  <Association Name="FK_Dating_Worker">
+    <End Role="Worker" Type="HospitalModel.Worker" Multiplicity="1" />
+    <End Role="Dating" Type="HospitalModel.Dating" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Worker">
         <PropertyRef Name="Id" />
@@ -739,8 +787,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_LaboratoryEstimate_LaboratoryCategory">
-    <End Role="LaboratoryCategory" Type="HospitalsModel.LaboratoryCategory" Multiplicity="1" />
-    <End Role="LaboratoryEstimate" Type="HospitalsModel.LaboratoryEstimate" Multiplicity="*" />
+    <End Role="LaboratoryCategory" Type="HospitalModel.LaboratoryCategory" Multiplicity="1" />
+    <End Role="LaboratoryEstimate" Type="HospitalModel.LaboratoryEstimate" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="LaboratoryCategory">
         <PropertyRef Name="Id" />
@@ -751,8 +799,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_LaboratorySample_LaboratoryCategory">
-    <End Role="LaboratoryCategory" Type="HospitalsModel.LaboratoryCategory" Multiplicity="1" />
-    <End Role="LaboratorySample" Type="HospitalsModel.LaboratorySample" Multiplicity="*" />
+    <End Role="LaboratoryCategory" Type="HospitalModel.LaboratoryCategory" Multiplicity="1" />
+    <End Role="LaboratorySample" Type="HospitalModel.LaboratorySample" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="LaboratoryCategory">
         <PropertyRef Name="Id" />
@@ -762,9 +810,21 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_LaboratoryEstimate_Patient">
+    <End Role="Patient" Type="HospitalModel.Patient" Multiplicity="1" />
+    <End Role="LaboratoryEstimate" Type="HospitalModel.LaboratoryEstimate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patient">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LaboratoryEstimate">
+        <PropertyRef Name="PatientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_LaboratoryEstimate_Referrer">
-    <End Role="Referrer" Type="HospitalsModel.Referrer" Multiplicity="0..1" />
-    <End Role="LaboratoryEstimate" Type="HospitalsModel.LaboratoryEstimate" Multiplicity="*" />
+    <End Role="Referrer" Type="HospitalModel.Referrer" Multiplicity="0..1" />
+    <End Role="LaboratoryEstimate" Type="HospitalModel.LaboratoryEstimate" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Referrer">
         <PropertyRef Name="Id" />
@@ -775,8 +835,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_LaboratoryEstimate_Worker">
-    <End Role="Worker" Type="HospitalsModel.Worker" Multiplicity="1" />
-    <End Role="LaboratoryEstimate" Type="HospitalsModel.LaboratoryEstimate" Multiplicity="*" />
+    <End Role="Worker" Type="HospitalModel.Worker" Multiplicity="1" />
+    <End Role="LaboratoryEstimate" Type="HospitalModel.LaboratoryEstimate" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Worker">
         <PropertyRef Name="Id" />
@@ -787,8 +847,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_LaboratoryEstimate_Worker1">
-    <End Role="Worker" Type="HospitalsModel.Worker" Multiplicity="0..1" />
-    <End Role="LaboratoryEstimate" Type="HospitalsModel.LaboratoryEstimate" Multiplicity="*" />
+    <End Role="Worker" Type="HospitalModel.Worker" Multiplicity="0..1" />
+    <End Role="LaboratoryEstimate" Type="HospitalModel.LaboratoryEstimate" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Worker">
         <PropertyRef Name="Id" />
@@ -798,9 +858,9 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_MedicalHistory_Patient1">
-    <End Role="Patient" Type="HospitalsModel.Patient" Multiplicity="1" />
-    <End Role="MedicalHistory" Type="HospitalsModel.MedicalHistory" Multiplicity="*" />
+  <Association Name="FK_MedicalHistory_Patient">
+    <End Role="Patient" Type="HospitalModel.Patient" Multiplicity="1" />
+    <End Role="MedicalHistory" Type="HospitalModel.MedicalHistory" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Patient">
         <PropertyRef Name="Id" />
@@ -811,8 +871,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_MedicalImagingEstimate_MedicalImagingCategory">
-    <End Role="MedicalImagingCategory" Type="HospitalsModel.MedicalImagingCategory" Multiplicity="1" />
-    <End Role="MedicalImagingEstimate" Type="HospitalsModel.MedicalImagingEstimate" Multiplicity="*" />
+    <End Role="MedicalImagingCategory" Type="HospitalModel.MedicalImagingCategory" Multiplicity="1" />
+    <End Role="MedicalImagingEstimate" Type="HospitalModel.MedicalImagingEstimate" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="MedicalImagingCategory">
         <PropertyRef Name="Id" />
@@ -823,8 +883,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_MedicalImagingSample_MedicalImagingCategory">
-    <End Role="MedicalImagingCategory" Type="HospitalsModel.MedicalImagingCategory" Multiplicity="1" />
-    <End Role="MedicalImagingSample" Type="HospitalsModel.MedicalImagingSample" Multiplicity="*" />
+    <End Role="MedicalImagingCategory" Type="HospitalModel.MedicalImagingCategory" Multiplicity="1" />
+    <End Role="MedicalImagingSample" Type="HospitalModel.MedicalImagingSample" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="MedicalImagingCategory">
         <PropertyRef Name="Id" />
@@ -834,9 +894,21 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_MedicalImagingEstimate_Patient">
+    <End Role="Patient" Type="HospitalModel.Patient" Multiplicity="1" />
+    <End Role="MedicalImagingEstimate" Type="HospitalModel.MedicalImagingEstimate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patient">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MedicalImagingEstimate">
+        <PropertyRef Name="PatientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_MedicalImagingEstimate_Referrer">
-    <End Role="Referrer" Type="HospitalsModel.Referrer" Multiplicity="0..1" />
-    <End Role="MedicalImagingEstimate" Type="HospitalsModel.MedicalImagingEstimate" Multiplicity="*" />
+    <End Role="Referrer" Type="HospitalModel.Referrer" Multiplicity="0..1" />
+    <End Role="MedicalImagingEstimate" Type="HospitalModel.MedicalImagingEstimate" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Referrer">
         <PropertyRef Name="Id" />
@@ -847,8 +919,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_MedicalImagingEstimate_Worker">
-    <End Role="Worker" Type="HospitalsModel.Worker" Multiplicity="1" />
-    <End Role="MedicalImagingEstimate" Type="HospitalsModel.MedicalImagingEstimate" Multiplicity="*" />
+    <End Role="Worker" Type="HospitalModel.Worker" Multiplicity="1" />
+    <End Role="MedicalImagingEstimate" Type="HospitalModel.MedicalImagingEstimate" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Worker">
         <PropertyRef Name="Id" />
@@ -859,8 +931,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_MedicalImagingEstimate_Worker1">
-    <End Role="Worker" Type="HospitalsModel.Worker" Multiplicity="0..1" />
-    <End Role="MedicalImagingEstimate" Type="HospitalsModel.MedicalImagingEstimate" Multiplicity="*" />
+    <End Role="Worker" Type="HospitalModel.Worker" Multiplicity="0..1" />
+    <End Role="MedicalImagingEstimate" Type="HospitalModel.MedicalImagingEstimate" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Worker">
         <PropertyRef Name="Id" />
@@ -871,8 +943,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_MedicalRecord_Patient">
-    <End Role="Patient" Type="HospitalsModel.Patient" Multiplicity="1" />
-    <End Role="MedicalRecord" Type="HospitalsModel.MedicalRecord" Multiplicity="*" />
+    <End Role="Patient" Type="HospitalModel.Patient" Multiplicity="1" />
+    <End Role="MedicalRecord" Type="HospitalModel.MedicalRecord" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Patient">
         <PropertyRef Name="Id" />
@@ -882,9 +954,33 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_PrescriptionEstimate_Patient">
+    <End Role="Patient" Type="HospitalModel.Patient" Multiplicity="1" />
+    <End Role="PrescriptionEstimate" Type="HospitalModel.PrescriptionEstimate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patient">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PrescriptionEstimate">
+        <PropertyRef Name="PatientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VariousDocumentEstimate_Patient">
+    <End Role="Patient" Type="HospitalModel.Patient" Multiplicity="1" />
+    <End Role="VariousDocumentEstimate" Type="HospitalModel.VariousDocumentEstimate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patient">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="VariousDocumentEstimate">
+        <PropertyRef Name="PatientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Visit_Patient">
-    <End Role="Patient" Type="HospitalsModel.Patient" Multiplicity="1" />
-    <End Role="Visit" Type="HospitalsModel.Visit" Multiplicity="*" />
+    <End Role="Patient" Type="HospitalModel.Patient" Multiplicity="1" />
+    <End Role="Visit" Type="HospitalModel.Visit" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Patient">
         <PropertyRef Name="Id" />
@@ -895,8 +991,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_WaitingList_Patient">
-    <End Role="Patient" Type="HospitalsModel.Patient" Multiplicity="1" />
-    <End Role="WaitingList" Type="HospitalsModel.WaitingList" Multiplicity="*" />
+    <End Role="Patient" Type="HospitalModel.Patient" Multiplicity="1" />
+    <End Role="WaitingList" Type="HospitalModel.WaitingList" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Patient">
         <PropertyRef Name="Id" />
@@ -906,9 +1002,9 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_PrescriptionEstimate_PrescriptionCategory1">
-    <End Role="PrescriptionCategory" Type="HospitalsModel.PrescriptionCategory" Multiplicity="1" />
-    <End Role="PrescriptionEstimate" Type="HospitalsModel.PrescriptionEstimate" Multiplicity="*" />
+  <Association Name="FK_PrescriptionEstimate_PrescriptionCategory">
+    <End Role="PrescriptionCategory" Type="HospitalModel.PrescriptionCategory" Multiplicity="1" />
+    <End Role="PrescriptionEstimate" Type="HospitalModel.PrescriptionEstimate" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="PrescriptionCategory">
         <PropertyRef Name="Id" />
@@ -919,8 +1015,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_PrescriptionSample_PrescriptionCategory">
-    <End Role="PrescriptionCategory" Type="HospitalsModel.PrescriptionCategory" Multiplicity="1" />
-    <End Role="PrescriptionSample" Type="HospitalsModel.PrescriptionSample" Multiplicity="*" />
+    <End Role="PrescriptionCategory" Type="HospitalModel.PrescriptionCategory" Multiplicity="1" />
+    <End Role="PrescriptionSample" Type="HospitalModel.PrescriptionSample" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="PrescriptionCategory">
         <PropertyRef Name="Id" />
@@ -931,8 +1027,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_PrescriptionEstimate_Referrer">
-    <End Role="Referrer" Type="HospitalsModel.Referrer" Multiplicity="0..1" />
-    <End Role="PrescriptionEstimate" Type="HospitalsModel.PrescriptionEstimate" Multiplicity="*" />
+    <End Role="Referrer" Type="HospitalModel.Referrer" Multiplicity="0..1" />
+    <End Role="PrescriptionEstimate" Type="HospitalModel.PrescriptionEstimate" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Referrer">
         <PropertyRef Name="Id" />
@@ -943,8 +1039,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_PrescriptionEstimate_Worker">
-    <End Role="Worker" Type="HospitalsModel.Worker" Multiplicity="1" />
-    <End Role="PrescriptionEstimate" Type="HospitalsModel.PrescriptionEstimate" Multiplicity="*" />
+    <End Role="Worker" Type="HospitalModel.Worker" Multiplicity="1" />
+    <End Role="PrescriptionEstimate" Type="HospitalModel.PrescriptionEstimate" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Worker">
         <PropertyRef Name="Id" />
@@ -955,8 +1051,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_PrescriptionEstimate_Worker1">
-    <End Role="Worker" Type="HospitalsModel.Worker" Multiplicity="0..1" />
-    <End Role="PrescriptionEstimate" Type="HospitalsModel.PrescriptionEstimate" Multiplicity="*" />
+    <End Role="Worker" Type="HospitalModel.Worker" Multiplicity="0..1" />
+    <End Role="PrescriptionEstimate" Type="HospitalModel.PrescriptionEstimate" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Worker">
         <PropertyRef Name="Id" />
@@ -967,8 +1063,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_VariousDocumentEstimate_Referrer">
-    <End Role="Referrer" Type="HospitalsModel.Referrer" Multiplicity="0..1" />
-    <End Role="VariousDocumentEstimate" Type="HospitalsModel.VariousDocumentEstimate" Multiplicity="*" />
+    <End Role="Referrer" Type="HospitalModel.Referrer" Multiplicity="0..1" />
+    <End Role="VariousDocumentEstimate" Type="HospitalModel.VariousDocumentEstimate" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Referrer">
         <PropertyRef Name="Id" />
@@ -979,8 +1075,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_VariousDocumentEstimate_VariousDocumentCategory">
-    <End Role="VariousDocumentCategory" Type="HospitalsModel.VariousDocumentCategory" Multiplicity="1" />
-    <End Role="VariousDocumentEstimate" Type="HospitalsModel.VariousDocumentEstimate" Multiplicity="*" />
+    <End Role="VariousDocumentCategory" Type="HospitalModel.VariousDocumentCategory" Multiplicity="1" />
+    <End Role="VariousDocumentEstimate" Type="HospitalModel.VariousDocumentEstimate" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="VariousDocumentCategory">
         <PropertyRef Name="Id" />
@@ -991,20 +1087,20 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_VariousDocumentSample_VariousDocumentCategory">
-    <End Role="VariousDocumentCategory" Type="HospitalsModel.VariousDocumentCategory" Multiplicity="1" />
-    <End Role="VariousDocumentSample" Type="HospitalsModel.VariousDocumentSample" Multiplicity="*" />
+    <End Role="VariousDocumentCategory" Type="HospitalModel.VariousDocumentCategory" Multiplicity="1" />
+    <End Role="VariousDocumentSample" Type="HospitalModel.VariousDocumentSample" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="VariousDocumentCategory">
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="VariousDocumentSample">
-        <PropertyRef Name="CategroyId" />
+        <PropertyRef Name="CategoryId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_VariousDocumentEstimate_Worker">
-    <End Role="Worker" Type="HospitalsModel.Worker" Multiplicity="1" />
-    <End Role="VariousDocumentEstimate" Type="HospitalsModel.VariousDocumentEstimate" Multiplicity="*" />
+    <End Role="Worker" Type="HospitalModel.Worker" Multiplicity="1" />
+    <End Role="VariousDocumentEstimate" Type="HospitalModel.VariousDocumentEstimate" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Worker">
         <PropertyRef Name="Id" />
@@ -1015,8 +1111,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_VariousDocumentEstimate_Worker1">
-    <End Role="Worker" Type="HospitalsModel.Worker" Multiplicity="0..1" />
-    <End Role="VariousDocumentEstimate" Type="HospitalsModel.VariousDocumentEstimate" Multiplicity="*" />
+    <End Role="Worker" Type="HospitalModel.Worker" Multiplicity="0..1" />
+    <End Role="VariousDocumentEstimate" Type="HospitalModel.VariousDocumentEstimate" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Worker">
         <PropertyRef Name="Id" />
@@ -1027,8 +1123,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_WaitingList_Visit">
-    <End Role="Visit" Type="HospitalsModel.Visit" Multiplicity="1" />
-    <End Role="WaitingList" Type="HospitalsModel.WaitingList" Multiplicity="*" />
+    <End Role="Visit" Type="HospitalModel.Visit" Multiplicity="1" />
+    <End Role="WaitingList" Type="HospitalModel.WaitingList" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Visit">
         <PropertyRef Name="Id" />
@@ -1041,83 +1137,71 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="ManagementConsultation">
-    <End Role="ConsultationCategory" Type="HospitalsModel.ConsultationCategory" Multiplicity="*" />
-    <End Role="Management" Type="HospitalsModel.Management" Multiplicity="*" />
+    <End Role="ConsultationCategory" Type="HospitalModel.ConsultationCategory" Multiplicity="*" />
+    <End Role="Management" Type="HospitalModel.Management" Multiplicity="*" />
   </Association>
   <Association Name="ManagementForm">
-    <End Role="Form" Type="HospitalsModel.Form" Multiplicity="*" />
-    <End Role="Management" Type="HospitalsModel.Management" Multiplicity="*" />
+    <End Role="Form" Type="HospitalModel.Form" Multiplicity="*" />
+    <End Role="Management" Type="HospitalModel.Management" Multiplicity="*" />
   </Association>
   <Association Name="ManagementLaboratory">
-    <End Role="LaboratoryCategory" Type="HospitalsModel.LaboratoryCategory" Multiplicity="*" />
-    <End Role="Management" Type="HospitalsModel.Management" Multiplicity="*" />
+    <End Role="LaboratoryCategory" Type="HospitalModel.LaboratoryCategory" Multiplicity="*" />
+    <End Role="Management" Type="HospitalModel.Management" Multiplicity="*" />
   </Association>
   <Association Name="ManagementMedicalImaging">
-    <End Role="Management" Type="HospitalsModel.Management" Multiplicity="*" />
-    <End Role="MedicalImagingCategory" Type="HospitalsModel.MedicalImagingCategory" Multiplicity="*" />
+    <End Role="Management" Type="HospitalModel.Management" Multiplicity="*" />
+    <End Role="MedicalImagingCategory" Type="HospitalModel.MedicalImagingCategory" Multiplicity="*" />
   </Association>
   <Association Name="ManagementPrescription">
-    <End Role="Management" Type="HospitalsModel.Management" Multiplicity="*" />
-    <End Role="PrescriptionCategory" Type="HospitalsModel.PrescriptionCategory" Multiplicity="*" />
+    <End Role="Management" Type="HospitalModel.Management" Multiplicity="*" />
+    <End Role="PrescriptionCategory" Type="HospitalModel.PrescriptionCategory" Multiplicity="*" />
   </Association>
   <Association Name="ManagementVariousDocument">
-    <End Role="Management" Type="HospitalsModel.Management" Multiplicity="*" />
-    <End Role="VariousDocumentCategory" Type="HospitalsModel.VariousDocumentCategory" Multiplicity="*" />
+    <End Role="Management" Type="HospitalModel.Management" Multiplicity="*" />
+    <End Role="VariousDocumentCategory" Type="HospitalModel.VariousDocumentCategory" Multiplicity="*" />
   </Association>
   <Association Name="MedicalVisit">
-    <End Role="MedicalRecord" Type="HospitalsModel.MedicalRecord" Multiplicity="*" />
-    <End Role="Visit" Type="HospitalsModel.Visit" Multiplicity="*" />
+    <End Role="MedicalRecord" Type="HospitalModel.MedicalRecord" Multiplicity="*" />
+    <End Role="Visit" Type="HospitalModel.Visit" Multiplicity="*" />
   </Association>
   <Association Name="VisitConsultation">
-    <End Role="ConsultationEstimate" Type="HospitalsModel.ConsultationEstimate" Multiplicity="*" />
-    <End Role="Visit" Type="HospitalsModel.Visit" Multiplicity="*" />
+    <End Role="ConsultationEstimate" Type="HospitalModel.ConsultationEstimate" Multiplicity="*" />
+    <End Role="Visit" Type="HospitalModel.Visit" Multiplicity="*" />
   </Association>
   <Association Name="VisitLaboratory">
-    <End Role="LaboratoryEstimate" Type="HospitalsModel.LaboratoryEstimate" Multiplicity="*" />
-    <End Role="Visit" Type="HospitalsModel.Visit" Multiplicity="*" />
+    <End Role="LaboratoryEstimate" Type="HospitalModel.LaboratoryEstimate" Multiplicity="*" />
+    <End Role="Visit" Type="HospitalModel.Visit" Multiplicity="*" />
   </Association>
   <Association Name="VisitMedicalImaging">
-    <End Role="MedicalImagingEstimate" Type="HospitalsModel.MedicalImagingEstimate" Multiplicity="*" />
-    <End Role="Visit" Type="HospitalsModel.Visit" Multiplicity="*" />
+    <End Role="MedicalImagingEstimate" Type="HospitalModel.MedicalImagingEstimate" Multiplicity="*" />
+    <End Role="Visit" Type="HospitalModel.Visit" Multiplicity="*" />
   </Association>
   <Association Name="VisitPrescription">
-    <End Role="PrescriptionEstimate" Type="HospitalsModel.PrescriptionEstimate" Multiplicity="*" />
-    <End Role="Visit" Type="HospitalsModel.Visit" Multiplicity="*" />
+    <End Role="PrescriptionEstimate" Type="HospitalModel.PrescriptionEstimate" Multiplicity="*" />
+    <End Role="Visit" Type="HospitalModel.Visit" Multiplicity="*" />
   </Association>
   <Association Name="VisitVariousDocument">
-    <End Role="VariousDocumentEstimate" Type="HospitalsModel.VariousDocumentEstimate" Multiplicity="*" />
-    <End Role="Visit" Type="HospitalsModel.Visit" Multiplicity="*" />
+    <End Role="VariousDocumentEstimate" Type="HospitalModel.VariousDocumentEstimate" Multiplicity="*" />
+    <End Role="Visit" Type="HospitalModel.Visit" Multiplicity="*" />
   </Association>
   <Association Name="WaitingConsultation">
-    <End Role="ConsultationCategory" Type="HospitalsModel.ConsultationCategory" Multiplicity="*" />
-    <End Role="WaitingList" Type="HospitalsModel.WaitingList" Multiplicity="*" />
+    <End Role="ConsultationCategory" Type="HospitalModel.ConsultationCategory" Multiplicity="*" />
+    <End Role="WaitingList" Type="HospitalModel.WaitingList" Multiplicity="*" />
   </Association>
   <Association Name="WaitingLaboratory">
-    <End Role="LaboratoryCategory" Type="HospitalsModel.LaboratoryCategory" Multiplicity="*" />
-    <End Role="WaitingList" Type="HospitalsModel.WaitingList" Multiplicity="*" />
+    <End Role="LaboratoryCategory" Type="HospitalModel.LaboratoryCategory" Multiplicity="*" />
+    <End Role="WaitingList" Type="HospitalModel.WaitingList" Multiplicity="*" />
   </Association>
   <Association Name="WaitingMedicalImaging">
-    <End Role="MedicalImagingCategory" Type="HospitalsModel.MedicalImagingCategory" Multiplicity="*" />
-    <End Role="WaitingList" Type="HospitalsModel.WaitingList" Multiplicity="*" />
+    <End Role="MedicalImagingCategory" Type="HospitalModel.MedicalImagingCategory" Multiplicity="*" />
+    <End Role="WaitingList" Type="HospitalModel.WaitingList" Multiplicity="*" />
   </Association>
   <Association Name="WaitingPrescription">
-    <End Role="PrescriptionCategory" Type="HospitalsModel.PrescriptionCategory" Multiplicity="*" />
-    <End Role="WaitingList" Type="HospitalsModel.WaitingList" Multiplicity="*" />
+    <End Role="PrescriptionCategory" Type="HospitalModel.PrescriptionCategory" Multiplicity="*" />
+    <End Role="WaitingList" Type="HospitalModel.WaitingList" Multiplicity="*" />
   </Association>
   <Association Name="WaitingVariousDocument">
-    <End Role="VariousDocumentCategory" Type="HospitalsModel.VariousDocumentCategory" Multiplicity="*" />
-    <End Role="WaitingList" Type="HospitalsModel.WaitingList" Multiplicity="*" />
-  </Association>
-  <Association Name="FK_Account_Worker">
-    <End Type="HospitalsModel.Worker" Role="Worker" Multiplicity="1" />
-    <End Type="HospitalsModel.Account" Role="Account" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="Worker">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Account">
-        <PropertyRef Name="Id" />
-      </Dependent>
-    </ReferentialConstraint>
+    <End Role="VariousDocumentCategory" Type="HospitalModel.VariousDocumentCategory" Multiplicity="*" />
+    <End Role="WaitingList" Type="HospitalModel.WaitingList" Multiplicity="*" />
   </Association>
 </Schema>

@@ -1,6 +1,6 @@
 ﻿namespace PatientManagement
 {
-    partial class Search
+    partial class SearchPatient
     {
         /// <summary>
         /// Required designer variable.

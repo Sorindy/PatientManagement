@@ -42,6 +42,8 @@ namespace Hospital_Entity_Framework
         public string Position { get; set; }
         public Nullable<int> Salary { get; set; }
         public Nullable<System.DateTime> StartWorkDate { get; set; }
+        public bool Hire { get; set; }
+        public string PhotoPath { get; set; }
     
         public virtual ICollection<Account> Accounts { get; set; }
         public virtual ICollection<ConsultationEstimate> ConsultationEstimates { get; set; }
@@ -55,6 +57,5 @@ namespace Hospital_Entity_Framework
         public virtual ICollection<PrescriptionEstimate> PrescriptionEstimates1 { get; set; }
         public virtual ICollection<VariousDocumentEstimate> VariousDocumentEstimates { get; set; }
         public virtual ICollection<VariousDocumentEstimate> VariousDocumentEstimates1 { get; set; }
-        public virtual Account Account { get; set; }
     }
 }

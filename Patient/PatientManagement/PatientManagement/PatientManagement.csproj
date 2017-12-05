@@ -152,6 +152,7 @@
     <Compile Include="Class\ConsultationEstimate.cs" />
     <Compile Include="Class\ConsultationSample.cs" />
     <Compile Include="Class\Dating.cs" />
+    <Compile Include="Class\FullManagement.cs" />
     <Compile Include="Class\Login.cs" />
     <Compile Include="Class\MedicalRecord.cs" />
     <Compile Include="Class\Visit.cs" />
@@ -161,6 +162,12 @@
     </Compile>
     <Compile Include="CreateAccount.Designer.cs">
       <DependentUpon>CreateAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistorysForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistorysForm.Designer.cs">
+      <DependentUpon>HistorysForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Interface\ICategory.cs" />
     <Compile Include="Interface\IEstimate.cs" />
@@ -193,6 +200,12 @@
     <Compile Include="LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Managements.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Managements.Designer.cs">
+      <DependentUpon>Managements.cs</DependentUpon>
+    </Compile>
     <Compile Include="ManagementForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -210,6 +223,12 @@
     </Compile>
     <Compile Include="MedicalHistoryForm.Designer.cs">
       <DependentUpon>MedicalHistoryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MedicalsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MedicalsForm.Designer.cs">
+      <DependentUpon>MedicalsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="NewPatient.cs">
       <SubType>Form</SubType>
@@ -261,17 +280,23 @@
     <Compile Include="SamplesForm.Designer.cs">
       <DependentUpon>SamplesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Search.cs">
+    <Compile Include="SearchPatient.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Search.Designer.cs">
-      <DependentUpon>Search.cs</DependentUpon>
+    <Compile Include="SearchPatient.Designer.cs">
+      <DependentUpon>SearchPatient.cs</DependentUpon>
     </Compile>
     <Compile Include="SearchForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SearchForm.designer.cs">
       <DependentUpon>SearchForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SearchWorker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchWorker.Designer.cs">
+      <DependentUpon>SearchWorker.cs</DependentUpon>
     </Compile>
     <Compile Include="UpdateAccount.cs">
       <SubType>Form</SubType>
@@ -324,8 +349,14 @@
     <EmbeddedResource Include="DatingListForm.resx">
       <DependentUpon>DatingListForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HistorysForm.resx">
+      <DependentUpon>HistorysForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Managements.resx">
+      <DependentUpon>Managements.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManagementForm.resx">
       <DependentUpon>ManagementForm.cs</DependentUpon>
@@ -335,6 +366,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MedicalHistoryForm.resx">
       <DependentUpon>MedicalHistoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MedicalsForm.resx">
+      <DependentUpon>MedicalsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewPatient.resx">
       <DependentUpon>NewPatient.cs</DependentUpon>
@@ -370,11 +404,14 @@
     <EmbeddedResource Include="SamplesForm.resx">
       <DependentUpon>SamplesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Search.resx">
-      <DependentUpon>Search.cs</DependentUpon>
+    <EmbeddedResource Include="SearchPatient.resx">
+      <DependentUpon>SearchPatient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SearchForm.resx">
       <DependentUpon>SearchForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SearchWorker.resx">
+      <DependentUpon>SearchWorker.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateAccount.resx">
       <DependentUpon>UpdateAccount.cs</DependentUpon>

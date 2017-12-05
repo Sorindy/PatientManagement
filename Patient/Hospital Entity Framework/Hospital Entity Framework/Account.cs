@@ -26,6 +26,5 @@ namespace Hospital_Entity_Framework
     
         public virtual Worker Worker { get; set; }
         public virtual ICollection<Management> Managements { get; set; }
-        public virtual Worker Worker1 { get; set; }
     }
 }

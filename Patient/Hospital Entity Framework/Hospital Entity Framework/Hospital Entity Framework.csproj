@@ -140,6 +140,9 @@
     <Compile Include="TempWait.cs">
       <DependentUpon>Hospital.tt</DependentUpon>
     </Compile>
+    <Compile Include="TempWaitingList.cs">
+      <DependentUpon>Hospital.tt</DependentUpon>
+    </Compile>
     <Compile Include="VariousDocumentCategory.cs">
       <DependentUpon>Hospital.tt</DependentUpon>
     </Compile>

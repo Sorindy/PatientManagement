@@ -9,10 +9,11 @@ namespace PatientManagement.Class
     public class Login
     {
         private readonly HospitalDbContext _db=new HospitalDbContext();
+        private Hospital_Entity_Framework.Account _account;
 
         public Hospital_Entity_Framework.Account LoginAccount(string username, string password)
         {
-            var check = _db.Accounts.SingleOrDefault(v => v.UserName == username && v.Password == password);
+            var check = _db.Accounts.SingleOrDefault(v => v.UserName == username && v.Password == password && v.Worker.Hire==true);
             return check;
         }
 
@@ -26,6 +27,7 @@ namespace PatientManagement.Class
                 AutoScroll = true,
                 WrapContents = false
             };
+            _account = account;
             var firstOrDefault = _db.Managements.FirstOrDefault(v => v.AccountId == account.Id);
             if (firstOrDefault != null)
             {
@@ -134,6 +136,29 @@ namespace PatientManagement.Class
                         TopLevel = false,
                         Dock = DockStyle.Fill,
                         AutoScroll = true
+                    };
+                    gbo.Controls.Add(selectionForm);
+                    selectionForm.Show();
+                }
+                if (text == "Management")
+                {
+                    var selectionForm = new Managements()
+                    {
+                        TopLevel = false,
+                        Dock = DockStyle.Fill,
+                        AutoScroll = true
+                    };
+                    gbo.Controls.Add(selectionForm);
+                    selectionForm.Show();
+                }
+                if (text == "Medical")
+                {
+                    var selectionForm = new MedicalsForm()
+                    {
+                        TopLevel = false,
+                        Dock = DockStyle.Fill,
+                        AutoScroll = true,
+                        Account = _account
                     };
                     gbo.Controls.Add(selectionForm);
                     selectionForm.Show();

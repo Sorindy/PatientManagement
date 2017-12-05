@@ -23,7 +23,7 @@ namespace PatientManagement.Class
             {
                 Title=title,
                 Description=description,
-                CategroyId=categoryid,
+                CategoryId= categoryid,
             };
             _db.VariousDocumentSamples.Add(insert);
             _db.SaveChanges();
@@ -35,7 +35,7 @@ namespace PatientManagement.Class
             update.Id = id;
             update.Title = title;
             update.Description = description;
-            update.CategroyId = categoryid;
+            update.CategoryId = categoryid;
             _db.VariousDocumentSamples.AddOrUpdate(update);
             _db.SaveChanges();
         }
@@ -80,7 +80,7 @@ namespace PatientManagement.Class
 
        public Dictionary<int, string> ShowDictionary(int categoryId)
        {
-           var getTitle = _db.VariousDocumentSamples.Where(v => v.CategroyId == categoryId);
+           var getTitle = _db.VariousDocumentSamples.Where(v => v.CategoryId == categoryId);
            var dic=new Dictionary<int,string>();
            foreach (var item in getTitle)
            {

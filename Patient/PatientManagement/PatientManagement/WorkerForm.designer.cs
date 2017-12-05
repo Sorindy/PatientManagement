@@ -146,7 +146,6 @@
             this.btnAcc.TabIndex = 13;
             this.btnAcc.Text = "Create Account";
             this.btnAcc.UseVisualStyleBackColor = false;
-            this.btnAcc.Click += new System.EventHandler(this.btnAcc_Click);
             // 
             // btnDelete
             // 
@@ -283,6 +282,7 @@
             this.txtPhone1.Name = "txtPhone1";
             this.txtPhone1.Size = new System.Drawing.Size(261, 48);
             this.txtPhone1.TabIndex = 5;
+            this.txtPhone1.Leave += new System.EventHandler(this.txtPhone1_Leave);
             // 
             // tableLayoutPanel20
             // 
@@ -310,6 +310,7 @@
             this.txtSalary.Name = "txtSalary";
             this.txtSalary.Size = new System.Drawing.Size(261, 46);
             this.txtSalary.TabIndex = 10;
+            this.txtSalary.Leave += new System.EventHandler(this.txtSalary_Leave);
             // 
             // tableLayoutPanel18
             // 
@@ -337,6 +338,7 @@
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(261, 46);
             this.txtAddress.TabIndex = 4;
+            this.txtAddress.Leave += new System.EventHandler(this.txtAddress_Leave);
             // 
             // tableLayoutPanel16
             // 
@@ -364,6 +366,7 @@
             this.txtPosition.Name = "txtPosition";
             this.txtPosition.Size = new System.Drawing.Size(261, 46);
             this.txtPosition.TabIndex = 9;
+            this.txtPosition.Leave += new System.EventHandler(this.txtPosition_Leave);
             // 
             // tableLayoutPanel14
             // 
@@ -433,6 +436,7 @@
             this.dtpSWD.Name = "dtpSWD";
             this.dtpSWD.Size = new System.Drawing.Size(261, 52);
             this.dtpSWD.TabIndex = 8;
+            this.dtpSWD.Leave += new System.EventHandler(this.dtpSWD_Leave);
             // 
             // label13
             // 
@@ -515,6 +519,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(261, 46);
             this.txtEmail.TabIndex = 7;
+            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
             // label12
             // 
@@ -581,6 +586,7 @@
             this.cboGender.Name = "cboGender";
             this.cboGender.Size = new System.Drawing.Size(261, 42);
             this.cboGender.TabIndex = 2;
+            this.cboGender.Leave += new System.EventHandler(this.cboGender_Leave);
             // 
             // tableLayoutPanel5
             // 
@@ -608,6 +614,7 @@
             this.txtPhone2.Name = "txtPhone2";
             this.txtPhone2.Size = new System.Drawing.Size(261, 46);
             this.txtPhone2.TabIndex = 6;
+            this.txtPhone2.Leave += new System.EventHandler(this.txtPhone2_Leave);
             // 
             // label1
             // 
@@ -647,6 +654,7 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(261, 46);
             this.txtName.TabIndex = 1;
+            this.txtName.Leave += new System.EventHandler(this.txtName_Leave);
             // 
             // label9
             // 

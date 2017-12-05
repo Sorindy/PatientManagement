@@ -17,7 +17,7 @@ namespace PatientManagement.Class
             var insert=new Hospital_Entity_Framework.Worker()
             {
                 Name = name,Gender = gender,DOB = dob,Age = age,Address = address,
-                Phone1 = phone1,Phone2 = phone2,Email = email,Position = position,Salary = salary,StartWorkDate = workdate
+                Phone1 = phone1,Phone2 = phone2,Email = email,Position = position,Salary = salary,StartWorkDate = workdate,Hire = true
             };
 
             _db.Workers.Add(insert);
@@ -27,8 +27,9 @@ namespace PatientManagement.Class
         public void Delete(int id)
         {
             var delete = _db.Workers.Single(v=>v.Id==id);
+            delete.Hire = false;
 
-            _db.Workers.Remove(delete);
+            _db.Workers.AddOrUpdate(delete);
             _db.SaveChanges();
         }
 
@@ -54,10 +55,10 @@ namespace PatientManagement.Class
 
         public object ShowAll()
         {      
-            BindingSource bs=new BindingSource();
+            var bs=new BindingSource();
 
                 var showdata = _db.Workers;
-                bs.DataSource = showdata.Select(v => new
+                bs.DataSource = showdata.Where(v=>v.Position!="Admin").Where(v=>v.Hire).Select(v => new
                 {
                     v.Id,
                     v.Name,
@@ -79,7 +80,7 @@ namespace PatientManagement.Class
 
         public object Search(string text)
         {
-            BindingSource bs=new BindingSource();
+            var bs=new BindingSource();
 
             var search = _db.Workers.Where(v => v.Name.Contains(text) ||
                                                 v.Phone1.Contains(text) || 

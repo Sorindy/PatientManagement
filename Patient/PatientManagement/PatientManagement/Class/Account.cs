@@ -11,7 +11,10 @@ namespace PatientManagement.Class
 
         public void Insert(int workerId, string username, string password)
         {
-            var insert=new Hospital_Entity_Framework.Account(){WorkerId =workerId,UserName = username,Password = password};
+            var check = _db.Accounts.Any(v => v.WorkerId == workerId);
+            if(check)return;
+            
+            var insert=new Hospital_Entity_Framework.Account{WorkerId =workerId,UserName = username,Password = password};
 
             _db.Accounts.Add(insert);
             _db.SaveChanges();

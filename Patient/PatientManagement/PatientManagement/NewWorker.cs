@@ -87,6 +87,7 @@ namespace PatientManagement
         private void btnClear_Click(object sender, EventArgs e)
         {
             Clear();
+            txtName.Focus();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -144,22 +145,17 @@ namespace PatientManagement
 
         private void txtSalary_Leave(object sender, EventArgs e)
         {
-            btnAdd.Focus();
-        }
-
-        private void btnAdd_Leave(object sender, EventArgs e)
-        {
-            btnClear.Focus();
-        }
-
-        private void btnClear_Leave(object sender, EventArgs e)
-        {
-            btnClose.Focus();
-        }
-
-        private void btnClose_Leave(object sender, EventArgs e)
-        {
             txtName.Focus();
+        }
+
+        private void txtAddress_Leave(object sender, EventArgs e)
+        {
+            txtPhone1.Focus();
+        }
+
+        private void txtPhone2_Leave(object sender, EventArgs e)
+        {
+            txtEmail.Focus();
         }
     }
 }
