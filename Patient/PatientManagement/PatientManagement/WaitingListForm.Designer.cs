@@ -28,34 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.components = new System.ComponentModel.Container();
             this.dgvWaiting = new System.Windows.Forms.DataGridView();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvWaiting)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(455, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Waiting List Form";
             // 
             // dgvWaiting
             // 
             this.dgvWaiting.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvWaiting.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvWaiting.Location = new System.Drawing.Point(12, 53);
+            this.dgvWaiting.Location = new System.Drawing.Point(15, 16);
             this.dgvWaiting.Name = "dgvWaiting";
-            this.dgvWaiting.Size = new System.Drawing.Size(960, 253);
+            this.dgvWaiting.Size = new System.Drawing.Size(442, 352);
             this.dgvWaiting.TabIndex = 1;
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(118, 309);
+            this.btnSubmit.Location = new System.Drawing.Point(762, 4);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(75, 23);
             this.btnSubmit.TabIndex = 2;
@@ -65,7 +60,7 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(199, 310);
+            this.btnClose.Location = new System.Drawing.Point(762, 33);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 3;
@@ -73,30 +68,44 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btnSubmit);
+            this.panel1.Controls.Add(this.dgvWaiting);
+            this.panel1.Controls.Add(this.btnClose);
+            this.panel1.Location = new System.Drawing.Point(12, 46);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1087, 458);
+            this.panel1.TabIndex = 4;
+            // 
+            // backgroundWorker
+            // 
+            this.backgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_DoWork);
+            this.backgroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker_RunWorkerCompleted);
+            // 
             // WaitingListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 461);
-            this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.btnSubmit);
-            this.Controls.Add(this.dgvWaiting);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(1104, 508);
+            this.ControlBox = false;
+            this.Controls.Add(this.panel1);
             this.Name = "WaitingListForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "WaitingListForm";
             this.Load += new System.EventHandler(this.WaitingListForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvWaiting)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvWaiting;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Panel panel1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker;
+        private System.Windows.Forms.Timer timer;
     }
 }

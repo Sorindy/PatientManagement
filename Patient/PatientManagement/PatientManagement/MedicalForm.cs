@@ -1,9 +1,16 @@
 ﻿using System;
 using System.Globalization;
-using System.Windows.Forms;
-using PatientManagement.Class;
+using Hospital_Entity_Framework;
 using PatientManagement.Interface;
 using TXTextControl;
+using ConsultationCategory = PatientManagement.Class.ConsultationCategory;
+using ConsultationEstimate = PatientManagement.Class.ConsultationEstimate;
+using Dating = PatientManagement.Class.Dating;
+using Form = System.Windows.Forms.Form;
+using LaboratoryEstimate = PatientManagement.Class.LaboratoryEstimate;
+using MedicalImagingEstimate = PatientManagement.Class.MedicalImagingEstimate;
+using PrescriptionEstimate = PatientManagement.Class.PrescriptionEstimate;
+using VariousDocumentEstimate = PatientManagement.Class.VariousDocumentEstimate;
 
 namespace PatientManagement
 {
@@ -14,6 +21,7 @@ namespace PatientManagement
         private IEstimate _estimate;
         private ICategory _category;
         public Hospital_Entity_Framework.Patient Patient;
+        public Hospital_Entity_Framework.Worker Worker;
         
         public MedicalForm()
         {
@@ -23,6 +31,8 @@ namespace PatientManagement
         private void MedicalForm_Load(object sender, EventArgs e)
         {
             tmDate.Start();
+            Worker = new Worker();
+            Worker.Id = Convert.ToInt32(txtStaffID.Text);
             gbActivity.Enabled = false;
             gbDating.Enabled = false;
             gbMedicalItem.Enabled = false;
@@ -158,14 +168,13 @@ namespace PatientManagement
         private void btnWaitinglist_Click(object sender, EventArgs e)
         {
             var waitinglistform = new WaitingListForm {GetStaffCategory = cmbCategory.Text};
-            waitinglistform.Show();
-            waitinglistform.MedicalForm = this;
+            waitinglistform.Worker.Id = Worker.Id;
+            waitinglistform.ShowDialog();
             gbDating.Enabled = true;
             gbMedicalItem.Enabled = true;
             btnDatinglist.Enabled = true;
             txtDescription.Enabled = true;
             btnPatientDetail.Enabled = true;
-            Hide();
         }
 
         private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)

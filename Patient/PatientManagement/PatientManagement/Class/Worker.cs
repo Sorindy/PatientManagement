@@ -74,7 +74,6 @@ namespace PatientManagement.Class
         public Hospital_Entity_Framework.Worker SelectedWorker(int id)
         {
             var getWorker = _db.Workers.Single(v => v.Id == id);
-
             return getWorker;
         }
 

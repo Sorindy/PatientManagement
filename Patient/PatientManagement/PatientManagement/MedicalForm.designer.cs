@@ -90,11 +90,11 @@
             this.pageColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.formatStyleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cmbReferreName = new System.Windows.Forms.ComboBox();
             this.cmbNurseName = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.btnSample = new System.Windows.Forms.Button();
-            this.cmbReferreName = new System.Windows.Forms.ComboBox();
             this.gbPatient.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.gbActivity.SuspendLayout();
@@ -288,7 +288,7 @@
             this.txtStaffID.ReadOnly = true;
             this.txtStaffID.Size = new System.Drawing.Size(197, 19);
             this.txtStaffID.TabIndex = 6;
-            this.txtStaffID.Text = "1";
+            this.txtStaffID.Text = "4";
             this.txtStaffID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label4
@@ -712,6 +712,19 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Refferer Information";
             // 
+            // cmbReferreName
+            // 
+            this.cmbReferreName.FormattingEnabled = true;
+            this.cmbReferreName.Items.AddRange(new object[] {
+            "Bone",
+            "General",
+            "Blood",
+            "General\'s Prescription"});
+            this.cmbReferreName.Location = new System.Drawing.Point(117, 38);
+            this.cmbReferreName.Name = "cmbReferreName";
+            this.cmbReferreName.Size = new System.Drawing.Size(186, 21);
+            this.cmbReferreName.TabIndex = 10;
+            // 
             // cmbNurseName
             // 
             this.cmbNurseName.FormattingEnabled = true;
@@ -752,19 +765,6 @@
             this.btnSample.Text = "Sample";
             this.btnSample.UseVisualStyleBackColor = true;
             this.btnSample.Click += new System.EventHandler(this.btnSample_Click);
-            // 
-            // cmbReferreName
-            // 
-            this.cmbReferreName.FormattingEnabled = true;
-            this.cmbReferreName.Items.AddRange(new object[] {
-            "Bone",
-            "General",
-            "Blood",
-            "General\'s Prescription"});
-            this.cmbReferreName.Location = new System.Drawing.Point(117, 38);
-            this.cmbReferreName.Name = "cmbReferreName";
-            this.cmbReferreName.Size = new System.Drawing.Size(186, 21);
-            this.cmbReferreName.TabIndex = 10;
             // 
             // MedicalForm
             // 

@@ -155,6 +155,7 @@
     <Compile Include="Class\FullManagement.cs" />
     <Compile Include="Class\Login.cs" />
     <Compile Include="Class\MedicalRecord.cs" />
+    <Compile Include="Class\NurseRespone.cs" />
     <Compile Include="Class\Visit.cs" />
     <Compile Include="Class\WaitingList.cs" />
     <Compile Include="CreateAccount.cs">
@@ -241,6 +242,12 @@
     </Compile>
     <Compile Include="NewWorker.Designer.cs">
       <DependentUpon>NewWorker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NurseResponeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NurseResponeForm.designer.cs">
+      <DependentUpon>NurseResponeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="PatientForm.cs">
       <SubType>Form</SubType>
@@ -375,6 +382,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NewWorker.resx">
       <DependentUpon>NewWorker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NurseResponeForm.resx">
+      <DependentUpon>NurseResponeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PatientForm.resx">
       <DependentUpon>PatientForm.cs</DependentUpon>
