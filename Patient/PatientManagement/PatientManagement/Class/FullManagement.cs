@@ -368,6 +368,7 @@ namespace PatientManagement.Class
             _db.SaveChanges();
 
             _categorySelection.tabCategory.Controls.Clear();
+            _categorySelection.Account = _account;
             _categorySelection.tabCategory.Controls.AddRange(new Control[]{TabConsultation(_account,_categorySelection)});
         }
 
