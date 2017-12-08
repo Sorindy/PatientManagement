@@ -13,6 +13,7 @@ namespace PatientManagement
 
         private readonly Patient _patient=new Patient();
         internal CheckInsForm CheckInsForm;
+        internal MedicalsForm MedicalsForm;
 
         private void Search_Shown(object sender, EventArgs e)
         {
@@ -33,7 +34,16 @@ namespace PatientManagement
         private void btnAdd_Click(object sender, EventArgs e)
         {
             if (dgvSearchPatient.CurrentRow != null)
-                CheckInsForm.Patient = _patient.Select(Convert.ToInt32(dgvSearchPatient.CurrentRow.Cells[0].Value));
+            {
+                if (CheckInsForm != null)
+                {
+                    CheckInsForm.Patient = _patient.Select(Convert.ToInt32(dgvSearchPatient.CurrentRow.Cells[0].Value));
+                }
+                if (MedicalsForm != null)
+                {
+                    MedicalsForm.Patient = _patient.Select(Convert.ToInt32(dgvSearchPatient.CurrentRow.Cells[0].Value));
+                }
+            }
             Close();
         }
 

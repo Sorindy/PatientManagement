@@ -19,6 +19,7 @@ namespace PatientManagement
         }
 
         internal Patient Pateint;
+        internal Account Account;
 
         private void btnClose_Click(object sender, EventArgs e)
         {

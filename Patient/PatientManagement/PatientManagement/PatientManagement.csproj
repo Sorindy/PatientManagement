@@ -128,6 +128,12 @@
     <Compile Include="Category.Designer.cs">
       <DependentUpon>Category.cs</DependentUpon>
     </Compile>
+    <Compile Include="CategorySelection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CategorySelection.Designer.cs">
+      <DependentUpon>CategorySelection.cs</DependentUpon>
+    </Compile>
     <Compile Include="CatelogForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -333,6 +339,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Category.resx">
       <DependentUpon>Category.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CategorySelection.resx">
+      <DependentUpon>CategorySelection.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CatelogForm.resx">
       <DependentUpon>CatelogForm.cs</DependentUpon>

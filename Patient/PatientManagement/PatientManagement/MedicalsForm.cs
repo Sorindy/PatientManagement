@@ -13,6 +13,7 @@ namespace PatientManagement
 
         private string _path;
         internal Account Account;
+        internal Patient Patient;
 
         private void sampleToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -68,6 +69,33 @@ namespace PatientManagement
                 picHideRight.ImageLocation = _path + @"Hide-right-icon.png";
                 pnlButton.Visible = true;
                 picHideRight.Click -=picShowRight_Click;
+            }
+        }
+
+        private void btnPatient_Click(object sender, EventArgs e)
+        {
+            var form=new SearchPatient(){MedicalsForm = this};
+            form.ShowDialog();
+            if (Patient != null)
+            {
+                txtNamePatient.Text = Patient.Name;
+                txtGenderPatient.Text = Patient.Gender;
+                if (btnPatient.Name == "btnPatient")
+                {
+                    btnPatient.Name = "btnInfoPatient";
+                    btnPatient.Text = @"ពត៍មាន​ បន្ថែម";
+                    btnPatient.Click += btnInfoPatient_Click;
+                    btnPatient.Click -= btnPatient_Click;
+                }
+            }
+        }
+
+        private void btnInfoPatient_Click(object sender, EventArgs e)
+        {
+            if (btnPatient.Name == "btnInfoPatient")
+            {
+                var form=new PatientForm(){Patient = Patient,Account = Account};
+                form.ShowDialog();
             }
         }
     }

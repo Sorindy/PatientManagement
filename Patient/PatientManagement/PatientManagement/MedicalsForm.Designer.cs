@@ -65,8 +65,13 @@
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.gboActivity = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnPrint = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
             this.gboPatientList = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnDating = new System.Windows.Forms.Button();
+            this.btmWaitingList = new System.Windows.Forms.Button();
             this.gboDate = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.picAddDate = new System.Windows.Forms.PictureBox();
@@ -98,11 +103,6 @@
             this.pageColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.formatStyleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sampleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnPrint = new System.Windows.Forms.Button();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.btnDating = new System.Windows.Forms.Button();
-            this.btmWaitingList = new System.Windows.Forms.Button();
             this.pnlTitle.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.gboPatient.SuspendLayout();
@@ -226,6 +226,7 @@
             this.btnPatient.Text = "ជ្រើស អ្នកជម្ងឺថ្មី";
             this.btnPatient.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPatient.UseVisualStyleBackColor = false;
+            this.btnPatient.Click += new System.EventHandler(this.btnPatient_Click);
             // 
             // tableLayoutPanel11
             // 
@@ -641,6 +642,52 @@
             this.tableLayoutPanel8.Size = new System.Drawing.Size(222, 167);
             this.tableLayoutPanel8.TabIndex = 0;
             // 
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnSave.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Ang Daunsok", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.Color.Linen;
+            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
+            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSave.Location = new System.Drawing.Point(3, 3);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(216, 54);
+            this.btnSave.TabIndex = 0;
+            this.btnSave.Text = "រក្សាទុក";
+            this.btnSave.UseVisualStyleBackColor = false;
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnPrint.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrint.Font = new System.Drawing.Font("Ang Daunsok", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrint.ForeColor = System.Drawing.Color.SeaGreen;
+            this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
+            this.btnPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPrint.Location = new System.Drawing.Point(3, 59);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(216, 54);
+            this.btnPrint.TabIndex = 1;
+            this.btnPrint.Text = "ថតចម្លង";
+            this.btnPrint.UseVisualStyleBackColor = false;
+            // 
+            // btnClear
+            // 
+            this.btnClear.BackColor = System.Drawing.Color.Tomato;
+            this.btnClear.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
+            this.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClear.Location = new System.Drawing.Point(3, 115);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(216, 54);
+            this.btnClear.TabIndex = 2;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = false;
+            // 
             // gboPatientList
             // 
             this.gboPatientList.Controls.Add(this.tableLayoutPanel9);
@@ -671,6 +718,36 @@
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34F));
             this.tableLayoutPanel9.Size = new System.Drawing.Size(222, 86);
             this.tableLayoutPanel9.TabIndex = 0;
+            // 
+            // btnDating
+            // 
+            this.btnDating.BackColor = System.Drawing.Color.Khaki;
+            this.btnDating.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnDating.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDating.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnDating.Image = ((System.Drawing.Image)(resources.GetObject("btnDating.Image")));
+            this.btnDating.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDating.Location = new System.Drawing.Point(3, -1);
+            this.btnDating.Name = "btnDating";
+            this.btnDating.Size = new System.Drawing.Size(216, 44);
+            this.btnDating.TabIndex = 0;
+            this.btnDating.Text = "បញ្ជី ណាត់អ្នកជម្ងឺ";
+            this.btnDating.UseVisualStyleBackColor = false;
+            // 
+            // btmWaitingList
+            // 
+            this.btmWaitingList.BackColor = System.Drawing.Color.SlateGray;
+            this.btmWaitingList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btmWaitingList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btmWaitingList.ForeColor = System.Drawing.Color.PapayaWhip;
+            this.btmWaitingList.Image = ((System.Drawing.Image)(resources.GetObject("btmWaitingList.Image")));
+            this.btmWaitingList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btmWaitingList.Location = new System.Drawing.Point(3, 45);
+            this.btmWaitingList.Name = "btmWaitingList";
+            this.btmWaitingList.Size = new System.Drawing.Size(216, 44);
+            this.btmWaitingList.TabIndex = 1;
+            this.btmWaitingList.Text = "បញ្ជី រងចាំ";
+            this.btmWaitingList.UseVisualStyleBackColor = false;
             // 
             // gboDate
             // 
@@ -981,82 +1058,6 @@
             this.sampleToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
             this.sampleToolStripMenuItem.Text = "Sample";
             this.sampleToolStripMenuItem.Click += new System.EventHandler(this.sampleToolStripMenuItem_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.BackColor = System.Drawing.Color.SeaGreen;
-            this.btnSave.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Ang Daunsok", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.ForeColor = System.Drawing.Color.Linen;
-            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
-            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(3, 3);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(216, 54);
-            this.btnSave.TabIndex = 0;
-            this.btnSave.Text = "រក្សាទុក";
-            this.btnSave.UseVisualStyleBackColor = false;
-            // 
-            // btnPrint
-            // 
-            this.btnPrint.BackColor = System.Drawing.Color.SandyBrown;
-            this.btnPrint.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrint.Font = new System.Drawing.Font("Ang Daunsok", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrint.ForeColor = System.Drawing.Color.SeaGreen;
-            this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
-            this.btnPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPrint.Location = new System.Drawing.Point(3, 59);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(216, 54);
-            this.btnPrint.TabIndex = 1;
-            this.btnPrint.Text = "ថតចម្លង";
-            this.btnPrint.UseVisualStyleBackColor = false;
-            // 
-            // btnClear
-            // 
-            this.btnClear.BackColor = System.Drawing.Color.Crimson;
-            this.btnClear.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
-            this.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClear.Location = new System.Drawing.Point(3, 115);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(216, 54);
-            this.btnClear.TabIndex = 2;
-            this.btnClear.Text = "Clear";
-            this.btnClear.UseVisualStyleBackColor = false;
-            // 
-            // btnDating
-            // 
-            this.btnDating.BackColor = System.Drawing.Color.Khaki;
-            this.btnDating.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnDating.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDating.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnDating.Image = ((System.Drawing.Image)(resources.GetObject("btnDating.Image")));
-            this.btnDating.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDating.Location = new System.Drawing.Point(3, -1);
-            this.btnDating.Name = "btnDating";
-            this.btnDating.Size = new System.Drawing.Size(216, 44);
-            this.btnDating.TabIndex = 0;
-            this.btnDating.Text = "បញ្ជី ណាត់អ្នកជម្ងឺ";
-            this.btnDating.UseVisualStyleBackColor = false;
-            // 
-            // btmWaitingList
-            // 
-            this.btmWaitingList.BackColor = System.Drawing.Color.SlateGray;
-            this.btmWaitingList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btmWaitingList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btmWaitingList.ForeColor = System.Drawing.Color.PapayaWhip;
-            this.btmWaitingList.Image = ((System.Drawing.Image)(resources.GetObject("btmWaitingList.Image")));
-            this.btmWaitingList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btmWaitingList.Location = new System.Drawing.Point(3, 45);
-            this.btmWaitingList.Name = "btmWaitingList";
-            this.btmWaitingList.Size = new System.Drawing.Size(216, 44);
-            this.btmWaitingList.TabIndex = 1;
-            this.btmWaitingList.Text = "បញ្ជី រងចាំ";
-            this.btmWaitingList.UseVisualStyleBackColor = false;
             // 
             // MedicalsForm
             // 

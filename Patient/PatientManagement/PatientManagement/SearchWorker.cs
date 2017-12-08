@@ -18,18 +18,12 @@ namespace PatientManagement
         {
             txtSearch.Text = "";
             txtSearch.Focus();
-            btnAdd.Enabled = false;
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             dgvSearchWorker.DataSource = _management.Search_WorkerHasAccount(txtSearch.Text);
             dgvSearchWorker.Columns[0].Visible = false;
-        }
-
-        private void dgvSearchWorker_SelectionChanged(object sender, EventArgs e)
-        {
-            btnAdd.Enabled = true;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -44,6 +38,11 @@ namespace PatientManagement
                     Close();
                 }
             }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

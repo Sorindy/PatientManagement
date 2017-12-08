@@ -20,31 +20,52 @@ namespace PatientManagement
         {
             var form = new SearchWorker() { Managements = this};
             form.ShowDialog();
+            _management.ClearTemp();
             pnlSelection.Controls.Clear();
-            pnlSelection.Controls.Add(_management.ButtonSelectForm(Account));
-            txtName.Text = Account.Worker.Name;
-            txtPosition.Text = Account.Worker.Position;
+            if (Account != null)
+            {
+                pnlSelection.Controls.Add(_management.ButtonSelectForm(Account));
+                txtName.Text = Account.Worker.Name;
+                txtPosition.Text = Account.Worker.Position;
+            }
         }
 
         private void picboxSearch_Click(object sender, EventArgs e)
         {
             var form = new SearchWorker() { Managements = this };
             form.ShowDialog();
+            _management.ClearTemp();
             pnlSelection.Controls.Clear();
-            pnlSelection.Controls.Add(_management.ButtonSelectForm(Account));
-            txtName.Text = Account.Worker.Name;
-            txtPosition.Text = Account.Worker.Position;
+            if (Account != null)
+            {
+                pnlSelection.Controls.Add(_management.ButtonSelectForm(Account));
+                txtName.Text = Account.Worker.Name;
+                txtPosition.Text = Account.Worker.Position;
+            }
         }
 
         private void tblSearch_Click(object sender, EventArgs e)
         {
             var form = new SearchWorker() { Managements = this };
             form.ShowDialog();
+            _management.ClearTemp();
             pnlSelection.Controls.Clear();
-            pnlSelection.Controls.Add(_management.ButtonSelectForm(Account));
-            txtName.Text = Account.Worker.Name;
-            txtPosition.Text = Account.Worker.Position;
+            if (Account != null)
+            {
+                pnlSelection.Controls.Add(_management.ButtonSelectForm(Account));
+                txtName.Text = Account.Worker.Name;
+                txtPosition.Text = Account.Worker.Position;
+            }
         }
 
+        private void Managements_Shown(object sender, EventArgs e)
+        {
+            _management.ClearTemp();
+        }
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
