@@ -64,6 +64,7 @@ E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.SearchWorker.resources
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.MedicalsForm.resources
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.HistorysForm.resources
+<<<<<<< HEAD
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\PatientManagement.exe.config
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.exe
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.pdb
@@ -131,3 +132,6 @@ D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\Patie
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.csproj.GenerateResource.Cache
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.exe.licenses
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.NurseResponeForm.resources
+=======
+E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.CategorySelection.resources
+>>>>>>> 25986bf743b6b2ddef2219f01d7aecb62ad7f377

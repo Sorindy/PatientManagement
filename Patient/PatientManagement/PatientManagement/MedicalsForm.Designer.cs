@@ -226,6 +226,7 @@
             this.btnPatient.Text = "ជ្រើស អ្នកជម្ងឺថ្មី";
             this.btnPatient.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPatient.UseVisualStyleBackColor = false;
+            this.btnPatient.Click += new System.EventHandler(this.btnPatient_Click);
             // 
             // tableLayoutPanel11
             // 
@@ -646,7 +647,11 @@
             this.btnSave.BackColor = System.Drawing.Color.SeaGreen;
             this.btnSave.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+<<<<<<< HEAD
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+=======
+            this.btnSave.Font = new System.Drawing.Font("Ang Daunsok", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+>>>>>>> 25986bf743b6b2ddef2219f01d7aecb62ad7f377
             this.btnSave.ForeColor = System.Drawing.Color.Linen;
             this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -659,10 +664,17 @@
             // 
             // btnPrint
             // 
+<<<<<<< HEAD
             this.btnPrint.BackColor = System.Drawing.Color.SandyBrown;
             this.btnPrint.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+=======
+            this.btnPrint.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnPrint.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrint.Font = new System.Drawing.Font("Ang Daunsok", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+>>>>>>> 25986bf743b6b2ddef2219f01d7aecb62ad7f377
             this.btnPrint.ForeColor = System.Drawing.Color.SeaGreen;
             this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
             this.btnPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -675,7 +687,11 @@
             // 
             // btnClear
             // 
+<<<<<<< HEAD
             this.btnClear.BackColor = System.Drawing.Color.Crimson;
+=======
+            this.btnClear.BackColor = System.Drawing.Color.Tomato;
+>>>>>>> 25986bf743b6b2ddef2219f01d7aecb62ad7f377
             this.btnClear.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));

@@ -142,6 +142,12 @@ namespace PatientManagement.Class
                 }
                 if (text == "Management")
                 {
+                    if (Application.OpenForms.OfType<Managements>().Count() == 1)
+                    {
+                        var firstOrDefault = Application.OpenForms.OfType<Managements>().FirstOrDefault();
+                        if (firstOrDefault != null)
+                            firstOrDefault.Close();
+                    }
                     var selectionForm = new Managements()
                     {
                         TopLevel = false,

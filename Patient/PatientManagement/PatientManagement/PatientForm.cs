@@ -15,6 +15,7 @@ namespace PatientManagement
         internal PatientListForm PatientListForm;
         internal Patient Patient;
         private readonly Class.Patient _patient=new Class.Patient();
+        internal Account Account;
 
         private void PatientForm_Shown(object sender, EventArgs e)
         {
@@ -55,8 +56,11 @@ namespace PatientManagement
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            PatientListForm.dgvListPatient.Columns.RemoveAt(7);
-            PatientListForm.PatientListForm_Shown(PatientListForm, new EventArgs());
+            if (PatientListForm != null)
+            {
+                PatientListForm.dgvListPatient.Columns.RemoveAt(7);
+                PatientListForm.PatientListForm_Shown(PatientListForm, new EventArgs());
+            }
             Close();
         }
 
@@ -177,8 +181,12 @@ namespace PatientManagement
 
         private void btnHistory_Click(object sender, EventArgs e)
         {
-            var form=new HistorysForm(){Pateint = Patient};
-            form.ShowDialog();
+            if (Account != null && Patient !=null)
+            {
+                var form = new HistorysForm() { Pateint = Patient, Account = Account };
+                form.ShowDialog();
+                Close();
+            }
         }
     }
 }
