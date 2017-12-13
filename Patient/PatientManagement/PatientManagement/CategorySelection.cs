@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using PatientManagement.Class;
 using Account = Hospital_Entity_Framework.Account;
@@ -29,7 +22,17 @@ namespace PatientManagement
 
         private void CategorySelection_Shown(object sender, EventArgs e)
         {
-            tabCategory.Controls.Add(_fullManagement.TabConsultation(Account,this));
+            tabCategory.Controls.AddRange(new Control[] { _fullManagement.TabConsultation(Account, this),
+                _fullManagement.TabLaboratory(Account, this),
+                _fullManagement.TabMedicalImaging(Account,this),
+                _fullManagement.TabPrescription(Account,this),
+                _fullManagement.TabVariousDocument(Account,this)
+            });
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            _fullManagement.ClearCatergory(Account,this);
         }
 
     }

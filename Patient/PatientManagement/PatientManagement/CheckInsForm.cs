@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Forms;
 using PatientManagement.Class;
 using Form = System.Windows.Forms.Form;
 using Patient = Hospital_Entity_Framework.Patient;
@@ -32,9 +33,15 @@ namespace PatientManagement
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            if(Patient==null)return;
-            _chkIn.SubmitService(Patient.Id,DateTime.Now.TimeOfDay);
-            ClearControl();
+            if (Patient == null)
+            {
+                MessageBox.Show(@"Something is going wrong please check again.", @"Error");
+            }
+            else
+            {
+                _chkIn.SubmitService(Patient.Id, DateTime.Now.TimeOfDay);
+                ClearControl();
+            }
         }
 
         private void tblSearch_Click(object sender, EventArgs e)

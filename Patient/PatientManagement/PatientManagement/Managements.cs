@@ -61,11 +61,39 @@ namespace PatientManagement
         private void Managements_Shown(object sender, EventArgs e)
         {
             _management.ClearTemp();
+            txtName.Text = "";
+            txtPosition.Text = "";
+            pnlSelection.Controls.Clear();
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
+            if (Account != null)
+            {
+                _management.SubmitManagement(Account);
+                Managements_Shown(this, new EventArgs());
+            }
+            else
+            {
+                MessageBox.Show(@"Please input any data",@"Save");
+            }
+        }
 
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            var msg= MessageBox.Show(@"  Are you sure want to delete this management? This deletion is going to delete both of your management and account.",@"Delete",MessageBoxButtons.YesNo);
+            if (msg == DialogResult.Yes)
+            {
+                if (Account != null)
+                {
+                    _management.DeleteManagementAndAccount(Account);
+                    Managements_Shown(this, new EventArgs());
+                }
+                else
+                {
+                    MessageBox.Show(@"Please input any data",@"Delete");
+                }
+            }
         }
     }
 }

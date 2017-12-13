@@ -28,7 +28,8 @@ namespace PatientManagement.Class
                         b.PatientId,
                         b.Patient.Name,
                         b.Time,
-                        b.Status
+                        b.Status,
+                        b.Number,
                     };
                 _bs.DataSource = getList.ToList();
             }
@@ -42,7 +43,8 @@ namespace PatientManagement.Class
                         b.PatientId,
                         b.Patient.Name,
                         b.Time,
-                        b.Status
+                        b.Status,
+                        b.Number 
                     };
                 _bs.DataSource = getList.ToList();
             }
@@ -56,7 +58,8 @@ namespace PatientManagement.Class
                         b.PatientId,
                         b.Patient.Name,
                         b.Time,
-                        b.Status
+                        b.Status,
+                        b.Number 
                     };
                 _bs.DataSource = getList.ToList();
             }
@@ -70,7 +73,8 @@ namespace PatientManagement.Class
                         b.PatientId,
                         b.Patient.Name,
                         b.Time,
-                        b.Status
+                        b.Status,
+                        b.Number
                     };
                 _bs.DataSource = getList.ToList();
             }
@@ -84,7 +88,8 @@ namespace PatientManagement.Class
                         b.PatientId,
                         b.Patient.Name,
                         b.Time,
-                        b.Status
+                        b.Status,
+                        b.Number
                     };
                 _bs.DataSource = getList.ToList();
             }

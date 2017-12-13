@@ -97,7 +97,7 @@ namespace PatientManagement.Class
                 var getCategory = _db.ConsultationCategories;
                 foreach (var item in getCategory)
                 {
-                    var checking = _db.TempWaits.Any(v => v.CategoryId== item.Id);
+                    var checking = _db.TempWaits.Where(v=>v.ServiceName=="Consultation").Any(v => v.CategoryId== item.Id);
 
                     if (checking)
                     {
@@ -108,7 +108,8 @@ namespace PatientManagement.Class
                             Text = item.Name,
                             Name = item.Id.ToString(),
                             BackColor = Color.LimeGreen,
-                            Font = new Font("November",12)
+                            Font = new Font("November",12),
+                            Tag = "Consultation"
                         };
 
                         flpn.Controls.Add(btn);
@@ -123,7 +124,8 @@ namespace PatientManagement.Class
                             Text = item.Name,
                             Name = item.Id.ToString(),
                             BackColor = Color.Khaki,
-                            Font = new Font("November", 12)
+                            Font = new Font("November", 12),
+                            Tag = "Consultation"
                         };
 
                         flpn.Controls.Add(btn);
@@ -136,7 +138,7 @@ namespace PatientManagement.Class
                 var getCategory = _db.LaboratoryCategories;
                 foreach (var item in getCategory)
                 {
-                    var checking = _db.TempWaits.Any(v => v.CategoryId == item.Id);
+                    var checking = _db.TempWaits.Where(v => v.ServiceName == "Laboratory").Any(v => v.CategoryId == item.Id);
                     if (checking)
                     {
                         var btn = new Button
@@ -146,7 +148,8 @@ namespace PatientManagement.Class
                             Text = item.Name,
                             Name = item.Id.ToString(),
                             BackColor = Color.LimeGreen,
-                            Font = new Font("November", 12)
+                            Font = new Font("November", 12),
+                            Tag="Laboratory"
                         };
                         flpn.Controls.Add(btn);
                         btn.Click += RemoveService_Click;
@@ -160,7 +163,8 @@ namespace PatientManagement.Class
                             Text = item.Name,
                             Name = item.Id.ToString(),
                             BackColor = Color.Khaki,
-                            Font = new Font("November", 12)
+                            Font = new Font("November", 12),
+                            Tag = "Laboratory"
                         };
                         flpn.Controls.Add(btn);
                         btn.Click += TakeService_Click;
@@ -172,7 +176,7 @@ namespace PatientManagement.Class
                 var getCategory = _db.MedicalImagingCategories;
                 foreach (var item in getCategory)
                 {
-                    var checking = _db.TempWaits.Any(v => v.CategoryId == item.Id);
+                    var checking = _db.TempWaits.Where(v => v.ServiceName == "MedicalImaging").Any(v => v.CategoryId == item.Id);
 
                     if (checking)
                     {
@@ -183,7 +187,8 @@ namespace PatientManagement.Class
                             Text = item.Name,
                             Name = item.Id.ToString(),
                             BackColor = Color.LimeGreen,
-                            Font = new Font("November", 12)
+                            Font = new Font("November", 12),
+                            Tag = "MedicalImaging"
                         };
                         flpn.Controls.Add(btn);
                         btn.Click += RemoveService_Click;
@@ -197,7 +202,8 @@ namespace PatientManagement.Class
                             Text = item.Name,
                             Name = item.Id.ToString(),
                             BackColor = Color.Khaki,
-                            Font = new Font("November", 12)
+                            Font = new Font("November", 12),
+                            Tag = "MedicalImaging"
                         };
                         flpn.Controls.Add(btn);
                         btn.Click += TakeService_Click;
@@ -209,7 +215,7 @@ namespace PatientManagement.Class
                 var getCategory = _db.PrescriptionCategories;
                 foreach (var item in getCategory)
                 {
-                    var checking = _db.TempWaits.Any(v => v.CategoryId == item.Id);
+                    var checking = _db.TempWaits.Where(v => v.ServiceName == "Prescription").Any(v => v.CategoryId == item.Id);
                     if (checking)
                     {
                         var btn = new Button
@@ -219,7 +225,8 @@ namespace PatientManagement.Class
                             Text = item.Name,
                             Name = item.Id.ToString(),
                             BackColor = Color.LimeGreen,
-                            Font = new Font("November", 12)
+                            Font = new Font("November", 12),
+                            Tag="Prescription"
                         };
                         flpn.Controls.Add(btn);
                         btn.Click += RemoveService_Click;
@@ -233,7 +240,8 @@ namespace PatientManagement.Class
                             Text = item.Name,
                             Name = item.Id.ToString(),
                             BackColor = Color.Khaki,
-                            Font = new Font("November", 12)
+                            Font = new Font("November", 12),
+                            Tag = "Prescription"
                         };
                         flpn.Controls.Add(btn);
 
@@ -247,7 +255,7 @@ namespace PatientManagement.Class
                 var getCategory = _db.VariousDocumentCategories;
                 foreach (var item in getCategory)
                 {
-                    var checking = _db.TempWaits.Any(v => v.CategoryId == item.Id);
+                    var checking = _db.TempWaits.Where(v => v.ServiceName == "VariousDocument").Any(v => v.CategoryId == item.Id);
                     if (checking)
                     {
                         var btn = new Button
@@ -258,6 +266,7 @@ namespace PatientManagement.Class
                             Name = item.Id.ToString(),
                             BackColor = Color.LimeGreen,
                             Font = new Font("November", 12),
+                            Tag = "VariousDocument"
                         };
                         flpn.Controls.Add(btn);
                         btn.Click += RemoveService_Click;
@@ -271,7 +280,8 @@ namespace PatientManagement.Class
                             Text = item.Name,
                             Name = item.Id.ToString(),
                             BackColor = Color.Khaki,
-                            Font = new Font("November", 12)
+                            Font = new Font("November", 12),
+                            Tag = "VariousDocument"
                         };
                         flpn.Controls.Add(btn);
                         btn.Click += TakeService_Click;
@@ -394,8 +404,9 @@ namespace PatientManagement.Class
         {
             var check = (Button) sender;
             var getName = Convert.ToInt32(check.Name);
+            var getTag = check.Tag.ToString();
 
-            var delete = _db.TempWaits.Single(v => v.CategoryId == getName);
+            var delete = _db.TempWaits.Where(v=>v.ServiceName==getTag).Single(v => v.CategoryId == getName);
             _db.TempWaits.Remove(delete);
             _db.SaveChanges();
 

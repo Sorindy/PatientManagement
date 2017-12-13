@@ -17,5 +17,8 @@ namespace Hospital_Entity_Framework
         public int Id { get; set; }
         public int WaitingListId { get; set; }
         public int WorkerId { get; set; }
+    
+        public virtual WaitingList WaitingList { get; set; }
+        public virtual Worker Worker { get; set; }
     }
 }

@@ -224,6 +224,14 @@
       <End Role="PrescriptionCategory" EntitySet="PrescriptionCategory" />
       <End Role="PrescriptionSample" EntitySet="PrescriptionSample" />
     </AssociationSet>
+    <AssociationSet Name="FK_TempWaitingList_WaitingList" Association="HospitalModel.Store.FK_TempWaitingList_WaitingList">
+      <End Role="WaitingList" EntitySet="WaitingList" />
+      <End Role="TempWaitingList" EntitySet="TempWaitingList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TempWaitingList_Worker" Association="HospitalModel.Store.FK_TempWaitingList_Worker">
+      <End Role="Worker" EntitySet="Worker" />
+      <End Role="TempWaitingList" EntitySet="TempWaitingList" />
+    </AssociationSet>
     <AssociationSet Name="FK_VariousDocumentEstimate_Patient" Association="HospitalModel.Store.FK_VariousDocumentEstimate_Patient">
       <End Role="Patient" EntitySet="Patient" />
       <End Role="VariousDocumentEstimate" EntitySet="VariousDocumentEstimate" />
@@ -1314,6 +1322,30 @@
       </Principal>
       <Dependent Role="PrescriptionSample">
         <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TempWaitingList_WaitingList">
+    <End Role="WaitingList" Type="HospitalModel.Store.WaitingList" Multiplicity="1" />
+    <End Role="TempWaitingList" Type="HospitalModel.Store.TempWaitingList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WaitingList">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TempWaitingList">
+        <PropertyRef Name="WaitingListId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TempWaitingList_Worker">
+    <End Role="Worker" Type="HospitalModel.Store.Worker" Multiplicity="1" />
+    <End Role="TempWaitingList" Type="HospitalModel.Store.TempWaitingList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Worker">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TempWaitingList">
+        <PropertyRef Name="WorkerId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

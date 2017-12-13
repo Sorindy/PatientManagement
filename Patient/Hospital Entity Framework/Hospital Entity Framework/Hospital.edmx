@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="HospitalModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="HospitalModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="HospitalModelStoreContainer">
           <EntitySet Name="Account" EntityType="HospitalModel.Store.Account" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ConsultationCategory" EntityType="HospitalModel.Store.ConsultationCategory" store:Type="Tables" Schema="dbo" />
@@ -228,6 +228,14 @@
           <AssociationSet Name="FK_PrescriptionSample_PrescriptionCategory" Association="HospitalModel.Store.FK_PrescriptionSample_PrescriptionCategory">
             <End Role="PrescriptionCategory" EntitySet="PrescriptionCategory" />
             <End Role="PrescriptionSample" EntitySet="PrescriptionSample" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TempWaitingList_WaitingList" Association="HospitalModel.Store.FK_TempWaitingList_WaitingList">
+            <End Role="WaitingList" EntitySet="WaitingList" />
+            <End Role="TempWaitingList" EntitySet="TempWaitingList" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TempWaitingList_Worker" Association="HospitalModel.Store.FK_TempWaitingList_Worker">
+            <End Role="Worker" EntitySet="Worker" />
+            <End Role="TempWaitingList" EntitySet="TempWaitingList" />
           </AssociationSet>
           <AssociationSet Name="FK_VariousDocumentEstimate_Patient" Association="HospitalModel.Store.FK_VariousDocumentEstimate_Patient">
             <End Role="Patient" EntitySet="Patient" />
@@ -1322,6 +1330,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_TempWaitingList_WaitingList">
+          <End Role="WaitingList" Type="HospitalModel.Store.WaitingList" Multiplicity="1" />
+          <End Role="TempWaitingList" Type="HospitalModel.Store.TempWaitingList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WaitingList">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TempWaitingList">
+              <PropertyRef Name="WaitingListId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TempWaitingList_Worker">
+          <End Role="Worker" Type="HospitalModel.Store.Worker" Multiplicity="1" />
+          <End Role="TempWaitingList" Type="HospitalModel.Store.TempWaitingList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Worker">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TempWaitingList">
+              <PropertyRef Name="WorkerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_VariousDocumentEstimate_Patient">
           <End Role="Patient" Type="HospitalModel.Store.Patient" Multiplicity="1" />
           <End Role="VariousDocumentEstimate" Type="HospitalModel.Store.VariousDocumentEstimate" Multiplicity="*" />
@@ -1682,8 +1714,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="HospitalModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1941,6 +1972,14 @@
           <AssociationSet Name="WaitingVariousDocument" Association="HospitalModel.WaitingVariousDocument">
             <End Role="VariousDocumentCategory" EntitySet="VariousDocumentCategories" />
             <End Role="WaitingList" EntitySet="WaitingLists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TempWaitingList_WaitingList" Association="HospitalModel.FK_TempWaitingList_WaitingList">
+            <End Role="WaitingList" EntitySet="WaitingLists" />
+            <End Role="TempWaitingList" EntitySet="TempWaitingLists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TempWaitingList_Worker" Association="HospitalModel.FK_TempWaitingList_Worker">
+            <End Role="Worker" EntitySet="Workers" />
+            <End Role="TempWaitingList" EntitySet="TempWaitingLists" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Account">
@@ -2244,6 +2283,8 @@
           <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="WaitingListId" Type="Int32" Nullable="false" />
           <Property Name="WorkerId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="WaitingList" Relationship="HospitalModel.FK_TempWaitingList_WaitingList" FromRole="TempWaitingList" ToRole="WaitingList" />
+          <NavigationProperty Name="Worker" Relationship="HospitalModel.FK_TempWaitingList_Worker" FromRole="TempWaitingList" ToRole="Worker" />
         </EntityType>
         <EntityType Name="VariousDocumentCategory">
           <Key>
@@ -2321,6 +2362,7 @@
           <NavigationProperty Name="MedicalImagingCategories" Relationship="HospitalModel.WaitingMedicalImaging" FromRole="WaitingList" ToRole="MedicalImagingCategory" />
           <NavigationProperty Name="PrescriptionCategories" Relationship="HospitalModel.WaitingPrescription" FromRole="WaitingList" ToRole="PrescriptionCategory" />
           <NavigationProperty Name="VariousDocumentCategories" Relationship="HospitalModel.WaitingVariousDocument" FromRole="WaitingList" ToRole="VariousDocumentCategory" />
+          <NavigationProperty Name="TempWaitingLists" Relationship="HospitalModel.FK_TempWaitingList_WaitingList" FromRole="WaitingList" ToRole="TempWaitingList" />
         </EntityType>
         <EntityType Name="Worker">
           <Key>
@@ -2352,6 +2394,7 @@
           <NavigationProperty Name="PrescriptionEstimates1" Relationship="HospitalModel.FK_PrescriptionEstimate_Worker1" FromRole="Worker" ToRole="PrescriptionEstimate" />
           <NavigationProperty Name="VariousDocumentEstimates" Relationship="HospitalModel.FK_VariousDocumentEstimate_Worker" FromRole="Worker" ToRole="VariousDocumentEstimate" />
           <NavigationProperty Name="VariousDocumentEstimates1" Relationship="HospitalModel.FK_VariousDocumentEstimate_Worker1" FromRole="Worker" ToRole="VariousDocumentEstimate" />
+          <NavigationProperty Name="TempWaitingLists" Relationship="HospitalModel.FK_TempWaitingList_Worker" FromRole="Worker" ToRole="TempWaitingList" />
         </EntityType>
         <Association Name="FK_Account_Worker">
           <End Role="Worker" Type="HospitalModel.Worker" Multiplicity="1" />
@@ -2890,6 +2933,30 @@
         <Association Name="WaitingVariousDocument">
           <End Role="VariousDocumentCategory" Type="HospitalModel.VariousDocumentCategory" Multiplicity="*" />
           <End Role="WaitingList" Type="HospitalModel.WaitingList" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_TempWaitingList_WaitingList">
+          <End Type="HospitalModel.WaitingList" Role="WaitingList" Multiplicity="1" />
+          <End Type="HospitalModel.TempWaitingList" Role="TempWaitingList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WaitingList">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TempWaitingList">
+              <PropertyRef Name="WaitingListId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TempWaitingList_Worker">
+          <End Type="HospitalModel.Worker" Role="Worker" Multiplicity="1" />
+          <End Type="HospitalModel.TempWaitingList" Role="TempWaitingList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Worker">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TempWaitingList">
+              <PropertyRef Name="WorkerId" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
       </Schema>
     </edmx:ConceptualModels>

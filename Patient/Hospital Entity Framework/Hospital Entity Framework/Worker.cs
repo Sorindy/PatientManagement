@@ -28,6 +28,7 @@ namespace Hospital_Entity_Framework
             this.PrescriptionEstimates1 = new HashSet<PrescriptionEstimate>();
             this.VariousDocumentEstimates = new HashSet<VariousDocumentEstimate>();
             this.VariousDocumentEstimates1 = new HashSet<VariousDocumentEstimate>();
+            this.TempWaitingLists = new HashSet<TempWaitingList>();
         }
     
         public int Id { get; set; }
@@ -57,5 +58,6 @@ namespace Hospital_Entity_Framework
         public virtual ICollection<PrescriptionEstimate> PrescriptionEstimates1 { get; set; }
         public virtual ICollection<VariousDocumentEstimate> VariousDocumentEstimates { get; set; }
         public virtual ICollection<VariousDocumentEstimate> VariousDocumentEstimates1 { get; set; }
+        public virtual ICollection<TempWaitingList> TempWaitingLists { get; set; }
     }
 }
