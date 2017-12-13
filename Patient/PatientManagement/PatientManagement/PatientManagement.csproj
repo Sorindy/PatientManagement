@@ -326,7 +326,7 @@
     <Compile Include="WaitingListForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WaitingListForm.Designer.cs">
+    <Compile Include="WaitingListForm.designer.cs">
       <DependentUpon>WaitingListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="WorkerForm.cs">

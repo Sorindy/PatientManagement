@@ -7,11 +7,13 @@ namespace PatientManagement.Class
    public class WaitingList
     {
         private readonly HospitalDbContext _db = new HospitalDbContext();
-        private readonly BindingSource _bs = new BindingSource();
+        private  BindingSource _bs ;
         public Hospital_Entity_Framework.Patient Patient;
 
         public BindingSource ShowWaiting(string  categoryName)
         {
+            _bs = new BindingSource();
+
             var checkConsultationCategory = _db.WaitingLists.Any(v => v.ConsultationCategories.Any(a => a.Name == categoryName));
             var checkLaboratoryCategory = _db.WaitingLists.Any(v => v.LaboratoryCategories.Any(a => a.Name == categoryName));
             var checkMedicalImagingCategory = _db.WaitingLists.Any(v => v.MedicalImagingCategories.Any(a => a.Name == categoryName));
@@ -101,6 +103,24 @@ namespace PatientManagement.Class
         {
             var check = _db.WaitingLists.Single(v => v.Id == id);
             return check;
+        }
+
+        public BindingSource SeleteAllWaiting()
+        {
+            _bs = new BindingSource();
+
+            var getList = from b in _db.WaitingLists
+                select new
+                {
+                    b.Id,
+                    b.PatientId,
+                    b.Patient.Name,
+                    b.Time,
+                    b.Status,
+                    b.Number
+                };
+            _bs.DataSource = getList.ToList();
+            return _bs;
         }
     }
 }
