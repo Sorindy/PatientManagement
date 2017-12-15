@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using System.Windows.Forms;
 using Hospital_Entity_Framework;
 
@@ -45,9 +41,11 @@ namespace PatientManagement.Class
            return _bs;
        }
 
-       public void UpdatePatientStatus()
+       public void DeleteTempWaitingList(int tempwaitingid)
        {
-
+           var delete = _db.TempWaitingLists.Single(v => v.Id == tempwaitingid);
+           _db.TempWaitingLists.Remove(delete);
+           _db.SaveChanges();
        }
    }
 }

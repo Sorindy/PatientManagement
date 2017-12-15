@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using PatientManagement.Class;
 
@@ -19,7 +17,7 @@ namespace PatientManagement
 
         private void NurseResponeForm_Load(object sender, EventArgs e)
         {
-            timer.Interval = (1 * 1000);
+            timer.Interval = (10 * 1000);
             timer.Tick += btnRefresh_Click;
             timer.Start();
         }
@@ -33,7 +31,13 @@ namespace PatientManagement
             var result = MessageBox.Show(message, title, buttons,MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                
+                if (dtgInformation.CurrentRow != null)
+                {
+                    //_waitingList = new WaitingList();
+                    //_nurseRespone = new NurseRespone();
+                    //_waitingList.UpdatePatientStatus(Convert.ToInt16(dtgInformation.CurrentRow.Cells[1].Value), true);
+                    //_nurseRespone.DeleteTempWaitingList(Convert.ToInt16(dtgInformation.CurrentRow.Cells[0].Value));
+                }
             }
             else
             {
