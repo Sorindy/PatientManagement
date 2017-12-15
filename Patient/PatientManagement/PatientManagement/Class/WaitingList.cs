@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Data.Entity.Migrations;
+using System.Linq;
 using System.Windows.Forms;
 using Hospital_Entity_Framework;
 
@@ -8,7 +9,8 @@ namespace PatientManagement.Class
     {
         private readonly HospitalDbContext _db = new HospitalDbContext();
         private  BindingSource _bs ;
-        public Hospital_Entity_Framework.Patient Patient;
+      
+       public Hospital_Entity_Framework.Patient Patient;
 
         public BindingSource ShowWaiting(string  categoryName)
         {
@@ -121,6 +123,14 @@ namespace PatientManagement.Class
                 };
             _bs.DataSource = getList.ToList();
             return _bs;
+        }
+
+        public void UpdatePatientStatus(int waitingid,bool status)
+        {
+            var update = _db.WaitingLists.Single(v => v.Id == waitingid);
+            update.Status  = status ;
+            _db.WaitingLists .AddOrUpdate(update);
+            _db.SaveChanges();
         }
     }
 }

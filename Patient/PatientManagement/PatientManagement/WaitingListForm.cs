@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using PatientManagement.Class;
 
@@ -27,7 +25,7 @@ namespace PatientManagement
             if (dgvWaitingCategory.CurrentRow != null)
             {
                 _nurseRespone = new NurseRespone();
-                _nurseRespone.Insert(Convert.ToInt32( dgvWaitingCategory.CurrentRow.Cells[0].Value.ToString()), Worker.Id); 
+                _nurseRespone.Insert(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[0].Value.ToString()), Worker.Id); 
             }
             
         }
@@ -40,8 +38,7 @@ namespace PatientManagement
         private void WaitingListForm_Load(object sender, EventArgs e)
         {
             
-            timer.Interval = (1* 1000);
-           // timer.Tick += WaitingListForm_Load;
+            timer.Interval = (10* 1000);
             timer.Tick += btnRefresh_Click;
             timer.Start();
            // ThreadProgress();
