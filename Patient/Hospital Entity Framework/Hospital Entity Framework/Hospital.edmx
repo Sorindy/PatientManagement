@@ -631,6 +631,7 @@
           <Property Name="ServiceName" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="CategoryName" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="CategoryId" Type="int" Nullable="false" />
+          <Property Name="PatientId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="TempWaitingList">
           <Key>
@@ -2275,6 +2276,7 @@
           <Property Name="ServiceName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="CategoryName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="CategoryId" Type="Int32" Nullable="false" />
+          <Property Type="Int32" Name="PatientId" Nullable="false" />
         </EntityType>
         <EntityType Name="TempWaitingList">
           <Key>
@@ -3200,6 +3202,7 @@
           <EntitySetMapping Name="TempWaits">
             <EntityTypeMapping TypeName="HospitalModel.TempWait">
               <MappingFragment StoreEntitySet="TempWait">
+                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="ServiceName" ColumnName="ServiceName" />
                 <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />

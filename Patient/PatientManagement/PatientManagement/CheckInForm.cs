@@ -23,7 +23,7 @@ namespace PatientManagement
             timer1_Tick(this,e);
             gboService.Controls.Clear();
             gboCategory.Controls.Clear();
-            gboService.Controls.Add(_chkIn.ShowService());
+          //  gboService.Controls.Add(_chkIn.ShowService());
             ClearControl();
         }
 
@@ -69,7 +69,7 @@ namespace PatientManagement
             {
                 var getid = Convert.ToInt32(dgvShowPatient.CurrentRow.Cells[0].Value);
                 var now = DateTime.Now.TimeOfDay;
-                _chkIn.SubmitService(getid,now);
+               // _chkIn.SubmitService(getid,now);
             }
             var print=new PrintWaitingForm();
             if (WaitingList != null) print.WaitingList = WaitingList;

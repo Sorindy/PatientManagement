@@ -332,11 +332,6 @@ namespace PatientManagement
             txtDescription.Images.Add();
         }
 
-        private void pageToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            txtDescription.PageColorDialog();
-        }
-
         private void tabToolStripMenuItem_Click(object sender, EventArgs e)
         {
             txtDescription.TabDialog();

@@ -557,6 +557,7 @@
     <Property Name="ServiceName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
     <Property Name="CategoryName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
     <Property Name="CategoryId" Type="Int32" Nullable="false" />
+    <Property Type="Int32" Name="PatientId" Nullable="false" />
   </EntityType>
   <EntityType Name="TempWaitingList">
     <Key>

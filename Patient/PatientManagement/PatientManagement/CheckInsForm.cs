@@ -22,10 +22,8 @@ namespace PatientManagement
         {
             pnlShowService.Controls.Clear();
             pnlSelection.Controls.Clear();
-            pnlShowService.Controls.Add(_chkIn.ShowService());
             pnlSelection.Enabled = false;
             pnlShowService.Enabled = false;
-            _chkIn.ClearTemp();
             var path = AppDomain.CurrentDomain.BaseDirectory;
             _path = path.Remove(path.Length - 46);
             picboxHide.ImageLocation = _path + @"Hide-right-icon.png";
@@ -39,7 +37,7 @@ namespace PatientManagement
             }
             else
             {
-                _chkIn.SubmitService(Patient.Id, DateTime.Now.TimeOfDay);
+                _chkIn.SubmitService(this, DateTime.Now.TimeOfDay);
                 ClearControl();
             }
         }
@@ -51,8 +49,8 @@ namespace PatientManagement
             if (Patient == null) return;
             txtName.Text = Patient.Name;
             txtGender.Text = Patient.Gender;
+            pnlShowService.Controls.Add(_chkIn.ShowService(this));
             pnlSelection.Enabled = true;
-            pnlSelection.Controls.Clear();
             pnlShowService.Enabled = true;
         }
 
@@ -63,8 +61,8 @@ namespace PatientManagement
             if (Patient == null) return;
             txtName.Text = Patient.Name;
             txtGender.Text = Patient.Gender;
+            pnlShowService.Controls.Add(_chkIn.ShowService(this));
             pnlSelection.Enabled = true;
-            pnlSelection.Controls.Clear();
             pnlShowService.Enabled = true;
         }
 
@@ -75,8 +73,8 @@ namespace PatientManagement
             if (Patient == null) return;
             txtName.Text = Patient.Name;
             txtGender.Text = Patient.Gender;
+            pnlShowService.Controls.Add(_chkIn.ShowService(this));
             pnlShowService.Enabled = true;
-            pnlSelection.Controls.Clear();
             pnlSelection.Enabled = true;
         }
 
@@ -86,7 +84,6 @@ namespace PatientManagement
             txtGender.Text = "";
             pnlSelection.Controls.Clear();
             pnlShowService.Controls.Clear();
-            pnlShowService.Controls.Add(_chkIn.ShowService());
             pnlSelection.Enabled = false;
             pnlShowService.Enabled = false;
         }

@@ -237,6 +237,7 @@
     <EntitySetMapping Name="TempWaits">
       <EntityTypeMapping TypeName="HospitalModel.TempWait">
         <MappingFragment StoreEntitySet="TempWait">
+          <ScalarProperty Name="PatientId" ColumnName="PatientId" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="ServiceName" ColumnName="ServiceName" />
           <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
