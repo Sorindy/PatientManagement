@@ -66,3 +66,4 @@ D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\Patie
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.exe.licenses
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.exe
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.pdb
+D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.LoadingForm.resources
