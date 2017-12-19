@@ -132,5 +132,7 @@ namespace PatientManagement.Class
             _db.WaitingLists .AddOrUpdate(update);
             _db.SaveChanges();
         }
+
+
     }
 }

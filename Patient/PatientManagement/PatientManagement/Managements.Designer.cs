@@ -40,7 +40,6 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.btnClear = new System.Windows.Forms.Button();
             this.pnlButton = new System.Windows.Forms.Panel();
             this.picboxSearch = new System.Windows.Forms.PictureBox();
             this.lblSearch = new System.Windows.Forms.Label();
@@ -164,17 +163,16 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.btnSubmit, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.btnDelete, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.btnClear, 0, 5);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 43);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 6;
+            this.tableLayoutPanel1.RowCount = 5;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 110F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 110F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(191, 482);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -183,12 +181,13 @@
             this.btnSubmit.BackColor = System.Drawing.Color.SeaGreen;
             this.btnSubmit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSubmit.Font = new System.Drawing.Font("Kh Battambang", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSubmit.ForeColor = System.Drawing.Color.Linen;
             this.btnSubmit.Image = ((System.Drawing.Image)(resources.GetObject("btnSubmit.Image")));
             this.btnSubmit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSubmit.Location = new System.Drawing.Point(3, 82);
+            this.btnSubmit.Location = new System.Drawing.Point(3, 89);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(185, 74);
+            this.btnSubmit.Size = new System.Drawing.Size(185, 104);
             this.btnSubmit.TabIndex = 0;
             this.btnSubmit.Text = "រក្សាទុក";
             this.btnSubmit.UseVisualStyleBackColor = false;
@@ -199,28 +198,16 @@
             this.btnDelete.BackColor = System.Drawing.Color.Crimson;
             this.btnDelete.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Font = new System.Drawing.Font("Kh Battambang", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
             this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDelete.Location = new System.Drawing.Point(3, 241);
+            this.btnDelete.Location = new System.Drawing.Point(3, 285);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(185, 74);
+            this.btnDelete.Size = new System.Drawing.Size(185, 104);
             this.btnDelete.TabIndex = 1;
             this.btnDelete.Text = "លុប";
             this.btnDelete.UseVisualStyleBackColor = false;
-            // 
-            // btnClear
-            // 
-            this.btnClear.BackColor = System.Drawing.Color.Tomato;
-            this.btnClear.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
-            this.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClear.Location = new System.Drawing.Point(3, 403);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(185, 76);
-            this.btnClear.TabIndex = 2;
-            this.btnClear.Text = "Clear";
-            this.btnClear.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // pnlButton
             // 
@@ -278,7 +265,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Oswald", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(455, 7);
+            this.label2.Location = new System.Drawing.Point(453, 7);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(100, 41);
             this.label2.TabIndex = 0;
@@ -305,7 +292,7 @@
             this.txtName.Multiline = true;
             this.txtName.Name = "txtName";
             this.txtName.ReadOnly = true;
-            this.txtName.Size = new System.Drawing.Size(333, 49);
+            this.txtName.Size = new System.Drawing.Size(331, 49);
             this.txtName.TabIndex = 2;
             // 
             // txtPosition
@@ -313,11 +300,11 @@
             this.txtPosition.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.txtPosition.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtPosition.Font = new System.Drawing.Font("Modern No. 20", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPosition.Location = new System.Drawing.Point(564, 3);
+            this.txtPosition.Location = new System.Drawing.Point(562, 3);
             this.txtPosition.Multiline = true;
             this.txtPosition.Name = "txtPosition";
             this.txtPosition.ReadOnly = true;
-            this.txtPosition.Size = new System.Drawing.Size(219, 49);
+            this.txtPosition.Size = new System.Drawing.Size(221, 49);
             this.txtPosition.TabIndex = 3;
             // 
             // tableLayoutPanel2
@@ -326,7 +313,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.72406F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75.27594F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 111F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 224F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 226F));
             this.tableLayoutPanel2.Controls.Add(this.label2, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.label3, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.txtName, 1, 0);
@@ -402,6 +389,5 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnClear;
     }
 }

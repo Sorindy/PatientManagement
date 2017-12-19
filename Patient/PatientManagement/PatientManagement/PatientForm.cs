@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using Hospital_Entity_Framework;
 using Form = System.Windows.Forms.Form;
@@ -12,6 +13,7 @@ namespace PatientManagement
             InitializeComponent();
         }
 
+        private string _path;
         internal PatientListForm PatientListForm;
         internal Patient Patient;
         private readonly Class.Patient _patient=new Class.Patient();
@@ -20,7 +22,8 @@ namespace PatientManagement
         private void PatientForm_Shown(object sender, EventArgs e)
         {
             Clear();
-
+            var path = AppDomain.CurrentDomain.BaseDirectory;
+            _path = path.Remove(path.Length - 46);
             txtName.Text = Patient.Name;
             cboGender.Text = Patient.Gender;
             dtpDOB.Value = Patient.DOB;
@@ -89,6 +92,8 @@ namespace PatientManagement
             if (btnEdit.Name == "btnEdit")
             {
                 btnEdit.Text = @"Cancel";
+                btnEdit.BackColor = Color.OrangeRed;
+                btnEdit.Image = Image.FromFile(_path + @"\46786 - cancel.png");
                 btnEdit.Name = @"btnCancel";
                 btnEdit.Click += btnCancel_Click;
             }
@@ -114,6 +119,8 @@ namespace PatientManagement
             if (btnEdit.Name == "btnCancel")
             {
                 btnEdit.Name = @"btnEdit";
+                btnEdit.BackColor = Color.Blue;
+                btnEdit.Image = Image.FromFile(_path + @"\119040-medical-elements\119040-medical-elements\png\46798 - control edit.png");
                 btnEdit.Text = @"Edit";
                 btnEdit.Click -= btnCancel_Click;
             }

@@ -11,6 +11,19 @@ namespace PatientManagement
         public WorkerForm()
         {
             InitializeComponent();
+            tableLayoutPanel1.TabStop = false;
+            tableLayoutPanel2.TabStop = false;
+            tableLayoutPanel3.TabStop = false;
+            tableLayoutPanel4.TabStop = false;
+            tableLayoutPanel5.TabStop = false;
+            tableLayoutPanel6.TabStop = false;
+            tableLayoutPanel8.TabStop = false;
+            tableLayoutPanel10.TabStop = false;
+            tableLayoutPanel12.TabStop = false;
+            tableLayoutPanel14.TabStop = false;
+            tableLayoutPanel16.TabStop = false;
+            tableLayoutPanel18.TabStop = false;
+            txtAge.TabStop = false;
         }
 
         internal Worker Worker;
@@ -24,38 +37,46 @@ namespace PatientManagement
             {
                 MessageBox.Show(@"Please fill Name.");
                 txtName.Focus();
+                return;
             }
             if (txtAddress.Text.Trim() == "" || txtAddress.Text == null)
             {
                 MessageBox.Show(@"Please fill Address.");
                 txtAddress.Focus();
+                return;
             }
             if (txtPhone1.Text.Trim() == "" || txtPhone1.Text == null)
             {
                 MessageBox.Show(@"Please fill Phone1.");
                 txtName.Focus();
+                return;
             }
             if (txtPhone2.Text.Trim() == "" || txtPhone2.Text == null)
             {
                 txtPhone2.Text = @"None";
+                return;
             }
             if (txtEmail.Text.Trim() == "" || txtEmail.Text == null)
             {
                 txtEmail.Text = @"None";
+                return;
             }
-            if (txtPosition.Text.Trim() == "" || txtPosition.Text == null)
+            if (cboPosition.Text.Trim() == "" || cboPosition.Text == null)
             {
                 MessageBox.Show(@"Please fill Position.");
-                txtPosition.Focus();
+                cboPosition.Focus();
+                return;
             }
             if (txtSalary.Text.Trim() == "" || txtSalary.Text == null)
             {
                 MessageBox.Show(@"Please fill Salary");
                 txtSalary.Focus();
+                return;
             }
             if (dtpSWD.Value.Date == DateTime.Now.AddDays(1))
             {
                 MessageBox.Show(@"You can't hire " + txtName.Text + @" over today.");
+                return;
             }
             if (dtpDOB.Value.Date == DateTime.Today)
             {
@@ -74,7 +95,7 @@ namespace PatientManagement
             txtSalary.Text = Worker.Salary.ToString();
             cboGender.Text = Worker.Gender;
             dtpDOB.Value = Worker.DOB;
-            txtPosition.Text = Worker.Position;
+            cboPosition.Text = Worker.Position;
             if (Worker.StartWorkDate != null) dtpSWD.Value = (DateTime) Worker.StartWorkDate;
 
             txtName.Enabled = false;
@@ -82,7 +103,7 @@ namespace PatientManagement
             txtAddress.Enabled = false;
             txtPhone1.Enabled = false;
             txtPhone2.Enabled = false;
-            txtPosition.Enabled = false;
+            cboPosition.Enabled = false;
             txtSalary.Enabled = false;
             txtEmail.Enabled = false;
             cboGender.Enabled = false;
@@ -91,6 +112,7 @@ namespace PatientManagement
 
             btnUpdate.Enabled = false;
             CheckAccount();
+            btnCategory.Enabled = false;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -113,7 +135,7 @@ namespace PatientManagement
                 txtAddress.Enabled = true;
                 txtPhone1.Enabled = true;
                 txtPhone2.Enabled = true;
-                txtPosition.Enabled = true;
+                cboPosition.Enabled = true;
                 txtSalary.Enabled = true;
                 txtEmail.Enabled = true;
                 cboGender.Enabled = true;
@@ -137,7 +159,7 @@ namespace PatientManagement
             try
             {
                 _worker.Update(Worker.Id, txtName.Text, cboGender.Text, dtpDOB.Value, Convert.ToByte(txtAge.Text), txtAddress.Text, txtPhone1.Text,
-                    txtPhone2.Text, txtEmail.Text, txtPosition.Text, Convert.ToInt32(txtSalary.Text), dtpSWD.Value);
+                    txtPhone2.Text, txtEmail.Text, cboGender.Text, Convert.ToInt32(txtSalary.Text), dtpSWD.Value);
                 WorkerListForm.dgvListWorker.Columns.RemoveAt(7);
                 WorkerListForm.dgvListWorker.Columns.RemoveAt(7);
                 WorkerListForm.WorkerListForm_Shown(this, new EventArgs());
@@ -208,49 +230,14 @@ namespace PatientManagement
             txtAge.Text = (DateTime.Now.Year - dtpDOB.Value.Year).ToString();
         }
 
-        private void txtName_Leave(object sender, EventArgs e)
+        private void cboPosition_TextChanged(object sender, EventArgs e)
         {
-            cboGender.Focus();
+            btnCategory.Enabled = cboPosition.Text == @"Doctor";
         }
 
-        private void cboGender_Leave(object sender, EventArgs e)
+        private void btnCategory_Click(object sender, EventArgs e)
         {
-            dtpDOB.Focus();
-        }
 
-        private void txtAddress_Leave(object sender, EventArgs e)
-        {
-            txtPhone1.Focus();
-        }
-
-        private void txtPhone1_Leave(object sender, EventArgs e)
-        {
-            txtPhone2.Focus();
-        }
-
-        private void txtPhone2_Leave(object sender, EventArgs e)
-        {
-            txtEmail.Focus();
-        }
-
-        private void txtEmail_Leave(object sender, EventArgs e)
-        {
-            dtpSWD.Focus();
-        }
-
-        private void dtpSWD_Leave(object sender, EventArgs e)
-        {
-            txtPosition.Focus();
-        }
-
-        private void txtPosition_Leave(object sender, EventArgs e)
-        {
-            txtSalary.Focus();
-        }
-
-        private void txtSalary_Leave(object sender, EventArgs e)
-        {
-            txtName.Focus();
         }
     }
 }

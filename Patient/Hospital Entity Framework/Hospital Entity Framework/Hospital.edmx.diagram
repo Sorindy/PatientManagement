@@ -91,6 +91,8 @@
         <AssociationConnector Association="HospitalModel.WaitingMedicalImaging" ManuallyRouted="false" />
         <AssociationConnector Association="HospitalModel.WaitingPrescription" ManuallyRouted="false" />
         <AssociationConnector Association="HospitalModel.WaitingVariousDocument" ManuallyRouted="false" />
+        <AssociationConnector Association="HospitalModel.FK_TempWaitingList_WaitingList" />
+        <AssociationConnector Association="HospitalModel.FK_TempWaitingList_Worker" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Forms;
 using PatientManagement.Class;
 using Form = System.Windows.Forms.Form;
 using Patient = Hospital_Entity_Framework.Patient;
@@ -21,10 +22,8 @@ namespace PatientManagement
         {
             pnlShowService.Controls.Clear();
             pnlSelection.Controls.Clear();
-            pnlShowService.Controls.Add(_chkIn.ShowService());
             pnlSelection.Enabled = false;
             pnlShowService.Enabled = false;
-            _chkIn.ClearTemp();
             var path = AppDomain.CurrentDomain.BaseDirectory;
             _path = path.Remove(path.Length - 46);
             picboxHide.ImageLocation = _path + @"Hide-right-icon.png";
@@ -32,9 +31,15 @@ namespace PatientManagement
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            if(Patient==null)return;
-            _chkIn.SubmitService(Patient.Id,DateTime.Now.TimeOfDay);
-            ClearControl();
+            if (Patient == null)
+            {
+                MessageBox.Show(@"Something is going wrong please check again.", @"Error");
+            }
+            else
+            {
+                _chkIn.SubmitService(this, DateTime.Now.TimeOfDay);
+                ClearControl();
+            }
         }
 
         private void tblSearch_Click(object sender, EventArgs e)
@@ -44,8 +49,8 @@ namespace PatientManagement
             if (Patient == null) return;
             txtName.Text = Patient.Name;
             txtGender.Text = Patient.Gender;
+            pnlShowService.Controls.Add(_chkIn.ShowService(this));
             pnlSelection.Enabled = true;
-            pnlSelection.Controls.Clear();
             pnlShowService.Enabled = true;
         }
 
@@ -56,8 +61,8 @@ namespace PatientManagement
             if (Patient == null) return;
             txtName.Text = Patient.Name;
             txtGender.Text = Patient.Gender;
+            pnlShowService.Controls.Add(_chkIn.ShowService(this));
             pnlSelection.Enabled = true;
-            pnlSelection.Controls.Clear();
             pnlShowService.Enabled = true;
         }
 
@@ -68,8 +73,8 @@ namespace PatientManagement
             if (Patient == null) return;
             txtName.Text = Patient.Name;
             txtGender.Text = Patient.Gender;
+            pnlShowService.Controls.Add(_chkIn.ShowService(this));
             pnlShowService.Enabled = true;
-            pnlSelection.Controls.Clear();
             pnlSelection.Enabled = true;
         }
 
@@ -79,7 +84,6 @@ namespace PatientManagement
             txtGender.Text = "";
             pnlSelection.Controls.Clear();
             pnlShowService.Controls.Clear();
-            pnlShowService.Controls.Add(_chkIn.ShowService());
             pnlSelection.Enabled = false;
             pnlShowService.Enabled = false;
         }

@@ -21,6 +21,7 @@ namespace Hospital_Entity_Framework
             this.MedicalImagingCategories = new HashSet<MedicalImagingCategory>();
             this.PrescriptionCategories = new HashSet<PrescriptionCategory>();
             this.VariousDocumentCategories = new HashSet<VariousDocumentCategory>();
+            this.TempWaitingLists = new HashSet<TempWaitingList>();
         }
     
         public int Id { get; set; }
@@ -38,5 +39,6 @@ namespace Hospital_Entity_Framework
         public virtual ICollection<MedicalImagingCategory> MedicalImagingCategories { get; set; }
         public virtual ICollection<PrescriptionCategory> PrescriptionCategories { get; set; }
         public virtual ICollection<VariousDocumentCategory> VariousDocumentCategories { get; set; }
+        public virtual ICollection<TempWaitingList> TempWaitingLists { get; set; }
     }
 }

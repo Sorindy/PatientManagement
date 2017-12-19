@@ -1,6 +1,7 @@
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\PatientManagement.exe.config
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\PatientManagement.exe
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\PatientManagement.pdb
+D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\CircularProgressBar.dll
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\EntityFramework.dll
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\EntityFramework.SqlServer.dll
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\Hospital Entity Framework.dll
@@ -20,6 +21,8 @@ D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\Tools
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\TXDrawing.dll
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\TXDrawing.Windows.Forms.dll
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\TXTextControl.Server.dll
+D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\WinFormAnimation.dll
+D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\CircularProgressBar.xml
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\EntityFramework.xml
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\EntityFramework.SqlServer.xml
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\Hospital Entity Framework.pdb
@@ -39,6 +42,7 @@ D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\Patie
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.CreateAccount.resources
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.DatingListForm.resources
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.HistorysForm.resources
+D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.LoadingForm.resources
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.LoginForm.resources
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.Managements.resources
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.ManagementForm.resources
@@ -66,4 +70,3 @@ D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\Patie
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.exe.licenses
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.exe
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.pdb
-D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.LoadingForm.resources

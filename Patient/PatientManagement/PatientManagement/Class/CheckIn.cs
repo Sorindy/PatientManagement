@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -8,7 +9,6 @@ namespace PatientManagement.Class
 {
     class CheckIn
     {
-        private string _service="";
         private readonly HospitalDbContext _db=new HospitalDbContext();
 
         public void InsertWaiting(int patientId, TimeSpan date)
@@ -37,7 +37,7 @@ namespace PatientManagement.Class
             return bs;
         }
   
-        public FlowLayoutPanel ShowService()
+        public FlowLayoutPanel ShowService(CheckInsForm checkInsForm)
         {
             var flpn = new FlowLayoutPanel()
             {
@@ -48,13 +48,13 @@ namespace PatientManagement.Class
                 AutoSize = true
             };
 
-            ClearTemp();
+            ClearTemp(checkInsForm.Patient.Id);
 
             var serviceName = new[] { "Consultation", "Laboratory", "MedicalImaging", "Prescription", "VariousDocument" };
 
             foreach (var item in serviceName)
             {
-                var rdo = new RadioButton { Text = item, Name = item, AutoSize = true,Font = new Font("ROLAND",14)};
+                var rdo = new RadioButton { Text = item, Name = item, AutoSize = true,Font = new Font("ROLAND",14),Tag = checkInsForm};
                 rdo.CheckedChanged += CheckRadioButton_Click;
                 flpn.Controls.Add(rdo);
             }
@@ -83,7 +83,7 @@ namespace PatientManagement.Class
             return bs;
         }
 
-        public FlowLayoutPanel ShowServiceCategory(string service)
+        private FlowLayoutPanel ShowServiceCategory(string service,CheckInsForm checkInsForm)
         {
             var flpn=new FlowLayoutPanel();
             flpn.Controls.Clear();
@@ -91,16 +91,16 @@ namespace PatientManagement.Class
             flpn.Location = new Point(6, 37);
             flpn.Size = new Size(668, 299);
             flpn.Dock=DockStyle.Fill;
-            _service = service;
             if (service == "Consultation")
             {
                 var getCategory = _db.ConsultationCategories;
                 foreach (var item in getCategory)
                 {
-                    var checking = _db.TempWaits.Any(v => v.CategoryId== item.Id);
+                    var checking = _db.TempWaits.Where(v=>v.ServiceName=="Consultation").Any(v => v.CategoryId== item.Id);
 
                     if (checking)
                     {
+                        var dic = new Dictionary<string, CheckInsForm> {{service, checkInsForm}};
                         var btn = new Button
                         {
                             Location = new Point(3, 3),
@@ -108,7 +108,8 @@ namespace PatientManagement.Class
                             Text = item.Name,
                             Name = item.Id.ToString(),
                             BackColor = Color.LimeGreen,
-                            Font = new Font("November",12)
+                            Font = new Font("November",12),
+                            Tag = dic
                         };
 
                         flpn.Controls.Add(btn);
@@ -116,6 +117,7 @@ namespace PatientManagement.Class
                     }
                     else
                     {
+                        var dic = new Dictionary<string, CheckInsForm> { { service, checkInsForm } };
                         var btn = new Button
                         {
                             Location = new Point(3, 3),
@@ -123,7 +125,8 @@ namespace PatientManagement.Class
                             Text = item.Name,
                             Name = item.Id.ToString(),
                             BackColor = Color.Khaki,
-                            Font = new Font("November", 12)
+                            Font = new Font("November", 12),
+                            Tag = dic
                         };
 
                         flpn.Controls.Add(btn);
@@ -136,9 +139,10 @@ namespace PatientManagement.Class
                 var getCategory = _db.LaboratoryCategories;
                 foreach (var item in getCategory)
                 {
-                    var checking = _db.TempWaits.Any(v => v.CategoryId == item.Id);
+                    var checking = _db.TempWaits.Where(v => v.ServiceName == "Laboratory").Any(v => v.CategoryId == item.Id);
                     if (checking)
                     {
+                        var dic = new Dictionary<string, CheckInsForm> { { service, checkInsForm } };
                         var btn = new Button
                         {
                             Location = new Point(3, 3),
@@ -146,13 +150,15 @@ namespace PatientManagement.Class
                             Text = item.Name,
                             Name = item.Id.ToString(),
                             BackColor = Color.LimeGreen,
-                            Font = new Font("November", 12)
+                            Font = new Font("November", 12),
+                            Tag = dic
                         };
                         flpn.Controls.Add(btn);
                         btn.Click += RemoveService_Click;
                     }
                     else
                     {
+                        var dic = new Dictionary<string, CheckInsForm> { { service, checkInsForm } };
                         var btn = new Button
                         {
                             Location = new Point(3, 3),
@@ -160,7 +166,8 @@ namespace PatientManagement.Class
                             Text = item.Name,
                             Name = item.Id.ToString(),
                             BackColor = Color.Khaki,
-                            Font = new Font("November", 12)
+                            Font = new Font("November", 12),
+                            Tag = dic
                         };
                         flpn.Controls.Add(btn);
                         btn.Click += TakeService_Click;
@@ -172,10 +179,11 @@ namespace PatientManagement.Class
                 var getCategory = _db.MedicalImagingCategories;
                 foreach (var item in getCategory)
                 {
-                    var checking = _db.TempWaits.Any(v => v.CategoryId == item.Id);
+                    var checking = _db.TempWaits.Where(v => v.ServiceName == "MedicalImaging").Any(v => v.CategoryId == item.Id);
 
                     if (checking)
                     {
+                        var dic = new Dictionary<string, CheckInsForm> { { service, checkInsForm } };
                         var btn = new Button
                         {
                             Location = new Point(3, 3),
@@ -183,13 +191,15 @@ namespace PatientManagement.Class
                             Text = item.Name,
                             Name = item.Id.ToString(),
                             BackColor = Color.LimeGreen,
-                            Font = new Font("November", 12)
+                            Font = new Font("November", 12),
+                            Tag = dic
                         };
                         flpn.Controls.Add(btn);
                         btn.Click += RemoveService_Click;
                     }
                     else
                     {
+                        var dic = new Dictionary<string, CheckInsForm> { { service, checkInsForm } };
                         var btn = new Button
                         {
                             Location = new Point(3, 3),
@@ -197,7 +207,8 @@ namespace PatientManagement.Class
                             Text = item.Name,
                             Name = item.Id.ToString(),
                             BackColor = Color.Khaki,
-                            Font = new Font("November", 12)
+                            Font = new Font("November", 12),
+                            Tag = dic
                         };
                         flpn.Controls.Add(btn);
                         btn.Click += TakeService_Click;
@@ -209,9 +220,10 @@ namespace PatientManagement.Class
                 var getCategory = _db.PrescriptionCategories;
                 foreach (var item in getCategory)
                 {
-                    var checking = _db.TempWaits.Any(v => v.CategoryId == item.Id);
+                    var checking = _db.TempWaits.Where(v => v.ServiceName == "Prescription").Any(v => v.CategoryId == item.Id);
                     if (checking)
                     {
+                        var dic = new Dictionary<string, CheckInsForm> { { service, checkInsForm } };
                         var btn = new Button
                         {
                             Location = new Point(3, 3),
@@ -219,13 +231,15 @@ namespace PatientManagement.Class
                             Text = item.Name,
                             Name = item.Id.ToString(),
                             BackColor = Color.LimeGreen,
-                            Font = new Font("November", 12)
+                            Font = new Font("November", 12),
+                            Tag = dic
                         };
                         flpn.Controls.Add(btn);
                         btn.Click += RemoveService_Click;
                     }
                     else
                     {
+                        var dic = new Dictionary<string, CheckInsForm> { { service, checkInsForm } };
                         var btn = new Button
                         {
                             Location = new Point(3, 3),
@@ -233,7 +247,8 @@ namespace PatientManagement.Class
                             Text = item.Name,
                             Name = item.Id.ToString(),
                             BackColor = Color.Khaki,
-                            Font = new Font("November", 12)
+                            Font = new Font("November", 12),
+                            Tag = dic
                         };
                         flpn.Controls.Add(btn);
 
@@ -247,9 +262,10 @@ namespace PatientManagement.Class
                 var getCategory = _db.VariousDocumentCategories;
                 foreach (var item in getCategory)
                 {
-                    var checking = _db.TempWaits.Any(v => v.CategoryId == item.Id);
+                    var checking = _db.TempWaits.Where(v => v.ServiceName == "VariousDocument").Any(v => v.CategoryId == item.Id);
                     if (checking)
                     {
+                        var dic = new Dictionary<string, CheckInsForm> { { service, checkInsForm } };
                         var btn = new Button
                         {
                             Location = new Point(3, 3),
@@ -258,12 +274,14 @@ namespace PatientManagement.Class
                             Name = item.Id.ToString(),
                             BackColor = Color.LimeGreen,
                             Font = new Font("November", 12),
+                            Tag = dic
                         };
                         flpn.Controls.Add(btn);
                         btn.Click += RemoveService_Click;
                     }
                     else
                     {
+                        var dic = new Dictionary<string, CheckInsForm> { { service, checkInsForm } };
                         var btn = new Button
                         {
                             Location = new Point(3, 3),
@@ -271,7 +289,8 @@ namespace PatientManagement.Class
                             Text = item.Name,
                             Name = item.Id.ToString(),
                             BackColor = Color.Khaki,
-                            Font = new Font("November", 12)
+                            Font = new Font("November", 12),
+                            Tag = dic
                         };
                         flpn.Controls.Add(btn);
                         btn.Click += TakeService_Click;
@@ -281,56 +300,59 @@ namespace PatientManagement.Class
             return flpn;
         }
 
-        public void SubmitService(int patientId,TimeSpan timeSpan)
+        public void SubmitService(CheckInsForm checkInsForm,TimeSpan timeSpan)
         {
-            var getVisit= CheckVisitCount(patientId);
-            var insertWaitingList=new Hospital_Entity_Framework.WaitingList(){PatientId = patientId,Time = timeSpan,VisitId = getVisit.Id,VisitCount = getVisit.VisitCount,Visit = getVisit};
-            _db.WaitingLists.Add(insertWaitingList);
-            _db.SaveChanges();
-
-            var checkTempWait = _db.TempWaits;
-
-            foreach (var item in checkTempWait)
+            var checkTemp = _db.TempWaits.Any();
+            var patientId = checkInsForm.Patient.Id;
+            if (checkTemp)
             {
-                if (item.ServiceName == "Consultation")
-                {
-                    var insert = _db.ConsultationCategories.First(v => v.Id == item.CategoryId);
+                var getVisit = CheckVisitCount(patientId);
+                var insertWaitingList = new Hospital_Entity_Framework.WaitingList() { PatientId = patientId, Time = timeSpan, VisitId = getVisit.Id, VisitCount = getVisit.VisitCount, Visit = getVisit };
+                _db.WaitingLists.Add(insertWaitingList);
+                _db.SaveChanges();
+                var checkTempWait = _db.TempWaits;
 
-                    _db.WaitingLists.First(v=>v.PatientId==patientId).ConsultationCategories.Add(insert);
-                }
-                if (item.ServiceName == "Laboratory")
+                foreach (var item in checkTempWait)
                 {
-                    var insert = _db.LaboratoryCategories.First(v => v.Id == item.CategoryId);
+                    if (item.ServiceName == "Consultation")
+                    {
+                        var insert = _db.ConsultationCategories.First(v => v.Id == item.CategoryId);
 
-                    _db.WaitingLists.First(v => v.PatientId == patientId).LaboratoryCategories.Add(insert);
-                }
-                if (item.ServiceName == "MedicalImaging")
-                {
-                    var insert = _db.MedicalImagingCategories.First(v => v.Id == item.CategoryId);
+                        _db.WaitingLists.First(v => v.PatientId == patientId).ConsultationCategories.Add(insert);
+                    }
+                    if (item.ServiceName == "Laboratory")
+                    {
+                        var insert = _db.LaboratoryCategories.First(v => v.Id == item.CategoryId);
 
-                    _db.WaitingLists.First(v => v.PatientId == patientId).MedicalImagingCategories.Add(insert);
-                }
-                if (item.ServiceName == "Prescription")
-                {
-                    var insert = _db.PrescriptionCategories.First(v => v.Id == item.CategoryId);
+                        _db.WaitingLists.First(v => v.PatientId == patientId).LaboratoryCategories.Add(insert);
+                    }
+                    if (item.ServiceName == "MedicalImaging")
+                    {
+                        var insert = _db.MedicalImagingCategories.First(v => v.Id == item.CategoryId);
 
-                    _db.WaitingLists.First(v => v.PatientId == patientId).PrescriptionCategories.Add(insert);
-                }
-                if (item.ServiceName == "VariousDocument")
-                {
-                    var insert = _db.VariousDocumentCategories.First(v => v.Id == item.CategoryId);
+                        _db.WaitingLists.First(v => v.PatientId == patientId).MedicalImagingCategories.Add(insert);
+                    }
+                    if (item.ServiceName == "Prescription")
+                    {
+                        var insert = _db.PrescriptionCategories.First(v => v.Id == item.CategoryId);
 
-                    _db.WaitingLists.First(v => v.PatientId == patientId).VariousDocumentCategories.Add(insert);
+                        _db.WaitingLists.First(v => v.PatientId == patientId).PrescriptionCategories.Add(insert);
+                    }
+                    if (item.ServiceName == "VariousDocument")
+                    {
+                        var insert = _db.VariousDocumentCategories.First(v => v.Id == item.CategoryId);
+
+                        _db.WaitingLists.First(v => v.PatientId == patientId).VariousDocumentCategories.Add(insert);
+                    }
                 }
+                _db.SaveChanges();
+                CheckVisitCount(patientId);
+                checkInsForm.Show();
+                checkInsForm.ClearControl();
             }
-            _db.SaveChanges();
-            CheckVisitCount(patientId);
-            var form = (CheckInsForm)Application.OpenForms["CheckInsForm"];
-            if (form != null)
+            else
             {
-                form.Show();
-                form.ClearControl();
-                ClearTemp();
+                MessageBox.Show(@"Please select any category and service.", @"Error selection");
             }
         }
 
@@ -362,13 +384,9 @@ namespace PatientManagement.Class
         {
             var text = (RadioButton)sender;
             var service = text.Name;
-            var form = (CheckInsForm)Application.OpenForms["CheckInsForm"];
-            if (form != null)
-            {
-                var gbo = form.pnlSelection;
-                gbo.Controls.Clear();
-                gbo.Controls.Add(ShowServiceCategory(service));
-            }
+            var form = (CheckInsForm) text.Tag;
+            form.pnlSelection.Controls.Clear();
+            form.pnlSelection.Controls.Add(ShowServiceCategory(service,form));
         }
 
         private void TakeService_Click(object sender, EventArgs e)
@@ -376,17 +394,19 @@ namespace PatientManagement.Class
             var check = (Button) sender;
             var getName = Convert.ToInt32(check.Name);
             var getText = check.Text;
-
-            var insert=new TempWait(){ServiceName = _service,CategoryName = getText,CategoryId = getName};
-            _db.TempWaits.Add(insert);
-            _db.SaveChanges();
-
-            var form = (CheckInsForm)Application.OpenForms["CheckInsForm"];
-            if (form != null)
+            var dic =(Dictionary<string,CheckInsForm>) check.Tag;
+            foreach (var selectedItem in dic.ToList())
             {
-                var gbo = form.pnlSelection;
-                gbo.Controls.Clear();
-                gbo.Controls.Add(ShowServiceCategory(_service));
+                var service = selectedItem.Key;
+                var form = selectedItem.Value;
+                if (form != null)
+                {
+                    var insert = new TempWait() { ServiceName = service, CategoryName = getText, CategoryId = getName, PatientId = form.Patient.Id };
+                    _db.TempWaits.Add(insert);
+                    _db.SaveChanges();
+                    form.pnlSelection.Controls.Clear();
+                    form.pnlSelection.Controls.Add(ShowServiceCategory(service, form));
+                }
             }
         }
 
@@ -394,23 +414,27 @@ namespace PatientManagement.Class
         {
             var check = (Button) sender;
             var getName = Convert.ToInt32(check.Name);
-
-            var delete = _db.TempWaits.Single(v => v.CategoryId == getName);
-            _db.TempWaits.Remove(delete);
-            _db.SaveChanges();
-
-            var form = (CheckInsForm)Application.OpenForms["CheckInsForm"];
-            if (form != null)
+            var dic =(Dictionary<string,CheckInsForm>) check.Tag;
+            foreach (var selectedItem in dic.ToList())
             {
-                var gbo = form.pnlSelection;
-                gbo.Controls.Clear();
-                gbo.Controls.Add(ShowServiceCategory(_service));
+                var service = selectedItem.Key;
+                var form = selectedItem.Value;
+                var delete = _db.TempWaits.Where(v => v.PatientId == form.Patient.Id)
+                    .Where(v => v.ServiceName == service).Single(v => v.CategoryId == getName);
+                _db.TempWaits.Remove(delete);
+                _db.SaveChanges();
+
+                if (form != null)
+                {
+                    form.pnlSelection.Controls.Clear();
+                    form.pnlSelection.Controls.Add(ShowServiceCategory(service, form));
+                }
             }
         }
 
-        public void ClearTemp()
+        public void ClearTemp(int patientId)
         {
-            var clear = _db.TempWaits;
+            var clear = _db.TempWaits.Where(v=>v.PatientId==patientId);
 
             _db.TempWaits.RemoveRange(clear);
             _db.SaveChanges();

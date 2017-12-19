@@ -7,9 +7,11 @@ namespace PatientManagement
     public partial class WaitingListForm : Form
     {
 
-        public Hospital_Entity_Framework.Worker Worker = new Hospital_Entity_Framework.Worker();
+        internal Hospital_Entity_Framework.Worker Worker;
         private WaitingList _waitingList ;
         private NurseRespone _nurseRespone;
+
+        public Hospital_Entity_Framework.WaitingList WaitingList;
         //private delegate void ObjArgReturningVoidDelegate(object obj);
         //private BindingSource _bs;
        
@@ -24,8 +26,12 @@ namespace PatientManagement
         {
             if (dgvWaitingCategory.CurrentRow != null)
             {
+
                 _nurseRespone = new NurseRespone();
-                _nurseRespone.Insert(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[0].Value.ToString()), Worker.Id); 
+              //  _nurseRespone.Insert(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[0].Value.ToString()), Worker.Id); 
+                var loadingform = new LoadingForm();
+                loadingform.WaitingList = _waitingList.GetWaitingListObject(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[0].Value));
+                loadingform.ShowDialog();
             }
             
         }

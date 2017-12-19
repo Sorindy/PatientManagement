@@ -112,50 +112,5 @@ namespace PatientManagement
             txtAge.Text = (DateTime.Today.Year - dtpDOB.Value.Year).ToString();
             txtAddress.Focus();
         }
-
-        private void txtName_Leave(object sender, EventArgs e)
-        {
-            cboGender.Focus();
-        }
-
-        private void cboGender_Leave(object sender, EventArgs e)
-        {
-            dtpDOB.Focus();
-        }
-
-        private void txtPhone1_Leave(object sender, EventArgs e)
-        {
-            txtPhone2.Focus();
-        }
-
-        private void txtEmail_Leave(object sender, EventArgs e)
-        {
-            dtpSWD.Focus();
-        }
-
-        private void dtpSWD_Leave(object sender, EventArgs e)
-        {
-            txtPosition.Focus();
-        }
-
-        private void txtPosition_Leave(object sender, EventArgs e)
-        {
-            txtSalary.Focus();
-        }
-
-        private void txtSalary_Leave(object sender, EventArgs e)
-        {
-            txtName.Focus();
-        }
-
-        private void txtAddress_Leave(object sender, EventArgs e)
-        {
-            txtPhone1.Focus();
-        }
-
-        private void txtPhone2_Leave(object sender, EventArgs e)
-        {
-            txtEmail.Focus();
-        }
     }
 }

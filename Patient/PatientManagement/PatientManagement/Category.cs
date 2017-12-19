@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using PatientManagement.Class;
 using PatientManagement.Interface;
@@ -23,90 +24,114 @@ namespace PatientManagement
             dgvListCategory.ReadOnly = true;
             dgvListCategory.Enabled = true;
             dgvListCategory.DataSource = null;
+            btnDelete.Enabled = false;
         }
 
         private void btnNew_Click(object sender, EventArgs e)
         {
-            txtName.Enabled = true;
-            dgvListCategory.Enabled = false;
-            cboService.Enabled = false;
-            txtName.Focus();
-
-            if (btnNew.Name == "btnNew")
+            if (cboService.Text != "")
             {
-                btnNew.Text = @"Add";
-                btnNew.Name = @"btnAdd";
-                btnNew.Click += btnAdd_Click;
-                btnEdit.Text = @"Cancel";
-                btnEdit.Name = @"btnCancel";
-                btnEdit.Click += btnCancel_Click;
-            }
+                txtName.Enabled = true;
+                dgvListCategory.Enabled = false;
+                cboService.Enabled = false;
+                txtName.Focus();
 
+                if (btnNew.Name == "btnNew")
+                {
+                    btnNew.Text = @"បញ្ចូល";
+                    btnNew.Name = @"btnAdd";
+                    btnNew.Click += btnAdd_Click;
+                    btnEdit.Text = @"Cancel";
+                    btnEdit.BackColor = Color.Tomato;
+                    btnEdit.Name = @"btnCancel";
+                    btnEdit.Click += btnCancel_Click;
+                }
+            }
+            else
+            {
+                MessageBox.Show(@"Please select service first.", @"Error");
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             if (btnEdit.Name == "btnCancel")
             {
-                btnEdit.Text = @"Edit";
+                btnEdit.Text = @"កែប្រែ";
+                btnEdit.BackColor = Color.DarkSlateGray;
                 btnEdit.Name = @"btnEdit";
                 btnEdit.Click -= btnCancel_Click;
-                btnNew.Text = @"New";
+                btnNew.Text = @"បង្កើតថ្មី";
+                btnNew.BackColor = Color.SeaGreen;
                 btnNew.Name = @"btnNew";
                 btnNew.Click -= btnAdd_Click;
-                Category_Shown(this, new EventArgs());
+                cboService_TextChanged(this,new EventArgs());
             }
             if (btnNew.Name == "btnCancel")
             {
-                btnEdit.Text = @"Edit";
+                btnEdit.Text = @"កែប្រែ";
+                btnEdit.BackColor = Color.DarkSlateGray;
                 btnEdit.Name = @"btnEdit";
                 btnEdit.Click -= btnUpdate_Click;
-                btnNew.Text = @"New";
+                btnNew.Text = @"បង្កើតថ្មី";
+                btnNew.BackColor = Color.SeaGreen;
                 btnNew.Name = @"btnNew";
                 btnNew.Click -= btnCancel_Click;
-                Category_Shown(this,new EventArgs());
+                cboService_TextChanged(this,new EventArgs());
             }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (btnNew.Name == "btnAdd")
+            if (txtName.Text != "")
             {
-                btnNew.Text = @"New";
-                btnNew.Name = @"btnNew";
-                btnNew.Click -=btnAdd_Click;
-                btnEdit.Text = @"Edit";
-                btnEdit.Name = @"btnEdit";
-                btnEdit.Click -= btnCancel_Click;
-            }
+                if (btnNew.Name == "btnAdd")
+                {
+                    btnNew.Text = @"បង្កើតថ្មី";
+                    btnNew.BackColor = Color.SeaGreen;
+                    btnNew.Name = @"btnNew";
+                    btnNew.Click -= btnAdd_Click;
+                    btnEdit.Text = @"កែប្រែ";
+                    btnEdit.BackColor = Color.DarkSlateGray;
+                    btnEdit.Name = @"btnEdit";
+                    btnEdit.Click -= btnCancel_Click;
+                }
 
-            if (cboService.SelectedIndex.Equals(0))
-            {
-                _category = new ConsultationCategory();
+                if (cboService.SelectedIndex.Equals(0))
+                {
+                    _category = new ConsultationCategory();
                     _category.Insert(txtName.Text);
-            }
-            if (cboService.SelectedIndex.Equals(1))
-            {
-                _category = new LaboratoryCategory();
+                }
+                if (cboService.SelectedIndex.Equals(1))
+                {
+                    _category = new LaboratoryCategory();
                     _category.Insert(txtName.Text);
-            }
-            if (cboService.SelectedIndex.Equals(2))
-            {
-                _category = new MedicalImagingCategory();
+                }
+                if (cboService.SelectedIndex.Equals(2))
+                {
+                    _category = new MedicalImagingCategory();
                     _category.Insert(txtName.Text);
-            }
-            if (cboService.SelectedIndex.Equals(3))
-            {
-                _category = new PrescriptionCategory();
+                }
+                if (cboService.SelectedIndex.Equals(3))
+                {
+                    _category = new PrescriptionCategory();
                     _category.Insert(txtName.Text);
-            }
-            if (cboService.SelectedIndex.Equals(4))
-            {
-                _category = new VariousDocumentCategory();
+                }
+                if (cboService.SelectedIndex.Equals(4))
+                {
+                    _category = new VariousDocumentCategory();
                     _category.Insert(txtName.Text);
-            }
+                }
 
-            Category_Shown(this,new EventArgs());
+                dgvListCategory.Enabled = true;
+                txtName.Text = "";
+                cboService_TextChanged(this, new EventArgs());
+            }
+            else
+            {
+                MessageBox.Show(@"Please input text to name.", @"Error");
+                txtName.Focus();
+            }
         }
 
         private void cboService_TextChanged(object sender, EventArgs e)
@@ -136,72 +161,123 @@ namespace PatientManagement
                 _category = new VariousDocumentCategory();
                 dgvListCategory.DataSource = _category.Show();
             }
+            btnDelete.Enabled = false;
+            dgvListCategory.Enabled = true;
+            cboService.Enabled = true;
+            txtName.Enabled = false;
+            txtName.Text = "";
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            if (btnEdit.Name == "btnEdit")
+            if (cboService.Text != "")
             {
-                btnEdit.Text = @"Update";
-                btnEdit.Name = @"btnUpdate";
-                cboService.Enabled = false;
-                btnNew.Text = @"Canel";
-                btnNew.Name = @"btnCancel";
-                btnNew.Click += btnCancel_Click;
-                btnEdit.Click += btnUpdate_Click;
-
-                if (dgvListCategory.CurrentRow != null)
+                if (btnEdit.Name == "btnEdit")
                 {
-                    txtName.Text = dgvListCategory.CurrentRow.Cells[1].Value.ToString();
-                    dgvListCategory.Enabled = false;
-                    txtName.Enabled = true;
+                    btnEdit.Text = @"បញ្ចូល";
+                    btnEdit.BackColor = Color.SeaGreen;
+                    btnEdit.Name = @"btnUpdate";
+                    cboService.Enabled = false;
+                    btnNew.Text = @"Canel";
+                    btnNew.BackColor = Color.Tomato;
+                    btnNew.Name = @"btnCancel";
+                    btnNew.Click += btnCancel_Click;
+                    btnEdit.Click += btnUpdate_Click;
+
+                    if (dgvListCategory.CurrentRow != null)
+                    {
+                        txtName.Text = dgvListCategory.CurrentRow.Cells[1].Value.ToString();
+                        dgvListCategory.Enabled = false;
+                        txtName.Enabled = true;
+                    }
                 }
+                btnDelete.Enabled = false;
+                txtName.Focus();
+            }
+            else
+            {
+                MessageBox.Show(@"Please select service first.", @"Error");
             }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (btnEdit.Name == "btnUpdate")
+            if (cboService.Text != "")
             {
-                btnEdit.Text = @"Edit";
-                btnEdit.Name = @"btnEdit";
-                cboService.Enabled = true;
-                btnNew.Enabled = true;
-                btnEdit.Click -= btnUpdate_Click;
-            }
+                if (txtName.Text != "")
+                {
+                    if (btnEdit.Name == "btnUpdate")
+                    {
+                        btnEdit.Text = @"កែប្រែ";
+                        btnEdit.BackColor = Color.DarkSlateGray;
+                        btnEdit.Name = @"btnEdit";
+                        cboService.Enabled = true;
+                        btnNew.Text = @"បង្កើតថ្មី";
+                        btnNew.Name = @"btnNew";
+                        btnNew.BackColor = Color.SeaGreen;
+                        btnNew.Enabled = true;
+                        btnEdit.Click -= btnUpdate_Click;
+                        btnNew.Click -= btnCancel_Click;
+                    }
 
-            if (cboService.SelectedIndex.Equals(0))
-            {
-                _category = new ConsultationCategory();
-                if (dgvListCategory.CurrentRow != null)
-                    _category.Update(Convert.ToInt32(dgvListCategory.CurrentRow.Cells[0].Value), txtName.Text);
+                    if (cboService.SelectedIndex.Equals(0))
+                    {
+                        _category = new ConsultationCategory();
+                        if (dgvListCategory.CurrentRow != null)
+                            _category.Update(Convert.ToInt32(dgvListCategory.CurrentRow.Cells[0].Value), txtName.Text);
+                    }
+                    if (cboService.SelectedIndex.Equals(1))
+                    {
+                        _category = new LaboratoryCategory();
+                        if (dgvListCategory.CurrentRow != null)
+                            _category.Update(Convert.ToInt32(dgvListCategory.CurrentRow.Cells[0].Value), txtName.Text);
+                    }
+                    if (cboService.SelectedIndex.Equals(2))
+                    {
+                        _category = new MedicalImagingCategory();
+                        if (dgvListCategory.CurrentRow != null)
+                            _category.Update(Convert.ToInt32(dgvListCategory.CurrentRow.Cells[0].Value), txtName.Text);
+                    }
+                    if (cboService.SelectedIndex.Equals(3))
+                    {
+                        _category = new PrescriptionCategory();
+                        if (dgvListCategory.CurrentRow != null)
+                            _category.Update(Convert.ToInt32(dgvListCategory.CurrentRow.Cells[0].Value), txtName.Text);
+                    }
+                    if (cboService.SelectedIndex.Equals(4))
+                    {
+                        _category = new VariousDocumentCategory();
+                        if (dgvListCategory.CurrentRow != null)
+                            _category.Update(Convert.ToInt32(dgvListCategory.CurrentRow.Cells[0].Value), txtName.Text);
+                    }
+                    dgvListCategory.Enabled = true;
+                    cboService_TextChanged(this, new EventArgs());
+                }
+                else
+                {
+                    MessageBox.Show(@"Please input name.", @"Error");
+ 
+                }                
             }
-            if (cboService.SelectedIndex.Equals(1))
+            else
             {
-                _category = new LaboratoryCategory();
-                if (dgvListCategory.CurrentRow != null)
-                    _category.Update(Convert.ToInt32(dgvListCategory.CurrentRow.Cells[0].Value), txtName.Text);
+                MessageBox.Show(@"Please select service first.", @"Error");
             }
-            if (cboService.SelectedIndex.Equals(2))
-            {
-                _category = new MedicalImagingCategory();
-                if (dgvListCategory.CurrentRow != null)
-                    _category.Update(Convert.ToInt32(dgvListCategory.CurrentRow.Cells[0].Value), txtName.Text);
-            }
-            if (cboService.SelectedIndex.Equals(3))
-            {
-                _category = new PrescriptionCategory();
-                if (dgvListCategory.CurrentRow != null)
-                    _category.Update(Convert.ToInt32(dgvListCategory.CurrentRow.Cells[0].Value), txtName.Text);
-            }
-            if (cboService.SelectedIndex.Equals(4))
-            {
-                _category = new VariousDocumentCategory();
-                if (dgvListCategory.CurrentRow != null)
-                    _category.Update(Convert.ToInt32(dgvListCategory.CurrentRow.Cells[0].Value), txtName.Text);
-            }
+        }
 
-            Category_Shown(this,new EventArgs());
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            var msgbox= MessageBox.Show(@"Do you really want to delete this category?", @"Permenant deletation",MessageBoxButtons.YesNo);
+            if (msgbox == DialogResult.Yes)
+            {
+                MessageBox.Show(@"Sorry you can't delete this category because it had some data contain in it.",
+                    @"Permenant deletation");
+            }
+        }
+
+        private void dgvListCategory_SelectionChanged(object sender, EventArgs e)
+        {
+            btnDelete.Enabled = true;
         }
     }
 }
