@@ -66,3 +66,7 @@ E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.exe
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.pdb
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.csprojResolveAssemblyReference.cache
+E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\CircularProgressBar.dll
+E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\WinFormAnimation.dll
+E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\CircularProgressBar.xml
+E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\WinFormAnimation.xml

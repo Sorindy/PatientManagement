@@ -24,7 +24,7 @@ namespace PatientManagement
             pnlSelection.Controls.Clear();
             if (Account != null)
             {
-                pnlSelection.Controls.Add(_management.ButtonSelectForm(Account));
+                pnlSelection.Controls.Add(_management.ButtonSelectionForm(this));
                 txtName.Text = Account.Worker.Name;
                 txtPosition.Text = Account.Worker.Position;
             }
@@ -38,7 +38,7 @@ namespace PatientManagement
             pnlSelection.Controls.Clear();
             if (Account != null)
             {
-                pnlSelection.Controls.Add(_management.ButtonSelectForm(Account));
+                pnlSelection.Controls.Add(_management.ButtonSelectionForm(this));
                 txtName.Text = Account.Worker.Name;
                 txtPosition.Text = Account.Worker.Position;
             }
@@ -52,7 +52,7 @@ namespace PatientManagement
             pnlSelection.Controls.Clear();
             if (Account != null)
             {
-                pnlSelection.Controls.Add(_management.ButtonSelectForm(Account));
+                pnlSelection.Controls.Add(_management.ButtonSelectionForm(this));
                 txtName.Text = Account.Worker.Name;
                 txtPosition.Text = Account.Worker.Position;
             }
