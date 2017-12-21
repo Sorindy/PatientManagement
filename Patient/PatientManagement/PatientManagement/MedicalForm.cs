@@ -169,6 +169,7 @@ namespace PatientManagement
         {
             var waitinglistform = new WaitingListForm {GetStaffCategory = cmbCategory.Text};
             waitinglistform.Worker = Worker;
+            waitinglistform.Medicalform = this;
             waitinglistform.ShowDialog();
             gbDating.Enabled = true;
             gbMedicalItem.Enabled = true;

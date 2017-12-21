@@ -11,6 +11,9 @@ namespace PatientManagement
         private int _waitingid;
         internal Hospital_Entity_Framework.WaitingList WaitingList  ;
         private WaitingList _waitingList;
+        private NurseRespone _nurseRespone;
+        internal MedicalForm MedicalForm;
+        internal WaitingListForm Waitinglistform;
 
         public LoadingForm()
         {
@@ -31,12 +34,14 @@ namespace PatientManagement
 
         private void btnCancle_Click(object sender, EventArgs e)
         {
-            var message = "Do you want to Cancle The Process...";
+            var message = "Do you want to Cancle The Proccess...";
             var title = "Cancle";
             var buttons = MessageBoxButtons.YesNo;
             var result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
+                _nurseRespone = new NurseRespone();
+                _nurseRespone.DeleteTempWaitingListByWaitingId(_waitingid);
                 Close();
             }
         }
@@ -45,13 +50,22 @@ namespace PatientManagement
         {
             _waitingList = new WaitingList();
             _patientstatus=  _waitingList.GetWaitingListObject(_waitingid).Status.ToString();
-        if (_patientstatus != "")
-        {
-            if (_patientstatus == "True")
+            if (_patientstatus != "")
             {
-                Close();
+                if (_patientstatus == "True")
+                {
+                    MedicalForm.txtPatientID.Text = _waitingList.GetWaitingListObject(_waitingid).PatientId.ToString();
+                    MedicalForm.txtPatientName.Text = _waitingList.GetWaitingListObject(_waitingid).Patient.Name;
+                    Waitinglistform.Close();
+                    Close();
+                }
+                else
+                {
+                    timer.Stop();
+                    MessageBox.Show("This Patient is Not Available...!");
+                    Close();
+                }
             }
-        }
         }
         
 
