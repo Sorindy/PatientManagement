@@ -14,6 +14,7 @@ namespace PatientManagement
         private string _path;
         internal Account Account;
         internal Patient Patient;
+        internal Worker Worker;
 
         private void sampleToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -97,6 +98,23 @@ namespace PatientManagement
                 var form=new PatientForm(){Patient = Patient,Account = Account};
                 form.ShowDialog();
             }
+        }
+
+        private void btnDating_Click(object sender, EventArgs e)
+        {
+            var datinglistform = new DatingListForm
+            {
+                StaffId = txtNameDoctor.Text,
+                PatientId = txtNamePatient.Text
+            };
+            datinglistform.ShowDialog();
+        }
+
+        private void btmWaitingList_Click(object sender, EventArgs e)
+        {
+            var waitinglistform = new WaitingListForm { GetStaffCategory = cboCategory.Text };
+            waitinglistform.Worker = Worker;
+            waitinglistform.ShowDialog();
         }
     }
 }

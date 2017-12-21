@@ -93,11 +93,19 @@
         <AssociationConnector Association="HospitalModel.WaitingVariousDocument" ManuallyRouted="false" />
         <AssociationConnector Association="HospitalModel.FK_TempWaitingList_WaitingList" />
         <AssociationConnector Association="HospitalModel.FK_TempWaitingList_Worker" />
+<<<<<<< HEAD
+        <EntityTypeShape EntityType="HospitalModel.ConsultationEstimateEditHistory" Width="1.5" PointX="2.3800628922786857" PointY="15.188791833440211" />
+        <EntityTypeShape EntityType="HospitalModel.LaboratoryEstimateEditHistory" Width="1.5" PointX="6.0122258244139264" PointY="9.2895591898307011" />
+        <EntityTypeShape EntityType="HospitalModel.MedicalImagingEstimateEditHistory" Width="1.5" PointX="4.8236218359431353" PointY="28.979970587873819" />
+        <EntityTypeShape EntityType="HospitalModel.PrescriptionEstimateEditHistory" Width="1.5" PointX="3.5798645278345163" PointY="19.9266932699488" />
+        <EntityTypeShape EntityType="HospitalModel.VariousDocumentEstimateEditHistory" Width="1.5" PointX="6.3600030850432825" PointY="7.3738628511195365" />
+=======
         <EntityTypeShape EntityType="HospitalModel.ConsultationEstimateEditHistory" Width="1.5" PointX="1.5300869594933872" PointY="22.321291606091563" />
         <EntityTypeShape EntityType="HospitalModel.LaboratoryEstimateEditHistory" Width="1.5" PointX="2.6532093410627962" PointY="29.516852303183104" />
         <EntityTypeShape EntityType="HospitalModel.MedicalImagingEstimateEditHistory" Width="1.5" PointX="6.6710919619868942" PointY="26.027797815402877" />
         <EntityTypeShape EntityType="HospitalModel.PrescriptionEstimateEditHistory" Width="1.5" PointX="7.174493772524638" PointY="18.126771160460436" />
         <EntityTypeShape EntityType="HospitalModel.VariousDocumentEstimateEditHistory" Width="1.5" PointX="10.379231705506905" PointY="0.92514014287159785" />
+>>>>>>> 11455fd60e253b858604a1df0b76fd603dd6075a
         <AssociationConnector Association="HospitalModel.FK_ConsultationEstimateEditHistory_ConsultationEstimate" />
         <AssociationConnector Association="HospitalModel.FK_ConsultationEstimateEditHistory_Worker" />
         <AssociationConnector Association="HospitalModel.FK_LaboratoryEstimateEditHistory_LaboratoryEstimate" />

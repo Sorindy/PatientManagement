@@ -1,12 +1,5 @@
 ﻿using System;
 using System.Globalization;
-/*using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;*/
 using System.Windows.Forms;
 using PatientManagement.Class;
 
@@ -105,7 +98,14 @@ namespace PatientManagement
             Refresh();
         }
 
-        private void dtgInformation_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void txtPatientId_TextChanged(object sender, EventArgs e)
+        {
+            var select = _patient.Select(Convert.ToInt32(txtPatientId.Text));
+            txtPatientName.Text = select.Name;
+            Refresh();
+        }
+
+        private void dtgInformation_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
             if (dtgInformation.CurrentRow != null)
             {
@@ -113,13 +113,6 @@ namespace PatientManagement
                 dtpDating.Text = dtgInformation.CurrentRow.Cells[1].Value.ToString();
                 txtPatientId.Text = dtgInformation.CurrentRow.Cells[2].Value.ToString();
             }
-            Refresh();
-        }
-
-        private void txtPatientId_TextChanged(object sender, EventArgs e)
-        {
-            var select = _patient.Select(Convert.ToInt32(txtPatientId.Text));
-            txtPatientName.Text = select.Name;
             Refresh();
         }
 
