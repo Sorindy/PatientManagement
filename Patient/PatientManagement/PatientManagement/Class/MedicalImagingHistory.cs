@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Windows.Forms;
 using Hospital_Entity_Framework;
@@ -10,22 +11,31 @@ namespace PatientManagement.Class
     {
         private readonly HospitalDbContext _db = new HospitalDbContext();
 
-        public void Insert(int estimateId, int workerId, string description)
+        public void Update(int estimateId, int workerId, int? nurseId, int? refererId)
         {
-            var insert = new MedicalImagingEstimateEditHistory() { EstimateId = estimateId, WorkerId = workerId, Description = description, Date = DateTime.Today };
-            _db.MedicalImagingEstimateEditHistories.Add(insert);
+            var update = _db.MedicalImagingEstimates.First(v => v.Id == estimateId);
+            update.WorkerId = workerId;
+            update.NurseId = nurseId;
+            update.ReferrerId = refererId;
+            update.Date = DateTime.Today;
+            update.Edit = true;
+
+            _db.MedicalImagingEstimates.AddOrUpdate(update);
             _db.SaveChanges();
         }
 
-        public object Show()
+        public object Show(int patientId)
         {
-            var getEstimate = from v in _db.MedicalImagingEstimates
+            var getEstimate = from v in _db.MedicalImagingEstimates where v.PatientId==patientId
                 select new
                 {
                     v.Id,
                     v.Date,
-                    WorkerName = v.Worker.Name,
-                    v.MedicalImagingCategory.Name
+                    Doctor = v.Worker.Name,
+                    Nurse = v.Worker1.Name,
+                    Referrer = v.Referrer.Name,
+                    Category = v.MedicalImagingCategory.Name,
+                    v.Edit
                 };
             var bs = new BindingSource { DataSource = getEstimate.ToList() };
 

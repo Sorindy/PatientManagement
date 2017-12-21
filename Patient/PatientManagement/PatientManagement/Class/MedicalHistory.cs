@@ -36,8 +36,9 @@ namespace PatientManagement.Class
 
         public string Path(int patientid)
         {
-            var getPath = _db.MedicalHistories.First(v => v.PatientId == patientid);
-            return getPath.Description;
+            var getPath = _db.MedicalHistories.FirstOrDefault(v => v.PatientId == patientid);
+            if (getPath != null) return getPath.Description;
+                return null;            
         }
     }
 }

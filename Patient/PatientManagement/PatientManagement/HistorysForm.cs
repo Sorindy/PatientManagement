@@ -22,7 +22,8 @@ namespace PatientManagement
         private ICategory _category;
         private bool _mouseDown;
         private Point _lastLocation;
-        private readonly MedicalHistory _history=new MedicalHistory();
+        private readonly MedicalHistory _medicalHistory=new MedicalHistory();
+        private IHistory _history;
 
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -41,37 +42,57 @@ namespace PatientManagement
             if (cboService.Text == @"Consultation")
             {
                 _category = new ConsultationCategory();
-                cboCategory.DataSource = new BindingSource(_category.ShowCategoryForDoctor(Account.WorkerId), null);
-                cboCategory.DisplayMember = "Value";
-                cboCategory.ValueMember = "Key";
+                var dic = _category.ShowCategoryForDoctor(Account.WorkerId);
+                if (dic.Count != 0)
+                {
+                    cboCategory.DataSource = new BindingSource(dic, null);
+                    cboCategory.DisplayMember = "Value";
+                    cboCategory.ValueMember = "Key";   
+                }
             }
             if (cboService.Text == @"Laboratory")
             {
                 _category=new LaboratoryCategory();
-                cboCategory.DataSource = new BindingSource(_category.ShowCategoryForDoctor(Account.WorkerId), null);
-                cboCategory.DisplayMember = "Value";
-                cboCategory.ValueMember = "Key";
+                var dic = _category.ShowCategoryForDoctor(Account.WorkerId);
+                if (dic.Count != 0)
+                {
+                    cboCategory.DataSource = new BindingSource(dic, null);
+                    cboCategory.DisplayMember = "Value";
+                    cboCategory.ValueMember = "Key";
+                }
             }
             if (cboService.Text == @"Medical Imaging")
             {
                 _category = new LaboratoryCategory();
-                cboCategory.DataSource = new BindingSource(_category.ShowCategoryForDoctor(Account.WorkerId), null);
-                cboCategory.DisplayMember = "Value";
-                cboCategory.ValueMember = "Key";
+                var dic = _category.ShowCategoryForDoctor(Account.WorkerId);
+                if (dic.Count != 0)
+                {
+                    cboCategory.DataSource = new BindingSource(dic, null);
+                    cboCategory.DisplayMember = "Value";
+                    cboCategory.ValueMember = "Key";
+                }
             }
             if (cboService.Text == @"Prescription")
             {
                 _category = new LaboratoryCategory();
-                cboCategory.DataSource = new BindingSource(_category.ShowCategoryForDoctor(Account.WorkerId), null);
-                cboCategory.DisplayMember = "Value";
-                cboCategory.ValueMember = "Key";
+                var dic = _category.ShowCategoryForDoctor(Account.WorkerId);
+                if (dic.Count != 0)
+                {
+                    cboCategory.DataSource = new BindingSource(dic, null);
+                    cboCategory.DisplayMember = "Value";
+                    cboCategory.ValueMember = "Key";
+                }
             }
             if (cboService.Text == @"Various Document")
             {
                 _category = new LaboratoryCategory();
-                cboCategory.DataSource = new BindingSource(_category.ShowCategoryForDoctor(Account.WorkerId), null);
-                cboCategory.DisplayMember = "Value";
-                cboCategory.ValueMember = "Key";
+                var dic = _category.ShowCategoryForDoctor(Account.WorkerId);
+                if (dic.Count != 0)
+                {
+                    cboCategory.DataSource = new BindingSource(dic, null);
+                    cboCategory.DisplayMember = "Value";
+                    cboCategory.ValueMember = "Key";
+                }
             }
         }
 
@@ -122,6 +143,42 @@ namespace PatientManagement
         private void btnPatient_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void cboSelection_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboSelection.Text == @"Consultation")
+            {
+                _history=new ConsultationHistory();
+                dgvHistory.DataSource = _history.Show(Pateint.Id);
+            }
+            if (cboSelection.Text == @"Laboratory")
+            {
+                _history = new LaboratoryHistory();
+                dgvHistory.DataSource = _history.Show(Pateint.Id);
+            }
+            if (cboSelection.Text == @"MedicalImaging")
+            {
+                _history = new MedicalImagingHistory();
+                dgvHistory.DataSource = _history.Show(Pateint.Id);
+            }
+            if (cboSelection.Text == @"Prescription")
+            {
+                _history = new PrescriptionHistory();
+                dgvHistory.DataSource = _history.Show(Pateint.Id);
+            }
+            if (cboSelection.Text == @"VariousDocument")
+            {
+                _history = new VariousDocumentHistory();
+                dgvHistory.DataSource = _history.Show(Pateint.Id);
+            }
+            if (cboSelection.Text == @"Patient's History")
+            {
+                dgvHistory.DataSource = null;
+                var getPath = _medicalHistory.Path(Pateint.Id);
+                if(getPath!=null)txtDescription.Load(getPath, StreamType.RichTextFormat);
+            }
+            dgvHistory.Columns[0].Visible = false;
         }
 
     }
