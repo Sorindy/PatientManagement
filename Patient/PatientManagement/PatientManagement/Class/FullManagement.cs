@@ -12,7 +12,75 @@ namespace PatientManagement.Class
         private Hospital_Entity_Framework.Account _account;
         private CategorySelection _categorySelection;
 
-        public FlowLayoutPanel ButtonSelectForm(Hospital_Entity_Framework.Account acc)
+        public FlowLayoutPanel ButtonSelectionForm(Managements managements)
+        {
+            var flpn = new FlowLayoutPanel();
+            flpn.Controls.Clear();
+            flpn.Dock = DockStyle.Fill;
+            flpn.AutoScroll = true;
+
+            var getFormlist = _db.Forms;
+            var getOldManagement = _db.Managements.FirstOrDefault(v => v.AccountId == managements.Account.Id);
+            if (getOldManagement != null)
+            {
+                var chk = _db.TempManagements.Any(v => v.WorkerId == managements.Account.WorkerId);
+
+                if (chk == false)
+                {
+                    var getFormManagement = getOldManagement.Forms;
+                    foreach (var item in getFormManagement)
+                    {
+                        var insert = new TempManagement() { WorkerId = managements.Account.WorkerId, Forms = item.Name, Services = item.Name, Categorys = item.Id.ToString() };
+                        _db.TempManagements.Add(insert);
+                    }
+                    _db.SaveChanges();
+                }
+            }
+            foreach (var item in getFormlist)
+            {
+                var chk = _db.TempManagements.Where(v => v.WorkerId == managements.Account.WorkerId)
+                    .Where(v => v.Forms == item.Name).Any(v => v.Services == item.Name);
+                if (chk)
+                {
+                    if (item.Name != "Medical's Form")
+                    {
+                        var btn = new Button
+                        {
+                            Size = new Size(180, 90),
+                            Text = item.Name,
+                            Name = item.Id.ToString(),
+                            BackColor = Color.LimeGreen,
+                            Font = new Font("November", 12),
+                            Tag = managements
+                        };
+
+                        flpn.Controls.Add(btn);
+                        btn.Click += RemoveService_Click;
+                    }
+                }
+                else
+                {
+                    if (item.Name != "Medical's Form")
+                    {
+                        var btn = new Button
+                        {
+                            Location = new Point(3, 3),
+                            Size = new Size(180, 90),
+                            Text = item.Name,
+                            Name = item.Id.ToString(),
+                            BackColor = Color.Khaki,
+                            Font = new Font("November", 12),
+                            Tag = managements
+                        };
+
+                        flpn.Controls.Add(btn);
+                        btn.Click += TakeService_Click;
+                    }
+                }
+            }            
+            return flpn;
+        }
+        private FlowLayoutPanel ButtonSelectForm(Hospital_Entity_Framework.Account acc)
         {
             var flpn=new FlowLayoutPanel();
             flpn.Controls.Clear();
@@ -206,42 +274,19 @@ namespace PatientManagement.Class
             var check = (Button)sender;
             var getName = check.Name;
             var getText = check.Text;
-
-            if (getText == "Medical's Form")
+            var getTag = (Managements) check.Tag;
+            var insert = new TempManagement()
             {
-                var categorySelection = new CategorySelection() {Account = _account};
-                categorySelection.ShowDialog();
-                var insert = new TempManagement()
-                {
-                    WorkerId = _account.WorkerId,
-                    Categorys = getName,
-                    Forms = getText,
-                    Services = getText
-                };
-                _db.TempManagements.Add(insert);
-                _db.SaveChanges();
-            }
+                WorkerId = getTag.Account.WorkerId,
+                Categorys = getName,
+                Forms = getText,
+                Services = getText
+            };
+            _db.TempManagements.Add(insert);
+            _db.SaveChanges();
 
-            else
-            {
-                var insert = new TempManagement()
-                {
-                    WorkerId = _account.WorkerId,
-                    Categorys = getName,
-                    Forms = getText,
-                    Services = getText
-                };
-                _db.TempManagements.Add(insert);
-                _db.SaveChanges();
-            }
-            var form = (Managements)Application.OpenForms["Managements"];
-                if (form != null)
-                {
-                    var gbo = form.pnlSelection;
-                    gbo.Controls.Clear();
-                    gbo.Controls.Add(ButtonSelectForm(_account));
-                }
-            
+            getTag.pnlSelection.Controls.Clear();
+            getTag.pnlSelection.Controls.Add(ButtonSelectionForm(getTag));
         }
 
         private void RemoveService_Click(object sender, EventArgs e)
@@ -249,35 +294,14 @@ namespace PatientManagement.Class
             var check = (Button)sender;
             var getName = check.Name;
             var getText = check.Text;
+            var getTag = (Managements) check.Tag;
+                
+            var delete = _db.TempManagements.Where(v=>v.Services==getText).First(v => v.Categorys == getName);
+            _db.TempManagements.Remove(delete);
+            _db.SaveChanges();
 
-
-            if (getText == "Medical's Form")
-            {
-                var categorySelection = new CategorySelection();
-                categorySelection.ShowDialog();
-                if (_db.TempManagements.Where(v=>v.Forms=="Medical's Form").Any(v=>v.Services=="Consultation"||v.Services=="Laboratory"||
-                    v.Services=="MedicalImaging"||v.Services=="Prescription"||v.Services=="VariousDocument")==false)
-                {
-                    var delete = _db.TempManagements.Where(v => v.Services == getText).First(v => v.Categorys == getName);
-                    _db.TempManagements.Remove(delete);
-                    _db.SaveChanges();
-                }
-            }
-
-            else
-            {
-                var delete = _db.TempManagements.Where(v=>v.Services==getText).First(v => v.Categorys == getName);
-                _db.TempManagements.Remove(delete);
-                _db.SaveChanges();
-            }
-
-            var form = (Managements)Application.OpenForms["Managements"];
-            if (form != null)
-            {
-                var gbo = form.pnlSelection;
-                gbo.Controls.Clear();
-                gbo.Controls.Add(ButtonSelectForm(_account));
-            }
+            getTag.pnlSelection.Controls.Clear();
+            getTag.pnlSelection.Controls.Add(ButtonSelectionForm(getTag));
         }
 
         public void ClearTemp()

@@ -29,10 +29,10 @@ D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\Hospi
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\TXDrawing.xml
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\TXDrawing.Windows.Forms.xml
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\TXTextControl.Server.xml
+D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\WinFormAnimation.xml
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\fr\Microsoft.VisualBasic.PowerPacks.Vs.resources.dll
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\fr\System.Data.SqlServerCe.resources.dll
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\de\TXDrawing.resources.dll
-D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.csprojResolveAssemblyReference.cache
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.AccountRecoveryForm.resources
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.Category.resources
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.CategorySelection.resources
@@ -70,3 +70,4 @@ D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\Patie
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.exe.licenses
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.exe
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.pdb
+D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.csprojResolveAssemblyReference.cache

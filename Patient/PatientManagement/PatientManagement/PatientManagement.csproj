@@ -117,6 +117,9 @@
     <Reference Include="TXTextControl, Version=24.0.1700.500, Culture=neutral, PublicKeyToken=6b83fe9a75cfb638" />
     <Reference Include="TXTextControl.Server, Version=24.0.900.500, Culture=neutral, PublicKeyToken=6b83fe9a75cfb638, processorArchitecture=MSIL" />
     <Reference Include="TXTextControl.Windows.Forms, Version=24.0.900.500, Culture=neutral, PublicKeyToken=6b83fe9a75cfb638, processorArchitecture=MSIL" />
+    <Reference Include="WinFormAnimation">
+      <HintPath>..\packages\WinFormAnimation.1.5.6298.3372\lib\net35-client\WinFormAnimation.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountRecoveryForm.cs">
