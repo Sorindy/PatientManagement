@@ -9,7 +9,8 @@ namespace PatientManagement.Class
     {
         private readonly HospitalDbContext _db = new HospitalDbContext();
         private  BindingSource _bs ;
-      
+        
+  
        public Hospital_Entity_Framework.Patient Patient;
 
         public BindingSource ShowWaiting(string  categoryName)
@@ -107,6 +108,7 @@ namespace PatientManagement.Class
             return check;
         }
 
+
         public BindingSource SeleteAllWaiting()
         {
             _bs = new BindingSource();
@@ -132,5 +134,7 @@ namespace PatientManagement.Class
             _db.WaitingLists .AddOrUpdate(update);
             _db.SaveChanges();
         }
+
+
     }
 }

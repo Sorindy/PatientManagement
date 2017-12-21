@@ -108,5 +108,6 @@ namespace PatientManagement
         {
             WindowState=FormWindowState.Normal;
         }
+
     }
 }

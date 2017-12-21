@@ -122,5 +122,7 @@ namespace PatientManagement
             txtPatientName.Text = select.Name;
             Refresh();
         }
+
+        
     }
 }

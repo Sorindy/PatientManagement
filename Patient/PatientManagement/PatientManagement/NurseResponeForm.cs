@@ -17,7 +17,7 @@ namespace PatientManagement
 
         private void NurseResponeForm_Load(object sender, EventArgs e)
         {
-            timer.Interval = (10 * 1000);
+            timer.Interval = (1 * 1000);
             timer.Tick += btnRefresh_Click;
             timer.Start();
         }
@@ -33,15 +33,19 @@ namespace PatientManagement
             {
                 if (dtgInformation.CurrentRow != null)
                 {
-                    //_waitingList = new WaitingList();
-                    //_nurseRespone = new NurseRespone();
-                    //_waitingList.UpdatePatientStatus(Convert.ToInt16(dtgInformation.CurrentRow.Cells[1].Value), true);
-                    //_nurseRespone.DeleteTempWaitingList(Convert.ToInt16(dtgInformation.CurrentRow.Cells[0].Value));
+                    _waitingList = new WaitingList();
+                    _nurseRespone = new NurseRespone();
+                    _waitingList.UpdatePatientStatus(Convert.ToInt16(dtgInformation.CurrentRow.Cells[1].Value), true);
+                    _nurseRespone.DeleteTempWaitingList(Convert.ToInt16(dtgInformation.CurrentRow.Cells[0].Value));
                 }
             }
             else
             {
-               
+                if (dtgInformation.CurrentRow != null)
+                {
+                    _waitingList = new WaitingList();
+                    _waitingList.UpdatePatientStatus(Convert.ToInt16(dtgInformation.CurrentRow.Cells[1].Value), false);
+                }
             }
         }
 
