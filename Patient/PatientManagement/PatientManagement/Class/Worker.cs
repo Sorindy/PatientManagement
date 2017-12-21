@@ -9,8 +9,6 @@ namespace PatientManagement.Class
     public class Worker
     {
         private readonly HospitalDbContext _db=new HospitalDbContext();
-        public Account Account { get; set; }
-
         public void Insert(string name, string gender, DateTime dob, short age, string address,
             string phone1, string phone2, string email, string position, int salary, DateTime workdate)
         {
@@ -89,5 +87,10 @@ namespace PatientManagement.Class
             return bs.DataSource = search.Select(v=>new{v.Id,v.Name,v.Gender,v.Age,v.Phone1,v.Email,v.Position}).ToList();
         }
 
+        public Hospital_Entity_Framework.Account Account(int workerId)
+        {
+            var search = _db.Accounts.First(v => v.WorkerId == workerId);
+            return search;
+        }
     }
 }

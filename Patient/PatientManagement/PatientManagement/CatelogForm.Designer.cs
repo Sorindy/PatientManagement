@@ -168,7 +168,7 @@
             this.tblpanelPicture.ColumnCount = 3;
             this.tblpanelPicture.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.46597F));
             this.tblpanelPicture.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 78.53403F));
-            this.tblpanelPicture.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 43F));
+            this.tblpanelPicture.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tblpanelPicture.Controls.Add(this.صورة_دائرة1, 1, 0);
             this.tblpanelPicture.Controls.Add(this.panelLogout, 2, 0);
             this.tblpanelPicture.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -186,7 +186,7 @@
             this.صورة_دائرة1.Image = ((System.Drawing.Image)(resources.GetObject("صورة_دائرة1.Image")));
             this.صورة_دائرة1.Location = new System.Drawing.Point(38, 3);
             this.صورة_دائرة1.Name = "صورة_دائرة1";
-            this.صورة_دائرة1.Size = new System.Drawing.Size(125, 95);
+            this.صورة_دائرة1.Size = new System.Drawing.Size(124, 95);
             this.صورة_دائرة1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.صورة_دائرة1.TabIndex = 0;
             this.صورة_دائرة1.TabStop = false;
@@ -196,9 +196,9 @@
             this.panelLogout.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelLogout.BackgroundImage")));
             this.panelLogout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelLogout.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelLogout.Location = new System.Drawing.Point(169, 3);
+            this.panelLogout.Location = new System.Drawing.Point(168, 3);
             this.panelLogout.Name = "panelLogout";
-            this.panelLogout.Size = new System.Drawing.Size(38, 32);
+            this.panelLogout.Size = new System.Drawing.Size(39, 32);
             this.panelLogout.TabIndex = 1;
             this.panelLogout.Click += new System.EventHandler(this.panelLogout_Click);
             // 
@@ -249,6 +249,9 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1064, 46);
             this.tableLayoutPanel1.TabIndex = 0;
+            this.tableLayoutPanel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tableLayoutPanel1_MouseDown);
+            this.tableLayoutPanel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.tableLayoutPanel1_MouseMove);
+            this.tableLayoutPanel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.tableLayoutPanel1_MouseUp);
             // 
             // picMinimize
             // 
@@ -296,6 +299,9 @@
             this.lblDatetime.Size = new System.Drawing.Size(167, 42);
             this.lblDatetime.TabIndex = 3;
             this.lblDatetime.Text = "DateTime";
+            this.lblDatetime.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblDatetime_MouseDown);
+            this.lblDatetime.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lblDatetime_MouseMove);
+            this.lblDatetime.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lblDatetime_MouseUp);
             // 
             // timer1
             // 

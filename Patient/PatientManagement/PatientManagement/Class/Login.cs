@@ -13,7 +13,7 @@ namespace PatientManagement.Class
 
         public Hospital_Entity_Framework.Account LoginAccount(string username, string password)
         {
-            var check = _db.Accounts.SingleOrDefault(v => v.UserName == username && v.Password == password && v.Worker.Hire==true);
+            var check = _db.Accounts.SingleOrDefault(v => v.UserName == username && v.Password == password && v.Worker.Hire);
             return check;
         }
 
@@ -107,7 +107,8 @@ namespace PatientManagement.Class
                     {
                         TopLevel = false,
                         Dock = DockStyle.Fill,
-                        AutoScroll = true
+                        AutoScroll = true,
+                        Account = _account
                     };
                     gbo.Controls.Add(selectionForm);
                     selectionForm.Show();

@@ -11,5 +11,6 @@ namespace PatientManagement.Interface
         object Show();
         Dictionary<int,string> ShowCategoryName();
         int SearchId(int categoryId);
+        Dictionary<int, string> ShowCategoryForDoctor(int workerId);
     }
 }

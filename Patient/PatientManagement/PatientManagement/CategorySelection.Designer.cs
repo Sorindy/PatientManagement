@@ -35,6 +35,7 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.btnSubmit = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.pnlSelection = new System.Windows.Forms.Panel();
@@ -58,9 +59,9 @@
             // 
             this.pnlButton.Controls.Add(this.tableLayoutPanel1);
             this.pnlButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlButton.Location = new System.Drawing.Point(797, 0);
+            this.pnlButton.Location = new System.Drawing.Point(739, 0);
             this.pnlButton.Name = "pnlButton";
-            this.pnlButton.Size = new System.Drawing.Size(211, 634);
+            this.pnlButton.Size = new System.Drawing.Size(269, 634);
             this.pnlButton.TabIndex = 1;
             // 
             // tableLayoutPanel1
@@ -75,9 +76,9 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 355F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 527F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(211, 634);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(269, 634);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // gboButton
@@ -86,9 +87,9 @@
             this.gboButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gboButton.Font = new System.Drawing.Font("Khmer Vanara", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gboButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.gboButton.Location = new System.Drawing.Point(12, 142);
+            this.gboButton.Location = new System.Drawing.Point(12, 56);
             this.gboButton.Name = "gboButton";
-            this.gboButton.Size = new System.Drawing.Size(188, 349);
+            this.gboButton.Size = new System.Drawing.Size(246, 521);
             this.gboButton.TabIndex = 0;
             this.gboButton.TabStop = false;
             this.gboButton.Text = "ប្រតិបត្តិការណ៏";
@@ -97,18 +98,21 @@
             // 
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.btnClear, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.btnCancel, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.btnClear, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.btnCancel, 0, 5);
+            this.tableLayoutPanel2.Controls.Add(this.btnSubmit, 0, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 51);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 5;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33F));
+            this.tableLayoutPanel2.RowCount = 7;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 90F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 90F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(182, 295);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 90F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(240, 467);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // btnClear
@@ -116,9 +120,9 @@
             this.btnClear.BackColor = System.Drawing.Color.Crimson;
             this.btnClear.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClear.Location = new System.Drawing.Point(3, 40);
+            this.btnClear.Location = new System.Drawing.Point(3, 191);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(176, 84);
+            this.btnClear.Size = new System.Drawing.Size(234, 84);
             this.btnClear.TabIndex = 1;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;
@@ -129,20 +133,33 @@
             this.btnCancel.BackColor = System.Drawing.Color.Tomato;
             this.btnCancel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Location = new System.Drawing.Point(3, 167);
+            this.btnCancel.Location = new System.Drawing.Point(3, 330);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(176, 84);
+            this.btnCancel.Size = new System.Drawing.Size(234, 84);
             this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "ចាកចេញ";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // btnSubmit
+            // 
+            this.btnSubmit.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnSubmit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSubmit.Location = new System.Drawing.Point(3, 52);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(234, 84);
+            this.btnSubmit.TabIndex = 3;
+            this.btnSubmit.Text = "រក្សាទុក";
+            this.btnSubmit.UseVisualStyleBackColor = false;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // panel3
             // 
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(12, 622);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(785, 12);
+            this.panel3.Size = new System.Drawing.Size(727, 12);
             this.panel3.TabIndex = 2;
             // 
             // panel4
@@ -150,7 +167,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(12, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(785, 11);
+            this.panel4.Size = new System.Drawing.Size(727, 11);
             this.panel4.TabIndex = 3;
             // 
             // pnlSelection
@@ -159,7 +176,7 @@
             this.pnlSelection.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlSelection.Location = new System.Drawing.Point(12, 11);
             this.pnlSelection.Name = "pnlSelection";
-            this.pnlSelection.Size = new System.Drawing.Size(785, 611);
+            this.pnlSelection.Size = new System.Drawing.Size(727, 611);
             this.pnlSelection.TabIndex = 4;
             // 
             // tabCategory
@@ -169,7 +186,7 @@
             this.tabCategory.Location = new System.Drawing.Point(0, 0);
             this.tabCategory.Name = "tabCategory";
             this.tabCategory.SelectedIndex = 0;
-            this.tabCategory.Size = new System.Drawing.Size(785, 611);
+            this.tabCategory.Size = new System.Drawing.Size(727, 611);
             this.tabCategory.TabIndex = 0;
             // 
             // CategorySelection
@@ -209,5 +226,6 @@
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnCancel;
         internal System.Windows.Forms.TabControl tabCategory;
+        private System.Windows.Forms.Button btnSubmit;
     }
 }

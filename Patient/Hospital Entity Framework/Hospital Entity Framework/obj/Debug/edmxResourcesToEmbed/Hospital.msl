@@ -22,6 +22,7 @@
     <EntitySetMapping Name="ConsultationEstimates">
       <EntityTypeMapping TypeName="HospitalModel.ConsultationEstimate">
         <MappingFragment StoreEntitySet="ConsultationEstimate">
+          <ScalarProperty Name="Edit" ColumnName="Edit" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="PatientId" ColumnName="PatientId" />
           <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
@@ -72,6 +73,7 @@
     <EntitySetMapping Name="LaboratoryEstimates">
       <EntityTypeMapping TypeName="HospitalModel.LaboratoryEstimate">
         <MappingFragment StoreEntitySet="LaboratoryEstimate">
+          <ScalarProperty Name="Edit" ColumnName="Edit" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="PatientId" ColumnName="PatientId" />
           <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
@@ -121,6 +123,7 @@
     <EntitySetMapping Name="MedicalImagingEstimates">
       <EntityTypeMapping TypeName="HospitalModel.MedicalImagingEstimate">
         <MappingFragment StoreEntitySet="MedicalImagingEstimate">
+          <ScalarProperty Name="Edit" ColumnName="Edit" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="PatientId" ColumnName="PatientId" />
           <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
@@ -178,6 +181,7 @@
     <EntitySetMapping Name="PrescriptionEstimates">
       <EntityTypeMapping TypeName="HospitalModel.PrescriptionEstimate">
         <MappingFragment StoreEntitySet="PrescriptionEstimate">
+          <ScalarProperty Name="Edit" ColumnName="Edit" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="PatientId" ColumnName="PatientId" />
           <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
@@ -265,6 +269,7 @@
     <EntitySetMapping Name="VariousDocumentEstimates">
       <EntityTypeMapping TypeName="HospitalModel.VariousDocumentEstimate">
         <MappingFragment StoreEntitySet="VariousDocumentEstimate">
+          <ScalarProperty Name="Edit" ColumnName="Edit" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="PatientId" ColumnName="PatientId" />
           <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
@@ -471,5 +476,60 @@
         <ScalarProperty Name="Id" ColumnName="WaitId" />
       </EndProperty>
     </AssociationSetMapping>
+    <EntitySetMapping Name="ConsultationEstimateEditHistories">
+      <EntityTypeMapping TypeName="HospitalModel.ConsultationEstimateEditHistory">
+        <MappingFragment StoreEntitySet="ConsultationEstimateEditHistory">
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
+          <ScalarProperty Name="EstimateId" ColumnName="EstimateId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LaboratoryEstimateEditHistories">
+      <EntityTypeMapping TypeName="HospitalModel.LaboratoryEstimateEditHistory">
+        <MappingFragment StoreEntitySet="LaboratoryEstimateEditHistory">
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
+          <ScalarProperty Name="EstimateId" ColumnName="EstimateId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MedicalImagingEstimateEditHistories">
+      <EntityTypeMapping TypeName="HospitalModel.MedicalImagingEstimateEditHistory">
+        <MappingFragment StoreEntitySet="MedicalImagingEstimateEditHistory">
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
+          <ScalarProperty Name="EstimateId" ColumnName="EstimateId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PrescriptionEstimateEditHistories">
+      <EntityTypeMapping TypeName="HospitalModel.PrescriptionEstimateEditHistory">
+        <MappingFragment StoreEntitySet="PrescriptionEstimateEditHistory">
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
+          <ScalarProperty Name="EstimateId" ColumnName="EstimateId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VariousDocumentEstimateEditHistories">
+      <EntityTypeMapping TypeName="HospitalModel.VariousDocumentEstimateEditHistory">
+        <MappingFragment StoreEntitySet="VariousDocumentEstimateEditHistory">
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
+          <ScalarProperty Name="EstimateId" ColumnName="EstimateId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

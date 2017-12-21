@@ -17,6 +17,7 @@ namespace PatientManagement
 
         private void button3_Click(object sender, EventArgs e)
         {
+            _fullManagement.ClearCatergory(Account,this);
             Close();
         }
 
@@ -33,6 +34,11 @@ namespace PatientManagement
         private void btnClear_Click(object sender, EventArgs e)
         {
             _fullManagement.ClearCatergory(Account,this);
+        }
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            _fullManagement.SubmitCategory(Account,this);
         }
 
     }

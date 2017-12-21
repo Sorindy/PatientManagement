@@ -93,6 +93,21 @@
         <AssociationConnector Association="HospitalModel.WaitingVariousDocument" ManuallyRouted="false" />
         <AssociationConnector Association="HospitalModel.FK_TempWaitingList_WaitingList" />
         <AssociationConnector Association="HospitalModel.FK_TempWaitingList_Worker" />
+        <EntityTypeShape EntityType="HospitalModel.ConsultationEstimateEditHistory" Width="1.5" PointX="1.5300869594933872" PointY="22.321291606091563" />
+        <EntityTypeShape EntityType="HospitalModel.LaboratoryEstimateEditHistory" Width="1.5" PointX="2.6532093410627962" PointY="29.516852303183104" />
+        <EntityTypeShape EntityType="HospitalModel.MedicalImagingEstimateEditHistory" Width="1.5" PointX="6.6710919619868942" PointY="26.027797815402877" />
+        <EntityTypeShape EntityType="HospitalModel.PrescriptionEstimateEditHistory" Width="1.5" PointX="7.174493772524638" PointY="18.126771160460436" />
+        <EntityTypeShape EntityType="HospitalModel.VariousDocumentEstimateEditHistory" Width="1.5" PointX="10.379231705506905" PointY="0.92514014287159785" />
+        <AssociationConnector Association="HospitalModel.FK_ConsultationEstimateEditHistory_ConsultationEstimate" />
+        <AssociationConnector Association="HospitalModel.FK_ConsultationEstimateEditHistory_Worker" />
+        <AssociationConnector Association="HospitalModel.FK_LaboratoryEstimateEditHistory_LaboratoryEstimate" />
+        <AssociationConnector Association="HospitalModel.FK_LaboratoryEstimateEditHistory_Worker" />
+        <AssociationConnector Association="HospitalModel.FK_MedicalImagingEstimateEditHistory_MedicalImagingEstimate" />
+        <AssociationConnector Association="HospitalModel.FK_MedicalImagingEstimateEditHistory_Worker" />
+        <AssociationConnector Association="HospitalModel.FK_PrescriptionEstimateEditHistory_PrescriptionEstimate" />
+        <AssociationConnector Association="HospitalModel.FK_PrescriptionEstimateEditHistory_Worker" />
+        <AssociationConnector Association="HospitalModel.FK_VariousDocumentEstimateEditHistory_VariousDocumentEstimate" />
+        <AssociationConnector Association="HospitalModel.FK_VariousDocumentEstimateEditHistory_Worker" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
