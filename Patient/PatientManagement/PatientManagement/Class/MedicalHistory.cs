@@ -4,24 +4,23 @@ using System.Linq;
 
 namespace PatientManagement.Class
 {
-   public class MedicalHistory
+    public class MedicalHistory
     {
-      
-       private readonly  HospitalDbContext _db = new HospitalDbContext();
-       private readonly  Hospital_Entity_Framework.MedicalHistory  _medicalHistory   =new Hospital_Entity_Framework.MedicalHistory();
- 
-        public void Insert(int patientid,string description)
+
+        private readonly HospitalDbContext _db = new HospitalDbContext();
+
+        public void Insert(int patientid, string description)
         {
-            var insert = new Hospital_Entity_Framework.MedicalHistory() 
+            var insert = new Hospital_Entity_Framework.MedicalHistory()
             {
-                PatientId=patientid,
-                Description =description,
+                PatientId = patientid,
+                Description = description,
             };
             _db.MedicalHistories.Add(insert);
             _db.SaveChanges();
         }
 
-        public void Update(int id , string description)
+        public void Update(int id, string description)
         {
             var update = _db.MedicalHistories.Single(v => v.Id == id);
             update.Description = description;
@@ -29,26 +28,17 @@ namespace PatientManagement.Class
             _db.SaveChanges();
         }
 
-        public Hospital_Entity_Framework.MedicalHistory  Show_medicalhistory(int patientId)   
+        public Hospital_Entity_Framework.MedicalHistory Show_medicalhistory(int patientId)
         {
-            var getmedicalhistory = from v in _db.MedicalHistories 
-                where v.PatientId  == patientId 
-                select new
-                {
-                    v.Id,
-                    v.PatientId ,
-                    v.Description,  
-                };
-            foreach (var item in getmedicalhistory)
-            {
-                _medicalHistory.Id = item.Id;
-                _medicalHistory.PatientId  = item.PatientId ;
-                _medicalHistory.Description  = item.Description ;
-            }
-
-            return _medicalHistory;
+            var getMedicalHistory = _db.MedicalHistories.First(v => v.PatientId == patientId);
+            return getMedicalHistory;
         }
 
+        public string Path(int patientid)
+        {
+            var getPath = _db.MedicalHistories.First(v => v.PatientId == patientid);
+            return getPath.Description;
+        }
     }
-    }
+}
 

@@ -166,6 +166,7 @@ namespace PatientManagement
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(300, 27);
             this.txtPassword.TabIndex = 2;
+            this.txtPassword.Text = "admin";
             this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPassword_KeyDown);
             // 
             // label1
@@ -214,6 +215,7 @@ namespace PatientManagement
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(300, 27);
             this.txtUserName.TabIndex = 1;
+            this.txtUserName.Text = "Sorindy";
             // 
             // linkForgetPassword
             // 
@@ -292,8 +294,8 @@ namespace PatientManagement
             // tblControl
             // 
             this.tblControl.ColumnCount = 4;
-            this.tblControl.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80.12232F));
-            this.tblControl.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.87768F));
+            this.tblControl.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tblControl.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 61F));
             this.tblControl.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 64F));
             this.tblControl.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 58F));
             this.tblControl.Controls.Add(this.panel2, 1, 0);
@@ -303,7 +305,7 @@ namespace PatientManagement
             this.tblControl.Location = new System.Drawing.Point(0, 0);
             this.tblControl.Name = "tblControl";
             this.tblControl.RowCount = 1;
-            this.tblControl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tblControl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tblControl.Size = new System.Drawing.Size(406, 49);
             this.tblControl.TabIndex = 0;
             // 
@@ -311,9 +313,9 @@ namespace PatientManagement
             // 
             this.panel2.Controls.Add(this.picMinimize);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(230, 3);
+            this.panel2.Location = new System.Drawing.Point(226, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(50, 43);
+            this.panel2.Size = new System.Drawing.Size(55, 43);
             this.panel2.TabIndex = 0;
             // 
             // picMinimize
@@ -322,7 +324,7 @@ namespace PatientManagement
             this.picMinimize.Image = ((System.Drawing.Image)(resources.GetObject("picMinimize.Image")));
             this.picMinimize.Location = new System.Drawing.Point(0, 0);
             this.picMinimize.Name = "picMinimize";
-            this.picMinimize.Size = new System.Drawing.Size(50, 43);
+            this.picMinimize.Size = new System.Drawing.Size(55, 43);
             this.picMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picMinimize.TabIndex = 1;
             this.picMinimize.TabStop = false;
@@ -332,7 +334,7 @@ namespace PatientManagement
             // 
             this.panel3.Controls.Add(this.picMazimize);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(286, 3);
+            this.panel3.Location = new System.Drawing.Point(287, 3);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(58, 43);
             this.panel3.TabIndex = 1;
@@ -353,9 +355,9 @@ namespace PatientManagement
             // 
             this.panel4.Controls.Add(this.picNormal);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(350, 3);
+            this.panel4.Location = new System.Drawing.Point(351, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(53, 43);
+            this.panel4.Size = new System.Drawing.Size(52, 43);
             this.panel4.TabIndex = 2;
             // 
             // picNormal
@@ -364,7 +366,7 @@ namespace PatientManagement
             this.picNormal.Image = ((System.Drawing.Image)(resources.GetObject("picNormal.Image")));
             this.picNormal.Location = new System.Drawing.Point(0, 0);
             this.picNormal.Name = "picNormal";
-            this.picNormal.Size = new System.Drawing.Size(53, 43);
+            this.picNormal.Size = new System.Drawing.Size(52, 43);
             this.picNormal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picNormal.TabIndex = 3;
             this.picNormal.TabStop = false;

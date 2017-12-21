@@ -71,6 +71,17 @@ namespace PatientManagement.Class
             return getcategory.Id;
         }
 
+        public Dictionary<int, string> ShowCategoryForDoctor(int workerId)
+        {
+            var getcategory = _db.Managements.First(v => v.Account.WorkerId == workerId).VariousDocumentCategories;
+            var dic = new Dictionary<int, string>();
+            foreach (var item in getcategory)
+            {
+                dic.Add(item.Id, item.Name);
+            }
+            return dic;
+        }
+
         public GroupBox ShowCategoryBox(int workerId)
         {
             _workerId = workerId;

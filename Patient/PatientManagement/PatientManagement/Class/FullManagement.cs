@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -80,194 +81,194 @@ namespace PatientManagement.Class
             }            
             return flpn;
         }
-        private FlowLayoutPanel ButtonSelectForm(Hospital_Entity_Framework.Account acc)
-        {
-            var flpn=new FlowLayoutPanel();
-            flpn.Controls.Clear();
-            flpn.Dock=DockStyle.Fill;
-            flpn.AutoScroll = true;
+        //private FlowLayoutPanel ButtonSelectForm(Hospital_Entity_Framework.Account acc)
+        //{
+        //    var flpn=new FlowLayoutPanel();
+        //    flpn.Controls.Clear();
+        //    flpn.Dock=DockStyle.Fill;
+        //    flpn.AutoScroll = true;
 
-            _account = acc;
-            var getFormlist = _db.Forms;
-            var getOldManagement = _db.Managements.FirstOrDefault(v => v.AccountId == acc.Id);
-            foreach (var item in getFormlist)
-            {
-                if (getOldManagement != null)
-                {
-                    var chk = _db.TempManagements.Where(v=>v.Forms==item.Name).Any(v=>v.Services==item.Name);
-                    if (chk)
-                    {
-                        var chkAcc = _db.TempManagements.Where(v => v.Forms == item.Name)
-                            .Any(v => v.Services == item.Name);
+        //    _account = acc;
+        //    var getFormlist = _db.Forms;
+        //    var getOldManagement = _db.Managements.FirstOrDefault(v => v.AccountId == acc.Id);
+        //    foreach (var item in getFormlist)
+        //    {
+        //        if (getOldManagement != null)
+        //        {
+        //            var chk = _db.TempManagements.Where(v=>v.Forms==item.Name).Any(v=>v.Services==item.Name);
+        //            if (chk)
+        //            {
+        //                var chkAcc = _db.TempManagements.Where(v => v.Forms == item.Name)
+        //                    .Any(v => v.Services == item.Name);
 
-                        if (chkAcc)
-                        {
-                            var btn = new Button
-                            {
-                                Size = new Size(180, 90),
-                                Text = item.Name,
-                                Name = item.Id.ToString(),
-                                BackColor = Color.LimeGreen,
-                                Font = new Font("November", 12)
-                            };
+        //                if (chkAcc)
+        //                {
+        //                    var btn = new Button
+        //                    {
+        //                        Size = new Size(180, 90),
+        //                        Text = item.Name,
+        //                        Name = item.Id.ToString(),
+        //                        BackColor = Color.LimeGreen,
+        //                        Font = new Font("November", 12)
+        //                    };
 
-                            flpn.Controls.Add(btn);
-                            btn.Click += RemoveService_Click;
-                        }
-                        else
-                        {
-                            var btn = new Button
-                            {
-                                Location = new Point(3, 3),
-                                Size = new Size(180, 90),
-                                Text = item.Name,
-                                Name = item.Id.ToString(),
-                                BackColor = Color.Khaki,
-                                Font = new Font("November", 12)
-                            };
+        //                    flpn.Controls.Add(btn);
+        //                    btn.Click += RemoveService_Click;
+        //                }
+        //                else
+        //                {
+        //                    var btn = new Button
+        //                    {
+        //                        Location = new Point(3, 3),
+        //                        Size = new Size(180, 90),
+        //                        Text = item.Name,
+        //                        Name = item.Id.ToString(),
+        //                        BackColor = Color.Khaki,
+        //                        Font = new Font("November", 12)
+        //                    };
 
-                            flpn.Controls.Add(btn);
-                            btn.Click += TakeService_Click;
-                        }
-                    }
-                    else
-                    {
-                        var chkAcc = getOldManagement.Forms.Any(v => v.Id == item.Id);
+        //                    flpn.Controls.Add(btn);
+        //                    btn.Click += TakeService_Click;
+        //                }
+        //            }
+        //            else
+        //            {
+        //                var chkAcc = getOldManagement.Forms.Any(v => v.Id == item.Id);
 
-                        if (chkAcc)
-                        {
-                            if (item.Name == "Medical's Form")
-                            {
-                                var btn = new Button
-                                {
-                                    Size = new Size(180, 90),
-                                    Text = item.Name,
-                                    Name = item.Id.ToString(),
-                                    BackColor = Color.LimeGreen,
-                                    Font = new Font("November", 12)
-                                };
+        //                if (chkAcc)
+        //                {
+        //                    if (item.Name == "Medical's Form")
+        //                    {
+        //                        var btn = new Button
+        //                        {
+        //                            Size = new Size(180, 90),
+        //                            Text = item.Name,
+        //                            Name = item.Id.ToString(),
+        //                            BackColor = Color.LimeGreen,
+        //                            Font = new Font("November", 12)
+        //                        };
 
-                                var input = new TempManagement() { Categorys = item.Id.ToString(), Forms = item.Name, Services = item.Name, WorkerId = acc.WorkerId };
-                                _db.TempManagements.Add(input);
-                                flpn.Controls.Add(btn);
-                                btn.Click += RemoveService_Click;
+        //                        var input = new TempManagement() { Categorys = item.Id.ToString(), Forms = item.Name, Services = item.Name, WorkerId = acc.WorkerId };
+        //                        _db.TempManagements.Add(input);
+        //                        flpn.Controls.Add(btn);
+        //                        btn.Click += RemoveService_Click;
 
-                                if (_db.TempManagements.Any(v => v.Services == "Consultation") == false)
-                                {
-                                    foreach (var itemConsultationCategory in getOldManagement.ConsultationCategories)
-                                    {
-                                        var inputCategory = new TempManagement() { WorkerId = acc.WorkerId, Services = "Consultation", Forms = item.Name, Categorys = itemConsultationCategory.Id.ToString() };
-                                        _db.TempManagements.Add(inputCategory);
-                                    }
-                                }
+        //                        if (_db.TempManagements.Any(v => v.Services == "Consultation") == false)
+        //                        {
+        //                            foreach (var itemConsultationCategory in getOldManagement.ConsultationCategories)
+        //                            {
+        //                                var inputCategory = new TempManagement() { WorkerId = acc.WorkerId, Services = "Consultation", Forms = item.Name, Categorys = itemConsultationCategory.Id.ToString() };
+        //                                _db.TempManagements.Add(inputCategory);
+        //                            }
+        //                        }
 
-                                if (_db.TempManagements.Any(v => v.Services == "Laboratory") == false)
-                                {
-                                    foreach (var itemLaboratoryCategory in getOldManagement.LaboratoryCategories)
-                                    {
-                                        var inputCategory = new TempManagement() { WorkerId = acc.WorkerId, Services = "Laboratory", Forms = item.Name, Categorys = itemLaboratoryCategory.Id.ToString() };
-                                        _db.TempManagements.Add(inputCategory);
-                                    }
-                                }
-                                if (_db.TempManagements.Any(v => v.Services == "MedicalImaging") == false)
-                                {
-                                    foreach (var itemMedicalImagingCategory in getOldManagement.MedicalImagingCategories)
-                                    {
-                                        var inputCategory = new TempManagement() { WorkerId = acc.WorkerId, Services = "MedicalImaging", Forms = item.Name, Categorys = itemMedicalImagingCategory.Id.ToString() };
-                                        _db.TempManagements.Add(inputCategory);
-                                    }
-                                }
-                                if (_db.TempManagements.Any(v => v.Services == "Prescription") == false)
-                                {
-                                    foreach (var itemPrescriptionCategory in getOldManagement.PrescriptionCategories)
-                                    {
-                                        var inputCategory = new TempManagement() { WorkerId = acc.WorkerId, Services = "Prescription", Forms = item.Name, Categorys = itemPrescriptionCategory.Id.ToString() };
-                                        _db.TempManagements.Add(inputCategory);
-                                    }
-                                }
-                                if (_db.TempManagements.Any(v => v.Services == "VariousDocument") == false)
-                                {
-                                    foreach (var itemVariousDocumentCategory in getOldManagement.VariousDocumentCategories)
-                                    {
-                                        var inputCategory = new TempManagement() { WorkerId = acc.WorkerId, Services = "VariousDocument", Forms = item.Name, Categorys = itemVariousDocumentCategory.Id.ToString() };
-                                        _db.TempManagements.Add(inputCategory);
-                                    }
-                                }
-                            }
+        //                        if (_db.TempManagements.Any(v => v.Services == "Laboratory") == false)
+        //                        {
+        //                            foreach (var itemLaboratoryCategory in getOldManagement.LaboratoryCategories)
+        //                            {
+        //                                var inputCategory = new TempManagement() { WorkerId = acc.WorkerId, Services = "Laboratory", Forms = item.Name, Categorys = itemLaboratoryCategory.Id.ToString() };
+        //                                _db.TempManagements.Add(inputCategory);
+        //                            }
+        //                        }
+        //                        if (_db.TempManagements.Any(v => v.Services == "MedicalImaging") == false)
+        //                        {
+        //                            foreach (var itemMedicalImagingCategory in getOldManagement.MedicalImagingCategories)
+        //                            {
+        //                                var inputCategory = new TempManagement() { WorkerId = acc.WorkerId, Services = "MedicalImaging", Forms = item.Name, Categorys = itemMedicalImagingCategory.Id.ToString() };
+        //                                _db.TempManagements.Add(inputCategory);
+        //                            }
+        //                        }
+        //                        if (_db.TempManagements.Any(v => v.Services == "Prescription") == false)
+        //                        {
+        //                            foreach (var itemPrescriptionCategory in getOldManagement.PrescriptionCategories)
+        //                            {
+        //                                var inputCategory = new TempManagement() { WorkerId = acc.WorkerId, Services = "Prescription", Forms = item.Name, Categorys = itemPrescriptionCategory.Id.ToString() };
+        //                                _db.TempManagements.Add(inputCategory);
+        //                            }
+        //                        }
+        //                        if (_db.TempManagements.Any(v => v.Services == "VariousDocument") == false)
+        //                        {
+        //                            foreach (var itemVariousDocumentCategory in getOldManagement.VariousDocumentCategories)
+        //                            {
+        //                                var inputCategory = new TempManagement() { WorkerId = acc.WorkerId, Services = "VariousDocument", Forms = item.Name, Categorys = itemVariousDocumentCategory.Id.ToString() };
+        //                                _db.TempManagements.Add(inputCategory);
+        //                            }
+        //                        }
+        //                    }
 
-                            else
-                            {
-                                var btn = new Button
-                                {
-                                    Size = new Size(180, 90),
-                                    Text = item.Name,
-                                    Name = item.Id.ToString(),
-                                    BackColor = Color.LimeGreen,
-                                    Font = new Font("November", 12)
-                                };
+        //                    else
+        //                    {
+        //                        var btn = new Button
+        //                        {
+        //                            Size = new Size(180, 90),
+        //                            Text = item.Name,
+        //                            Name = item.Id.ToString(),
+        //                            BackColor = Color.LimeGreen,
+        //                            Font = new Font("November", 12)
+        //                        };
 
-                                var input = new TempManagement() { Categorys = item.Id.ToString(), Forms = item.Name, Services = item.Name, WorkerId = acc.WorkerId };
-                                _db.TempManagements.Add(input);
-                                flpn.Controls.Add(btn);
-                                btn.Click += RemoveService_Click;
-                            }
-                        }
-                        else
-                        {
-                            var btn = new Button
-                            {
-                                Location = new Point(3, 3),
-                                Size = new Size(180, 90),
-                                Text = item.Name,
-                                Name = item.Id.ToString(),
-                                BackColor = Color.Khaki,
-                                Font = new Font("November", 12)
-                            };
+        //                        var input = new TempManagement() { Categorys = item.Id.ToString(), Forms = item.Name, Services = item.Name, WorkerId = acc.WorkerId };
+        //                        _db.TempManagements.Add(input);
+        //                        flpn.Controls.Add(btn);
+        //                        btn.Click += RemoveService_Click;
+        //                    }
+        //                }
+        //                else
+        //                {
+        //                    var btn = new Button
+        //                    {
+        //                        Location = new Point(3, 3),
+        //                        Size = new Size(180, 90),
+        //                        Text = item.Name,
+        //                        Name = item.Id.ToString(),
+        //                        BackColor = Color.Khaki,
+        //                        Font = new Font("November", 12)
+        //                    };
 
-                            flpn.Controls.Add(btn);
-                            btn.Click += TakeService_Click;
-                        }
-                    }
-                }
-                else
-                {
-                    var chkAcc = _db.TempManagements.Where(v => v.Forms == item.Name)
-                        .Any(v => v.Categorys == item.Id.ToString());
+        //                    flpn.Controls.Add(btn);
+        //                    btn.Click += TakeService_Click;
+        //                }
+        //            }
+        //        }
+        //        else
+        //        {
+        //            var chkAcc = _db.TempManagements.Where(v => v.Forms == item.Name)
+        //                .Any(v => v.Categorys == item.Id.ToString());
 
-                    if (chkAcc)
-                    {
-                        var btn = new Button
-                        {
-                            Size = new Size(180, 90),
-                            Text = item.Name,
-                            Name = item.Id.ToString(),
-                            BackColor = Color.LimeGreen,
-                            Font = new Font("November", 12)
-                        };
+        //            if (chkAcc)
+        //            {
+        //                var btn = new Button
+        //                {
+        //                    Size = new Size(180, 90),
+        //                    Text = item.Name,
+        //                    Name = item.Id.ToString(),
+        //                    BackColor = Color.LimeGreen,
+        //                    Font = new Font("November", 12)
+        //                };
 
-                        flpn.Controls.Add(btn);
-                        btn.Click += RemoveService_Click;
-                    }
-                    else
-                    {
-                        var btn = new Button
-                        {
-                            Location = new Point(3, 3),
-                            Size = new Size(180, 90),
-                            Text = item.Name,
-                            Name = item.Id.ToString(),
-                            BackColor = Color.Khaki,
-                            Font = new Font("November", 12)
-                        };
+        //                flpn.Controls.Add(btn);
+        //                btn.Click += RemoveService_Click;
+        //            }
+        //            else
+        //            {
+        //                var btn = new Button
+        //                {
+        //                    Location = new Point(3, 3),
+        //                    Size = new Size(180, 90),
+        //                    Text = item.Name,
+        //                    Name = item.Id.ToString(),
+        //                    BackColor = Color.Khaki,
+        //                    Font = new Font("November", 12)
+        //                };
 
-                        flpn.Controls.Add(btn);
-                        btn.Click += TakeService_Click;
-                    }
-                }
-            }
-            _db.SaveChanges();
-            return flpn;
-        }
+        //                flpn.Controls.Add(btn);
+        //                btn.Click += TakeService_Click;
+        //            }
+        //        }
+        //    }
+        //    _db.SaveChanges();
+        //    return flpn;
+        //}
 
         private void TakeService_Click(object sender, EventArgs e)
         {
@@ -331,7 +332,7 @@ namespace PatientManagement.Class
             return getAcc;
         }
 
-        private void DeleteManagement(Hospital_Entity_Framework.Account acc)
+        private void DeleteCategory(Hospital_Entity_Framework.Account acc)
         {
             var getManagement = _db.Managements.FirstOrDefault(v => v.AccountId == acc.Id);
             if (getManagement != null)
@@ -376,6 +377,20 @@ namespace PatientManagement.Class
                         getManagement.VariousDocumentCategories.Remove(getItem);
                     }
                 }
+                if (getManagement.Forms.Any(v => v.Name == "Medical's Form"))
+                {
+                    var getItem = _db.Forms.First(v => v.Name == "Medical's Form");
+                    getManagement.Forms.Remove(getItem);
+                }
+                _db.SaveChanges();
+            }
+        }
+
+        private void DeleteForm(Hospital_Entity_Framework.Account acc)
+        {
+            var getManagement = _db.Managements.FirstOrDefault(v => v.AccountId == acc.Id);
+            if (getManagement != null)
+            {
                 if (getManagement.Forms != null)
                 {
                     foreach (var item in getManagement.Forms.ToList())
@@ -384,25 +399,23 @@ namespace PatientManagement.Class
                         getManagement.Forms.Remove(getItem);
                     }
                 }
-                _db.Managements.Remove(getManagement);
-                _db.SaveChanges();
             }
+            _db.SaveChanges();
         }
 
         public void DeleteManagementAndAccount(Hospital_Entity_Framework.Account acc)
         {
-            DeleteManagement(acc);
+            DeleteCategory(acc);
+            DeleteForm(acc);
+            var delete = _db.Managements.First(v => v.AccountId == acc.Id);
+            _db.Managements.Remove(delete);
             _db.Accounts.Remove(acc);
             _db.SaveChanges();
         }
 
         public void SubmitManagement(Hospital_Entity_Framework.Account acc)
         {
-            DeleteManagement(acc);
-
-            var newManagement=new Hospital_Entity_Framework.Management(){AccountId = acc.Id};
-            _db.Managements.Add(newManagement);
-            _db.SaveChanges();
+            DeleteForm(acc);
 
             var getTemp = _db.TempManagements;
             var getManagement = _db.Managements.First(v => v.AccountId == acc.Id);
@@ -450,45 +463,7 @@ namespace PatientManagement.Class
                     var chk = _db.Forms.First(v => v.Id == get);
                     getManagement.Forms.Add(chk);
                 }
-                if (itemTemp.Forms == "Medical's Form")
-                {
-                    if (itemTemp.Services == "Consultation")
-                    {
-                        var get = Convert.ToInt32(itemTemp.Categorys);
-                        var chk = _db.ConsultationCategories.First(v => v.Id == get );
-                        getManagement.ConsultationCategories.Add(chk);
-                    }
-                    if (itemTemp.Services == "Laboratory")
-                    {
-                        var get = Convert.ToInt32(itemTemp.Categorys);
-                        var chk = _db.LaboratoryCategories.First(v => v.Id == get);
-                        getManagement.LaboratoryCategories.Add(chk);
-                    }
-                    if (itemTemp.Services == "MedicalImaging")
-                    {
-                        var get = Convert.ToInt32(itemTemp.Categorys);
-                        var chk = _db.MedicalImagingCategories.First(v => v.Id == get);
-                        getManagement.MedicalImagingCategories.Add(chk);
-                    }
-                    if (itemTemp.Services == "Prescription")
-                    {
-                        var get = Convert.ToInt32(itemTemp.Categorys);
-                        var chk = _db.PrescriptionCategories.First(v => v.Id == get);
-                        getManagement.PrescriptionCategories.Add(chk);
-                    }
-                    if (itemTemp.Services == "VariousDocument")
-                    {
-                        var get = Convert.ToInt32(itemTemp.Categorys);
-                        var chk = _db.VariousDocumentCategories.First(v => v.Id == get);
-                        getManagement.VariousDocumentCategories.Add(chk);
-                    }
-                    if (itemTemp.Services == "Medical's Form")
-                    {
-                        var get = Convert.ToInt32(itemTemp.Categorys);
-                        var chk = _db.Forms.First(v => v.Id == get);
-                        getManagement.Forms.Add(chk);
-                    }
-                }
+                
             }
             _db.SaveChanges();
         }
@@ -502,42 +477,183 @@ namespace PatientManagement.Class
             _categorySelection = categorySelection;
             _account = acc;
 
-            var getTemp = _db.TempManagements.Where(v => v.Forms == "Medical's Form").Where(v => v.Services == "Consultation");
-            var getCategory = _db.ConsultationCategories;
-            foreach (var itemCategory in getCategory)
+            var chkMedicalForm = _db.TempManagements.Where(v => v.WorkerId == acc.WorkerId)
+                .Any(v => v.Forms == "Medical's Form");
+            if (chkMedicalForm)
             {
-                if (getTemp.Any(v => v.Categorys == itemCategory.Id.ToString()))
+                var getTemp = _db.TempManagements.Where(v => v.Forms == "Medical's Form").Where(v => v.Services == "Consultation");
+                var getCategory = _db.ConsultationCategories;
+                foreach (var itemCategory in getCategory)
                 {
-                    var btn = new Button
+                    if (getTemp.Any(v => v.Categorys == itemCategory.Id.ToString()))
                     {
-                        Size = new Size(180, 90),
-                        Text = itemCategory.Name,
-                        Name = itemCategory.Id.ToString(),
-                        BackColor = Color.LimeGreen,
-                        Font = new Font("November", 12),
-                        Tag = "Consultation"
-                    };
+                        var dic = new Dictionary<int, string> { { acc.WorkerId, "Consultation" } };
+                        var btn = new Button
+                        {
+                            Size = new Size(180, 90),
+                            Text = itemCategory.Name,
+                            Name = itemCategory.Id.ToString(),
+                            BackColor = Color.LimeGreen,
+                            Font = new Font("November", 12),
+                            Tag = dic
+                        };
 
-                    flpn.Controls.Add(btn);
-                    btn.Click += RemoveCategory_Click;
+                        flpn.Controls.Add(btn);
+                        btn.Click += RemoveCategory_Click;
+                    }
+                    else
+                    {
+                        var dic = new Dictionary<int, string> { { acc.WorkerId, "Consultation" } };
+                        var btn = new Button
+                        {
+                            Location = new Point(3, 3),
+                            Size = new Size(180, 90),
+                            Text = itemCategory.Name,
+                            Name = itemCategory.Id.ToString(),
+                            BackColor = Color.Khaki,
+                            Font = new Font("November", 12),
+                            Tag = dic
+                        };
+
+                        flpn.Controls.Add(btn);
+                        btn.Click += TakeCategory_Click;
+                    }
+                } 
+            }
+            else
+            {
+                var getManagement = _db.Managements.Any(v => v.AccountId == acc.Id);
+                if (getManagement)
+                {
+                    var getCategoryforManagement = _db.Managements.First(v => v.AccountId == acc.Id);
+                    if (getCategoryforManagement.ConsultationCategories != null)
+                    {
+                        foreach (var item in getCategoryforManagement.ConsultationCategories.ToList())
+                        {
+                            var insertTemp = new TempManagement(){WorkerId = acc.WorkerId,Forms = "Medical's Form",Services = "Consultation",Categorys = item.Id.ToString()};
+                            _db.TempManagements.Add(insertTemp);
+                        }
+                    }
+                    if (getCategoryforManagement.LaboratoryCategories != null)
+                    {
+                        foreach (var item in getCategoryforManagement.LaboratoryCategories.ToList())
+                        {
+                            var insertTemp = new TempManagement() { WorkerId = acc.WorkerId, Forms = "Medical's Form", Services = "Laboratory", Categorys = item.Id.ToString() };
+                            _db.TempManagements.Add(insertTemp);
+                        }
+                    }
+                    if (getCategoryforManagement.MedicalImagingCategories != null)
+                    {
+                        foreach (var item in getCategoryforManagement.MedicalImagingCategories.ToList())
+                        {
+                            var insertTemp = new TempManagement() { WorkerId = acc.WorkerId, Forms = "Medical's Form", Services = "MedicalImaging", Categorys = item.Id.ToString() };
+                            _db.TempManagements.Add(insertTemp);
+                        }
+                    }
+                    if (getCategoryforManagement.PrescriptionCategories != null)
+                    {
+                        foreach (var item in getCategoryforManagement.PrescriptionCategories.ToList())
+                        {
+                            var insertTemp = new TempManagement() { WorkerId = acc.WorkerId, Forms = "Medical's Form", Services = "Prescription", Categorys = item.Id.ToString() };
+                            _db.TempManagements.Add(insertTemp);
+                        }
+                    }
+                    if (getCategoryforManagement.VariousDocumentCategories != null)
+                    {
+                        foreach (var item in getCategoryforManagement.VariousDocumentCategories.ToList())
+                        {
+                            var insertTemp = new TempManagement() { WorkerId = acc.WorkerId, Forms = "Medical's Form", Services = "VariousDocument", Categorys = item.Id.ToString() };
+                            _db.TempManagements.Add(insertTemp);
+                        }
+                    }
+                    _db.SaveChanges();
+
+                    var getTemp = _db.TempManagements.Where(v => v.Forms == "Medical's Form").Where(v => v.Services == "Consultation");
+                    var getCategory = _db.ConsultationCategories;
+                    foreach (var itemCategory in getCategory)
+                    {
+                        if (getTemp.Any(v => v.Categorys == itemCategory.Id.ToString()))
+                        {
+                            var dic = new Dictionary<int, string> { { acc.WorkerId, "Consultation" } };
+                            var btn = new Button
+                            {
+                                Size = new Size(180, 90),
+                                Text = itemCategory.Name,
+                                Name = itemCategory.Id.ToString(),
+                                BackColor = Color.LimeGreen,
+                                Font = new Font("November", 12),
+                                Tag = dic
+                            };
+
+                            flpn.Controls.Add(btn);
+                            btn.Click += RemoveCategory_Click;
+                        }
+                        else
+                        {
+                            var dic = new Dictionary<int, string> { { acc.WorkerId, "Consultation" } };
+                            var btn = new Button
+                            {
+                                Location = new Point(3, 3),
+                                Size = new Size(180, 90),
+                                Text = itemCategory.Name,
+                                Name = itemCategory.Id.ToString(),
+                                BackColor = Color.Khaki,
+                                Font = new Font("November", 12),
+                                Tag = dic
+                            };
+
+                            flpn.Controls.Add(btn);
+                            btn.Click += TakeCategory_Click;
+                        }
+                    } 
                 }
                 else
                 {
-                    var btn = new Button
-                    {
-                        Location = new Point(3, 3),
-                        Size = new Size(180, 90),
-                        Text = itemCategory.Name,
-                        Name = itemCategory.Id.ToString(),
-                        BackColor = Color.Khaki,
-                        Font = new Font("November", 12),
-                        Tag = "Consultation"
-                    };
+                    var create=new Hospital_Entity_Framework.Management(){AccountId = acc.Id};
+                    _db.Managements.Add(create);
+                    _db.SaveChanges();
 
-                    flpn.Controls.Add(btn);
-                    btn.Click += TakeCategory_Click;
+                    var getTemp = _db.TempManagements.Where(v => v.Forms == "Medical's Form").Where(v => v.Services == "Consultation");
+                    var getCategory = _db.ConsultationCategories;
+                    foreach (var itemCategory in getCategory)
+                    {
+                        if (getTemp.Any(v => v.Categorys == itemCategory.Id.ToString()))
+                        {
+                            var dic = new Dictionary<int, string> { { acc.WorkerId, "Consultation" } };
+                            var btn = new Button
+                            {
+                                Size = new Size(180, 90),
+                                Text = itemCategory.Name,
+                                Name = itemCategory.Id.ToString(),
+                                BackColor = Color.LimeGreen,
+                                Font = new Font("November", 12),
+                                Tag = dic
+                            };
+
+                            flpn.Controls.Add(btn);
+                            btn.Click += RemoveCategory_Click;
+                        }
+                        else
+                        {
+                            var dic = new Dictionary<int, string> { { acc.WorkerId, "Consultation" } };
+                            var btn = new Button
+                            {
+                                Location = new Point(3, 3),
+                                Size = new Size(180, 90),
+                                Text = itemCategory.Name,
+                                Name = itemCategory.Id.ToString(),
+                                BackColor = Color.Khaki,
+                                Font = new Font("November", 12),
+                                Tag = dic
+                            };
+
+                            flpn.Controls.Add(btn);
+                            btn.Click += TakeCategory_Click;
+                        }
+                    } 
                 }
             }
+            
 
             tab.Controls.Add(flpn);
 
@@ -559,6 +675,7 @@ namespace PatientManagement.Class
             {
                 if (getTemp.Any(v => v.Categorys == itemCategory.Id.ToString()))
                 {
+                    var dic = new Dictionary<int, string> { { acc.WorkerId, "Laboratory" } };
                     var btn = new Button
                     {
                         Size = new Size(180, 90),
@@ -566,7 +683,7 @@ namespace PatientManagement.Class
                         Name = itemCategory.Id.ToString(),
                         BackColor = Color.LimeGreen,
                         Font = new Font("November", 12),
-                        Tag = "Laboratory"
+                        Tag = dic
                     };
 
                     flpn.Controls.Add(btn);
@@ -574,6 +691,7 @@ namespace PatientManagement.Class
                 }
                 else
                 {
+                    var dic = new Dictionary<int, string> { { acc.WorkerId, "Laboratory" } };
                     var btn = new Button
                     {
                         Location = new Point(3, 3),
@@ -582,7 +700,7 @@ namespace PatientManagement.Class
                         Name = itemCategory.Id.ToString(),
                         BackColor = Color.Khaki,
                         Font = new Font("November", 12),
-                        Tag = "Laboratory"
+                        Tag = dic
                     };
 
                     flpn.Controls.Add(btn);
@@ -610,6 +728,7 @@ namespace PatientManagement.Class
             {
                 if (getTemp.Any(v => v.Categorys == itemCategory.Id.ToString()))
                 {
+                    var dic = new Dictionary<int, string> { { acc.WorkerId, "MedicalImaging" } };
                     var btn = new Button
                     {
                         Size = new Size(180, 90),
@@ -617,7 +736,7 @@ namespace PatientManagement.Class
                         Name = itemCategory.Id.ToString(),
                         BackColor = Color.LimeGreen,
                         Font = new Font("November", 12),
-                        Tag = "MedicalImaging"
+                        Tag = dic
                     };
 
                     flpn.Controls.Add(btn);
@@ -625,6 +744,7 @@ namespace PatientManagement.Class
                 }
                 else
                 {
+                    var dic = new Dictionary<int, string> { { acc.WorkerId, "MedicalImaging" } };
                     var btn = new Button
                     {
                         Location = new Point(3, 3),
@@ -633,7 +753,7 @@ namespace PatientManagement.Class
                         Name = itemCategory.Id.ToString(),
                         BackColor = Color.Khaki,
                         Font = new Font("November", 12),
-                        Tag = "MedicalImaging"
+                        Tag = dic
                     };
 
                     flpn.Controls.Add(btn);
@@ -661,6 +781,7 @@ namespace PatientManagement.Class
             {
                 if (getTemp.Any(v => v.Categorys == itemCategory.Id.ToString()))
                 {
+                    var dic = new Dictionary<int, string> { { acc.WorkerId, "Prescription" } };
                     var btn = new Button
                     {
                         Size = new Size(180, 90),
@@ -668,7 +789,7 @@ namespace PatientManagement.Class
                         Name = itemCategory.Id.ToString(),
                         BackColor = Color.LimeGreen,
                         Font = new Font("November", 12),
-                        Tag = "Prescription"
+                        Tag = dic   
                     };
 
                     flpn.Controls.Add(btn);
@@ -676,6 +797,7 @@ namespace PatientManagement.Class
                 }
                 else
                 {
+                    var dic = new Dictionary<int, string> { { acc.WorkerId, "Prescription" } };
                     var btn = new Button
                     {
                         Location = new Point(3, 3),
@@ -684,7 +806,7 @@ namespace PatientManagement.Class
                         Name = itemCategory.Id.ToString(),
                         BackColor = Color.Khaki,
                         Font = new Font("November", 12),
-                        Tag = "Prescription"
+                        Tag = dic
                     };
 
                     flpn.Controls.Add(btn);
@@ -712,6 +834,7 @@ namespace PatientManagement.Class
             {
                 if (getTemp.Any(v => v.Categorys == itemCategory.Id.ToString()))
                 {
+                    var dic = new Dictionary<int, string> { { acc.WorkerId, "VariousDocument" } };
                     var btn = new Button
                     {
                         Size = new Size(180, 90),
@@ -719,7 +842,7 @@ namespace PatientManagement.Class
                         Name = itemCategory.Id.ToString(),
                         BackColor = Color.LimeGreen,
                         Font = new Font("November", 12),
-                        Tag = "VariousDocument"
+                        Tag = dic
                     };
 
                     flpn.Controls.Add(btn);
@@ -727,6 +850,7 @@ namespace PatientManagement.Class
                 }
                 else
                 {
+                    var dic = new Dictionary<int, string> { { acc.WorkerId, "VariousDocument" } };
                     var btn = new Button
                     {
                         Location = new Point(3, 3),
@@ -735,7 +859,7 @@ namespace PatientManagement.Class
                         Name = itemCategory.Id.ToString(),
                         BackColor = Color.Khaki,
                         Font = new Font("November", 12),
-                        Tag = "VariousDocument"
+                        Tag = dic
                     };
 
                     flpn.Controls.Add(btn);
@@ -752,52 +876,61 @@ namespace PatientManagement.Class
         {
             var check = (Button)sender;
             var getName = check.Name;
-            var getTag = check.Tag;
-            var getWorkerId = _db.TempManagements.First().WorkerId;
+            var getTag = (Dictionary<int,string>)check.Tag;
 
-            var insert = new TempManagement() { WorkerId = getWorkerId, Categorys = getName, Forms = "Medical's Form", Services = getTag.ToString() };
-            _db.TempManagements.Add(insert);
-            _db.SaveChanges();
-
-            _categorySelection.tabCategory.Controls.Clear();
-            _categorySelection.Account = _account;
-            _categorySelection.tabCategory.Controls.AddRange(new Control[]
+            foreach (var selectedItem in getTag.ToList())
             {
-                TabConsultation(_account,_categorySelection),
-                TabLaboratory(_account,_categorySelection),
-                TabMedicalImaging(_account,_categorySelection),
-                TabPrescription(_account,_categorySelection),
-                TabVariousDocument(_account,_categorySelection)
-            });
-            var get = getTag.ToString();
-            _categorySelection.tabCategory.Enabled = false;
-            _categorySelection.tabCategory.SelectTab(get);
-            _categorySelection.tabCategory.Enabled = true;
+                var getText = selectedItem.Value;
+                var getId = selectedItem.Key;
+
+                var insert = new TempManagement() { WorkerId = getId, Categorys = getName, Forms = "Medical's Form", Services = getText };
+                _db.TempManagements.Add(insert);
+                _db.SaveChanges();
+
+                _categorySelection.tabCategory.Controls.Clear();
+                _categorySelection.Account = _account;
+                _categorySelection.tabCategory.Controls.AddRange(new Control[]
+                {
+                    TabConsultation(_account,_categorySelection),
+                    TabLaboratory(_account,_categorySelection),
+                    TabMedicalImaging(_account,_categorySelection),
+                    TabPrescription(_account,_categorySelection),
+                    TabVariousDocument(_account,_categorySelection)
+                });
+                _categorySelection.tabCategory.Enabled = false;
+                _categorySelection.tabCategory.SelectTab(getText);
+                _categorySelection.tabCategory.Enabled = true;
+            }
         }
 
         private void RemoveCategory_Click(object sender, EventArgs e)
         {
             var check = (Button)sender;
             var getName = check.Name;
-            var getTag = check.Tag;
+            var getTag = (Dictionary<int,string>)check.Tag;
 
-            var delete = _db.TempManagements.Where(v=>v.Forms=="Medical's Form").Where(v=>v.Services==getTag.ToString()).First(v=>v.Categorys==getName);
-            _db.TempManagements.Remove(delete);
-            _db.SaveChanges();
+            foreach (var selectedItem in getTag.ToList())
+            {
+                var getText = selectedItem.Value;
+                var getId = selectedItem.Key;
 
-            _categorySelection.tabCategory.Controls.Clear();
-            _categorySelection.Account = _account;
-            _categorySelection.tabCategory.Controls.AddRange(new Control[]  {
-                TabConsultation(_account,_categorySelection),
-                TabLaboratory(_account,_categorySelection),
-                TabMedicalImaging(_account,_categorySelection),
-                TabPrescription(_account,_categorySelection),
-                TabVariousDocument(_account,_categorySelection)
-            });
-            var get = getTag.ToString();
-            _categorySelection.tabCategory.Enabled = false;
-            _categorySelection.tabCategory.SelectTab(get);
-            _categorySelection.tabCategory.Enabled = true;
+                var delete = _db.TempManagements.Where(v => v.Forms == "Medical's Form"&&v.WorkerId==getId).Where(v => v.Services == getText).First(v => v.Categorys == getName);
+                _db.TempManagements.Remove(delete);
+                _db.SaveChanges();
+
+                _categorySelection.tabCategory.Controls.Clear();
+                _categorySelection.Account = _account;
+                _categorySelection.tabCategory.Controls.AddRange(new Control[]  {
+                    TabConsultation(_account,_categorySelection),
+                    TabLaboratory(_account,_categorySelection),
+                    TabMedicalImaging(_account,_categorySelection),
+                    TabPrescription(_account,_categorySelection),
+                    TabVariousDocument(_account,_categorySelection)
+                });
+                _categorySelection.tabCategory.Enabled = false;
+                _categorySelection.tabCategory.SelectTab(getText);
+                _categorySelection.tabCategory.Enabled = true;
+            }
         }
 
         public void ClearCatergory(Hospital_Entity_Framework.Account acc, CategorySelection categorySelection)
@@ -835,6 +968,70 @@ namespace PatientManagement.Class
                 TabPrescription(acc,categorySelection),
                 TabVariousDocument(acc,categorySelection)
             });
+        }
+
+        public void SubmitCategory(Hospital_Entity_Framework.Account acc, CategorySelection categorySelection)
+        {
+            DeleteCategory(acc);
+
+            var getTemp = _db.TempManagements.Where(v=>v.WorkerId==acc.WorkerId&&v.Forms=="Medical's Form");
+            var getManagement = _db.Managements.First(v => v.AccountId == acc.Id);
+            var getItem = _db.Forms.First(v => v.Name == "Medical's Form");
+            getManagement.Forms.Add(getItem);
+            foreach (var itemTemp in getTemp)
+            {
+                if (itemTemp.Services == "Consultation")
+                {
+                    var get = Convert.ToInt32(itemTemp.Categorys);
+                    var chk = _db.ConsultationCategories.First(v => v.Id == get);
+                    getManagement.ConsultationCategories.Add(chk);
+                }
+                if (itemTemp.Services == "Laboratory")
+                {
+                    var get = Convert.ToInt32(itemTemp.Categorys);
+                    var chk = _db.LaboratoryCategories.First(v => v.Id == get);
+                    getManagement.LaboratoryCategories.Add(chk);
+                }
+                if (itemTemp.Services == "MedicalImaging")
+                {
+                    var get = Convert.ToInt32(itemTemp.Categorys);
+                    var chk = _db.MedicalImagingCategories.First(v => v.Id == get);
+                    getManagement.MedicalImagingCategories.Add(chk);
+                }
+                if (itemTemp.Services == "Prescription")
+                {
+                    var get = Convert.ToInt32(itemTemp.Categorys);
+                    var chk = _db.PrescriptionCategories.First(v => v.Id == get);
+                    getManagement.PrescriptionCategories.Add(chk);
+                }
+                if (itemTemp.Services == "VariousDocument")
+                {
+                    var get = Convert.ToInt32(itemTemp.Categorys);
+                    var chk = _db.VariousDocumentCategories.First(v => v.Id == get);
+                    getManagement.VariousDocumentCategories.Add(chk);
+                }
+                if (itemTemp.Services == "Medical's Form")
+                {
+                    var get = Convert.ToInt32(itemTemp.Categorys);
+                    var chk = _db.Forms.First(v => v.Id == get);
+                    getManagement.Forms.Add(chk);
+
+                }
+            }
+            _db.SaveChanges();
+
+            categorySelection.tabCategory.Controls.Clear();
+            categorySelection.Account = _account;
+            categorySelection.tabCategory.Controls.AddRange(new Control[]  {
+                TabConsultation(acc,categorySelection),
+                TabLaboratory(acc,categorySelection),
+                TabMedicalImaging(acc,categorySelection),
+                TabPrescription(acc,categorySelection),
+                TabVariousDocument(acc,categorySelection)
+            });
+            categorySelection.tabCategory.Enabled = false;
+            categorySelection.tabCategory.SelectTab("Consultation");
+            categorySelection.tabCategory.Enabled = true;
         }
     }
 }

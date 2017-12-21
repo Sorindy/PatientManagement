@@ -2288,8 +2288,13 @@
           <NavigationProperty Name="Worker" Relationship="HospitalModel.FK_ConsultationEstimate_Worker" FromRole="ConsultationEstimate" ToRole="Worker" />
           <NavigationProperty Name="Worker1" Relationship="HospitalModel.FK_ConsultationEstimate_Worker1" FromRole="ConsultationEstimate" ToRole="Worker" />
           <NavigationProperty Name="Visits" Relationship="HospitalModel.VisitConsultation" FromRole="ConsultationEstimate" ToRole="Visit" />
+<<<<<<< HEAD
           <Property Type="Boolean" Name="Edit" Nullable="false" />
           <NavigationProperty Name="ConsultationEstimateEditHistories" Relationship="HospitalModel.FK_ConsultationEstimateEditHistory_ConsultationEstimate" FromRole="ConsultationEstimate" ToRole="ConsultationEstimateEditHistory" />
+=======
+          <NavigationProperty Name="ConsultationEstimateEditHistories" Relationship="HospitalModel.FK_ConsultationEstimateEditHistory_ConsultationEstimate" FromRole="ConsultationEstimate" ToRole="ConsultationEstimateEditHistory" />
+          <Property Type="Boolean" Name="Edit" Nullable="false" />
+>>>>>>> 11455fd60e253b858604a1df0b76fd603dd6075a
         </EntityType>
         <EntityType Name="ConsultationSample">
           <Key>
@@ -2349,8 +2354,13 @@
           <NavigationProperty Name="Worker" Relationship="HospitalModel.FK_LaboratoryEstimate_Worker" FromRole="LaboratoryEstimate" ToRole="Worker" />
           <NavigationProperty Name="Worker1" Relationship="HospitalModel.FK_LaboratoryEstimate_Worker1" FromRole="LaboratoryEstimate" ToRole="Worker" />
           <NavigationProperty Name="Visits" Relationship="HospitalModel.VisitLaboratory" FromRole="LaboratoryEstimate" ToRole="Visit" />
+<<<<<<< HEAD
           <Property Type="Boolean" Name="Edit" Nullable="false" />
           <NavigationProperty Name="LaboratoryEstimateEditHistories" Relationship="HospitalModel.FK_LaboratoryEstimateEditHistory_LaboratoryEstimate" FromRole="LaboratoryEstimate" ToRole="LaboratoryEstimateEditHistory" />
+=======
+          <NavigationProperty Name="LaboratoryEstimateEditHistories" Relationship="HospitalModel.FK_LaboratoryEstimateEditHistory_LaboratoryEstimate" FromRole="LaboratoryEstimate" ToRole="LaboratoryEstimateEditHistory" />
+          <Property Type="Boolean" Name="Edit" Nullable="false" />
+>>>>>>> 11455fd60e253b858604a1df0b76fd603dd6075a
         </EntityType>
         <EntityType Name="LaboratorySample">
           <Key>
@@ -2414,8 +2424,13 @@
           <NavigationProperty Name="Worker" Relationship="HospitalModel.FK_MedicalImagingEstimate_Worker" FromRole="MedicalImagingEstimate" ToRole="Worker" />
           <NavigationProperty Name="Worker1" Relationship="HospitalModel.FK_MedicalImagingEstimate_Worker1" FromRole="MedicalImagingEstimate" ToRole="Worker" />
           <NavigationProperty Name="Visits" Relationship="HospitalModel.VisitMedicalImaging" FromRole="MedicalImagingEstimate" ToRole="Visit" />
+<<<<<<< HEAD
           <Property Type="Boolean" Name="Edit" Nullable="false" />
           <NavigationProperty Name="MedicalImagingEstimateEditHistories" Relationship="HospitalModel.FK_MedicalImagingEstimateEditHistory_MedicalImagingEstimate" FromRole="MedicalImagingEstimate" ToRole="MedicalImagingEstimateEditHistory" />
+=======
+          <NavigationProperty Name="MedicalImagingEstimateEditHistories" Relationship="HospitalModel.FK_MedicalImagingEstimateEditHistory_MedicalImagingEstimate" FromRole="MedicalImagingEstimate" ToRole="MedicalImagingEstimateEditHistory" />
+          <Property Type="Boolean" Name="Edit" Nullable="false" />
+>>>>>>> 11455fd60e253b858604a1df0b76fd603dd6075a
         </EntityType>
         <EntityType Name="MedicalImagingSample">
           <Key>
@@ -2491,8 +2506,13 @@
           <NavigationProperty Name="Worker" Relationship="HospitalModel.FK_PrescriptionEstimate_Worker" FromRole="PrescriptionEstimate" ToRole="Worker" />
           <NavigationProperty Name="Worker1" Relationship="HospitalModel.FK_PrescriptionEstimate_Worker1" FromRole="PrescriptionEstimate" ToRole="Worker" />
           <NavigationProperty Name="Visits" Relationship="HospitalModel.VisitPrescription" FromRole="PrescriptionEstimate" ToRole="Visit" />
+<<<<<<< HEAD
           <Property Type="Boolean" Name="Edit" Nullable="false" />
           <NavigationProperty Name="PrescriptionEstimateEditHistories" Relationship="HospitalModel.FK_PrescriptionEstimateEditHistory_PrescriptionEstimate" FromRole="PrescriptionEstimate" ToRole="PrescriptionEstimateEditHistory" />
+=======
+          <NavigationProperty Name="PrescriptionEstimateEditHistories" Relationship="HospitalModel.FK_PrescriptionEstimateEditHistory_PrescriptionEstimate" FromRole="PrescriptionEstimate" ToRole="PrescriptionEstimateEditHistory" />
+          <Property Type="Boolean" Name="Edit" Nullable="false" />
+>>>>>>> 11455fd60e253b858604a1df0b76fd603dd6075a
         </EntityType>
         <EntityType Name="PrescriptionSample">
           <Key>
@@ -2590,8 +2610,13 @@
           <NavigationProperty Name="Worker" Relationship="HospitalModel.FK_VariousDocumentEstimate_Worker" FromRole="VariousDocumentEstimate" ToRole="Worker" />
           <NavigationProperty Name="Worker1" Relationship="HospitalModel.FK_VariousDocumentEstimate_Worker1" FromRole="VariousDocumentEstimate" ToRole="Worker" />
           <NavigationProperty Name="Visits" Relationship="HospitalModel.VisitVariousDocument" FromRole="VariousDocumentEstimate" ToRole="Visit" />
+<<<<<<< HEAD
           <Property Type="Boolean" Name="Edit" Nullable="false" />
           <NavigationProperty Name="VariousDocumentEstimateEditHistories" Relationship="HospitalModel.FK_VariousDocumentEstimateEditHistory_VariousDocumentEstimate" FromRole="VariousDocumentEstimate" ToRole="VariousDocumentEstimateEditHistory" />
+=======
+          <NavigationProperty Name="VariousDocumentEstimateEditHistories" Relationship="HospitalModel.FK_VariousDocumentEstimateEditHistory_VariousDocumentEstimate" FromRole="VariousDocumentEstimate" ToRole="VariousDocumentEstimateEditHistory" />
+          <Property Type="Boolean" Name="Edit" Nullable="false" />
+>>>>>>> 11455fd60e253b858604a1df0b76fd603dd6075a
         </EntityType>
         <EntityType Name="VariousDocumentSample">
           <Key>

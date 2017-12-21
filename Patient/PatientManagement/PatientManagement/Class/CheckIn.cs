@@ -304,11 +304,20 @@ namespace PatientManagement.Class
         {
             var checkTemp = _db.TempWaits.Any();
             var patientId = checkInsForm.Patient.Id;
+            var getVisit = CheckVisitCount(patientId);
             if (checkTemp)
             {
-                var getVisit = CheckVisitCount(patientId);
-                var insertWaitingList = new Hospital_Entity_Framework.WaitingList() { PatientId = patientId, Time = timeSpan, VisitId = getVisit.Id, VisitCount = getVisit.VisitCount, Visit = getVisit };
-                _db.WaitingLists.Add(insertWaitingList);
+                var getlastWaiting = _db.WaitingLists.OrderByDescending(v => v.Number).FirstOrDefault();
+                if (getlastWaiting != null)
+                {
+                    var insertWaitingList = new Hospital_Entity_Framework.WaitingList() { PatientId = patientId, Time = timeSpan, VisitId = getVisit.Id, VisitCount = getVisit.VisitCount, Visit = getVisit,Number = getlastWaiting.Number+1};
+                    _db.WaitingLists.Add(insertWaitingList);
+                }
+                else
+                {
+                    var insertWaitingList = new Hospital_Entity_Framework.WaitingList() { PatientId = patientId, Time = timeSpan, VisitId = getVisit.Id, VisitCount = getVisit.VisitCount, Visit = getVisit, Number = 1 };
+                    _db.WaitingLists.Add(insertWaitingList);
+                }
                 _db.SaveChanges();
                 var checkTempWait = _db.TempWaits;
 
@@ -349,6 +358,7 @@ namespace PatientManagement.Class
                 CheckVisitCount(patientId);
                 checkInsForm.Show();
                 checkInsForm.ClearControl();
+                checkInsForm.WaitingList = _db.WaitingLists.Where(v=>v.VisitId==getVisit.Id).Single(v => v.PatientId == patientId);
             }
             else
             {

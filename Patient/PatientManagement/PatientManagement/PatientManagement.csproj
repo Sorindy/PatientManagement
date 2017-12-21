@@ -162,12 +162,17 @@
     <Compile Include="Class\CheckIn.cs" />
     <Compile Include="Class\ConsultationCategory.cs" />
     <Compile Include="Class\ConsultationEstimate.cs" />
+    <Compile Include="Class\ConsultationHistory.cs" />
     <Compile Include="Class\ConsultationSample.cs" />
     <Compile Include="Class\Dating.cs" />
     <Compile Include="Class\FullManagement.cs" />
+    <Compile Include="Class\LaboratoryHistory.cs" />
     <Compile Include="Class\Login.cs" />
+    <Compile Include="Class\MedicalImagingHistory.cs" />
     <Compile Include="Class\MedicalRecord.cs" />
     <Compile Include="Class\NurseRespone.cs" />
+    <Compile Include="Class\PrescriptionHistory.cs" />
+    <Compile Include="Class\VariousDocumentHistory.cs" />
     <Compile Include="Class\Visit.cs" />
     <Compile Include="Class\WaitingList.cs" />
     <Compile Include="CreateAccount.cs">
@@ -184,6 +189,7 @@
     </Compile>
     <Compile Include="Interface\ICategory.cs" />
     <Compile Include="Interface\IEstimate.cs" />
+    <Compile Include="Interface\IHistory.cs" />
     <Compile Include="Interface\ISample.cs" />
     <Compile Include="Class\LaboratoryCategory.cs" />
     <Compile Include="Class\LaboratoryEstimate.cs" />

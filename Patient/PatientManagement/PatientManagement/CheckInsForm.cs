@@ -38,8 +38,11 @@ namespace PatientManagement
             else
             {
                 _chkIn.SubmitService(this, DateTime.Now.TimeOfDay);
-                ClearControl();
+                var print = new PrintWaitingForm();
+                if (WaitingList != null) print.WaitingList = WaitingList;
+                print.Show();
             }
+            ClearControl();
         }
 
         private void tblSearch_Click(object sender, EventArgs e)

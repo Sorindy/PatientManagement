@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using Hospital_Entity_Framework;
+using Form = System.Windows.Forms.Form;
 
 namespace PatientManagement
 {
@@ -12,7 +14,7 @@ namespace PatientManagement
         }
 
         private readonly Class.Patient _patient = new Class.Patient();
-
+        internal Account Account;
 
         internal void PatientListForm_Shown(object sender, EventArgs e)
         {
@@ -60,7 +62,7 @@ namespace PatientManagement
                 {
                     var id = dgvListPatient.CurrentRow.Cells[0].Value;
                     var patient = _patient.Select(Convert.ToInt32(id));
-                    var form = new PatientForm() { Patient = patient, PatientListForm = this };
+                    var form = new HistorysForm() {Account = Account,Pateint = patient};
                     form.ShowDialog();
                 }
             }

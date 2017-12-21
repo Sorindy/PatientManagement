@@ -143,6 +143,7 @@ namespace PatientManagement
                 dtpSWD.Enabled = true;
                 btnEdit.Click += btnCancel_Click;
                 txtName.Focus();
+                cboPosition_TextChanged(this, new EventArgs());
             }
         }
 
@@ -237,7 +238,8 @@ namespace PatientManagement
 
         private void btnCategory_Click(object sender, EventArgs e)
         {
-
+            var form = new CategorySelection {Account = _worker.Account(Worker.Id)};
+            form.ShowDialog();
         }
     }
 }

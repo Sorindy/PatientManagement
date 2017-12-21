@@ -33,6 +33,8 @@ namespace PatientManagement
             panel1.BackColor = Color.FromArgb(0, Color.AntiqueWhite);
             txtPassword.PasswordChar = '*';
             txtUserName.Focus();
+            txtUserName.Text = @"Sorindy";
+            txtPassword.Text = @"admin";
         }
         private void btnLogin_Click(object sender, EventArgs e)
         {
