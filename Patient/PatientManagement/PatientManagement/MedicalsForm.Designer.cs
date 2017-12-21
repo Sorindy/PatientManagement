@@ -733,6 +733,7 @@
             this.btnDating.TabIndex = 0;
             this.btnDating.Text = "បញ្ជី ណាត់អ្នកជម្ងឺ";
             this.btnDating.UseVisualStyleBackColor = false;
+            this.btnDating.Click += new System.EventHandler(this.btnDating_Click);
             // 
             // btmWaitingList
             // 
@@ -748,6 +749,7 @@
             this.btmWaitingList.TabIndex = 1;
             this.btmWaitingList.Text = "បញ្ជី រងចាំ";
             this.btmWaitingList.UseVisualStyleBackColor = false;
+            this.btmWaitingList.Click += new System.EventHandler(this.btmWaitingList_Click);
             // 
             // gboDate
             // 

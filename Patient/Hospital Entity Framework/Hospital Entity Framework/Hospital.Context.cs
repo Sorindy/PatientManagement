@@ -55,5 +55,10 @@ namespace Hospital_Entity_Framework
         public DbSet<Visit> Visits { get; set; }
         public DbSet<WaitingList> WaitingLists { get; set; }
         public DbSet<Worker> Workers { get; set; }
+        public DbSet<ConsultationEstimateEditHistory> ConsultationEstimateEditHistories { get; set; }
+        public DbSet<LaboratoryEstimateEditHistory> LaboratoryEstimateEditHistories { get; set; }
+        public DbSet<MedicalImagingEstimateEditHistory> MedicalImagingEstimateEditHistories { get; set; }
+        public DbSet<PrescriptionEstimateEditHistory> PrescriptionEstimateEditHistories { get; set; }
+        public DbSet<VariousDocumentEstimateEditHistory> VariousDocumentEstimateEditHistories { get; set; }
     }
 }

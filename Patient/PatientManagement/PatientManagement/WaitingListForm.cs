@@ -27,7 +27,7 @@ namespace PatientManagement
             {
 
                 _nurseRespone = new NurseRespone();
-                _nurseRespone.Insert(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[0].Value.ToString()), Worker.Id); 
+               // _nurseRespone.Insert(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[0].Value.ToString()), Worker.Id); 
                 var loadingform = new LoadingForm();
                 loadingform.WaitingList = _waitingList.GetWaitingListObject(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[0].Value));
                 loadingform.ShowDialog( );

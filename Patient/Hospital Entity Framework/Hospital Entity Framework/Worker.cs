@@ -29,6 +29,11 @@ namespace Hospital_Entity_Framework
             this.VariousDocumentEstimates = new HashSet<VariousDocumentEstimate>();
             this.VariousDocumentEstimates1 = new HashSet<VariousDocumentEstimate>();
             this.TempWaitingLists = new HashSet<TempWaitingList>();
+            this.ConsultationEstimateEditHistories = new HashSet<ConsultationEstimateEditHistory>();
+            this.LaboratoryEstimateEditHistories = new HashSet<LaboratoryEstimateEditHistory>();
+            this.MedicalImagingEstimateEditHistories = new HashSet<MedicalImagingEstimateEditHistory>();
+            this.PrescriptionEstimateEditHistories = new HashSet<PrescriptionEstimateEditHistory>();
+            this.VariousDocumentEstimateEditHistories = new HashSet<VariousDocumentEstimateEditHistory>();
         }
     
         public int Id { get; set; }
@@ -59,5 +64,10 @@ namespace Hospital_Entity_Framework
         public virtual ICollection<VariousDocumentEstimate> VariousDocumentEstimates { get; set; }
         public virtual ICollection<VariousDocumentEstimate> VariousDocumentEstimates1 { get; set; }
         public virtual ICollection<TempWaitingList> TempWaitingLists { get; set; }
+        public virtual ICollection<ConsultationEstimateEditHistory> ConsultationEstimateEditHistories { get; set; }
+        public virtual ICollection<LaboratoryEstimateEditHistory> LaboratoryEstimateEditHistories { get; set; }
+        public virtual ICollection<MedicalImagingEstimateEditHistory> MedicalImagingEstimateEditHistories { get; set; }
+        public virtual ICollection<PrescriptionEstimateEditHistory> PrescriptionEstimateEditHistories { get; set; }
+        public virtual ICollection<VariousDocumentEstimateEditHistory> VariousDocumentEstimateEditHistories { get; set; }
     }
 }
