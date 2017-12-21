@@ -5,8 +5,8 @@ namespace PatientManagement.Interface
 {
     interface IHistory
     {
-        void Insert(int estimateId, int workerId, string description);
-        object Show();
+        void Update(int estimateId, int workerId, int? nurseId, int? refererId);
+        object Show(int patientId);
         object ShowHistory(int estimateId);
     }
 }
