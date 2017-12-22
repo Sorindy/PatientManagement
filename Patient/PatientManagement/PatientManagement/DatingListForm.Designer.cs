@@ -109,7 +109,7 @@
             this.tblypnPatientInformation.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.87708F));
             this.tblypnPatientInformation.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 63.12292F));
             this.tblypnPatientInformation.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 138F));
-            this.tblypnPatientInformation.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 223F));
+            this.tblypnPatientInformation.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 224F));
             this.tblypnPatientInformation.Controls.Add(this.label2, 0, 0);
             this.tblypnPatientInformation.Controls.Add(this.btnSearch, 1, 1);
             this.tblypnPatientInformation.Controls.Add(this.txtPatientId, 1, 0);
@@ -131,14 +131,14 @@
             this.label2.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(3, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(105, 34);
+            this.label2.Size = new System.Drawing.Size(104, 34);
             this.label2.TabIndex = 1;
             this.label2.Text = "Patient Id";
             // 
             // btnSearch
             // 
             this.btnSearch.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSearch.Location = new System.Drawing.Point(114, 37);
+            this.btnSearch.Location = new System.Drawing.Point(113, 37);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(183, 28);
             this.btnSearch.TabIndex = 43;
@@ -150,7 +150,7 @@
             // 
             this.txtPatientId.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtPatientId.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPatientId.Location = new System.Drawing.Point(114, 3);
+            this.txtPatientId.Location = new System.Drawing.Point(113, 3);
             this.txtPatientId.Multiline = true;
             this.txtPatientId.Name = "txtPatientId";
             this.txtPatientId.ReadOnly = true;
@@ -162,11 +162,11 @@
             // 
             this.txtPatientName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtPatientName.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPatientName.Location = new System.Drawing.Point(441, 3);
+            this.txtPatientName.Location = new System.Drawing.Point(440, 3);
             this.txtPatientName.Multiline = true;
             this.txtPatientName.Name = "txtPatientName";
             this.txtPatientName.ReadOnly = true;
-            this.txtPatientName.Size = new System.Drawing.Size(218, 28);
+            this.txtPatientName.Size = new System.Drawing.Size(219, 28);
             this.txtPatientName.TabIndex = 4;
             // 
             // label3
@@ -174,7 +174,7 @@
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label3.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(303, 0);
+            this.label3.Location = new System.Drawing.Point(302, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(132, 34);
             this.label3.TabIndex = 2;
@@ -327,7 +327,7 @@
             this.tblypnDoctorInformation.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.71758F));
             this.tblypnDoctorInformation.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.28242F));
             this.tblypnDoctorInformation.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 149F));
-            this.tblypnDoctorInformation.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 194F));
+            this.tblypnDoctorInformation.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 195F));
             this.tblypnDoctorInformation.Controls.Add(this.label5, 0, 0);
             this.tblypnDoctorInformation.Controls.Add(this.txtStaffName, 3, 0);
             this.tblypnDoctorInformation.Controls.Add(this.txtStaffID, 1, 0);
@@ -347,7 +347,7 @@
             this.label5.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(3, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(101, 68);
+            this.label5.Size = new System.Drawing.Size(100, 68);
             this.label5.TabIndex = 4;
             this.label5.Text = "Doctor Id";
             // 
@@ -355,18 +355,18 @@
             // 
             this.txtStaffName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtStaffName.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStaffName.Location = new System.Drawing.Point(469, 3);
+            this.txtStaffName.Location = new System.Drawing.Point(468, 3);
             this.txtStaffName.Multiline = true;
             this.txtStaffName.Name = "txtStaffName";
             this.txtStaffName.ReadOnly = true;
-            this.txtStaffName.Size = new System.Drawing.Size(189, 62);
+            this.txtStaffName.Size = new System.Drawing.Size(190, 62);
             this.txtStaffName.TabIndex = 7;
             // 
             // txtStaffID
             // 
             this.txtStaffID.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtStaffID.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStaffID.Location = new System.Drawing.Point(110, 3);
+            this.txtStaffID.Location = new System.Drawing.Point(109, 3);
             this.txtStaffID.Multiline = true;
             this.txtStaffID.Name = "txtStaffID";
             this.txtStaffID.ReadOnly = true;
@@ -379,7 +379,7 @@
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label4.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(320, 0);
+            this.label4.Location = new System.Drawing.Point(319, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(143, 68);
             this.label4.TabIndex = 5;

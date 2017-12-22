@@ -39,7 +39,6 @@
             this.pnlLeftTop = new System.Windows.Forms.Panel();
             this.tblpanelLeftMain = new System.Windows.Forms.TableLayoutPanel();
             this.tblpanelPicture = new System.Windows.Forms.TableLayoutPanel();
-            this.صورة_دائرة1 = new PictureBoxAbouAmmar.صورة_دائرة();
             this.panelLogout = new System.Windows.Forms.Panel();
             this.txtUserName = new System.Windows.Forms.Label();
             this.pnlFill = new System.Windows.Forms.Panel();
@@ -50,6 +49,7 @@
             this.picNormal = new System.Windows.Forms.PictureBox();
             this.lblDatetime = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlMainLeft.SuspendLayout();
             this.pnlLeftbuttom.SuspendLayout();
             this.tblClose.SuspendLayout();
@@ -57,12 +57,12 @@
             this.pnlLeftTop.SuspendLayout();
             this.tblpanelLeftMain.SuspendLayout();
             this.tblpanelPicture.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.صورة_دائرة1)).BeginInit();
             this.pnlTop.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMazimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picNormal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlMainLeft
@@ -158,47 +158,35 @@
             this.tblpanelLeftMain.Location = new System.Drawing.Point(0, 0);
             this.tblpanelLeftMain.Name = "tblpanelLeftMain";
             this.tblpanelLeftMain.RowCount = 2;
-            this.tblpanelLeftMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 68.15286F));
-            this.tblpanelLeftMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 31.84713F));
+            this.tblpanelLeftMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 77.07006F));
+            this.tblpanelLeftMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.92994F));
             this.tblpanelLeftMain.Size = new System.Drawing.Size(216, 157);
             this.tblpanelLeftMain.TabIndex = 3;
             // 
             // tblpanelPicture
             // 
             this.tblpanelPicture.ColumnCount = 3;
-            this.tblpanelPicture.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.46597F));
-            this.tblpanelPicture.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 78.53403F));
-            this.tblpanelPicture.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 44F));
-            this.tblpanelPicture.Controls.Add(this.صورة_دائرة1, 1, 0);
+            this.tblpanelPicture.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.63415F));
+            this.tblpanelPicture.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 85.36585F));
+            this.tblpanelPicture.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tblpanelPicture.Controls.Add(this.panelLogout, 2, 0);
+            this.tblpanelPicture.Controls.Add(this.pictureBox1, 1, 0);
             this.tblpanelPicture.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tblpanelPicture.Location = new System.Drawing.Point(3, 3);
             this.tblpanelPicture.Name = "tblpanelPicture";
             this.tblpanelPicture.RowCount = 1;
             this.tblpanelPicture.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblpanelPicture.Size = new System.Drawing.Size(210, 101);
+            this.tblpanelPicture.Size = new System.Drawing.Size(210, 114);
             this.tblpanelPicture.TabIndex = 0;
-            // 
-            // صورة_دائرة1
-            // 
-            this.صورة_دائرة1.BackColor = System.Drawing.Color.DarkGray;
-            this.صورة_دائرة1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.صورة_دائرة1.Image = ((System.Drawing.Image)(resources.GetObject("صورة_دائرة1.Image")));
-            this.صورة_دائرة1.Location = new System.Drawing.Point(38, 3);
-            this.صورة_دائرة1.Name = "صورة_دائرة1";
-            this.صورة_دائرة1.Size = new System.Drawing.Size(124, 95);
-            this.صورة_دائرة1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.صورة_دائرة1.TabIndex = 0;
-            this.صورة_دائرة1.TabStop = false;
             // 
             // panelLogout
             // 
             this.panelLogout.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelLogout.BackgroundImage")));
             this.panelLogout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelLogout.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelLogout.Location = new System.Drawing.Point(168, 3);
+            this.panelLogout.Location = new System.Drawing.Point(167, 3);
             this.panelLogout.Name = "panelLogout";
-            this.panelLogout.Size = new System.Drawing.Size(39, 32);
+            this.panelLogout.Size = new System.Drawing.Size(40, 32);
             this.panelLogout.TabIndex = 1;
             this.panelLogout.Click += new System.EventHandler(this.panelLogout_Click);
             // 
@@ -207,7 +195,7 @@
             this.txtUserName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtUserName.AutoSize = true;
             this.txtUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUserName.Location = new System.Drawing.Point(65, 122);
+            this.txtUserName.Location = new System.Drawing.Point(65, 128);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(85, 20);
             this.txtUserName.TabIndex = 0;
@@ -308,6 +296,17 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(27, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(134, 108);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
             // CatelogForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -330,13 +329,13 @@
             this.tblpanelLeftMain.ResumeLayout(false);
             this.tblpanelLeftMain.PerformLayout();
             this.tblpanelPicture.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.صورة_دائرة1)).EndInit();
             this.pnlTop.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMazimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picNormal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -349,7 +348,6 @@
         private System.Windows.Forms.Panel pnlLeftTop;
         private System.Windows.Forms.TableLayoutPanel tblpanelLeftMain;
         private System.Windows.Forms.TableLayoutPanel tblpanelPicture;
-        private PictureBoxAbouAmmar.صورة_دائرة صورة_دائرة1;
         private System.Windows.Forms.Panel panelLogout;
         private System.Windows.Forms.Label txtUserName;
         private System.Windows.Forms.TableLayoutPanel tblClose;
@@ -363,5 +361,6 @@
         private System.Windows.Forms.Label lblDatetime;
         private System.Windows.Forms.Timer timer1;
         internal System.Windows.Forms.Panel pnlFill;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
