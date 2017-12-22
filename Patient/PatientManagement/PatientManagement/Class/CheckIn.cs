@@ -300,10 +300,22 @@ namespace PatientManagement.Class
             return flpn;
         }
 
+        private void CheckMedicalRecord(int patientId)
+        {
+            var chk = _db.MedicalRecords.Any(v => v.PatientId == patientId);
+            if (chk == false)
+            {
+                var insert=new Hospital_Entity_Framework.MedicalRecord(){PatientId = patientId};
+                _db.MedicalRecords.Add(insert);
+                _db.SaveChanges();
+            }
+        }
+
         public void SubmitService(CheckInsForm checkInsForm,TimeSpan timeSpan)
         {
             var checkTemp = _db.TempWaits.Any();
             var patientId = checkInsForm.Patient.Id;
+            CheckMedicalRecord(patientId);
             var getVisit = CheckVisitCount(patientId);
             if (checkTemp)
             {

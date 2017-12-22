@@ -459,9 +459,9 @@
             this.pnlShowHistory.BackColor = System.Drawing.Color.DodgerBlue;
             this.pnlShowHistory.Controls.Add(this.tableLayoutPanel7);
             this.pnlShowHistory.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlShowHistory.Location = new System.Drawing.Point(749, 159);
+            this.pnlShowHistory.Location = new System.Drawing.Point(704, 159);
             this.pnlShowHistory.Name = "pnlShowHistory";
-            this.pnlShowHistory.Size = new System.Drawing.Size(515, 575);
+            this.pnlShowHistory.Size = new System.Drawing.Size(560, 575);
             this.pnlShowHistory.TabIndex = 3;
             // 
             // tableLayoutPanel7
@@ -480,7 +480,7 @@
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(515, 575);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(560, 575);
             this.tableLayoutPanel7.TabIndex = 0;
             // 
             // pnlHistory
@@ -489,7 +489,7 @@
             this.pnlHistory.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlHistory.Location = new System.Drawing.Point(13, 47);
             this.pnlHistory.Name = "pnlHistory";
-            this.pnlHistory.Size = new System.Drawing.Size(489, 475);
+            this.pnlHistory.Size = new System.Drawing.Size(534, 475);
             this.pnlHistory.TabIndex = 1;
             // 
             // dgvHistory
@@ -510,7 +510,7 @@
             this.dgvHistory.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Blue;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -554,7 +554,7 @@
             this.dgvHistory.RowTemplate.ReadOnly = true;
             this.dgvHistory.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvHistory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvHistory.Size = new System.Drawing.Size(489, 475);
+            this.dgvHistory.Size = new System.Drawing.Size(534, 475);
             this.dgvHistory.TabIndex = 2;
             // 
             // btnClose
@@ -568,7 +568,7 @@
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnClose.Location = new System.Drawing.Point(13, 528);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(489, 44);
+            this.btnClose.Size = new System.Drawing.Size(534, 44);
             this.btnClose.TabIndex = 2;
             this.btnClose.Text = "ចាកចេញ";
             this.btnClose.UseVisualStyleBackColor = false;
@@ -580,7 +580,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(13, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(489, 38);
+            this.panel2.Size = new System.Drawing.Size(534, 38);
             this.panel2.TabIndex = 3;
             // 
             // tableLayoutPanel4
@@ -596,7 +596,7 @@
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(489, 38);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(534, 38);
             this.tableLayoutPanel4.TabIndex = 2;
             // 
             // cboSelection
@@ -612,9 +612,9 @@
             "Medical Imaging",
             "Prescription",
             "Various Document"});
-            this.cboSelection.Location = new System.Drawing.Point(144, 3);
+            this.cboSelection.Location = new System.Drawing.Point(157, 3);
             this.cboSelection.Name = "cboSelection";
-            this.cboSelection.Size = new System.Drawing.Size(342, 32);
+            this.cboSelection.Size = new System.Drawing.Size(374, 32);
             this.cboSelection.TabIndex = 0;
             this.cboSelection.SelectedIndexChanged += new System.EventHandler(this.cboSelection_SelectedIndexChanged);
             // 
@@ -623,7 +623,7 @@
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Kh Battambang", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(29, 4);
+            this.label6.Location = new System.Drawing.Point(35, 4);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(83, 29);
             this.label6.TabIndex = 1;
@@ -635,7 +635,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 159);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(749, 22);
+            this.panel1.Size = new System.Drawing.Size(704, 22);
             this.panel1.TabIndex = 5;
             // 
             // tableLayoutPanel2
@@ -650,13 +650,13 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(749, 22);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(704, 22);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // picHideTop
             // 
             this.picHideTop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.picHideTop.Location = new System.Drawing.Point(352, 3);
+            this.picHideTop.Location = new System.Drawing.Point(330, 3);
             this.picHideTop.Name = "picHideTop";
             this.picHideTop.Size = new System.Drawing.Size(44, 16);
             this.picHideTop.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -667,7 +667,7 @@
             // 
             this.pnlHide.Controls.Add(this.tableLayoutPanel3);
             this.pnlHide.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlHide.Location = new System.Drawing.Point(724, 181);
+            this.pnlHide.Location = new System.Drawing.Point(679, 181);
             this.pnlHide.Name = "pnlHide";
             this.pnlHide.Size = new System.Drawing.Size(25, 553);
             this.pnlHide.TabIndex = 6;
@@ -703,7 +703,7 @@
             this.pnlShow.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlShow.Location = new System.Drawing.Point(0, 181);
             this.pnlShow.Name = "pnlShow";
-            this.pnlShow.Size = new System.Drawing.Size(724, 553);
+            this.pnlShow.Size = new System.Drawing.Size(679, 553);
             this.pnlShow.TabIndex = 7;
             // 
             // groupBox3
@@ -717,7 +717,7 @@
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Location = new System.Drawing.Point(0, 0);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(724, 553);
+            this.groupBox3.Size = new System.Drawing.Size(679, 553);
             this.groupBox3.TabIndex = 19;
             this.groupBox3.TabStop = false;
             // 
@@ -730,7 +730,7 @@
             this.txtDescription.Location = new System.Drawing.Point(28, 93);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.RulerBar = this.rulerBar2;
-            this.txtDescription.Size = new System.Drawing.Size(693, 435);
+            this.txtDescription.Size = new System.Drawing.Size(648, 435);
             this.txtDescription.StatusBar = this.statusBar1;
             this.txtDescription.TabIndex = 2;
             this.txtDescription.VerticalRulerBar = this.rulerBar1;
@@ -741,7 +741,7 @@
             this.buttonBar1.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonBar1.Location = new System.Drawing.Point(3, 40);
             this.buttonBar1.Name = "buttonBar1";
-            this.buttonBar1.Size = new System.Drawing.Size(718, 28);
+            this.buttonBar1.Size = new System.Drawing.Size(673, 28);
             this.buttonBar1.TabIndex = 10;
             this.buttonBar1.Text = "buttonBar1";
             // 
@@ -750,7 +750,7 @@
             this.rulerBar2.Dock = System.Windows.Forms.DockStyle.Top;
             this.rulerBar2.Location = new System.Drawing.Point(3, 68);
             this.rulerBar2.Name = "rulerBar2";
-            this.rulerBar2.Size = new System.Drawing.Size(718, 25);
+            this.rulerBar2.Size = new System.Drawing.Size(673, 25);
             this.rulerBar2.TabIndex = 9;
             this.rulerBar2.Text = "rulerBar2";
             // 
@@ -760,7 +760,7 @@
             this.statusBar1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.statusBar1.Location = new System.Drawing.Point(3, 528);
             this.statusBar1.Name = "statusBar1";
-            this.statusBar1.Size = new System.Drawing.Size(718, 22);
+            this.statusBar1.Size = new System.Drawing.Size(673, 22);
             this.statusBar1.TabIndex = 4;
             // 
             // rulerBar1
@@ -786,7 +786,7 @@
             this.sampleToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(3, 16);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(718, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(673, 24);
             this.menuStrip1.TabIndex = 11;
             this.menuStrip1.Text = "menuStrip1";
             // 

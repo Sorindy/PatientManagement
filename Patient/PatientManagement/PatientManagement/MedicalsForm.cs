@@ -1,6 +1,14 @@
 ﻿using System;
-using Hospital_Entity_Framework;
+using System.Windows.Forms;
+using PatientManagement.Class;
+using PatientManagement.Interface;
+using Account = Hospital_Entity_Framework.Account;
+using ConsultationCategory = PatientManagement.Class.ConsultationCategory;
 using Form = System.Windows.Forms.Form;
+using LaboratoryCategory = PatientManagement.Class.LaboratoryCategory;
+using Patient = Hospital_Entity_Framework.Patient;
+using WaitingList = Hospital_Entity_Framework.WaitingList;
+using Worker = Hospital_Entity_Framework.Worker;
 
 namespace PatientManagement
 {
@@ -15,6 +23,9 @@ namespace PatientManagement
         internal Account Account;
         internal Patient Patient;
         internal Worker Worker;
+        internal WaitingList WaitingList;
+        private ICategory _category;
+        private readonly MedicalRecord _medical=new MedicalRecord();
 
         private void sampleToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -27,6 +38,22 @@ namespace PatientManagement
             _path = path.Remove(path.Length - 46);
             picHideRight.ImageLocation = _path + @"Hide-right-icon.png";
             picHideTop.ImageLocation = _path + @"Hide-Up-icon.png";
+            txtNameDoctor.Text = Account.Worker.Name;
+            var dicNurse = _medical.ShowNurse();
+            if (dicNurse.Count != 0)
+            {
+                cboNurse.DataSource=new BindingSource(dicNurse,null);
+                cboNurse.DisplayMember = "Value";
+                cboNurse.ValueMember = "Key";
+            }
+            var dicReferrer = _medical.ShowReferrer();
+            if (dicReferrer.Count != 0)
+            {
+                cboReferrer.DataSource=new BindingSource(dicReferrer,null);
+                cboReferrer.DisplayMember = "Value";
+                cboReferrer.ValueMember = "Key";
+            }
+
         }
 
         private void picHideTop_Click(object sender, EventArgs e)
@@ -112,9 +139,81 @@ namespace PatientManagement
 
         private void btmWaitingList_Click(object sender, EventArgs e)
         {
-            var waitinglistform = new WaitingListForm { GetStaffCategory = cboCategory.Text };
-            waitinglistform.Worker = Worker;
+            var waitinglistform = new WaitingListForm
+            {
+                GetStaffCategory = cboCategory.Text,
+                Worker = Worker
+            };
             waitinglistform.ShowDialog();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cboService_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboService.Text == @"Consultation")
+            {
+                _category = new ConsultationCategory();
+                cboCategory.DataSource = null;
+                var dic = _category.ShowCategoryForDoctor(Account.WorkerId);
+                if (dic.Count != 0)
+                {
+                    cboCategory.DataSource = new BindingSource(dic, null);
+                    cboCategory.DisplayMember = "Value";
+                    cboCategory.ValueMember = "Key";
+                }
+            }
+            if (cboService.Text == @"Laboratory")
+            {
+                _category = new LaboratoryCategory();
+                cboCategory.DataSource = null;
+                var dic = _category.ShowCategoryForDoctor(Account.WorkerId);
+                if (dic.Count != 0)
+                {
+                    cboCategory.DataSource = new BindingSource(dic, null);
+                    cboCategory.DisplayMember = "Value";
+                    cboCategory.ValueMember = "Key";
+                }
+            }
+            if (cboService.Text == @"Medical Imaging")
+            {
+                _category = new MedicalImagingCategory();
+                cboCategory.DataSource = null;
+                var dic = _category.ShowCategoryForDoctor(Account.WorkerId);
+                if (dic.Count != 0)
+                {
+                    cboCategory.DataSource = new BindingSource(dic, null);
+                    cboCategory.DisplayMember = "Value";
+                    cboCategory.ValueMember = "Key";
+                }
+            }
+            if (cboService.Text == @"Prescription")
+            {
+                _category = new PrescriptionCategory();
+                cboCategory.DataSource = null;
+                var dic = _category.ShowCategoryForDoctor(Account.WorkerId);
+                if (dic.Count != 0)
+                {
+                    cboCategory.DataSource = new BindingSource(dic, null);
+                    cboCategory.DisplayMember = "Value";
+                    cboCategory.ValueMember = "Key";
+                }
+            }
+            if (cboService.Text == @"Various Document")
+            {
+                _category = new VariousDocumentCategory();
+                cboCategory.DataSource = null;
+                var dic = _category.ShowCategoryForDoctor(Account.WorkerId);
+                if (dic.Count != 0)
+                {
+                    cboCategory.DataSource = new BindingSource(dic, null);
+                    cboCategory.DisplayMember = "Value";
+                    cboCategory.ValueMember = "Key";
+                }
+            }
         }
     }
 }
