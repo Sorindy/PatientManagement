@@ -29,39 +29,38 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.btnSubmit = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.pnBoss = new System.Windows.Forms.Panel();
+            this.pnMidle = new System.Windows.Forms.Panel();
             this.tblypnMidle = new System.Windows.Forms.TableLayoutPanel();
-            this.gbNurseRespone = new System.Windows.Forms.GroupBox();
-            this.dtgInformation = new System.Windows.Forms.DataGridView();
             this.gbWaitingList = new System.Windows.Forms.GroupBox();
             this.dtgWaitingList = new System.Windows.Forms.DataGridView();
-            this.tblypnTop = new System.Windows.Forms.TableLayoutPanel();
+            this.gbNurseRespone = new System.Windows.Forms.GroupBox();
+            this.dtgInformation = new System.Windows.Forms.DataGridView();
             this.pnTop = new System.Windows.Forms.Panel();
-            this.pnMidle = new System.Windows.Forms.Panel();
+            this.tblypnTop = new System.Windows.Forms.TableLayoutPanel();
             this.pnBoss.SuspendLayout();
+            this.pnMidle.SuspendLayout();
             this.tblypnMidle.SuspendLayout();
-            this.gbNurseRespone.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgInformation)).BeginInit();
             this.gbWaitingList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgWaitingList)).BeginInit();
-            this.tblypnTop.SuspendLayout();
+            this.gbNurseRespone.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgInformation)).BeginInit();
             this.pnTop.SuspendLayout();
-            this.pnMidle.SuspendLayout();
+            this.tblypnTop.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -74,19 +73,9 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "                            Nurse Respone Form";
             // 
-            // btnSubmit
-            // 
-            this.btnSubmit.Location = new System.Drawing.Point(1248, 3);
-            this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(220, 51);
-            this.btnSubmit.TabIndex = 2;
-            this.btnSubmit.Text = "Submit";
-            this.btnSubmit.UseVisualStyleBackColor = true;
-            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
-            // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(1474, 3);
+            this.btnClose.Location = new System.Drawing.Point(1472, 3);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(213, 51);
             this.btnClose.TabIndex = 3;
@@ -116,6 +105,15 @@
             this.pnBoss.Size = new System.Drawing.Size(1690, 821);
             this.pnBoss.TabIndex = 5;
             // 
+            // pnMidle
+            // 
+            this.pnMidle.Controls.Add(this.tblypnMidle);
+            this.pnMidle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnMidle.Location = new System.Drawing.Point(0, 58);
+            this.pnMidle.Name = "pnMidle";
+            this.pnMidle.Size = new System.Drawing.Size(1690, 763);
+            this.pnMidle.TabIndex = 9;
+            // 
             // tblypnMidle
             // 
             this.tblypnMidle.ColumnCount = 1;
@@ -130,81 +128,6 @@
             this.tblypnMidle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 47.07031F));
             this.tblypnMidle.Size = new System.Drawing.Size(1690, 763);
             this.tblypnMidle.TabIndex = 7;
-            // 
-            // gbNurseRespone
-            // 
-            this.gbNurseRespone.Controls.Add(this.dtgInformation);
-            this.gbNurseRespone.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbNurseRespone.Location = new System.Drawing.Point(3, 3);
-            this.gbNurseRespone.Name = "gbNurseRespone";
-            this.gbNurseRespone.Size = new System.Drawing.Size(1684, 397);
-            this.gbNurseRespone.TabIndex = 7;
-            this.gbNurseRespone.TabStop = false;
-            this.gbNurseRespone.Text = "Respone Information";
-            // 
-            // dtgInformation
-            // 
-            this.dtgInformation.AllowUserToAddRows = false;
-            this.dtgInformation.AllowUserToDeleteRows = false;
-            this.dtgInformation.AllowUserToResizeColumns = false;
-            this.dtgInformation.AllowUserToResizeRows = false;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Modern No. 20", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dtgInformation.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
-            this.dtgInformation.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtgInformation.BackgroundColor = System.Drawing.SystemColors.ControlLight;
-            this.dtgInformation.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical;
-            this.dtgInformation.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgInformation.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            this.dtgInformation.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Poor Richard", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Crimson;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgInformation.DefaultCellStyle = dataGridViewCellStyle8;
-            this.dtgInformation.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtgInformation.EnableHeadersVisualStyles = false;
-            this.dtgInformation.Location = new System.Drawing.Point(3, 16);
-            this.dtgInformation.Name = "dtgInformation";
-            this.dtgInformation.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Poor Richard", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Crimson;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgInformation.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            this.dtgInformation.RowHeadersVisible = false;
-            this.dtgInformation.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Poor Richard", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.Crimson;
-            this.dtgInformation.RowsDefaultCellStyle = dataGridViewCellStyle10;
-            this.dtgInformation.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dtgInformation.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Poor Richard", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtgInformation.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.dtgInformation.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Crimson;
-            this.dtgInformation.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dtgInformation.RowTemplate.Height = 45;
-            this.dtgInformation.RowTemplate.ReadOnly = true;
-            this.dtgInformation.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgInformation.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgInformation.Size = new System.Drawing.Size(1678, 378);
-            this.dtgInformation.TabIndex = 6;
             // 
             // gbWaitingList
             // 
@@ -280,23 +203,83 @@
             this.dtgWaitingList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgWaitingList.Size = new System.Drawing.Size(1678, 335);
             this.dtgWaitingList.TabIndex = 7;
+            this.dtgWaitingList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgWaitingList_CellContentClick);
             // 
-            // tblypnTop
+            // gbNurseRespone
             // 
-            this.tblypnTop.ColumnCount = 3;
-            this.tblypnTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 84.58529F));
-            this.tblypnTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.41471F));
-            this.tblypnTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 218F));
-            this.tblypnTop.Controls.Add(this.label1, 0, 0);
-            this.tblypnTop.Controls.Add(this.btnClose, 2, 0);
-            this.tblypnTop.Controls.Add(this.btnSubmit, 1, 0);
-            this.tblypnTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tblypnTop.Location = new System.Drawing.Point(0, 0);
-            this.tblypnTop.Name = "tblypnTop";
-            this.tblypnTop.RowCount = 1;
-            this.tblypnTop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblypnTop.Size = new System.Drawing.Size(1690, 57);
-            this.tblypnTop.TabIndex = 0;
+            this.gbNurseRespone.Controls.Add(this.dtgInformation);
+            this.gbNurseRespone.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gbNurseRespone.Location = new System.Drawing.Point(3, 3);
+            this.gbNurseRespone.Name = "gbNurseRespone";
+            this.gbNurseRespone.Size = new System.Drawing.Size(1684, 397);
+            this.gbNurseRespone.TabIndex = 7;
+            this.gbNurseRespone.TabStop = false;
+            this.gbNurseRespone.Text = "Respone Information";
+            // 
+            // dtgInformation
+            // 
+            this.dtgInformation.AllowUserToAddRows = false;
+            this.dtgInformation.AllowUserToDeleteRows = false;
+            this.dtgInformation.AllowUserToResizeColumns = false;
+            this.dtgInformation.AllowUserToResizeRows = false;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Modern No. 20", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dtgInformation.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.dtgInformation.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgInformation.BackgroundColor = System.Drawing.SystemColors.ControlLight;
+            this.dtgInformation.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical;
+            this.dtgInformation.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgInformation.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.dtgInformation.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Poor Richard", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Crimson;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgInformation.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dtgInformation.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtgInformation.EnableHeadersVisualStyles = false;
+            this.dtgInformation.Location = new System.Drawing.Point(3, 16);
+            this.dtgInformation.Name = "dtgInformation";
+            this.dtgInformation.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Poor Richard", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Crimson;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgInformation.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            this.dtgInformation.RowHeadersVisible = false;
+            this.dtgInformation.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Poor Richard", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.Crimson;
+            this.dtgInformation.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            this.dtgInformation.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dtgInformation.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Poor Richard", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtgInformation.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.dtgInformation.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Crimson;
+            this.dtgInformation.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dtgInformation.RowTemplate.Height = 45;
+            this.dtgInformation.RowTemplate.ReadOnly = true;
+            this.dtgInformation.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgInformation.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgInformation.Size = new System.Drawing.Size(1678, 378);
+            this.dtgInformation.TabIndex = 6;
+            this.dtgInformation.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgInformation_CellContentClick);
             // 
             // pnTop
             // 
@@ -307,14 +290,21 @@
             this.pnTop.Size = new System.Drawing.Size(1690, 58);
             this.pnTop.TabIndex = 8;
             // 
-            // pnMidle
+            // tblypnTop
             // 
-            this.pnMidle.Controls.Add(this.tblypnMidle);
-            this.pnMidle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnMidle.Location = new System.Drawing.Point(0, 58);
-            this.pnMidle.Name = "pnMidle";
-            this.pnMidle.Size = new System.Drawing.Size(1690, 763);
-            this.pnMidle.TabIndex = 9;
+            this.tblypnTop.ColumnCount = 3;
+            this.tblypnTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 84.58529F));
+            this.tblypnTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.41471F));
+            this.tblypnTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 220F));
+            this.tblypnTop.Controls.Add(this.label1, 0, 0);
+            this.tblypnTop.Controls.Add(this.btnClose, 2, 0);
+            this.tblypnTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tblypnTop.Location = new System.Drawing.Point(0, 0);
+            this.tblypnTop.Name = "tblypnTop";
+            this.tblypnTop.RowCount = 1;
+            this.tblypnTop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tblypnTop.Size = new System.Drawing.Size(1690, 57);
+            this.tblypnTop.TabIndex = 0;
             // 
             // NurseResponeForm
             // 
@@ -324,17 +314,18 @@
             this.ControlBox = false;
             this.Controls.Add(this.pnBoss);
             this.Name = "NurseResponeForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.NurseResponeForm_Load);
             this.pnBoss.ResumeLayout(false);
+            this.pnMidle.ResumeLayout(false);
             this.tblypnMidle.ResumeLayout(false);
-            this.gbNurseRespone.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtgInformation)).EndInit();
             this.gbWaitingList.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgWaitingList)).EndInit();
+            this.gbNurseRespone.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgInformation)).EndInit();
+            this.pnTop.ResumeLayout(false);
             this.tblypnTop.ResumeLayout(false);
             this.tblypnTop.PerformLayout();
-            this.pnTop.ResumeLayout(false);
-            this.pnMidle.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -343,7 +334,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Timer timer;
-        private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.Panel pnBoss;

@@ -76,7 +76,6 @@ namespace PatientManagement
                 if (dgvWaitingCategory.CurrentRow != null)
                 {
                     _waitingList.UpdatePatientStatus(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[1].Value),_num);
-                   // dgvWaitingCategory.DataSource = _waitingList.ShowWaiting(GetStaffCategory);
                 }
             }
         }

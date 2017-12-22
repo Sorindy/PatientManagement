@@ -39,7 +39,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.btnSubmit = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.pnBoss = new System.Windows.Forms.Panel();
             this.pnMidle = new System.Windows.Forms.Panel();
@@ -63,17 +62,6 @@
             this.panel1.SuspendLayout();
             this.tblypnTop.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnSubmit
-            // 
-            this.btnSubmit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSubmit.Location = new System.Drawing.Point(756, 3);
-            this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(183, 43);
-            this.btnSubmit.TabIndex = 2;
-            this.btnSubmit.Text = "Submit";
-            this.btnSubmit.UseVisualStyleBackColor = true;
-            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // btnClose
             // 
@@ -290,7 +278,6 @@
             this.tblypnTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.52892F));
             this.tblypnTop.Controls.Add(this.btnClose, 2, 0);
             this.tblypnTop.Controls.Add(this.label1, 0, 0);
-            this.tblypnTop.Controls.Add(this.btnSubmit, 1, 0);
             this.tblypnTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.tblypnTop.Location = new System.Drawing.Point(0, 0);
             this.tblypnTop.Name = "tblypnTop";
@@ -347,7 +334,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Panel pnBoss;
         private System.Windows.Forms.Timer timer;
