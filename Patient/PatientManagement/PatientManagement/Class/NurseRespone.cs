@@ -47,5 +47,12 @@ namespace PatientManagement.Class
            _db.TempWaitingLists.Remove(delete);
            _db.SaveChanges();
        }
+
+       public void DeleteTempWaitingListByWaitingId(int waitingid)
+       {
+           var delete = _db.TempWaitingLists.Single(v => v.WaitingListId == waitingid);
+           _db.TempWaitingLists.Remove(delete);
+           _db.SaveChanges();
+       }
    }
 }

@@ -1,4 +1,5 @@
-﻿using System.Data.Entity.Migrations;
+﻿using System;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Windows.Forms;
 using Hospital_Entity_Framework;
@@ -127,14 +128,13 @@ namespace PatientManagement.Class
             return _bs;
         }
 
-        public void UpdatePatientStatus(int waitingid,bool status)
+        public void UpdatePatientStatus(int waitingid,bool? status)
         {
             var update = _db.WaitingLists.Single(v => v.Id == waitingid);
             update.Status  = status ;
             _db.WaitingLists .AddOrUpdate(update);
             _db.SaveChanges();
         }
-
 
     }
 }
