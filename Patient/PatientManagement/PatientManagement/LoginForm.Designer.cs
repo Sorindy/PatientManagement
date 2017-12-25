@@ -166,7 +166,7 @@ namespace PatientManagement
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(300, 27);
             this.txtPassword.TabIndex = 2;
-            this.txtPassword.Text = "admin";
+            this.txtPassword.Text = "leap";
             this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPassword_KeyDown);
             // 
             // label1
@@ -215,7 +215,7 @@ namespace PatientManagement
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(300, 27);
             this.txtUserName.TabIndex = 1;
-            this.txtUserName.Text = "Sorindy";
+            this.txtUserName.Text = "leap";
             // 
             // linkForgetPassword
             // 

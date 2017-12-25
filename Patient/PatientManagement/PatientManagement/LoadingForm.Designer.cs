@@ -49,13 +49,16 @@
             // 
             // btnCancle
             // 
+            this.btnCancle.BackColor = System.Drawing.Color.Red;
             this.btnCancle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancle.Location = new System.Drawing.Point(198, 98);
+            this.btnCancle.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCancle.Location = new System.Drawing.Point(352, 0);
             this.btnCancle.Name = "btnCancle";
-            this.btnCancle.Size = new System.Drawing.Size(75, 23);
+            this.btnCancle.Size = new System.Drawing.Size(108, 39);
             this.btnCancle.TabIndex = 1;
             this.btnCancle.Text = "Cancle";
-            this.btnCancle.UseVisualStyleBackColor = true;
+            this.btnCancle.UseVisualStyleBackColor = false;
             this.btnCancle.Click += new System.EventHandler(this.btnCancle_Click);
             // 
             // btnRefresh

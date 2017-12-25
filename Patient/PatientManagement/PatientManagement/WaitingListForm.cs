@@ -11,7 +11,7 @@ namespace PatientManagement
         internal Hospital_Entity_Framework.Worker Worker;
         private WaitingList _waitingList = new WaitingList() ;
         private NurseRespone _nurseRespone;
-        internal MedicalForm Medicalform;
+        internal MedicalsForm Medicalsform;
         private bool? _num ;
 
         public Hospital_Entity_Framework.WaitingList WaitingList;
@@ -73,7 +73,7 @@ namespace PatientManagement
                 _nurseRespone.Insert(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[1].Value.ToString()), Worker.Id);
                 var loadingform = new LoadingForm();
                 loadingform.WaitingList = _waitingList.GetWaitingListObject(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[1].Value));
-                loadingform.MedicalForm = Medicalform;
+                loadingform.MedicalsForm = Medicalsform;
                 loadingform.Waitinglistform = this;
                 loadingform.ShowDialog();
             }

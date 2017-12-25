@@ -46,21 +46,21 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.pnBoss = new System.Windows.Forms.Panel();
-            this.pnTop = new System.Windows.Forms.Panel();
+            this.pnMiddle = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pnRight = new System.Windows.Forms.Panel();
             this.gbActivity = new System.Windows.Forms.GroupBox();
             this.tblypnRight = new System.Windows.Forms.TableLayoutPanel();
-            this.pnMiddle = new System.Windows.Forms.Panel();
             this.pnButton = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.pnTop = new System.Windows.Forms.Panel();
             this.pnBoss.SuspendLayout();
-            this.pnTop.SuspendLayout();
+            this.pnMiddle.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.pnRight.SuspendLayout();
             this.gbActivity.SuspendLayout();
             this.tblypnRight.SuspendLayout();
-            this.pnMiddle.SuspendLayout();
             this.pnButton.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.pnTop.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -259,14 +259,44 @@
             this.pnBoss.Size = new System.Drawing.Size(1213, 624);
             this.pnBoss.TabIndex = 18;
             // 
-            // pnTop
+            // pnMiddle
             // 
-            this.pnTop.Controls.Add(this.label1);
-            this.pnTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnTop.Location = new System.Drawing.Point(0, 0);
-            this.pnTop.Name = "pnTop";
-            this.pnTop.Size = new System.Drawing.Size(1213, 51);
-            this.pnTop.TabIndex = 19;
+            this.pnMiddle.Controls.Add(this.tableLayoutPanel1);
+            this.pnMiddle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnMiddle.Location = new System.Drawing.Point(0, 51);
+            this.pnMiddle.Name = "pnMiddle";
+            this.pnMiddle.Size = new System.Drawing.Size(1030, 573);
+            this.pnMiddle.TabIndex = 19;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.txtEmail, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.label4, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.txtPhone2, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.label5, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.txtPhone1, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label6, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.txtWorkPlace, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label7, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.txtSpeacailly, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.txtName, 1, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 6;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 54.65116F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 45.34884F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 72F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 105F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 110F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1030, 573);
+            this.tableLayoutPanel1.TabIndex = 19;
             // 
             // pnRight
             // 
@@ -305,15 +335,6 @@
             this.tblypnRight.Size = new System.Drawing.Size(177, 554);
             this.tblypnRight.TabIndex = 19;
             // 
-            // pnMiddle
-            // 
-            this.pnMiddle.Controls.Add(this.tableLayoutPanel1);
-            this.pnMiddle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnMiddle.Location = new System.Drawing.Point(0, 51);
-            this.pnMiddle.Name = "pnMiddle";
-            this.pnMiddle.Size = new System.Drawing.Size(1030, 573);
-            this.pnMiddle.TabIndex = 19;
-            // 
             // pnButton
             // 
             this.pnButton.Controls.Add(this.btnAdd);
@@ -324,35 +345,14 @@
             this.pnButton.Size = new System.Drawing.Size(171, 172);
             this.pnButton.TabIndex = 19;
             // 
-            // tableLayoutPanel1
+            // pnTop
             // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.txtEmail, 1, 5);
-            this.tableLayoutPanel1.Controls.Add(this.label4, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.txtPhone2, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.label5, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.txtPhone1, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label6, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.txtWorkPlace, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label7, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.txtSpeacailly, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.txtName, 1, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 6;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 54.65116F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 45.34884F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 72F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 105F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 110F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1030, 573);
-            this.tableLayoutPanel1.TabIndex = 19;
+            this.pnTop.Controls.Add(this.label1);
+            this.pnTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnTop.Location = new System.Drawing.Point(0, 0);
+            this.pnTop.Name = "pnTop";
+            this.pnTop.Size = new System.Drawing.Size(1213, 51);
+            this.pnTop.TabIndex = 19;
             // 
             // RefferrerForm
             // 
@@ -363,15 +363,15 @@
             this.Controls.Add(this.pnBoss);
             this.Name = "RefferrerForm";
             this.pnBoss.ResumeLayout(false);
-            this.pnTop.ResumeLayout(false);
-            this.pnTop.PerformLayout();
+            this.pnMiddle.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.pnRight.ResumeLayout(false);
             this.gbActivity.ResumeLayout(false);
             this.tblypnRight.ResumeLayout(false);
-            this.pnMiddle.ResumeLayout(false);
             this.pnButton.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
+            this.pnTop.ResumeLayout(false);
+            this.pnTop.PerformLayout();
             this.ResumeLayout(false);
 
         }

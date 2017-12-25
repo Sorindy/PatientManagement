@@ -36,11 +36,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.gbPatientInformation = new System.Windows.Forms.GroupBox();
             this.tblypnPatientInformation = new System.Windows.Forms.TableLayoutPanel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.txtPatientId = new System.Windows.Forms.TextBox();
-            this.txtPatientName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.txtPatientName = new System.Windows.Forms.TextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.gbActivity = new System.Windows.Forms.GroupBox();
             this.tblypnActivity = new System.Windows.Forms.TableLayoutPanel();
             this.label6 = new System.Windows.Forms.Label();
@@ -54,10 +52,8 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.gbDoctorInformation = new System.Windows.Forms.GroupBox();
             this.tblypnDoctorInformation = new System.Windows.Forms.TableLayoutPanel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtStaffName = new System.Windows.Forms.TextBox();
-            this.txtStaffID = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.txtStaffName = new System.Windows.Forms.TextBox();
             this.pnBoss = new System.Windows.Forms.Panel();
             this.pnMidle = new System.Windows.Forms.Panel();
             this.dtgInformation = new System.Windows.Forms.DataGridView();
@@ -87,175 +83,158 @@
             this.label1.Font = new System.Drawing.Font("Modern No. 20", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(667, 47);
+            this.label1.Size = new System.Drawing.Size(667, 62);
             this.label1.TabIndex = 0;
-            this.label1.Text = "                                           Dating List";
+            this.label1.Text = "​​​​​​​​​​​​​​​                                         តារាងការណាត់ជួប";
             // 
             // gbPatientInformation
             // 
+            this.gbPatientInformation.BackColor = System.Drawing.SystemColors.Highlight;
             this.gbPatientInformation.Controls.Add(this.tblypnPatientInformation);
             this.gbPatientInformation.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbPatientInformation.Font = new System.Drawing.Font("Modern No. 20", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbPatientInformation.Location = new System.Drawing.Point(676, 50);
+            this.gbPatientInformation.Location = new System.Drawing.Point(3, 65);
             this.gbPatientInformation.Name = "gbPatientInformation";
-            this.gbPatientInformation.Size = new System.Drawing.Size(668, 86);
+            this.gbPatientInformation.Size = new System.Drawing.Size(667, 71);
             this.gbPatientInformation.TabIndex = 1;
             this.gbPatientInformation.TabStop = false;
-            this.gbPatientInformation.Text = "Patient-Information";
+            this.gbPatientInformation.Text = "ពត័មានអ្នកជំងឺ";
             // 
             // tblypnPatientInformation
             // 
-            this.tblypnPatientInformation.ColumnCount = 4;
-            this.tblypnPatientInformation.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.87708F));
-            this.tblypnPatientInformation.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 63.12292F));
-            this.tblypnPatientInformation.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 138F));
-            this.tblypnPatientInformation.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 224F));
-            this.tblypnPatientInformation.Controls.Add(this.label2, 0, 0);
-            this.tblypnPatientInformation.Controls.Add(this.btnSearch, 1, 1);
-            this.tblypnPatientInformation.Controls.Add(this.txtPatientId, 1, 0);
-            this.tblypnPatientInformation.Controls.Add(this.txtPatientName, 3, 0);
-            this.tblypnPatientInformation.Controls.Add(this.label3, 2, 0);
+            this.tblypnPatientInformation.ColumnCount = 3;
+            this.tblypnPatientInformation.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.31532F));
+            this.tblypnPatientInformation.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.63964F));
+            this.tblypnPatientInformation.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45.04504F));
+            this.tblypnPatientInformation.Controls.Add(this.label3, 0, 0);
+            this.tblypnPatientInformation.Controls.Add(this.txtPatientName, 1, 0);
+            this.tblypnPatientInformation.Controls.Add(this.btnSearch, 2, 0);
             this.tblypnPatientInformation.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tblypnPatientInformation.Location = new System.Drawing.Point(3, 15);
             this.tblypnPatientInformation.Name = "tblypnPatientInformation";
-            this.tblypnPatientInformation.RowCount = 2;
-            this.tblypnPatientInformation.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblypnPatientInformation.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblypnPatientInformation.Size = new System.Drawing.Size(662, 68);
+            this.tblypnPatientInformation.RowCount = 1;
+            this.tblypnPatientInformation.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tblypnPatientInformation.Size = new System.Drawing.Size(661, 53);
             this.tblypnPatientInformation.TabIndex = 44;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(104, 34);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Patient Id";
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSearch.Location = new System.Drawing.Point(113, 37);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(183, 28);
-            this.btnSearch.TabIndex = 43;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // txtPatientId
-            // 
-            this.txtPatientId.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtPatientId.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPatientId.Location = new System.Drawing.Point(113, 3);
-            this.txtPatientId.Multiline = true;
-            this.txtPatientId.Name = "txtPatientId";
-            this.txtPatientId.ReadOnly = true;
-            this.txtPatientId.Size = new System.Drawing.Size(183, 28);
-            this.txtPatientId.TabIndex = 3;
-            this.txtPatientId.TextChanged += new System.EventHandler(this.txtPatientId_TextChanged);
-            // 
-            // txtPatientName
-            // 
-            this.txtPatientName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtPatientName.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPatientName.Location = new System.Drawing.Point(440, 3);
-            this.txtPatientName.Multiline = true;
-            this.txtPatientName.Name = "txtPatientName";
-            this.txtPatientName.ReadOnly = true;
-            this.txtPatientName.Size = new System.Drawing.Size(219, 28);
-            this.txtPatientName.TabIndex = 4;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label3.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(302, 0);
+            this.label3.Location = new System.Drawing.Point(3, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(132, 34);
+            this.label3.Size = new System.Drawing.Size(148, 53);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Patient Name";
+            this.label3.Text = "ឈ្នោះអ្នកជំងឺ";
+            // 
+            // txtPatientName
+            // 
+            this.txtPatientName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtPatientName.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPatientName.Location = new System.Drawing.Point(157, 3);
+            this.txtPatientName.Multiline = true;
+            this.txtPatientName.Name = "txtPatientName";
+            this.txtPatientName.ReadOnly = true;
+            this.txtPatientName.Size = new System.Drawing.Size(203, 47);
+            this.txtPatientName.TabIndex = 4;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnSearch.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Location = new System.Drawing.Point(366, 3);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(292, 47);
+            this.btnSearch.TabIndex = 43;
+            this.btnSearch.Text = "ស្វែងរក";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // gbActivity
             // 
+            this.gbActivity.BackColor = System.Drawing.SystemColors.Highlight;
             this.gbActivity.Controls.Add(this.tblypnActivity);
             this.gbActivity.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbActivity.Font = new System.Drawing.Font("Modern No. 20", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbActivity.Location = new System.Drawing.Point(3, 3);
+            this.gbActivity.Location = new System.Drawing.Point(676, 65);
             this.gbActivity.Name = "gbActivity";
-            this.gbActivity.Size = new System.Drawing.Size(194, 103);
+            this.gbActivity.Size = new System.Drawing.Size(668, 71);
             this.gbActivity.TabIndex = 2;
             this.gbActivity.TabStop = false;
-            this.gbActivity.Text = "Activity";
+            this.gbActivity.Text = "ប្រតិបត្តិការ";
             // 
             // tblypnActivity
             // 
-            this.tblypnActivity.ColumnCount = 1;
-            this.tblypnActivity.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tblypnActivity.ColumnCount = 3;
+            this.tblypnActivity.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.31579F));
+            this.tblypnActivity.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.84211F));
+            this.tblypnActivity.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.84211F));
             this.tblypnActivity.Controls.Add(this.label6, 0, 0);
-            this.tblypnActivity.Controls.Add(this.dtpDating, 0, 2);
-            this.tblypnActivity.Controls.Add(this.txtDatingId, 0, 1);
+            this.tblypnActivity.Controls.Add(this.dtpDating, 2, 0);
+            this.tblypnActivity.Controls.Add(this.txtDatingId, 1, 0);
             this.tblypnActivity.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tblypnActivity.Location = new System.Drawing.Point(3, 15);
             this.tblypnActivity.Name = "tblypnActivity";
-            this.tblypnActivity.RowCount = 3;
-            this.tblypnActivity.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 32.3741F));
-            this.tblypnActivity.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.35971F));
-            this.tblypnActivity.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 42.26619F));
-            this.tblypnActivity.Size = new System.Drawing.Size(188, 85);
+            this.tblypnActivity.RowCount = 1;
+            this.tblypnActivity.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tblypnActivity.Size = new System.Drawing.Size(662, 53);
             this.tblypnActivity.TabIndex = 51;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label6.Font = new System.Drawing.Font("Modern No. 20", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(3, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(58, 14);
+            this.label6.Size = new System.Drawing.Size(168, 53);
             this.label6.TabIndex = 49;
             this.label6.Text = "dating-Id";
             // 
             // dtpDating
             // 
             this.dtpDating.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtpDating.Font = new System.Drawing.Font("Modern No. 20", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpDating.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpDating.Location = new System.Drawing.Point(3, 51);
+            this.dtpDating.Location = new System.Drawing.Point(420, 3);
             this.dtpDating.Name = "dtpDating";
-            this.dtpDating.Size = new System.Drawing.Size(182, 19);
+            this.dtpDating.Size = new System.Drawing.Size(239, 39);
             this.dtpDating.TabIndex = 50;
             // 
             // txtDatingId
             // 
             this.txtDatingId.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtDatingId.Location = new System.Drawing.Point(3, 30);
+            this.txtDatingId.Location = new System.Drawing.Point(177, 3);
             this.txtDatingId.Multiline = true;
             this.txtDatingId.Name = "txtDatingId";
             this.txtDatingId.ReadOnly = true;
-            this.txtDatingId.Size = new System.Drawing.Size(182, 15);
+            this.txtDatingId.Size = new System.Drawing.Size(237, 47);
             this.txtDatingId.TabIndex = 48;
             // 
             // btnAdd
             // 
+            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnAdd.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Modern No. 20", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(3, 112);
+            this.btnAdd.Location = new System.Drawing.Point(3, 3);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(194, 76);
+            this.btnAdd.Size = new System.Drawing.Size(194, 86);
             this.btnAdd.TabIndex = 47;
             this.btnAdd.Text = "Add";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnShow
             // 
             this.btnShow.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnShow.Font = new System.Drawing.Font("Modern No. 20", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnShow.Location = new System.Drawing.Point(3, 194);
+            this.btnShow.Location = new System.Drawing.Point(3, 95);
             this.btnShow.Name = "btnShow";
-            this.btnShow.Size = new System.Drawing.Size(194, 73);
+            this.btnShow.Size = new System.Drawing.Size(194, 86);
             this.btnShow.TabIndex = 46;
             this.btnShow.Text = "Show";
             this.btnShow.UseVisualStyleBackColor = true;
@@ -264,10 +243,11 @@
             // btnDelete
             // 
             this.btnDelete.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("Modern No. 20", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(3, 343);
+            this.btnDelete.Location = new System.Drawing.Point(3, 279);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(194, 61);
+            this.btnDelete.Size = new System.Drawing.Size(194, 86);
             this.btnDelete.TabIndex = 45;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -275,35 +255,40 @@
             // 
             // btnClose
             // 
+            this.btnClose.BackColor = System.Drawing.Color.Red;
             this.btnClose.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Modern No. 20", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Location = new System.Drawing.Point(3, 474);
+            this.btnClose.Location = new System.Drawing.Point(3, 463);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(194, 81);
+            this.btnClose.Size = new System.Drawing.Size(194, 92);
             this.btnClose.TabIndex = 43;
             this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnClear
             // 
+            this.btnClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnClear.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Modern No. 20", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(3, 410);
+            this.btnClear.Location = new System.Drawing.Point(3, 371);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(194, 58);
+            this.btnClear.Size = new System.Drawing.Size(194, 86);
             this.btnClear.TabIndex = 42;
             this.btnClear.Text = "Clear";
-            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnUpdate
             // 
             this.btnUpdate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.Font = new System.Drawing.Font("Modern No. 20", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(3, 273);
+            this.btnUpdate.Location = new System.Drawing.Point(3, 187);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(194, 64);
+            this.btnUpdate.Size = new System.Drawing.Size(194, 86);
             this.btnUpdate.TabIndex = 41;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -311,79 +296,53 @@
             // 
             // gbDoctorInformation
             // 
+            this.gbDoctorInformation.BackColor = System.Drawing.SystemColors.Highlight;
             this.gbDoctorInformation.Controls.Add(this.tblypnDoctorInformation);
             this.gbDoctorInformation.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbDoctorInformation.Font = new System.Drawing.Font("Modern No. 20", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbDoctorInformation.Location = new System.Drawing.Point(3, 50);
+            this.gbDoctorInformation.Location = new System.Drawing.Point(676, 3);
             this.gbDoctorInformation.Name = "gbDoctorInformation";
-            this.gbDoctorInformation.Size = new System.Drawing.Size(667, 86);
+            this.gbDoctorInformation.Size = new System.Drawing.Size(668, 56);
             this.gbDoctorInformation.TabIndex = 4;
             this.gbDoctorInformation.TabStop = false;
-            this.gbDoctorInformation.Text = "Doctor Information";
+            this.gbDoctorInformation.Text = "ពត័មានគ្រូពេទ្យ";
             // 
             // tblypnDoctorInformation
             // 
-            this.tblypnDoctorInformation.ColumnCount = 4;
+            this.tblypnDoctorInformation.ColumnCount = 2;
             this.tblypnDoctorInformation.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.71758F));
             this.tblypnDoctorInformation.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.28242F));
-            this.tblypnDoctorInformation.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 149F));
-            this.tblypnDoctorInformation.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 195F));
-            this.tblypnDoctorInformation.Controls.Add(this.label5, 0, 0);
-            this.tblypnDoctorInformation.Controls.Add(this.txtStaffName, 3, 0);
-            this.tblypnDoctorInformation.Controls.Add(this.txtStaffID, 1, 0);
-            this.tblypnDoctorInformation.Controls.Add(this.label4, 2, 0);
+            this.tblypnDoctorInformation.Controls.Add(this.label4, 0, 0);
+            this.tblypnDoctorInformation.Controls.Add(this.txtStaffName, 1, 0);
             this.tblypnDoctorInformation.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tblypnDoctorInformation.Location = new System.Drawing.Point(3, 15);
             this.tblypnDoctorInformation.Name = "tblypnDoctorInformation";
             this.tblypnDoctorInformation.RowCount = 1;
             this.tblypnDoctorInformation.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblypnDoctorInformation.Size = new System.Drawing.Size(661, 68);
+            this.tblypnDoctorInformation.Size = new System.Drawing.Size(662, 38);
             this.tblypnDoctorInformation.TabIndex = 8;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(3, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(100, 68);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Doctor Id";
-            // 
-            // txtStaffName
-            // 
-            this.txtStaffName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtStaffName.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStaffName.Location = new System.Drawing.Point(468, 3);
-            this.txtStaffName.Multiline = true;
-            this.txtStaffName.Name = "txtStaffName";
-            this.txtStaffName.ReadOnly = true;
-            this.txtStaffName.Size = new System.Drawing.Size(190, 62);
-            this.txtStaffName.TabIndex = 7;
-            // 
-            // txtStaffID
-            // 
-            this.txtStaffID.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtStaffID.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStaffID.Location = new System.Drawing.Point(109, 3);
-            this.txtStaffID.Multiline = true;
-            this.txtStaffID.Name = "txtStaffID";
-            this.txtStaffID.ReadOnly = true;
-            this.txtStaffID.Size = new System.Drawing.Size(204, 62);
-            this.txtStaffID.TabIndex = 6;
-            this.txtStaffID.TextChanged += new System.EventHandler(this.txtStaffID_TextChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label4.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(319, 0);
+            this.label4.Location = new System.Drawing.Point(3, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(143, 68);
+            this.label4.Size = new System.Drawing.Size(217, 38);
             this.label4.TabIndex = 5;
-            this.label4.Text = "Doctor Name";
+            this.label4.Text = "ឈ្មោះគ្រូពេទ្យ";
+            // 
+            // txtStaffName
+            // 
+            this.txtStaffName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtStaffName.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStaffName.Location = new System.Drawing.Point(226, 3);
+            this.txtStaffName.Multiline = true;
+            this.txtStaffName.Name = "txtStaffName";
+            this.txtStaffName.ReadOnly = true;
+            this.txtStaffName.Size = new System.Drawing.Size(433, 32);
+            this.txtStaffName.TabIndex = 7;
             // 
             // pnBoss
             // 
@@ -482,25 +441,23 @@
             // tblypnRight
             // 
             this.tblypnRight.ColumnCount = 1;
-            this.tblypnRight.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblypnRight.Controls.Add(this.btnAdd, 0, 1);
-            this.tblypnRight.Controls.Add(this.btnShow, 0, 2);
-            this.tblypnRight.Controls.Add(this.btnUpdate, 0, 3);
-            this.tblypnRight.Controls.Add(this.btnClose, 0, 6);
-            this.tblypnRight.Controls.Add(this.btnDelete, 0, 4);
-            this.tblypnRight.Controls.Add(this.btnClear, 0, 5);
-            this.tblypnRight.Controls.Add(this.gbActivity, 0, 0);
+            this.tblypnRight.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tblypnRight.Controls.Add(this.btnAdd, 0, 0);
+            this.tblypnRight.Controls.Add(this.btnShow, 0, 1);
+            this.tblypnRight.Controls.Add(this.btnUpdate, 0, 2);
+            this.tblypnRight.Controls.Add(this.btnDelete, 0, 3);
+            this.tblypnRight.Controls.Add(this.btnClear, 0, 4);
+            this.tblypnRight.Controls.Add(this.btnClose, 0, 5);
             this.tblypnRight.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tblypnRight.Location = new System.Drawing.Point(0, 0);
             this.tblypnRight.Name = "tblypnRight";
-            this.tblypnRight.RowCount = 7;
-            this.tblypnRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblypnRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 82F));
-            this.tblypnRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 79F));
-            this.tblypnRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
-            this.tblypnRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 67F));
-            this.tblypnRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 64F));
-            this.tblypnRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 87F));
+            this.tblypnRight.RowCount = 6;
+            this.tblypnRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tblypnRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tblypnRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tblypnRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tblypnRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tblypnRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tblypnRight.Size = new System.Drawing.Size(200, 558);
             this.tblypnRight.TabIndex = 7;
             // 
@@ -518,15 +475,16 @@
             this.tblypnTop.ColumnCount = 2;
             this.tblypnTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tblypnTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblypnTop.Controls.Add(this.gbDoctorInformation, 0, 1);
-            this.tblypnTop.Controls.Add(this.gbPatientInformation, 1, 1);
             this.tblypnTop.Controls.Add(this.label1, 0, 0);
+            this.tblypnTop.Controls.Add(this.gbDoctorInformation, 1, 0);
+            this.tblypnTop.Controls.Add(this.gbPatientInformation, 0, 1);
+            this.tblypnTop.Controls.Add(this.gbActivity, 1, 1);
             this.tblypnTop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tblypnTop.Location = new System.Drawing.Point(0, 0);
             this.tblypnTop.Name = "tblypnTop";
             this.tblypnTop.RowCount = 2;
-            this.tblypnTop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.81295F));
-            this.tblypnTop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.18705F));
+            this.tblypnTop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 45.32374F));
+            this.tblypnTop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 54.67626F));
             this.tblypnTop.Size = new System.Drawing.Size(1347, 139);
             this.tblypnTop.TabIndex = 6;
             // 
@@ -566,20 +524,16 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox gbPatientInformation;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox gbActivity;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.TextBox txtPatientName;
-        private System.Windows.Forms.TextBox txtPatientId;
         private System.Windows.Forms.Button btnShow;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.GroupBox gbDoctorInformation;
         private System.Windows.Forms.TextBox txtStaffName;
-        private System.Windows.Forms.TextBox txtStaffID;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox txtDatingId;

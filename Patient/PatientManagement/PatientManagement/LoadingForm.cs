@@ -12,7 +12,7 @@ namespace PatientManagement
         internal Hospital_Entity_Framework.WaitingList WaitingList  ;
         private WaitingList _waitingList;
         private NurseRespone _nurseRespone;
-        internal MedicalForm MedicalForm;
+        internal MedicalsForm MedicalsForm;
         internal WaitingListForm Waitinglistform;
 
         public LoadingForm()
@@ -54,15 +54,18 @@ namespace PatientManagement
             {
                 if (_patientstatus == "True")
                 {
-                    MedicalForm.txtPatientID.Text = _waitingList.GetWaitingListObject(_waitingid).PatientId.ToString();
-                    MedicalForm.txtPatientName.Text = _waitingList.GetWaitingListObject(_waitingid).Patient.Name;
+                    MedicalsForm.txtNamePatient.Text  = _waitingList.GetWaitingListObject(_waitingid).Patient.Name;
+                    MedicalsForm.txtGenderPatient.Text = _waitingList.GetWaitingListObject(_waitingid).Patient.Gender;
+                    MedicalsForm.WaitingList = WaitingList;
+                    MedicalsForm.Patient= _waitingList.GetWaitingListObject(_waitingid).Patient;
                     Waitinglistform.Close();
                     Close();
+                   
                 }
                 else
                 {
                     timer.Stop();
-                    MessageBox.Show("This Patient is Not Available...!");
+                    MessageBox.Show(@"This Patient is Not Available...!");
                     Close();
                 }
             }

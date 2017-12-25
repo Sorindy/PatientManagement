@@ -26,11 +26,14 @@ namespace PatientManagement
         internal WaitingList WaitingList;
         private ICategory _category;
         private readonly MedicalRecord _medical=new MedicalRecord();
+        private readonly Dating _dating = new Dating();
 
         private void sampleToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
+
+
 
         private void MedicalsForm_Shown(object sender, EventArgs e)
         {
@@ -131,18 +134,20 @@ namespace PatientManagement
         {
             var datinglistform = new DatingListForm
             {
-                StaffId = txtNameDoctor.Text,
-                PatientId = txtNamePatient.Text
+                Worker = Account.Worker,
+                Patient = Patient
             };
             datinglistform.ShowDialog();
         }
 
         private void btmWaitingList_Click(object sender, EventArgs e)
         {
+          
             var waitinglistform = new WaitingListForm
-            {
-                GetStaffCategory = cboCategory.Text,
-                Worker = Worker
+            { 
+                GetStaffCategory = cboCategory.ValueMember,
+                Worker = Account.Worker,
+                Medicalsform =this
             };
             waitinglistform.ShowDialog();
         }
@@ -214,6 +219,12 @@ namespace PatientManagement
                     cboCategory.ValueMember = "Key";
                 }
             }
+        }
+
+        private void picAddDate_Click(object sender, EventArgs e)
+        {
+            _dating.Insert(Patient.Id, Account.Worker.Id, dtpDate.Value);
+            MessageBox.Show(@"Dating is Complect....");
         }
     }
 }
