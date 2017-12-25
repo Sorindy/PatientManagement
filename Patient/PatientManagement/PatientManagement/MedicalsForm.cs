@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using PatientManagement.Class;
 using PatientManagement.Interface;
@@ -26,10 +27,13 @@ namespace PatientManagement
         internal WaitingList WaitingList;
         private ICategory _category;
         private readonly MedicalRecord _medical=new MedicalRecord();
+        private int _key;
 
         private void sampleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            
+            var form=new SamplesDialogForm(){MedicalsForm = this,CategoryId = _key,ServiceText = cboService.Text};
+            form.ShowDialog();
         }
 
         private void MedicalsForm_Shown(object sender, EventArgs e)
@@ -39,21 +43,6 @@ namespace PatientManagement
             picHideRight.ImageLocation = _path + @"Hide-right-icon.png";
             picHideTop.ImageLocation = _path + @"Hide-Up-icon.png";
             txtNameDoctor.Text = Account.Worker.Name;
-            var dicNurse = _medical.ShowNurse();
-            if (dicNurse.Count != 0)
-            {
-                cboNurse.DataSource=new BindingSource(dicNurse,null);
-                cboNurse.DisplayMember = "Value";
-                cboNurse.ValueMember = "Key";
-            }
-            var dicReferrer = _medical.ShowReferrer();
-            if (dicReferrer.Count != 0)
-            {
-                cboReferrer.DataSource=new BindingSource(dicReferrer,null);
-                cboReferrer.DisplayMember = "Value";
-                cboReferrer.ValueMember = "Key";
-            }
-
         }
 
         private void picHideTop_Click(object sender, EventArgs e)
@@ -214,6 +203,50 @@ namespace PatientManagement
                     cboCategory.ValueMember = "Key";
                 }
             }
+        }
+
+        private void chkBoxReferrer_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkBoxReferrer.Checked)
+            {
+                var dicReferrer = _medical.ShowReferrer();
+                if (dicReferrer.Count != 0)
+                {
+                    cboReferrer.DataSource = new BindingSource(dicReferrer, null);
+                    cboReferrer.DisplayMember = "Value";
+                    cboReferrer.ValueMember = "Key";
+                }
+            }
+            else
+            {
+                cboReferrer.DataSource = null;
+            }
+        }
+
+        private void chkBoxNurse_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkBoxNurse.Checked)
+            {
+                var dicNurse = _medical.ShowNurse();
+                if (dicNurse.Count != 0)
+                {
+                    cboNurse.DataSource = new BindingSource(dicNurse, null);
+                    cboNurse.DisplayMember = "Value";
+                    cboNurse.ValueMember = "Key";
+                }
+            }
+            else
+            {
+                cboNurse.DataSource = null;
+            }
+        }
+
+        private void cboCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboCategory.DataSource == null) return;
+
+            var selectedItem = cboCategory.SelectedIndex;
+            _key = selectedItem;
         }
     }
 }

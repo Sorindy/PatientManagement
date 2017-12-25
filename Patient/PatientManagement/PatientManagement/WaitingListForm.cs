@@ -30,11 +30,15 @@ namespace PatientManagement
             {
 
                 _nurseRespone = new NurseRespone();
-                _nurseRespone.Insert(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[1].Value.ToString()), Worker.Id); 
-                var loadingform = new LoadingForm();
-                loadingform.WaitingList = _waitingList.GetWaitingListObject(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[1].Value));
-                loadingform.MedicalForm = Medicalform;
-                loadingform.Waitinglistform = this;
+                _nurseRespone.Insert(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[1].Value.ToString()), Worker.Id);
+                var loadingform = new LoadingForm
+                {
+                    WaitingList =
+                        _waitingList.GetWaitingListObject(
+                            Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[1].Value)),
+                    MedicalForm = Medicalform,
+                    Waitinglistform = this
+                };
                 loadingform.ShowDialog( );
             }
             
