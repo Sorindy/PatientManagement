@@ -138,12 +138,12 @@ namespace PatientManagement
 
         private void btnDatinglist_Click(object sender, EventArgs e)
         {
-            var dating = new DatingListForm
-            {
-                StaffId = txtStaffID.Text,
-                PatientId = txtPatientID.Text
-            };
-            dating.Show();
+            //var dating = new DatingListForm
+            //{
+            //    StaffId = txtStaffID.Text,
+            //    PatientId = txtPatientID.Text
+            //};
+            //dating.Show();
             Refresh();
         }
 
@@ -169,7 +169,7 @@ namespace PatientManagement
         {
             var waitinglistform = new WaitingListForm {GetStaffCategory = cmbCategory.Text};
             waitinglistform.Worker = Worker;
-            waitinglistform.Medicalform = this;
+           // waitinglistform.Medicalsform = this;
             waitinglistform.ShowDialog();
             gbDating.Enabled = true;
             gbMedicalItem.Enabled = true;

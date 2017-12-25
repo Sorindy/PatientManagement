@@ -870,6 +870,7 @@
             this.picAddDate.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picAddDate.TabIndex = 5;
             this.picAddDate.TabStop = false;
+            this.picAddDate.Click += new System.EventHandler(this.picAddDate_Click);
             // 
             // tableLayoutPanel20
             // 
@@ -1256,8 +1257,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel13;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel14;
-        private System.Windows.Forms.TextBox txtGenderPatient;
-        private System.Windows.Forms.TextBox txtNamePatient;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel17;
         private System.Windows.Forms.ComboBox cboCategory;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel16;
@@ -1286,5 +1285,7 @@
         private System.Windows.Forms.Button btnInfoReferrer;
         private System.Windows.Forms.CheckBox chkBoxNurse;
         private System.Windows.Forms.CheckBox chkBoxReferrer;
+        internal System.Windows.Forms.TextBox txtGenderPatient;
+        internal System.Windows.Forms.TextBox txtNamePatient;
     }
 }

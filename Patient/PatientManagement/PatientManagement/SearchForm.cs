@@ -95,8 +95,8 @@ namespace PatientManagement
                 Hide();
                 var datingForm = new DatingListForm();
                 datingForm.Show();
-                datingForm.StaffId = Staffid;
-                datingForm.PatientId = getid;
+                //datingForm.StaffId = Staffid;
+                //datingForm.PatientId = getid;
             } 
             Refresh();
         }

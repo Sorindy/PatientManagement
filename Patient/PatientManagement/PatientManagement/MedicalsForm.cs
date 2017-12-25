@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using PatientManagement.Class;
 using PatientManagement.Interface;
@@ -28,6 +27,7 @@ namespace PatientManagement
         private ICategory _category;
         private readonly MedicalRecord _medical=new MedicalRecord();
         private int _key;
+        private readonly Dating _dating = new Dating();
 
         private void sampleToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -35,6 +35,8 @@ namespace PatientManagement
             var form=new SamplesDialogForm(){MedicalsForm = this,CategoryId = _key,ServiceText = cboService.Text};
             form.ShowDialog();
         }
+
+
 
         private void MedicalsForm_Shown(object sender, EventArgs e)
         {
@@ -120,18 +122,20 @@ namespace PatientManagement
         {
             var datinglistform = new DatingListForm
             {
-                StaffId = txtNameDoctor.Text,
-                PatientId = txtNamePatient.Text
+                Worker = Account.Worker,
+                Patient = Patient
             };
             datinglistform.ShowDialog();
         }
 
         private void btmWaitingList_Click(object sender, EventArgs e)
         {
+          
             var waitinglistform = new WaitingListForm
-            {
-                GetStaffCategory = cboCategory.Text,
-                Worker = Worker
+            { 
+                GetStaffCategory = cboCategory.ValueMember,
+                Worker = Account.Worker,
+                Medicalsform =this
             };
             waitinglistform.ShowDialog();
         }
@@ -247,6 +251,12 @@ namespace PatientManagement
 
             var selectedItem = cboCategory.SelectedIndex;
             _key = selectedItem;
+        }
+
+        private void picAddDate_Click(object sender, EventArgs e)
+        {
+            _dating.Insert(Patient.Id, Account.Worker.Id, dtpDate.Value);
+            MessageBox.Show(@"Dating is Complect....");
         }
     }
 }

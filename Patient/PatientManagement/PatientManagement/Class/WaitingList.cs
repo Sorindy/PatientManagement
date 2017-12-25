@@ -1,5 +1,4 @@
-﻿using System;
-using System.Data.Entity.Migrations;
+﻿using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Windows.Forms;
 using Hospital_Entity_Framework;
@@ -136,5 +135,11 @@ namespace PatientManagement.Class
             _db.SaveChanges();
         }
 
+        public void DeleteWaitingList(int waitingid)
+        {
+            var delete = _db.WaitingLists.Single(v => v.Id == waitingid);
+            _db.WaitingLists.Remove(delete);
+            _db.SaveChanges();
+        }
     }
 }

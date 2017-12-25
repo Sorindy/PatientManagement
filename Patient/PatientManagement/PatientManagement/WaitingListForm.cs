@@ -11,7 +11,7 @@ namespace PatientManagement
         internal Hospital_Entity_Framework.Worker Worker;
         private WaitingList _waitingList = new WaitingList() ;
         private NurseRespone _nurseRespone;
-        internal MedicalForm Medicalform;
+        internal MedicalsForm Medicalsform;
         private bool? _num ;
 
         public Hospital_Entity_Framework.WaitingList WaitingList;
@@ -22,26 +22,6 @@ namespace PatientManagement
         public WaitingListForm()
         {
             InitializeComponent();
-        }
-
-        private void btnSubmit_Click(object sender, EventArgs e)
-        {
-            if (dgvWaitingCategory.CurrentRow != null)
-            {
-
-                _nurseRespone = new NurseRespone();
-                _nurseRespone.Insert(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[1].Value.ToString()), Worker.Id);
-                var loadingform = new LoadingForm
-                {
-                    WaitingList =
-                        _waitingList.GetWaitingListObject(
-                            Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[1].Value)),
-                    MedicalForm = Medicalform,
-                    Waitinglistform = this
-                };
-                loadingform.ShowDialog( );
-            }
-            
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -80,8 +60,22 @@ namespace PatientManagement
                 if (dgvWaitingCategory.CurrentRow != null)
                 {
                     _waitingList.UpdatePatientStatus(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[1].Value),_num);
-                   // dgvWaitingCategory.DataSource = _waitingList.ShowWaiting(GetStaffCategory);
                 }
+            }
+        }
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            if (dgvWaitingCategory.CurrentRow != null)
+            {
+
+                _nurseRespone = new NurseRespone();
+                _nurseRespone.Insert(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[1].Value.ToString()), Worker.Id);
+                var loadingform = new LoadingForm();
+                loadingform.WaitingList = _waitingList.GetWaitingListObject(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[1].Value));
+                loadingform.MedicalsForm = Medicalsform;
+                loadingform.Waitinglistform = this;
+                loadingform.ShowDialog();
             }
         }
 
