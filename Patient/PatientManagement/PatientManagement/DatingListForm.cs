@@ -2,6 +2,7 @@
 using System.Globalization;
 using System.Windows.Forms;
 using Hospital_Entity_Framework;
+using WinFormAnimation;
 using Dating = PatientManagement.Class.Dating;
 using Form = System.Windows.Forms.Form;
 
@@ -21,8 +22,15 @@ namespace PatientManagement
 
         private void DatingListForm_Load(object sender, EventArgs e)
         {
-            txtPatientName.Text = Patient.Name;
-            txtStaffName.Text = Worker.Name;
+            if (Patient != null )
+            {
+                txtPatientName.Text = Patient.Name;
+            }
+            if (Worker != null)
+            {
+                txtStaffName.Text = Worker.Name;
+            }
+            
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -38,7 +46,11 @@ namespace PatientManagement
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            
+            var searchpatient = new SearchPatient
+            {
+                Datinglistform=this
+            };
+            searchpatient.ShowDialog();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
