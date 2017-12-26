@@ -31,8 +31,12 @@ namespace PatientManagement
 
         private void sampleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
-            var form=new SamplesDialogForm(){MedicalsForm = this,CategoryId = _key,ServiceText = cboService.Text};
+            string html;
+            txtDescription.Save(out html, TXTextControl.StringStreamType.HTMLFormat);
+            txtDescription.Load(html, TXTextControl.StringStreamType.HTMLFormat);
+
+
+            var form=new SamplesDialogForm(){MedicalsForm = this,CategoryId = _key,ServiceText = cboService.Text,Str = html};
             form.ShowDialog();
         }
 
@@ -258,5 +262,51 @@ namespace PatientManagement
             _dating.Insert(Patient.Id, Account.Worker.Id, dtpDate.Value);
             MessageBox.Show(@"Dating is Complect....");
         }
+
+        private void imageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            txtDescription.Images.Add();
+        }
+
+        private void fontToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            txtDescription.FontDialog();
+        }
+
+        private void textColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            txtDescription.TextBackColorDialog();
+        }
+
+        private void selectForeColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            txtDescription.ForeColorDialog();
+        }
+
+        private void frameFillColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            txtDescription.FrameFillColorDialog();
+        }
+
+        private void tableToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            txtDescription.Tables.Add();
+        }
+
+        private void tabToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            txtDescription.TabDialog();
+        }
+
+        private void pageColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            txtDescription.PageColorDialog();
+        }
+
+        private void formatStyleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            txtDescription.FormattingStylesDialog();
+        }
+
     }
 }

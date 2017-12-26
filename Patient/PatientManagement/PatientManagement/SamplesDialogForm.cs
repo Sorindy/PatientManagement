@@ -23,6 +23,7 @@ namespace PatientManagement
         private ICategory _category;
         private bool _mouseDown;
         private Point _lastLocation;
+        internal string Str;
 
         private void SamplesDialogForm_Shown(object sender, EventArgs e)
         {
@@ -256,6 +257,68 @@ namespace PatientManagement
         private void btnClose_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            if (txtDescription.Text != "")
+            {
+                string html;
+                txtDescription.Save(out html, StringStreamType.HTMLFormat);
+                txtDescription.Load(html, StringStreamType.HTMLFormat);
+                MedicalsForm.txtDescription.Load(Str+html, StringStreamType.HTMLFormat);
+                
+                Close();
+            }
+            else
+            {
+                MessageBox.Show(@"Please select sample to input.", @"Error");
+            }
+        }
+
+        private void fontToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            txtDescription.FontDialog();
+        }
+
+        private void textColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            txtDescription.TextBackColorDialog();
+        }
+
+        private void tableToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            txtDescription.Tables.Add();
+        }
+
+        private void imageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            txtDescription.Images.Add();
+        }
+
+        private void tabToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            txtDescription.TabDialog();
+        }
+
+        private void pageColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            txtDescription.PageColorDialog();
+        }
+
+        private void formatStyleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            txtDescription.FormattingStylesDialog();
+        }
+
+        private void selectForeColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            txtDescription.ForeColorDialog();
+        }
+
+        private void frameFillColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            txtDescription.FrameFillColorDialog();
         }
     }
 }
