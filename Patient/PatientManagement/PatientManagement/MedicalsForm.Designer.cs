@@ -57,8 +57,10 @@
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
             this.cboNurse = new System.Windows.Forms.ComboBox();
+            this.chkBoxNurse = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
             this.cboReferrer = new System.Windows.Forms.ComboBox();
+            this.chkBoxReferrer = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.tableLayoutPanel21 = new System.Windows.Forms.TableLayoutPanel();
@@ -380,6 +382,7 @@
             this.cboCategory.Name = "cboCategory";
             this.cboCategory.Size = new System.Drawing.Size(203, 32);
             this.cboCategory.TabIndex = 1;
+            this.cboCategory.SelectedIndexChanged += new System.EventHandler(this.cboCategory_SelectedIndexChanged);
             // 
             // tableLayoutPanel16
             // 
@@ -508,9 +511,11 @@
             // 
             // tableLayoutPanel19
             // 
-            this.tableLayoutPanel19.ColumnCount = 1;
+            this.tableLayoutPanel19.ColumnCount = 2;
             this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel19.Controls.Add(this.cboNurse, 0, 0);
+            this.tableLayoutPanel19.Controls.Add(this.chkBoxNurse, 1, 1);
             this.tableLayoutPanel19.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel19.Location = new System.Drawing.Point(120, 90);
             this.tableLayoutPanel19.Name = "tableLayoutPanel19";
@@ -525,18 +530,31 @@
             // 
             this.cboNurse.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cboNurse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboNurse.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboNurse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboNurse.FormattingEnabled = true;
             this.cboNurse.Location = new System.Drawing.Point(3, 3);
             this.cboNurse.Name = "cboNurse";
-            this.cboNurse.Size = new System.Drawing.Size(253, 37);
+            this.cboNurse.Size = new System.Drawing.Size(223, 28);
             this.cboNurse.TabIndex = 1;
+            // 
+            // chkBoxNurse
+            // 
+            this.chkBoxNurse.AutoSize = true;
+            this.chkBoxNurse.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chkBoxNurse.Location = new System.Drawing.Point(232, -11);
+            this.chkBoxNurse.Name = "chkBoxNurse";
+            this.chkBoxNurse.Size = new System.Drawing.Size(24, 54);
+            this.chkBoxNurse.TabIndex = 2;
+            this.chkBoxNurse.UseVisualStyleBackColor = true;
+            this.chkBoxNurse.CheckedChanged += new System.EventHandler(this.chkBoxNurse_CheckedChanged);
             // 
             // tableLayoutPanel18
             // 
-            this.tableLayoutPanel18.ColumnCount = 1;
+            this.tableLayoutPanel18.ColumnCount = 2;
             this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel18.Controls.Add(this.cboReferrer, 0, 0);
+            this.tableLayoutPanel18.Controls.Add(this.chkBoxReferrer, 1, 1);
             this.tableLayoutPanel18.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel18.Location = new System.Drawing.Point(120, 3);
             this.tableLayoutPanel18.Name = "tableLayoutPanel18";
@@ -551,12 +569,23 @@
             // 
             this.cboReferrer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cboReferrer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboReferrer.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboReferrer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboReferrer.FormattingEnabled = true;
             this.cboReferrer.Location = new System.Drawing.Point(3, 3);
             this.cboReferrer.Name = "cboReferrer";
-            this.cboReferrer.Size = new System.Drawing.Size(253, 37);
+            this.cboReferrer.Size = new System.Drawing.Size(223, 28);
             this.cboReferrer.TabIndex = 1;
+            // 
+            // chkBoxReferrer
+            // 
+            this.chkBoxReferrer.AutoSize = true;
+            this.chkBoxReferrer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chkBoxReferrer.Location = new System.Drawing.Point(232, -11);
+            this.chkBoxReferrer.Name = "chkBoxReferrer";
+            this.chkBoxReferrer.Size = new System.Drawing.Size(24, 54);
+            this.chkBoxReferrer.TabIndex = 2;
+            this.chkBoxReferrer.UseVisualStyleBackColor = true;
+            this.chkBoxReferrer.CheckedChanged += new System.EventHandler(this.chkBoxReferrer_CheckedChanged);
             // 
             // label6
             // 
@@ -1148,7 +1177,9 @@
             this.tableLayoutPanel7.ResumeLayout(false);
             this.tableLayoutPanel7.PerformLayout();
             this.tableLayoutPanel19.ResumeLayout(false);
+            this.tableLayoutPanel19.PerformLayout();
             this.tableLayoutPanel18.ResumeLayout(false);
+            this.tableLayoutPanel18.PerformLayout();
             this.tableLayoutPanel21.ResumeLayout(false);
             this.pnlButton.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
@@ -1252,6 +1283,8 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel21;
         private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.Button btnInfoReferrer;
+        private System.Windows.Forms.CheckBox chkBoxNurse;
+        private System.Windows.Forms.CheckBox chkBoxReferrer;
         internal System.Windows.Forms.TextBox txtGenderPatient;
         internal System.Windows.Forms.TextBox txtNamePatient;
     }
