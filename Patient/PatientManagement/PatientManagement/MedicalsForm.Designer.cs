@@ -1126,14 +1126,14 @@
             // tabToolStripMenuItem
             // 
             this.tabToolStripMenuItem.Name = "tabToolStripMenuItem";
-            this.tabToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.tabToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.tabToolStripMenuItem.Text = "Tab";
             this.tabToolStripMenuItem.Click += new System.EventHandler(this.tabToolStripMenuItem_Click);
             // 
             // pageColorToolStripMenuItem
             // 
             this.pageColorToolStripMenuItem.Name = "pageColorToolStripMenuItem";
-            this.pageColorToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.pageColorToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.pageColorToolStripMenuItem.Text = "Page Color";
             this.pageColorToolStripMenuItem.Click += new System.EventHandler(this.pageColorToolStripMenuItem_Click);
             // 

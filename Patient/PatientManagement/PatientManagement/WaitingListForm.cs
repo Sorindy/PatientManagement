@@ -68,7 +68,6 @@ namespace PatientManagement
         {
             if (dgvWaitingCategory.CurrentRow != null)
             {
-
                 _nurseRespone = new NurseRespone();
                 _nurseRespone.Insert(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[1].Value.ToString()), Worker.Id);
                 var loadingform = new LoadingForm();

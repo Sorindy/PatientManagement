@@ -139,7 +139,7 @@ namespace PatientManagement
           
             var waitinglistform = new WaitingListForm
             { 
-                GetStaffCategory = cboCategory.ValueMember,
+                GetStaffCategory = cboCategory.Text,
                 Worker = Account.Worker,
                 Medicalsform =this
             };
