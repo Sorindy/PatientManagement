@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateAccount));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.tblLogin = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.txtUserName = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
@@ -44,7 +45,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
+            this.tblLogin.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
@@ -56,7 +57,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.30872F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.69127F));
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.tblLogin, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -85,15 +86,18 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.BackColor = System.Drawing.Color.DarkBlue;
+            this.btnAdd.BackColor = System.Drawing.Color.SeaGreen;
             this.btnAdd.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnAdd.Font = new System.Drawing.Font("Commons", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.ForeColor = System.Drawing.Color.Silver;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Preah Vihear", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
+            this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAdd.Location = new System.Drawing.Point(3, 81);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(208, 89);
             this.btnAdd.TabIndex = 0;
-            this.btnAdd.Text = "Add";
+            this.btnAdd.Text = "បញ្ចូល";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -101,38 +105,44 @@
             // 
             this.btnClose.BackColor = System.Drawing.Color.Crimson;
             this.btnClose.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnClose.Font = new System.Drawing.Font("Commons", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.ForeColor = System.Drawing.Color.Silver;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Font = new System.Drawing.Font("Preah Vihear", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
+            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnClose.Location = new System.Drawing.Point(3, 242);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(208, 87);
             this.btnClose.TabIndex = 1;
-            this.btnClose.Text = "Close";
+            this.btnClose.Text = "ចាកចេញ";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // tableLayoutPanel3
+            // tblLogin
             // 
-            this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.53989F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 68.46011F));
-            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 1, 1);
-            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel5, 1, 2);
-            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel6, 1, 3);
-            this.tableLayoutPanel3.Controls.Add(this.label1, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.label2, 0, 2);
-            this.tableLayoutPanel3.Controls.Add(this.label3, 0, 3);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 5;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 36.90476F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 63.09524F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 96F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 98F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 56F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(539, 408);
-            this.tableLayoutPanel3.TabIndex = 1;
+            this.tblLogin.ColumnCount = 2;
+            this.tblLogin.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.53989F));
+            this.tblLogin.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 68.46011F));
+            this.tblLogin.Controls.Add(this.tableLayoutPanel4, 1, 1);
+            this.tblLogin.Controls.Add(this.tableLayoutPanel5, 1, 2);
+            this.tblLogin.Controls.Add(this.tableLayoutPanel6, 1, 3);
+            this.tblLogin.Controls.Add(this.label1, 0, 1);
+            this.tblLogin.Controls.Add(this.label2, 0, 2);
+            this.tblLogin.Controls.Add(this.label3, 0, 3);
+            this.tblLogin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tblLogin.Location = new System.Drawing.Point(3, 3);
+            this.tblLogin.Name = "tblLogin";
+            this.tblLogin.RowCount = 5;
+            this.tblLogin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 36.90476F));
+            this.tblLogin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 63.09524F));
+            this.tblLogin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 96F));
+            this.tblLogin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 98F));
+            this.tblLogin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 56F));
+            this.tblLogin.Size = new System.Drawing.Size(539, 408);
+            this.tblLogin.TabIndex = 1;
+            this.tblLogin.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tblLogin_MouseDown);
+            this.tblLogin.MouseMove += new System.Windows.Forms.MouseEventHandler(this.tblLogin_MouseMove);
+            this.tblLogin.MouseUp += new System.Windows.Forms.MouseEventHandler(this.tblLogin_MouseUp);
             // 
             // tableLayoutPanel4
             // 
@@ -152,6 +162,7 @@
             // txtUserName
             // 
             this.txtUserName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtUserName.Font = new System.Drawing.Font("Oswald Regular", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUserName.Location = new System.Drawing.Point(3, 28);
             this.txtUserName.Multiline = true;
             this.txtUserName.Name = "txtUserName";
@@ -176,6 +187,7 @@
             // txtPassword
             // 
             this.txtPassword.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtPassword.Font = new System.Drawing.Font("Oswald Regular", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.Location = new System.Drawing.Point(3, 26);
             this.txtPassword.Multiline = true;
             this.txtPassword.Name = "txtPassword";
@@ -200,6 +212,7 @@
             // txtConfirm
             // 
             this.txtConfirm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtConfirm.Font = new System.Drawing.Font("Oswald Regular", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtConfirm.Location = new System.Drawing.Point(3, 27);
             this.txtConfirm.Multiline = true;
             this.txtConfirm.Name = "txtConfirm";
@@ -252,8 +265,8 @@
             this.Shown += new System.EventHandler(this.CreateAccount_Shown);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel3.PerformLayout();
+            this.tblLogin.ResumeLayout(false);
+            this.tblLogin.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);
@@ -270,7 +283,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.TableLayoutPanel tblLogin;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.TextBox txtUserName;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;

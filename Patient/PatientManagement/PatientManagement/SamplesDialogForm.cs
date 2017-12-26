@@ -29,6 +29,7 @@ namespace PatientManagement
         {
             cboService.Text = ServiceText;
             cboService_SelectedIndexChanged(this,new EventArgs());
+            txtDescription.ForeColor = Color.Black;
         }
 
         private void cboService_SelectedIndexChanged(object sender, EventArgs e)

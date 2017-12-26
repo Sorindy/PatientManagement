@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using PatientManagement.Class;
 using PatientManagement.Interface;
@@ -49,6 +50,7 @@ namespace PatientManagement
             picHideRight.ImageLocation = _path + @"Hide-right-icon.png";
             picHideTop.ImageLocation = _path + @"Hide-Up-icon.png";
             txtNameDoctor.Text = Account.Worker.Name;
+            txtDescription.ForeColor = Color.Black;
         }
 
         private void picHideTop_Click(object sender, EventArgs e)

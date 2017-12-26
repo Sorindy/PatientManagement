@@ -14,31 +14,36 @@ namespace PatientManagement
             InitializeComponent();
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-         _refferrer.Insert(txtName.Text,txtSpeacailly.Text,txtWorkPlace.Text,txtPhone1.Text,txtPhone2.Text,txtEmail.Text);
-        }
+        //private void btnAdd_Click(object sender, EventArgs e)
+        //{
+        //    _refferrer.Insert(txtName.Text, txtSpeacailly.Text, txtWorkPlace.Text, txtPhone1.Text, txtPhone2.Text,
+        //        txtEmail.Text);
+        //}
 
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-            _refferrer.Update(Refferrer.Id, txtName.Text, txtSpeacailly.Text, txtWorkPlace.Text, txtPhone1.Text,
-                txtPhone2.Text, txtEmail.Text);
-        }
+        //private void btnUpdate_Click(object sender, EventArgs e)
+        //{
+        //    _refferrer.Update(Refferrer.Id, txtName.Text, txtSpeacailly.Text, txtWorkPlace.Text, txtPhone1.Text,
+        //        txtPhone2.Text, txtEmail.Text);
+        //}
 
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-            txtName.Text = "";
-            txtSpeacailly.Text = "";
-            txtWorkPlace.Text = "";
-            txtPhone1.Text = "";
-            txtPhone2.Text = "";
-            txtEmail.Text = "";
+        //private void btnClear_Click(object sender, EventArgs e)
+        //{
+        //    txtName.Text = "";
+        //    txtSpeacailly.Text = "";
+        //    txtWorkPlace.Text = "";
+        //    txtPhone1.Text = "";
+        //    txtPhone2.Text = "";
+        //    txtEmail.Text = "";
 
-        }
+        //}
 
         private void btnClose_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void RefferrerForm_Load(object sender, EventArgs e)
+        {
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateAccount));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btnUpdate = new System.Windows.Forms.Button();
@@ -86,15 +87,18 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.BackColor = System.Drawing.Color.DarkBlue;
+            this.btnUpdate.BackColor = System.Drawing.Color.SeaGreen;
             this.btnUpdate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnUpdate.Font = new System.Drawing.Font("Commons", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.ForeColor = System.Drawing.Color.Silver;
+            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdate.Font = new System.Drawing.Font("Preah Vihear", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnUpdate.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdate.Image")));
+            this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUpdate.Location = new System.Drawing.Point(3, 81);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(208, 89);
             this.btnUpdate.TabIndex = 0;
-            this.btnUpdate.Text = "Update";
+            this.btnUpdate.Text = "បញ្ចូល";
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
@@ -102,13 +106,16 @@
             // 
             this.btnClose.BackColor = System.Drawing.Color.Crimson;
             this.btnClose.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnClose.Font = new System.Drawing.Font("Commons", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.ForeColor = System.Drawing.Color.Silver;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Font = new System.Drawing.Font("Preah Vihear", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
+            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnClose.Location = new System.Drawing.Point(3, 242);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(208, 87);
             this.btnClose.TabIndex = 1;
-            this.btnClose.Text = "Close";
+            this.btnClose.Text = "ចាកចេញ";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
@@ -134,6 +141,9 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 56F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(539, 408);
             this.tableLayoutPanel3.TabIndex = 1;
+            this.tableLayoutPanel3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tableLayoutPanel3_MouseDown);
+            this.tableLayoutPanel3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.tableLayoutPanel3_MouseMove);
+            this.tableLayoutPanel3.MouseUp += new System.Windows.Forms.MouseEventHandler(this.tableLayoutPanel3_MouseUp);
             // 
             // tableLayoutPanel4
             // 
@@ -153,7 +163,7 @@
             // txtUserName
             // 
             this.txtUserName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtUserName.Font = new System.Drawing.Font("Oswald Regular", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUserName.Font = new System.Drawing.Font("Oswald Regular", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUserName.Location = new System.Drawing.Point(3, 28);
             this.txtUserName.Multiline = true;
             this.txtUserName.Name = "txtUserName";
@@ -178,7 +188,7 @@
             // txtPassword
             // 
             this.txtPassword.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtPassword.Font = new System.Drawing.Font("Oswald Regular", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Font = new System.Drawing.Font("Oswald Regular", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.Location = new System.Drawing.Point(3, 26);
             this.txtPassword.Multiline = true;
             this.txtPassword.Name = "txtPassword";
@@ -203,7 +213,7 @@
             // txtConfirm
             // 
             this.txtConfirm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtConfirm.Font = new System.Drawing.Font("Oswald Regular", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConfirm.Font = new System.Drawing.Font("Oswald Regular", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtConfirm.Location = new System.Drawing.Point(3, 27);
             this.txtConfirm.Multiline = true;
             this.txtConfirm.Name = "txtConfirm";
