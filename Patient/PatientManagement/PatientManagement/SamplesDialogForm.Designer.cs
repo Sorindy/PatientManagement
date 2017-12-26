@@ -311,6 +311,7 @@
             this.btnAdd.TabIndex = 0;
             this.btnAdd.Text = "បញ្ចូល";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnClose
             // 
@@ -425,12 +426,14 @@
             this.fontToolStripMenuItem.Name = "fontToolStripMenuItem";
             this.fontToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
             this.fontToolStripMenuItem.Text = "Font";
+            this.fontToolStripMenuItem.Click += new System.EventHandler(this.fontToolStripMenuItem_Click);
             // 
             // textColorToolStripMenuItem
             // 
             this.textColorToolStripMenuItem.Name = "textColorToolStripMenuItem";
             this.textColorToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
             this.textColorToolStripMenuItem.Text = "Text Color";
+            this.textColorToolStripMenuItem.Click += new System.EventHandler(this.textColorToolStripMenuItem_Click);
             // 
             // foreColorToolStripMenuItem
             // 
@@ -446,24 +449,28 @@
             this.selectForeColorToolStripMenuItem.Name = "selectForeColorToolStripMenuItem";
             this.selectForeColorToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.selectForeColorToolStripMenuItem.Text = "Select Fore Color";
+            this.selectForeColorToolStripMenuItem.Click += new System.EventHandler(this.selectForeColorToolStripMenuItem_Click);
             // 
             // frameFillColorToolStripMenuItem
             // 
             this.frameFillColorToolStripMenuItem.Name = "frameFillColorToolStripMenuItem";
             this.frameFillColorToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.frameFillColorToolStripMenuItem.Text = "Frame Fill Color";
+            this.frameFillColorToolStripMenuItem.Click += new System.EventHandler(this.frameFillColorToolStripMenuItem_Click);
             // 
             // tableToolStripMenuItem
             // 
             this.tableToolStripMenuItem.Name = "tableToolStripMenuItem";
             this.tableToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
             this.tableToolStripMenuItem.Text = "Table";
+            this.tableToolStripMenuItem.Click += new System.EventHandler(this.tableToolStripMenuItem_Click);
             // 
             // imageToolStripMenuItem
             // 
             this.imageToolStripMenuItem.Name = "imageToolStripMenuItem";
             this.imageToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.imageToolStripMenuItem.Text = "Image";
+            this.imageToolStripMenuItem.Click += new System.EventHandler(this.imageToolStripMenuItem_Click);
             // 
             // pageToolStripMenuItem
             // 
@@ -491,6 +498,7 @@
             this.formatStyleToolStripMenuItem.Name = "formatStyleToolStripMenuItem";
             this.formatStyleToolStripMenuItem.Size = new System.Drawing.Size(85, 20);
             this.formatStyleToolStripMenuItem.Text = "Format Style";
+            this.formatStyleToolStripMenuItem.Click += new System.EventHandler(this.formatStyleToolStripMenuItem_Click);
             // 
             // SamplesDialogForm
             // 
