@@ -643,6 +643,7 @@
             this.btnNew.TabIndex = 0;
             this.btnNew.Text = "ថ្មី";
             this.btnNew.UseVisualStyleBackColor = false;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // btnInfoReferrer
             // 
@@ -656,6 +657,7 @@
             this.btnInfoReferrer.TabIndex = 1;
             this.btnInfoReferrer.Text = "ពត៍មាន";
             this.btnInfoReferrer.UseVisualStyleBackColor = false;
+            this.btnInfoReferrer.Click += new System.EventHandler(this.btnInfoReferrer_Click);
             // 
             // pnlButton
             // 
@@ -1277,7 +1279,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel19;
         private System.Windows.Forms.ComboBox cboNurse;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel18;
-        private System.Windows.Forms.ComboBox cboReferrer;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox picAddDate;
@@ -1292,9 +1293,10 @@
         private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.Button btnInfoReferrer;
         private System.Windows.Forms.CheckBox chkBoxNurse;
-        private System.Windows.Forms.CheckBox chkBoxReferrer;
         internal System.Windows.Forms.TextBox txtGenderPatient;
         internal System.Windows.Forms.TextBox txtNamePatient;
         internal TXTextControl.TextControl txtDescription;
+        internal System.Windows.Forms.ComboBox cboReferrer;
+        internal System.Windows.Forms.CheckBox chkBoxReferrer;
     }
 }

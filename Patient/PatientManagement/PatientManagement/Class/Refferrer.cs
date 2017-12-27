@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity.Migrations;
-using System.Diagnostics.PerformanceData;
+﻿using System.Data.Entity.Migrations;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Hospital_Entity_Framework;
 
@@ -13,7 +8,7 @@ namespace PatientManagement.Class
     class Refferrer
     {
         private readonly HospitalDbContext _db = new HospitalDbContext();
-        private BindingSource _bs = new BindingSource();
+        private readonly BindingSource _bs = new BindingSource();
 
         public void Insert(string name,string specially,string workplace,string phone1 , string phone2 ,string email)
         {
@@ -55,5 +50,10 @@ namespace PatientManagement.Class
             return _bs;
         }
 
+        public Referrer GetRefferrer(int id)
+        {
+            var get = _db.Referrers.First(v => v.Id == id);
+            return get;
+        }
     }
 }

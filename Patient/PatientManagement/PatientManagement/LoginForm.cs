@@ -15,6 +15,8 @@ namespace PatientManagement
 
         private readonly Login _login=new Login();
         private Account _account;
+        private bool _mouseDown;
+        private Point _lastLocation;
 
         internal void Clear()
         {
@@ -27,14 +29,12 @@ namespace PatientManagement
         {
             WindowState=FormWindowState.Maximized;
             Clear();
-            tblLogin.BackColor = Color.FromArgb(220,Color.CornflowerBlue);
-            tblLogin.BackColor = Color.FromArgb(220, Color.CornflowerBlue);
+            tblLogin.BackColor = Color.FromArgb(255,Color.CornflowerBlue);
+            tblLogin.BackColor = Color.FromArgb(255, Color.CornflowerBlue);
             tblControl.BackColor = Color.FromArgb(0, Color.AntiqueWhite);
             panel1.BackColor = Color.FromArgb(0, Color.AntiqueWhite);
             txtPassword.PasswordChar = '*';
             txtUserName.Focus();
-            txtUserName.Text = @"Sorindy";
-            txtPassword.Text = @"admin";
         }
         private void btnLogin_Click(object sender, EventArgs e)
         {
@@ -107,6 +107,37 @@ namespace PatientManagement
         private void picNormal_Click(object sender, EventArgs e)
         {
             WindowState=FormWindowState.Normal;
+        }
+
+        private void tableLayoutPanel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (WindowState == FormWindowState.Normal)
+            {
+                _mouseDown = true;
+                _lastLocation = e.Location;
+            }
+        }
+
+        private void tableLayoutPanel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (WindowState == FormWindowState.Normal)
+            {
+                if (_mouseDown)
+                {
+                    Location = new Point(
+                        Location.X - _lastLocation.X + e.X, (Location.Y - _lastLocation.Y) + e.Y);
+
+                    Update();
+                }
+            }
+        }
+
+        private void tableLayoutPanel1_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (WindowState == FormWindowState.Normal)
+            {
+                _mouseDown = false;
+            }
         }
 
     }
