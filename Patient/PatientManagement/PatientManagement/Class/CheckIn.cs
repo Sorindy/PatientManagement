@@ -91,12 +91,13 @@ namespace PatientManagement.Class
             flpn.Location = new Point(6, 37);
             flpn.Size = new Size(668, 299);
             flpn.Dock=DockStyle.Fill;
+            var id = checkInsForm.Patient.Id;
             if (service == "Consultation")
             {
                 var getCategory = _db.ConsultationCategories;
                 foreach (var item in getCategory)
                 {
-                    var checking = _db.TempWaits.Where(v=>v.ServiceName=="Consultation").Any(v => v.CategoryId== item.Id);
+                    var checking = _db.TempWaits.Where(v=>v.ServiceName=="Consultation"&&v.PatientId==id).Any(v => v.CategoryId== item.Id);
 
                     if (checking)
                     {
@@ -139,7 +140,7 @@ namespace PatientManagement.Class
                 var getCategory = _db.LaboratoryCategories;
                 foreach (var item in getCategory)
                 {
-                    var checking = _db.TempWaits.Where(v => v.ServiceName == "Laboratory").Any(v => v.CategoryId == item.Id);
+                    var checking = _db.TempWaits.Where(v => v.ServiceName == "Laboratory" && v.PatientId == id).Any(v => v.CategoryId == item.Id);
                     if (checking)
                     {
                         var dic = new Dictionary<string, CheckInsForm> { { service, checkInsForm } };
@@ -179,7 +180,7 @@ namespace PatientManagement.Class
                 var getCategory = _db.MedicalImagingCategories;
                 foreach (var item in getCategory)
                 {
-                    var checking = _db.TempWaits.Where(v => v.ServiceName == "MedicalImaging").Any(v => v.CategoryId == item.Id);
+                    var checking = _db.TempWaits.Where(v => v.ServiceName == "MedicalImaging" && v.PatientId == id).Any(v => v.CategoryId == item.Id);
 
                     if (checking)
                     {
@@ -220,7 +221,7 @@ namespace PatientManagement.Class
                 var getCategory = _db.PrescriptionCategories;
                 foreach (var item in getCategory)
                 {
-                    var checking = _db.TempWaits.Where(v => v.ServiceName == "Prescription").Any(v => v.CategoryId == item.Id);
+                    var checking = _db.TempWaits.Where(v => v.ServiceName == "Prescription" && v.PatientId == id).Any(v => v.CategoryId == item.Id);
                     if (checking)
                     {
                         var dic = new Dictionary<string, CheckInsForm> { { service, checkInsForm } };
@@ -262,7 +263,7 @@ namespace PatientManagement.Class
                 var getCategory = _db.VariousDocumentCategories;
                 foreach (var item in getCategory)
                 {
-                    var checking = _db.TempWaits.Where(v => v.ServiceName == "VariousDocument").Any(v => v.CategoryId == item.Id);
+                    var checking = _db.TempWaits.Where(v => v.ServiceName == "VariousDocument" && v.PatientId == id).Any(v => v.CategoryId == item.Id);
                     if (checking)
                     {
                         var dic = new Dictionary<string, CheckInsForm> { { service, checkInsForm } };
