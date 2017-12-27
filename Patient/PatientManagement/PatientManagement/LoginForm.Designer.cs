@@ -90,6 +90,9 @@ namespace PatientManagement
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 69.03766F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1280, 768);
             this.tableLayoutPanel1.TabIndex = 0;
+            this.tableLayoutPanel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tableLayoutPanel1_MouseDown);
+            this.tableLayoutPanel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.tableLayoutPanel1_MouseMove);
+            this.tableLayoutPanel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.tableLayoutPanel1_MouseUp);
             // 
             // tblLogin
             // 
@@ -166,7 +169,6 @@ namespace PatientManagement
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(300, 27);
             this.txtPassword.TabIndex = 2;
-            this.txtPassword.Text = "leap";
             this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPassword_KeyDown);
             // 
             // label1
@@ -215,7 +217,6 @@ namespace PatientManagement
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(300, 27);
             this.txtUserName.TabIndex = 1;
-            this.txtUserName.Text = "leap";
             // 
             // linkForgetPassword
             // 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using PatientManagement.Class;
@@ -26,9 +27,10 @@ namespace PatientManagement
         internal Worker Worker;
         internal WaitingList WaitingList;
         private ICategory _category;
-        private readonly MedicalRecord _medical=new MedicalRecord();
+        internal MedicalRecord Medical=new MedicalRecord();
         private int _key;
         private readonly Dating _dating = new Dating();
+        internal Refferrer Refferrer=new Refferrer();
 
         private void sampleToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -41,12 +43,13 @@ namespace PatientManagement
             form.ShowDialog();
         }
 
-
+        //C:\Users\Health\Desktop\Debug
 
         private void MedicalsForm_Shown(object sender, EventArgs e)
         {
             var path = AppDomain.CurrentDomain.BaseDirectory;
             _path = path.Remove(path.Length - 46);
+            //_path = @"C:\Users\Health\Desktop\Debug\";
             picHideRight.ImageLocation = _path + @"Hide-right-icon.png";
             picHideTop.ImageLocation = _path + @"Hide-Up-icon.png";
             txtNameDoctor.Text = Account.Worker.Name;
@@ -215,11 +218,11 @@ namespace PatientManagement
             }
         }
 
-        private void chkBoxReferrer_CheckedChanged(object sender, EventArgs e)
+        internal void chkBoxReferrer_CheckedChanged(object sender, EventArgs e)
         {
             if (chkBoxReferrer.Checked)
             {
-                var dicReferrer = _medical.ShowReferrer();
+                var dicReferrer = Medical.ShowReferrer();
                 if (dicReferrer.Count != 0)
                 {
                     cboReferrer.DataSource = new BindingSource(dicReferrer, null);
@@ -237,7 +240,7 @@ namespace PatientManagement
         {
             if (chkBoxNurse.Checked)
             {
-                var dicNurse = _medical.ShowNurse();
+                var dicNurse = Medical.ShowNurse();
                 if (dicNurse.Count != 0)
                 {
                     cboNurse.DataSource = new BindingSource(dicNurse, null);
@@ -308,6 +311,24 @@ namespace PatientManagement
         private void formatStyleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             txtDescription.FormattingStylesDialog();
+        }
+
+        private void btnInfoReferrer_Click(object sender, EventArgs e)
+        {
+            if (cboReferrer.SelectedItem == null) return;
+            var selectedItem = (KeyValuePair<int, string>)cboReferrer.SelectedItem;
+            var keyCategory = selectedItem.Key;
+            var form=new RefferrerForm()
+            {
+                MedicalForm = this,Referrer = Refferrer.GetRefferrer(keyCategory)
+            };
+            form.ShowDialog();
+        }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            var form=new RefferrerForm(){MedicalForm = this};
+            form.ShowDialog();
         }
 
     }
