@@ -155,7 +155,10 @@ namespace PatientManagement
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-
+            if (WaitingList != null && Patient != null)
+            {
+                
+            }
         }
 
         private void cboService_SelectedIndexChanged(object sender, EventArgs e)
