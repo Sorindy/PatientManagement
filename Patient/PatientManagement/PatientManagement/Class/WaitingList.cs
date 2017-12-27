@@ -13,92 +13,104 @@ namespace PatientManagement.Class
   
        public Hospital_Entity_Framework.Patient Patient;
 
-        public BindingSource ShowWaiting(string  categoryName)
+        public BindingSource ShowWaiting(string service,int categoryid)
         {
             _bs = new BindingSource();
-
-            var checkConsultationCategory = _db.WaitingLists.Any(v => v.ConsultationCategories.Any(a => a.Name == categoryName));
-            var checkLaboratoryCategory = _db.WaitingLists.Any(v => v.LaboratoryCategories.Any(a => a.Name == categoryName));
-            var checkMedicalImagingCategory = _db.WaitingLists.Any(v => v.MedicalImagingCategories.Any(a => a.Name == categoryName));
-            var checkPrescriptionCategory = _db.WaitingLists.Any(v => v.PrescriptionCategories.Any(a => a.Name == categoryName));
-            var checkVariousDocumentCategory = _db.WaitingLists.Any(v => v.VariousDocumentCategories.Any(a => a.Name == categoryName));
-
-            if (checkConsultationCategory)
+            if (service == @"Consultation")
             {
-                var getList = from b in _db.WaitingLists
-                    where b.ConsultationCategories.Any(v => v.Name == categoryName)
-                    select new
-                    {
-                        b.Id,
-                        b.PatientId,
-                        b.Patient.Name,
-                        b.Time,
-                        b.Status,
-                        b.Number,
-                    };
-                _bs.DataSource = getList.ToList();
+                var checkConsultationCategory = _db.WaitingLists.Any(v => v.ConsultationCategories.Any(a => a.Id  == categoryid));
+                if (checkConsultationCategory)
+                {
+                    var getList = from b in _db.WaitingLists
+                        where b.ConsultationCategories.Any(v => v.Id == categoryid )
+                        select new
+                        {
+                            b.Id,
+                            b.PatientId,
+                            b.Patient.Name,
+                            b.Time,
+                            b.Status,
+                            b.Number,
+                        };
+                    _bs.DataSource = getList.ToList();
+                }
             }
-            if (checkLaboratoryCategory)
+            if (service == @"Laboratory")
             {
-                var getList = from b in _db.WaitingLists
-                    where b.LaboratoryCategories.Any(v => v.Name == categoryName)
-                    select new
-                    {
-                        b.Id,
-                        b.PatientId,
-                        b.Patient.Name,
-                        b.Time,
-                        b.Status,
-                        b.Number 
-                    };
-                _bs.DataSource = getList.ToList();
+                var checkLaboratoryCategory = _db.WaitingLists.Any(v => v.LaboratoryCategories.Any(a => a.Id  == categoryid));
+                if (checkLaboratoryCategory)
+                {
+                    var getList = from b in _db.WaitingLists
+                        where b.LaboratoryCategories.Any(v => v.Id  == categoryid)
+                        select new
+                        {
+                            b.Id,
+                            b.PatientId,
+                            b.Patient.Name,
+                            b.Time,
+                            b.Status,
+                            b.Number
+                        };
+                    _bs.DataSource = getList.ToList();
+                }
             }
-            if (checkMedicalImagingCategory)
+            if (service == @"MedicalImaging")
             {
-                var getList = from b in _db.WaitingLists
-                    where b.ConsultationCategories.Any(v => v.Name == categoryName)
-                    select new
-                    {
-                        b.Id,
-                        b.PatientId,
-                        b.Patient.Name,
-                        b.Time,
-                        b.Status,
-                        b.Number 
-                    };
-                _bs.DataSource = getList.ToList();
+                var checkMedicalImagingCategory = _db.WaitingLists.Any(v => v.MedicalImagingCategories.Any(a => a.Id  == categoryid ));
+                if (checkMedicalImagingCategory)
+                {
+                    var getList = from b in _db.WaitingLists
+                        where b.ConsultationCategories.Any(v => v.Id  == categoryid)
+                        select new
+                        {
+                            b.Id,
+                            b.PatientId,
+                            b.Patient.Name,
+                            b.Time,
+                            b.Status,
+                            b.Number
+                        };
+                    _bs.DataSource = getList.ToList();
+                }
             }
-            if (checkPrescriptionCategory)
+            if (service == @"Prescription")
             {
-                var getList = from b in _db.WaitingLists
-                    where b.PrescriptionCategories.Any(v => v.Name == categoryName)
-                    select new
-                    {
-                        b.Id,
-                        b.PatientId,
-                        b.Patient.Name,
-                        b.Time,
-                        b.Status,
-                        b.Number
-                    };
-                _bs.DataSource = getList.ToList();
+                var checkPrescriptionCategory = _db.WaitingLists.Any(v => v.PrescriptionCategories.Any(a => a.Id  == categoryid ));
+                if (checkPrescriptionCategory)
+                {
+                    var getList = from b in _db.WaitingLists
+                        where b.PrescriptionCategories.Any(v => v.Id  == categoryid )
+                        select new
+                        {
+                            b.Id,
+                            b.PatientId,
+                            b.Patient.Name,
+                            b.Time,
+                            b.Status,
+                            b.Number
+                        };
+                    _bs.DataSource = getList.ToList();
+                }
             }
-            if (checkVariousDocumentCategory)
+            if (service == @"VariousDocument")
             {
-                var getList = from b in _db.WaitingLists
-                    where b.VariousDocumentCategories.Any(v => v.Name == categoryName)
-                    select new
-                    {
-                        b.Id,
-                        b.PatientId,
-                        b.Patient.Name,
-                        b.Time,
-                        b.Status,
-                        b.Number
-                    };
-                _bs.DataSource = getList.ToList();
+                var checkVariousDocumentCategory = _db.WaitingLists.Any(v => v.VariousDocumentCategories.Any(a => a.Id  == categoryid ));
+                if (checkVariousDocumentCategory)
+                {
+                    var getList = from b in _db.WaitingLists
+                        where b.VariousDocumentCategories.Any(v => v.Id  == categoryid )
+                        select new
+                        {
+                            b.Id,
+                            b.PatientId,
+                            b.Patient.Name,
+                            b.Time,
+                            b.Status,
+                            b.Number
+                        };
+                    _bs.DataSource = getList.ToList();
+                }
             }
-
             return _bs;
         }
 

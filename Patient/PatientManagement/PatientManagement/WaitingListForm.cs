@@ -9,7 +9,7 @@ namespace PatientManagement
     {
 
         internal Hospital_Entity_Framework.Worker Worker;
-        private WaitingList _waitingList = new WaitingList() ;
+        private readonly  WaitingList _waitingList = new WaitingList() ;
         private NurseRespone _nurseRespone;
         internal MedicalsForm Medicalsform;
         private bool? _num ;
@@ -17,7 +17,8 @@ namespace PatientManagement
         public Hospital_Entity_Framework.WaitingList WaitingList;
        
        
-        public string GetStaffCategory;
+        public int GetStaffCategoryid;
+        public string Service;
 
         public WaitingListForm()
         {
@@ -48,8 +49,7 @@ namespace PatientManagement
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-           // _waitingList = new WaitingList();
-            dgvWaitingCategory.DataSource = _waitingList.ShowWaiting(GetStaffCategory);
+            dgvWaitingCategory.DataSource = _waitingList.ShowWaiting(Service,GetStaffCategoryid);
             dgvAllWatingList.DataSource = _waitingList.SeleteAllWaiting();
         }
 
@@ -70,10 +70,13 @@ namespace PatientManagement
             {
                 _nurseRespone = new NurseRespone();
                 _nurseRespone.Insert(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[1].Value.ToString()), Worker.Id);
-                var loadingform = new LoadingForm();
-                loadingform.WaitingList = _waitingList.GetWaitingListObject(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[1].Value));
-                loadingform.MedicalsForm = Medicalsform;
-                loadingform.Waitinglistform = this;
+                var loadingform = new LoadingForm
+                {
+                    WaitingList = _waitingList.GetWaitingListObject(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[1].Value)),
+                    MedicalsForm = Medicalsform,
+                    Waitinglistform = this
+                };
+                
                 loadingform.ShowDialog();
             }
         }
