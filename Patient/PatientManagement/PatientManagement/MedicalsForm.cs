@@ -139,10 +139,14 @@ namespace PatientManagement
 
         private void btmWaitingList_Click(object sender, EventArgs e)
         {
-          
+            if (cboCategory.SelectedItem == null) return;
+            var selectedItem = (KeyValuePair<int, string>)cboCategory .SelectedItem;
+            var keyService = selectedItem.Key;
+         
             var waitinglistform = new WaitingListForm
             { 
-                GetStaffCategory = cboCategory.Text,
+                Service=cboService.Text ,
+                GetStaffCategoryid=keyService,
                 Worker = Account.Worker,
                 Medicalsform =this
             };
@@ -264,8 +268,11 @@ namespace PatientManagement
 
         private void picAddDate_Click(object sender, EventArgs e)
         {
-            _dating.Insert(Patient.Id, Account.Worker.Id, dtpDate.Value);
-            MessageBox.Show(@"Dating is Complect....");
+            if (Patient != null)
+            {
+                _dating.Insert(Patient.Id, Account.Worker.Id, dtpDate.Value);
+                MessageBox.Show(@"Dating is Complect....");
+            }    
         }
 
         private void imageToolStripMenuItem_Click(object sender, EventArgs e)
