@@ -367,6 +367,7 @@ namespace PatientManagement.Class
                     }
                 }
                 _db.SaveChanges();
+                ClearTemp(patientId);
                 CheckVisitCount(patientId);
                 checkInsForm.Show();
                 checkInsForm.ClearControl();
