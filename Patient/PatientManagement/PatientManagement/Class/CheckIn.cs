@@ -331,7 +331,7 @@ namespace PatientManagement.Class
                     _db.WaitingLists.Add(insertWaitingList);
                 }
                 _db.SaveChanges();
-                var checkTempWait = _db.TempWaits;
+                var checkTempWait = _db.TempWaits.Where(v=>v.PatientId==patientId).ToList();
 
                 foreach (var item in checkTempWait)
                 {

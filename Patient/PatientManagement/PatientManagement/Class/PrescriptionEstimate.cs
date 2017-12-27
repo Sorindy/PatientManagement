@@ -13,10 +13,10 @@ namespace PatientManagement.Class
 {
     public class PrescriptionEstimate : IEstimate 
     {
-        private HospitalDbContext _db = new HospitalDbContext();
-        private BindingSource _bs = new BindingSource();
-        
-        public void Insert(int patientid,int categoryid,int workerid,DateTime date,string description)
+        private readonly HospitalDbContext _db = new HospitalDbContext();
+        private readonly BindingSource _bs = new BindingSource();
+
+        public void Insert(int patientid, int categoryid, int workerid, int? nurseid, int? referrerid, DateTime date, string description)
         {
             var insert = new Hospital_Entity_Framework.PrescriptionEstimate() 
             {
@@ -30,11 +30,13 @@ namespace PatientManagement.Class
             _db.SaveChanges();
         }
 
-        public void Update(int id, int categoryid, int workerid, DateTime date, string description)
+        public void Update(int id, int categoryid, int workerid, int? nurseid, int? referrerid, DateTime date, string description)
         {
             var update = _db.PrescriptionEstimates.Single(v => v.Id == id);
             update.CategoryId  = categoryid ;
             update.WorkerId = workerid;
+            update.NurseId = nurseid;
+            update.ReferrerId = referrerid;
             update.Date = date;
             update.Description = description;
             _db.PrescriptionEstimates.AddOrUpdate(update);

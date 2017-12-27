@@ -70,48 +70,48 @@ namespace PatientManagement
             Refresh();
         }
 
-        private void btnSubmit_Click(object sender, EventArgs e)
-        {
-            if (cmbMedicalRecord.SelectedIndex.Equals(0))
-            {
-                _estimate = new ConsultationEstimate();
-                _category = new ConsultationCategory();
-                txtDescription.Save("D:/PatientManagement/Patient/Hospital Entity Framework/RTF/ConsultationEstimate/" + txtPatientID.Text + txtPatientName.Text + DateTime.Today.Day + DateTime.Today.Month + DateTime.Today.Year, StreamType.RichTextFormat);
-               // _estimate.Insert(Convert.ToInt32(txtPatientID.Text), _category.Search_Id(cmbCategory.Text), Convert.ToInt32(txtStaffID.Text), DateTime.Now, "D:/PatientManagement/Patient/Hospital Entity Framework/RTF/ConsultationEstimate/" + txtPatientID.Text + txtPatientName.Text + DateTime.Today.Day+DateTime.Today.Month+DateTime.Today.Year );
+        //private void btnSubmit_Click(object sender, EventArgs e)
+        //{
+        //    if (cmbMedicalRecord.SelectedIndex.Equals(0))
+        //    {
+        //        _estimate = new ConsultationEstimate();
+        //        _category = new ConsultationCategory();
+        //        txtDescription.Save("D:/PatientManagement/Patient/Hospital Entity Framework/RTF/ConsultationEstimate/" + txtPatientID.Text + txtPatientName.Text + DateTime.Today.Day + DateTime.Today.Month + DateTime.Today.Year, StreamType.RichTextFormat);
+        //       // _estimate.Insert(Convert.ToInt32(txtPatientID.Text), _category.Search_Id(cmbCategory.Text), Convert.ToInt32(txtStaffID.Text), DateTime.Now, "D:/PatientManagement/Patient/Hospital Entity Framework/RTF/ConsultationEstimate/" + txtPatientID.Text + txtPatientName.Text + DateTime.Today.Day+DateTime.Today.Month+DateTime.Today.Year );
 
-            }
-            if (cmbMedicalRecord.SelectedIndex.Equals(1))
-            {
-                _estimate = new PrescriptionEstimate();
-                _estimate.Insert(Convert.ToInt32(txtPatientID.Text), Convert.ToInt32(cmbCategory.Text), Convert.ToInt32(txtStaffID.Text), DateTime.Now, "D:/PatientManagement/Patient/Hospital Entity Framework/RTF/PrescriptionEstimate/" + txtPatientID.Text + txtPatientName.Text + DateTime.Now);
-                txtDescription.Save("D:/PatientManagement/Patient/Hospital Entity Framework/RTF/PrescriptionEstimate/" + txtPatientID.Text + txtPatientName.Text + DateTime.Now, StreamType.RichTextFormat);
+        //    }
+        //    if (cmbMedicalRecord.SelectedIndex.Equals(1))
+        //    {
+        //        _estimate = new PrescriptionEstimate();
+        //        _estimate.Insert(Convert.ToInt32(txtPatientID.Text), Convert.ToInt32(cmbCategory.Text), Convert.ToInt32(txtStaffID.Text), DateTime.Now, "D:/PatientManagement/Patient/Hospital Entity Framework/RTF/PrescriptionEstimate/" + txtPatientID.Text + txtPatientName.Text + DateTime.Now);
+        //        txtDescription.Save("D:/PatientManagement/Patient/Hospital Entity Framework/RTF/PrescriptionEstimate/" + txtPatientID.Text + txtPatientName.Text + DateTime.Now, StreamType.RichTextFormat);
               
-            }
-            if (cmbMedicalRecord.SelectedIndex.Equals(2))
-            {
-                _estimate = new MedicalImagingEstimate();
-                _estimate.Insert(Convert.ToInt32(txtPatientID.Text), Convert.ToInt32(cmbCategory.Text), Convert.ToInt32(txtStaffID.Text), DateTime.Now, "D:/PatientManagement/Patient/Hospital Entity Framework/RTF/MedicalImagingEstimate/" + txtPatientID.Text + txtPatientName.Text + DateTime.Now);
-                txtDescription.Save("D:/PatientManagement/Patient/Hospital Entity Framework/RTF/MedicalImagingEstimate/" + txtPatientID.Text + txtPatientName.Text + DateTime.Now, StreamType.RichTextFormat);
+        //    }
+        //    if (cmbMedicalRecord.SelectedIndex.Equals(2))
+        //    {
+        //        _estimate = new MedicalImagingEstimate();
+        //        _estimate.Insert(Convert.ToInt32(txtPatientID.Text), Convert.ToInt32(cmbCategory.Text), Convert.ToInt32(txtStaffID.Text), DateTime.Now, "D:/PatientManagement/Patient/Hospital Entity Framework/RTF/MedicalImagingEstimate/" + txtPatientID.Text + txtPatientName.Text + DateTime.Now);
+        //        txtDescription.Save("D:/PatientManagement/Patient/Hospital Entity Framework/RTF/MedicalImagingEstimate/" + txtPatientID.Text + txtPatientName.Text + DateTime.Now, StreamType.RichTextFormat);
              
-            }
-            if (cmbMedicalRecord.SelectedIndex.Equals(3))
-            {
-                _estimate = new LaboratoryEstimate();
-                _estimate.Insert(Convert.ToInt32(txtPatientID.Text), Convert.ToInt32(cmbCategory.Text), Convert.ToInt32(txtStaffID.Text), DateTime.Now, "D:/PatientManagement/Patient/Hospital Entity Framework/RTF/LaboratoryEstimate/" + txtPatientID.Text + txtPatientName.Text + DateTime.Now);
-                txtDescription.Save("D:/PatientManagement/Patient/Hospital Entity Framework/RTF/LaboratoryEstimate/" + txtPatientID.Text + txtPatientName.Text + DateTime.Now, StreamType.RichTextFormat);
+        //    }
+        //    if (cmbMedicalRecord.SelectedIndex.Equals(3))
+        //    {
+        //        _estimate = new LaboratoryEstimate();
+        //        _estimate.Insert(Convert.ToInt32(txtPatientID.Text), Convert.ToInt32(cmbCategory.Text), Convert.ToInt32(txtStaffID.Text), DateTime.Now, "D:/PatientManagement/Patient/Hospital Entity Framework/RTF/LaboratoryEstimate/" + txtPatientID.Text + txtPatientName.Text + DateTime.Now);
+        //        txtDescription.Save("D:/PatientManagement/Patient/Hospital Entity Framework/RTF/LaboratoryEstimate/" + txtPatientID.Text + txtPatientName.Text + DateTime.Now, StreamType.RichTextFormat);
                
-            }
-            if (cmbMedicalRecord.SelectedIndex.Equals(4))
-            {
-                _estimate = new VariousDocumentEstimate();
-                _estimate.Insert(Convert.ToInt32(txtPatientID.Text), Convert.ToInt32(cmbCategory.Text), Convert.ToInt32(txtStaffID.Text), DateTime.Now, "D:/PatientManagement/Patient/Hospital Entity Framework/RTF/VariousDocumentEstimate/" + txtPatientID.Text + txtPatientName.Text + DateTime.Now);
-                txtDescription.Save("D:/PatientManagement/Patient/Hospital Entity Framework/RTF/VariousDocumentEstimate/" + txtPatientID.Text + txtPatientName.Text + DateTime.Now, StreamType.RichTextFormat);               
-            }   
+        //    }
+        //    if (cmbMedicalRecord.SelectedIndex.Equals(4))
+        //    {
+        //        _estimate = new VariousDocumentEstimate();
+        //        _estimate.Insert(Convert.ToInt32(txtPatientID.Text), Convert.ToInt32(cmbCategory.Text), Convert.ToInt32(txtStaffID.Text), DateTime.Now, "D:/PatientManagement/Patient/Hospital Entity Framework/RTF/VariousDocumentEstimate/" + txtPatientID.Text + txtPatientName.Text + DateTime.Now);
+        //        txtDescription.Save("D:/PatientManagement/Patient/Hospital Entity Framework/RTF/VariousDocumentEstimate/" + txtPatientID.Text + txtPatientName.Text + DateTime.Now, StreamType.RichTextFormat);               
+        //    }   
 
-            btnSubmit.Visible = false;
-            btnNew.Visible = true;
-            Refresh();
-        }
+        //    btnSubmit.Visible = false;
+        //    btnNew.Visible = true;
+        //    Refresh();
+        //}
 
         private void btnNew_Click(object sender, EventArgs e)
         {

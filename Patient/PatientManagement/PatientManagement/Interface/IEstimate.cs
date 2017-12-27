@@ -9,8 +9,8 @@ namespace PatientManagement.Interface
 {
     public interface IEstimate
     {
-        void Insert(int patientid,int categoryid, int workerid, DateTime date, string description);
-        void Update(int id,int categoryid, int workerid, DateTime date, string description);
+        void Insert(int patientid, int categoryid, int workerid, int? nurseid, int? referrerid, DateTime date, string description);
+        void Update(int id, int categoryid, int workerid, int? nurseid, int? referrerid, DateTime date, string description);
         void Delete(int id);
         object Show();
     }

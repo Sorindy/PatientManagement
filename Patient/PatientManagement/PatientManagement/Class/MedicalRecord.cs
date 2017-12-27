@@ -13,7 +13,7 @@ namespace PatientManagement.Class
         {
             var insert = new Hospital_Entity_Framework.MedicalRecord()
             {
-                PatientId  = patientid ,
+                PatientId  = patientid
             };
             _db.MedicalRecords.Add(insert);
             _db.SaveChanges();
