@@ -62,7 +62,7 @@ namespace PatientManagement
                 {
                     var id = dgvListPatient.CurrentRow.Cells[0].Value;
                     var patient = _patient.Select(Convert.ToInt32(id));
-                    var form = new HistorysForm() {Account = Account,Pateint = patient};
+                    var form = new HistorysForm() {Account = Account,Patient = patient};
                     form.ShowDialog();
                 }
             }

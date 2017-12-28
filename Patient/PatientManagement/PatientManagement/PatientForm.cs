@@ -17,7 +17,8 @@ namespace PatientManagement
         internal PatientListForm PatientListForm;
         internal Patient Patient;
         private readonly Class.Patient _patient=new Class.Patient();
-        internal Account Account;
+        internal Account Account; private bool _mouseDown;
+        private Point _lastLocation;
 
         private void PatientForm_Shown(object sender, EventArgs e)
         {
@@ -190,10 +191,32 @@ namespace PatientManagement
         {
             if (Account != null && Patient !=null)
             {
-                var form = new HistorysForm() { Pateint = Patient, Account = Account };
+                var form = new HistorysForm() { Patient = Patient, Account = Account };
                 form.ShowDialog();
                 Close();
             }
+        }
+
+        private void tableLayoutPanel2_MouseDown(object sender, MouseEventArgs e)
+        {
+            _mouseDown = true;
+            _lastLocation = e.Location;
+        }
+
+        private void tableLayoutPanel2_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (_mouseDown)
+            {
+                Location = new Point(
+                    Location.X - _lastLocation.X + e.X, (Location.Y - _lastLocation.Y) + e.Y);
+
+                Update();
+            }
+        }
+
+        private void tableLayoutPanel2_MouseUp(object sender, MouseEventArgs e)
+        {
+            _mouseDown = false;
         }
     }
 }

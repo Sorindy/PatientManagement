@@ -536,6 +536,7 @@
             this.cboNurse.Name = "cboNurse";
             this.cboNurse.Size = new System.Drawing.Size(223, 28);
             this.cboNurse.TabIndex = 1;
+            this.cboNurse.SelectedIndexChanged += new System.EventHandler(this.cboNurse_SelectedIndexChanged);
             // 
             // chkBoxNurse
             // 
@@ -575,6 +576,7 @@
             this.cboReferrer.Name = "cboReferrer";
             this.cboReferrer.Size = new System.Drawing.Size(223, 28);
             this.cboReferrer.TabIndex = 1;
+            this.cboReferrer.SelectedIndexChanged += new System.EventHandler(this.cboReferrer_SelectedIndexChanged);
             // 
             // chkBoxReferrer
             // 
@@ -770,6 +772,7 @@
             this.btnClear.TabIndex = 2;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // gboPatientList
             // 
