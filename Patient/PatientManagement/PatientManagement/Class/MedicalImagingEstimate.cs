@@ -5,10 +5,6 @@ using Hospital_Entity_Framework;
 using System.Linq;
 using PatientManagement.Interface;
 
-/*using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;*/
-
 namespace PatientManagement.Class
 {
     public class MedicalImagingEstimate : IEstimate 

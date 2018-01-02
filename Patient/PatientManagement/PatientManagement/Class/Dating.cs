@@ -47,7 +47,10 @@ namespace PatientManagement.Class
                     v.Id,
                     v.Date,
                     v.PatientId,
-                    v.Patient.Name,
+                    v.Patient.FirstName,
+                    v.Patient.LastName ,
+                    v.Patient.KhmerName,
+                    v.Patient.PatientIdentify
                 };
             _bs.DataSource = getcategory.ToList();
             return _bs;

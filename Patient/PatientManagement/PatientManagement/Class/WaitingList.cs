@@ -27,7 +27,8 @@ namespace PatientManagement.Class
                         {
                             b.Id,
                             b.PatientId,
-                            b.Patient.Name,
+                            b.Patient.FirstName,
+                            b.Patient.LastName ,
                             b.Time,
                             b.Status,
                             b.Number,
@@ -46,7 +47,8 @@ namespace PatientManagement.Class
                         {
                             b.Id,
                             b.PatientId,
-                            b.Patient.Name,
+                            b.Patient.FirstName,
+                            b.Patient.LastName,
                             b.Time,
                             b.Status,
                             b.Number
@@ -65,7 +67,8 @@ namespace PatientManagement.Class
                         {
                             b.Id,
                             b.PatientId,
-                            b.Patient.Name,
+                            b.Patient.FirstName,
+                            b.Patient.LastName,
                             b.Time,
                             b.Status,
                             b.Number
@@ -84,7 +87,8 @@ namespace PatientManagement.Class
                         {
                             b.Id,
                             b.PatientId,
-                            b.Patient.Name,
+                            b.Patient.FirstName,
+                            b.Patient.LastName,
                             b.Time,
                             b.Status,
                             b.Number
@@ -103,7 +107,8 @@ namespace PatientManagement.Class
                         {
                             b.Id,
                             b.PatientId,
-                            b.Patient.Name,
+                            b.Patient.FirstName,
+                            b.Patient.LastName,
                             b.Time,
                             b.Status,
                             b.Number
@@ -130,7 +135,8 @@ namespace PatientManagement.Class
                 {
                     b.Id,
                     b.PatientId,
-                    b.Patient.Name,
+                    b.Patient.FirstName,
+                    b.Patient.LastName,
                     b.Time,
                     b.Status,
                     b.Number

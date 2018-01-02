@@ -33,7 +33,7 @@ namespace PatientManagement.Class
               v.Id,
               v.WaitingListId,
               v.WorkerId,
-              v.Worker.Name,
+              v.Worker.LastName,
               v.WaitingList.Number,
               v.WaitingList.Status,
            };

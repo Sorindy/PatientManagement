@@ -7,7 +7,7 @@ using PatientManagement.Interface;
 
 namespace PatientManagement.Class
 {
-    class VariousDocumentHistory:IHistory
+   public  class VariousDocumentHistory:IHistory
     {
         private readonly HospitalDbContext _db = new HospitalDbContext();
 
@@ -31,9 +31,9 @@ namespace PatientManagement.Class
                 {
                     v.Id,
                     v.Date,
-                    Doctor = v.Worker.Name,
-                    Nurse = v.Worker1.Name,
-                    Referrer = v.Referrer.Name,
+                    Doctor = v.Worker.LastName ,
+                    Nurse = v.Worker1.LastName ,
+                    Referrer = v.Referrer.LastName ,
                     Category = v.VariousDocumentCategory.Name,
                     v.Edit
                 };
@@ -48,7 +48,7 @@ namespace PatientManagement.Class
 
             var getHistory = from b in _db.VariousDocumentEstimateEditHistories
                 where b.EstimateId == estmateId
-                select new { b.Id, b.Date, b.Worker.Name };
+                select new { b.Id, b.Date, b.Worker.LastName  };
             bs.DataSource = getHistory.ToList();
 
             return bs;
