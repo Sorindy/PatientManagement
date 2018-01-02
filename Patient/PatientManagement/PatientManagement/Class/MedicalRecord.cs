@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Hospital_Entity_Framework;
 
 namespace PatientManagement.Class
 {
-    class MedicalRecord
+  public   class MedicalRecord
     {
         private readonly HospitalDbContext _db = new HospitalDbContext();
 
@@ -25,7 +24,7 @@ namespace PatientManagement.Class
             var getNurse = _db.Workers.Where(v => v.Position == "Nurse" && v.Hire);
             foreach (var item in getNurse)
             {
-                dic.Add(item.Id,item.Name);
+                dic.Add(item.Id,item.LastName);
             }
             return dic;
         }
@@ -36,7 +35,7 @@ namespace PatientManagement.Class
             var getReferrer = _db.Referrers;
             foreach (var item in getReferrer)
             {
-                dic.Add(item.Id,item.Name);
+                dic.Add(item.Id,item.LastName);
             }
             return dic;
         }

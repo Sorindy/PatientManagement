@@ -36,15 +36,15 @@ namespace PatientManagement
             timer.Interval = (5* 1000);
             timer.Tick += btnRefresh_Click;
             timer.Start();
-            var btnReset = new DataGridViewButtonColumn
-            {
-                FlatStyle = FlatStyle.Flat,
-                Text = @"Reset",
-                HeaderText = @"Reset"
-            };
-            btnReset.CellTemplate.Style.BackColor = Color.LightSeaGreen;
-            btnReset.UseColumnTextForButtonValue = true;
-            dgvWaitingCategory.Columns.AddRange(btnReset);
+            //var btnReset = new DataGridViewButtonColumn
+            //{
+            //    FlatStyle = FlatStyle.Flat,
+            //    Text = @"Reset",
+            //    HeaderText = @"Reset"
+            //};
+            //btnReset.CellTemplate.Style.BackColor = Color.LightSeaGreen;
+            //btnReset.UseColumnTextForButtonValue = true;
+            //dgvWaitingCategory.Columns.AddRange(btnReset);
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -55,29 +55,41 @@ namespace PatientManagement
 
         private void dgvWaitingCategory_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 0)
-            {
-                if (dgvWaitingCategory.CurrentRow != null)
-                {
-                    _waitingList.UpdatePatientStatus(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[1].Value),_num);
-                }
-            }
+            //if (e.ColumnIndex == 0)
+            //{
+            //    if (dgvWaitingCategory.CurrentRow != null)
+            //    {
+            //        _waitingList.UpdatePatientStatus(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[1].Value),_num);
+            //    }
+            //}
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             if (dgvWaitingCategory.CurrentRow != null)
             {
-                _nurseRespone = new NurseRespone();
-                _nurseRespone.Insert(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[1].Value.ToString()), Worker.Id);
-                var loadingform = new LoadingForm
+                if (dgvWaitingCategory.CurrentRow.Cells[4].Value == null )
                 {
-                    WaitingList = _waitingList.GetWaitingListObject(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[1].Value)),
-                    MedicalsForm = Medicalsform,
-                    Waitinglistform = this
-                };
-                
-                loadingform.ShowDialog();
+                    Medicalsform.WaitingList = _waitingList.GetWaitingListObject(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[0].Value));
+                    Medicalsform.Patient = _waitingList.GetWaitingListObject(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[0].Value)).Patient;
+                    Medicalsform.txtNamePatient.Text = _waitingList.GetWaitingListObject(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[0].Value)).Patient.LastName;
+                    Medicalsform.txtGenderPatient.Text = _waitingList.GetWaitingListObject(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[0].Value)).Patient.Gender;
+                    Close();
+                    _nurseRespone = new NurseRespone();
+                    _nurseRespone.Insert(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[0].Value.ToString()), Worker.Id);
+                    _waitingList.UpdatePatientStatus(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[0].Value), false);    
+                }
+                else if (dgvWaitingCategory.CurrentRow.Cells[4].Value.Equals(false))
+                {
+                    MessageBox.Show(@"This Patient is already Proccess by another Doctor...!!!");
+                }
+                //var loadingform = new LoadingForm
+                //{
+                //    WaitingList = _waitingList.GetWaitingListObject(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[1].Value)),
+                //    MedicalsForm = Medicalsform,
+                //    Waitinglistform = this
+                //};
+                //loadingform.ShowDialog();
             }
         }
 

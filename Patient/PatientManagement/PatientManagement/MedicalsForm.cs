@@ -26,12 +26,14 @@ namespace PatientManagement
         internal Account Account;
         internal Patient Patient;
         internal Worker Worker;
+        private readonly Class.WaitingList _waitingList = new Class.WaitingList();
         internal WaitingList WaitingList;
         private ICategory _category;
         internal MedicalRecord Medical=new MedicalRecord();
         private int _keyCategory;
         private int? _keyNurse;
         private int? _keyReferrer;
+        private bool? _status;
         private readonly Dating _dating = new Dating();
         internal Refferrer Refferrer=new Refferrer();
         private IEstimate _estimate;
@@ -56,7 +58,7 @@ namespace PatientManagement
             //_path = @"C:\Users\Health\Desktop\Debug\";
             picHideRight.ImageLocation = _path + @"Hide-right-icon.png";
             picHideTop.ImageLocation = _path + @"Hide-Up-icon.png";
-            txtNameDoctor.Text = Account.Worker.Name;
+            txtNameDoctor.Text = Account.Worker.LastName;
             txtDescription.ForeColor = Color.Black;
         }
 
@@ -110,7 +112,7 @@ namespace PatientManagement
             form.ShowDialog();
             if (Patient != null)
             {
-                txtNamePatient.Text = Patient.Name;
+                txtNamePatient.Text = Patient.LastName;
                 txtGenderPatient.Text = Patient.Gender;
                 if (btnPatient.Name == "btnPatient")
                 {
@@ -163,44 +165,45 @@ namespace PatientManagement
             {
                 if (cboService.Text == @"Consultation")
                 {
-                    _estimate = new ConsultationEstimate();
-                    _estimate.Insert(WaitingList.VisitId,WaitingList.VisitCount,WaitingList.PatientId, _keyCategory, Worker.Id, _keyNurse, _keyReferrer, DateTime.Today, _path + @"RTF\ConsultationEstimate\"+WaitingList.PatientId+DateTime.Today.Date+DateTime.Today.TimeOfDay.ToString("g"));
-                    txtDescription.Save(
-                        _path + @"RTF\ConsultationEstimate\" + WaitingList.PatientId + DateTime.Today.Date +
-                        DateTime.Today.TimeOfDay.ToString("g"), StreamType.RichTextFormat);
+                    //_estimate = new ConsultationEstimate();
+                    //_estimate.Insert(WaitingList.VisitId,WaitingList.VisitCount,WaitingList.PatientId, _keyCategory, Worker.Id, _keyNurse, _keyReferrer, DateTime.Today, _path + @"RTF\ConsultationEstimate\"+WaitingList.PatientId+DateTime.Today.Date+DateTime.Today.TimeOfDay.ToString("g"));
+                    //txtDescription.Save(
+                    //    _path + @"RTF\ConsultationEstimate\" + WaitingList.PatientId + DateTime.Today.Date +
+                    //    DateTime.Today.TimeOfDay.ToString("g"), StreamType.RichTextFormat);
                 }
                 if (cboService.Text == @"Laboratory")
                 {
-                    _estimate = new LaboratoryEstimate();
-                    _estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, _keyCategory, Worker.Id, _keyNurse, _keyReferrer, DateTime.Today, _path + @"RTF\LaboratoryEstimate\" + WaitingList.PatientId + DateTime.Today.Date + DateTime.Today.TimeOfDay.ToString("g"));
-                    txtDescription.Save(
-                        _path + @"RTF\LaboratoryEstimate\" + WaitingList.PatientId + DateTime.Today.Date +
-                        DateTime.Today.TimeOfDay.ToString("g"), StreamType.RichTextFormat); 
+                    //_estimate = new LaboratoryEstimate();
+                    //_estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, _keyCategory, Worker.Id, _keyNurse, _keyReferrer, DateTime.Today, _path + @"RTF\LaboratoryEstimate\" + WaitingList.PatientId + DateTime.Today.Date + DateTime.Today.TimeOfDay.ToString("g"));
+                    //txtDescription.Save(
+                    //    _path + @"RTF\LaboratoryEstimate\" + WaitingList.PatientId + DateTime.Today.Date +
+                    //    DateTime.Today.TimeOfDay.ToString("g"), StreamType.RichTextFormat); 
                 }
                 if (cboService.Text == @"Medical Imaging")
                 {
-                    _estimate = new MedicalImagingEstimate();
-                    _estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, _keyCategory, Worker.Id, _keyNurse, _keyReferrer, DateTime.Today, _path + @"RTF\MedicalImagingEstimate\" + WaitingList.PatientId + DateTime.Today.Date + DateTime.Today.TimeOfDay.ToString("g"));
-                    txtDescription.Save(
-                        _path + @"RTF\MedicalImagingEstimate\" + WaitingList.PatientId + DateTime.Today.Date +
-                        DateTime.Today.TimeOfDay.ToString("g"), StreamType.RichTextFormat);
+                    //_estimate = new MedicalImagingEstimate();
+                    //_estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, _keyCategory, Worker.Id, _keyNurse, _keyReferrer, DateTime.Today, _path + @"RTF\MedicalImagingEstimate\" + WaitingList.PatientId + DateTime.Today.Date + DateTime.Today.TimeOfDay.ToString("g"));
+                    //txtDescription.Save(
+                    //    _path + @"RTF\MedicalImagingEstimate\" + WaitingList.PatientId + DateTime.Today.Date +
+                    //    DateTime.Today.TimeOfDay.ToString("g"), StreamType.RichTextFormat);
                 }
                 if (cboService.Text == @"Prescription")
                 {
-                    _estimate = new PrescriptionEstimate();
-                    _estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, _keyCategory, Worker.Id, _keyNurse, _keyReferrer, DateTime.Today, _path + @"RTF\PrescriptionEstimate\" + WaitingList.PatientId + DateTime.Today.Date + DateTime.Today.TimeOfDay.ToString("g"));
-                    txtDescription.Save(
-                        _path + @"RTF\PrescriptionEstimate\" + WaitingList.PatientId + DateTime.Today.Date +
-                        DateTime.Today.TimeOfDay.ToString("g"), StreamType.RichTextFormat);
+                    //_estimate = new PrescriptionEstimate();
+                    //_estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, _keyCategory, Worker.Id, _keyNurse, _keyReferrer, DateTime.Today, _path + @"RTF\PrescriptionEstimate\" + WaitingList.PatientId + DateTime.Today.Date + DateTime.Today.TimeOfDay.ToString("g"));
+                    //txtDescription.Save(
+                    //    _path + @"RTF\PrescriptionEstimate\" + WaitingList.PatientId + DateTime.Today.Date +
+                    //    DateTime.Today.TimeOfDay.ToString("g"), StreamType.RichTextFormat);
                 }
                 if (cboService.Text == @"Various Document")
                 {
-                    _estimate = new VariousDocumentEstimate();
-                    _estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, _keyCategory, Worker.Id, _keyNurse, _keyReferrer, DateTime.Today, _path + @"RTF\VariousDocumentEstimate\" + WaitingList.PatientId + DateTime.Today.Date + DateTime.Today.TimeOfDay.ToString("g"));
-                    txtDescription.Save(
-                        _path + @"RTF\VariousDocumentEstimate\" + WaitingList.PatientId + DateTime.Today.Date +
-                        DateTime.Today.TimeOfDay.ToString("g"), StreamType.RichTextFormat);
+                    //_estimate = new VariousDocumentEstimate();
+                    //_estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, _keyCategory, Worker.Id, _keyNurse, _keyReferrer, DateTime.Today, _path + @"RTF\VariousDocumentEstimate\" + WaitingList.PatientId + DateTime.Today.Date + DateTime.Today.TimeOfDay.ToString("g"));
+                    //txtDescription.Save(
+                    //    _path + @"RTF\VariousDocumentEstimate\" + WaitingList.PatientId + DateTime.Today.Date +
+                    //    DateTime.Today.TimeOfDay.ToString("g"), StreamType.RichTextFormat);
                 }
+                _waitingList.UpdatePatientStatus(WaitingList.Id, _status );
                 Clear();
             }
         }
