@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e9be9e85b90149b19520f32dce535164" Name="Diagram1" ZoomLevel="67">
+      <Diagram DiagramId="e9be9e85b90149b19520f32dce535164" Name="Diagram1" ZoomLevel="60">
         <EntityTypeShape EntityType="HospitalModel.Account" Width="1.5" PointX="3" PointY="17.75" IsExpanded="true" />
         <EntityTypeShape EntityType="HospitalModel.ConsultationCategory" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="HospitalModel.ConsultationEstimate" Width="1.5" PointX="3" PointY="12.875" IsExpanded="true" />
@@ -100,12 +100,12 @@
         <EntityTypeShape EntityType="HospitalModel.PrescriptionEstimateEditHistory" Width="1.5" PointX="3.5798645278345163" PointY="19.9266932699488" />
         <EntityTypeShape EntityType="HospitalModel.VariousDocumentEstimateEditHistory" Width="1.5" PointX="6.3600030850432825" PointY="7.3738628511195365" />
 =======
-        <EntityTypeShape EntityType="HospitalModel.ConsultationEstimateEditHistory" Width="1.5" PointX="1.5300869594933872" PointY="22.321291606091563" />
-        <EntityTypeShape EntityType="HospitalModel.LaboratoryEstimateEditHistory" Width="1.5" PointX="2.6532093410627962" PointY="29.516852303183104" />
-        <EntityTypeShape EntityType="HospitalModel.MedicalImagingEstimateEditHistory" Width="1.5" PointX="6.6710919619868942" PointY="26.027797815402877" />
-        <EntityTypeShape EntityType="HospitalModel.PrescriptionEstimateEditHistory" Width="1.5" PointX="7.174493772524638" PointY="18.126771160460436" />
-        <EntityTypeShape EntityType="HospitalModel.VariousDocumentEstimateEditHistory" Width="1.5" PointX="10.379231705506905" PointY="0.92514014287159785" />
->>>>>>> 11455fd60e253b858604a1df0b76fd603dd6075a
+        
+        
+        
+        
+        
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; 11455fd60e253b858604a1df0b76fd603dd6075a
         <AssociationConnector Association="HospitalModel.FK_ConsultationEstimateEditHistory_ConsultationEstimate" />
         <AssociationConnector Association="HospitalModel.FK_ConsultationEstimateEditHistory_Worker" />
         <AssociationConnector Association="HospitalModel.FK_LaboratoryEstimateEditHistory_LaboratoryEstimate" />

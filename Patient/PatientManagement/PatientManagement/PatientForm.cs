@@ -30,7 +30,7 @@ namespace PatientManagement
             dtpDOB.Value = Patient.DOB;
             txtAge.Text = Patient.Age.ToString();
             txtPhone1.Text = Patient.Phone1;
-            txtPhone2.Text = Patient.Phone2;
+            txtPhone1.Text = Patient.Phone2;
             txtEmail.Text = Patient.Email;
             txtAddress.Text = Patient.Address;
             txtWeight.Text = Patient.Weight.ToString();
@@ -43,7 +43,7 @@ namespace PatientManagement
             dtpDOB.Enabled = false;
             txtAge.Enabled = false;
             txtPhone1.Enabled = false;
-            txtPhone2.Enabled = false;
+            txtPhone1.Enabled = false;
             txtEmail.Enabled = false;
             txtAddress.Enabled = false;
             txtWeight.Enabled = false;
@@ -75,7 +75,7 @@ namespace PatientManagement
             txtAddress.Text = "";
             txtEmail.Text = "";
             txtPhone1.Text = "";
-            txtPhone2.Text = "";
+            txtPhone1.Text = "";
             txtWeight.Text = "";
             txtHeight.Text = "";
             dtpDOB.Value = DateTime.Today;
@@ -104,7 +104,7 @@ namespace PatientManagement
             dtpDOB.Enabled = true;
             txtAge.Enabled = true;
             txtPhone1.Enabled = true;
-            txtPhone2.Enabled = true;
+            txtPhone1.Enabled = true;
             txtEmail.Enabled = true;
             txtAddress.Enabled = true;
             txtWeight.Enabled = true;
@@ -146,9 +146,9 @@ namespace PatientManagement
                 MessageBox.Show(@"Please fill Phone1.");
                 txtName.Focus();
             }
-            if (txtPhone2.Text.Trim() == "" || txtPhone2.Text == null)
+            if (txtPhone1.Text.Trim() == "" || txtPhone1.Text == null)
             {
-                txtPhone2.Text = @"None";
+                txtPhone1.Text = @"None";
             }
             if (txtEmail.Text.Trim() == "" || txtEmail.Text == null)
             {
@@ -176,7 +176,7 @@ namespace PatientManagement
             try
             {
                 _patient.Update(Patient.Id,txtName.Text,cboGender.Text,dtpDOB.Value,Convert.ToByte(txtAge.Text),txtAddress.Text,txtPhone1.Text,
-                    txtPhone2.Text,txtEmail.Text,Convert.ToInt16(txtWeight.Text),Convert.ToInt16(txtHeight.Text));
+                    txtPhone1.Text,txtEmail.Text,Convert.ToInt16(txtWeight.Text),Convert.ToInt16(txtHeight.Text));
                 PatientListForm.dgvListPatient.Columns.RemoveAt(7);
                 PatientListForm.PatientListForm_Shown(PatientListForm,new EventArgs());
                 Close();

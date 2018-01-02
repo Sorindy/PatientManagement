@@ -24,6 +24,7 @@ namespace Hospital_Entity_Framework
     
         public int Id { get; set; }
         public string Name { get; set; }
+        public bool Available { get; set; }
     
         public virtual ICollection<MedicalImagingEstimate> MedicalImagingEstimates { get; set; }
         public virtual ICollection<MedicalImagingSample> MedicalImagingSamples { get; set; }

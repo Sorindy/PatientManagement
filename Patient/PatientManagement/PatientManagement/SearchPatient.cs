@@ -50,6 +50,12 @@ namespace PatientManagement
                     Datinglistform.txtPatientName.Text = _patient.Select(Convert.ToInt32(dgvSearchPatient.CurrentRow.Cells[0].Value)).Name;
                 }
             }
+            else
+            {
+                var form=new NewPatient();
+                form.ShowDialog();
+                Close();
+            }
             Close();
         }
 

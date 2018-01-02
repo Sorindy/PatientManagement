@@ -14,6 +14,7 @@
     <EntitySetMapping Name="ConsultationCategories">
       <EntityTypeMapping TypeName="HospitalModel.ConsultationCategory">
         <MappingFragment StoreEntitySet="ConsultationCategory">
+          <ScalarProperty Name="Available" ColumnName="Available" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
         </MappingFragment>
@@ -65,6 +66,7 @@
     <EntitySetMapping Name="LaboratoryCategories">
       <EntityTypeMapping TypeName="HospitalModel.LaboratoryCategory">
         <MappingFragment StoreEntitySet="LaboratoryCategory">
+          <ScalarProperty Name="Available" ColumnName="Available" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
         </MappingFragment>
@@ -115,6 +117,7 @@
     <EntitySetMapping Name="MedicalImagingCategories">
       <EntityTypeMapping TypeName="HospitalModel.MedicalImagingCategory">
         <MappingFragment StoreEntitySet="MedicalImagingCategory">
+          <ScalarProperty Name="Available" ColumnName="Available" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
         </MappingFragment>
@@ -156,8 +159,11 @@
     <EntitySetMapping Name="Patients">
       <EntityTypeMapping TypeName="HospitalModel.Patient">
         <MappingFragment StoreEntitySet="Patient">
+          <ScalarProperty Name="PatientIdentify" ColumnName="PatientIdentify" />
+          <ScalarProperty Name="KhmerName" ColumnName="KhmerName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Gender" ColumnName="Gender" />
           <ScalarProperty Name="DOB" ColumnName="DOB" />
           <ScalarProperty Name="Age" ColumnName="Age" />
@@ -173,6 +179,7 @@
     <EntitySetMapping Name="PrescriptionCategories">
       <EntityTypeMapping TypeName="HospitalModel.PrescriptionCategory">
         <MappingFragment StoreEntitySet="PrescriptionCategory">
+          <ScalarProperty Name="Available" ColumnName="Available" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
         </MappingFragment>
@@ -206,8 +213,10 @@
     <EntitySetMapping Name="Referrers">
       <EntityTypeMapping TypeName="HospitalModel.Referrer">
         <MappingFragment StoreEntitySet="Referrer">
+          <ScalarProperty Name="Available" ColumnName="Available" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Specialty" ColumnName="Specialty" />
           <ScalarProperty Name="WorkPlace" ColumnName="WorkPlace" />
           <ScalarProperty Name="Phone1" ColumnName="Phone1" />
@@ -261,6 +270,7 @@
     <EntitySetMapping Name="VariousDocumentCategories">
       <EntityTypeMapping TypeName="HospitalModel.VariousDocumentCategory">
         <MappingFragment StoreEntitySet="VariousDocumentCategory">
+          <ScalarProperty Name="Available" ColumnName="Available" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
         </MappingFragment>
@@ -317,8 +327,9 @@
     <EntitySetMapping Name="Workers">
       <EntityTypeMapping TypeName="HospitalModel.Worker">
         <MappingFragment StoreEntitySet="Worker">
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Gender" ColumnName="Gender" />
           <ScalarProperty Name="DOB" ColumnName="DOB" />
           <ScalarProperty Name="Age" ColumnName="Age" />

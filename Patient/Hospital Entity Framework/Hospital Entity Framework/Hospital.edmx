@@ -414,6 +414,7 @@
           </Key>
           <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Available" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="ConsultationEstimate">
           <Key>
@@ -470,6 +471,7 @@
           </Key>
           <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Available" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="LaboratoryEstimate">
           <Key>
@@ -573,6 +575,7 @@
           </Key>
           <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Available" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="MedicalImagingEstimate">
           <Key>
@@ -629,7 +632,10 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="PatientIdentify" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="KhmerName" Type="nvarchar" MaxLength="50" />
           <Property Name="Gender" Type="nvarchar" Nullable="false" MaxLength="10" />
           <Property Name="DOB" Type="date" Nullable="false" />
           <Property Name="Age" Type="smallint" Nullable="false" />
@@ -646,6 +652,7 @@
           </Key>
           <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Available" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="PrescriptionEstimate">
           <Key>
@@ -685,12 +692,14 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="Specialty" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="WorkPlace" Type="nvarchar" Nullable="false" MaxLength="100" />
           <Property Name="Phone1" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="Phone2" Type="nvarchar" MaxLength="50" />
           <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Available" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -736,6 +745,7 @@
           </Key>
           <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Available" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="VariousDocumentEstimate">
           <Key>
@@ -887,7 +897,8 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="Gender" Type="nvarchar" Nullable="false" MaxLength="10" />
           <Property Name="DOB" Type="date" Nullable="false" />
           <Property Name="Age" Type="smallint" Nullable="false" />
@@ -2269,6 +2280,7 @@
           <NavigationProperty Name="ConsultationSamples" Relationship="HospitalModel.FK_ConsultationSample_ConsultationCategory" FromRole="ConsultationCategory" ToRole="ConsultationSample" />
           <NavigationProperty Name="Managements" Relationship="HospitalModel.ManagementConsultation" FromRole="ConsultationCategory" ToRole="Management" />
           <NavigationProperty Name="WaitingLists" Relationship="HospitalModel.WaitingConsultation" FromRole="ConsultationCategory" ToRole="WaitingList" />
+          <Property Type="Boolean" Name="Available" Nullable="false" />
         </EntityType>
         <EntityType Name="ConsultationEstimate">
           <Key>
@@ -2288,13 +2300,8 @@
           <NavigationProperty Name="Worker" Relationship="HospitalModel.FK_ConsultationEstimate_Worker" FromRole="ConsultationEstimate" ToRole="Worker" />
           <NavigationProperty Name="Worker1" Relationship="HospitalModel.FK_ConsultationEstimate_Worker1" FromRole="ConsultationEstimate" ToRole="Worker" />
           <NavigationProperty Name="Visits" Relationship="HospitalModel.VisitConsultation" FromRole="ConsultationEstimate" ToRole="Visit" />
-<<<<<<< HEAD
           <Property Type="Boolean" Name="Edit" Nullable="false" />
           <NavigationProperty Name="ConsultationEstimateEditHistories" Relationship="HospitalModel.FK_ConsultationEstimateEditHistory_ConsultationEstimate" FromRole="ConsultationEstimate" ToRole="ConsultationEstimateEditHistory" />
-=======
-          <NavigationProperty Name="ConsultationEstimateEditHistories" Relationship="HospitalModel.FK_ConsultationEstimateEditHistory_ConsultationEstimate" FromRole="ConsultationEstimate" ToRole="ConsultationEstimateEditHistory" />
-          <Property Type="Boolean" Name="Edit" Nullable="false" />
->>>>>>> 11455fd60e253b858604a1df0b76fd603dd6075a
         </EntityType>
         <EntityType Name="ConsultationSample">
           <Key>
@@ -2335,6 +2342,7 @@
           <NavigationProperty Name="LaboratorySamples" Relationship="HospitalModel.FK_LaboratorySample_LaboratoryCategory" FromRole="LaboratoryCategory" ToRole="LaboratorySample" />
           <NavigationProperty Name="Managements" Relationship="HospitalModel.ManagementLaboratory" FromRole="LaboratoryCategory" ToRole="Management" />
           <NavigationProperty Name="WaitingLists" Relationship="HospitalModel.WaitingLaboratory" FromRole="LaboratoryCategory" ToRole="WaitingList" />
+          <Property Type="Boolean" Name="Available" Nullable="false" />
         </EntityType>
         <EntityType Name="LaboratoryEstimate">
           <Key>
@@ -2354,13 +2362,8 @@
           <NavigationProperty Name="Worker" Relationship="HospitalModel.FK_LaboratoryEstimate_Worker" FromRole="LaboratoryEstimate" ToRole="Worker" />
           <NavigationProperty Name="Worker1" Relationship="HospitalModel.FK_LaboratoryEstimate_Worker1" FromRole="LaboratoryEstimate" ToRole="Worker" />
           <NavigationProperty Name="Visits" Relationship="HospitalModel.VisitLaboratory" FromRole="LaboratoryEstimate" ToRole="Visit" />
-<<<<<<< HEAD
           <Property Type="Boolean" Name="Edit" Nullable="false" />
           <NavigationProperty Name="LaboratoryEstimateEditHistories" Relationship="HospitalModel.FK_LaboratoryEstimateEditHistory_LaboratoryEstimate" FromRole="LaboratoryEstimate" ToRole="LaboratoryEstimateEditHistory" />
-=======
-          <NavigationProperty Name="LaboratoryEstimateEditHistories" Relationship="HospitalModel.FK_LaboratoryEstimateEditHistory_LaboratoryEstimate" FromRole="LaboratoryEstimate" ToRole="LaboratoryEstimateEditHistory" />
-          <Property Type="Boolean" Name="Edit" Nullable="false" />
->>>>>>> 11455fd60e253b858604a1df0b76fd603dd6075a
         </EntityType>
         <EntityType Name="LaboratorySample">
           <Key>
@@ -2405,6 +2408,7 @@
           <NavigationProperty Name="MedicalImagingSamples" Relationship="HospitalModel.FK_MedicalImagingSample_MedicalImagingCategory" FromRole="MedicalImagingCategory" ToRole="MedicalImagingSample" />
           <NavigationProperty Name="Managements" Relationship="HospitalModel.ManagementMedicalImaging" FromRole="MedicalImagingCategory" ToRole="Management" />
           <NavigationProperty Name="WaitingLists" Relationship="HospitalModel.WaitingMedicalImaging" FromRole="MedicalImagingCategory" ToRole="WaitingList" />
+          <Property Type="Boolean" Name="Available" Nullable="false" />
         </EntityType>
         <EntityType Name="MedicalImagingEstimate">
           <Key>
@@ -2424,13 +2428,8 @@
           <NavigationProperty Name="Worker" Relationship="HospitalModel.FK_MedicalImagingEstimate_Worker" FromRole="MedicalImagingEstimate" ToRole="Worker" />
           <NavigationProperty Name="Worker1" Relationship="HospitalModel.FK_MedicalImagingEstimate_Worker1" FromRole="MedicalImagingEstimate" ToRole="Worker" />
           <NavigationProperty Name="Visits" Relationship="HospitalModel.VisitMedicalImaging" FromRole="MedicalImagingEstimate" ToRole="Visit" />
-<<<<<<< HEAD
           <Property Type="Boolean" Name="Edit" Nullable="false" />
           <NavigationProperty Name="MedicalImagingEstimateEditHistories" Relationship="HospitalModel.FK_MedicalImagingEstimateEditHistory_MedicalImagingEstimate" FromRole="MedicalImagingEstimate" ToRole="MedicalImagingEstimateEditHistory" />
-=======
-          <NavigationProperty Name="MedicalImagingEstimateEditHistories" Relationship="HospitalModel.FK_MedicalImagingEstimateEditHistory_MedicalImagingEstimate" FromRole="MedicalImagingEstimate" ToRole="MedicalImagingEstimateEditHistory" />
-          <Property Type="Boolean" Name="Edit" Nullable="false" />
->>>>>>> 11455fd60e253b858604a1df0b76fd603dd6075a
         </EntityType>
         <EntityType Name="MedicalImagingSample">
           <Key>
@@ -2476,6 +2475,10 @@
           <NavigationProperty Name="VariousDocumentEstimates" Relationship="HospitalModel.FK_VariousDocumentEstimate_Patient" FromRole="Patient" ToRole="VariousDocumentEstimate" />
           <NavigationProperty Name="Visits" Relationship="HospitalModel.FK_Visit_Patient" FromRole="Patient" ToRole="Visit" />
           <NavigationProperty Name="WaitingLists" Relationship="HospitalModel.FK_WaitingList_Patient" FromRole="Patient" ToRole="WaitingList" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LastName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="KhmerName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="PatientIdentify" Nullable="false" />
         </EntityType>
         <EntityType Name="PrescriptionCategory">
           <Key>
@@ -2487,6 +2490,7 @@
           <NavigationProperty Name="PrescriptionSamples" Relationship="HospitalModel.FK_PrescriptionSample_PrescriptionCategory" FromRole="PrescriptionCategory" ToRole="PrescriptionSample" />
           <NavigationProperty Name="Managements" Relationship="HospitalModel.ManagementPrescription" FromRole="PrescriptionCategory" ToRole="Management" />
           <NavigationProperty Name="WaitingLists" Relationship="HospitalModel.WaitingPrescription" FromRole="PrescriptionCategory" ToRole="WaitingList" />
+          <Property Type="Boolean" Name="Available" Nullable="false" />
         </EntityType>
         <EntityType Name="PrescriptionEstimate">
           <Key>
@@ -2506,13 +2510,8 @@
           <NavigationProperty Name="Worker" Relationship="HospitalModel.FK_PrescriptionEstimate_Worker" FromRole="PrescriptionEstimate" ToRole="Worker" />
           <NavigationProperty Name="Worker1" Relationship="HospitalModel.FK_PrescriptionEstimate_Worker1" FromRole="PrescriptionEstimate" ToRole="Worker" />
           <NavigationProperty Name="Visits" Relationship="HospitalModel.VisitPrescription" FromRole="PrescriptionEstimate" ToRole="Visit" />
-<<<<<<< HEAD
           <Property Type="Boolean" Name="Edit" Nullable="false" />
           <NavigationProperty Name="PrescriptionEstimateEditHistories" Relationship="HospitalModel.FK_PrescriptionEstimateEditHistory_PrescriptionEstimate" FromRole="PrescriptionEstimate" ToRole="PrescriptionEstimateEditHistory" />
-=======
-          <NavigationProperty Name="PrescriptionEstimateEditHistories" Relationship="HospitalModel.FK_PrescriptionEstimateEditHistory_PrescriptionEstimate" FromRole="PrescriptionEstimate" ToRole="PrescriptionEstimateEditHistory" />
-          <Property Type="Boolean" Name="Edit" Nullable="false" />
->>>>>>> 11455fd60e253b858604a1df0b76fd603dd6075a
         </EntityType>
         <EntityType Name="PrescriptionSample">
           <Key>
@@ -2540,6 +2539,9 @@
           <NavigationProperty Name="MedicalImagingEstimates" Relationship="HospitalModel.FK_MedicalImagingEstimate_Referrer" FromRole="Referrer" ToRole="MedicalImagingEstimate" />
           <NavigationProperty Name="PrescriptionEstimates" Relationship="HospitalModel.FK_PrescriptionEstimate_Referrer" FromRole="Referrer" ToRole="PrescriptionEstimate" />
           <NavigationProperty Name="VariousDocumentEstimates" Relationship="HospitalModel.FK_VariousDocumentEstimate_Referrer" FromRole="Referrer" ToRole="VariousDocumentEstimate" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LastName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="Available" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -2591,6 +2593,7 @@
           <NavigationProperty Name="VariousDocumentSamples" Relationship="HospitalModel.FK_VariousDocumentSample_VariousDocumentCategory" FromRole="VariousDocumentCategory" ToRole="VariousDocumentSample" />
           <NavigationProperty Name="Managements" Relationship="HospitalModel.ManagementVariousDocument" FromRole="VariousDocumentCategory" ToRole="Management" />
           <NavigationProperty Name="WaitingLists" Relationship="HospitalModel.WaitingVariousDocument" FromRole="VariousDocumentCategory" ToRole="WaitingList" />
+          <Property Type="Boolean" Name="Available" Nullable="false" />
         </EntityType>
         <EntityType Name="VariousDocumentEstimate">
           <Key>
@@ -2610,13 +2613,8 @@
           <NavigationProperty Name="Worker" Relationship="HospitalModel.FK_VariousDocumentEstimate_Worker" FromRole="VariousDocumentEstimate" ToRole="Worker" />
           <NavigationProperty Name="Worker1" Relationship="HospitalModel.FK_VariousDocumentEstimate_Worker1" FromRole="VariousDocumentEstimate" ToRole="Worker" />
           <NavigationProperty Name="Visits" Relationship="HospitalModel.VisitVariousDocument" FromRole="VariousDocumentEstimate" ToRole="Visit" />
-<<<<<<< HEAD
           <Property Type="Boolean" Name="Edit" Nullable="false" />
           <NavigationProperty Name="VariousDocumentEstimateEditHistories" Relationship="HospitalModel.FK_VariousDocumentEstimateEditHistory_VariousDocumentEstimate" FromRole="VariousDocumentEstimate" ToRole="VariousDocumentEstimateEditHistory" />
-=======
-          <NavigationProperty Name="VariousDocumentEstimateEditHistories" Relationship="HospitalModel.FK_VariousDocumentEstimateEditHistory_VariousDocumentEstimate" FromRole="VariousDocumentEstimate" ToRole="VariousDocumentEstimateEditHistory" />
-          <Property Type="Boolean" Name="Edit" Nullable="false" />
->>>>>>> 11455fd60e253b858604a1df0b76fd603dd6075a
         </EntityType>
         <EntityType Name="VariousDocumentSample">
           <Key>
@@ -2702,6 +2700,8 @@
           <NavigationProperty Name="MedicalImagingEstimateEditHistories" Relationship="HospitalModel.FK_MedicalImagingEstimateEditHistory_Worker" FromRole="Worker" ToRole="MedicalImagingEstimateEditHistory" />
           <NavigationProperty Name="PrescriptionEstimateEditHistories" Relationship="HospitalModel.FK_PrescriptionEstimateEditHistory_Worker" FromRole="Worker" ToRole="PrescriptionEstimateEditHistory" />
           <NavigationProperty Name="VariousDocumentEstimateEditHistories" Relationship="HospitalModel.FK_VariousDocumentEstimateEditHistory_Worker" FromRole="Worker" ToRole="VariousDocumentEstimateEditHistory" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LastName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_Account_Worker">
           <End Role="Worker" Type="HospitalModel.Worker" Multiplicity="1" />
@@ -3464,6 +3464,7 @@
           <EntitySetMapping Name="ConsultationCategories">
             <EntityTypeMapping TypeName="HospitalModel.ConsultationCategory">
               <MappingFragment StoreEntitySet="ConsultationCategory">
+                <ScalarProperty Name="Available" ColumnName="Available" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
@@ -3515,6 +3516,7 @@
           <EntitySetMapping Name="LaboratoryCategories">
             <EntityTypeMapping TypeName="HospitalModel.LaboratoryCategory">
               <MappingFragment StoreEntitySet="LaboratoryCategory">
+                <ScalarProperty Name="Available" ColumnName="Available" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
@@ -3565,6 +3567,7 @@
           <EntitySetMapping Name="MedicalImagingCategories">
             <EntityTypeMapping TypeName="HospitalModel.MedicalImagingCategory">
               <MappingFragment StoreEntitySet="MedicalImagingCategory">
+                <ScalarProperty Name="Available" ColumnName="Available" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
@@ -3606,8 +3609,11 @@
           <EntitySetMapping Name="Patients">
             <EntityTypeMapping TypeName="HospitalModel.Patient">
               <MappingFragment StoreEntitySet="Patient">
+                <ScalarProperty Name="PatientIdentify" ColumnName="PatientIdentify" />
+                <ScalarProperty Name="KhmerName" ColumnName="KhmerName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Gender" ColumnName="Gender" />
                 <ScalarProperty Name="DOB" ColumnName="DOB" />
                 <ScalarProperty Name="Age" ColumnName="Age" />
@@ -3623,6 +3629,7 @@
           <EntitySetMapping Name="PrescriptionCategories">
             <EntityTypeMapping TypeName="HospitalModel.PrescriptionCategory">
               <MappingFragment StoreEntitySet="PrescriptionCategory">
+                <ScalarProperty Name="Available" ColumnName="Available" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
@@ -3656,8 +3663,10 @@
           <EntitySetMapping Name="Referrers">
             <EntityTypeMapping TypeName="HospitalModel.Referrer">
               <MappingFragment StoreEntitySet="Referrer">
+                <ScalarProperty Name="Available" ColumnName="Available" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Specialty" ColumnName="Specialty" />
                 <ScalarProperty Name="WorkPlace" ColumnName="WorkPlace" />
                 <ScalarProperty Name="Phone1" ColumnName="Phone1" />
@@ -3711,6 +3720,7 @@
           <EntitySetMapping Name="VariousDocumentCategories">
             <EntityTypeMapping TypeName="HospitalModel.VariousDocumentCategory">
               <MappingFragment StoreEntitySet="VariousDocumentCategory">
+                <ScalarProperty Name="Available" ColumnName="Available" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
@@ -3767,8 +3777,9 @@
           <EntitySetMapping Name="Workers">
             <EntityTypeMapping TypeName="HospitalModel.Worker">
               <MappingFragment StoreEntitySet="Worker">
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Gender" ColumnName="Gender" />
                 <ScalarProperty Name="DOB" ColumnName="DOB" />
                 <ScalarProperty Name="Age" ColumnName="Age" />

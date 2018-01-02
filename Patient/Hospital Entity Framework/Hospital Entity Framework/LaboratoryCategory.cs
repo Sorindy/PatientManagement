@@ -24,6 +24,7 @@ namespace Hospital_Entity_Framework
     
         public int Id { get; set; }
         public string Name { get; set; }
+        public bool Available { get; set; }
     
         public virtual ICollection<LaboratoryEstimate> LaboratoryEstimates { get; set; }
         public virtual ICollection<LaboratorySample> LaboratorySamples { get; set; }

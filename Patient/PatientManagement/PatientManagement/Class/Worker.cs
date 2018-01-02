@@ -9,12 +9,12 @@ namespace PatientManagement.Class
     public class Worker
     {
         private readonly HospitalDbContext _db=new HospitalDbContext();
-        public void Insert(string name, string gender, DateTime dob, short age, string address,
+        public void Insert(string fname,string lname, string gender, DateTime dob, short age, string address,
             string phone1, string phone2, string email, string position, int salary, DateTime workdate)
         {
             var insert=new Hospital_Entity_Framework.Worker()
             {
-                Name = name,Gender = gender,DOB = dob,Age = age,Address = address,
+               FirstName = fname,LastName = lname,Gender = gender,DOB = dob,Age = age,Address = address,
                 Phone1 = phone1,Phone2 = phone2,Email = email,Position = position,Salary = salary,StartWorkDate = workdate,Hire = true
             };
 
@@ -31,11 +31,12 @@ namespace PatientManagement.Class
             _db.SaveChanges();
         }
 
-        public void Update(int id, string name, string gender, DateTime dob, short age, string address,
+        public void Update(int id, string fname,string lname, string gender, DateTime dob, short age, string address,
             string phone1, string phone2, string email, string position, int salary, DateTime workdate)
         {
             var update = _db.Workers.Single(v => v.Id == id);
-            update.Name = name;
+            update.FirstName = fname;
+            update.LastName = lname;
             update.Gender = gender;
             update.DOB = dob;
             update.Age = age;
