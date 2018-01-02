@@ -28,10 +28,10 @@ namespace PatientManagement
 
         private void CheckData()
         {
-            if (txtName.Text.Trim() == "" || txtName.Text == null)
+            if (txtfName.Text.Trim() == "" || txtfName.Text == null)
             {
                 MessageBox.Show(@"Please fill Name.");
-                txtName.Focus();
+                txtfName.Focus();
             }
             if (txtAddress.Text.Trim() == "" || txtAddress.Text == null)
             {
@@ -41,11 +41,11 @@ namespace PatientManagement
             if (txtPhone1.Text.Trim() == "" || txtPhone1.Text == null)
             {
                 MessageBox.Show(@"Please fill Phone1.");
-                txtName.Focus();
+                txtfName.Focus();
             }
-            if (txtPhone2.Text.Trim() == "" || txtPhone2.Text == null)
+            if (txtPhone1.Text.Trim() == "" || txtPhone1.Text == null)
             {
-                txtPhone2.Text = @"None";
+                txtPhone1.Text = @"None";
             }
             if (txtEmail.Text.Trim() == "" || txtEmail.Text == null)
             {
@@ -53,7 +53,7 @@ namespace PatientManagement
             }
             if (dtpDOB.Value.Date == DateTime.Today)
             {
-                MessageBox.Show(@"Make sure " + txtName.Text + @" date of birth correct.");
+                MessageBox.Show(@"Make sure " + txtfName.Text + @" date of birth correct.");
                 dtpDOB.Focus();
             }
             if (txtWeight.Text.Trim() == "" || txtWeight.Text == null)
@@ -70,25 +70,25 @@ namespace PatientManagement
 
         private void Clear()
         {
-            txtName.Text = "";
+            txtfName.Text = "";
             txtAge.Text = "";
             txtAddress.Text = "";
             txtEmail.Text = "";
             txtPhone1.Text = "";
-            txtPhone2.Text = "";
+            txtPhone1.Text = "";
             txtWeight.Text = "";
             txtHeight.Text = "";
             dtpDOB.Value = DateTime.Today;
             cboGender.Text = @"Female";
-            txtName.Focus();
+            txtfName.Focus();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             try
             {
-                _patient.Insert(txtName.Text, cboGender.Text, dtpDOB.Value, Convert.ToByte(txtAge.Text), txtAddress.Text, txtPhone1.Text,
-                    txtPhone2.Text, txtEmail.Text, Convert.ToInt16(txtWeight.Text), Convert.ToInt16(txtHeight.Text));
+                _patient.Insert(txtfName.Text, cboGender.Text, dtpDOB.Value, Convert.ToByte(txtAge.Text), txtAddress.Text, txtPhone1.Text,
+                    txtPhone1.Text, txtEmail.Text, Convert.ToInt16(txtWeight.Text), Convert.ToInt16(txtHeight.Text));
                 PatientListForm.dgvListPatient.Columns.RemoveAt(7);
                 PatientListForm.PatientListForm_Shown(PatientListForm, new EventArgs());
                 Close();

@@ -39,6 +39,10 @@ namespace Hospital_Entity_Framework
         public string Email { get; set; }
         public Nullable<short> Weight { get; set; }
         public Nullable<short> Height { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string KhmerName { get; set; }
+        public int PatientIdentify { get; set; }
     
         public virtual ICollection<ConsultationEstimate> ConsultationEstimates { get; set; }
         public virtual ICollection<Dating> Datings { get; set; }

@@ -50,6 +50,8 @@ namespace Hospital_Entity_Framework
         public Nullable<System.DateTime> StartWorkDate { get; set; }
         public bool Hire { get; set; }
         public string PhotoPath { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
     
         public virtual ICollection<Account> Accounts { get; set; }
         public virtual ICollection<ConsultationEstimate> ConsultationEstimates { get; set; }

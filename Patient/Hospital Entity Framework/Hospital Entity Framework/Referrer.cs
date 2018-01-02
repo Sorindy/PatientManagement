@@ -30,6 +30,9 @@ namespace Hospital_Entity_Framework
         public string Phone1 { get; set; }
         public string Phone2 { get; set; }
         public string Email { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public bool Available { get; set; }
     
         public virtual ICollection<ConsultationEstimate> ConsultationEstimates { get; set; }
         public virtual ICollection<LaboratoryEstimate> LaboratoryEstimates { get; set; }

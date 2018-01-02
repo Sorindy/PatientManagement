@@ -20,10 +20,10 @@ namespace PatientManagement
         }
         private void CheckData()
         {
-            if (txtName.Text.Trim() == "" || txtName.Text == null)
+            if (txtfName.Text.Trim() == "" || txtfName.Text == null)
             {
                 MessageBox.Show(@"Please fill Name.");
-                txtName.Focus();
+                txtfName.Focus();
             }
             if (txtAddress.Text.Trim() == "" || txtAddress.Text == null)
             {
@@ -33,20 +33,20 @@ namespace PatientManagement
             if (txtPhone1.Text.Trim() == "" || txtPhone1.Text == null)
             {
                 MessageBox.Show(@"Please fill Phone1.");
-                txtName.Focus();
+                txtfName.Focus();
             }
-            if (txtPhone2.Text.Trim() == "" || txtPhone2.Text == null)
+            if (txtPhone1.Text.Trim() == "" || txtPhone1.Text == null)
             {
-                txtPhone2.Text = @"None";
+                txtPhone1.Text = @"None";
             }
             if (txtEmail.Text.Trim() == "" || txtEmail.Text == null)
             {
                 txtEmail.Text = @"None";
             }
-            if (txtPosition.Text.Trim() == "" || txtPosition.Text == null)
+            if (cboPosition.Text.Trim() == "" || cboPosition.Text == null)
             {
                 MessageBox.Show(@"Please fill Position.");
-                txtPosition.Focus();
+                cboPosition.Focus();
             }
             if (txtSalary.Text.Trim() == "" || txtSalary.Text == null)
             {
@@ -55,24 +55,24 @@ namespace PatientManagement
             }
             if (dtpSWD.Value.Date == DateTime.Now.AddDays(1))
             {
-                MessageBox.Show(@"You can't hire " + txtName.Text + @" over today.");
+                MessageBox.Show(@"You can't hire " + txtfName.Text + @" over today.");
             }
             if (dtpDOB.Value.Date == DateTime.Today)
             {
-                MessageBox.Show(@"Make sure " + txtName.Text + @" date of birth correct.");
+                MessageBox.Show(@"Make sure " + txtfName.Text + @" date of birth correct.");
             }
         }
 
         private void Clear()
         {
-            txtName.Text = "";
+            txtfName.Text = "";
             txtAge.Text = "";
             cboGender.Text = "";
             dtpDOB.Value = DateTime.Today;
             txtAddress.Text = "";
             txtPhone1.Text = "";
-            txtPhone2.Text = "";
-            txtPosition.Text = "";
+            txtPhone1.Text = "";
+            cboPosition.Text = "";
             txtSalary.Text = "";
             dtpSWD.Value = DateTime.Today;
             txtEmail.Text = "";
@@ -81,21 +81,21 @@ namespace PatientManagement
         private void NewWorker_Shown(object sender, EventArgs e)
         {
             Clear();
-            txtName.Focus();
+            txtfName.Focus();
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
             Clear();
-            txtName.Focus();
+            txtfName.Focus();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             try
             {
-                _worker.Insert(txtName.Text,cboGender.Text,dtpDOB.Value,Convert.ToByte(txtAge.Text),txtAddress.Text,txtPhone1.Text,txtPhone2.Text,
-                                txtEmail.Text,txtPosition.Text,Convert.ToInt32(txtSalary.Text),dtpSWD.Value);
+                _worker.Insert(txtfName.Text,txtlName.Text,cboGender.Text,dtpDOB.Value,Convert.ToByte(txtAge.Text),txtAddress.Text,txtPhone1.Text,txtPhone1.Text,
+                                txtEmail.Text,cboPosition.Text,Convert.ToInt32(txtSalary.Text),dtpSWD.Value);
                 WorkerListForm.dgvListWorker.Columns.RemoveAt(7);
                 WorkerListForm.dgvListWorker.Columns.RemoveAt(7);
                 WorkerListForm.WorkerListForm_Shown(WorkerListForm, new EventArgs());

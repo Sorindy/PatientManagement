@@ -409,6 +409,7 @@
     </Key>
     <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Available" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="ConsultationEstimate">
     <Key>
@@ -465,6 +466,7 @@
     </Key>
     <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Available" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="LaboratoryEstimate">
     <Key>
@@ -568,6 +570,7 @@
     </Key>
     <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Available" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="MedicalImagingEstimate">
     <Key>
@@ -624,7 +627,10 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="PatientIdentify" Type="int" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="KhmerName" Type="nvarchar" MaxLength="50" />
     <Property Name="Gender" Type="nvarchar" Nullable="false" MaxLength="10" />
     <Property Name="DOB" Type="date" Nullable="false" />
     <Property Name="Age" Type="smallint" Nullable="false" />
@@ -641,6 +647,7 @@
     </Key>
     <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Available" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="PrescriptionEstimate">
     <Key>
@@ -680,12 +687,14 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="Specialty" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="WorkPlace" Type="nvarchar" Nullable="false" MaxLength="100" />
     <Property Name="Phone1" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="Phone2" Type="nvarchar" MaxLength="50" />
     <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Available" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -731,6 +740,7 @@
     </Key>
     <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Available" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="VariousDocumentEstimate">
     <Key>
@@ -882,7 +892,8 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="Gender" Type="nvarchar" Nullable="false" MaxLength="10" />
     <Property Name="DOB" Type="date" Nullable="false" />
     <Property Name="Age" Type="smallint" Nullable="false" />
