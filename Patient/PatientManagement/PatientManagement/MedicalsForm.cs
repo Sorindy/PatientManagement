@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using PatientManagement.Class;
 using PatientManagement.Interface;
+using TXTextControl;
 using Account = Hospital_Entity_Framework.Account;
 using ConsultationCategory = PatientManagement.Class.ConsultationCategory;
 using Form = System.Windows.Forms.Form;
@@ -25,21 +26,26 @@ namespace PatientManagement
         internal Account Account;
         internal Patient Patient;
         internal Worker Worker;
+        private readonly Class.WaitingList _waitingList = new Class.WaitingList();
         internal WaitingList WaitingList;
         private ICategory _category;
         internal MedicalRecord Medical=new MedicalRecord();
-        private int _key;
+        private int _keyCategory;
+        private int? _keyNurse;
+        private int? _keyReferrer;
+        private bool? _status;
         private readonly Dating _dating = new Dating();
         internal Refferrer Refferrer=new Refferrer();
+        private IEstimate _estimate;
 
         private void sampleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string html;
-            txtDescription.Save(out html, TXTextControl.StringStreamType.HTMLFormat);
-            txtDescription.Load(html, TXTextControl.StringStreamType.HTMLFormat);
+            txtDescription.Save(out html, StringStreamType.HTMLFormat);
+            txtDescription.Load(html, StringStreamType.HTMLFormat);
 
 
-            var form=new SamplesDialogForm(){MedicalsForm = this,CategoryId = _key,ServiceText = cboService.Text,Str = html};
+            var form=new SamplesDialogForm(){MedicalsForm = this,CategoryId = _keyCategory,ServiceText = cboService.Text,Str = html};
             form.ShowDialog();
         }
 
@@ -52,7 +58,7 @@ namespace PatientManagement
             //_path = @"C:\Users\Health\Desktop\Debug\";
             picHideRight.ImageLocation = _path + @"Hide-right-icon.png";
             picHideTop.ImageLocation = _path + @"Hide-Up-icon.png";
-            txtNameDoctor.Text = Account.Worker.Name;
+            txtNameDoctor.Text = Account.Worker.LastName;
             txtDescription.ForeColor = Color.Black;
         }
 
@@ -106,12 +112,12 @@ namespace PatientManagement
             form.ShowDialog();
             if (Patient != null)
             {
-                txtNamePatient.Text = Patient.Name;
+                txtNamePatient.Text = Patient.LastName;
                 txtGenderPatient.Text = Patient.Gender;
                 if (btnPatient.Name == "btnPatient")
                 {
                     btnPatient.Name = "btnInfoPatient";
-                    btnPatient.Text = @"ពត៍មាន​ បន្ថែម";
+                    btnPatient.Text = @"ប្រវត្តិ អ្នកជម្ងឺ";
                     btnPatient.Click += btnInfoPatient_Click;
                     btnPatient.Click -= btnPatient_Click;
                 }
@@ -122,7 +128,7 @@ namespace PatientManagement
         {
             if (btnPatient.Name == "btnInfoPatient")
             {
-                var form=new PatientForm(){Patient = Patient,Account = Account};
+                var form=new HistorysForm(){Account = Account,Patient = Patient};
                 form.ShowDialog();
             }
         }
@@ -157,7 +163,48 @@ namespace PatientManagement
         {
             if (WaitingList != null && Patient != null)
             {
-                
+                if (cboService.Text == @"Consultation")
+                {
+                    //_estimate = new ConsultationEstimate();
+                    //_estimate.Insert(WaitingList.VisitId,WaitingList.VisitCount,WaitingList.PatientId, _keyCategory, Worker.Id, _keyNurse, _keyReferrer, DateTime.Today, _path + @"RTF\ConsultationEstimate\"+WaitingList.PatientId+DateTime.Today.Date+DateTime.Today.TimeOfDay.ToString("g"));
+                    //txtDescription.Save(
+                    //    _path + @"RTF\ConsultationEstimate\" + WaitingList.PatientId + DateTime.Today.Date +
+                    //    DateTime.Today.TimeOfDay.ToString("g"), StreamType.RichTextFormat);
+                }
+                if (cboService.Text == @"Laboratory")
+                {
+                    //_estimate = new LaboratoryEstimate();
+                    //_estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, _keyCategory, Worker.Id, _keyNurse, _keyReferrer, DateTime.Today, _path + @"RTF\LaboratoryEstimate\" + WaitingList.PatientId + DateTime.Today.Date + DateTime.Today.TimeOfDay.ToString("g"));
+                    //txtDescription.Save(
+                    //    _path + @"RTF\LaboratoryEstimate\" + WaitingList.PatientId + DateTime.Today.Date +
+                    //    DateTime.Today.TimeOfDay.ToString("g"), StreamType.RichTextFormat); 
+                }
+                if (cboService.Text == @"Medical Imaging")
+                {
+                    //_estimate = new MedicalImagingEstimate();
+                    //_estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, _keyCategory, Worker.Id, _keyNurse, _keyReferrer, DateTime.Today, _path + @"RTF\MedicalImagingEstimate\" + WaitingList.PatientId + DateTime.Today.Date + DateTime.Today.TimeOfDay.ToString("g"));
+                    //txtDescription.Save(
+                    //    _path + @"RTF\MedicalImagingEstimate\" + WaitingList.PatientId + DateTime.Today.Date +
+                    //    DateTime.Today.TimeOfDay.ToString("g"), StreamType.RichTextFormat);
+                }
+                if (cboService.Text == @"Prescription")
+                {
+                    //_estimate = new PrescriptionEstimate();
+                    //_estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, _keyCategory, Worker.Id, _keyNurse, _keyReferrer, DateTime.Today, _path + @"RTF\PrescriptionEstimate\" + WaitingList.PatientId + DateTime.Today.Date + DateTime.Today.TimeOfDay.ToString("g"));
+                    //txtDescription.Save(
+                    //    _path + @"RTF\PrescriptionEstimate\" + WaitingList.PatientId + DateTime.Today.Date +
+                    //    DateTime.Today.TimeOfDay.ToString("g"), StreamType.RichTextFormat);
+                }
+                if (cboService.Text == @"Various Document")
+                {
+                    //_estimate = new VariousDocumentEstimate();
+                    //_estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, _keyCategory, Worker.Id, _keyNurse, _keyReferrer, DateTime.Today, _path + @"RTF\VariousDocumentEstimate\" + WaitingList.PatientId + DateTime.Today.Date + DateTime.Today.TimeOfDay.ToString("g"));
+                    //txtDescription.Save(
+                    //    _path + @"RTF\VariousDocumentEstimate\" + WaitingList.PatientId + DateTime.Today.Date +
+                    //    DateTime.Today.TimeOfDay.ToString("g"), StreamType.RichTextFormat);
+                }
+                _waitingList.UpdatePatientStatus(WaitingList.Id, _status );
+                Clear();
             }
         }
 
@@ -266,7 +313,7 @@ namespace PatientManagement
             if (cboCategory.DataSource == null) return;
 
             var selectedItem = cboCategory.SelectedIndex;
-            _key = selectedItem;
+            _keyCategory = selectedItem;
         }
 
         private void picAddDate_Click(object sender, EventArgs e)
@@ -341,5 +388,52 @@ namespace PatientManagement
             form.ShowDialog();
         }
 
+        private void Clear()
+        {
+            WaitingList = null;
+            Patient = null;
+
+            txtNamePatient.Text = "";
+            txtGenderPatient.Text = "";
+            if (btnPatient.Name == "btnInfoPatient")
+            {
+                btnPatient.Name = "btnPatient";
+                btnPatient.Text = @"ជ្រើស អ្នកជម្ងឺថ្មី";
+                btnPatient.Click -= btnInfoPatient_Click;
+                btnPatient.Click += btnPatient_Click;
+            }
+            chkBoxNurse.Checked = false;
+            chkBoxReferrer.Checked = false;
+            txtDescription.Text = "";
+        }
+
+        private void cboNurse_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboNurse.DataSource == null)
+            {
+                _keyNurse = null;
+                return;
+            }
+
+            var selectedItem = cboNurse.SelectedIndex;
+            _keyNurse = selectedItem;
+        }
+
+        private void cboReferrer_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboReferrer.DataSource == null)
+            {
+                _keyReferrer = null;
+                return;
+            }
+
+            var selectedItem = cboReferrer.SelectedIndex;
+            _keyReferrer = selectedItem;
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            Clear();
+        }
     }
 }

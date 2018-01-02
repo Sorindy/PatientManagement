@@ -66,9 +66,9 @@ namespace PatientManagement.Class
         {
             var bs=new BindingSource();
 
-            var search = _db.Patients.Where(v => v.Name.Contains(text) ||
-                                                 v.Phone1.Contains(text) || v.Phone2.Contains(text));
-            bs.DataSource = search.Select(v=>new {v.Id,v.Name,v.Gender,v.Phone1,v.Phone2,v.Email,v.Address,v.Height,v.Weight}).ToList();
+            var search = _db.Patients.Where(v => v.LastName.Contains(text) ||
+                                                 v.Phone1.Contains(text) || v.Phone2.Contains(text) || v.FirstName.Contains(text ));
+            bs.DataSource = search.Select(v=>new {v.Id,v.FirstName,v.LastName,v.KhmerName,v.Gender,v.Phone1,v.Phone2,v.Email,v.Address,v.Height,v.Weight,v.PatientIdentify}).ToList();
 
             return bs;
         }
@@ -77,7 +77,7 @@ namespace PatientManagement.Class
         {
             var bs = new BindingSource();
 
-            var search = _db.Datings.Where(v => v.Patient.Name.Contains(text)||v.Worker.Name.Contains(text));
+            var search = _db.Datings.Where(v => v.Patient.FirstName.Contains(text)|| v.Patient.LastName.Contains( text ) || v.Worker.FirstName.Contains(text) || v.Worker.LastName.Contains( text ));
             bs.DataSource = search.ToList();
 
             return bs;

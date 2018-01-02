@@ -12,7 +12,7 @@ namespace PatientManagement.Class
         private readonly HospitalDbContext _db = new HospitalDbContext();
         private readonly BindingSource _bs = new BindingSource();
 
-        public void Insert(int patientid,int categoryid,int workerid,int? nurseid,int? referrerid,DateTime date,string description)
+        public void Insert(int visitid, int visitcount, int patientid, int categoryid, int workerid, int? nurseid, int? referrerid, DateTime date, string description)
         {
             var insert = new Hospital_Entity_Framework.ConsultationEstimate()
             {
@@ -23,8 +23,19 @@ namespace PatientManagement.Class
                 ReferrerId = referrerid,
                 Date = date,
                 Description =description,
+                Edit = false
             };
             _db.ConsultationEstimates.Add(insert);
+            _db.SaveChanges();
+            InsertIntoVisit(visitid,visitcount,patientid,description);
+        }
+
+        private void InsertIntoVisit(int visitid,int visitcount,int patientid, string description)
+        {
+            var get = _db.ConsultationEstimates.Where(v => v.PatientId == patientid)
+                .First(v => v.Description == description);
+
+            _db.Visits.First(v=>v.Id==visitid&&v.VisitCount==visitcount).ConsultationEstimates.Add(get);
             _db.SaveChanges();
         }
 

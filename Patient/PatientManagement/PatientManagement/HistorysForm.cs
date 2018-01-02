@@ -17,7 +17,7 @@ namespace PatientManagement
             InitializeComponent();
         }
 
-        internal Patient Pateint;
+        internal Patient Patient;
         internal Account Account;
         private ICategory _category;
         private bool _mouseDown;
@@ -32,8 +32,8 @@ namespace PatientManagement
 
         private void HistorysForm_Shown(object sender, EventArgs e)
         {
-            txtNamePatient.Text = Pateint.Name;
-            txtGenderPatient.Text = Pateint.Gender;
+            txtNamePatient.Text = Patient.Name;
+            txtGenderPatient.Text = Patient.Gender;
             txtNameDoctor.Text = Account.Worker.Name;
         }
 
@@ -142,7 +142,9 @@ namespace PatientManagement
 
         private void btnPatient_Click(object sender, EventArgs e)
         {
-
+            var form = new PatientForm {Patient = Patient};
+            form.ShowDialog();
+            Close();
         }
 
         private void cboSelection_SelectedIndexChanged(object sender, EventArgs e)
@@ -150,32 +152,32 @@ namespace PatientManagement
             if (cboSelection.Text == @"Consultation")
             {
                 _history=new ConsultationHistory();
-                dgvHistory.DataSource = _history.Show(Pateint.Id);
+                dgvHistory.DataSource = _history.Show(Patient.Id);
             }
             if (cboSelection.Text == @"Laboratory")
             {
                 _history = new LaboratoryHistory();
-                dgvHistory.DataSource = _history.Show(Pateint.Id);
+                dgvHistory.DataSource = _history.Show(Patient.Id);
             }
             if (cboSelection.Text == @"MedicalImaging")
             {
                 _history = new MedicalImagingHistory();
-                dgvHistory.DataSource = _history.Show(Pateint.Id);
+                dgvHistory.DataSource = _history.Show(Patient.Id);
             }
             if (cboSelection.Text == @"Prescription")
             {
                 _history = new PrescriptionHistory();
-                dgvHistory.DataSource = _history.Show(Pateint.Id);
+                dgvHistory.DataSource = _history.Show(Patient.Id);
             }
             if (cboSelection.Text == @"VariousDocument")
             {
                 _history = new VariousDocumentHistory();
-                dgvHistory.DataSource = _history.Show(Pateint.Id);
+                dgvHistory.DataSource = _history.Show(Patient.Id);
             }
             if (cboSelection.Text == @"Patient's History")
             {
                 dgvHistory.DataSource = null;
-                var getPath = _medicalHistory.Path(Pateint.Id);
+                var getPath = _medicalHistory.Path(Patient.Id);
                 if(getPath!=null)txtDescription.Load(getPath, StreamType.RichTextFormat);
             }
             dgvHistory.Columns[0].Visible = false;

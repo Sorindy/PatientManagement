@@ -400,6 +400,11 @@ namespace PatientManagement.Class
                     }
                 }
             }
+            else
+            {
+                var insert=new Hospital_Entity_Framework.Management(){AccountId = acc.Id};
+                _db.Managements.Add(insert);
+            }
             _db.SaveChanges();
         }
 
