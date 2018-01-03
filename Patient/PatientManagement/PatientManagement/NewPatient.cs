@@ -30,8 +30,17 @@ namespace PatientManagement
         {
             if (txtfName.Text.Trim() == "" || txtfName.Text == null)
             {
-                MessageBox.Show(@"Please fill Name.");
+                MessageBox.Show(@"Please fill First Name.");
                 txtfName.Focus();
+            }
+            if (txtlName.Text.Trim() == "" || txtlName.Text == null)
+            {
+                MessageBox.Show(@"Please fill Last Name.");
+                txtlName.Focus();
+            }
+            if (txtkhName.Text.Trim() == "" || txtkhName.Text == null)
+            {
+                txtkhName.Text = @"None";
             }
             if (txtAddress.Text.Trim() == "" || txtAddress.Text == null)
             {
@@ -71,6 +80,8 @@ namespace PatientManagement
         private void Clear()
         {
             txtfName.Text = "";
+            txtlName.Text = "";
+            txtkhName.Text = "";
             txtAge.Text = "";
             txtAddress.Text = "";
             txtEmail.Text = "";
@@ -87,7 +98,7 @@ namespace PatientManagement
         {
             try
             {
-                _patient.Insert(txtfName.Text, cboGender.Text, dtpDOB.Value, Convert.ToByte(txtAge.Text), txtAddress.Text, txtPhone1.Text,
+                _patient.Insert(txtfName.Text,txtlName.Text,txtkhName.Text, cboGender.Text, dtpDOB.Value, Convert.ToByte(txtAge.Text), txtAddress.Text, txtPhone1.Text,
                     txtPhone1.Text, txtEmail.Text, Convert.ToInt16(txtWeight.Text), Convert.ToInt16(txtHeight.Text));
                 PatientListForm.dgvListPatient.Columns.RemoveAt(7);
                 PatientListForm.PatientListForm_Shown(PatientListForm, new EventArgs());
@@ -96,6 +107,7 @@ namespace PatientManagement
             catch
             {
                 CheckData();
+                MessageBox.Show(@"Please Checking again !", @"Error");
             }
         }
 
@@ -108,5 +120,6 @@ namespace PatientManagement
         {
             txtAge.Text = (DateTime.Now.Year - dtpDOB.Value.Year).ToString();
         }
+        
     }
 }
