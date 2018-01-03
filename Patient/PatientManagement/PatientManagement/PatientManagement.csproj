@@ -152,12 +152,6 @@
     <Compile Include="CheckInsForm.Designer.cs">
       <DependentUpon>CheckInsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="CheckInForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CheckInForm.designer.cs">
-      <DependentUpon>CheckInForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Class\Account.cs" />
     <Compile Include="Class\CheckIn.cs" />
     <Compile Include="Class\ConsultationCategory.cs" />
@@ -238,18 +232,6 @@
     <Compile Include="ManagementForm.designer.cs">
       <DependentUpon>ManagementForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MedicalForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MedicalForm.designer.cs">
-      <DependentUpon>MedicalForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MedicalHistoryForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MedicalHistoryForm.Designer.cs">
-      <DependentUpon>MedicalHistoryForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="MedicalsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -285,12 +267,6 @@
     </Compile>
     <Compile Include="PatientListForm.Designer.cs">
       <DependentUpon>PatientListForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PatientRegistrationForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PatientRegistrationForm.designer.cs">
-      <DependentUpon>PatientRegistrationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="PrintWaitingForm.cs">
       <SubType>Form</SubType>
@@ -329,12 +305,6 @@
     </Compile>
     <Compile Include="SearchPatient.Designer.cs">
       <DependentUpon>SearchPatient.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SearchForm.designer.cs">
-      <DependentUpon>SearchForm.cs</DependentUpon>
     </Compile>
     <Compile Include="SearchWorker.cs">
       <SubType>Form</SubType>
@@ -387,9 +357,6 @@
     <EmbeddedResource Include="CheckInsForm.resx">
       <DependentUpon>CheckInsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CheckInForm.resx">
-      <DependentUpon>CheckInForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="CreateAccount.resx">
       <DependentUpon>CreateAccount.cs</DependentUpon>
     </EmbeddedResource>
@@ -411,12 +378,6 @@
     <EmbeddedResource Include="ManagementForm.resx">
       <DependentUpon>ManagementForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MedicalForm.resx">
-      <DependentUpon>MedicalForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MedicalHistoryForm.resx">
-      <DependentUpon>MedicalHistoryForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="MedicalsForm.resx">
       <DependentUpon>MedicalsForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -434,9 +395,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PatientListForm.resx">
       <DependentUpon>PatientListForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PatientRegistrationForm.resx">
-      <DependentUpon>PatientRegistrationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PrintWaitingForm.resx">
       <DependentUpon>PrintWaitingForm.cs</DependentUpon>
@@ -466,9 +424,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SearchPatient.resx">
       <DependentUpon>SearchPatient.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SearchForm.resx">
-      <DependentUpon>SearchForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SearchWorker.resx">
       <DependentUpon>SearchWorker.cs</DependentUpon>
