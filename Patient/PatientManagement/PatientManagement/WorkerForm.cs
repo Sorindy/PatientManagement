@@ -159,12 +159,12 @@ namespace PatientManagement
         {
             try
             {
-                _worker.Update(Worker.Id, txtName.Text, cboGender.Text, dtpDOB.Value, Convert.ToByte(txtAge.Text), txtAddress.Text, txtPhone1.Text,
-                    txtPhone2.Text, txtEmail.Text, cboGender.Text, Convert.ToInt32(txtSalary.Text), dtpSWD.Value);
-                WorkerListForm.dgvListWorker.Columns.RemoveAt(7);
-                WorkerListForm.dgvListWorker.Columns.RemoveAt(7);
-                WorkerListForm.WorkerListForm_Shown(this, new EventArgs());
-                Close();
+                //_worker.Update(Worker.Id, txtName.Text, cboGender.Text, dtpDOB.Value, Convert.ToByte(txtAge.Text), txtAddress.Text, txtPhone1.Text,
+                //    txtPhone2.Text, txtEmail.Text, cboGender.Text, Convert.ToInt32(txtSalary.Text), dtpSWD.Value);
+                //WorkerListForm.dgvListWorker.Columns.RemoveAt(7);
+                //WorkerListForm.dgvListWorker.Columns.RemoveAt(7);
+                //WorkerListForm.WorkerListForm_Shown(this, new EventArgs());
+                //Close();
             }
             catch
             {
