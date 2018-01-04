@@ -125,8 +125,8 @@ namespace PatientManagement
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            WorkerListForm.dgvListWorker.Columns.RemoveAt(7);
-            WorkerListForm.dgvListWorker.Columns.RemoveAt(7);
+            WorkerListForm.dgvListWorker.Columns.RemoveAt(8);
+            WorkerListForm.dgvListWorker.Columns.RemoveAt(8);
             WorkerListForm.WorkerListForm_Shown(WorkerListForm, new EventArgs());
             Close();
         }
@@ -170,8 +170,8 @@ namespace PatientManagement
             {
                 _worker.Update(Worker.Id, txtfName.Text,txtlName.Text, cboGender.Text, dtpDOB.Value, Convert.ToByte(txtAge.Text), txtAddress.Text, txtPhone1.Text,
                     txtPhone1.Text, txtEmail.Text, cboGender.Text, Convert.ToInt32(txtSalary.Text), dtpSWD.Value);
-                WorkerListForm.dgvListWorker.Columns.RemoveAt(7);
-                WorkerListForm.dgvListWorker.Columns.RemoveAt(7);
+                WorkerListForm.dgvListWorker.Columns.RemoveAt(8);
+                WorkerListForm.dgvListWorker.Columns.RemoveAt(8);
                 WorkerListForm.WorkerListForm_Shown(this, new EventArgs());
                 Close();
             }
@@ -196,8 +196,8 @@ namespace PatientManagement
             if (showDeleteMsg == DialogResult.Yes)
             {
                 _worker.Delete(Worker.Id);
-                WorkerListForm.dgvListWorker.Columns.RemoveAt(7);
-                WorkerListForm.dgvListWorker.Columns.RemoveAt(7);
+                WorkerListForm.dgvListWorker.Columns.RemoveAt(8);
+                WorkerListForm.dgvListWorker.Columns.RemoveAt(8);
                 WorkerListForm.WorkerListForm_Shown(WorkerListForm, new EventArgs());
                 Close();
             }

@@ -74,37 +74,57 @@ namespace PatientManagement
             if (cboService.SelectedIndex.Equals(0))
             {
                 _category = new ConsultationCategory();
-                cboCategory.DataSource = new BindingSource(_category.ShowCategoryName(),null);
-                cboCategory.DisplayMember = "Value";
-                cboCategory.ValueMember = "Key";
+                var check = _category.ShowCategoryName();
+                if (check.Count != 0)
+                {
+                    cboCategory.DataSource = new BindingSource(check,null);
+                    cboCategory.DisplayMember = "Value";
+                    cboCategory.ValueMember = "Key";
+                }
             }
             if (cboService.SelectedIndex.Equals(1))
             {
                 _category = new LaboratoryCategory();
-                cboCategory.DataSource = new BindingSource(_category.ShowCategoryName(), null);
-                cboCategory.DisplayMember = "Value";
-                cboCategory.ValueMember = "Key";
+                var check = _category.ShowCategoryName();
+                if (check.Count != 0)
+                {
+                    cboCategory.DataSource = new BindingSource(check,null);
+                    cboCategory.DisplayMember = "Value";
+                    cboCategory.ValueMember = "Key";
+                }
             }
             if (cboService.SelectedIndex.Equals(2))
             {
                 _category = new MedicalImagingCategory();
-                cboCategory.DataSource = new BindingSource(_category.ShowCategoryName(), null);
-                cboCategory.DisplayMember = "Value";
-                cboCategory.ValueMember = "Key";
+                var check = _category.ShowCategoryName();
+                if (check.Count != 0)
+                {
+                    cboCategory.DataSource = new BindingSource(check,null);
+                    cboCategory.DisplayMember = "Value";
+                    cboCategory.ValueMember = "Key";
+                }
             }
             if (cboService.SelectedIndex.Equals(3))
             {
                 _category = new PrescriptionCategory();
-                cboCategory.DataSource = new BindingSource(_category.ShowCategoryName(), null);
-                cboCategory.DisplayMember = "Value";
-                cboCategory.ValueMember = "Key";
+                var check = _category.ShowCategoryName();
+                if (check.Count != 0)
+                {
+                    cboCategory.DataSource = new BindingSource(check,null);
+                    cboCategory.DisplayMember = "Value";
+                    cboCategory.ValueMember = "Key";
+                }
             }
             if (cboService.SelectedIndex.Equals(4))
             {
                 _category = new VariousDocumentCategory();
-                cboCategory.DataSource = new BindingSource(_category.ShowCategoryName(), null);
-                cboCategory.DisplayMember = "Value";
-                cboCategory.ValueMember = "Key";
+                var check = _category.ShowCategoryName();
+                if (check.Count != 0)
+                {
+                    cboCategory.DataSource = new BindingSource(check,null);
+                    cboCategory.DisplayMember = "Value";
+                    cboCategory.ValueMember = "Key";
+                }
             }
             if (cboTitle.DataSource != null)
             {
@@ -265,7 +285,7 @@ namespace PatientManagement
 
         private void cboCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(cboCategory.SelectedItem==null)return;
+            if(cboCategory.SelectedItem==null||cboCategory.SelectedIndex==0)return;
             txtDescription.Text = "";
             var selectedItem =(KeyValuePair<int,string>)cboCategory.SelectedItem;
             var key = selectedItem.Key;
