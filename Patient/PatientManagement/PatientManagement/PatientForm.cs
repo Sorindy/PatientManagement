@@ -26,7 +26,7 @@ namespace PatientManagement
             var path = AppDomain.CurrentDomain.BaseDirectory;
             _path = path.Remove(path.Length - 46);
             txtId.Text = Patient.PatientIdentify.ToString();
-            txtfName.Text = Patient.Name;
+            txtfName.Text = Patient.FirstName;
             txtlName.Text = Patient.LastName;
             txtkhName.Text = Patient.KhmerName;
             cboGender.Text = Patient.Gender;

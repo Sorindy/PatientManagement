@@ -23,8 +23,9 @@ namespace PatientManagement
         {
             if (Patient != null && Worker!= null )
             {
-                txtPatientName.Text = Patient.Name;
-                txtStaffName.Text = Worker.Name;
+                txtPatientName.Text = Patient.FirstName+@"  "+Patient.LastName;
+                txtStaffName.Text = Worker.FirstName + @"  " +Worker.LastName;
+
             }
         }
 

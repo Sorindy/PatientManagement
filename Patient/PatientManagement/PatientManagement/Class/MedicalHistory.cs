@@ -33,13 +33,6 @@ namespace PatientManagement.Class
             var getMedicalHistory = _db.MedicalHistories.First(v => v.PatientId == patientId);
             return getMedicalHistory;
         }
-
-        public string Path(int patientid)
-        {
-            var getPath = _db.MedicalHistories.FirstOrDefault(v => v.PatientId == patientid);
-            if (getPath != null) return getPath.Description;
-                return null;            
-        }
     }
 }
 

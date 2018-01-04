@@ -458,8 +458,8 @@
             // 
             this.pnlShowHistory.BackColor = System.Drawing.Color.DodgerBlue;
             this.pnlShowHistory.Controls.Add(this.tableLayoutPanel7);
-            this.pnlShowHistory.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlShowHistory.Location = new System.Drawing.Point(704, 159);
+            this.pnlShowHistory.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlShowHistory.Location = new System.Drawing.Point(0, 159);
             this.pnlShowHistory.Name = "pnlShowHistory";
             this.pnlShowHistory.Size = new System.Drawing.Size(560, 575);
             this.pnlShowHistory.TabIndex = 3;
@@ -633,7 +633,7 @@
             // 
             this.panel1.Controls.Add(this.tableLayoutPanel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 159);
+            this.panel1.Location = new System.Drawing.Point(560, 159);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(704, 22);
             this.panel1.TabIndex = 5;
@@ -666,8 +666,8 @@
             // pnlHide
             // 
             this.pnlHide.Controls.Add(this.tableLayoutPanel3);
-            this.pnlHide.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlHide.Location = new System.Drawing.Point(679, 181);
+            this.pnlHide.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlHide.Location = new System.Drawing.Point(560, 181);
             this.pnlHide.Name = "pnlHide";
             this.pnlHide.Size = new System.Drawing.Size(25, 553);
             this.pnlHide.TabIndex = 6;
@@ -701,7 +701,7 @@
             // 
             this.pnlShow.Controls.Add(this.groupBox3);
             this.pnlShow.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlShow.Location = new System.Drawing.Point(0, 181);
+            this.pnlShow.Location = new System.Drawing.Point(585, 181);
             this.pnlShow.Name = "pnlShow";
             this.pnlShow.Size = new System.Drawing.Size(679, 553);
             this.pnlShow.TabIndex = 7;

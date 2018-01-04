@@ -17,7 +17,6 @@ namespace Hospital_Entity_Framework
         public PrescriptionEstimate()
         {
             this.Visits = new HashSet<Visit>();
-            this.PrescriptionEstimateEditHistories = new HashSet<PrescriptionEstimateEditHistory>();
         }
     
         public int Id { get; set; }
@@ -36,6 +35,5 @@ namespace Hospital_Entity_Framework
         public virtual Worker Worker { get; set; }
         public virtual Worker Worker1 { get; set; }
         public virtual ICollection<Visit> Visits { get; set; }
-        public virtual ICollection<PrescriptionEstimateEditHistory> PrescriptionEstimateEditHistories { get; set; }
     }
 }

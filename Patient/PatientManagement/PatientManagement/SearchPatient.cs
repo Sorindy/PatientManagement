@@ -27,7 +27,7 @@ namespace PatientManagement
             if (dgvSearchPatient.CurrentRow != null)
             {
                 var patient = _patient.Select(Convert.ToInt32(dgvSearchPatient.CurrentRow.Cells[0].Value));
-                txtSearch.Text = patient.Name;
+                txtSearch.Text = patient.LastName;
                 btnAdd.Focus();
             }
         }
@@ -47,7 +47,7 @@ namespace PatientManagement
                 if (Datinglistform != null)
                 {
                     Datinglistform.Patient =_patient.Select(Convert.ToInt32(dgvSearchPatient.CurrentRow.Cells[0].Value));
-                    Datinglistform.txtPatientName.Text = _patient.Select(Convert.ToInt32(dgvSearchPatient.CurrentRow.Cells[0].Value)).Name;
+                    Datinglistform.txtPatientName.Text = _patient.Select(Convert.ToInt32(dgvSearchPatient.CurrentRow.Cells[0].Value)).LastName;
                 }
             }
             else

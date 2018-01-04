@@ -24,14 +24,13 @@ namespace Hospital_Entity_Framework
         }
     
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
         public string Specialty { get; set; }
         public string WorkPlace { get; set; }
         public string Phone1 { get; set; }
         public string Phone2 { get; set; }
         public string Email { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
         public bool Available { get; set; }
     
         public virtual ICollection<ConsultationEstimate> ConsultationEstimates { get; set; }

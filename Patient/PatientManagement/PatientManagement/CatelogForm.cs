@@ -21,7 +21,7 @@ namespace PatientManagement
 
         private void CatelogForm_Shown(object sender, EventArgs e)
         {
-            txtUserName.Text = Account.Worker.Name;
+            txtUserName.Text = Account.Worker.FirstName+@"  "+Account.Worker.LastName;
             timer1.Enabled = true;
             timer1_Tick(this,new EventArgs());
             WindowState=FormWindowState.Maximized;

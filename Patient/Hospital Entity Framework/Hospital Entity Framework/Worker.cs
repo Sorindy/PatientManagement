@@ -26,18 +26,14 @@ namespace Hospital_Entity_Framework
             this.MedicalImagingEstimates1 = new HashSet<MedicalImagingEstimate>();
             this.PrescriptionEstimates = new HashSet<PrescriptionEstimate>();
             this.PrescriptionEstimates1 = new HashSet<PrescriptionEstimate>();
+            this.TempWaitingLists = new HashSet<TempWaitingList>();
             this.VariousDocumentEstimates = new HashSet<VariousDocumentEstimate>();
             this.VariousDocumentEstimates1 = new HashSet<VariousDocumentEstimate>();
-            this.TempWaitingLists = new HashSet<TempWaitingList>();
-            this.ConsultationEstimateEditHistories = new HashSet<ConsultationEstimateEditHistory>();
-            this.LaboratoryEstimateEditHistories = new HashSet<LaboratoryEstimateEditHistory>();
-            this.MedicalImagingEstimateEditHistories = new HashSet<MedicalImagingEstimateEditHistory>();
-            this.PrescriptionEstimateEditHistories = new HashSet<PrescriptionEstimateEditHistory>();
-            this.VariousDocumentEstimateEditHistories = new HashSet<VariousDocumentEstimateEditHistory>();
         }
     
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
         public string Gender { get; set; }
         public System.DateTime DOB { get; set; }
         public short Age { get; set; }
@@ -50,8 +46,6 @@ namespace Hospital_Entity_Framework
         public Nullable<System.DateTime> StartWorkDate { get; set; }
         public bool Hire { get; set; }
         public string PhotoPath { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
     
         public virtual ICollection<Account> Accounts { get; set; }
         public virtual ICollection<ConsultationEstimate> ConsultationEstimates { get; set; }
@@ -63,13 +57,8 @@ namespace Hospital_Entity_Framework
         public virtual ICollection<MedicalImagingEstimate> MedicalImagingEstimates1 { get; set; }
         public virtual ICollection<PrescriptionEstimate> PrescriptionEstimates { get; set; }
         public virtual ICollection<PrescriptionEstimate> PrescriptionEstimates1 { get; set; }
+        public virtual ICollection<TempWaitingList> TempWaitingLists { get; set; }
         public virtual ICollection<VariousDocumentEstimate> VariousDocumentEstimates { get; set; }
         public virtual ICollection<VariousDocumentEstimate> VariousDocumentEstimates1 { get; set; }
-        public virtual ICollection<TempWaitingList> TempWaitingLists { get; set; }
-        public virtual ICollection<ConsultationEstimateEditHistory> ConsultationEstimateEditHistories { get; set; }
-        public virtual ICollection<LaboratoryEstimateEditHistory> LaboratoryEstimateEditHistories { get; set; }
-        public virtual ICollection<MedicalImagingEstimateEditHistory> MedicalImagingEstimateEditHistories { get; set; }
-        public virtual ICollection<PrescriptionEstimateEditHistory> PrescriptionEstimateEditHistories { get; set; }
-        public virtual ICollection<VariousDocumentEstimateEditHistory> VariousDocumentEstimateEditHistories { get; set; }
     }
 }

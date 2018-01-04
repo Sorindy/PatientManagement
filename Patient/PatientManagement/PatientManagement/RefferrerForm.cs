@@ -20,7 +20,8 @@ namespace PatientManagement
 
         private void Clear()
         {
-            txtName.Text = "";
+            txtfName.Text = "";
+            txtlName.Text = "";
             txtSpeciality.Text = "";
             txtWorkPlace.Text = "";
             txtPhone1.Text = "";
@@ -47,14 +48,16 @@ namespace PatientManagement
             else
             {
                 Clear();
-                txtName.Text = Referrer.Name;
+                txtfName.Text = Referrer.FirstName;
+                txtlName.Text = Referrer.LastName;
                 txtSpeciality.Text = Referrer.Specialty;
                 txtWorkPlace.Text = Referrer.WorkPlace;
                 txtPhone1.Text = Referrer.Phone1;
                 txtPhone2.Text = Referrer.Phone2;
                 txtEmail.Text = Referrer.Email;
 
-                txtName.Enabled = false;
+                txtfName.Enabled = false;
+                txtlName.Enabled = false;
                 txtSpeciality.Enabled = false;
                 txtEmail.Enabled = false;
                 txtPhone1.Enabled = false;
@@ -75,7 +78,7 @@ namespace PatientManagement
             {
                 if (btnEdit.Name == @"btnAdd")
                 {
-                    _refferrer.Insert(txtName.Text, txtSpeciality.Text, txtWorkPlace.Text, txtPhone1.Text, txtPhone2.Text, txtEmail.Text);
+                    _refferrer.Insert(txtfName.Text,txtlName.Text, txtSpeciality.Text, txtWorkPlace.Text, txtPhone1.Text, txtPhone2.Text, txtEmail.Text);
 
                     if (MedicalForm.chkBoxReferrer.Checked)
                     {
@@ -106,7 +109,7 @@ namespace PatientManagement
 
                 btnClear.Enabled = true;
 
-                txtName.Enabled = true;
+                txtfName.Enabled = true;
                 txtSpeciality.Enabled = true;
                 txtWorkPlace.Enabled = true;
                 txtPhone1.Enabled = true;
@@ -117,10 +120,16 @@ namespace PatientManagement
 
         private void Checking()
         {
-            if (txtName.Text == "")
+            if (txtfName.Text == "")
             {
-                MessageBox.Show(@"Please filling Name.", @"Error");
-                txtName.Focus();
+                MessageBox.Show(@"Please filling First Name.", @"Error");
+                txtfName.Focus();
+                return;
+            }
+            if (txtlName.Text == "")
+            {
+                MessageBox.Show(@"Please filling Last Name.", @"Error");
+                txtlName.Focus();
                 return;
             }
             if (txtSpeciality.Text == "")
@@ -158,9 +167,9 @@ namespace PatientManagement
             {
                 if (btnEdit.Name == @"btnUpdate")
                 {
-                    _refferrer.Update(Referrer.Id,txtName.Text, txtSpeciality.Text, txtWorkPlace.Text, txtPhone1.Text, txtPhone2.Text, txtEmail.Text);
+                    _refferrer.Update(Referrer.Id,txtfName.Text,txtlName.Text, txtSpeciality.Text, txtWorkPlace.Text, txtPhone1.Text, txtPhone2.Text, txtEmail.Text);
 
-                    txtName.Enabled = false;
+                    txtfName.Enabled = false;
                     txtSpeciality.Enabled = false;
                     txtEmail.Enabled = false;
                     txtPhone1.Enabled = false;
@@ -186,6 +195,7 @@ namespace PatientManagement
             catch
             {
                 Checking();
+
             }
         }
 

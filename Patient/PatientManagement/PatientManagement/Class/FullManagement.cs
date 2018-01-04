@@ -316,11 +316,11 @@ namespace PatientManagement.Class
         {
            var bs2 = new BindingSource();
 
-            var searchs = _db.Accounts.Where(v=>v.Worker.Position!="Admin").Where(v=>v.Worker.Hire).Where(v => v.Worker.Name.Contains(search) ||
-                                                  v.Worker.Position.Contains(search));
+            var searchs = _db.Accounts.Where(v=>v.Worker.Position!="Admin").Where(v=>v.Worker.Hire).Where(v => v.Worker.FirstName.Contains(search) ||v.Worker.LastName.Contains(search)||
+                                                  v.Worker.Position.Contains(search)||v.Worker.Phone1.Contains(search)||v.Worker.Phone2.Contains(search));
 
             bs2.DataSource = searchs
-                .Select(s => new {s.Worker.Id, s.Worker.Name, s.Worker.Gender, s.Worker.Position, s.UserName }).ToList();
+                .Select(s => new {s.Worker.Id, s.Worker.FirstName,s.Worker.LastName, s.Worker.Gender, s.Worker.Position, s.UserName }).ToList();
 
             return bs2;
         }

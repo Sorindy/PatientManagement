@@ -41,17 +41,5 @@ namespace PatientManagement.Class
 
             return bs;
         }
-
-        public object ShowHistory(int estmateId)
-        {
-            var bs = new BindingSource();
-
-            var getHistory = from b in _db.LaboratoryEstimateEditHistories
-                where b.EstimateId == estmateId
-                select new { b.Id, b.Date, b.Worker.LastName };
-            bs.DataSource = getHistory.ToList();
-
-            return bs;
-        }
     }
 }

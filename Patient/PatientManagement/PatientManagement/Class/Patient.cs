@@ -59,12 +59,13 @@ namespace PatientManagement.Class
             if (!string.IsNullOrEmpty(text))
             {
                 var patients = from v in _db.Patients
-                               where v.LastName.ToLower().Contains(text.ToLower() )
-                                      //   || v.Phone1.Contains(text) || v.Phone2.Contains(text) ||v.Email.Contains(text)
+                               where v.KhmerName.ToLower().Contains(text.ToLower() )
+                                         || v.Phone1.Contains(text) || v.Phone2.Contains(text) ||v.Email.Contains(text)||v.PatientIdentify.ToString().Contains(text)
+                                         ||v.FirstName.Contains(text)||v.LastName.Contains(text)
                                select new
                                {
-                                   v.Id,
-                                   v.Name,
+                                   v.Id,v.PatientIdentify,
+                                   v.FirstName,v.LastName,v.KhmerName,
                                    v.Gender,
                                    v.Age,
                                    v.Address,
@@ -79,8 +80,8 @@ namespace PatientManagement.Class
                 _binding.DataSource = (from v in _db.Patients
                                        select new
                                        {
-                                           v.Id,
-                                           v.Name,
+                                           v.Id,v.PatientIdentify,
+                                           v.FirstName,v.LastName,v.KhmerName,
                                            v.Gender,
                                            v.Age,
                                            v.Address,
@@ -131,7 +132,7 @@ namespace PatientManagement.Class
         {
             var show = _db.Patients;
 
-            _binding.DataSource = show.Select(v => new { v.Id, v.Name, v.Gender, v.Age, v.Address, v.Phone1, v.Email }).ToList();
+            _binding.DataSource = show.Select(v => new { v.Id,v.PatientIdentify, v.FirstName,v.LastName,v.KhmerName, v.Gender, v.Age, v.Address, v.Phone1, v.Email }).ToList();
 
             return _binding;
         }

@@ -51,7 +51,7 @@ namespace PatientManagement
             var searchForm = new SearchPatient { CheckInsForm = this };
             searchForm.ShowDialog();
             if (Patient == null) return;
-            txtName.Text = Patient.Name;
+            txtName.Text = Patient.FirstName+@"    "+ Patient.LastName;
             txtGender.Text = Patient.Gender;
             pnlShowService.Controls.Add(_chkIn.ShowService(this));
             pnlSelection.Enabled = true;
@@ -63,7 +63,7 @@ namespace PatientManagement
             var searchForm = new SearchPatient{CheckInsForm = this};
             searchForm.ShowDialog();
             if (Patient == null) return;
-            txtName.Text = Patient.Name;
+            txtName.Text = Patient.FirstName + @"   " + Patient.LastName;
             txtGender.Text = Patient.Gender;
             pnlShowService.Controls.Add(_chkIn.ShowService(this));
             pnlSelection.Enabled = true;
@@ -75,7 +75,7 @@ namespace PatientManagement
             var searchForm = new SearchPatient { CheckInsForm = this };
             searchForm.ShowDialog();
             if (Patient == null) return;
-            txtName.Text = Patient.Name;
+            txtName.Text = Patient.FirstName + @"    " + Patient.LastName;
             txtGender.Text = Patient.Gender;
             pnlShowService.Controls.Add(_chkIn.ShowService(this));
             pnlShowService.Enabled = true;

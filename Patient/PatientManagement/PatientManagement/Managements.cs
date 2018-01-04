@@ -25,7 +25,7 @@ namespace PatientManagement
             if (Account != null)
             {
                 pnlSelection.Controls.Add(_management.ButtonSelectionForm(this));
-                txtName.Text = Account.Worker.Name;
+                txtName.Text = Account.Worker.FirstName + @"  " + Account.Worker.LastName;
                 txtPosition.Text = Account.Worker.Position;
             }
         }
@@ -39,7 +39,7 @@ namespace PatientManagement
             if (Account != null)
             {
                 pnlSelection.Controls.Add(_management.ButtonSelectionForm(this));
-                txtName.Text = Account.Worker.Name;
+                txtName.Text = Account.Worker.FirstName + @"  " + Account.Worker.LastName;
                 txtPosition.Text = Account.Worker.Position;
             }
         }
@@ -53,7 +53,7 @@ namespace PatientManagement
             if (Account != null)
             {
                 pnlSelection.Controls.Add(_management.ButtonSelectionForm(this));
-                txtName.Text = Account.Worker.Name;
+                txtName.Text = Account.Worker.FirstName + @"  " + Account.Worker.LastName;
                 txtPosition.Text = Account.Worker.Position;
             }
         }

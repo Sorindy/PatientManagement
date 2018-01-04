@@ -32,9 +32,9 @@ namespace PatientManagement
 
         private void HistorysForm_Shown(object sender, EventArgs e)
         {
-            txtNamePatient.Text = Patient.Name;
+            txtNamePatient.Text = Patient.LastName;
             txtGenderPatient.Text = Patient.Gender;
-            txtNameDoctor.Text = Account.Worker.Name;
+            txtNameDoctor.Text = Account.Worker.LastName;
         }
 
         private void cboService_SelectedIndexChanged(object sender, EventArgs e)
@@ -177,8 +177,8 @@ namespace PatientManagement
             if (cboSelection.Text == @"Patient's History")
             {
                 dgvHistory.DataSource = null;
-                var getPath = _medicalHistory.Path(Patient.Id);
-                if(getPath!=null)txtDescription.Load(getPath, StreamType.RichTextFormat);
+                var getPath = _medicalHistory.Show_medicalhistory(Patient.Id);
+                if(getPath!=null)txtDescription.Load(getPath.Description, StreamType.RichTextFormat);
             }
             dgvHistory.Columns[0].Visible = false;
         }
