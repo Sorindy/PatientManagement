@@ -13,6 +13,21 @@ namespace PatientManagement
         }
 
         private readonly Worker _worker=new Worker();
+        
+        private void CheckOrderDgv()
+        {
+            for(int i=0;i<=dgvListWorker.RowCount-1;i++)
+            {
+                if (i % 2 == 0)
+                {
+                    dgvListWorker.Rows[i].DefaultCellStyle.BackColor = Color.LightGray;
+                }
+                else
+                {
+                    dgvListWorker.Rows[i].DefaultCellStyle.BackColor = Color.MintCream;
+                }
+            }
+        }
 
         internal void WorkerListForm_Shown(object sender, EventArgs e)
         {
@@ -35,6 +50,8 @@ namespace PatientManagement
             btnDelete.CellTemplate.Style.BackColor=Color.DarkRed;
             btnDelete.UseColumnTextForButtonValue = true;
             dgvListWorker.Columns.AddRange(btnView,btnDelete);
+            dgvListWorker.ClearSelection();
+            CheckOrderDgv();
         }
 
         private void txtSearch_Click(object sender, EventArgs e)

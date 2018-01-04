@@ -97,7 +97,7 @@ namespace PatientManagement
             txtAge.Text = Worker.Age.ToString();
             txtAddress.Text = Worker.Address;
             txtPhone1.Text = Worker.Phone1;
-            txtPhone1.Text = Worker.Phone2;
+            txtPhone2.Text = Worker.Phone2;
             txtEmail.Text = Worker.Email;
             txtSalary.Text = Worker.Salary.ToString();
             cboGender.Text = Worker.Gender;
@@ -169,7 +169,7 @@ namespace PatientManagement
             try
             {
                 _worker.Update(Worker.Id, txtfName.Text,txtlName.Text, cboGender.Text, dtpDOB.Value, Convert.ToByte(txtAge.Text), txtAddress.Text, txtPhone1.Text,
-                    txtPhone1.Text, txtEmail.Text, cboGender.Text, Convert.ToInt32(txtSalary.Text), dtpSWD.Value);
+                    txtPhone2.Text, txtEmail.Text, cboGender.Text, Convert.ToInt32(txtSalary.Text), dtpSWD.Value);
                 WorkerListForm.dgvListWorker.Columns.RemoveAt(8);
                 WorkerListForm.dgvListWorker.Columns.RemoveAt(8);
                 WorkerListForm.WorkerListForm_Shown(this, new EventArgs());

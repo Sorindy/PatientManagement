@@ -96,8 +96,8 @@ namespace PatientManagement
             {
                 _worker.Insert(txtfName.Text,txtlName.Text,cboGender.Text,dtpDOB.Value,Convert.ToByte(txtAge.Text),txtAddress.Text,txtPhone1.Text,txtPhone1.Text,
                                 txtEmail.Text,cboPosition.Text,Convert.ToInt32(txtSalary.Text),dtpSWD.Value);
-                WorkerListForm.dgvListWorker.Columns.RemoveAt(7);
-                WorkerListForm.dgvListWorker.Columns.RemoveAt(7);
+                WorkerListForm.dgvListWorker.Columns.RemoveAt(8);
+                WorkerListForm.dgvListWorker.Columns.RemoveAt(8);
                 WorkerListForm.WorkerListForm_Shown(WorkerListForm, new EventArgs());
                 Close();
             }

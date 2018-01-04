@@ -15,6 +15,7 @@ namespace PatientManagement
 
         private ICategory _category;
 
+        
         private void Category_Shown(object sender, EventArgs e)
         {
             cboService.Text = null;

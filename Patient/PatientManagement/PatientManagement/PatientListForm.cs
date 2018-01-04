@@ -15,7 +15,21 @@ namespace PatientManagement
 
         private readonly Class.Patient _patient = new Class.Patient();
         internal Account Account;
-
+        
+        private void CheckOrderDgv()
+        {
+            for (int i = 0; i <= dgvListPatient.RowCount - 1; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    dgvListPatient.Rows[i].DefaultCellStyle.BackColor = Color.LightGray;
+                }
+                else
+                {
+                    dgvListPatient.Rows[i].DefaultCellStyle.BackColor = Color.MintCream;
+                }
+            }
+        }
         internal void PatientListForm_Shown(object sender, EventArgs e)
         {
             dgvListPatient.DataSource = _patient.ShowAll();
@@ -29,6 +43,7 @@ namespace PatientManagement
             btnView.CellTemplate.Style.BackColor = Color.LightSeaGreen;
             btnView.UseColumnTextForButtonValue = true;
             dgvListPatient.Columns.AddRange(btnView);
+            CheckOrderDgv();
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
