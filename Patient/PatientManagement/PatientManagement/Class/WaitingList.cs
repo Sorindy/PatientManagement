@@ -1,4 +1,5 @@
-﻿using System.Data.Entity.Migrations;
+﻿using System;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Windows.Forms;
 using Hospital_Entity_Framework;
@@ -121,10 +122,9 @@ namespace PatientManagement.Class
 
         public Hospital_Entity_Framework.WaitingList GetWaitingListObject(int id)
         {
-            var check = _db.WaitingLists.Single(v => v.Id == id);
+            var check = _db.WaitingLists.SingleOrDefault(  v => v.Id == id);
             return check;
         }
-
 
         public BindingSource SeleteAllWaiting()
         {
@@ -157,6 +157,41 @@ namespace PatientManagement.Class
         {
             var delete = _db.WaitingLists.Single(v => v.Id == waitingid);
             _db.WaitingLists.Remove(delete);
+            _db.SaveChanges();
+        }
+
+        public void DeleteConsultationWaitingList(int waitingid,int categoryid)
+        {
+            var delete = _db.ConsultationCategories.First(v => v.Id == categoryid);
+            _db.WaitingLists.First(v => v.Id == waitingid).ConsultationCategories.Remove(delete);
+            _db.SaveChanges();
+        }
+
+        public void DeleteLaboratoryWaitingList(int waitingid, int categoryid)
+        {
+            var delete = _db.LaboratoryCategories .First(v => v.Id == categoryid);
+            _db.WaitingLists.First(v => v.Id == waitingid).LaboratoryCategories.Remove(delete);
+            _db.SaveChanges();
+        }
+
+        public void DeletePrescriptionWatingList(int waitingid, int categoryid)
+        {
+            var delete = _db.PrescriptionCategories.First(v => v.Id == categoryid);
+            _db.WaitingLists.First(v => v.Id == waitingid).PrescriptionCategories.Remove(delete);
+            _db.SaveChanges();
+        }
+
+        public void DeleteMedicalImagingWatingList(int waitingid, int categoryid)
+        {
+            var delete = _db.MedicalImagingCategories .First(v => v.Id == categoryid);
+            _db.WaitingLists.First(v => v.Id == waitingid).MedicalImagingCategories.Remove(delete);
+            _db.SaveChanges();
+        }
+
+        public void DeleteVariousDocumentWatingList(int waitingid, int categoryid)
+        {
+            var delete = _db.VariousDocumentCategories .First(v => v.Id == categoryid);
+            _db.WaitingLists.First(v => v.Id == waitingid).VariousDocumentCategories .Remove(delete);
             _db.SaveChanges();
         }
     }

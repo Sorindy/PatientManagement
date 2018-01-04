@@ -170,6 +170,7 @@ namespace PatientManagement
                     txtDescription.Save(
                         _path + @"RTF\ConsultationEstimate\" + WaitingList.PatientId + DateTime.Today.Date +
                         DateTime.Today.TimeOfDay.ToString("g"), StreamType.RichTextFormat);
+                  
                 }
                 if (cboService.Text == @"Laboratory")
                 {
@@ -203,7 +204,7 @@ namespace PatientManagement
                     //    _path + @"RTF\VariousDocumentEstimate\" + WaitingList.PatientId + DateTime.Today.Date +
                     //    DateTime.Today.TimeOfDay.ToString("g"), StreamType.RichTextFormat);
                 }
-                _waitingList.UpdatePatientStatus(WaitingList.Id, _status );
+                _waitingList.UpdatePatientStatus(WaitingList.Id, _status);
                 Clear();
             }
         }

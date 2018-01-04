@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using System.Windows.Forms;
 using PatientManagement.Class;
 
@@ -10,9 +9,9 @@ namespace PatientManagement
 
         internal Hospital_Entity_Framework.Worker Worker;
         private readonly  WaitingList _waitingList = new WaitingList() ;
-        private NurseRespone _nurseRespone;
+      //  private NurseRespone _nurseRespone;
         internal MedicalsForm Medicalsform;
-        private bool? _num ;
+    //    private bool? _num ;
 
         public Hospital_Entity_Framework.WaitingList WaitingList;
        
@@ -68,15 +67,15 @@ namespace PatientManagement
         {
             if (dgvWaitingCategory.CurrentRow != null)
             {
-                if (dgvWaitingCategory.CurrentRow.Cells[4].Value == null )
+                if (dgvWaitingCategory.CurrentRow.Cells[5].Value == null )
                 {
-                    Medicalsform.WaitingList = _waitingList.GetWaitingListObject(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[0].Value));
+                    Medicalsform.WaitingList = _waitingList.GetWaitingListObject(Convert.ToInt32( dgvWaitingCategory.CurrentRow.Cells[0].Value));
                     Medicalsform.Patient = _waitingList.GetWaitingListObject(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[0].Value)).Patient;
                     Medicalsform.txtNamePatient.Text = _waitingList.GetWaitingListObject(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[0].Value)).Patient.LastName;
                     Medicalsform.txtGenderPatient.Text = _waitingList.GetWaitingListObject(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[0].Value)).Patient.Gender;
                     Close();
-                    _nurseRespone = new NurseRespone();
-                    _nurseRespone.Insert(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[0].Value.ToString()), Worker.Id);
+                    //_nurseRespone = new NurseRespone();
+                    //_nurseRespone.Insert(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[0].Value.ToString()), Worker.Id);
                     _waitingList.UpdatePatientStatus(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[0].Value), false);    
                 }
                 else if (dgvWaitingCategory.CurrentRow.Cells[4].Value.Equals(false))
