@@ -30,6 +30,20 @@ namespace PatientManagement
             Close();
         }
 
+        private void CheckOrderDgv()
+        {
+            for (int i = 0; i <= dgvHistory.RowCount - 1; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    dgvHistory.Rows[i].DefaultCellStyle.BackColor = Color.LightGray;
+                }
+                else
+                {
+                    dgvHistory.Rows[i].DefaultCellStyle.BackColor = Color.MintCream;
+                }
+            }
+        }
         private void HistorysForm_Shown(object sender, EventArgs e)
         {
             txtNamePatient.Text = Patient.LastName;
@@ -180,7 +194,7 @@ namespace PatientManagement
                 var getPath = _medicalHistory.Show_medicalhistory(Patient.Id);
                 if(getPath!=null)txtDescription.Load(getPath.Description, StreamType.RichTextFormat);
             }
-            dgvHistory.Columns[0].Visible = false;
+            if (dgvHistory.DataSource != null) { dgvHistory.Columns[0].Visible = false; CheckOrderDgv();}
         }
 
     }

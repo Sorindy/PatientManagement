@@ -23,7 +23,31 @@ namespace PatientManagement
         {
             InitializeComponent();
         }
-
+        private void CheckOrderDgv()
+        {
+            for (int i = 0; i <= dgvAllWatingList.RowCount - 1; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    dgvAllWatingList.Rows[i].DefaultCellStyle.BackColor = Color.LightGray;
+                }
+                else
+                {
+                    dgvAllWatingList.Rows[i].DefaultCellStyle.BackColor = Color.MintCream;
+                }
+            }
+            for (int i = 0; i <= dgvWaitingCategory.RowCount - 1; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    dgvWaitingCategory.Rows[i].DefaultCellStyle.BackColor = Color.LightGray;
+                }
+                else
+                {
+                    dgvWaitingCategory.Rows[i].DefaultCellStyle.BackColor = Color.MintCream;
+                }
+            }
+        }
         private void btnClose_Click(object sender, EventArgs e)
         {
             Close();
@@ -50,6 +74,7 @@ namespace PatientManagement
         {
             dgvWaitingCategory.DataSource = _waitingList.ShowWaiting(Service,GetStaffCategoryid);
             dgvAllWatingList.DataSource = _waitingList.SeleteAllWaiting();
+            CheckOrderDgv();
         }
 
         private void dgvWaitingCategory_CellContentClick(object sender, DataGridViewCellEventArgs e)
