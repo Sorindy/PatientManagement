@@ -90,7 +90,7 @@ namespace PatientManagement
 
         private void dgvListWorker_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 7)
+            if (e.ColumnIndex == 8)
             {
                 if (dgvListWorker.CurrentRow != null)
                 {
@@ -101,7 +101,7 @@ namespace PatientManagement
                 }
 
             }
-            if (e.ColumnIndex == 8)
+            if (e.ColumnIndex == 9)
             {
                 if (dgvListWorker.CurrentRow != null)
                 {

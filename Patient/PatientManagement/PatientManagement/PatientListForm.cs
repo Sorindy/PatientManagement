@@ -56,7 +56,7 @@ namespace PatientManagement
 
         private void dgvListPatient_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 7)
+            if (e.ColumnIndex == 10)
             {
                 if (dgvListPatient.CurrentRow != null)
                 {

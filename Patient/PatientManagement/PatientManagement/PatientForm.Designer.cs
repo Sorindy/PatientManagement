@@ -279,7 +279,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.97052F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.02948F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 31F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 33F));
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel20, 3, 6);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel16, 3, 5);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel12, 3, 4);
@@ -337,7 +337,7 @@
             this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel20.Size = new System.Drawing.Size(294, 84);
+            this.tableLayoutPanel20.Size = new System.Drawing.Size(293, 84);
             this.tableLayoutPanel20.TabIndex = 28;
             // 
             // txtWeight
@@ -349,7 +349,7 @@
             this.txtWeight.Location = new System.Drawing.Point(3, 15);
             this.txtWeight.Multiline = true;
             this.txtWeight.Name = "txtWeight";
-            this.txtWeight.Size = new System.Drawing.Size(288, 54);
+            this.txtWeight.Size = new System.Drawing.Size(287, 54);
             this.txtWeight.TabIndex = 10;
             // 
             // tableLayoutPanel16
@@ -364,7 +364,7 @@
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel16.Size = new System.Drawing.Size(294, 115);
+            this.tableLayoutPanel16.Size = new System.Drawing.Size(293, 115);
             this.tableLayoutPanel16.TabIndex = 24;
             // 
             // txtHeight
@@ -376,7 +376,7 @@
             this.txtHeight.Location = new System.Drawing.Point(3, 30);
             this.txtHeight.Multiline = true;
             this.txtHeight.Name = "txtHeight";
-            this.txtHeight.Size = new System.Drawing.Size(288, 54);
+            this.txtHeight.Size = new System.Drawing.Size(287, 54);
             this.txtHeight.TabIndex = 9;
             // 
             // tableLayoutPanel12
@@ -391,7 +391,7 @@
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.22222F));
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 55.55556F));
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.22222F));
-            this.tableLayoutPanel12.Size = new System.Drawing.Size(294, 98);
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(293, 98);
             this.tableLayoutPanel12.TabIndex = 20;
             // 
             // txtAddress
@@ -403,7 +403,7 @@
             this.txtAddress.Location = new System.Drawing.Point(3, 24);
             this.txtAddress.Multiline = true;
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(288, 48);
+            this.txtAddress.Size = new System.Drawing.Size(287, 48);
             this.txtAddress.TabIndex = 0;
             // 
             // label13
@@ -430,7 +430,7 @@
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(294, 85);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(293, 85);
             this.tableLayoutPanel8.TabIndex = 16;
             // 
             // txtEmail
@@ -442,7 +442,7 @@
             this.txtEmail.Location = new System.Drawing.Point(3, 15);
             this.txtEmail.Multiline = true;
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(288, 54);
+            this.txtEmail.Size = new System.Drawing.Size(287, 54);
             this.txtEmail.TabIndex = 7;
             // 
             // label12
@@ -481,7 +481,7 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(294, 80);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(293, 80);
             this.tableLayoutPanel5.TabIndex = 13;
             // 
             // txtPhone1
@@ -493,7 +493,7 @@
             this.txtPhone1.Location = new System.Drawing.Point(3, 13);
             this.txtPhone1.Multiline = true;
             this.txtPhone1.Name = "txtPhone1";
-            this.txtPhone1.Size = new System.Drawing.Size(288, 54);
+            this.txtPhone1.Size = new System.Drawing.Size(287, 54);
             this.txtPhone1.TabIndex = 6;
             // 
             // label1
@@ -624,7 +624,7 @@
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(294, 80);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(293, 80);
             this.tableLayoutPanel7.TabIndex = 32;
             // 
             // txtPhone2
@@ -636,7 +636,7 @@
             this.txtPhone2.Location = new System.Drawing.Point(3, 13);
             this.txtPhone2.Multiline = true;
             this.txtPhone2.Name = "txtPhone2";
-            this.txtPhone2.Size = new System.Drawing.Size(288, 54);
+            this.txtPhone2.Size = new System.Drawing.Size(287, 54);
             this.txtPhone2.TabIndex = 0;
             // 
             // panel1

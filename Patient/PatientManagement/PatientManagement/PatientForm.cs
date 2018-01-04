@@ -67,7 +67,7 @@ namespace PatientManagement
         {
             if (PatientListForm != null)
             {
-                PatientListForm.dgvListPatient.Columns.RemoveAt(7);
+                PatientListForm.dgvListPatient.Columns.RemoveAt(10);
                 PatientListForm.PatientListForm_Shown(PatientListForm, new EventArgs());
             }
             Close();
