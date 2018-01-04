@@ -5,10 +5,6 @@ using System.Data.Entity.Migrations;
 using System.Linq;
 using PatientManagement.Interface;
 
-/*using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;*/
-
 namespace PatientManagement.Class
 {
    public class LaboratoryEstimate : IEstimate 
@@ -51,14 +47,8 @@ namespace PatientManagement.Class
             update.ReferrerId = referrerid;
             update.Date = date;
             update.Description = description;
+            update.Edit = true;
             _db.LaboratoryEstimates.AddOrUpdate(update);
-            _db.SaveChanges();
-        }
-
-        public void Delete(int id)
-        {
-            var delete = _db.LaboratoryEstimates.Single(vid => vid.Id == id);
-            _db.LaboratoryEstimates.Remove(delete);
             _db.SaveChanges();
         }
 

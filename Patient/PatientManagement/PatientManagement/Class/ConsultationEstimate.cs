@@ -48,14 +48,8 @@ namespace PatientManagement.Class
             update.ReferrerId = referrerid;
             update.Date = date;
             update.Description = description;
+            update.Edit = true;
             _db.ConsultationEstimates.AddOrUpdate(update);
-            _db.SaveChanges();
-        }
-
-        public void Delete(int id)
-        {
-            var delete = _db.ConsultationEstimates.Single(vid => vid.Id == id);
-            _db.ConsultationEstimates.Remove(delete);
             _db.SaveChanges();
         }
 

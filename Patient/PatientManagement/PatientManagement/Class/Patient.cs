@@ -8,16 +8,18 @@ namespace PatientManagement.Class
 {
     public class Patient
     {
-        private HospitalDbContext _db = new HospitalDbContext();
-        private BindingSource _binding = new BindingSource();
+        private readonly HospitalDbContext _db = new HospitalDbContext();
+        private readonly BindingSource _binding = new BindingSource();
 
-        public void Insert(string name, string gender, DateTime dob, byte age, string address, string phone1,
+        public void Insert(string fname,string lname,string khname, string gender, DateTime dob, byte age, string address, string phone1,
             string phone2,
             string email, short weigh, short heigh)
         {
             var insert = new Hospital_Entity_Framework.Patient()
             {
-                Name = name,
+                FirstName = fname,
+                LastName = lname,
+                KhmerName = khname,
                 Gender = gender,
                 DOB = dob,
                 Age = age,
@@ -32,11 +34,13 @@ namespace PatientManagement.Class
             _db.SaveChanges();
         }
 
-        public void Update(int id, string name, string gender, DateTime dob, byte age, string address, string phone1,
+        public void Update(int id, string fname,string lname,string khname, string gender, DateTime dob, byte age, string address, string phone1,
             string phone2, string email, short weigh, short heigh)
         {
             var update = _db.Patients.Single(v => v.Id == id);
-            update.Name = name;
+            update.FirstName = fname;
+            update.LastName = lname;
+            update.KhmerName = khname;
             update.Gender = gender;
             update.DOB = dob;
             update.Age = age;
@@ -55,12 +59,13 @@ namespace PatientManagement.Class
             if (!string.IsNullOrEmpty(text))
             {
                 var patients = from v in _db.Patients
-                               where v.Name.ToLower().Contains(text.ToLower() )
-                                      //   || v.Phone1.Contains(text) || v.Phone2.Contains(text) ||v.Email.Contains(text)
+                               where v.KhmerName.ToLower().Contains(text.ToLower() )
+                                         || v.Phone1.Contains(text) || v.Phone2.Contains(text) ||v.Email.Contains(text)||v.PatientIdentify.ToString().Contains(text)
+                                         ||v.FirstName.Contains(text)||v.LastName.Contains(text)
                                select new
                                {
-                                   v.Id,
-                                   v.Name,
+                                   v.Id,v.PatientIdentify,
+                                   v.FirstName,v.LastName,v.KhmerName,
                                    v.Gender,
                                    v.Age,
                                    v.Address,
@@ -75,8 +80,8 @@ namespace PatientManagement.Class
                 _binding.DataSource = (from v in _db.Patients
                                        select new
                                        {
-                                           v.Id,
-                                           v.Name,
+                                           v.Id,v.PatientIdentify,
+                                           v.FirstName,v.LastName,v.KhmerName,
                                            v.Gender,
                                            v.Age,
                                            v.Address,
@@ -127,7 +132,7 @@ namespace PatientManagement.Class
         {
             var show = _db.Patients;
 
-            _binding.DataSource = show.Select(v => new { v.Id, v.Name, v.Gender, v.Age, v.Address, v.Phone1, v.Email }).ToList();
+            _binding.DataSource = show.Select(v => new { v.Id,v.PatientIdentify, v.FirstName,v.LastName,v.KhmerName, v.Gender, v.Age, v.Address, v.Phone1, v.Email }).ToList();
 
             return _binding;
         }

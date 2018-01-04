@@ -10,11 +10,12 @@ namespace PatientManagement.Class
         private readonly HospitalDbContext _db = new HospitalDbContext();
         private readonly BindingSource _bs = new BindingSource();
 
-        public void Insert(string name,string specially,string workplace,string phone1 , string phone2 ,string email)
+        public void Insert(string fname,string lname,string specially,string workplace,string phone1 , string phone2 ,string email)
         {
             var insert = new Referrer()
             {
-                Name = name,
+                LastName = lname,
+                FirstName = fname,
                 Specialty=specially ,
                 WorkPlace=workplace,
                 Phone1=phone1,
@@ -25,10 +26,11 @@ namespace PatientManagement.Class
             _db.SaveChanges();
         }
 
-        public void Update(int id, string name, string specially, string workplace, string phone1, string phone2, string email)
+        public void Update(int id, string fname,string lname, string specially, string workplace, string phone1, string phone2, string email)
         {
             var update = _db.Referrers.Single(v => v.Id == id);
-            update.Name = name;
+            update.FirstName = fname;
+            update.LastName = lname;
             update.Specialty = specially;
             update.WorkPlace = workplace;
             update.Phone1 = phone1;
@@ -44,7 +46,7 @@ namespace PatientManagement.Class
             var select = from v in _db.Referrers
                 select new
                 {
-                    v.Id,v.Name,v.Specialty,v.WorkPlace,v.Phone1,v.Phone2,v.Email 
+                    v.Id,v.LastName,v.Specialty,v.WorkPlace,v.Phone1,v.Phone2,v.Email 
                 };
             _bs.DataSource = select.ToList();
             return _bs;

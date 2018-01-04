@@ -47,7 +47,7 @@ namespace PatientManagement.Class
             bs.DataSource = show.Select(s => new
                 {
                     s.Worker.Id,
-                    s.Worker.Name,
+                    s.Worker.FirstName,
                     s.Worker.Gender,
                     s.Worker.Position,
                     s.UserName
@@ -60,11 +60,11 @@ namespace PatientManagement.Class
         {
             BindingSource bs2 = new BindingSource();
 
-            var searchs = _db.Accounts.Where(v => v.Worker.Name.Contains(search) ||
+            var searchs = _db.Accounts.Where(v => v.Worker.FirstName.Contains(search) ||
                                                   v.Worker.Position.Contains(search));
 
             bs2.DataSource = searchs
-                .Select(s => new {s.Worker.Id, s.Worker.Name, s.Worker.Gender, s.Worker.Position, s.UserName}).ToList();
+                .Select(s => new {s.Worker.Id, s.Worker.FirstName, s.Worker.Gender, s.Worker.Position, s.UserName}).ToList();
 
             return bs2;
         }
@@ -83,12 +83,12 @@ namespace PatientManagement.Class
             var showPrescription =new PrescriptionCategory();
             var showVariousDoc = new VariousDocumentCategory();
 
-            panel.Controls.AddRange(new Control[] { showConsultation.ShowCategoryBox(_workerId),
-                                                    showLaboratory.ShowCategoryBox(_workerId),
-                                                    showMedicalImaging.ShowCategoryBox(_workerId),
-                                                    showPrescription.ShowCategoryBox(_workerId),
-                                                    showVariousDoc.ShowCategoryBox(_workerId)
-                                                    });
+            //panel.Controls.AddRange(new Control[] { showConsultation.ShowCategoryBox(_workerId),
+            //                                        showLaboratory.ShowCategoryBox(_workerId),
+            //                                        showMedicalImaging.ShowCategoryBox(_workerId),
+            //                                        showPrescription.ShowCategoryBox(_workerId),
+            //                                        showVariousDoc.ShowCategoryBox(_workerId)
+            //                                        });
             showPrescription.Management = this;
             showVariousDoc.Management = this;
             showConsultation.Management = this;

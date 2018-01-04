@@ -11,14 +11,6 @@ namespace PatientManagement.Class
     {
         private readonly HospitalDbContext _db=new HospitalDbContext();
 
-        public void InsertWaiting(int patientId, TimeSpan date)
-        {
-            var insert=new Hospital_Entity_Framework.WaitingList(){PatientId = patientId,Time = date};
-
-            _db.WaitingLists.Add(insert);
-            _db.SaveChanges();
-        }
-
         public void DeleteWaiting(int id)
         {
             var delete = _db.WaitingLists.Single(v => v.Id == id);
@@ -66,7 +58,7 @@ namespace PatientManagement.Class
         {
             var bs=new BindingSource();
 
-            var search = _db.Patients.Where(v => v.LastName.Contains(text) ||
+            var search = _db.Patients.Where(v => v.LastName.Contains(text) ||v.PatientIdentify.ToString().Contains(text)||
                                                  v.Phone1.Contains(text) || v.Phone2.Contains(text) || v.FirstName.Contains(text ));
             bs.DataSource = search.Select(v=>new {v.Id,v.FirstName,v.LastName,v.KhmerName,v.Gender,v.Phone1,v.Phone2,v.Email,v.Address,v.Height,v.Weight,v.PatientIdentify}).ToList();
 
@@ -77,7 +69,9 @@ namespace PatientManagement.Class
         {
             var bs = new BindingSource();
 
-            var search = _db.Datings.Where(v => v.Patient.FirstName.Contains(text)|| v.Patient.LastName.Contains( text ) || v.Worker.FirstName.Contains(text) || v.Worker.LastName.Contains( text ));
+            var search = _db.Datings.Where(v => v.Patient.FirstName.Contains(text)||v.Patient.PatientIdentify.ToString().Contains(text)||
+                v.Patient.LastName.Contains( text ) || v.Worker.FirstName.Contains(text) ||
+                v.Worker.LastName.Contains( text ));
             bs.DataSource = search.ToList();
 
             return bs;

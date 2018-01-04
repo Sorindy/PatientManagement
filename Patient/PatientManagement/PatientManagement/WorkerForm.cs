@@ -33,10 +33,16 @@ namespace PatientManagement
 
         private void CheckData()
         {
-            if (txtName.Text.Trim() == "" || txtName.Text == null)
+            if (txtfName.Text.Trim() == "" || txtfName.Text == null)
             {
-                MessageBox.Show(@"Please fill Name.");
-                txtName.Focus();
+                MessageBox.Show(@"Please fill First Name.");
+                txtfName.Focus();
+                return;
+            }
+            if (txtlName.Text.Trim() == "" || txtlName.Text == null)
+            {
+                MessageBox.Show(@"Please fill Last Name.");
+                txtlName.Focus();
                 return;
             }
             if (txtAddress.Text.Trim() == "" || txtAddress.Text == null)
@@ -48,12 +54,12 @@ namespace PatientManagement
             if (txtPhone1.Text.Trim() == "" || txtPhone1.Text == null)
             {
                 MessageBox.Show(@"Please fill Phone1.");
-                txtName.Focus();
+                txtfName.Focus();
                 return;
             }
-            if (txtPhone2.Text.Trim() == "" || txtPhone2.Text == null)
+            if (txtPhone1.Text.Trim() == "" || txtPhone1.Text == null)
             {
-                txtPhone2.Text = @"None";
+                txtPhone1.Text = @"None";
                 return;
             }
             if (txtEmail.Text.Trim() == "" || txtEmail.Text == null)
@@ -75,22 +81,23 @@ namespace PatientManagement
             }
             if (dtpSWD.Value.Date == DateTime.Now.AddDays(1))
             {
-                MessageBox.Show(@"You can't hire " + txtName.Text + @" over today.");
+                MessageBox.Show(@"You can't hire " + txtfName.Text + @" over today.");
                 return;
             }
             if (dtpDOB.Value.Date == DateTime.Today)
             {
-                MessageBox.Show(@"Make sure " + txtName.Text + @" date of birth correct.");
+                MessageBox.Show(@"Make sure " + txtfName.Text + @" date of birth correct.");
             }
         }
 
         internal void WorkerForm_Shown(object sender, EventArgs e)
         {
-            txtName.Text = Worker.Name;
+            txtfName.Text = Worker.FirstName;
+            txtlName.Text = Worker.LastName;
             txtAge.Text = Worker.Age.ToString();
             txtAddress.Text = Worker.Address;
             txtPhone1.Text = Worker.Phone1;
-            txtPhone2.Text = Worker.Phone2;
+            txtPhone1.Text = Worker.Phone2;
             txtEmail.Text = Worker.Email;
             txtSalary.Text = Worker.Salary.ToString();
             cboGender.Text = Worker.Gender;
@@ -98,11 +105,12 @@ namespace PatientManagement
             cboPosition.Text = Worker.Position;
             if (Worker.StartWorkDate != null) dtpSWD.Value = (DateTime) Worker.StartWorkDate;
 
-            txtName.Enabled = false;
+            txtfName.Enabled = false;
+            txtlName.Enabled = false;
             txtAge.Enabled = false;
             txtAddress.Enabled = false;
             txtPhone1.Enabled = false;
-            txtPhone2.Enabled = false;
+            txtPhone1.Enabled = false;
             cboPosition.Enabled = false;
             txtSalary.Enabled = false;
             txtEmail.Enabled = false;
@@ -130,11 +138,12 @@ namespace PatientManagement
                 btnEdit.Text = @"Cancel";
                 btnEdit.Name = @"btnCancel";
                 btnUpdate.Enabled = true;
-                txtName.Enabled = true;
+                txtfName.Enabled = true;
+                txtlName.Enabled = true;
                 txtAge.Enabled = true;
                 txtAddress.Enabled = true;
                 txtPhone1.Enabled = true;
-                txtPhone2.Enabled = true;
+                txtPhone1.Enabled = true;
                 cboPosition.Enabled = true;
                 txtSalary.Enabled = true;
                 txtEmail.Enabled = true;
@@ -142,7 +151,7 @@ namespace PatientManagement
                 dtpDOB.Enabled = true;
                 dtpSWD.Enabled = true;
                 btnEdit.Click += btnCancel_Click;
-                txtName.Focus();
+                txtfName.Focus();
                 cboPosition_TextChanged(this, new EventArgs());
             }
         }
@@ -159,16 +168,17 @@ namespace PatientManagement
         {
             try
             {
-                //_worker.Update(Worker.Id, txtName.Text, cboGender.Text, dtpDOB.Value, Convert.ToByte(txtAge.Text), txtAddress.Text, txtPhone1.Text,
-                //    txtPhone2.Text, txtEmail.Text, cboGender.Text, Convert.ToInt32(txtSalary.Text), dtpSWD.Value);
-                //WorkerListForm.dgvListWorker.Columns.RemoveAt(7);
-                //WorkerListForm.dgvListWorker.Columns.RemoveAt(7);
-                //WorkerListForm.WorkerListForm_Shown(this, new EventArgs());
-                //Close();
+                _worker.Update(Worker.Id, txtfName.Text,txtlName.Text, cboGender.Text, dtpDOB.Value, Convert.ToByte(txtAge.Text), txtAddress.Text, txtPhone1.Text,
+                    txtPhone1.Text, txtEmail.Text, cboGender.Text, Convert.ToInt32(txtSalary.Text), dtpSWD.Value);
+                WorkerListForm.dgvListWorker.Columns.RemoveAt(7);
+                WorkerListForm.dgvListWorker.Columns.RemoveAt(7);
+                WorkerListForm.WorkerListForm_Shown(this, new EventArgs());
+                Close();
             }
             catch
             {
-                CheckData();
+                CheckData(); 
+                MessageBox.Show(@"Please checking again .", @"Error");
             }
         }
 

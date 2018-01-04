@@ -25,7 +25,10 @@ namespace PatientManagement
             Clear();
             var path = AppDomain.CurrentDomain.BaseDirectory;
             _path = path.Remove(path.Length - 46);
-            txtName.Text = Patient.Name;
+            txtId.Text = Patient.PatientIdentify.ToString();
+            txtfName.Text = Patient.FirstName;
+            txtlName.Text = Patient.LastName;
+            txtkhName.Text = Patient.KhmerName;
             cboGender.Text = Patient.Gender;
             dtpDOB.Value = Patient.DOB;
             txtAge.Text = Patient.Age.ToString();
@@ -38,7 +41,9 @@ namespace PatientManagement
 
             btnEdit.Focus();
 
-            txtName.Enabled = false;
+            txtfName.Enabled = false;
+            txtlName.Enabled = false;
+            txtkhName.Enabled = false;
             cboGender.Enabled = false;
             dtpDOB.Enabled = false;
             txtAge.Enabled = false;
@@ -70,7 +75,9 @@ namespace PatientManagement
 
         private void Clear()
         {
-            txtName.Text = "";
+            txtfName.Text = "";
+            txtlName.Text = "";
+            txtkhName.Text = "";
             txtAge.Text = "";
             txtAddress.Text = "";
             txtEmail.Text = "";
@@ -80,7 +87,7 @@ namespace PatientManagement
             txtHeight.Text = "";
             dtpDOB.Value = DateTime.Today;
             cboGender.Text = @"Female";
-            txtName.Focus();
+            txtfName.Focus();
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -99,7 +106,9 @@ namespace PatientManagement
                 btnEdit.Click += btnCancel_Click;
             }
 
-            txtName.Enabled = true;
+            txtfName.Enabled = true;
+            txtlName.Enabled = true;
+            txtkhName.Enabled = true;
             cboGender.Enabled = true;
             dtpDOB.Enabled = true;
             txtAge.Enabled = true;
@@ -110,7 +119,7 @@ namespace PatientManagement
             txtWeight.Enabled = true;
             txtHeight.Enabled = true;
 
-            txtName.Focus();
+            txtfName.Focus();
             btnUpdate.Enabled = true;
             btnClear.Enabled = true;
         }
@@ -131,10 +140,20 @@ namespace PatientManagement
 
         private void CheckData()
         {
-            if (txtName.Text.Trim() == "" || txtName.Text == null)
+            if (txtfName.Text.Trim() == "" || txtfName.Text == null)
             {
-                MessageBox.Show(@"Please fill Name.");
-                txtName.Focus();
+                MessageBox.Show(@"Please fill First Name.");
+                txtfName.Focus();
+            }
+            if (txtlName.Text.Trim() == "" || txtlName.Text == null)
+            {
+                MessageBox.Show(@"Please fill Last Name.");
+                txtlName.Focus();
+            }
+            if (txtkhName.Text.Trim() == "" || txtkhName.Text == null)
+            {
+                txtkhName.Text = @"None";
+                txtfName.Focus();
             }
             if (txtAddress.Text.Trim() == "" || txtAddress.Text == null)
             {
@@ -144,11 +163,11 @@ namespace PatientManagement
             if (txtPhone1.Text.Trim() == "" || txtPhone1.Text == null)
             {
                 MessageBox.Show(@"Please fill Phone1.");
-                txtName.Focus();
+                txtPhone1.Focus();
             }
-            if (txtPhone1.Text.Trim() == "" || txtPhone1.Text == null)
+            if (txtPhone2.Text.Trim() == "" || txtPhone2.Text == null)
             {
-                txtPhone1.Text = @"None";
+                txtPhone2.Text = @"None";
             }
             if (txtEmail.Text.Trim() == "" || txtEmail.Text == null)
             {
@@ -156,7 +175,7 @@ namespace PatientManagement
             }
             if (dtpDOB.Value.Date == DateTime.Today)
             {
-                MessageBox.Show(@"Make sure " + txtName.Text + @" date of birth correct.");
+                MessageBox.Show(@"Make sure " + txtlName.Text + @" date of birth correct.");
                 dtpDOB.Focus();
             }
             if (txtWeight.Text.Trim() == "" || txtWeight.Text == null)
@@ -175,7 +194,7 @@ namespace PatientManagement
         {
             try
             {
-                _patient.Update(Patient.Id,txtName.Text,cboGender.Text,dtpDOB.Value,Convert.ToByte(txtAge.Text),txtAddress.Text,txtPhone1.Text,
+                _patient.Update(Patient.Id,txtfName.Text,txtlName.Text,txtkhName.Text,cboGender.Text,dtpDOB.Value,Convert.ToByte(txtAge.Text),txtAddress.Text,txtPhone1.Text,
                     txtPhone1.Text,txtEmail.Text,Convert.ToInt16(txtWeight.Text),Convert.ToInt16(txtHeight.Text));
                 PatientListForm.dgvListPatient.Columns.RemoveAt(7);
                 PatientListForm.PatientListForm_Shown(PatientListForm,new EventArgs());
@@ -184,6 +203,7 @@ namespace PatientManagement
             catch
             {
                 CheckData();
+                MessageBox.Show(@"Please checking again .", @"Error");
             }
         }
 

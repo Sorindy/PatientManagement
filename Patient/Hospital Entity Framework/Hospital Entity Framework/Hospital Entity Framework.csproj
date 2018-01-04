@@ -59,9 +59,6 @@
     <Compile Include="ConsultationEstimate.cs">
       <DependentUpon>Hospital.tt</DependentUpon>
     </Compile>
-    <Compile Include="ConsultationEstimateEditHistory.cs">
-      <DependentUpon>Hospital.tt</DependentUpon>
-    </Compile>
     <Compile Include="ConsultationSample.cs">
       <DependentUpon>Hospital.tt</DependentUpon>
     </Compile>
@@ -92,9 +89,6 @@
     <Compile Include="LaboratoryEstimate.cs">
       <DependentUpon>Hospital.tt</DependentUpon>
     </Compile>
-    <Compile Include="LaboratoryEstimateEditHistory.cs">
-      <DependentUpon>Hospital.tt</DependentUpon>
-    </Compile>
     <Compile Include="LaboratorySample.cs">
       <DependentUpon>Hospital.tt</DependentUpon>
     </Compile>
@@ -110,9 +104,6 @@
     <Compile Include="MedicalImagingEstimate.cs">
       <DependentUpon>Hospital.tt</DependentUpon>
     </Compile>
-    <Compile Include="MedicalImagingEstimateEditHistory.cs">
-      <DependentUpon>Hospital.tt</DependentUpon>
-    </Compile>
     <Compile Include="MedicalImagingSample.cs">
       <DependentUpon>Hospital.tt</DependentUpon>
     </Compile>
@@ -126,9 +117,6 @@
       <DependentUpon>Hospital.tt</DependentUpon>
     </Compile>
     <Compile Include="PrescriptionEstimate.cs">
-      <DependentUpon>Hospital.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PrescriptionEstimateEditHistory.cs">
       <DependentUpon>Hospital.tt</DependentUpon>
     </Compile>
     <Compile Include="PrescriptionSample.cs">
@@ -159,9 +147,6 @@
       <DependentUpon>Hospital.tt</DependentUpon>
     </Compile>
     <Compile Include="VariousDocumentEstimate.cs">
-      <DependentUpon>Hospital.tt</DependentUpon>
-    </Compile>
-    <Compile Include="VariousDocumentEstimateEditHistory.cs">
       <DependentUpon>Hospital.tt</DependentUpon>
     </Compile>
     <Compile Include="VariousDocumentSample.cs">

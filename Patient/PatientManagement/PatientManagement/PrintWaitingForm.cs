@@ -16,7 +16,7 @@ namespace PatientManagement
         private void PrintWaitingForm_Load(object sender, EventArgs e)
         {
             var db=new HospitalDbContext();
-            var name = db.Patients.Single(v => v.Id == WaitingList.PatientId).Name;
+            var name = db.Patients.Single(v => v.Id == WaitingList.PatientId).FirstName + @"  " + db.Patients.Single(v => v.Id == WaitingList.PatientId).LastName;
             waiting1.SetParameterValue("pName", name);
             waiting1.SetParameterValue("pTime", WaitingList.Time.ToString());
             var getvalue = WaitingList.Number;

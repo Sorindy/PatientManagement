@@ -60,7 +60,7 @@ namespace PatientManagement.Class
                 bs.DataSource = showdata.Where(v=>v.Position!="Admin").Where(v=>v.Hire).Select(v => new
                 {
                     v.Id,
-                    v.Name,
+                    v.FirstName,v.LastName,
                     v.Gender,
                     v.Age,
                     v.Phone1,
@@ -80,12 +80,13 @@ namespace PatientManagement.Class
         {
             var bs=new BindingSource();
 
-            var search = _db.Workers.Where(v => v.Name.Contains(text) ||
+            var search = _db.Workers.Where(v => v.FirstName.Contains(text) ||
+                                                v.LastName.Contains(text)||
                                                 v.Phone1.Contains(text) || 
                                                 v.Phone2.Contains(text)||
                                                 v.Position.Contains(text)||
                                                 v.Gender.Contains(text));
-            return bs.DataSource = search.Select(v=>new{v.Id,v.Name,v.Gender,v.Age,v.Phone1,v.Email,v.Position}).ToList();
+            return bs.DataSource = search.Select(v=>new{v.Id,v.FirstName,v.LastName,v.Gender,v.Age,v.Phone1,v.Email,v.Position}).ToList();
         }
 
         public Hospital_Entity_Framework.Account Account(int workerId)
