@@ -26,7 +26,7 @@ namespace PatientManagement.Class
                 Edit = false
             };
             _db.ConsultationEstimates.Add(insert);
-            //_db.SaveChanges();
+            _db.SaveChanges();
             InsertIntoVisit(visitid,visitcount,patientid,description);
         }
 

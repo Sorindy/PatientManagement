@@ -167,10 +167,9 @@ namespace PatientManagement
                 if (cboService.Text == @"Consultation")
                 {
                     _estimate = new ConsultationEstimate();
-                    _estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, _keyCategory, Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today, _path + @"RTF\ConsultationEstimate\" + WaitingList.PatientId + DateTime.Today.Date + DateTime.Today.TimeOfDay.ToString("g"));
+                    _estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, _keyCategory, Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today, _path + @"RTF\ConsultationEstimate\" + WaitingList.PatientId + DateTime.Today.Day + DateTime.Today.Month + DateTime.Today.Year + DateTime.Today.Hour + DateTime.Today.Minute + DateTime.Today.Millisecond);
                     txtDescription.Save(
-                        _path + @"RTF\ConsultationEstimate\" + WaitingList.PatientId+ DateTime.Today.Date +
-                        DateTime.Today.TimeOfDay.ToString("g"), StreamType.RichTextFormat);
+                        _path + @"RTF\ConsultationEstimate\" + DateTime.Today.Day + DateTime.Today.Month + DateTime.Today.Year + DateTime.Today.Hour + DateTime.Today.Minute + DateTime.Today.Millisecond, StreamType.RichTextFormat);
                 }
                 if (cboService.Text == @"Laboratory")
                 {
