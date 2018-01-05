@@ -1,5 +1,4 @@
-﻿using System;
-using System.Data.Entity.Migrations;
+﻿using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Windows.Forms;
 using Hospital_Entity_Framework;
@@ -122,8 +121,8 @@ namespace PatientManagement.Class
 
         public Hospital_Entity_Framework.WaitingList GetWaitingListObject(int id)
         {
-            var check = _db.WaitingLists.SingleOrDefault(  v => v.Id == id);
-            return check;
+            var waitingList  = _db.WaitingLists.SingleOrDefault(v => v.Id == id);
+            return waitingList;
         }
 
         public BindingSource SeleteAllWaiting()

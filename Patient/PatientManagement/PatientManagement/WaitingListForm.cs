@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using PatientManagement.Class;
 
@@ -8,12 +9,12 @@ namespace PatientManagement
     {
 
         internal Hospital_Entity_Framework.Worker Worker;
-        private readonly  WaitingList _waitingList = new WaitingList() ;
+        private readonly   WaitingList _waitingList= new WaitingList();
       //  private NurseRespone _nurseRespone;
         internal MedicalsForm Medicalsform;
     //    private bool? _num ;
 
-        public Hospital_Entity_Framework.WaitingList WaitingList;
+        internal Hospital_Entity_Framework.WaitingList WaitingList;
        
        
         public int GetStaffCategoryid;
@@ -94,6 +95,7 @@ namespace PatientManagement
             {
                 if (dgvWaitingCategory.CurrentRow.Cells[5].Value == null )
                 {
+                    Medicalsform.WaitingList = new Hospital_Entity_Framework.WaitingList();
                     Medicalsform.WaitingList = _waitingList.GetWaitingListObject(Convert.ToInt32( dgvWaitingCategory.CurrentRow.Cells[0].Value));
                     Medicalsform.Patient = _waitingList.GetWaitingListObject(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[0].Value)).Patient;
                     Medicalsform.txtNamePatient.Text = _waitingList.GetWaitingListObject(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[0].Value)).Patient.LastName;

@@ -26,7 +26,7 @@ namespace PatientManagement.Class
                 Edit = false
             };
             _db.ConsultationEstimates.Add(insert);
-            _db.SaveChanges();
+            //_db.SaveChanges();
             InsertIntoVisit(visitid,visitcount,patientid,description);
         }
 
@@ -34,8 +34,7 @@ namespace PatientManagement.Class
         {
             var get = _db.ConsultationEstimates.Where(v => v.PatientId == patientid)
                 .First(v => v.Description == description);
-
-            _db.Visits.First(v=>v.Id==visitid&&v.VisitCount==visitcount).ConsultationEstimates.Add(get);
+            _db.Visits.First(v=>v.Id==visitid && v.VisitCount==visitcount).ConsultationEstimates.Add(get);
             _db.SaveChanges();
         }
 
