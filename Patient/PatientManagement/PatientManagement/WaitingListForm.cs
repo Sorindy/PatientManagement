@@ -95,14 +95,8 @@ namespace PatientManagement
             {
                 if (dgvWaitingCategory.CurrentRow.Cells[5].Value == null )
                 {
-<<<<<<< HEAD
-                    var get = dgvWaitingCategory.CurrentRow.Cells[0].Value;
-
-                    Medicalsform.WaitingList = _waitingList.GetWaitingListObject(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[0].Value));
-=======
                     Medicalsform.WaitingList = new Hospital_Entity_Framework.WaitingList();
                     Medicalsform.WaitingList = _waitingList.GetWaitingListObject(Convert.ToInt32( dgvWaitingCategory.CurrentRow.Cells[0].Value));
->>>>>>> b1b65a6d4377509fd8f07cb96ba110de87750af9
                     Medicalsform.Patient = _waitingList.GetWaitingListObject(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[0].Value)).Patient;
                     Medicalsform.txtNamePatient.Text = _waitingList.GetWaitingListObject(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[0].Value)).Patient.LastName;
                     Medicalsform.txtGenderPatient.Text = _waitingList.GetWaitingListObject(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[0].Value)).Patient.Gender;
