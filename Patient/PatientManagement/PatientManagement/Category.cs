@@ -15,7 +15,13 @@ namespace PatientManagement
 
         private ICategory _category;
 
-        
+        private void CheckOrderDgv()
+        {
+            for (int i = 0; i <= dgvListCategory.RowCount - 1; i++)
+            {
+                dgvListCategory.Rows[i].DefaultCellStyle.BackColor = i % 2 == 0 ? Color.LightGray : Color.MintCream;
+            }
+        }
         private void Category_Shown(object sender, EventArgs e)
         {
             cboService.Text = null;
@@ -26,6 +32,7 @@ namespace PatientManagement
             dgvListCategory.Enabled = true;
             dgvListCategory.DataSource = null;
             btnDelete.Enabled = false;
+            CheckOrderDgv();
         }
 
         private void btnNew_Click(object sender, EventArgs e)
@@ -164,6 +171,7 @@ namespace PatientManagement
             }
             btnDelete.Enabled = false;
             dgvListCategory.Enabled = true;
+            CheckOrderDgv();
             cboService.Enabled = true;
             txtName.Enabled = false;
             txtName.Text = "";
@@ -279,6 +287,21 @@ namespace PatientManagement
         private void dgvListCategory_SelectionChanged(object sender, EventArgs e)
         {
             btnDelete.Enabled = true;
+        }
+
+        private void txtName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (btnNew.Name == "btnAdd")
+                {
+                    btnAdd_Click(this, new EventArgs());
+                }
+                else
+                {
+                    btnUpdate_Click(this,new EventArgs());
+                }
+            }
         }
     }
 }

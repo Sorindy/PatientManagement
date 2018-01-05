@@ -91,8 +91,16 @@ namespace PatientManagement.Class
 
         public Hospital_Entity_Framework.Account Account(int workerId)
         {
-            var search = _db.Accounts.First(v => v.WorkerId == workerId);
-            return search;
+            if (_db.Accounts.Any(v => v.WorkerId == workerId))
+            {
+                var search = _db.Accounts.First(v => v.WorkerId == workerId);
+                return search;
+            }
+            else
+            {
+                MessageBox.Show(@"Please create account before add category to doctor.", @"Error");
+                return null;
+            }
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Drawing;
-using Hospital_Entity_Framework;
 using Account = PatientManagement.Class.Account;
 using Form = System.Windows.Forms.Form;
 
@@ -38,6 +37,7 @@ namespace PatientManagement
             try
             {
                 _account.Update(Account.Id,txtUserName.Text,txtPassword.Text);
+                WorkerForm.btnCancel_Click(WorkerForm,new EventArgs());
                 Close();
             }
             catch

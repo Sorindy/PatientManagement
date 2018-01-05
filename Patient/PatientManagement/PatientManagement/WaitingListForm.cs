@@ -93,8 +93,10 @@ namespace PatientManagement
         {
             if (dgvWaitingCategory.CurrentRow != null)
             {
-                if (dgvWaitingCategory.CurrentRow.Cells[4].Value == null )
+                if (dgvWaitingCategory.CurrentRow.Cells[5].Value == null )
                 {
+                    var get = dgvWaitingCategory.CurrentRow.Cells[0].Value;
+
                     Medicalsform.WaitingList = _waitingList.GetWaitingListObject(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[0].Value));
                     Medicalsform.Patient = _waitingList.GetWaitingListObject(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[0].Value)).Patient;
                     Medicalsform.txtNamePatient.Text = _waitingList.GetWaitingListObject(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[0].Value)).Patient.LastName;
@@ -104,7 +106,7 @@ namespace PatientManagement
                     _nurseRespone.Insert(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[0].Value.ToString()), Worker.Id);
                     _waitingList.UpdatePatientStatus(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[0].Value), false);    
                 }
-                else if (dgvWaitingCategory.CurrentRow.Cells[4].Value.Equals(false))
+                else if (dgvWaitingCategory.CurrentRow.Cells[5].Value.Equals(false))
                 {
                     MessageBox.Show(@"This Patient is already Proccess by another Doctor...!!!");
                 }

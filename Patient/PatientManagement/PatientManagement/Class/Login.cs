@@ -81,37 +81,59 @@ namespace PatientManagement.Class
 
                 if (text == "Worker")
                 {
-                    var selectedForm = new WorkerListForm
+                    if (Application.OpenForms.OfType<WorkerListForm>().Count() == 1)
                     {
-                        TopLevel = false,
-                        Dock = DockStyle.Fill,
-                        AutoScroll = true
-                    };
-                    gbo.Controls.Add(selectedForm);
-                    selectedForm.Show();
+                        var firstOrDefault = Application.OpenForms.OfType<WorkerListForm>().FirstOrDefault();
+                        if (firstOrDefault != null)
+                            firstOrDefault.Close();
+                    }
+                    var selectionForm = new WorkerListForm()
+                        {
+                            TopLevel = false,
+                            Dock = DockStyle.Fill,
+                            AutoScroll = true
+                        };
+                        gbo.Controls.Add(selectionForm);
+                        selectionForm.Show();
                 }
                 if (text == "Category")
                 {
-                    var selectionForm=new Category
+                    if (Application.OpenForms.OfType<Category>().Count() == 1)
                     {
-                        TopLevel = false,
-                        Dock = DockStyle.Fill,
-                        AutoScroll =true
-                    };
-                    gbo.Controls.Add(selectionForm);
-                    selectionForm.Show();
+                        var firstOrDefault = Application.OpenForms.OfType<Category>().FirstOrDefault();
+                        if (firstOrDefault != null)
+                        {
+                            firstOrDefault.Show();
+                        }                           
+                    }
+                        var selectionForm = new Category()
+                        {
+                            TopLevel = false,
+                            Dock = DockStyle.Fill,
+                            AutoScroll = true
+                        };
+                        gbo.Controls.Add(selectionForm);
+                        selectionForm.Show();
                 }
                 if (text == "Patient")
                 {
-                    var selectionForm=new PatientListForm()
+                    if (Application.OpenForms.OfType<PatientListForm>().Count() == 1)
                     {
-                        TopLevel = false,
-                        Dock = DockStyle.Fill,
-                        AutoScroll = true,
-                        Account = _account
-                    };
-                    gbo.Controls.Add(selectionForm);
-                    selectionForm.Show();
+                        var firstOrDefault = Application.OpenForms.OfType<PatientListForm>().FirstOrDefault();
+                        if (firstOrDefault != null)
+                        {
+                            firstOrDefault.Show();
+                        }                           
+                    }
+                        var selectionForm = new PatientListForm()
+                        {
+                            TopLevel = false,
+                            Dock = DockStyle.Fill,
+                            AutoScroll = true,
+                            Account = _account
+                        };
+                        gbo.Controls.Add(selectionForm);
+                        selectionForm.Show();
                 }
                 if (text == "CheckIn")
                 {
@@ -119,27 +141,37 @@ namespace PatientManagement.Class
                     {
                         var firstOrDefault = Application.OpenForms.OfType<CheckInsForm>().FirstOrDefault();
                         if (firstOrDefault != null)
-                            firstOrDefault.Close();
+                        {
+                            firstOrDefault.Show();
+                        }                           
                     }
-                    var selectionForm=new CheckInsForm
-                    {
-                        TopLevel = false,
-                        Dock = DockStyle.Fill,
-                        AutoScroll = true
-                    };
-                    gbo.Controls.Add(selectionForm);
-                    selectionForm.Show();
+                    var selectionForm = new CheckInsForm
+                        {
+                            TopLevel = false,
+                            Dock = DockStyle.Fill,
+                            AutoScroll = true
+                        };
+                        gbo.Controls.Add(selectionForm);
+                        selectionForm.Show();
                 }
                 if (text == "Sample")
                 {
-                    var selectionForm = new SamplesForm()
+                    if (Application.OpenForms.OfType<SamplesForm>().Count() == 1)
                     {
-                        TopLevel = false,
-                        Dock = DockStyle.Fill,
-                        AutoScroll = true
-                    };
-                    gbo.Controls.Add(selectionForm);
-                    selectionForm.Show();
+                        var firstOrDefault = Application.OpenForms.OfType<SamplesForm>().FirstOrDefault();
+                        if (firstOrDefault != null)
+                        {
+                            firstOrDefault.Show();
+                        }                           
+                    }
+                        var selectionForm = new SamplesForm()
+                        {
+                            TopLevel = false,
+                            Dock = DockStyle.Fill,
+                            AutoScroll = true
+                        };
+                        gbo.Controls.Add(selectionForm);
+                        selectionForm.Show();
                 }
                 if (text == "Management")
                 {
@@ -147,7 +179,9 @@ namespace PatientManagement.Class
                     {
                         var firstOrDefault = Application.OpenForms.OfType<Managements>().FirstOrDefault();
                         if (firstOrDefault != null)
-                            firstOrDefault.Close();
+                        {
+                            firstOrDefault.Show();
+                        }                           
                     }
                     var selectionForm = new Managements()
                     {
@@ -160,15 +194,23 @@ namespace PatientManagement.Class
                 }
                 if (text == "Medical")
                 {
-                    var selectionForm = new MedicalsForm()
+                    if (Application.OpenForms.OfType<MedicalsForm>().Count() == 1)
                     {
-                        TopLevel = false,
-                        Dock = DockStyle.Fill,
-                        AutoScroll = true,
-                        Account = _account
-                    };
-                    gbo.Controls.Add(selectionForm);
-                    selectionForm.Show();
+                        var firstOrDefault = Application.OpenForms.OfType<MedicalsForm>().FirstOrDefault();
+                        if (firstOrDefault != null)
+                        {
+                            firstOrDefault.Show();
+                        }                           
+                    }
+                        var selectionForm = new MedicalsForm()
+                        {
+                            TopLevel = false,
+                            Dock = DockStyle.Fill,
+                            AutoScroll = true,
+                            Account = _account
+                        };
+                        gbo.Controls.Add(selectionForm);
+                        selectionForm.Show();
                 }
             }
         }

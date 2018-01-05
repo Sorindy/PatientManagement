@@ -110,6 +110,7 @@ namespace PatientManagement
                 btnClear.Enabled = true;
 
                 txtfName.Enabled = true;
+                txtlName.Enabled = true;
                 txtSpeciality.Enabled = true;
                 txtWorkPlace.Enabled = true;
                 txtPhone1.Enabled = true;
@@ -170,6 +171,7 @@ namespace PatientManagement
                     _refferrer.Update(Referrer.Id,txtfName.Text,txtlName.Text, txtSpeciality.Text, txtWorkPlace.Text, txtPhone1.Text, txtPhone2.Text, txtEmail.Text);
 
                     txtfName.Enabled = false;
+                    txtlName.Enabled = false;
                     txtSpeciality.Enabled = false;
                     txtEmail.Enabled = false;
                     txtPhone1.Enabled = false;

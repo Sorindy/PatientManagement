@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using Hospital_Entity_Framework;
 using Account = PatientManagement.Class.Account;
@@ -30,6 +31,8 @@ namespace PatientManagement
         private readonly Class.Worker _worker=new Class.Worker();
         private readonly Account _account=new Account();
         internal WorkerListForm WorkerListForm;
+        private bool _mouseDown;
+        private Point _lastLocation;
 
         private void CheckData()
         {
@@ -90,7 +93,7 @@ namespace PatientManagement
             }
         }
 
-        internal void WorkerForm_Shown(object sender, EventArgs e)
+        private void WorkerForm_Shown(object sender, EventArgs e)
         {
             txtfName.Text = Worker.FirstName;
             txtlName.Text = Worker.LastName;
@@ -110,7 +113,7 @@ namespace PatientManagement
             txtAge.Enabled = false;
             txtAddress.Enabled = false;
             txtPhone1.Enabled = false;
-            txtPhone1.Enabled = false;
+            txtPhone2.Enabled = false;
             cboPosition.Enabled = false;
             txtSalary.Enabled = false;
             txtEmail.Enabled = false;
@@ -143,7 +146,7 @@ namespace PatientManagement
                 txtAge.Enabled = true;
                 txtAddress.Enabled = true;
                 txtPhone1.Enabled = true;
-                txtPhone1.Enabled = true;
+                txtPhone2.Enabled = true;
                 cboPosition.Enabled = true;
                 txtSalary.Enabled = true;
                 txtEmail.Enabled = true;
@@ -156,7 +159,7 @@ namespace PatientManagement
             }
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        internal void btnCancel_Click(object sender, EventArgs e)
         {
             btnEdit.Text = @"Edit";
             btnEdit.Name = @"btnEdit";
@@ -169,10 +172,11 @@ namespace PatientManagement
             try
             {
                 _worker.Update(Worker.Id, txtfName.Text,txtlName.Text, cboGender.Text, dtpDOB.Value, Convert.ToByte(txtAge.Text), txtAddress.Text, txtPhone1.Text,
-                    txtPhone2.Text, txtEmail.Text, cboGender.Text, Convert.ToInt32(txtSalary.Text), dtpSWD.Value);
+                    txtPhone2.Text, txtEmail.Text, cboPosition.Text, Convert.ToInt32(txtSalary.Text), dtpSWD.Value);
                 WorkerListForm.dgvListWorker.Columns.RemoveAt(8);
                 WorkerListForm.dgvListWorker.Columns.RemoveAt(8);
                 WorkerListForm.WorkerListForm_Shown(this, new EventArgs());
+                WorkerListForm.Worker=new Class.Worker();
                 Close();
             }
             catch
@@ -248,8 +252,53 @@ namespace PatientManagement
 
         private void btnCategory_Click(object sender, EventArgs e)
         {
-            var form = new CategorySelection {Account = _worker.Account(Worker.Id)};
+            if(_worker.Account(Worker.Id)==null)return;
+            var form = new CategorySelection { Account = _worker.Account(Worker.Id) };
             form.ShowDialog();
+        }
+
+        private void tableLayoutPanel2_MouseDown(object sender, MouseEventArgs e)
+        {
+            _mouseDown = true;
+            _lastLocation = e.Location;
+        }
+
+        private void tableLayoutPanel2_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (_mouseDown)
+            {
+                Location = new Point(
+                    Location.X - _lastLocation.X + e.X, (Location.Y - _lastLocation.Y) + e.Y);
+
+                Update();
+            }
+        }
+
+        private void tableLayoutPanel2_MouseUp(object sender, MouseEventArgs e)
+        {
+            _mouseDown = false;
+        }
+
+        private void tableLayoutPanel4_MouseDown(object sender, MouseEventArgs e)
+        {
+            _mouseDown = true;
+            _lastLocation = e.Location;
+        }
+
+        private void tableLayoutPanel4_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (_mouseDown)
+            {
+                Location = new Point(
+                    Location.X - _lastLocation.X + e.X, (Location.Y - _lastLocation.Y) + e.Y);
+
+                Update();
+            }
+        }
+
+        private void tableLayoutPanel4_MouseUp(object sender, MouseEventArgs e)
+        {
+            _mouseDown = false;
         }
     }
 }

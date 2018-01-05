@@ -22,8 +22,13 @@ namespace PatientManagement
         {
             if (txtfName.Text.Trim() == "" || txtfName.Text == null)
             {
-                MessageBox.Show(@"Please fill Name.");
+                MessageBox.Show(@"Please fill First Name.");
                 txtfName.Focus();
+            }
+            if (txtlName.Text.Trim() == "" || txtlName.Text == null)
+            {
+                MessageBox.Show(@"Please fill Last Name.");
+                txtlName.Focus();
             }
             if (txtAddress.Text.Trim() == "" || txtAddress.Text == null)
             {
@@ -35,9 +40,9 @@ namespace PatientManagement
                 MessageBox.Show(@"Please fill Phone1.");
                 txtfName.Focus();
             }
-            if (txtPhone1.Text.Trim() == "" || txtPhone1.Text == null)
+            if (txtPhone2.Text.Trim() == "" || txtPhone2.Text == null)
             {
-                txtPhone1.Text = @"None";
+                txtPhone2.Text = @"None";
             }
             if (txtEmail.Text.Trim() == "" || txtEmail.Text == null)
             {
@@ -66,12 +71,13 @@ namespace PatientManagement
         private void Clear()
         {
             txtfName.Text = "";
+            txtlName.Text = "";
             txtAge.Text = "";
             cboGender.Text = "";
             dtpDOB.Value = DateTime.Today;
             txtAddress.Text = "";
             txtPhone1.Text = "";
-            txtPhone1.Text = "";
+            txtPhone2.Text = "";
             cboPosition.Text = "";
             txtSalary.Text = "";
             dtpSWD.Value = DateTime.Today;
@@ -94,7 +100,7 @@ namespace PatientManagement
         {
             try
             {
-                _worker.Insert(txtfName.Text,txtlName.Text,cboGender.Text,dtpDOB.Value,Convert.ToByte(txtAge.Text),txtAddress.Text,txtPhone1.Text,txtPhone1.Text,
+                _worker.Insert(txtfName.Text,txtlName.Text,cboGender.Text,dtpDOB.Value,Convert.ToByte(txtAge.Text),txtAddress.Text,txtPhone1.Text,txtPhone2.Text,
                                 txtEmail.Text,cboPosition.Text,Convert.ToInt32(txtSalary.Text),dtpSWD.Value);
                 WorkerListForm.dgvListWorker.Columns.RemoveAt(8);
                 WorkerListForm.dgvListWorker.Columns.RemoveAt(8);

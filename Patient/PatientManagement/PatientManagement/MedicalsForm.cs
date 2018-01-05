@@ -30,6 +30,7 @@ namespace PatientManagement
         internal WaitingList WaitingList;
         private ICategory _category;
         internal MedicalRecord Medical=new MedicalRecord();
+        private int _indexCategory;
         private int _keyCategory;
         private int? _keyNurse;
         private int? _keyReferrer;
@@ -45,7 +46,7 @@ namespace PatientManagement
             txtDescription.Load(html, StringStreamType.HTMLFormat);
 
 
-            var form=new SamplesDialogForm(){MedicalsForm = this,CategoryId = _keyCategory,ServiceText = cboService.Text,Str = html};
+            var form=new SamplesDialogForm(){MedicalsForm = this,CategoryId = _indexCategory,ServiceText = cboService.Text,Str = html};
             form.ShowDialog();
         }
 
@@ -166,7 +167,7 @@ namespace PatientManagement
                 if (cboService.Text == @"Consultation")
                 {
                     _estimate = new ConsultationEstimate();
-                    _estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, _keyCategory, Worker.Id, _keyNurse, _keyReferrer, DateTime.Today, _path + @"RTF\ConsultationEstimate\" + WaitingList.PatientId + DateTime.Today.Date + DateTime.Today.TimeOfDay.ToString("g"));
+                    _estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, _keyCategory, Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today, _path + @"RTF\ConsultationEstimate\" + WaitingList.PatientId + DateTime.Today.Date + DateTime.Today.TimeOfDay.ToString("g"));
                     txtDescription.Save(
                         _path + @"RTF\ConsultationEstimate\" + WaitingList.PatientId + DateTime.Today.Date +
                         DateTime.Today.TimeOfDay.ToString("g"), StreamType.RichTextFormat);
@@ -313,7 +314,9 @@ namespace PatientManagement
             if (cboCategory.DataSource == null) return;
 
             var selectedItem = cboCategory.SelectedIndex;
-            _keyCategory = selectedItem;
+            _indexCategory = selectedItem;
+            var selectkey = (KeyValuePair<int, string>) cboCategory.SelectedItem;
+            _keyCategory = selectkey.Key;
         }
 
         private void picAddDate_Click(object sender, EventArgs e)

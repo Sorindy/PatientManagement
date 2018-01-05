@@ -12,7 +12,7 @@ namespace PatientManagement
             InitializeComponent();
         }
 
-        private readonly Worker _worker=new Worker();
+        internal Worker Worker=new Worker();
         
         private void CheckOrderDgv()
         {
@@ -31,7 +31,7 @@ namespace PatientManagement
 
         internal void WorkerListForm_Shown(object sender, EventArgs e)
         {
-            dgvListWorker.DataSource = _worker.ShowAll();
+            dgvListWorker.DataSource = Worker.ShowAll();
             dgvListWorker.Columns[0].Visible = false;
             var btnView = new DataGridViewButtonColumn
             {
@@ -82,7 +82,7 @@ namespace PatientManagement
             dgvListWorker.DataSource = null;
             dgvListWorker.Columns.RemoveAt(1);
             dgvListWorker.Columns.RemoveAt(0);
-            dgvListWorker.DataSource = _worker.Search(txtSearch.Text);
+            dgvListWorker.DataSource = Worker.Search(txtSearch.Text);
 
             dgvListWorker.Columns[0].Visible = false;
             var btnView = new DataGridViewButtonColumn
@@ -112,7 +112,7 @@ namespace PatientManagement
                 if (dgvListWorker.CurrentRow != null)
                 {
                     var id = dgvListWorker.CurrentRow.Cells[0].Value;
-                    var worker = _worker.SelectedWorker(Convert.ToInt32(id));
+                    var worker = Worker.SelectedWorker(Convert.ToInt32(id));
                     var form = new WorkerForm { Worker =worker ,WorkerListForm = this};
                     form.ShowDialog();
                 }
@@ -128,15 +128,15 @@ namespace PatientManagement
 
                     if (showDeleteMsg == DialogResult.Yes)
                     {
-                        _worker.Delete(Convert.ToInt32(id));
-                        dgvListWorker.Columns.RemoveAt(7);
-                        dgvListWorker.Columns.RemoveAt(7);
+                        Worker.Delete(Convert.ToInt32(id));
+                        dgvListWorker.Columns.RemoveAt(8);
+                        dgvListWorker.Columns.RemoveAt(8);
                         WorkerListForm_Shown(this, new EventArgs());
                     }
                     if (showDeleteMsg == DialogResult.No)
                     {
-                        dgvListWorker.Columns.RemoveAt(7);
-                        dgvListWorker.Columns.RemoveAt(7);
+                        dgvListWorker.Columns.RemoveAt(8);
+                        dgvListWorker.Columns.RemoveAt(8);
                         WorkerListForm_Shown(this,new EventArgs());
                     }
                 }

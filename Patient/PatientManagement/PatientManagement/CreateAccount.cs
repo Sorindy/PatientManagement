@@ -39,7 +39,7 @@ namespace PatientManagement
             {
                 _account.Insert(Workers.Id, txtUserName.Text, txtPassword.Text);
                 Close();
-                WorkerForm.WorkerForm_Shown(WorkerForm,new EventArgs());
+                WorkerForm.btnCancel_Click(WorkerForm,new EventArgs());
                 WorkerForm.Worker = Workers;
             }
             else
