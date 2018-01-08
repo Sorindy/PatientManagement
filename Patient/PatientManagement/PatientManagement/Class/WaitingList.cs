@@ -13,6 +13,32 @@ namespace PatientManagement.Class
   
        public Hospital_Entity_Framework.Patient Patient;
 
+        public BindingSource ShowWaitingListByService(string service)
+        {
+            _bs = new BindingSource();
+            if (service == @"Consultation")
+            {
+             
+            }
+            if (service == @"Laboratory")
+            {
+
+            }
+            if (service == @"Prescription")
+            {
+
+            }
+            if (service == @"MedicalImaging")
+            {
+
+            }
+            if (service == @"VariousDocument")
+            {
+
+            }
+            return _bs;
+        }
+
         public BindingSource ShowWaiting(string service,int categoryid)
         {
             _bs = new BindingSource();
@@ -164,6 +190,22 @@ namespace PatientManagement.Class
             var delete = _db.ConsultationCategories.First(v => v.Id == categoryid);
             _db.WaitingLists.First(v => v.Id == waitingid).ConsultationCategories.Remove(delete);
             _db.SaveChanges();
+        }
+
+        public bool  CheckWaitingList(int patientid,int waitinglistid)
+        {
+            var checkConsultationWaitingList = _db.ConsultationCategories.Any(v => v.WaitingLists.Any(a => a.Id == waitinglistid && a.PatientId==patientid));
+            var checkLaboratoryWaitingList = _db.LaboratoryCategories.Any(v => v.WaitingLists.Any(a => a.Id == waitinglistid && a.PatientId == patientid));
+            var checkPrescriptionWaitingList = _db.PrescriptionCategories.Any(v => v.WaitingLists.Any(a => a.Id == waitinglistid && a.PatientId == patientid));
+            var checkMedicalImagingWaitingList = _db.MedicalImagingCategories.Any(v => v.WaitingLists.Any(a => a.Id == waitinglistid && a.PatientId == patientid));
+            var checkVariousDocumentWaitingList = _db.VariousDocumentCategories.Any(v => v.WaitingLists.Any(a => a.Id == waitinglistid && a.PatientId == patientid));
+            if (checkConsultationWaitingList == false && checkLaboratoryWaitingList == false &&
+                checkPrescriptionWaitingList == false && checkMedicalImagingWaitingList == false &&
+                checkVariousDocumentWaitingList == false)
+            {
+                return true;
+            }
+            return false;
         }
 
         public void DeleteLaboratoryWaitingList(int waitingid, int categoryid)
