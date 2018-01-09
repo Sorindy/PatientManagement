@@ -47,7 +47,7 @@ namespace PatientManagement
                 if (Datinglistform != null)
                 {
                     Datinglistform.Patient =_patient.Select(Convert.ToInt32(dgvSearchPatient.CurrentRow.Cells[0].Value));
-                    Datinglistform.txtPatientName.Text = _patient.Select(Convert.ToInt32(dgvSearchPatient.CurrentRow.Cells[0].Value)).LastName;
+                    Datinglistform.lbPatientName.Text = _patient.Select(Convert.ToInt32(dgvSearchPatient.CurrentRow.Cells[0].Value)).FirstName +@" "+ _patient.Select(Convert.ToInt32(dgvSearchPatient.CurrentRow.Cells[0].Value)).LastName;
                 }
             }
             else

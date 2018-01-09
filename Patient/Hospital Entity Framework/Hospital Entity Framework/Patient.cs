@@ -29,7 +29,7 @@ namespace Hospital_Entity_Framework
         }
     
         public int Id { get; set; }
-        public int PatientIdentify { get; set; }
+        public long PatientIdentify { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string KhmerName { get; set; }

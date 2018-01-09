@@ -911,7 +911,7 @@
             this.dtpDate.CustomFormat = "";
             this.dtpDate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtpDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dtpDate.Location = new System.Drawing.Point(3, 3);
             this.dtpDate.MaxDate = new System.DateTime(2100, 12, 31, 0, 0, 0, 0);
             this.dtpDate.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
@@ -1164,12 +1164,14 @@
             this.fontToolStripMenuItem.Name = "fontToolStripMenuItem";
             this.fontToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
             this.fontToolStripMenuItem.Text = "Font";
+            this.fontToolStripMenuItem.Click += new System.EventHandler(this.fontToolStripMenuItem_Click);
             // 
             // textColorToolStripMenuItem
             // 
             this.textColorToolStripMenuItem.Name = "textColorToolStripMenuItem";
             this.textColorToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
             this.textColorToolStripMenuItem.Text = "Text Color";
+            this.textColorToolStripMenuItem.Click += new System.EventHandler(this.textColorToolStripMenuItem_Click);
             // 
             // foreColorToolStripMenuItem
             // 
@@ -1185,24 +1187,28 @@
             this.selectForeColorToolStripMenuItem.Name = "selectForeColorToolStripMenuItem";
             this.selectForeColorToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.selectForeColorToolStripMenuItem.Text = "Select Fore Color";
+            this.selectForeColorToolStripMenuItem.Click += new System.EventHandler(this.selectForeColorToolStripMenuItem_Click);
             // 
             // frameFillColorToolStripMenuItem
             // 
             this.frameFillColorToolStripMenuItem.Name = "frameFillColorToolStripMenuItem";
             this.frameFillColorToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.frameFillColorToolStripMenuItem.Text = "Frame Fill Color";
+            this.frameFillColorToolStripMenuItem.Click += new System.EventHandler(this.frameFillColorToolStripMenuItem_Click);
             // 
             // tableToolStripMenuItem
             // 
             this.tableToolStripMenuItem.Name = "tableToolStripMenuItem";
             this.tableToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
             this.tableToolStripMenuItem.Text = "Table";
+            this.tableToolStripMenuItem.Click += new System.EventHandler(this.tableToolStripMenuItem_Click);
             // 
             // imageToolStripMenuItem
             // 
             this.imageToolStripMenuItem.Name = "imageToolStripMenuItem";
             this.imageToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.imageToolStripMenuItem.Text = "Image";
+            this.imageToolStripMenuItem.Click += new System.EventHandler(this.imageToolStripMenuItem_Click);
             // 
             // pageToolStripMenuItem
             // 
@@ -1218,24 +1224,28 @@
             this.tabToolStripMenuItem.Name = "tabToolStripMenuItem";
             this.tabToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.tabToolStripMenuItem.Text = "Tab";
+            this.tabToolStripMenuItem.Click += new System.EventHandler(this.tabToolStripMenuItem_Click);
             // 
             // pageColorToolStripMenuItem
             // 
             this.pageColorToolStripMenuItem.Name = "pageColorToolStripMenuItem";
             this.pageColorToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.pageColorToolStripMenuItem.Text = "Page Color";
+            this.pageColorToolStripMenuItem.Click += new System.EventHandler(this.pageColorToolStripMenuItem_Click);
             // 
             // formatStyleToolStripMenuItem
             // 
             this.formatStyleToolStripMenuItem.Name = "formatStyleToolStripMenuItem";
             this.formatStyleToolStripMenuItem.Size = new System.Drawing.Size(85, 20);
             this.formatStyleToolStripMenuItem.Text = "Format Style";
+            this.formatStyleToolStripMenuItem.Click += new System.EventHandler(this.formatStyleToolStripMenuItem_Click);
             // 
             // sampleToolStripMenuItem
             // 
             this.sampleToolStripMenuItem.Name = "sampleToolStripMenuItem";
             this.sampleToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
             this.sampleToolStripMenuItem.Text = "Sample";
+            this.sampleToolStripMenuItem.Click += new System.EventHandler(this.sampleToolStripMenuItem_Click);
             // 
             // MedicalsForm
             // 

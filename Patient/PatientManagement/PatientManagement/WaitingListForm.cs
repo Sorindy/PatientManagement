@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using PatientManagement.Class;
+using PatientManagement.Interface;
 
 namespace PatientManagement
 {
@@ -9,14 +11,16 @@ namespace PatientManagement
     {
 
         internal Hospital_Entity_Framework.Worker Worker;
-        private readonly   WaitingList _waitingList= new WaitingList();
-      //  private NurseRespone _nurseRespone;
+        private readonly WaitingList _waitingList = new WaitingList();
+        //  private NurseRespone _nurseRespone;
         internal MedicalsForm Medicalsform;
-    //    private bool? _num ;
-
+        internal Hospital_Entity_Framework.Account Account;
+        private ICategory _category;
+        private int _keyCategory;
+        //    private bool? _num ;
         internal Hospital_Entity_Framework.WaitingList WaitingList;
-       
-       
+
+
         public int GetStaffCategoryid;
         public string Service;
 
@@ -24,31 +28,19 @@ namespace PatientManagement
         {
             InitializeComponent();
         }
+
         private void CheckOrderDgv()
         {
             for (int i = 0; i <= dgvAllWatingList.RowCount - 1; i++)
             {
-                if (i % 2 == 0)
-                {
-                    dgvAllWatingList.Rows[i].DefaultCellStyle.BackColor = Color.LightGray;
-                }
-                else
-                {
-                    dgvAllWatingList.Rows[i].DefaultCellStyle.BackColor = Color.MintCream;
-                }
+                dgvAllWatingList.Rows[i].DefaultCellStyle.BackColor = i % 2 == 0 ? Color.LightGray : Color.MintCream;
             }
             for (int i = 0; i <= dgvWaitingCategory.RowCount - 1; i++)
             {
-                if (i % 2 == 0)
-                {
-                    dgvWaitingCategory.Rows[i].DefaultCellStyle.BackColor = Color.LightGray;
-                }
-                else
-                {
-                    dgvWaitingCategory.Rows[i].DefaultCellStyle.BackColor = Color.MintCream;
-                }
+                dgvWaitingCategory.Rows[i].DefaultCellStyle.BackColor = i % 2 == 0 ? Color.LightGray : Color.MintCream;
             }
         }
+
         private void btnClose_Click(object sender, EventArgs e)
         {
             Close();
@@ -56,8 +48,8 @@ namespace PatientManagement
 
         private void WaitingListForm_Load(object sender, EventArgs e)
         {
-            
-            timer.Interval = (5* 1000);
+
+            timer.Interval = (5 * 1000);
             timer.Tick += btnRefresh_Click;
             timer.Start();
             //var btnReset = new DataGridViewButtonColumn
@@ -73,8 +65,7 @@ namespace PatientManagement
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            dgvWaitingCategory.DataSource = _waitingList.ShowWaiting(Service,GetStaffCategoryid);
-            dgvAllWatingList.DataSource = _waitingList.SeleteAllWaiting();
+            dgvWaitingCategory.DataSource = _waitingList.ShowWaiting(Service, GetStaffCategoryid);
             CheckOrderDgv();
         }
 
@@ -93,17 +84,17 @@ namespace PatientManagement
         {
             if (dgvWaitingCategory.CurrentRow != null)
             {
-                if (dgvWaitingCategory.CurrentRow.Cells[5].Value == null )
+                if (dgvWaitingCategory.CurrentRow.Cells[5].Value == null || dgvWaitingCategory.CurrentRow.Cells[5].Value.Equals(true))
                 {
                     Medicalsform.WaitingList = new Hospital_Entity_Framework.WaitingList();
-                    Medicalsform.WaitingList = _waitingList.GetWaitingListObject(Convert.ToInt32( dgvWaitingCategory.CurrentRow.Cells[0].Value));
+                    Medicalsform.WaitingList =_waitingList.GetWaitingListObject(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[0].Value));
                     Medicalsform.Patient = _waitingList.GetWaitingListObject(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[0].Value)).Patient;
                     Medicalsform.txtNamePatient.Text = _waitingList.GetWaitingListObject(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[0].Value)).Patient.LastName;
                     Medicalsform.txtGenderPatient.Text = _waitingList.GetWaitingListObject(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[0].Value)).Patient.Gender;
                     Close();
                     //_nurseRespone = new NurseRespone();
                     //_nurseRespone.Insert(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[0].Value.ToString()), Worker.Id);
-                    _waitingList.UpdatePatientStatus(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[0].Value), false);    
+                    _waitingList.UpdatePatientStatus(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[0].Value),false);
                 }
                 else if (dgvWaitingCategory.CurrentRow.Cells[5].Value.Equals(false))
                 {
@@ -119,5 +110,76 @@ namespace PatientManagement
             }
         }
 
+        private void cboService_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboService.Text == @"Consultation")
+            {
+                _category = new ConsultationCategory();
+                cboCategory.DataSource = null;
+                var dic = _category.ShowCategoryForDoctor(Account.WorkerId);
+                if (dic.Count != 0)
+                {
+                    cboCategory.DataSource = new BindingSource(dic, null);
+                    cboCategory.DisplayMember = "Value";
+                    cboCategory.ValueMember = "Key";
+                }
+            }
+            if (cboService.Text == @"Laboratory")
+            {
+                _category = new LaboratoryCategory();
+                cboCategory.DataSource = null;
+                var dic = _category.ShowCategoryForDoctor(Account.WorkerId);
+                if (dic.Count != 0)
+                {
+                    cboCategory.DataSource = new BindingSource(dic, null);
+                    cboCategory.DisplayMember = "Value";
+                    cboCategory.ValueMember = "Key";
+                }
+            }
+            if (cboService.Text == @"Medical Imaging")
+            {
+                _category = new MedicalImagingCategory();
+                cboCategory.DataSource = null;
+                var dic = _category.ShowCategoryForDoctor(Account.WorkerId);
+                if (dic.Count != 0)
+                {
+                    cboCategory.DataSource = new BindingSource(dic, null);
+                    cboCategory.DisplayMember = "Value";
+                    cboCategory.ValueMember = "Key";
+                }
+            }
+            if (cboService.Text == @"Prescription")
+            {
+                _category = new PrescriptionCategory();
+                cboCategory.DataSource = null;
+                var dic = _category.ShowCategoryForDoctor(Account.WorkerId);
+                if (dic.Count != 0)
+                {
+                    cboCategory.DataSource = new BindingSource(dic, null);
+                    cboCategory.DisplayMember = "Value";
+                    cboCategory.ValueMember = "Key";
+                }
+            }
+            if (cboService.Text == @"Various Document")
+            {
+                _category = new VariousDocumentCategory();
+                cboCategory.DataSource = null;
+                var dic = _category.ShowCategoryForDoctor(Account.WorkerId);
+                if (dic.Count != 0)
+                {
+                    cboCategory.DataSource = new BindingSource(dic, null);
+                    cboCategory.DisplayMember = "Value";
+                    cboCategory.ValueMember = "Key";
+                }
+            }
+        }
+
+        private void cboCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboCategory.DataSource == null) return;
+            var selectkey = (KeyValuePair<int, string>)cboCategory.SelectedItem;
+            _keyCategory = selectkey.Key;
+            dgvAllWatingList.DataSource = _waitingList.ShowWaiting(cboService.Text, _keyCategory);
+        }
     }
-}
+    }

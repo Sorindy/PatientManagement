@@ -21,12 +21,7 @@ namespace PatientManagement
 
         private void DatingListForm_Load(object sender, EventArgs e)
         {
-            if (Patient != null && Worker!= null )
-            {
-                txtPatientName.Text = Patient.FirstName+@"  "+Patient.LastName;
-                txtStaffName.Text = Worker.FirstName + @"  " +Worker.LastName;
-
-            }
+            CheckPatientAndWorker();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -54,18 +49,18 @@ namespace PatientManagement
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (txtPatientName.Text != null)
+            if (lbPatientName.Text != null)
             {
-                _dating.Update(Convert.ToInt32(txtDatingId.Text), dtpDating.Value);
+                _dating.Update(Convert.ToInt32(lbDatingId.Text), dtpDating.Value);
                 btnShow.PerformClick();
             } 
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (txtPatientName.Text != null)
+            if (lbPatientName.Text != null)
             {
-                _dating.Delete(Convert.ToInt32(txtDatingId.Text));
+                _dating.Delete(Convert.ToInt32(lbDatingId.Text));
                 btnShow.PerformClick();
                 Clear();
             } 
@@ -76,9 +71,21 @@ namespace PatientManagement
             Clear();
         }
 
+        private void CheckPatientAndWorker()
+        {
+            if (Patient != null)
+            {
+               lbPatientName.Text = Patient.FirstName + @"  " + Patient.LastName;
+            }
+            if (Worker != null)
+            {
+                lbStaffName.Text = Worker.FirstName + @"  " + Worker.LastName;
+            }
+        }
+
         public void Clear()
         {
-            txtDatingId.Text = "";
+            lbDatingId.Text = "";
             dtpDating.Text = Convert.ToString(DateTime.Now, CultureInfo.InvariantCulture);
         }
 
@@ -91,9 +98,9 @@ namespace PatientManagement
         {
             if (dtgInformation.CurrentRow != null)
             {
-                txtDatingId.Text = dtgInformation.CurrentRow.Cells[0].Value.ToString();
+                lbDatingId.Text = dtgInformation.CurrentRow.Cells[0].Value.ToString();
                 dtpDating.Text = dtgInformation.CurrentRow.Cells[1].Value.ToString();
-                txtPatientName.Text = dtgInformation.CurrentRow.Cells[3].Value.ToString();
+                lbPatientName.Text = dtgInformation.CurrentRow.Cells[3].Value.ToString();
             }
         }
 

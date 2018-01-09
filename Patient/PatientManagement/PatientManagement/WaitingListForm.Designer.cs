@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WaitingListForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -47,6 +48,11 @@
             this.dgvWaitingCategory = new System.Windows.Forms.DataGridView();
             this.gbAllWaiting = new System.Windows.Forms.GroupBox();
             this.dgvAllWatingList = new System.Windows.Forms.DataGridView();
+            this.tblypnMidleMidle = new System.Windows.Forms.TableLayoutPanel();
+            this.cboCategory = new System.Windows.Forms.ComboBox();
+            this.cboService = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tblypnTop = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
@@ -60,19 +66,24 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvWaitingCategory)).BeginInit();
             this.gbAllWaiting.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllWatingList)).BeginInit();
+            this.tblypnMidleMidle.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tblypnTop.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnClose
             // 
+            this.btnClose.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnClose.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnClose.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
+            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnClose.Location = new System.Drawing.Point(945, 3);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(182, 43);
             this.btnClose.TabIndex = 3;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Text = "បិត";
+            this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // pnBoss
@@ -82,7 +93,7 @@
             this.pnBoss.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnBoss.Location = new System.Drawing.Point(0, 0);
             this.pnBoss.Name = "pnBoss";
-            this.pnBoss.Size = new System.Drawing.Size(1130, 764);
+            this.pnBoss.Size = new System.Drawing.Size(1130, 839);
             this.pnBoss.TabIndex = 4;
             // 
             // pnMidle
@@ -91,7 +102,7 @@
             this.pnMidle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnMidle.Location = new System.Drawing.Point(0, 49);
             this.pnMidle.Name = "pnMidle";
-            this.pnMidle.Size = new System.Drawing.Size(1130, 715);
+            this.pnMidle.Size = new System.Drawing.Size(1130, 790);
             this.pnMidle.TabIndex = 9;
             // 
             // tblypnMidle
@@ -99,26 +110,32 @@
             this.tblypnMidle.ColumnCount = 1;
             this.tblypnMidle.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tblypnMidle.Controls.Add(this.gbWaitingCategory, 0, 0);
-            this.tblypnMidle.Controls.Add(this.gbAllWaiting, 0, 1);
+            this.tblypnMidle.Controls.Add(this.gbAllWaiting, 0, 2);
+            this.tblypnMidle.Controls.Add(this.tblypnMidleMidle, 0, 1);
             this.tblypnMidle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tblypnMidle.Location = new System.Drawing.Point(0, 0);
             this.tblypnMidle.Name = "tblypnMidle";
-            this.tblypnMidle.RowCount = 2;
-            this.tblypnMidle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 45.28302F));
-            this.tblypnMidle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 54.71698F));
-            this.tblypnMidle.Size = new System.Drawing.Size(1130, 715);
+            this.tblypnMidle.RowCount = 3;
+            this.tblypnMidle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.98734F));
+            this.tblypnMidle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.088608F));
+            this.tblypnMidle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 43.79747F));
+            this.tblypnMidle.Size = new System.Drawing.Size(1130, 790);
             this.tblypnMidle.TabIndex = 5;
             // 
             // gbWaitingCategory
             // 
+            this.gbWaitingCategory.BackColor = System.Drawing.Color.LightSkyBlue;
             this.gbWaitingCategory.Controls.Add(this.dgvWaitingCategory);
             this.gbWaitingCategory.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gbWaitingCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.gbWaitingCategory.Font = new System.Drawing.Font("Modern No. 20", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbWaitingCategory.ForeColor = System.Drawing.Color.Black;
             this.gbWaitingCategory.Location = new System.Drawing.Point(3, 3);
             this.gbWaitingCategory.Name = "gbWaitingCategory";
-            this.gbWaitingCategory.Size = new System.Drawing.Size(1124, 317);
+            this.gbWaitingCategory.Size = new System.Drawing.Size(1124, 381);
             this.gbWaitingCategory.TabIndex = 0;
             this.gbWaitingCategory.TabStop = false;
-            this.gbWaitingCategory.Text = "Your Waiting List";
+            this.gbWaitingCategory.Text = "តារាងរបស់អ្នក";
             // 
             // dgvWaitingCategory
             // 
@@ -138,7 +155,7 @@
             this.dgvWaitingCategory.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Modern No. 20", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Blue;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -147,21 +164,21 @@
             this.dgvWaitingCategory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Poor Richard", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Modern No. 20", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Crimson;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvWaitingCategory.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvWaitingCategory.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvWaitingCategory.EnableHeadersVisualStyles = false;
-            this.dgvWaitingCategory.Location = new System.Drawing.Point(3, 16);
+            this.dgvWaitingCategory.Location = new System.Drawing.Point(3, 32);
             this.dgvWaitingCategory.Name = "dgvWaitingCategory";
             this.dgvWaitingCategory.ReadOnly = true;
             this.dgvWaitingCategory.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Poor Richard", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Modern No. 20", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Crimson;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -182,20 +199,24 @@
             this.dgvWaitingCategory.RowTemplate.ReadOnly = true;
             this.dgvWaitingCategory.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvWaitingCategory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvWaitingCategory.Size = new System.Drawing.Size(1118, 298);
+            this.dgvWaitingCategory.Size = new System.Drawing.Size(1118, 346);
             this.dgvWaitingCategory.TabIndex = 7;
             this.dgvWaitingCategory.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvWaitingCategory_CellContentClick);
             // 
             // gbAllWaiting
             // 
+            this.gbAllWaiting.BackColor = System.Drawing.Color.LightSkyBlue;
             this.gbAllWaiting.Controls.Add(this.dgvAllWatingList);
             this.gbAllWaiting.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbAllWaiting.Location = new System.Drawing.Point(3, 326);
+            this.gbAllWaiting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.gbAllWaiting.Font = new System.Drawing.Font("Modern No. 20", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbAllWaiting.ForeColor = System.Drawing.Color.Black;
+            this.gbAllWaiting.Location = new System.Drawing.Point(3, 446);
             this.gbAllWaiting.Name = "gbAllWaiting";
-            this.gbAllWaiting.Size = new System.Drawing.Size(1124, 386);
+            this.gbAllWaiting.Size = new System.Drawing.Size(1124, 341);
             this.gbAllWaiting.TabIndex = 1;
             this.gbAllWaiting.TabStop = false;
-            this.gbAllWaiting.Text = "All Waiting List";
+            this.gbAllWaiting.Text = "តារាង";
             // 
             // dgvAllWatingList
             // 
@@ -215,7 +236,7 @@
             this.dgvAllWatingList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Modern No. 20", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Blue;
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -224,20 +245,20 @@
             this.dgvAllWatingList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle8.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Poor Richard", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Modern No. 20", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Crimson;
             dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvAllWatingList.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvAllWatingList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvAllWatingList.EnableHeadersVisualStyles = false;
-            this.dgvAllWatingList.Location = new System.Drawing.Point(3, 16);
+            this.dgvAllWatingList.Location = new System.Drawing.Point(3, 32);
             this.dgvAllWatingList.Name = "dgvAllWatingList";
             this.dgvAllWatingList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Poor Richard", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Modern No. 20", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Crimson;
             dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -258,8 +279,91 @@
             this.dgvAllWatingList.RowTemplate.ReadOnly = true;
             this.dgvAllWatingList.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvAllWatingList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAllWatingList.Size = new System.Drawing.Size(1118, 367);
+            this.dgvAllWatingList.Size = new System.Drawing.Size(1118, 306);
             this.dgvAllWatingList.TabIndex = 7;
+            // 
+            // tblypnMidleMidle
+            // 
+            this.tblypnMidleMidle.ColumnCount = 4;
+            this.tblypnMidleMidle.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.56584F));
+            this.tblypnMidleMidle.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.3879F));
+            this.tblypnMidleMidle.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.786477F));
+            this.tblypnMidleMidle.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42.17082F));
+            this.tblypnMidleMidle.Controls.Add(this.cboCategory, 3, 0);
+            this.tblypnMidleMidle.Controls.Add(this.cboService, 1, 0);
+            this.tblypnMidleMidle.Controls.Add(this.label2, 0, 0);
+            this.tblypnMidleMidle.Controls.Add(this.label3, 2, 0);
+            this.tblypnMidleMidle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tblypnMidleMidle.Location = new System.Drawing.Point(3, 390);
+            this.tblypnMidleMidle.Name = "tblypnMidleMidle";
+            this.tblypnMidleMidle.RowCount = 1;
+            this.tblypnMidleMidle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tblypnMidleMidle.Size = new System.Drawing.Size(1124, 50);
+            this.tblypnMidleMidle.TabIndex = 2;
+            // 
+            // cboCategory
+            // 
+            this.cboCategory.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.cboCategory.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cboCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cboCategory.Font = new System.Drawing.Font("Modern No. 20", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboCategory.FormattingEnabled = true;
+            this.cboCategory.Location = new System.Drawing.Point(652, 3);
+            this.cboCategory.Name = "cboCategory";
+            this.cboCategory.Size = new System.Drawing.Size(469, 42);
+            this.cboCategory.TabIndex = 3;
+            this.cboCategory.SelectedIndexChanged += new System.EventHandler(this.cboCategory_SelectedIndexChanged);
+            // 
+            // cboService
+            // 
+            this.cboService.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.cboService.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cboService.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboService.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cboService.Font = new System.Drawing.Font("Modern No. 20", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboService.FormattingEnabled = true;
+            this.cboService.Items.AddRange(new object[] {
+            "Consultation",
+            "Laboratory",
+            "Medical Imaging",
+            "Prescription",
+            "Various Document"});
+            this.cboService.Location = new System.Drawing.Point(133, 3);
+            this.cboService.Name = "cboService";
+            this.cboService.Size = new System.Drawing.Size(403, 42);
+            this.cboService.TabIndex = 2;
+            this.cboService.SelectedIndexChanged += new System.EventHandler(this.cboService_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label2.Font = new System.Drawing.Font("Modern No. 20", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(3, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(124, 50);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "សេវាកម្ម :";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label3.Font = new System.Drawing.Font("Modern No. 20", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(542, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(104, 50);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "ប្រភេទ :";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel1
             // 
@@ -291,23 +395,31 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.LightSkyBlue;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label1.Font = new System.Drawing.Font("Modern No. 20", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(747, 49);
             this.label1.TabIndex = 4;
-            this.label1.Text = "                     Waiting List Form";
+            this.label1.Text = "               ​​​​​                  តារាង ​បង្ហាញបញ្ចីររងចាំ";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnSubmit
             // 
+            this.btnSubmit.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnSubmit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSubmit.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSubmit.Image = ((System.Drawing.Image)(resources.GetObject("btnSubmit.Image")));
+            this.btnSubmit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSubmit.Location = new System.Drawing.Point(756, 3);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(183, 43);
             this.btnSubmit.TabIndex = 5;
-            this.btnSubmit.Text = "Submit";
-            this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Text = "ចុចយក";
+            this.btnSubmit.UseVisualStyleBackColor = false;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // btnRefresh
@@ -325,7 +437,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1130, 764);
+            this.ClientSize = new System.Drawing.Size(1130, 839);
             this.ControlBox = false;
             this.Controls.Add(this.pnBoss);
             this.Name = "WaitingListForm";
@@ -338,6 +450,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvWaitingCategory)).EndInit();
             this.gbAllWaiting.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllWatingList)).EndInit();
+            this.tblypnMidleMidle.ResumeLayout(false);
+            this.tblypnMidleMidle.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.tblypnTop.ResumeLayout(false);
             this.tblypnTop.PerformLayout();
@@ -361,5 +475,10 @@
         private System.Windows.Forms.GroupBox gbWaitingCategory;
         private System.Windows.Forms.GroupBox gbAllWaiting;
         private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.TableLayoutPanel tblypnMidleMidle;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cboService;
+        private System.Windows.Forms.ComboBox cboCategory;
     }
 }

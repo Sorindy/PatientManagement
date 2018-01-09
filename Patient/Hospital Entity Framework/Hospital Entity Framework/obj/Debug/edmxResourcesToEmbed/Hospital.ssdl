@@ -552,7 +552,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="PatientIdentify" Type="int" Nullable="false" />
+    <Property Name="PatientIdentify" Type="bigint" Nullable="false" />
     <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="KhmerName" Type="nvarchar" MaxLength="50" />

@@ -20,14 +20,7 @@ namespace PatientManagement
         {
             for (int i = 0; i <= dgvListPatient.RowCount - 1; i++)
             {
-                if (i % 2 == 0)
-                {
-                    dgvListPatient.Rows[i].DefaultCellStyle.BackColor = Color.LightGray;
-                }
-                else
-                {
-                    dgvListPatient.Rows[i].DefaultCellStyle.BackColor = Color.MintCream;
-                }
+                dgvListPatient.Rows[i].DefaultCellStyle.BackColor = i % 2 == 0 ? Color.LightGray : Color.MintCream;
             }
         }
         internal void PatientListForm_Shown(object sender, EventArgs e)

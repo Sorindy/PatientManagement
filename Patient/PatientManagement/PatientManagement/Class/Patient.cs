@@ -17,7 +17,8 @@ namespace PatientManagement.Class
         {
             var insert = new Hospital_Entity_Framework.Patient()
             {
-                PatientIdentify = DateTime.Today.Day+DateTime.Today.Month+DateTime.Today.Year+DateTime.Today.Hour+DateTime.Today.Minute+DateTime.Today.Millisecond,
+                PatientIdentify = Convert.ToInt64
+                (DateTime.Today.Day.ToString() + DateTime.Today.Month.ToString() + DateTime.Today.Year.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Millisecond.ToString()),
                 FirstName = fname,
                 LastName = lname,
                 KhmerName = khname,
