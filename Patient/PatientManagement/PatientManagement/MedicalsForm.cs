@@ -59,6 +59,7 @@ namespace PatientManagement
             //_path = @"C:\Users\Health\Desktop\Debug\";
             picHideRight.ImageLocation = _path + @"Hide-right-icon.png";
             picHideTop.ImageLocation = _path + @"Hide-Up-icon.png";
+            picHideLeft.ImageLocation = _path + @"Hide-left-icon.png";
             txtNameDoctor.Text = Account.Worker.LastName;
             txtDescription.ForeColor = Color.Black;
         }
@@ -169,7 +170,7 @@ namespace PatientManagement
                     _estimate = new ConsultationEstimate();
                     _estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, _keyCategory, Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today, _path + @"RTF\ConsultationEstimate\" + WaitingList.PatientId + DateTime.Today.Day + DateTime.Today.Month + DateTime.Today.Year + DateTime.Today.Hour + DateTime.Today.Minute + DateTime.Today.Millisecond);
                     txtDescription.Save(
-                        _path + @"RTF\ConsultationEstimate\" + DateTime.Today.Day + DateTime.Today.Month + DateTime.Today.Year + DateTime.Today.Hour + DateTime.Today.Minute + DateTime.Today.Millisecond, StreamType.RichTextFormat);
+                        _path + @"RTF\ConsultationEstimate\" + WaitingList.PatientId + DateTime.Today.Day + DateTime.Today.Month + DateTime.Today.Year + DateTime.Today.Hour + DateTime.Today.Minute + DateTime.Today.Millisecond, StreamType.RichTextFormat);
                 }
                 if (cboService.Text == @"Laboratory")
                 {
@@ -436,6 +437,28 @@ namespace PatientManagement
         private void btnClear_Click(object sender, EventArgs e)
         {
             Clear();
+        }
+
+        private void picHideLeft_Click(object sender, EventArgs e)
+        {
+            if (picHideLeft.Name == "picHideLeft")
+            {
+                picHideLeft.Name = "picShowLeft";
+                picHideLeft.ImageLocation = _path + @"Hide-right-icon.png";
+                pnlHideLeft.Visible = false;
+                picHideLeft.Click += picShowLeft_Click;
+            }
+        }
+
+        private void picShowLeft_Click(object sender, EventArgs e)
+        {
+            if (picHideLeft.Name == "picShowLeft")
+            {
+                picHideLeft.Name = "picHideLeft";
+                picHideLeft.ImageLocation = _path + @"Hide-left-icon.png";
+                pnlHideLeft.Visible = true;
+                picHideLeft.Click -= picShowLeft_Click;
+            }
         }
     }
 }

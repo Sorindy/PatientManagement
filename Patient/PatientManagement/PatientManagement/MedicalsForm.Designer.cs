@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MedicalsForm));
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Consultation");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Laboratory");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Medical Imaging");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Prescription");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("VariousDocument");
             this.pnlTitle = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.gboPatient = new System.Windows.Forms.GroupBox();
@@ -85,9 +90,14 @@
             this.pnlHide = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.picHideRight = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlHideTop = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.picHideTop = new System.Windows.Forms.PictureBox();
+            this.pnlbuttonHideLeft = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel22 = new System.Windows.Forms.TableLayoutPanel();
+            this.picHideLeft = new System.Windows.Forms.PictureBox();
+            this.pnlHideLeft = new System.Windows.Forms.Panel();
+            this.treeSelection = new System.Windows.Forms.TreeView();
             this.pnlShowDoc = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtDescription = new TXTextControl.TextControl();
@@ -139,9 +149,13 @@
             this.pnlHide.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picHideRight)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.pnlHideTop.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picHideTop)).BeginInit();
+            this.pnlbuttonHideLeft.SuspendLayout();
+            this.tableLayoutPanel22.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picHideLeft)).BeginInit();
+            this.pnlHideLeft.SuspendLayout();
             this.pnlShowDoc.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -940,14 +954,14 @@
             this.picHideRight.TabStop = false;
             this.picHideRight.Click += new System.EventHandler(this.picHideRight_Click);
             // 
-            // panel1
+            // pnlHideTop
             // 
-            this.panel1.Controls.Add(this.tableLayoutPanel2);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 159);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(751, 33);
-            this.panel1.TabIndex = 4;
+            this.pnlHideTop.Controls.Add(this.tableLayoutPanel2);
+            this.pnlHideTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlHideTop.Location = new System.Drawing.Point(256, 159);
+            this.pnlHideTop.Name = "pnlHideTop";
+            this.pnlHideTop.Size = new System.Drawing.Size(495, 33);
+            this.pnlHideTop.TabIndex = 13;
             // 
             // tableLayoutPanel2
             // 
@@ -961,13 +975,13 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(751, 33);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(495, 33);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // picHideTop
             // 
             this.picHideTop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.picHideTop.Location = new System.Drawing.Point(332, 3);
+            this.picHideTop.Location = new System.Drawing.Point(204, 3);
             this.picHideTop.Name = "picHideTop";
             this.picHideTop.Size = new System.Drawing.Size(87, 27);
             this.picHideTop.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -975,14 +989,91 @@
             this.picHideTop.TabStop = false;
             this.picHideTop.Click += new System.EventHandler(this.picHideTop_Click);
             // 
+            // pnlbuttonHideLeft
+            // 
+            this.pnlbuttonHideLeft.Controls.Add(this.tableLayoutPanel22);
+            this.pnlbuttonHideLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlbuttonHideLeft.Location = new System.Drawing.Point(225, 159);
+            this.pnlbuttonHideLeft.Name = "pnlbuttonHideLeft";
+            this.pnlbuttonHideLeft.Size = new System.Drawing.Size(31, 482);
+            this.pnlbuttonHideLeft.TabIndex = 12;
+            // 
+            // tableLayoutPanel22
+            // 
+            this.tableLayoutPanel22.ColumnCount = 1;
+            this.tableLayoutPanel22.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel22.Controls.Add(this.picHideLeft, 0, 1);
+            this.tableLayoutPanel22.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel22.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel22.Name = "tableLayoutPanel22";
+            this.tableLayoutPanel22.RowCount = 3;
+            this.tableLayoutPanel22.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel22.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.tableLayoutPanel22.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel22.Size = new System.Drawing.Size(31, 482);
+            this.tableLayoutPanel22.TabIndex = 0;
+            // 
+            // picHideLeft
+            // 
+            this.picHideLeft.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.picHideLeft.Location = new System.Drawing.Point(3, 204);
+            this.picHideLeft.Name = "picHideLeft";
+            this.picHideLeft.Size = new System.Drawing.Size(25, 74);
+            this.picHideLeft.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picHideLeft.TabIndex = 0;
+            this.picHideLeft.TabStop = false;
+            this.picHideLeft.Click += new System.EventHandler(this.picHideLeft_Click);
+            // 
+            // pnlHideLeft
+            // 
+            this.pnlHideLeft.Controls.Add(this.treeSelection);
+            this.pnlHideLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlHideLeft.Location = new System.Drawing.Point(0, 159);
+            this.pnlHideLeft.Name = "pnlHideLeft";
+            this.pnlHideLeft.Size = new System.Drawing.Size(225, 482);
+            this.pnlHideLeft.TabIndex = 11;
+            // 
+            // treeSelection
+            // 
+            this.treeSelection.BackColor = System.Drawing.Color.DodgerBlue;
+            this.treeSelection.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeSelection.Font = new System.Drawing.Font("Modern No. 20", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeSelection.FullRowSelect = true;
+            this.treeSelection.ItemHeight = 80;
+            this.treeSelection.Location = new System.Drawing.Point(0, 0);
+            this.treeSelection.Name = "treeSelection";
+            treeNode1.Name = "Consultation";
+            treeNode1.NodeFont = new System.Drawing.Font("Modern No. 20", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            treeNode1.Text = "Consultation";
+            treeNode2.Name = "Laboratory";
+            treeNode2.NodeFont = new System.Drawing.Font("Modern No. 20", 15.75F);
+            treeNode2.Text = "Laboratory";
+            treeNode3.Name = "MedicalImaging";
+            treeNode3.NodeFont = new System.Drawing.Font("Modern No. 20", 15.75F);
+            treeNode3.Text = "Medical Imaging";
+            treeNode4.Name = "Presciption";
+            treeNode4.NodeFont = new System.Drawing.Font("Modern No. 20", 15.75F);
+            treeNode4.Text = "Prescription";
+            treeNode5.Name = "VariousDocument";
+            treeNode5.NodeFont = new System.Drawing.Font("Modern No. 20", 15.75F);
+            treeNode5.Text = "VariousDocument";
+            this.treeSelection.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2,
+            treeNode3,
+            treeNode4,
+            treeNode5});
+            this.treeSelection.Size = new System.Drawing.Size(225, 482);
+            this.treeSelection.TabIndex = 1;
+            // 
             // pnlShowDoc
             // 
             this.pnlShowDoc.Controls.Add(this.groupBox3);
             this.pnlShowDoc.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlShowDoc.Location = new System.Drawing.Point(0, 192);
+            this.pnlShowDoc.Location = new System.Drawing.Point(256, 192);
             this.pnlShowDoc.Name = "pnlShowDoc";
-            this.pnlShowDoc.Size = new System.Drawing.Size(751, 449);
-            this.pnlShowDoc.TabIndex = 6;
+            this.pnlShowDoc.Size = new System.Drawing.Size(495, 449);
+            this.pnlShowDoc.TabIndex = 14;
             // 
             // groupBox3
             // 
@@ -995,7 +1086,7 @@
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Location = new System.Drawing.Point(0, 0);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(751, 449);
+            this.groupBox3.Size = new System.Drawing.Size(495, 449);
             this.groupBox3.TabIndex = 18;
             this.groupBox3.TabStop = false;
             // 
@@ -1008,7 +1099,7 @@
             this.txtDescription.Location = new System.Drawing.Point(28, 93);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.RulerBar = this.rulerBar2;
-            this.txtDescription.Size = new System.Drawing.Size(720, 331);
+            this.txtDescription.Size = new System.Drawing.Size(464, 331);
             this.txtDescription.StatusBar = this.statusBar1;
             this.txtDescription.TabIndex = 2;
             this.txtDescription.VerticalRulerBar = this.rulerBar1;
@@ -1019,7 +1110,7 @@
             this.buttonBar1.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonBar1.Location = new System.Drawing.Point(3, 40);
             this.buttonBar1.Name = "buttonBar1";
-            this.buttonBar1.Size = new System.Drawing.Size(745, 28);
+            this.buttonBar1.Size = new System.Drawing.Size(489, 28);
             this.buttonBar1.TabIndex = 10;
             this.buttonBar1.Text = "buttonBar1";
             // 
@@ -1028,7 +1119,7 @@
             this.rulerBar2.Dock = System.Windows.Forms.DockStyle.Top;
             this.rulerBar2.Location = new System.Drawing.Point(3, 68);
             this.rulerBar2.Name = "rulerBar2";
-            this.rulerBar2.Size = new System.Drawing.Size(745, 25);
+            this.rulerBar2.Size = new System.Drawing.Size(489, 25);
             this.rulerBar2.TabIndex = 9;
             this.rulerBar2.Text = "rulerBar2";
             // 
@@ -1038,7 +1129,7 @@
             this.statusBar1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.statusBar1.Location = new System.Drawing.Point(3, 424);
             this.statusBar1.Name = "statusBar1";
-            this.statusBar1.Size = new System.Drawing.Size(745, 22);
+            this.statusBar1.Size = new System.Drawing.Size(489, 22);
             this.statusBar1.TabIndex = 4;
             // 
             // rulerBar1
@@ -1064,7 +1155,7 @@
             this.sampleToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(3, 16);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(745, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(489, 24);
             this.menuStrip1.TabIndex = 11;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -1073,14 +1164,12 @@
             this.fontToolStripMenuItem.Name = "fontToolStripMenuItem";
             this.fontToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
             this.fontToolStripMenuItem.Text = "Font";
-            this.fontToolStripMenuItem.Click += new System.EventHandler(this.fontToolStripMenuItem_Click);
             // 
             // textColorToolStripMenuItem
             // 
             this.textColorToolStripMenuItem.Name = "textColorToolStripMenuItem";
             this.textColorToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
             this.textColorToolStripMenuItem.Text = "Text Color";
-            this.textColorToolStripMenuItem.Click += new System.EventHandler(this.textColorToolStripMenuItem_Click);
             // 
             // foreColorToolStripMenuItem
             // 
@@ -1096,28 +1185,24 @@
             this.selectForeColorToolStripMenuItem.Name = "selectForeColorToolStripMenuItem";
             this.selectForeColorToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.selectForeColorToolStripMenuItem.Text = "Select Fore Color";
-            this.selectForeColorToolStripMenuItem.Click += new System.EventHandler(this.selectForeColorToolStripMenuItem_Click);
             // 
             // frameFillColorToolStripMenuItem
             // 
             this.frameFillColorToolStripMenuItem.Name = "frameFillColorToolStripMenuItem";
             this.frameFillColorToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.frameFillColorToolStripMenuItem.Text = "Frame Fill Color";
-            this.frameFillColorToolStripMenuItem.Click += new System.EventHandler(this.frameFillColorToolStripMenuItem_Click);
             // 
             // tableToolStripMenuItem
             // 
             this.tableToolStripMenuItem.Name = "tableToolStripMenuItem";
             this.tableToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
             this.tableToolStripMenuItem.Text = "Table";
-            this.tableToolStripMenuItem.Click += new System.EventHandler(this.tableToolStripMenuItem_Click);
             // 
             // imageToolStripMenuItem
             // 
             this.imageToolStripMenuItem.Name = "imageToolStripMenuItem";
             this.imageToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.imageToolStripMenuItem.Text = "Image";
-            this.imageToolStripMenuItem.Click += new System.EventHandler(this.imageToolStripMenuItem_Click);
             // 
             // pageToolStripMenuItem
             // 
@@ -1133,28 +1218,24 @@
             this.tabToolStripMenuItem.Name = "tabToolStripMenuItem";
             this.tabToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.tabToolStripMenuItem.Text = "Tab";
-            this.tabToolStripMenuItem.Click += new System.EventHandler(this.tabToolStripMenuItem_Click);
             // 
             // pageColorToolStripMenuItem
             // 
             this.pageColorToolStripMenuItem.Name = "pageColorToolStripMenuItem";
             this.pageColorToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.pageColorToolStripMenuItem.Text = "Page Color";
-            this.pageColorToolStripMenuItem.Click += new System.EventHandler(this.pageColorToolStripMenuItem_Click);
             // 
             // formatStyleToolStripMenuItem
             // 
             this.formatStyleToolStripMenuItem.Name = "formatStyleToolStripMenuItem";
             this.formatStyleToolStripMenuItem.Size = new System.Drawing.Size(85, 20);
             this.formatStyleToolStripMenuItem.Text = "Format Style";
-            this.formatStyleToolStripMenuItem.Click += new System.EventHandler(this.formatStyleToolStripMenuItem_Click);
             // 
             // sampleToolStripMenuItem
             // 
             this.sampleToolStripMenuItem.Name = "sampleToolStripMenuItem";
             this.sampleToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
             this.sampleToolStripMenuItem.Text = "Sample";
-            this.sampleToolStripMenuItem.Click += new System.EventHandler(this.sampleToolStripMenuItem_Click);
             // 
             // MedicalsForm
             // 
@@ -1163,7 +1244,9 @@
             this.ClientSize = new System.Drawing.Size(1029, 641);
             this.ControlBox = false;
             this.Controls.Add(this.pnlShowDoc);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlHideTop);
+            this.Controls.Add(this.pnlbuttonHideLeft);
+            this.Controls.Add(this.pnlHideLeft);
             this.Controls.Add(this.pnlHide);
             this.Controls.Add(this.pnlButton);
             this.Controls.Add(this.pnlTitle);
@@ -1208,9 +1291,13 @@
             this.pnlHide.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picHideRight)).EndInit();
-            this.panel1.ResumeLayout(false);
+            this.pnlHideTop.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picHideTop)).EndInit();
+            this.pnlbuttonHideLeft.ResumeLayout(false);
+            this.tableLayoutPanel22.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picHideLeft)).EndInit();
+            this.pnlHideLeft.ResumeLayout(false);
             this.pnlShowDoc.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
@@ -1225,27 +1312,7 @@
         private System.Windows.Forms.Panel pnlTitle;
         private System.Windows.Forms.Panel pnlButton;
         private System.Windows.Forms.Panel pnlHide;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Panel pnlShowDoc;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private TXTextControl.ButtonBar buttonBar1;
-        private TXTextControl.RulerBar rulerBar2;
-        private TXTextControl.StatusBar statusBar1;
-        private TXTextControl.RulerBar rulerBar1;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem fontToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem textColorToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem foreColorToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem selectForeColorToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem frameFillColorToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tableToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem imageToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem pageToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tabToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem pageColorToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem formatStyleToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sampleToolStripMenuItem;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.PictureBox picHideRight;
@@ -1255,8 +1322,6 @@
         private System.Windows.Forms.GroupBox gboPatientList;
         private System.Windows.Forms.GroupBox gboDate;
         private System.Windows.Forms.GroupBox gboWorker;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.PictureBox picHideTop;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
@@ -1298,8 +1363,35 @@
         private System.Windows.Forms.CheckBox chkBoxNurse;
         internal System.Windows.Forms.TextBox txtGenderPatient;
         internal System.Windows.Forms.TextBox txtNamePatient;
-        internal TXTextControl.TextControl txtDescription;
         internal System.Windows.Forms.ComboBox cboReferrer;
         internal System.Windows.Forms.CheckBox chkBoxReferrer;
+        private System.Windows.Forms.Panel pnlHideTop;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.PictureBox picHideTop;
+        private System.Windows.Forms.Panel pnlbuttonHideLeft;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel22;
+        private System.Windows.Forms.PictureBox picHideLeft;
+        private System.Windows.Forms.Panel pnlHideLeft;
+        private System.Windows.Forms.TreeView treeSelection;
+        private System.Windows.Forms.Panel pnlShowDoc;
+        private System.Windows.Forms.GroupBox groupBox3;
+        internal TXTextControl.TextControl txtDescription;
+        private TXTextControl.ButtonBar buttonBar1;
+        private TXTextControl.RulerBar rulerBar2;
+        private TXTextControl.StatusBar statusBar1;
+        private TXTextControl.RulerBar rulerBar1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fontToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem textColorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem foreColorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem selectForeColorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem frameFillColorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tableToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem imageToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pageToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tabToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pageColorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem formatStyleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sampleToolStripMenuItem;
     }
 }
