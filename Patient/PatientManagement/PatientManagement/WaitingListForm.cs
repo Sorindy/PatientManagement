@@ -33,25 +33,11 @@ namespace PatientManagement
         {
             for (int i = 0; i <= dgvAllWatingList.RowCount - 1; i++)
             {
-                if (i % 2 == 0)
-                {
-                    dgvAllWatingList.Rows[i].DefaultCellStyle.BackColor = Color.LightGray;
-                }
-                else
-                {
-                    dgvAllWatingList.Rows[i].DefaultCellStyle.BackColor = Color.MintCream;
-                }
+                dgvAllWatingList.Rows[i].DefaultCellStyle.BackColor = i % 2 == 0 ? Color.LightGray : Color.MintCream;
             }
             for (int i = 0; i <= dgvWaitingCategory.RowCount - 1; i++)
             {
-                if (i % 2 == 0)
-                {
-                    dgvWaitingCategory.Rows[i].DefaultCellStyle.BackColor = Color.LightGray;
-                }
-                else
-                {
-                    dgvWaitingCategory.Rows[i].DefaultCellStyle.BackColor = Color.MintCream;
-                }
+                dgvWaitingCategory.Rows[i].DefaultCellStyle.BackColor = i % 2 == 0 ? Color.LightGray : Color.MintCream;
             }
         }
 

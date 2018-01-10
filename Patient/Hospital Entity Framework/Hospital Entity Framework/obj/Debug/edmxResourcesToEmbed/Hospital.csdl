@@ -457,7 +457,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-    <Property Name="PatientIdentify" Type="Int32" Nullable="false" />
+    <Property Name="PatientIdentify" Type="Int64" Nullable="false" />
     <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
     <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
     <Property Name="KhmerName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
