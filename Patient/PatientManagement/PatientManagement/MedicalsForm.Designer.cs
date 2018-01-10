@@ -1065,6 +1065,7 @@
             treeNode5});
             this.treeSelection.Size = new System.Drawing.Size(225, 482);
             this.treeSelection.TabIndex = 1;
+            this.treeSelection.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeSelection_AfterSelect);
             // 
             // pnlShowDoc
             // 

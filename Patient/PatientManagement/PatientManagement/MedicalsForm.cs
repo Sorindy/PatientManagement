@@ -29,14 +29,17 @@ namespace PatientManagement
         private readonly Class.WaitingList _waitingList = new Class.WaitingList();
         internal WaitingList WaitingList;
         private ICategory _category;
-        internal MedicalRecord Medical=new MedicalRecord();
+        internal MedicalRecord Medical = new MedicalRecord();
         private int _indexCategory;
         private int _keyCategory;
         private int? _keyNurse;
+
         private int? _keyReferrer;
+
         //private bool? _status;
         private readonly Dating _dating = new Dating();
-        internal Refferrer Refferrer=new Refferrer();
+
+        internal Refferrer Refferrer = new Refferrer();
         private IEstimate _estimate;
 
         private void sampleToolStripMenuItem_Click(object sender, EventArgs e)
@@ -46,7 +49,13 @@ namespace PatientManagement
             txtDescription.Load(html, StringStreamType.HTMLFormat);
 
 
-            var form=new SamplesDialogForm(){MedicalsForm = this,CategoryId = _indexCategory,ServiceText = cboService.Text,Str = html};
+            var form = new SamplesDialogForm()
+            {
+                MedicalsForm = this,
+                CategoryId = _indexCategory,
+                ServiceText = cboService.Text,
+                Str = html
+            };
             form.ShowDialog();
         }
 
@@ -62,6 +71,7 @@ namespace PatientManagement
             picHideLeft.ImageLocation = _path + @"Hide-left-icon.png";
             txtNameDoctor.Text = Account.Worker.LastName;
             txtDescription.ForeColor = Color.Black;
+            AddNodesToTree();
         }
 
         private void picHideTop_Click(object sender, EventArgs e)
@@ -104,13 +114,13 @@ namespace PatientManagement
                 picHideRight.Name = "picHideRight";
                 picHideRight.ImageLocation = _path + @"Hide-right-icon.png";
                 pnlButton.Visible = true;
-                picHideRight.Click -=picShowRight_Click;
+                picHideRight.Click -= picShowRight_Click;
             }
         }
 
         private void btnPatient_Click(object sender, EventArgs e)
         {
-            var form=new SearchPatient(){MedicalsForm = this};
+            var form = new SearchPatient() {MedicalsForm = this};
             form.ShowDialog();
             if (Patient != null)
             {
@@ -130,7 +140,7 @@ namespace PatientManagement
         {
             if (btnPatient.Name == "btnInfoPatient")
             {
-                var form=new HistorysForm(){Account = Account,Patient = Patient};
+                var form = new HistorysForm() {Account = Account, Patient = Patient};
                 form.ShowDialog();
             }
         }
@@ -148,16 +158,16 @@ namespace PatientManagement
         private void btmWaitingList_Click(object sender, EventArgs e)
         {
             if (cboCategory.SelectedItem == null) return;
-            var selectedItem = (KeyValuePair<int, string>)cboCategory .SelectedItem;
+            var selectedItem = (KeyValuePair<int, string>) cboCategory.SelectedItem;
             var keyService = selectedItem.Key;
-         
+
             var waitinglistform = new WaitingListForm
-            { 
-                Service=cboService.Text ,
-                GetStaffCategoryid=keyService,
+            {
+                Service = cboService.Text,
+                GetStaffCategoryid = keyService,
                 Worker = Account.Worker,
                 Account = Account,
-                Medicalsform =this
+                Medicalsform = this
             };
             waitinglistform.ShowDialog();
         }
@@ -169,35 +179,79 @@ namespace PatientManagement
                 if (cboService.Text == @"Consultation")
                 {
                     _estimate = new ConsultationEstimate();
-                    _estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, _keyCategory, Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today, _path + @"RTF\ConsultationEstimate\" + WaitingList.PatientId + DateTime.Today.Day + DateTime.Today.Month + DateTime.Today.Year + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Millisecond.ToString());
-                    txtDescription.Save(_path + @"RTF\MedicalImagingEstimate\" + WaitingList.PatientId + DateTime.Today.Day + DateTime.Today.Month + DateTime.Today.Year + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Millisecond.ToString(), StreamType.RichTextFormat); _waitingList.DeleteConsultationWaitingList(WaitingList.Id, _keyCategory);  
+                    _estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, _keyCategory,
+                        Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today,
+                        _path + @"RTF\ConsultationEstimate\" + WaitingList.PatientId + DateTime.Today.Day +
+                        DateTime.Today.Month + DateTime.Today.Year + DateTime.Now.Hour.ToString() +
+                        DateTime.Now.Minute.ToString() + DateTime.Now.Millisecond.ToString());
+                    txtDescription.Save(
+                        _path + @"RTF\MedicalImagingEstimate\" + WaitingList.PatientId + DateTime.Today.Day +
+                        DateTime.Today.Month + DateTime.Today.Year + DateTime.Now.Hour.ToString() +
+                        DateTime.Now.Minute.ToString() + DateTime.Now.Millisecond.ToString(),
+                        StreamType.RichTextFormat);
+                    _waitingList.DeleteConsultationWaitingList(WaitingList.Id, _keyCategory);
                 }
                 if (cboService.Text == @"Laboratory")
                 {
                     _estimate = new LaboratoryEstimate();
-                    _estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, _keyCategory, Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today, _path + @"RTF\ConsultationEstimate\" + WaitingList.PatientId + DateTime.Today.Day + DateTime.Today.Month + DateTime.Today.Year + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Millisecond.ToString());
-                    txtDescription.Save(_path + @"RTF\MedicalImagingEstimate\" + WaitingList.PatientId + DateTime.Today.Day + DateTime.Today.Month + DateTime.Today.Year + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Millisecond.ToString(), StreamType.RichTextFormat); _waitingList.DeleteLaboratoryWaitingList(WaitingList.Id, _keyCategory);  
+                    _estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, _keyCategory,
+                        Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today,
+                        _path + @"RTF\ConsultationEstimate\" + WaitingList.PatientId + DateTime.Today.Day +
+                        DateTime.Today.Month + DateTime.Today.Year + DateTime.Now.Hour.ToString() +
+                        DateTime.Now.Minute.ToString() + DateTime.Now.Millisecond.ToString());
+                    txtDescription.Save(
+                        _path + @"RTF\MedicalImagingEstimate\" + WaitingList.PatientId + DateTime.Today.Day +
+                        DateTime.Today.Month + DateTime.Today.Year + DateTime.Now.Hour.ToString() +
+                        DateTime.Now.Minute.ToString() + DateTime.Now.Millisecond.ToString(),
+                        StreamType.RichTextFormat);
+                    _waitingList.DeleteLaboratoryWaitingList(WaitingList.Id, _keyCategory);
                 }
                 if (cboService.Text == @"Medical Imaging")
                 {
                     _estimate = new MedicalImagingEstimate();
-                    _estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, _keyCategory, Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today, _path + @"RTF\ConsultationEstimate\" + WaitingList.PatientId + DateTime.Today.Day + DateTime.Today.Month + DateTime.Today.Year + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Millisecond.ToString());
-                    txtDescription.Save(_path + @"RTF\MedicalImagingEstimate\" + WaitingList.PatientId + DateTime.Today.Day + DateTime.Today.Month + DateTime.Today.Year + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Millisecond.ToString(), StreamType.RichTextFormat);
-                    _waitingList.DeleteMedicalImagingWatingList(WaitingList.Id, _keyCategory);  
+                    _estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, _keyCategory,
+                        Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today,
+                        _path + @"RTF\ConsultationEstimate\" + WaitingList.PatientId + DateTime.Today.Day +
+                        DateTime.Today.Month + DateTime.Today.Year + DateTime.Now.Hour.ToString() +
+                        DateTime.Now.Minute.ToString() + DateTime.Now.Millisecond.ToString());
+                    txtDescription.Save(
+                        _path + @"RTF\MedicalImagingEstimate\" + WaitingList.PatientId + DateTime.Today.Day +
+                        DateTime.Today.Month + DateTime.Today.Year + DateTime.Now.Hour.ToString() +
+                        DateTime.Now.Minute.ToString() + DateTime.Now.Millisecond.ToString(),
+                        StreamType.RichTextFormat);
+                    _waitingList.DeleteMedicalImagingWatingList(WaitingList.Id, _keyCategory);
                 }
                 if (cboService.Text == @"Prescription")
                 {
                     _estimate = new PrescriptionEstimate();
-                    _estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, _keyCategory, Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today, _path + @"RTF\ConsultationEstimate\" + WaitingList.PatientId + DateTime.Today.Day + DateTime.Today.Month + DateTime.Today.Year + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Millisecond.ToString());
-                    txtDescription.Save(_path + @"RTF\MedicalImagingEstimate\" + WaitingList.PatientId + DateTime.Today.Day + DateTime.Today.Month + DateTime.Today.Year + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Millisecond.ToString(), StreamType.RichTextFormat); _waitingList.DeletePrescriptionWatingList(WaitingList.Id, _keyCategory);  
+                    _estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, _keyCategory,
+                        Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today,
+                        _path + @"RTF\ConsultationEstimate\" + WaitingList.PatientId + DateTime.Today.Day +
+                        DateTime.Today.Month + DateTime.Today.Year + DateTime.Now.Hour.ToString() +
+                        DateTime.Now.Minute.ToString() + DateTime.Now.Millisecond.ToString());
+                    txtDescription.Save(
+                        _path + @"RTF\MedicalImagingEstimate\" + WaitingList.PatientId + DateTime.Today.Day +
+                        DateTime.Today.Month + DateTime.Today.Year + DateTime.Now.Hour.ToString() +
+                        DateTime.Now.Minute.ToString() + DateTime.Now.Millisecond.ToString(),
+                        StreamType.RichTextFormat);
+                    _waitingList.DeletePrescriptionWatingList(WaitingList.Id, _keyCategory);
                 }
                 if (cboService.Text == @"Various Document")
                 {
                     _estimate = new VariousDocumentEstimate();
-                    _estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, _keyCategory, Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today, _path + @"RTF\ConsultationEstimate\" + WaitingList.PatientId + DateTime.Today.Day + DateTime.Today.Month + DateTime.Today.Year + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Millisecond.ToString());
-                    txtDescription.Save(_path + @"RTF\MedicalImagingEstimate\" + WaitingList.PatientId + DateTime.Today.Day + DateTime.Today.Month + DateTime.Today.Year + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Millisecond.ToString(), StreamType.RichTextFormat); _waitingList.DeleteVariousDocumentWatingList(WaitingList.Id, _keyCategory);  
+                    _estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, _keyCategory,
+                        Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today,
+                        _path + @"RTF\ConsultationEstimate\" + WaitingList.PatientId + DateTime.Today.Day +
+                        DateTime.Today.Month + DateTime.Today.Year + DateTime.Now.Hour.ToString() +
+                        DateTime.Now.Minute.ToString() + DateTime.Now.Millisecond.ToString());
+                    txtDescription.Save(
+                        _path + @"RTF\MedicalImagingEstimate\" + WaitingList.PatientId + DateTime.Today.Day +
+                        DateTime.Today.Month + DateTime.Today.Year + DateTime.Now.Hour.ToString() +
+                        DateTime.Now.Minute.ToString() + DateTime.Now.Millisecond.ToString(),
+                        StreamType.RichTextFormat);
+                    _waitingList.DeleteVariousDocumentWatingList(WaitingList.Id, _keyCategory);
                 }
-                CheckWaitingListDeleteOrUpdate(); 
+                CheckWaitingListDeleteOrUpdate();
                 Clear();
             }
         }
@@ -318,7 +372,7 @@ namespace PatientManagement
             {
                 _dating.Insert(Patient.Id, Account.Worker.Id, dtpDate.Value);
                 MessageBox.Show(@"Dating is Complect....");
-            }    
+            }
         }
 
         private void imageToolStripMenuItem_Click(object sender, EventArgs e)
@@ -369,18 +423,19 @@ namespace PatientManagement
         private void btnInfoReferrer_Click(object sender, EventArgs e)
         {
             if (cboReferrer.SelectedItem == null) return;
-            var selectedItem = (KeyValuePair<int, string>)cboReferrer.SelectedItem;
+            var selectedItem = (KeyValuePair<int, string>) cboReferrer.SelectedItem;
             var keyCategory = selectedItem.Key;
-            var form=new RefferrerForm()
+            var form = new RefferrerForm()
             {
-                MedicalForm = this,Referrer = Refferrer.GetRefferrer(keyCategory)
+                MedicalForm = this,
+                Referrer = Refferrer.GetRefferrer(keyCategory)
             };
             form.ShowDialog();
         }
 
         private void btnNew_Click(object sender, EventArgs e)
         {
-            var form=new RefferrerForm(){MedicalForm = this};
+            var form = new RefferrerForm() {MedicalForm = this};
             form.ShowDialog();
         }
 
@@ -465,5 +520,73 @@ namespace PatientManagement
                 picHideLeft.Click -= picShowLeft_Click;
             }
         }
+
+        private void treeSelection_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            if (e.Node.Name == "Consultation")
+            {
+
+            }
+        }
+
+        private void AddNodesToTree()
+        {
+            {
+                _category = new ConsultationCategory();
+                var dic = _category.ShowCategoryForDoctor(Account.WorkerId);
+                if (dic.Count != 0)
+                {
+                    foreach (var item in dic)
+                    {
+                        treeSelection.Nodes[0].Nodes.Add(item.Key.ToString(),item.Value);
+                    }
+                }
+            }
+            {
+                _category = new LaboratoryCategory();
+                var dic = _category.ShowCategoryForDoctor(Account.WorkerId);
+                if (dic.Count != 0)
+                {
+                    foreach (var item in dic)
+                    {
+                        treeSelection.Nodes[1].Nodes.Add(item.Key.ToString(), item.Value);
+                    }
+                }
+            }
+            {
+                _category = new MedicalImagingCategory();
+                var dic = _category.ShowCategoryForDoctor(Account.WorkerId);
+                if (dic.Count != 0)
+                {
+                    foreach (var item in dic)
+                    {
+                        treeSelection.Nodes[2].Nodes.Add(item.Key.ToString(), item.Value);
+                    }
+                }
+            }
+            {
+                _category = new PrescriptionCategory();
+                var dic = _category.ShowCategoryForDoctor(Account.WorkerId);
+                if (dic.Count != 0)
+                {
+                    foreach (var item in dic)
+                    {
+                        treeSelection.Nodes[3].Nodes.Add(item.Key.ToString(), item.Value);
+                    }
+                }
+            }
+            {
+                _category = new VariousDocumentCategory();
+                var dic = _category.ShowCategoryForDoctor(Account.WorkerId);
+                if (dic.Count != 0)
+                {
+                    foreach (var item in dic)
+                    {
+                        treeSelection.Nodes[4].Nodes.Add(item.Key.ToString(), item.Value);
+                    }
+                }
+            }
+        }
+
     }
 }
