@@ -395,6 +395,7 @@ namespace PatientManagement.Class
                 {
                     foreach (var item in getManagement.Forms.ToList())
                     {
+                        if (item.Id == 6) continue;
                         var getItem = _db.Forms.First(v => v.Id == item.Id);
                         getManagement.Forms.Remove(getItem);
                     }
