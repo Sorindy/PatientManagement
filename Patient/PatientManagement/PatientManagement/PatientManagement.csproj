@@ -233,6 +233,12 @@
     <Compile Include="ManagementForm.designer.cs">
       <DependentUpon>ManagementForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MedicalRecord.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MedicalRecord.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="MedicalsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -379,6 +385,10 @@
     <EmbeddedResource Include="ManagementForm.resx">
       <DependentUpon>ManagementForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MedicalRecord.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>MedicalRecord.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="MedicalsForm.resx">
       <DependentUpon>MedicalsForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -481,6 +491,25 @@
     <Content Include="UpdateTable\29.12.17 Add first,last&amp;khmer name.sql" />
     <None Include="Resources\loading_circle.gif" />
     <None Include="Resources\loading.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxCrystalActiveXReportViewerLib13">
+      <Guid>{B816E96D-D151-4000-BADB-53A2D8F3FC65}</Guid>
+      <VersionMajor>13</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="CrystalActiveXReportViewerLib13">
+      <Guid>{B816E96D-D151-4000-BADB-53A2D8F3FC65}</Guid>
+      <VersionMajor>13</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

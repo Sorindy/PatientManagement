@@ -324,13 +324,13 @@ namespace PatientManagement
         {
             if (chkBoxReferrer.Checked)
             {
-                var dicReferrer = Medical.ShowReferrer();
-                if (dicReferrer.Count != 0)
-                {
-                    cboReferrer.DataSource = new BindingSource(dicReferrer, null);
-                    cboReferrer.DisplayMember = "Value";
-                    cboReferrer.ValueMember = "Key";
-                }
+                //var dicReferrer = Medical.ShowReferrer();
+                //if (dicReferrer.Count != 0)
+                //{
+                //    cboReferrer.DataSource = new BindingSource(dicReferrer, null);
+                //    cboReferrer.DisplayMember = "Value";
+                //    cboReferrer.ValueMember = "Key";
+                //}
             }
             else
             {
@@ -342,10 +342,10 @@ namespace PatientManagement
         {
             if (chkBoxNurse.Checked)
             {
-                var dicNurse = Medical.ShowNurse();
-                if (dicNurse.Count != 0)
+               // var dicNurse = Medical.ShowNurse();
+                //if (dicNurse.Count != 0)
                 {
-                    cboNurse.DataSource = new BindingSource(dicNurse, null);
+                    //cboNurse.DataSource = new BindingSource(dicNurse, null);
                     cboNurse.DisplayMember = "Value";
                     cboNurse.ValueMember = "Key";
                 }
