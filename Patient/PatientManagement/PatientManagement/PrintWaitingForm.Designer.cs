@@ -43,10 +43,6 @@
             this.crystalReportViewer2.Size = new System.Drawing.Size(719, 446);
             this.crystalReportViewer2.TabIndex = 0;
             // 
-            // waiting1
-            // 
-           
-            // 
             // PrintWaitingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
