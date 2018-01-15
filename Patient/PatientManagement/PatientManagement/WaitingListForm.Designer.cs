@@ -93,7 +93,7 @@
             this.pnBoss.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnBoss.Location = new System.Drawing.Point(0, 0);
             this.pnBoss.Name = "pnBoss";
-            this.pnBoss.Size = new System.Drawing.Size(1130, 839);
+            this.pnBoss.Size = new System.Drawing.Size(1130, 764);
             this.pnBoss.TabIndex = 4;
             // 
             // pnMidle
@@ -102,7 +102,7 @@
             this.pnMidle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnMidle.Location = new System.Drawing.Point(0, 49);
             this.pnMidle.Name = "pnMidle";
-            this.pnMidle.Size = new System.Drawing.Size(1130, 790);
+            this.pnMidle.Size = new System.Drawing.Size(1130, 715);
             this.pnMidle.TabIndex = 9;
             // 
             // tblypnMidle
@@ -119,7 +119,7 @@
             this.tblypnMidle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.98734F));
             this.tblypnMidle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.088608F));
             this.tblypnMidle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 43.79747F));
-            this.tblypnMidle.Size = new System.Drawing.Size(1130, 790);
+            this.tblypnMidle.Size = new System.Drawing.Size(1130, 715);
             this.tblypnMidle.TabIndex = 5;
             // 
             // gbWaitingCategory
@@ -132,7 +132,7 @@
             this.gbWaitingCategory.ForeColor = System.Drawing.Color.Black;
             this.gbWaitingCategory.Location = new System.Drawing.Point(3, 3);
             this.gbWaitingCategory.Name = "gbWaitingCategory";
-            this.gbWaitingCategory.Size = new System.Drawing.Size(1124, 381);
+            this.gbWaitingCategory.Size = new System.Drawing.Size(1124, 344);
             this.gbWaitingCategory.TabIndex = 0;
             this.gbWaitingCategory.TabStop = false;
             this.gbWaitingCategory.Text = "តារាងរបស់អ្នក";
@@ -199,7 +199,7 @@
             this.dgvWaitingCategory.RowTemplate.ReadOnly = true;
             this.dgvWaitingCategory.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvWaitingCategory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvWaitingCategory.Size = new System.Drawing.Size(1118, 346);
+            this.dgvWaitingCategory.Size = new System.Drawing.Size(1118, 309);
             this.dgvWaitingCategory.TabIndex = 7;
             this.dgvWaitingCategory.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvWaitingCategory_CellContentClick);
             // 
@@ -211,9 +211,9 @@
             this.gbAllWaiting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gbAllWaiting.Font = new System.Drawing.Font("Modern No. 20", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbAllWaiting.ForeColor = System.Drawing.Color.Black;
-            this.gbAllWaiting.Location = new System.Drawing.Point(3, 446);
+            this.gbAllWaiting.Location = new System.Drawing.Point(3, 403);
             this.gbAllWaiting.Name = "gbAllWaiting";
-            this.gbAllWaiting.Size = new System.Drawing.Size(1124, 341);
+            this.gbAllWaiting.Size = new System.Drawing.Size(1124, 309);
             this.gbAllWaiting.TabIndex = 1;
             this.gbAllWaiting.TabStop = false;
             this.gbAllWaiting.Text = "តារាង";
@@ -279,7 +279,7 @@
             this.dgvAllWatingList.RowTemplate.ReadOnly = true;
             this.dgvAllWatingList.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvAllWatingList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAllWatingList.Size = new System.Drawing.Size(1118, 306);
+            this.dgvAllWatingList.Size = new System.Drawing.Size(1118, 274);
             this.dgvAllWatingList.TabIndex = 7;
             // 
             // tblypnMidleMidle
@@ -294,11 +294,11 @@
             this.tblypnMidleMidle.Controls.Add(this.label2, 0, 0);
             this.tblypnMidleMidle.Controls.Add(this.label3, 2, 0);
             this.tblypnMidleMidle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tblypnMidleMidle.Location = new System.Drawing.Point(3, 390);
+            this.tblypnMidleMidle.Location = new System.Drawing.Point(3, 353);
             this.tblypnMidleMidle.Name = "tblypnMidleMidle";
             this.tblypnMidleMidle.RowCount = 1;
             this.tblypnMidleMidle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tblypnMidleMidle.Size = new System.Drawing.Size(1124, 50);
+            this.tblypnMidleMidle.Size = new System.Drawing.Size(1124, 44);
             this.tblypnMidleMidle.TabIndex = 2;
             // 
             // cboCategory
@@ -345,7 +345,7 @@
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(3, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(124, 50);
+            this.label2.Size = new System.Drawing.Size(124, 44);
             this.label2.TabIndex = 0;
             this.label2.Text = "សេវាកម្ម :";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -360,7 +360,7 @@
             this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(542, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(104, 50);
+            this.label3.Size = new System.Drawing.Size(104, 44);
             this.label3.TabIndex = 1;
             this.label3.Text = "ប្រភេទ :";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -437,7 +437,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1130, 839);
+            this.ClientSize = new System.Drawing.Size(1130, 764);
             this.ControlBox = false;
             this.Controls.Add(this.pnBoss);
             this.Name = "WaitingListForm";

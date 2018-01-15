@@ -45,5 +45,6 @@ namespace PatientManagement.Class
             var getReferrer = _db.Referrers.First(v => v.Id == id);
             return getReferrer;
         }
+
     }
 }

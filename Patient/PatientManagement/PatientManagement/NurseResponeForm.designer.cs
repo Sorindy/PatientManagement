@@ -75,7 +75,7 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(1472, 3);
+            this.btnClose.Location = new System.Drawing.Point(1143, 3);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(213, 51);
             this.btnClose.TabIndex = 3;
@@ -102,7 +102,7 @@
             this.pnBoss.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnBoss.Location = new System.Drawing.Point(0, 0);
             this.pnBoss.Name = "pnBoss";
-            this.pnBoss.Size = new System.Drawing.Size(1690, 821);
+            this.pnBoss.Size = new System.Drawing.Size(1362, 764);
             this.pnBoss.TabIndex = 5;
             // 
             // pnMidle
@@ -111,7 +111,7 @@
             this.pnMidle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnMidle.Location = new System.Drawing.Point(0, 58);
             this.pnMidle.Name = "pnMidle";
-            this.pnMidle.Size = new System.Drawing.Size(1690, 763);
+            this.pnMidle.Size = new System.Drawing.Size(1362, 706);
             this.pnMidle.TabIndex = 9;
             // 
             // tblypnMidle
@@ -126,16 +126,16 @@
             this.tblypnMidle.RowCount = 2;
             this.tblypnMidle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 52.92969F));
             this.tblypnMidle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 47.07031F));
-            this.tblypnMidle.Size = new System.Drawing.Size(1690, 763);
+            this.tblypnMidle.Size = new System.Drawing.Size(1362, 706);
             this.tblypnMidle.TabIndex = 7;
             // 
             // gbWaitingList
             // 
             this.gbWaitingList.Controls.Add(this.dtgWaitingList);
             this.gbWaitingList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbWaitingList.Location = new System.Drawing.Point(3, 406);
+            this.gbWaitingList.Location = new System.Drawing.Point(3, 376);
             this.gbWaitingList.Name = "gbWaitingList";
-            this.gbWaitingList.Size = new System.Drawing.Size(1684, 354);
+            this.gbWaitingList.Size = new System.Drawing.Size(1356, 327);
             this.gbWaitingList.TabIndex = 8;
             this.gbWaitingList.TabStop = false;
             this.gbWaitingList.Text = "Waiting List";
@@ -201,7 +201,7 @@
             this.dtgWaitingList.RowTemplate.ReadOnly = true;
             this.dtgWaitingList.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dtgWaitingList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgWaitingList.Size = new System.Drawing.Size(1678, 335);
+            this.dtgWaitingList.Size = new System.Drawing.Size(1350, 308);
             this.dtgWaitingList.TabIndex = 7;
             this.dtgWaitingList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgWaitingList_CellContentClick);
             // 
@@ -211,7 +211,7 @@
             this.gbNurseRespone.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbNurseRespone.Location = new System.Drawing.Point(3, 3);
             this.gbNurseRespone.Name = "gbNurseRespone";
-            this.gbNurseRespone.Size = new System.Drawing.Size(1684, 397);
+            this.gbNurseRespone.Size = new System.Drawing.Size(1356, 367);
             this.gbNurseRespone.TabIndex = 7;
             this.gbNurseRespone.TabStop = false;
             this.gbNurseRespone.Text = "Respone Information";
@@ -277,7 +277,7 @@
             this.dtgInformation.RowTemplate.ReadOnly = true;
             this.dtgInformation.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dtgInformation.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgInformation.Size = new System.Drawing.Size(1678, 378);
+            this.dtgInformation.Size = new System.Drawing.Size(1350, 348);
             this.dtgInformation.TabIndex = 6;
             this.dtgInformation.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgInformation_CellContentClick);
             // 
@@ -287,7 +287,7 @@
             this.pnTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnTop.Location = new System.Drawing.Point(0, 0);
             this.pnTop.Name = "pnTop";
-            this.pnTop.Size = new System.Drawing.Size(1690, 58);
+            this.pnTop.Size = new System.Drawing.Size(1362, 58);
             this.pnTop.TabIndex = 8;
             // 
             // tblypnTop
@@ -295,7 +295,7 @@
             this.tblypnTop.ColumnCount = 3;
             this.tblypnTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 84.58529F));
             this.tblypnTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.41471F));
-            this.tblypnTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 220F));
+            this.tblypnTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 221F));
             this.tblypnTop.Controls.Add(this.label1, 0, 0);
             this.tblypnTop.Controls.Add(this.btnClose, 2, 0);
             this.tblypnTop.Dock = System.Windows.Forms.DockStyle.Top;
@@ -303,14 +303,14 @@
             this.tblypnTop.Name = "tblypnTop";
             this.tblypnTop.RowCount = 1;
             this.tblypnTop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblypnTop.Size = new System.Drawing.Size(1690, 57);
+            this.tblypnTop.Size = new System.Drawing.Size(1362, 57);
             this.tblypnTop.TabIndex = 0;
             // 
             // NurseResponeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1690, 821);
+            this.ClientSize = new System.Drawing.Size(1362, 764);
             this.ControlBox = false;
             this.Controls.Add(this.pnBoss);
             this.Name = "NurseResponeForm";

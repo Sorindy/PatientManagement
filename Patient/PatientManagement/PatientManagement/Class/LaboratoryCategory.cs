@@ -81,7 +81,18 @@ namespace PatientManagement.Class
             return dic;
         }
 
-       //Use as check box
+        public Dictionary<int, string> ShowAllCategoryForHistory()
+        {
+            var getCategory = _db.LaboratoryCategories;
+            var dic = new Dictionary<int, string>();
+            foreach (var item in getCategory)
+            {
+                dic.Add(item.Id, item.Name);
+            }
+            return dic;
+        }
+
+        //Use as check box
         //public GroupBox ShowCategoryBox(int workerId)
         //{
         //    _workerId = workerId;

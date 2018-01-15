@@ -24,9 +24,10 @@ namespace PatientManagement.Class
             _db.SaveChanges();
         }
 
-        public object Show(int patientId)
+        public object Show(int patientId,int categoryId)
         {
-            var getEstimate = from v in _db.LaboratoryEstimates where v.PatientId==patientId
+            var getEstimate = from v in _db.LaboratoryEstimates
+                where v.PatientId == patientId && v.CategoryId == categoryId
                 select new
                 {
                     v.Id,
@@ -40,6 +41,11 @@ namespace PatientManagement.Class
             var bs = new BindingSource { DataSource = getEstimate.ToList() };
 
             return bs;
+        }
+        public string GetPath(int estimateId)
+        {
+            var get = _db.LaboratoryEstimates.First(v => v.Id == estimateId).Description;
+            return get;
         }
     }
 }

@@ -1051,7 +1051,7 @@
             treeNode3.Name = "MedicalImaging";
             treeNode3.NodeFont = new System.Drawing.Font("Modern No. 20", 15.75F);
             treeNode3.Text = "Medical Imaging";
-            treeNode4.Name = "Presciption";
+            treeNode4.Name = "Prescription";
             treeNode4.NodeFont = new System.Drawing.Font("Modern No. 20", 15.75F);
             treeNode4.Text = "Prescription";
             treeNode5.Name = "VariousDocument";
