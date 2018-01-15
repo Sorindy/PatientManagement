@@ -47,5 +47,13 @@ namespace PatientManagement.Class
             var get = _db.LaboratoryEstimates.First(v => v.Id == estimateId).Description;
             return get;
         }
+
+        public bool CheckDoctorCategory(int workerid, int categoryid)
+        {
+            var check = _db.Managements.First(v => v.Account.WorkerId == workerid).LaboratoryCategories
+                .Any(v => v.Id == categoryid);
+            return check;
+
+        }
     }
 }

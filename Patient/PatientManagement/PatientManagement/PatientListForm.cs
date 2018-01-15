@@ -15,6 +15,7 @@ namespace PatientManagement
 
         private readonly Class.Patient _patient = new Class.Patient();
         internal Account Account;
+        internal CatelogForm CatelogForm;
         
         private void CheckOrderDgv()
         {
@@ -70,7 +71,7 @@ namespace PatientManagement
                 {
                     var id = dgvListPatient.CurrentRow.Cells[0].Value;
                     var patient = _patient.Select(Convert.ToInt32(id));
-                    var form = new HistorysForm() {Account = Account,Patient = patient};
+                    var form = new HistorysForm() {Account = Account,Patient = patient,CatelogForm = CatelogForm};
                     form.ShowDialog();
                 }
             }

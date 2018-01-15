@@ -517,6 +517,7 @@
             this.dgvHistory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvHistory.Size = new System.Drawing.Size(362, 525);
             this.dgvHistory.TabIndex = 2;
+            this.dgvHistory.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHistory_CellClick);
             this.dgvHistory.SelectionChanged += new System.EventHandler(this.dgvHistory_SelectionChanged);
             // 
             // btnClose
