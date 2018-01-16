@@ -772,6 +772,7 @@
             this.btnPrint.TabIndex = 1;
             this.btnPrint.Text = "ថតចម្លង";
             this.btnPrint.UseVisualStyleBackColor = false;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // btnClear
             // 

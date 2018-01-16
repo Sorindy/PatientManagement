@@ -49,7 +49,7 @@ namespace PatientManagement
         private void WaitingListForm_Load(object sender, EventArgs e)
         {
 
-            timer.Interval = (5 * 1000);
+            timer.Interval = (1 * 1000);
             timer.Tick += btnRefresh_Click;
             timer.Start();
             //var btnReset = new DataGridViewButtonColumn

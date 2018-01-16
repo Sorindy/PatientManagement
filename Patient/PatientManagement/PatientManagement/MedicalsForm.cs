@@ -597,5 +597,24 @@ namespace PatientManagement
             }
         }
 
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            if (Patient == null)
+            {
+                MessageBox.Show(@"Something is going wrong please check again.", @"Error");
+            }
+            if (Account == null)
+            {
+                MessageBox.Show(@"Something is going wrong please check again.", @"Error");
+            }
+            else
+            {
+                var print = new PrintMedicalRecordForm();
+                print.Patient = WaitingList.Patient ;
+                print.Account = Account;
+                print.Show();
+            }
+        }
+
     }
 }

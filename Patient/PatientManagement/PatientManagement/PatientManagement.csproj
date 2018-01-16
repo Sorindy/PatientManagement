@@ -275,6 +275,12 @@
     <Compile Include="PatientListForm.Designer.cs">
       <DependentUpon>PatientListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="PrintMedicalRecordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrintMedicalRecordForm.Designer.cs">
+      <DependentUpon>PrintMedicalRecordForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="PrintWaitingForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -406,6 +412,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PatientListForm.resx">
       <DependentUpon>PatientListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintMedicalRecordForm.resx">
+      <DependentUpon>PrintMedicalRecordForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PrintWaitingForm.resx">
       <DependentUpon>PrintWaitingForm.cs</DependentUpon>
