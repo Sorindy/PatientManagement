@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Common;
 using System.Drawing;
 using System.Windows.Forms;
 using PatientManagement.Class;
@@ -19,6 +20,7 @@ namespace PatientManagement
 
         internal Patient Patient;
         internal Account Account;
+        internal CatelogForm CatelogForm;
         private ICategory _category;
         private bool _mouseDown;
         private Point _lastLocation;
@@ -53,6 +55,7 @@ namespace PatientManagement
             //_path = @"C:\Users\Health\Desktop\Debug\";
             picHideRight.ImageLocation = _path + @"Hide-right-icon.png";
             picHideTop.ImageLocation = _path + @"Hide-Up-icon.png";
+            txtDescription.EditMode = EditMode.ReadAndSelect;
         }
 
         //private void cboService_SelectedIndexChanged(object sender, EventArgs e)
@@ -204,7 +207,7 @@ namespace PatientManagement
         {
             {
                 _category = new ConsultationCategory();
-                var dic = _category.ShowCategoryForDoctor(Account.WorkerId);
+                var dic = _category.ShowAllCategoryForHistory();
                 if (dic.Count != 0)
                 {
                     foreach (var item in dic)
@@ -215,7 +218,7 @@ namespace PatientManagement
             }
             {
                 _category = new LaboratoryCategory();
-                var dic = _category.ShowCategoryForDoctor(Account.WorkerId);
+                var dic = _category.ShowAllCategoryForHistory();
                 if (dic.Count != 0)
                 {
                     foreach (var item in dic)
@@ -226,7 +229,7 @@ namespace PatientManagement
             }
             {
                 _category = new MedicalImagingCategory();
-                var dic = _category.ShowCategoryForDoctor(Account.WorkerId);
+                var dic = _category.ShowAllCategoryForHistory();
                 if (dic.Count != 0)
                 {
                     foreach (var item in dic)
@@ -237,7 +240,7 @@ namespace PatientManagement
             }
             {
                 _category = new PrescriptionCategory();
-                var dic = _category.ShowCategoryForDoctor(Account.WorkerId);
+                var dic = _category.ShowAllCategoryForHistory();
                 if (dic.Count != 0)
                 {
                     foreach (var item in dic)
@@ -248,7 +251,7 @@ namespace PatientManagement
             }
             {
                 _category = new VariousDocumentCategory();
-                var dic = _category.ShowCategoryForDoctor(Account.WorkerId);
+                var dic = _category.ShowAllCategoryForHistory();
                 if (dic.Count != 0)
                 {
                     foreach (var item in dic)
@@ -263,6 +266,8 @@ namespace PatientManagement
         {
             txtDescription.Text = "";
             _keyService = "";
+            dgvHistory.DataSource = null;
+            dgvHistory.Columns.Clear();
             if (e.Node.Name != "Consultation" && e.Node.Name != "Laboratory" && e.Node.Name != "MedicalImaging" &&
                 e.Node.Name != "Prescription" && e.Node.Name != "VariousDocument" && e.Node.Name != "History")
             {
@@ -273,7 +278,16 @@ namespace PatientManagement
                     lbService.Text = _keyService;
                     lbCategory.Text = e.Node.Text;
                     _history = new ConsultationHistory();
-                    dgvHistory.DataSource = _history.Show(Patient.Id,_keyCategory);
+                    if (_history.CheckDoctorCategory(Account.WorkerId, _keyCategory))
+                    {
+                        dgvHistory.DataSource = _history.Show(Patient.Id, _keyCategory);
+                        InsertButtonEditAndNewForDoctor();
+                    }
+                   
+                    else
+                    {
+                        dgvHistory.DataSource = _history.Show(Patient.Id, _keyCategory);
+                    }
                 }
                 if (e.Node.Parent.Name == "Laboratory")
                 {
@@ -282,7 +296,16 @@ namespace PatientManagement
                     lbService.Text = _keyService;
                     lbCategory.Text = e.Node.Text;
                     _history = new LaboratoryHistory();
-                    dgvHistory.DataSource = _history.Show(Patient.Id, _keyCategory);
+                    if (_history.CheckDoctorCategory(Account.WorkerId, _keyCategory))
+                    {
+                        dgvHistory.DataSource = _history.Show(Patient.Id, _keyCategory);
+                        InsertButtonEditAndNewForDoctor();
+                    }
+
+                    else
+                    {
+                        dgvHistory.DataSource = _history.Show(Patient.Id, _keyCategory);
+                    }
                 }
                 if (e.Node.Parent.Name == "MedicalImaging")
                 {
@@ -291,7 +314,16 @@ namespace PatientManagement
                     lbService.Text = _keyService;
                     lbCategory.Text = e.Node.Text;
                     _history = new MedicalImagingHistory();
-                    dgvHistory.DataSource = _history.Show(Patient.Id, _keyCategory);
+                    if (_history.CheckDoctorCategory(Account.WorkerId, _keyCategory))
+                    {
+                        dgvHistory.DataSource = _history.Show(Patient.Id, _keyCategory);
+                        InsertButtonEditAndNewForDoctor();
+                    }
+
+                    else
+                    {
+                        dgvHistory.DataSource = _history.Show(Patient.Id, _keyCategory);
+                    }
                 }
                 if (e.Node.Parent.Name == "Prescription")
                 {
@@ -300,7 +332,16 @@ namespace PatientManagement
                     lbService.Text = _keyService;
                     lbCategory.Text = e.Node.Text;
                     _history = new PrescriptionHistory();
-                    dgvHistory.DataSource = _history.Show(Patient.Id, _keyCategory);
+                    if (_history.CheckDoctorCategory(Account.WorkerId, _keyCategory))
+                    {
+                        dgvHistory.DataSource = _history.Show(Patient.Id, _keyCategory);
+                        InsertButtonEditAndNewForDoctor();
+                    }
+
+                    else
+                    {
+                        dgvHistory.DataSource = _history.Show(Patient.Id, _keyCategory);
+                    }
                 }
                 if (e.Node.Parent.Name == "VariousDocument")
                 {
@@ -309,7 +350,16 @@ namespace PatientManagement
                     lbService.Text = _keyService;
                     lbCategory.Text = e.Node.Text;
                     _history = new VariousDocumentHistory();
-                    dgvHistory.DataSource = _history.Show(Patient.Id, _keyCategory);
+                    if (_history.CheckDoctorCategory(Account.WorkerId, _keyCategory))
+                    {
+                        dgvHistory.DataSource = _history.Show(Patient.Id, _keyCategory);
+                        InsertButtonEditAndNewForDoctor();
+                    }
+
+                    else
+                    {
+                        dgvHistory.DataSource = _history.Show(Patient.Id, _keyCategory);
+                    }
                 }
             }
             if (e.Node.Name == "History")
@@ -366,6 +416,7 @@ namespace PatientManagement
 
         private void dgvHistory_SelectionChanged(object sender, EventArgs e)
         {
+            txtDescription.EditMode = EditMode.ReadAndSelect;
             if (dgvHistory.DataSource == null) return;
             if (lbService.Text == @"Consultation")
             {
@@ -419,6 +470,28 @@ namespace PatientManagement
             }
         }
 
+        private void InsertButtonEditAndNewForDoctor()
+        {
+            var btnView = new DataGridViewButtonColumn
+            {
+                FlatStyle = FlatStyle.Flat,
+                Text = @"ថ្មី",
+                HeaderText = @"New"
+            };
+            btnView.CellTemplate.Style.BackColor = Color.LightSeaGreen;
+            btnView.UseColumnTextForButtonValue = true;
+            var btnDelete = new DataGridViewButtonColumn
+            {
+                Text = @"កែប្រែ",
+                FlatStyle = FlatStyle.Flat,
+                HeaderText = @"Edit"
+            };
+            btnDelete.CellTemplate.Style.BackColor = Color.DeepSkyBlue;
+            btnDelete.UseColumnTextForButtonValue = true;
+            dgvHistory.Columns.AddRange(btnView, btnDelete);
+            dgvHistory.ClearSelection();
+        }
+
         private void picHideTop_Click(object sender, EventArgs e)
         {
             if (picHideTop.Name == "picHideTop")
@@ -460,6 +533,34 @@ namespace PatientManagement
                 picHideRight.ImageLocation = _path + @"Hide-Right-icon.png";
                 pnlShowHistory.Visible = true;
                 picHideRight.Click -= picShowRight_Click;
+            }
+        }
+
+        private void dgvHistory_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex.Equals(7))
+            {
+                if (dgvHistory.DataSource != null)
+                {
+                    var form = new MedicalsForm
+                    {
+                        Worker = Account.Worker,
+                        Account = Account,
+                        Patient = Patient,
+                        TopLevel = false,
+                        Dock = DockStyle.Fill,
+                        KeyCategory = _keyCategory,
+                        KeyService = _keyService
+                    };
+                    CatelogForm.pnlFill.Controls.Clear();
+                    CatelogForm.pnlFill.Controls.Add(form);
+                    form.Show();
+                    Close();
+                }
+            }
+            if (e.ColumnIndex.Equals(8))
+            {
+                txtDescription.EditMode = txtDescription.EditMode == EditMode.Edit ? EditMode.ReadAndSelect : EditMode.Edit;
             }
         }
     }

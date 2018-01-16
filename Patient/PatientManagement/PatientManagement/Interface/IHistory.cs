@@ -1,4 +1,6 @@
 ﻿
+using System;
+
 namespace PatientManagement.Interface
 {
     interface IHistory
@@ -6,5 +8,6 @@ namespace PatientManagement.Interface
         void Update(int estimateId, int workerId, int? nurseId, int? refererId);
         object Show(int patientId,int categoryId);
         string GetPath(int estimateId);
+        bool CheckDoctorCategory(int workerid, int categoryid);
     }
 }

@@ -31,8 +31,8 @@ namespace PatientManagement
         private ICategory _category;
         internal MedicalRecord Medical = new MedicalRecord();
         private int _indexCategory;
-        private int _keyCategory;
-        private string _keyService;
+        internal int KeyCategory;
+        internal string KeyService;
         private int? _keyNurse;
 
         private int? _keyReferrer;
@@ -64,6 +64,12 @@ namespace PatientManagement
 
         private void MedicalsForm_Shown(object sender, EventArgs e)
         {
+            if (Patient != null)
+            {
+                txtNamePatient.Text = Patient.FirstName + @"  " + Patient.LastName;
+                txtGenderPatient.Text = Patient.Gender;
+            }
+            
             var path = AppDomain.CurrentDomain.BaseDirectory;
             _path = path.Remove(path.Length - 46);
             //_path = path;
@@ -165,8 +171,8 @@ namespace PatientManagement
 
             var waitinglistform = new WaitingListForm
             {
-                Service = _keyService,
-                GetStaffCategoryid = _keyCategory,
+                Service = KeyService,
+                GetStaffCategoryid = KeyCategory,
                 Worker = Account.Worker,
                 Account = Account,
                 Medicalsform = this
@@ -176,65 +182,105 @@ namespace PatientManagement
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            var title = WaitingList.PatientId + DateTime.Today.Day +
+            var title = Patient.Id + DateTime.Today.Day +
                         DateTime.Today.Month + DateTime.Today.Year + DateTime.Now.Hour.ToString() +
                         DateTime.Now.Minute.ToString() + DateTime.Now.Millisecond.ToString();
-            if (_keyService == @"Consultation")
+            if (KeyService == @"Consultation")
             {
                 _estimate = new ConsultationEstimate();
-                _estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, _keyCategory,
-                    Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today,
-                    _path + @"RTF\ConsultationEstimate\" +title);
+                if (WaitingList != null)
+                {
+                    _estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, KeyCategory,
+                        Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today,
+                        _path + @"RTF\ConsultationEstimate\" + title);
+                    _waitingList.DeleteConsultationWaitingList(WaitingList.Id, KeyCategory);
+                }
+                else
+                {
+                    _estimate.Insert(null, null, Patient.Id, KeyCategory, Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today,
+                        _path + @"RTF\ConsultationEstimate\" + title);
+                }
                 txtDescription.Save(
                     _path + @"RTF\ConsultationEstimate\" + title,
                     StreamType.RichTextFormat);
-                _waitingList.DeleteConsultationWaitingList(WaitingList.Id, _keyCategory);
             }
-            if (_keyService == @"Laboratory")
+            if (KeyService == @"Laboratory")
             {
                 _estimate = new LaboratoryEstimate();
-                _estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, _keyCategory,
-                    Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today,
-                    _path + @"RTF\LaboratoryEstimate\" + title);
+                if (WaitingList != null)
+                {
+                    _estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, KeyCategory,
+                        Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today,
+                        _path + @"RTF\LaboratoryEstimate\" + title);
+                    _waitingList.DeleteConsultationWaitingList(WaitingList.Id, KeyCategory);
+                }
+                else
+                {
+                    _estimate.Insert(null, null, Patient.Id, KeyCategory, Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today,
+                        _path + @"RTF\LaboratoryEstimate\" + title);
+                }
                 txtDescription.Save(
                     _path + @"RTF\LaboratoryEstimate\" + title,
                     StreamType.RichTextFormat);
-                _waitingList.DeleteLaboratoryWaitingList(WaitingList.Id, _keyCategory);
             }
-            if (_keyService == @"Medical Imaging")
+            if (KeyService == @"Medical Imaging")
             {
                 _estimate = new MedicalImagingEstimate();
-                _estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, _keyCategory,
-                    Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today,
-                    _path + @"RTF\MedicalImagingEstimate\" + title);
+                if (WaitingList != null)
+                {
+                    _estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, KeyCategory,
+                        Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today,
+                        _path + @"RTF\MedicalImagingEstimate\" + title);
+                    _waitingList.DeleteConsultationWaitingList(WaitingList.Id, KeyCategory);
+                }
+                else
+                {
+                    _estimate.Insert(null, null, Patient.Id, KeyCategory, Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today,
+                        _path + @"RTF\MedicalImagingEstimate\" + title);
+                }
                 txtDescription.Save(
                     _path + @"RTF\MedicalImagingEstimate\" +title,
                     StreamType.RichTextFormat);
-                _waitingList.DeleteMedicalImagingWatingList(WaitingList.Id, _keyCategory);
             }
-            if (_keyService == @"Prescription")
+            if (KeyService == @"Prescription")
             {
                 _estimate = new PrescriptionEstimate();
-                _estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, _keyCategory,
-                    Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today,
-                    _path + @"RTF\PrescriptionEstimate\" +title);
+                if (WaitingList != null)
+                {
+                    _estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, KeyCategory,
+                        Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today,
+                        _path + @"RTF\PrescriptionEstimate\" + title);
+                    _waitingList.DeleteConsultationWaitingList(WaitingList.Id, KeyCategory);
+                }
+                else
+                {
+                    _estimate.Insert(null, null, Patient.Id, KeyCategory, Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today,
+                        _path + @"RTF\PrescriptionEstimate\" + title);
+                }
                 txtDescription.Save(
                     _path + @"RTF\PrescriptionEstimate\" + title,
                     StreamType.RichTextFormat);
-                _waitingList.DeletePrescriptionWatingList(WaitingList.Id, _keyCategory);
             }
-            if (_keyService == @"Various Document")
+            if (KeyService == @"Various Document")
             {
                 _estimate = new VariousDocumentEstimate();
-                _estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, _keyCategory,
-                    Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today,
-                    _path + @"RTF\VariousdocumentEstimate\" + title);
+                if (WaitingList != null)
+                {
+                    _estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, KeyCategory,
+                        Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today,
+                        _path + @"RTF\VariousdocumentEstimate\" + title);
+                    _waitingList.DeleteConsultationWaitingList(WaitingList.Id, KeyCategory);
+                }
+                else
+                {
+                    _estimate.Insert(null, null, Patient.Id, KeyCategory, Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today,
+                        _path + @"RTF\VariousdocumentEstimate\" + title);
+                }
                 txtDescription.Save(
                     _path + @"RTF\VariousdocumentEstimate\" +title,
                     StreamType.RichTextFormat);
-                _waitingList.DeleteVariousDocumentWatingList(WaitingList.Id, _keyCategory);
             }
-            CheckWaitingListDeleteOrUpdate();
+            if (WaitingList != null) CheckWaitingListDeleteOrUpdate();
             Clear();
         }
 
@@ -345,7 +391,7 @@ namespace PatientManagement
             var selectedItem = cboCategory.SelectedIndex;
             _indexCategory = selectedItem;
             var selectkey = (KeyValuePair<int, string>) cboCategory.SelectedItem;
-            _keyCategory = selectkey.Key;
+            KeyCategory = selectkey.Key;
         }
 
         private void picAddDate_Click(object sender, EventArgs e)
@@ -505,34 +551,34 @@ namespace PatientManagement
 
         private void treeSelection_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            _keyService = "";
+            KeyService = "";
             if (e.Node.Name != "Consultation" && e.Node.Name != "Laboratory" && e.Node.Name != "MedicalImaging" &&
                 e.Node.Name != "Prescription" && e.Node.Name != "VariousDocument")
             {
                 if (e.Node.Parent.Name == "Consultation")
                 {
-                    _keyService = "Consultation";
-                    _keyCategory = Convert.ToInt32(e.Node.TreeView.SelectedNode.Name);
+                    KeyService = "Consultation";
+                    KeyCategory = Convert.ToInt32(e.Node.TreeView.SelectedNode.Name);
                 }
                 if (e.Node.Parent.Name == "Laboratory")
                 {
-                    _keyService = "Laboratory";
-                    _keyCategory = Convert.ToInt32(e.Node.TreeView.SelectedNode.Name);
+                    KeyService = "Laboratory";
+                    KeyCategory = Convert.ToInt32(e.Node.TreeView.SelectedNode.Name);
                 }
                 if (e.Node.Parent.Name == "MedicalImaging")
                 {
-                    _keyService = "MedicalImaging";
-                    _keyCategory = Convert.ToInt32(e.Node.TreeView.SelectedNode.Name);
+                    KeyService = "MedicalImaging";
+                    KeyCategory = Convert.ToInt32(e.Node.TreeView.SelectedNode.Name);
                 }
                 if (e.Node.Parent.Name == "Prescription")
                 {
-                    _keyService = "Prescription";
-                    _keyCategory = Convert.ToInt32(e.Node.TreeView.SelectedNode.Name);
+                    KeyService = "Prescription";
+                    KeyCategory = Convert.ToInt32(e.Node.TreeView.SelectedNode.Name);
                 }
                 if (e.Node.Parent.Name == "VariousDocument")
                 {
-                    _keyService = "VariousDocuemtn";
-                    _keyCategory = Convert.ToInt32(e.Node.TreeView.SelectedNode.Name);
+                    KeyService = "VariousDocuemtn";
+                    KeyCategory = Convert.ToInt32(e.Node.TreeView.SelectedNode.Name);
                 }
             }
 

@@ -130,7 +130,8 @@ namespace PatientManagement.Class
                             TopLevel = false,
                             Dock = DockStyle.Fill,
                             AutoScroll = true,
-                            Account = _account
+                            Account = _account,
+                            CatelogForm = form
                         };
                         gbo.Controls.Add(selectionForm);
                         selectionForm.Show();

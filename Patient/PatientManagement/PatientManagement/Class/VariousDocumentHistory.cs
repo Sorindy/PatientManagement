@@ -35,7 +35,7 @@ namespace PatientManagement.Class
                     Nurse = v.Worker1.LastName ,
                     Referrer = v.Referrer.LastName ,
                     Category = v.VariousDocumentCategory.Name,
-                    v.Edit
+                    Edited=v.Edit
                 };
             var bs = new BindingSource { DataSource = getEstimate.ToList() };
 
@@ -45,6 +45,13 @@ namespace PatientManagement.Class
         {
             var get = _db.VariousDocumentEstimates.First(v => v.Id == estimateId).Description;
             return get;
+        }
+
+        public bool CheckDoctorCategory(int workerid, int categoryid)
+        {
+            var check = _db.Managements.First(v => v.Account.WorkerId == workerid).VariousDocumentCategories
+                .Any(v => v.Id == categoryid);
+            return check;
         }
     }
 }

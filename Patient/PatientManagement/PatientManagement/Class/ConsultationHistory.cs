@@ -42,10 +42,18 @@ namespace PatientManagement.Class
 
             return bs;
         }
+       
         public string GetPath(int estimateId)
         {
             var get = _db.ConsultationEstimates.First(v => v.Id == estimateId).Description;
             return get;
+        }
+
+        public bool CheckDoctorCategory(int workerid, int categoryid)
+        {
+            var check = _db.Managements.First(v => v.Account.WorkerId == workerid).ConsultationCategories
+                .Any(v => v.Id == categoryid);
+            return check;
         }
     }
 }
