@@ -210,7 +210,7 @@ namespace PatientManagement
                 }
                 txtDescription.Save(
                     _path + @"RTF\ConsultationEstimate\" + title,
-                    StreamType.RichTextFormat);
+                    StreamType.HTMLFormat);
             }
             if (KeyService == @"Laboratory")
             {
@@ -580,11 +580,27 @@ namespace PatientManagement
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            var print = new PrintMedicalRecordForm
+            if (Patient == null)
             {
-                Account = Account,
-                Patient = Patient
-            };
+                MessageBox.Show(@"Something is going wrong please check again.", @"Error");
+            }
+            if (Account == null)
+            {
+                MessageBox.Show(@"Something is going wrong please check again.", @"Error");
+            }
+            else
+            {
+                string html;
+                txtDescription.Save(out html, StringStreamType.HTMLFormat);
+                txtDescription.Load(html, StringStreamType.HTMLFormat);
+                var wv = new MedicalRecordWebViewer
+                {
+                    html = html,
+                    Patient = WaitingList.Patient,
+                    Account = Account
+                };
+                wv.ShowDialog();
+            }
         }
 
     }

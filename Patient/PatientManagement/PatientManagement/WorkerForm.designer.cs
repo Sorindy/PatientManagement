@@ -391,11 +391,11 @@
             // 
             this.label13.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("RowdyHeavy", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Font = new System.Drawing.Font("Arial Black", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Sienna;
-            this.label13.Location = new System.Drawing.Point(521, 595);
+            this.label13.Location = new System.Drawing.Point(518, 594);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(106, 36);
+            this.label13.Size = new System.Drawing.Size(113, 38);
             this.label13.TabIndex = 0;
             this.label13.Text = "Salary";
             // 
@@ -473,11 +473,11 @@
             // 
             this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("RowdyHeavy", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Font = new System.Drawing.Font("Arial Black", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.Sienna;
-            this.label12.Location = new System.Drawing.Point(511, 496);
+            this.label12.Location = new System.Drawing.Point(506, 493);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(126, 32);
+            this.label12.Size = new System.Drawing.Size(137, 38);
             this.label12.TabIndex = 0;
             this.label12.Text = "Position";
             // 
@@ -485,11 +485,11 @@
             // 
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("RowdyHeavy", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("Arial Black", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Sienna;
-            this.label10.Location = new System.Drawing.Point(527, 332);
+            this.label10.Location = new System.Drawing.Point(524, 323);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(94, 96);
+            this.label10.Size = new System.Drawing.Size(101, 114);
             this.label10.TabIndex = 0;
             this.label10.Text = "Start Work Date";
             // 
@@ -497,11 +497,11 @@
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("RowdyHeavy", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Arial Black", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Sienna;
-            this.label6.Location = new System.Drawing.Point(8, 595);
+            this.label6.Location = new System.Drawing.Point(7, 594);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(136, 36);
+            this.label6.Size = new System.Drawing.Size(138, 38);
             this.label6.TabIndex = 0;
             this.label6.Text = "Address";
             // 
@@ -566,11 +566,11 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("RowdyHeavy", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Arial Black", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Sienna;
-            this.label1.Location = new System.Drawing.Point(3, 35);
+            this.label1.Location = new System.Drawing.Point(25, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(147, 29);
+            this.label1.Size = new System.Drawing.Size(102, 76);
             this.label1.TabIndex = 0;
             this.label1.Text = "First Name";
             // 
@@ -605,11 +605,11 @@
             // 
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("RowdyHeavy", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Arial Black", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Sienna;
-            this.label9.Location = new System.Drawing.Point(528, 231);
+            this.label9.Location = new System.Drawing.Point(524, 228);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(92, 32);
+            this.label9.Size = new System.Drawing.Size(100, 38);
             this.label9.TabIndex = 0;
             this.label9.Text = "Email";
             // 
@@ -617,11 +617,11 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("RowdyHeavy", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Arial Black", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Sienna;
-            this.label2.Location = new System.Drawing.Point(14, 229);
+            this.label2.Location = new System.Drawing.Point(15, 228);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(125, 36);
+            this.label2.Size = new System.Drawing.Size(123, 38);
             this.label2.TabIndex = 0;
             this.label2.Text = "Gender";
             // 
@@ -629,11 +629,11 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("RowdyHeavy", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Arial Black", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Sienna;
-            this.label3.Location = new System.Drawing.Point(39, 364);
+            this.label3.Location = new System.Drawing.Point(36, 361);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 32);
+            this.label3.Size = new System.Drawing.Size(81, 38);
             this.label3.TabIndex = 0;
             this.label3.Text = "DOB";
             // 
@@ -641,11 +641,11 @@
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("RowdyHeavy", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Arial Black", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Sienna;
-            this.label8.Location = new System.Drawing.Point(513, 33);
+            this.label8.Location = new System.Drawing.Point(506, 30);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(123, 32);
+            this.label8.Size = new System.Drawing.Size(136, 38);
             this.label8.TabIndex = 0;
             this.label8.Text = "Phone 1";
             // 
@@ -653,11 +653,11 @@
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("RowdyHeavy", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Arial Black", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Sienna;
-            this.label5.Location = new System.Drawing.Point(42, 494);
+            this.label5.Location = new System.Drawing.Point(39, 493);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(68, 36);
+            this.label5.Size = new System.Drawing.Size(74, 38);
             this.label5.TabIndex = 0;
             this.label5.Text = "Age";
             // 
@@ -665,11 +665,11 @@
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("RowdyHeavy", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Arial Black", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Sienna;
-            this.label7.Location = new System.Drawing.Point(513, 132);
+            this.label7.Location = new System.Drawing.Point(506, 129);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(123, 32);
+            this.label7.Size = new System.Drawing.Size(136, 38);
             this.label7.TabIndex = 0;
             this.label7.Text = "Phone 2";
             // 
@@ -713,11 +713,11 @@
             // 
             this.label14.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("RowdyHeavy", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Font = new System.Drawing.Font("Arial Black", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.Sienna;
-            this.label14.Location = new System.Drawing.Point(6, 134);
+            this.label14.Location = new System.Drawing.Point(25, 110);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(140, 29);
+            this.label14.Size = new System.Drawing.Size(102, 76);
             this.label14.TabIndex = 0;
             this.label14.Text = "Last Name";
             // 
@@ -762,7 +762,7 @@
             this.btnClose.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnClose.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Font = new System.Drawing.Font("Oswald", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Font = new System.Drawing.Font("Arial Black", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.SystemColors.Desktop;
             this.btnClose.Image = global::PatientManagement.Properties.Resources._46795___clear_delete_remove;
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -779,7 +779,7 @@
             this.btnAcc.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnAcc.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnAcc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAcc.Font = new System.Drawing.Font("Oswald", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAcc.Font = new System.Drawing.Font("Arial Black", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAcc.ForeColor = System.Drawing.SystemColors.Desktop;
             this.btnAcc.Image = global::PatientManagement.Properties.Resources._46775___add_user;
             this.btnAcc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -795,7 +795,7 @@
             this.btnDelete.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnDelete.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Font = new System.Drawing.Font("Oswald", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Font = new System.Drawing.Font("Arial Black", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.ForeColor = System.Drawing.SystemColors.Desktop;
             this.btnDelete.Image = global::PatientManagement.Properties.Resources._46839___trash;
             this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -811,7 +811,7 @@
             // 
             this.btnEdit.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnEdit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnEdit.Font = new System.Drawing.Font("Oswald", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.Font = new System.Drawing.Font("Arial Black", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.ForeColor = System.Drawing.SystemColors.Desktop;
             this.btnEdit.Image = global::PatientManagement.Properties.Resources._46798___control_edit;
             this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -828,7 +828,7 @@
             this.btnUpdate.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnUpdate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdate.Font = new System.Drawing.Font("Oswald", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.Font = new System.Drawing.Font("Arial Black", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.SystemColors.Desktop;
             this.btnUpdate.Image = global::PatientManagement.Properties.Resources._46830___save__2_;
             this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -845,7 +845,7 @@
             this.btnCategory.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnCategory.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCategory.Font = new System.Drawing.Font("Oswald", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCategory.Font = new System.Drawing.Font("Arial Black", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCategory.ForeColor = System.Drawing.SystemColors.Desktop;
             this.btnCategory.Image = global::PatientManagement.Properties.Resources._46768___add_address;
             this.btnCategory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
