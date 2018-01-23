@@ -286,7 +286,7 @@ namespace PatientManagement
 
         private void cboCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(cboCategory.SelectedItem==null||cboCategory.SelectedIndex==0)return;
+            if(cboCategory.SelectedItem==null)return;
             txtDescription.Text = "";
             var selectedItem =(KeyValuePair<int,string>)cboCategory.SelectedItem;
             var key = selectedItem.Key;

@@ -17,6 +17,7 @@ namespace PatientManagement
         }
 
         internal MedicalsForm MedicalsForm;
+        internal CatelogForm CatelogForm;
         internal string ServiceText;
         internal int CategoryId=0;
         private ISample _sample;
@@ -43,7 +44,7 @@ namespace PatientManagement
                 cboCategory.ValueMember = "Key";
                 if (ServiceText == @"Consultation")
                 {
-                    cboCategory.SelectedIndex = CategoryId;
+                    cboCategory.SelectedValue = CategoryId;
                     cboCategory_SelectedIndexChanged(this, new EventArgs());
                 }
             }
@@ -55,19 +56,19 @@ namespace PatientManagement
                 cboCategory.ValueMember = "Key";
                 if (ServiceText == @"Laboratory")
                 {
-                    cboCategory.SelectedIndex = CategoryId;
+                    cboCategory.SelectedValue = CategoryId;
                     cboCategory_SelectedIndexChanged(this, new EventArgs());
                 }
             }
-            if (cboService.Text==@"Medical Imaging")
+            if (cboService.Text==@"Medical Imaging"||cboService.Text==@"MedicalImaging")
             {
                 _category = new MedicalImagingCategory();
                 cboCategory.DataSource = new BindingSource(_category.ShowCategoryName(), null);
                 cboCategory.DisplayMember = "Value";
                 cboCategory.ValueMember = "Key";
-                if (ServiceText == @"Medical Imaging")
+                if (ServiceText == @"Medical Imaging" || cboService.Text == @"MedicalImaging")
                 {
-                    cboCategory.SelectedIndex = CategoryId;
+                    cboCategory.SelectedValue = CategoryId;
                     cboCategory_SelectedIndexChanged(this, new EventArgs());
                 }
             }
@@ -79,19 +80,19 @@ namespace PatientManagement
                 cboCategory.ValueMember = "Key";
                 if (ServiceText == @"Prescription")
                 {
-                    cboCategory.SelectedIndex = CategoryId;
+                    cboCategory.SelectedValue = CategoryId;
                     cboCategory_SelectedIndexChanged(this, new EventArgs());
                 }
             }
-            if (cboService.Text==@"Various Document")
+            if (cboService.Text == @"Various Document" || cboService.Text == @"VariousDocument")
             {
                 _category = new VariousDocumentCategory();
                 cboCategory.DataSource = new BindingSource(_category.ShowCategoryName(), null);
                 cboCategory.DisplayMember = "Value";
                 cboCategory.ValueMember = "Key";
-                if (ServiceText == @"Various Document")
+                if (ServiceText == @"Various Document" || cboService.Text == @"VariousDocument")
                 {
-                    cboCategory.SelectedIndex = CategoryId;
+                    cboCategory.SelectedValue = CategoryId;
                     cboCategory_SelectedIndexChanged(this, new EventArgs());
                 }
             }
@@ -118,7 +119,8 @@ namespace PatientManagement
                 _sample = new LaboratorySample();
                 var dic = _sample.ShowDictionary(key);
                 if (dic.Count == 0) return;
-                cboTitle.DataSource = new BindingSource(dic, null); cboTitle.DisplayMember = "Value";
+                cboTitle.DataSource = new BindingSource(dic, null); 
+                cboTitle.DisplayMember = "Value";
                 cboTitle.ValueMember = "Key";
             }
             if (cboService.Text==@"Medical Imaging")
@@ -126,7 +128,8 @@ namespace PatientManagement
                 _sample = new MedicalImagingSample();
                 var dic = _sample.ShowDictionary(key);
                 if (dic.Count == 0) return;
-                cboTitle.DataSource = new BindingSource(dic, null); cboTitle.DisplayMember = "Value";
+                cboTitle.DataSource = new BindingSource(dic, null); 
+                cboTitle.DisplayMember = "Value";
                 cboTitle.ValueMember = "Key";
             }
             if (cboService.Text==@"Prescription")
@@ -134,7 +137,8 @@ namespace PatientManagement
                 _sample = new PrescriptionSample();
                 var dic = _sample.ShowDictionary(key);
                 if (dic.Count == 0) return;
-                cboTitle.DataSource = new BindingSource(dic, null); cboTitle.DisplayMember = "Value";
+                cboTitle.DataSource = new BindingSource(dic, null);
+                cboTitle.DisplayMember = "Value";
                 cboTitle.ValueMember = "Key";
             }
             if (cboService.Text==@"Various Document")
@@ -142,7 +146,8 @@ namespace PatientManagement
                 _sample = new VariousDocumentSample();
                 var dic = _sample.ShowDictionary(key);
                 if (dic.Count == 0) return;
-                cboTitle.DataSource = new BindingSource(dic, null); cboTitle.DisplayMember = "Value";
+                cboTitle.DataSource = new BindingSource(dic, null); 
+                cboTitle.DisplayMember = "Value";
                 cboTitle.ValueMember = "Key";
             }
         }
@@ -258,6 +263,8 @@ namespace PatientManagement
         private void btnClose_Click(object sender, EventArgs e)
         {
             Close();
+            CatelogForm.pnlFill.Controls.Clear();
+            CatelogForm.pnlFill.Controls.Add(MedicalsForm);
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -268,7 +275,8 @@ namespace PatientManagement
                 txtDescription.Save(out html, StringStreamType.HTMLFormat);
                 txtDescription.Load(html, StringStreamType.HTMLFormat);
                 MedicalsForm.txtDescription.Load(Str+html, StringStreamType.HTMLFormat);
-                
+                CatelogForm.pnlFill.Controls.Clear();
+                CatelogForm.pnlFill.Controls.Add(MedicalsForm);
                 Close();
             }
             else

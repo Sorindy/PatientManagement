@@ -233,10 +233,10 @@
     <Compile Include="ManagementForm.designer.cs">
       <DependentUpon>ManagementForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MedicalRecord.cs">
+    <Compile Include="MedicalRecords.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>MedicalRecord.rpt</DependentUpon>
+      <DependentUpon>MedicalRecords.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="MedicalsForm.cs">
@@ -391,9 +391,9 @@
     <EmbeddedResource Include="ManagementForm.resx">
       <DependentUpon>ManagementForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MedicalRecord.rpt">
+    <EmbeddedResource Include="MedicalRecords.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>MedicalRecord.cs</LastGenOutput>
+      <LastGenOutput>MedicalRecords.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="MedicalsForm.resx">
       <DependentUpon>MedicalsForm.cs</DependentUpon>
@@ -488,6 +488,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MetroFramework.txt" />
+    <None Include="Resources\46798 - control edit.png" />
+    <None Include="Resources\46830 - save %282%29.png" />
+    <None Include="Resources\folder.png" />
+    <None Include="Resources\46768 - add address.png" />
+    <None Include="Resources\46775 - add user.png" />
+    <None Include="Resources\46839 - trash.png" />
+    <None Include="Resources\46795 - clear delete remove.png" />
     <Content Include="UpdateTable\02.01.18 add PatientIdentify in patientTable.sql" />
     <Content Include="UpdateTable\29.12.17 add boolean to ConsultationCategory.sql" />
     <Content Include="UpdateTable\29.12.17 add boolean to LaboratoryCategory.sql" />

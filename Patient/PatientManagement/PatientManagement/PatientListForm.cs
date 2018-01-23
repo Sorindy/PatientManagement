@@ -71,28 +71,36 @@ namespace PatientManagement
                 {
                     var id = dgvListPatient.CurrentRow.Cells[0].Value;
                     var patient = _patient.Select(Convert.ToInt32(id));
-                    var form = new HistorysForm() {Account = Account,Patient = patient,CatelogForm = CatelogForm};
-                    form.ShowDialog();
+                    var form = new HistorysForm() {Account = Account,Patient = patient,CatelogForm = CatelogForm,TopLevel = false,Dock = DockStyle.Fill};
+                    CatelogForm.pnlFill.Controls.Clear();
+                    CatelogForm.pnlFill.Controls.Add(form);
+                    form.Show();
                 }
             }
         }
 
         private void lblNew_Click(object sender, EventArgs e)
         {
-            var form = new NewPatient {PatientListForm = this};
-            form.ShowDialog();
+            var form = new NewPatient {PatientListForm = this,TopLevel = false,Dock = DockStyle.Fill};
+            CatelogForm.pnlFill.Controls.Clear();
+            CatelogForm.pnlFill.Controls.Add(form);
+            form.Show();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            var form = new NewPatient { PatientListForm = this };
-            form.ShowDialog();
+            var form = new NewPatient { PatientListForm = this, TopLevel = false ,Dock = DockStyle.Fill};
+            CatelogForm.pnlFill.Controls.Clear();
+            CatelogForm.pnlFill.Controls.Add(form);
+            form.Show();
         }
 
         private void tableLayoutPanel3_Click(object sender, EventArgs e)
         {
-            var form = new NewPatient { PatientListForm = this };
-            form.ShowDialog();
+            var form = new NewPatient { PatientListForm = this, TopLevel = false,Dock = DockStyle.Fill};
+            CatelogForm.pnlFill.Controls.Clear();
+            CatelogForm.pnlFill.Controls.Add(form);
+            form.Show();
         }
     }
 }

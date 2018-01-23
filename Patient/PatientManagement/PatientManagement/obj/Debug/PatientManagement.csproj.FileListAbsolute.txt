@@ -149,3 +149,4 @@ E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\Interop.CrystalActiveXReportViewerLib13.dll
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\AxInterop.CrystalActiveXReportViewerLib13.dll
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.PrintMedicalRecordForm.resources
+E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.PrintMedicalRecordForm.resources

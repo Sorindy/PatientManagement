@@ -26,11 +26,11 @@ namespace PatientManagement
         internal Account Account;
         internal Patient Patient;
         internal Worker Worker;
+        internal CatelogForm CatelogForm;
         private readonly Class.WaitingList _waitingList = new Class.WaitingList();
         internal WaitingList WaitingList;
         private ICategory _category;
         internal MedicalRecord Medical = new MedicalRecord();
-        private int _indexCategory;
         internal int KeyCategory;
         internal string KeyService;
         private int? _keyNurse;
@@ -53,11 +53,16 @@ namespace PatientManagement
             var form = new SamplesDialogForm()
             {
                 MedicalsForm = this,
-                CategoryId = _indexCategory,
-                ServiceText = cboService.Text,
-                Str = html
+                CategoryId = KeyCategory,
+                ServiceText = KeyService,
+                Str = html,
+                Dock = DockStyle.Fill
+                ,CatelogForm = CatelogForm,
+                TopLevel = false
             };
-            form.ShowDialog();
+            CatelogForm.pnlFill.Controls.Clear();
+            CatelogForm.pnlFill.Controls.Add(form);
+            form.Show();
         }
 
         //C:\Users\Health\Desktop\Debug
@@ -66,8 +71,10 @@ namespace PatientManagement
         {
             if (Patient != null)
             {
-                txtNamePatient.Text = Patient.FirstName + @"  " + Patient.LastName;
-                txtGenderPatient.Text = Patient.Gender;
+                lblPName.Text = Patient.FirstName + @"  " + Patient.LastName;
+                lblPGender.Text = Patient.Gender;
+                lblPAddress.Text = Patient.Address;
+                lblPPhone.Text = Patient.Phone1;
             }
             
             var path = AppDomain.CurrentDomain.BaseDirectory;
@@ -77,7 +84,6 @@ namespace PatientManagement
             picHideRight.ImageLocation = _path + @"Hide-right-icon.png";
             picHideTop.ImageLocation = _path + @"Hide-Up-icon.png";
             picHideLeft.ImageLocation = _path + @"Hide-left-icon.png";
-            txtNameDoctor.Text = Account.Worker.LastName;
             txtDescription.ForeColor = Color.Black;
             AddNodesToTree();
         }
@@ -132,8 +138,10 @@ namespace PatientManagement
             form.ShowDialog();
             if (Patient != null)
             {
-                txtNamePatient.Text = Patient.LastName;
-                txtGenderPatient.Text = Patient.Gender;
+                lblPName.Text = Patient.FirstName + @"  " + Patient.LastName;
+                lblPGender.Text = Patient.Gender;
+                lblPAddress.Text = Patient.Address;
+                lblPPhone.Text = Patient.Phone1;
                 if (btnPatient.Name == "btnPatient")
                 {
                     btnPatient.Name = "btnInfoPatient";
@@ -284,81 +292,18 @@ namespace PatientManagement
             Clear();
         }
 
-        private void cboService_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cboService.Text == @"Consultation")
-            {
-                _category = new ConsultationCategory();
-                cboCategory.DataSource = null;
-                var dic = _category.ShowCategoryForDoctor(Account.WorkerId);
-                if (dic.Count != 0)
-                {
-                    cboCategory.DataSource = new BindingSource(dic, null);
-                    cboCategory.DisplayMember = "Value";
-                    cboCategory.ValueMember = "Key";
-                }
-            }
-            if (cboService.Text == @"Laboratory")
-            {
-                _category = new LaboratoryCategory();
-                cboCategory.DataSource = null;
-                var dic = _category.ShowCategoryForDoctor(Account.WorkerId);
-                if (dic.Count != 0)
-                {
-                    cboCategory.DataSource = new BindingSource(dic, null);
-                    cboCategory.DisplayMember = "Value";
-                    cboCategory.ValueMember = "Key";
-                }
-            }
-            if (cboService.Text == @"Medical Imaging")
-            {
-                _category = new MedicalImagingCategory();
-                cboCategory.DataSource = null;
-                var dic = _category.ShowCategoryForDoctor(Account.WorkerId);
-                if (dic.Count != 0)
-                {
-                    cboCategory.DataSource = new BindingSource(dic, null);
-                    cboCategory.DisplayMember = "Value";
-                    cboCategory.ValueMember = "Key";
-                }
-            }
-            if (cboService.Text == @"Prescription")
-            {
-                _category = new PrescriptionCategory();
-                cboCategory.DataSource = null;
-                var dic = _category.ShowCategoryForDoctor(Account.WorkerId);
-                if (dic.Count != 0)
-                {
-                    cboCategory.DataSource = new BindingSource(dic, null);
-                    cboCategory.DisplayMember = "Value";
-                    cboCategory.ValueMember = "Key";
-                }
-            }
-            if (cboService.Text == @"Various Document")
-            {
-                _category = new VariousDocumentCategory();
-                cboCategory.DataSource = null;
-                var dic = _category.ShowCategoryForDoctor(Account.WorkerId);
-                if (dic.Count != 0)
-                {
-                    cboCategory.DataSource = new BindingSource(dic, null);
-                    cboCategory.DisplayMember = "Value";
-                    cboCategory.ValueMember = "Key";
-                }
-            }
-        }
-
+        
         internal void chkBoxReferrer_CheckedChanged(object sender, EventArgs e)
         {
             if (chkBoxReferrer.Checked)
             {
-                //var dicReferrer = Medical.ShowReferrer();
-                //if (dicReferrer.Count != 0)
-                //{
-                //    cboReferrer.DataSource = new BindingSource(dicReferrer, null);
-                //    cboReferrer.DisplayMember = "Value";
-                //    cboReferrer.ValueMember = "Key";
-                //}
+                var dicReferrer = Medical.ShowReferrer();
+                if (dicReferrer.Count != 0)
+                {
+                    cboReferrer.DataSource = new BindingSource(dicReferrer, null);
+                    cboReferrer.DisplayMember = "Value";
+                    cboReferrer.ValueMember = "Key";
+                }
             }
             else
             {
@@ -370,28 +315,16 @@ namespace PatientManagement
         {
             if (chkBoxNurse.Checked)
             {
-               // var dicNurse = Medical.ShowNurse();
-                //if (dicNurse.Count != 0)
-                {
-                    //cboNurse.DataSource = new BindingSource(dicNurse, null);
-                    cboNurse.DisplayMember = "Value";
-                    cboNurse.ValueMember = "Key";
-                }
+                var dicNurse = Medical.ShowNurse();
+                if (dicNurse.Count == 0) return;
+                cboNurse.DataSource = new BindingSource(dicNurse, null);
+                cboNurse.DisplayMember = "Value";
+                cboNurse.ValueMember = "Key";
             }
             else
             {
                 cboNurse.DataSource = null;
             }
-        }
-
-        private void cboCategory_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cboCategory.DataSource == null) return;
-
-            var selectedItem = cboCategory.SelectedIndex;
-            _indexCategory = selectedItem;
-            var selectkey = (KeyValuePair<int, string>) cboCategory.SelectedItem;
-            KeyCategory = selectkey.Key;
         }
 
         private void picAddDate_Click(object sender, EventArgs e)
@@ -484,8 +417,10 @@ namespace PatientManagement
             WaitingList = null;
             Patient = null;
 
-            txtNamePatient.Text = "";
-            txtGenderPatient.Text = "";
+            lblPName.Text = "";
+            lblPGender.Text = "";
+            lblPAddress.Text = "";
+            lblPPhone.Text = "";
             if (btnPatient.Name == "btnInfoPatient")
             {
                 btnPatient.Name = "btnPatient";
@@ -567,7 +502,7 @@ namespace PatientManagement
                 }
                 if (e.Node.Parent.Name == "MedicalImaging")
                 {
-                    KeyService = "MedicalImaging";
+                    KeyService = "Medical Imaging";
                     KeyCategory = Convert.ToInt32(e.Node.TreeView.SelectedNode.Name);
                 }
                 if (e.Node.Parent.Name == "Prescription")
@@ -577,7 +512,7 @@ namespace PatientManagement
                 }
                 if (e.Node.Parent.Name == "VariousDocument")
                 {
-                    KeyService = "VariousDocuemtn";
+                    KeyService = "Various Docuemtn";
                     KeyCategory = Convert.ToInt32(e.Node.TreeView.SelectedNode.Name);
                 }
             }
@@ -645,21 +580,11 @@ namespace PatientManagement
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            if (Patient == null)
+            var print = new PrintMedicalRecordForm
             {
-                MessageBox.Show(@"Something is going wrong please check again.", @"Error");
-            }
-            if (Account == null)
-            {
-                MessageBox.Show(@"Something is going wrong please check again.", @"Error");
-            }
-            else
-            {
-                var print = new PrintMedicalRecordForm();
-                print.Patient = WaitingList.Patient ;
-                print.Account = Account;
-                print.Show();
-            }
+                Account = Account,
+                Patient = Patient
+            };
         }
 
     }

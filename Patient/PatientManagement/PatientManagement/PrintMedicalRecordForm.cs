@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Linq;
+using CrystalDecisions.CrystalReports.ViewerObjectModel;
+using CrystalDecisions.Shared;
 using Hospital_Entity_Framework;
 using Form = System.Windows.Forms.Form;
 
@@ -19,13 +21,13 @@ namespace PatientManagement
         private void PrintMedicalRecordForm_Load(object sender, EventArgs e)
         {
             
-            MedicalRecord1.SetParameterValue("pPatientName", Patient.FirstName+" "+Patient.LastName +"( " +Patient.KhmerName  +" )");
-            MedicalRecord1.SetParameterValue("pGender",Patient.Gender);
-            MedicalRecord1.SetParameterValue("pDatetime", DateTime.Now);
-            MedicalRecord1.SetParameterValue("pDoctorName", Account.Worker.FirstName +" "+ Account.Worker.LastName);
-            MedicalRecord1.SetParameterValue("pAge",Patient.Age);
-            MedicalRecord1.SetParameterValue("pPdfPath", @"D:\PatientManagement\Patient\RTF\ConsultationEstimate\Work.docx");
-            crystalReportViewer1.ReportSource = MedicalRecord1 ;
+            MedicalRecords1.SetParameterValue("pPatientName", Patient.FirstName+" "+Patient.LastName +"( " +Patient.KhmerName  +" )");
+            MedicalRecords1.SetParameterValue("pGender",Patient.Gender);
+            MedicalRecords1.SetParameterValue("pDatetime", DateTime.Now);
+            MedicalRecords1.SetParameterValue("pDoctorName", Account.Worker.FirstName +" "+ Account.Worker.LastName);
+            MedicalRecords1.SetParameterValue("pAge",Patient.Age);
+            MedicalRecords1.SetParameterValue("pPdfPath", @"C:\Users\Hotso\Desktop\CV.pdf");
+            crystalReportViewer1.ReportSource = MedicalRecords1 ;
         }
     }
 }

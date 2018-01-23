@@ -94,7 +94,7 @@ namespace PatientManagement
         }
 
         private void WorkerForm_Shown(object sender, EventArgs e)
-        {
+        {            
             txtfName.Text = Worker.FirstName;
             txtlName.Text = Worker.LastName;
             txtAge.Text = Worker.Age.ToString();
@@ -128,8 +128,9 @@ namespace PatientManagement
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            WorkerListForm.dgvListWorker.Columns.RemoveAt(8);
-            WorkerListForm.dgvListWorker.Columns.RemoveAt(8);
+            WorkerListForm.dgvListWorker.Columns.Clear();
+            WorkerListForm.CatelogForm.pnlFill.Controls.Clear();
+            WorkerListForm.CatelogForm.pnlFill.Controls.Add(WorkerListForm);
             WorkerListForm.WorkerListForm_Shown(WorkerListForm, new EventArgs());
             Close();
         }
@@ -173,8 +174,9 @@ namespace PatientManagement
             {
                 _worker.Update(Worker.Id, txtfName.Text,txtlName.Text, cboGender.Text, dtpDOB.Value, Convert.ToByte(txtAge.Text), txtAddress.Text, txtPhone1.Text,
                     txtPhone2.Text, txtEmail.Text, cboPosition.Text, Convert.ToInt32(txtSalary.Text), dtpSWD.Value);
-                WorkerListForm.dgvListWorker.Columns.RemoveAt(8);
-                WorkerListForm.dgvListWorker.Columns.RemoveAt(8);
+                WorkerListForm.dgvListWorker.Columns.Clear();
+                WorkerListForm.CatelogForm.pnlFill.Controls.Clear();
+                WorkerListForm.CatelogForm.pnlFill.Controls.Add(WorkerListForm);
                 WorkerListForm.WorkerListForm_Shown(this, new EventArgs());
                 WorkerListForm.Worker=new Class.Worker();
                 Close();
@@ -200,8 +202,9 @@ namespace PatientManagement
             if (showDeleteMsg == DialogResult.Yes)
             {
                 _worker.Delete(Worker.Id);
-                WorkerListForm.dgvListWorker.Columns.RemoveAt(8);
-                WorkerListForm.dgvListWorker.Columns.RemoveAt(8);
+                WorkerListForm.dgvListWorker.Columns.Clear();
+                WorkerListForm.CatelogForm.pnlFill.Controls.Clear();
+                WorkerListForm.CatelogForm.pnlFill.Controls.Add(WorkerListForm);
                 WorkerListForm.WorkerListForm_Shown(WorkerListForm, new EventArgs());
                 Close();
             }
@@ -216,13 +219,13 @@ namespace PatientManagement
             var check= _account.CheckAccount(Worker.Id);
             if (check == 0)
             {
-                btnAcc.Text = @"Create Account";
+                btnAcc.Text = @"Create"+Environment.NewLine+@"Account";
                 btnAcc.Name = @"btnCreate";
                 btnAcc.Click += CreateAccount_Click;
             }
             else
             {
-                btnAcc.Text = @"Update Account";
+                btnAcc.Text = @"Update"+Environment.NewLine+@"Account";
                 btnAcc.Name = @"btnUpdate";
                 btnAcc.Click += UpdateAccount_Click;
             }
