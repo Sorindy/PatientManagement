@@ -55,7 +55,6 @@ D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\Patie
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.PrintWaitingForm.resources
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.Properties.Resources.resources
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.RefferrerForm.resources
-D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.SampleForm.resources
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.SamplesDialogForm.resources
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.SamplesForm.resources
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.SearchPatient.resources
@@ -148,4 +147,4 @@ E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\de\TXDrawing.resources.dll
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\Interop.CrystalActiveXReportViewerLib13.dll
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\AxInterop.CrystalActiveXReportViewerLib13.dll
-D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.PrintMedicalRecordForm.resources
+D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.MedicalRecordWebViewer.resources

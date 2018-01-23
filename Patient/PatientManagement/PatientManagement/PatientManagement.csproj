@@ -233,10 +233,16 @@
     <Compile Include="ManagementForm.designer.cs">
       <DependentUpon>ManagementForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MedicalRecord.cs">
+    <Compile Include="MedicalRecordWebViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MedicalRecordWebViewer.Designer.cs">
+      <DependentUpon>MedicalRecordWebViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MedicalReports.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>MedicalRecord.rpt</DependentUpon>
+      <DependentUpon>MedicalReports.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="MedicalsForm.cs">
@@ -275,12 +281,6 @@
     <Compile Include="PatientListForm.Designer.cs">
       <DependentUpon>PatientListForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="PrintMedicalRecordForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PrintMedicalRecordForm.Designer.cs">
-      <DependentUpon>PrintMedicalRecordForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="PrintWaitingForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -294,12 +294,6 @@
     </Compile>
     <Compile Include="RefferrerForm.Designer.cs">
       <DependentUpon>RefferrerForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SampleForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SampleForm.designer.cs">
-      <DependentUpon>SampleForm.cs</DependentUpon>
     </Compile>
     <Compile Include="SamplesDialogForm.cs">
       <SubType>Form</SubType>
@@ -391,9 +385,12 @@
     <EmbeddedResource Include="ManagementForm.resx">
       <DependentUpon>ManagementForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MedicalRecord.rpt">
+    <EmbeddedResource Include="MedicalRecordWebViewer.resx">
+      <DependentUpon>MedicalRecordWebViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MedicalReports.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>MedicalRecord.cs</LastGenOutput>
+      <LastGenOutput>MedicalReports.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="MedicalsForm.resx">
       <DependentUpon>MedicalsForm.cs</DependentUpon>
@@ -413,9 +410,6 @@
     <EmbeddedResource Include="PatientListForm.resx">
       <DependentUpon>PatientListForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PrintMedicalRecordForm.resx">
-      <DependentUpon>PrintMedicalRecordForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="PrintWaitingForm.resx">
       <DependentUpon>PrintWaitingForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -432,9 +426,6 @@
     </Compile>
     <EmbeddedResource Include="RefferrerForm.resx">
       <DependentUpon>RefferrerForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SampleForm.resx">
-      <DependentUpon>SampleForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SamplesDialogForm.resx">
       <DependentUpon>SamplesDialogForm.cs</DependentUpon>
