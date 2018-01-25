@@ -32,9 +32,9 @@
             this.pnBoss = new System.Windows.Forms.Panel();
             this.pnMiddle = new System.Windows.Forms.Panel();
             this.pnTop = new System.Windows.Forms.Panel();
-            this.btnPrint = new System.Windows.Forms.Button();
             this.crystalReportViewer = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.MedicalReports1 = new PatientManagement.MedicalReports();
+            this.btnPrint = new System.Windows.Forms.Button();
             this.pnBoss.SuspendLayout();
             this.pnMiddle.SuspendLayout();
             this.pnTop.SuspendLayout();
@@ -78,6 +78,18 @@
             this.pnTop.Size = new System.Drawing.Size(998, 51);
             this.pnTop.TabIndex = 1;
             // 
+            // crystalReportViewer
+            // 
+            this.crystalReportViewer.ActiveViewIndex = 0;
+            this.crystalReportViewer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.crystalReportViewer.Cursor = System.Windows.Forms.Cursors.Default;
+            this.crystalReportViewer.Location = new System.Drawing.Point(985, 13);
+            this.crystalReportViewer.Name = "crystalReportViewer";
+            this.crystalReportViewer.ReportSource = this.MedicalReports1;
+            this.crystalReportViewer.Size = new System.Drawing.Size(10, 33);
+            this.crystalReportViewer.TabIndex = 1;
+            this.crystalReportViewer.Visible = false;
+            // 
             // btnPrint
             // 
             this.btnPrint.Location = new System.Drawing.Point(7, 11);
@@ -87,18 +99,6 @@
             this.btnPrint.Text = "Print";
             this.btnPrint.UseVisualStyleBackColor = true;
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
-            // 
-            // crystalReportViewer
-            // 
-            this.crystalReportViewer.ActiveViewIndex = 0;
-            this.crystalReportViewer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.crystalReportViewer.Cursor = System.Windows.Forms.Cursors.Default;
-            this.crystalReportViewer.Location = new System.Drawing.Point(697, 12);
-            this.crystalReportViewer.Name = "crystalReportViewer";
-            this.crystalReportViewer.ReportSource = this.MedicalReports1;
-            this.crystalReportViewer.Size = new System.Drawing.Size(289, 22);
-            this.crystalReportViewer.TabIndex = 1;
-            this.crystalReportViewer.Visible = false;
             // 
             // MedicalRecordWebViewer
             // 
