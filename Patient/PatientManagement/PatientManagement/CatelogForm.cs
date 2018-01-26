@@ -24,10 +24,19 @@ namespace PatientManagement
             txtUserName.Text = Account.Worker.FirstName+@"  "+Account.Worker.LastName;
             timer1.Enabled = true;
             timer1_Tick(this,new EventArgs());
+            //MaximizeForm();
             WindowState=FormWindowState.Maximized;
             pnlLeftFill.Controls.Clear();
             pnlLeftFill.Controls.Add(_login.ButtonToForm(Account));
         }
+
+        //private void MaximizeForm()
+        //{
+        //    FormBorderStyle =FormBorderStyle.None;
+        //    Left = Top = 0;
+        //    Width = Screen.PrimaryScreen.WorkingArea.Width;
+        //    Height = Screen.PrimaryScreen.WorkingArea.Height;
+        //}
 
         private void tblClose_Click(object sender, EventArgs e)
         {
@@ -44,22 +53,22 @@ namespace PatientManagement
             Application.Exit();
         }
 
-        private void picMinimize_Click(object sender, EventArgs e)
-        {
-            WindowState=FormWindowState.Minimized;
-        }
+        //private void picMinimize_Click(object sender, EventArgs e)
+        //{
+        //    WindowState=FormWindowState.Minimized;
+        //}
 
-        private void picMazimize_Click(object sender, EventArgs e)
-        {
-            WindowState=FormWindowState.Maximized;
-            FormBorderStyle=FormBorderStyle.None;
-        }
+        //private void picMazimize_Click(object sender, EventArgs e)
+        //{
+        //    WindowState=FormWindowState.Maximized;
+        //    FormBorderStyle=FormBorderStyle.None;
+        //}
 
-        private void pictureBox1_Click_1(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Normal;
-            FormBorderStyle=FormBorderStyle.Sizable;
-        }
+        //private void pictureBox1_Click_1(object sender, EventArgs e)
+        //{
+        //    WindowState = FormWindowState.Normal;
+        //    FormBorderStyle=FormBorderStyle.Sizable;
+        //}
 
         private void panelLogout_Click(object sender, EventArgs e)
         {

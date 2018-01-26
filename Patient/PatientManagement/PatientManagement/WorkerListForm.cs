@@ -17,16 +17,9 @@ namespace PatientManagement
         
         private void CheckOrderDgv()
         {
-            for(int i=0;i<=dgvListWorker.RowCount-1;i++)
+            for(var i=0;i<=dgvListWorker.RowCount-1;i++)
             {
-                if (i % 2 == 0)
-                {
-                    dgvListWorker.Rows[i].DefaultCellStyle.BackColor = Color.LightGray;
-                }
-                else
-                {
-                    dgvListWorker.Rows[i].DefaultCellStyle.BackColor = Color.MintCream;
-                }
+                dgvListWorker.Rows[i].DefaultCellStyle.BackColor = i % 2 == 0 ? Color.LightGray : Color.MintCream;
             }
         }
 
@@ -151,6 +144,5 @@ namespace PatientManagement
                 }
             }
         }
-
     }
 }

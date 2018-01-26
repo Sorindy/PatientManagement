@@ -81,7 +81,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.82759F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.17242F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 132F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 174F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 175F));
             this.tableLayoutPanel2.Controls.Add(this.label2, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.label3, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.txtName, 1, 0);
@@ -100,7 +100,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Oswald", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(500, 4);
+            this.label2.Location = new System.Drawing.Point(499, 4);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(89, 47);
             this.label2.TabIndex = 0;
@@ -127,7 +127,7 @@
             this.txtName.Multiline = true;
             this.txtName.Name = "txtName";
             this.txtName.ReadOnly = true;
-            this.txtName.Size = new System.Drawing.Size(316, 49);
+            this.txtName.Size = new System.Drawing.Size(315, 49);
             this.txtName.TabIndex = 2;
             // 
             // txtGender
@@ -135,11 +135,11 @@
             this.txtGender.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.txtGender.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtGender.Font = new System.Drawing.Font("Modern No. 20", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGender.Location = new System.Drawing.Point(614, 3);
+            this.txtGender.Location = new System.Drawing.Point(613, 3);
             this.txtGender.Multiline = true;
             this.txtGender.Name = "txtGender";
             this.txtGender.ReadOnly = true;
-            this.txtGender.Size = new System.Drawing.Size(169, 49);
+            this.txtGender.Size = new System.Drawing.Size(170, 49);
             this.txtGender.TabIndex = 3;
             // 
             // tblSearch
@@ -205,7 +205,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 534F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 376F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(257, 609);
             this.tableLayoutPanel1.TabIndex = 1;
@@ -216,9 +216,9 @@
             this.gboButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gboButton.Font = new System.Drawing.Font("Kh Battambang", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gboButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.gboButton.Location = new System.Drawing.Point(13, 40);
+            this.gboButton.Location = new System.Drawing.Point(13, 119);
             this.gboButton.Name = "gboButton";
-            this.gboButton.Size = new System.Drawing.Size(231, 528);
+            this.gboButton.Size = new System.Drawing.Size(231, 370);
             this.gboButton.TabIndex = 0;
             this.gboButton.TabStop = false;
             this.gboButton.Text = "ប្រតិបត្តិការណ៏";
@@ -235,25 +235,25 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 5;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 110F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 110F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(225, 482);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(225, 324);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
             // btnSubmit
             // 
-            this.btnSubmit.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnSubmit.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnSubmit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSubmit.Font = new System.Drawing.Font("Oswald", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmit.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnSubmit.ForeColor = System.Drawing.SystemColors.Desktop;
             this.btnSubmit.Image = ((System.Drawing.Image)(resources.GetObject("btnSubmit.Image")));
             this.btnSubmit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSubmit.Location = new System.Drawing.Point(3, 89);
+            this.btnSubmit.Location = new System.Drawing.Point(3, 57);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(219, 104);
+            this.btnSubmit.Size = new System.Drawing.Size(219, 74);
             this.btnSubmit.TabIndex = 0;
             this.btnSubmit.Text = "បញ្ចូល";
             this.btnSubmit.UseVisualStyleBackColor = false;
@@ -261,16 +261,16 @@
             // 
             // btnClear
             // 
-            this.btnClear.BackColor = System.Drawing.Color.Tomato;
+            this.btnClear.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnClear.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Oswald", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnClear.ForeColor = System.Drawing.SystemColors.Desktop;
             this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
             this.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClear.Location = new System.Drawing.Point(3, 285);
+            this.btnClear.Location = new System.Drawing.Point(3, 191);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(219, 104);
+            this.btnClear.Size = new System.Drawing.Size(219, 74);
             this.btnClear.TabIndex = 1;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;

@@ -76,7 +76,15 @@ namespace PatientManagement
                 lblPAddress.Text = Patient.Address;
                 lblPPhone.Text = Patient.Phone1;
             }
-            
+
+            if (WaitingList != null)
+            {
+                lblPName.Text = WaitingList.Patient.FirstName + @"  " + WaitingList.Patient.LastName;
+                lblPGender.Text = WaitingList.Patient.Gender;
+                lblPAddress.Text = WaitingList.Patient.Address;
+                lblPPhone.Text = WaitingList.Patient.Phone1;
+            }
+
             var path = AppDomain.CurrentDomain.BaseDirectory;
             _path = path.Remove(path.Length - 46);
             //_path = path;
@@ -85,6 +93,7 @@ namespace PatientManagement
             picHideTop.ImageLocation = _path + @"Hide-Up-icon.png";
             picHideLeft.ImageLocation = _path + @"Hide-left-icon.png";
             txtDescription.ForeColor = Color.Black;
+            btnSample.Text = @"Save as" + Environment.NewLine + @"Sample";
             AddNodesToTree();
         }
 
@@ -486,37 +495,13 @@ namespace PatientManagement
 
         private void treeSelection_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            KeyService = "";
-            if (e.Node.Name != "Consultation" && e.Node.Name != "Laboratory" && e.Node.Name != "MedicalImaging" &&
-                e.Node.Name != "Prescription" && e.Node.Name != "VariousDocument")
+            if (KeyService != null)
             {
-                if (e.Node.Parent.Name == "Consultation")
-                {
-                    KeyService = "Consultation";
-                    KeyCategory = Convert.ToInt32(e.Node.TreeView.SelectedNode.Name);
-                }
-                if (e.Node.Parent.Name == "Laboratory")
-                {
-                    KeyService = "Laboratory";
-                    KeyCategory = Convert.ToInt32(e.Node.TreeView.SelectedNode.Name);
-                }
-                if (e.Node.Parent.Name == "MedicalImaging")
-                {
-                    KeyService = "Medical Imaging";
-                    KeyCategory = Convert.ToInt32(e.Node.TreeView.SelectedNode.Name);
-                }
-                if (e.Node.Parent.Name == "Prescription")
-                {
-                    KeyService = "Prescription";
-                    KeyCategory = Convert.ToInt32(e.Node.TreeView.SelectedNode.Name);
-                }
-                if (e.Node.Parent.Name == "VariousDocument")
-                {
-                    KeyService = "Various Docuemtn";
-                    KeyCategory = Convert.ToInt32(e.Node.TreeView.SelectedNode.Name);
-                }
+               var msg=  MessageBox.Show(
+                    @"You had already selected this service " + KeyService + @" . Are you sure to change this?",
+                    @"Selection Change", MessageBoxButtons.YesNo);
+                if(msg==DialogResult.Yes){}
             }
-
         }
 
         private void AddNodesToTree()

@@ -469,7 +469,12 @@ namespace PatientManagement.Class
                     var chk = _db.Forms.First(v => v.Id == get);
                     getManagement.Forms.Add(chk);
                 }
-                
+                if (itemTemp.Forms == "WaitingList's Form")
+                {
+                    var get = Convert.ToInt32(itemTemp.Categorys);
+                    var chk = _db.Forms.First(v => v.Id == get);
+                    getManagement.Forms.Add(chk);
+                }
             }
             _db.SaveChanges();
         }

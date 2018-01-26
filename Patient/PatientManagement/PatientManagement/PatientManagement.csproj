@@ -331,6 +331,12 @@
       <DependentUpon>Waiting.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="WaitingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaitingForm.Designer.cs">
+      <DependentUpon>WaitingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="WaitingListForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -446,6 +452,9 @@
     <EmbeddedResource Include="Waiting.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Waiting.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaitingForm.resx">
+      <DependentUpon>WaitingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WaitingListForm.resx">
       <DependentUpon>WaitingListForm.cs</DependentUpon>

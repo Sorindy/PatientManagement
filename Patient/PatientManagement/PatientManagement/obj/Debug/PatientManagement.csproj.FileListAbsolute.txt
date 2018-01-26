@@ -73,3 +73,4 @@ E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\AxInterop.CrystalActiveXReportViewerLib13.dll
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.exe
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.pdb
+E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.WaitingForm.resources

@@ -215,6 +215,27 @@ namespace PatientManagement.Class
                         gbo.Controls.Add(selectionForm);
                         selectionForm.Show();
                 }
+                if (text == "WaitingList")
+                {
+                    if (Application.OpenForms.OfType<WaitingForm>().Count() == 1)
+                    {
+                        var firstOrDefault = Application.OpenForms.OfType<WaitingForm>().FirstOrDefault();
+                        if (firstOrDefault != null)
+                        {
+                            firstOrDefault.Show();
+                        }                           
+                    }
+                    var selectionForm = new WaitingForm()
+                    {
+                        TopLevel = false,
+                        Dock = DockStyle.Fill,
+                        AutoScroll = true,
+                        Account = _account,
+                        CatelogForm = form
+                    };
+                    gbo.Controls.Add(selectionForm);
+                    selectionForm.Show();
+                }
             }
         }
     }
