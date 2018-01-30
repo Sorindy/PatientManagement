@@ -183,7 +183,9 @@ namespace PatientManagement
                     {
                         Account = Account,
                         CatelogForm = CatelogForm,
-                        TopLevel = false
+                        Patient = getWaitinglist.Patient,
+                        TopLevel = false,
+                        Dock = DockStyle.Fill
                     };
 
                 }
