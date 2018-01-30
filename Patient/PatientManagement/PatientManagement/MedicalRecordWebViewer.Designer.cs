@@ -28,26 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.wvMedicalRecord = new System.Windows.Forms.WebBrowser();
             this.pnBoss = new System.Windows.Forms.Panel();
             this.pnMiddle = new System.Windows.Forms.Panel();
+            this.wv = new System.Windows.Forms.WebBrowser();
             this.pnTop = new System.Windows.Forms.Panel();
+            this.cmbModel = new System.Windows.Forms.ComboBox();
             this.btnPrint = new System.Windows.Forms.Button();
             this.crystalReportViewer = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.MedicalReports1 = new PatientManagement.MedicalReports();
+            this.MedicalRecortSampleC1 = new PatientManagement.MedicalRecortSampleC();
+            this.btnModel = new System.Windows.Forms.Button();
+            this.MedicalReportSampleB1 = new PatientManagement.MedicalReportSampleB();
+            this.MedicalReportSampleA1 = new PatientManagement.MedicalReportSampleA();
             this.pnBoss.SuspendLayout();
             this.pnMiddle.SuspendLayout();
             this.pnTop.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // wvMedicalRecord
-            // 
-            this.wvMedicalRecord.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.wvMedicalRecord.Location = new System.Drawing.Point(0, 0);
-            this.wvMedicalRecord.MinimumSize = new System.Drawing.Size(20, 20);
-            this.wvMedicalRecord.Name = "wvMedicalRecord";
-            this.wvMedicalRecord.Size = new System.Drawing.Size(998, 725);
-            this.wvMedicalRecord.TabIndex = 0;
             // 
             // pnBoss
             // 
@@ -56,34 +51,58 @@
             this.pnBoss.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnBoss.Location = new System.Drawing.Point(0, 0);
             this.pnBoss.Name = "pnBoss";
-            this.pnBoss.Size = new System.Drawing.Size(998, 776);
+            this.pnBoss.Size = new System.Drawing.Size(1129, 776);
             this.pnBoss.TabIndex = 1;
             // 
             // pnMiddle
             // 
-            this.pnMiddle.Controls.Add(this.wvMedicalRecord);
+            this.pnMiddle.Controls.Add(this.wv);
             this.pnMiddle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnMiddle.Location = new System.Drawing.Point(0, 51);
             this.pnMiddle.Name = "pnMiddle";
-            this.pnMiddle.Size = new System.Drawing.Size(998, 725);
+            this.pnMiddle.Size = new System.Drawing.Size(1129, 725);
             this.pnMiddle.TabIndex = 2;
+            // 
+            // wv
+            // 
+            this.wv.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.wv.Location = new System.Drawing.Point(0, 0);
+            this.wv.MinimumSize = new System.Drawing.Size(20, 20);
+            this.wv.Name = "wv";
+            this.wv.Size = new System.Drawing.Size(1129, 725);
+            this.wv.TabIndex = 1;
             // 
             // pnTop
             // 
-            this.pnTop.Controls.Add(this.crystalReportViewer);
+            this.pnTop.Controls.Add(this.cmbModel);
             this.pnTop.Controls.Add(this.btnPrint);
+            this.pnTop.Controls.Add(this.crystalReportViewer);
+            this.pnTop.Controls.Add(this.btnModel);
             this.pnTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnTop.Location = new System.Drawing.Point(0, 0);
             this.pnTop.Name = "pnTop";
-            this.pnTop.Size = new System.Drawing.Size(998, 51);
+            this.pnTop.Size = new System.Drawing.Size(1129, 51);
             this.pnTop.TabIndex = 1;
+            // 
+            // cmbModel
+            // 
+            this.cmbModel.FormattingEnabled = true;
+            this.cmbModel.Items.AddRange(new object[] {
+            "SampleA",
+            "SampleB",
+            "SampleC"});
+            this.cmbModel.Location = new System.Drawing.Point(165, 11);
+            this.cmbModel.Name = "cmbModel";
+            this.cmbModel.Size = new System.Drawing.Size(161, 21);
+            this.cmbModel.TabIndex = 3;
+            this.cmbModel.SelectedIndexChanged += new System.EventHandler(this.cmbModel_SelectedIndexChanged);
             // 
             // btnPrint
             // 
-            this.btnPrint.Location = new System.Drawing.Point(7, 11);
+            this.btnPrint.Location = new System.Drawing.Point(3, 12);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(75, 23);
-            this.btnPrint.TabIndex = 0;
+            this.btnPrint.TabIndex = 2;
             this.btnPrint.Text = "Print";
             this.btnPrint.UseVisualStyleBackColor = true;
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
@@ -93,21 +112,31 @@
             this.crystalReportViewer.ActiveViewIndex = 0;
             this.crystalReportViewer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.crystalReportViewer.Cursor = System.Windows.Forms.Cursors.Default;
-            this.crystalReportViewer.Location = new System.Drawing.Point(697, 12);
+            this.crystalReportViewer.Location = new System.Drawing.Point(1104, 11);
             this.crystalReportViewer.Name = "crystalReportViewer";
-            this.crystalReportViewer.ReportSource = this.MedicalReports1;
-            this.crystalReportViewer.Size = new System.Drawing.Size(289, 22);
+            this.crystalReportViewer.ReportSource = this.MedicalRecortSampleC1;
+            this.crystalReportViewer.Size = new System.Drawing.Size(22, 33);
             this.crystalReportViewer.TabIndex = 1;
             this.crystalReportViewer.Visible = false;
+            // 
+            // btnModel
+            // 
+            this.btnModel.Location = new System.Drawing.Point(84, 12);
+            this.btnModel.Name = "btnModel";
+            this.btnModel.Size = new System.Drawing.Size(75, 23);
+            this.btnModel.TabIndex = 0;
+            this.btnModel.Text = "Model";
+            this.btnModel.UseVisualStyleBackColor = true;
+            this.btnModel.Click += new System.EventHandler(this.btnModel_Click);
             // 
             // MedicalRecordWebViewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(998, 776);
+            this.ClientSize = new System.Drawing.Size(1129, 776);
             this.Controls.Add(this.pnBoss);
             this.Name = "MedicalRecordWebViewer";
-            this.Text = "MedicalRecordWebViewer";
+            this.Text = "web";
             this.Load += new System.EventHandler(this.MedicalRecordWebViewer_Load);
             this.pnBoss.ResumeLayout(false);
             this.pnMiddle.ResumeLayout(false);
@@ -118,12 +147,16 @@
 
         #endregion
 
-        private System.Windows.Forms.WebBrowser wvMedicalRecord;
         private System.Windows.Forms.Panel pnBoss;
         private System.Windows.Forms.Panel pnMiddle;
         private System.Windows.Forms.Panel pnTop;
-        private System.Windows.Forms.Button btnPrint;
+        private System.Windows.Forms.Button btnModel;
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer;
-        private MedicalReports MedicalReports1;
+        private System.Windows.Forms.WebBrowser wv;
+        private System.Windows.Forms.Button btnPrint;
+        private MedicalReportSampleA MedicalReportSampleA1;
+        private MedicalReportSampleB MedicalReportSampleB1;
+        private System.Windows.Forms.ComboBox cmbModel;
+        private MedicalRecortSampleC MedicalRecortSampleC1;
     }
 }

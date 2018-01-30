@@ -105,6 +105,7 @@ namespace PatientManagement
             picHideTop.ImageLocation = _path + @"Hide-Up-icon.png";
             txtDescription.ForeColor = Color.Black;
             btnSample.Text = @"Save as" + Environment.NewLine + @"Sample";
+            txtNameDoctor.Text = Account.Worker.FirstName + @"  " + Account.Worker.LastName;
         }
 
         private void picHideTop_Click(object sender, EventArgs e)
@@ -627,7 +628,7 @@ namespace PatientManagement
             if (cboService.Text == @"Consultation")
             {
                 _category=new ConsultationCategory();
-                var dic = _category.ShowCategoryForDoctor(Worker.Id);
+                var dic = _category.ShowCategoryForDoctor(Account.WorkerId);
                 if (dic.Count != 0)
                 {
                     cboCategory.DataSource=new BindingSource(dic,null);
@@ -639,7 +640,7 @@ namespace PatientManagement
             if (cboService.Text == @"Laboratory")
             {
                 _category = new LaboratoryCategory();
-                var dic = _category.ShowCategoryForDoctor(Worker.Id);
+                var dic = _category.ShowCategoryForDoctor(Account.WorkerId);
                 if (dic.Count != 0)
                 {
                     cboCategory.DataSource = new BindingSource(dic, null);
@@ -651,7 +652,7 @@ namespace PatientManagement
             if (cboService.Text == @"MedicalImaging")
             {
                 _category = new MedicalImagingCategory();
-                var dic = _category.ShowCategoryForDoctor(Worker.Id);
+                var dic = _category.ShowCategoryForDoctor(Account.WorkerId);
                 if (dic.Count != 0)
                 {
                     cboCategory.DataSource = new BindingSource(dic, null);
@@ -663,7 +664,7 @@ namespace PatientManagement
             if (cboService.Text == @"Prescription")
             {
                 _category = new PrescriptionCategory();
-                var dic = _category.ShowCategoryForDoctor(Worker.Id);
+                var dic = _category.ShowCategoryForDoctor(Account.WorkerId);
                 if (dic.Count != 0)
                 {
                     cboCategory.DataSource = new BindingSource(dic, null);
@@ -675,7 +676,7 @@ namespace PatientManagement
             if (cboService.Text == @"Various Document"||cboService.Text==@"VariousDocument")
             {
                 _category = new VariousDocumentCategory();
-                var dic = _category.ShowCategoryForDoctor(Worker.Id);
+                var dic = _category.ShowCategoryForDoctor(Account.WorkerId);
                 if (dic.Count != 0)
                 {
                     cboCategory.DataSource = new BindingSource(dic, null);

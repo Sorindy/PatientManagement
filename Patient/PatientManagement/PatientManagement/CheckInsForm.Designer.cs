@@ -81,7 +81,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.82759F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.17242F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 132F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 175F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 176F));
             this.tableLayoutPanel2.Controls.Add(this.label2, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.label3, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.txtName, 1, 0);
@@ -100,7 +100,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Oswald", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(499, 4);
+            this.label2.Location = new System.Drawing.Point(498, 4);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(89, 47);
             this.label2.TabIndex = 0;
@@ -123,7 +123,7 @@
             this.txtName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.txtName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtName.Font = new System.Drawing.Font("Modern No. 20", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(160, 3);
+            this.txtName.Location = new System.Drawing.Point(159, 3);
             this.txtName.Multiline = true;
             this.txtName.Name = "txtName";
             this.txtName.ReadOnly = true;
@@ -135,11 +135,11 @@
             this.txtGender.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.txtGender.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtGender.Font = new System.Drawing.Font("Modern No. 20", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGender.Location = new System.Drawing.Point(613, 3);
+            this.txtGender.Location = new System.Drawing.Point(612, 3);
             this.txtGender.Multiline = true;
             this.txtGender.Name = "txtGender";
             this.txtGender.ReadOnly = true;
-            this.txtGender.Size = new System.Drawing.Size(170, 49);
+            this.txtGender.Size = new System.Drawing.Size(171, 49);
             this.txtGender.TabIndex = 3;
             // 
             // tblSearch
@@ -299,24 +299,24 @@
             // tableLayoutPanel6
             // 
             this.tableLayoutPanel6.ColumnCount = 1;
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel6.Controls.Add(this.picboxHide, 0, 1);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 3;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 62.24189F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.75811F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 269F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel6.Size = new System.Drawing.Size(34, 533);
             this.tableLayoutPanel6.TabIndex = 1;
             // 
             // picboxHide
             // 
             this.picboxHide.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.picboxHide.Location = new System.Drawing.Point(3, 167);
+            this.picboxHide.Location = new System.Drawing.Point(3, 254);
             this.picboxHide.Name = "picboxHide";
-            this.picboxHide.Size = new System.Drawing.Size(28, 93);
+            this.picboxHide.Size = new System.Drawing.Size(28, 24);
             this.picboxHide.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picboxHide.TabIndex = 0;
             this.picboxHide.TabStop = false;

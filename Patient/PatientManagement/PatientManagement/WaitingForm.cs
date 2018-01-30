@@ -186,7 +186,9 @@ namespace PatientManagement
                         CatelogForm = CatelogForm,
                         Patient = getWaitinglist.Patient,
                         TopLevel = false,
-                        Dock = DockStyle.Fill
+                        Dock = DockStyle.Fill,
+                        KeyService = _keyService,
+                        KeyCategory = _keyCategory
                     };
                     CatelogForm.pnlFill.Controls.Clear();
                     CatelogForm.pnlFill.Controls.Add(form);
