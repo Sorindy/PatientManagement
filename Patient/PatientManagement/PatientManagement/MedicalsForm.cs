@@ -6,9 +6,7 @@ using PatientManagement.Class;
 using PatientManagement.Interface;
 using TXTextControl;
 using Account = Hospital_Entity_Framework.Account;
-using ConsultationCategory = PatientManagement.Class.ConsultationCategory;
 using Form = System.Windows.Forms.Form;
-using LaboratoryCategory = PatientManagement.Class.LaboratoryCategory;
 using Patient = Hospital_Entity_Framework.Patient;
 using WaitingList = Hospital_Entity_Framework.WaitingList;
 using Worker = Hospital_Entity_Framework.Worker;
@@ -76,16 +74,23 @@ namespace PatientManagement
                 lblPAddress.Text = Patient.Address;
                 lblPPhone.Text = Patient.Phone1;
             }
-            
+
+            if (WaitingList != null)
+            {
+                lblPName.Text = WaitingList.Patient.FirstName + @"  " + WaitingList.Patient.LastName;
+                lblPGender.Text = WaitingList.Patient.Gender;
+                lblPAddress.Text = WaitingList.Patient.Address;
+                lblPPhone.Text = WaitingList.Patient.Phone1;
+            }
+
             var path = AppDomain.CurrentDomain.BaseDirectory;
             _path = path.Remove(path.Length - 46);
             //_path = path;
             //_path = @"C:\Users\Health\Desktop\Debug\";
             picHideRight.ImageLocation = _path + @"Hide-right-icon.png";
             picHideTop.ImageLocation = _path + @"Hide-Up-icon.png";
-            picHideLeft.ImageLocation = _path + @"Hide-left-icon.png";
             txtDescription.ForeColor = Color.Black;
-            AddNodesToTree();
+            btnSample.Text = @"Save as" + Environment.NewLine + @"Sample";
         }
 
         private void picHideTop_Click(object sender, EventArgs e)
@@ -293,6 +298,7 @@ namespace PatientManagement
         }
 
         
+
         internal void chkBoxReferrer_CheckedChanged(object sender, EventArgs e)
         {
             if (chkBoxReferrer.Checked)
@@ -462,121 +468,120 @@ namespace PatientManagement
             Clear();
         }
 
-        private void picHideLeft_Click(object sender, EventArgs e)
-        {
-            if (picHideLeft.Name == "picHideLeft")
-            {
-                picHideLeft.Name = "picShowLeft";
-                picHideLeft.ImageLocation = _path + @"Hide-right-icon.png";
-                pnlHideLeft.Visible = false;
-                picHideLeft.Click += picShowLeft_Click;
-            }
-        }
+        //private void picHideLeft_Click(object sender, EventArgs e)
+        //{
+        //    if (picHideLeft.Name == "picHideLeft")
+        //    {
+        //        picHideLeft.Name = "picShowLeft";
+        //        picHideLeft.ImageLocation = _path + @"Hide-right-icon.png";
+        //        pnlHideLeft.Visible = false;
+        //        picHideLeft.Click += picShowLeft_Click;
+        //    }
+        //}
 
-        private void picShowLeft_Click(object sender, EventArgs e)
-        {
-            if (picHideLeft.Name == "picShowLeft")
-            {
-                picHideLeft.Name = "picHideLeft";
-                picHideLeft.ImageLocation = _path + @"Hide-left-icon.png";
-                pnlHideLeft.Visible = true;
-                picHideLeft.Click -= picShowLeft_Click;
-            }
-        }
+        //private void picShowLeft_Click(object sender, EventArgs e)
+        //{
+        //    if (picHideLeft.Name == "picShowLeft")
+        //    {
+        //        picHideLeft.Name = "picHideLeft";
+        //        picHideLeft.ImageLocation = _path + @"Hide-left-icon.png";
+        //        pnlHideLeft.Visible = true;
+        //        picHideLeft.Click -= picShowLeft_Click;
+        //    }
+        //}
 
-        private void treeSelection_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-            KeyService = "";
-            if (e.Node.Name != "Consultation" && e.Node.Name != "Laboratory" && e.Node.Name != "MedicalImaging" &&
-                e.Node.Name != "Prescription" && e.Node.Name != "VariousDocument")
-            {
-                if (e.Node.Parent.Name == "Consultation")
-                {
-                    KeyService = "Consultation";
-                    KeyCategory = Convert.ToInt32(e.Node.TreeView.SelectedNode.Name);
-                }
-                if (e.Node.Parent.Name == "Laboratory")
-                {
-                    KeyService = "Laboratory";
-                    KeyCategory = Convert.ToInt32(e.Node.TreeView.SelectedNode.Name);
-                }
-                if (e.Node.Parent.Name == "MedicalImaging")
-                {
-                    KeyService = "Medical Imaging";
-                    KeyCategory = Convert.ToInt32(e.Node.TreeView.SelectedNode.Name);
-                }
-                if (e.Node.Parent.Name == "Prescription")
-                {
-                    KeyService = "Prescription";
-                    KeyCategory = Convert.ToInt32(e.Node.TreeView.SelectedNode.Name);
-                }
-                if (e.Node.Parent.Name == "VariousDocument")
-                {
-                    KeyService = "Various Docuemtn";
-                    KeyCategory = Convert.ToInt32(e.Node.TreeView.SelectedNode.Name);
-                }
-            }
+        //private void treeSelection_AfterSelect(object sender, TreeViewEventArgs e)
+        //{
+        //    KeyService = "";
+        //    if (e.Node.Name != "Consultation" && e.Node.Name != "Laboratory" && e.Node.Name != "MedicalImaging" &&
+        //        e.Node.Name != "Prescription" && e.Node.Name != "VariousDocument")
+        //    {
+        //        if (e.Node.Parent.Name == "Consultation")
+        //        {
+        //            KeyService = "Consultation";
+        //            KeyCategory = Convert.ToInt32(e.Node.TreeView.SelectedNode.Name);
+        //        }
+        //        if (e.Node.Parent.Name == "Laboratory")
+        //        {
+        //            KeyService = "Laboratory";
+        //            KeyCategory = Convert.ToInt32(e.Node.TreeView.SelectedNode.Name);
+        //        }
+        //        if (e.Node.Parent.Name == "MedicalImaging")
+        //        {
+        //            KeyService = "Medical Imaging";
+        //            KeyCategory = Convert.ToInt32(e.Node.TreeView.SelectedNode.Name);
+        //        }
+        //        if (e.Node.Parent.Name == "Prescription")
+        //        {
+        //            KeyService = "Prescription";
+        //            KeyCategory = Convert.ToInt32(e.Node.TreeView.SelectedNode.Name);
+        //        }
+        //        if (e.Node.Parent.Name == "VariousDocument")
+        //        {
+        //            KeyService = "Various Docuemtn";
+        //            KeyCategory = Convert.ToInt32(e.Node.TreeView.SelectedNode.Name);
+        //        }
+        //    }
+        //}
 
-        }
-
-        private void AddNodesToTree()
-        {
-            {
-                _category = new ConsultationCategory();
-                var dic = _category.ShowCategoryForDoctor(Account.WorkerId);
-                if (dic.Count != 0)
-                {
-                    foreach (var item in dic)
-                    {
-                        treeSelection.Nodes[0].Nodes.Add(item.Key.ToString(),item.Value);
-                    }
-                }
-            }
-            {
-                _category = new LaboratoryCategory();
-                var dic = _category.ShowCategoryForDoctor(Account.WorkerId);
-                if (dic.Count != 0)
-                {
-                    foreach (var item in dic)
-                    {
-                        treeSelection.Nodes[1].Nodes.Add(item.Key.ToString(), item.Value);
-                    }
-                }
-            }
-            {
-                _category = new MedicalImagingCategory();
-                var dic = _category.ShowCategoryForDoctor(Account.WorkerId);
-                if (dic.Count != 0)
-                {
-                    foreach (var item in dic)
-                    {
-                        treeSelection.Nodes[2].Nodes.Add(item.Key.ToString(), item.Value);
-                    }
-                }
-            }
-            {
-                _category = new PrescriptionCategory();
-                var dic = _category.ShowCategoryForDoctor(Account.WorkerId);
-                if (dic.Count != 0)
-                {
-                    foreach (var item in dic)
-                    {
-                        treeSelection.Nodes[3].Nodes.Add(item.Key.ToString(), item.Value);
-                    }
-                }
-            }
-            {
-                _category = new VariousDocumentCategory();
-                var dic = _category.ShowCategoryForDoctor(Account.WorkerId);
-                if (dic.Count != 0)
-                {
-                    foreach (var item in dic)
-                    {
-                        treeSelection.Nodes[4].Nodes.Add(item.Key.ToString(), item.Value);
-                    }
-                }
-            }
-        }
+        //private void AddNodesToTree()
+        //{
+        //    {
+        //        _category = new ConsultationCategory();
+        //        var dic = _category.ShowCategoryForDoctor(Account.WorkerId);
+        //        if (dic.Count != 0)
+        //        {
+        //            foreach (var item in dic)
+        //            {
+        //                treeSelection.Nodes[0].Nodes.Add(item.Key.ToString(),item.Value);
+        //            }
+        //        }
+        //    }
+        //    {
+        //        _category = new LaboratoryCategory();
+        //        var dic = _category.ShowCategoryForDoctor(Account.WorkerId);
+        //        if (dic.Count != 0)
+        //        {
+        //            foreach (var item in dic)
+        //            {
+        //                treeSelection.Nodes[1].Nodes.Add(item.Key.ToString(), item.Value);
+        //            }
+        //        }
+        //    }
+        //    {
+        //        _category = new MedicalImagingCategory();
+        //        var dic = _category.ShowCategoryForDoctor(Account.WorkerId);
+        //        if (dic.Count != 0)
+        //        {
+        //            foreach (var item in dic)
+        //            {
+        //                treeSelection.Nodes[2].Nodes.Add(item.Key.ToString(), item.Value);
+        //            }
+        //        }
+        //    }
+        //    {
+        //        _category = new PrescriptionCategory();
+        //        var dic = _category.ShowCategoryForDoctor(Account.WorkerId);
+        //        if (dic.Count != 0)
+        //        {
+        //            foreach (var item in dic)
+        //            {
+        //                treeSelection.Nodes[3].Nodes.Add(item.Key.ToString(), item.Value);
+        //            }
+        //        }
+        //    }
+        //    {
+        //        _category = new VariousDocumentCategory();
+        //        var dic = _category.ShowCategoryForDoctor(Account.WorkerId);
+        //        if (dic.Count != 0)
+        //        {
+        //            foreach (var item in dic)
+        //            {
+        //                treeSelection.Nodes[4].Nodes.Add(item.Key.ToString(), item.Value);
+        //            }
+        //        }
+        //    }
+        //}
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
@@ -600,6 +605,103 @@ namespace PatientManagement
                     Account = Account
                 };
                 wv.ShowDialog();
+            }
+        }
+
+        private void cboService_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (txtDescription.Text != null)return;
+
+            if (cboService.Text == @"Consultation")
+            {
+                _category=new ConsultationCategory();
+                var dic = _category.ShowCategoryForDoctor(Worker.Id);
+                if (dic.Count != 0)
+                {
+                    cboCategory.DataSource=new BindingSource(dic,null);
+                    cboCategory.DisplayMember = "Value";
+                    cboCategory.ValueMember = "Key";
+                }
+                KeyService = @"Consultation";
+            }
+            if (cboService.Text == @"Laboratory")
+            {
+                _category = new LaboratoryCategory();
+                var dic = _category.ShowCategoryForDoctor(Worker.Id);
+                if (dic.Count != 0)
+                {
+                    cboCategory.DataSource = new BindingSource(dic, null);
+                    cboCategory.DisplayMember = "Value";
+                    cboCategory.ValueMember = "Key";
+                }
+                KeyService = @"Laboratory";
+            }
+            if (cboService.Text == @"MedicalImaging")
+            {
+                _category = new MedicalImagingCategory();
+                var dic = _category.ShowCategoryForDoctor(Worker.Id);
+                if (dic.Count != 0)
+                {
+                    cboCategory.DataSource = new BindingSource(dic, null);
+                    cboCategory.DisplayMember = "Value";
+                    cboCategory.ValueMember = "Key";
+                }
+                KeyService = @"MedicalImaging";
+            }
+            if (cboService.Text == @"Prescription")
+            {
+                _category = new PrescriptionCategory();
+                var dic = _category.ShowCategoryForDoctor(Worker.Id);
+                if (dic.Count != 0)
+                {
+                    cboCategory.DataSource = new BindingSource(dic, null);
+                    cboCategory.DisplayMember = "Value";
+                    cboCategory.ValueMember = "Key";
+                }
+                KeyService = @"Prescription";
+            }
+            if (cboService.Text == @"Various Document")
+            {
+                _category = new VariousDocumentCategory();
+                var dic = _category.ShowCategoryForDoctor(Worker.Id);
+                if (dic.Count != 0)
+                {
+                    cboCategory.DataSource = new BindingSource(dic, null);
+                    cboCategory.DisplayMember = "Value";
+                    cboCategory.ValueMember = "Key";
+                }
+                KeyService = @"VariousDocument";
+            }
+        }
+
+        private void cboCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (txtDescription.Text != null) return;
+
+            if (cboService.Text == @"Consultation")
+            {
+                var get = (KeyValuePair<int, string>) cboCategory.SelectedItem;
+                KeyCategory = get.Key;                
+            }
+            if (cboService.Text == @"Laboratory")
+            {
+                var get = (KeyValuePair<int, string>)cboCategory.SelectedItem;
+                KeyCategory = get.Key;
+            }
+            if (cboService.Text == @"MedicalImaging")
+            {
+                var get = (KeyValuePair<int, string>)cboCategory.SelectedItem;
+                KeyCategory = get.Key;
+            }
+            if (cboService.Text == @"Prescription")
+            {
+                var get = (KeyValuePair<int, string>)cboCategory.SelectedItem;
+                KeyCategory = get.Key;
+            }
+            if (cboService.Text == @"Various Document")
+            {
+                var get = (KeyValuePair<int, string>)cboCategory.SelectedItem;
+                KeyCategory = get.Key;
             }
         }
 

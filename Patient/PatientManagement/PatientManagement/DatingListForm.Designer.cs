@@ -28,16 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DatingListForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DatingListForm));
             this.label1 = new System.Windows.Forms.Label();
             this.gbPatientInformation = new System.Windows.Forms.GroupBox();
             this.tblypnPatientInformation = new System.Windows.Forms.TableLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.lbPatientName = new System.Windows.Forms.Label();
             this.gbActivity = new System.Windows.Forms.GroupBox();
             this.tblypnActivity = new System.Windows.Forms.TableLayoutPanel();
@@ -53,15 +54,14 @@
             this.dtgInformation = new System.Windows.Forms.DataGridView();
             this.pnRight = new System.Windows.Forms.Panel();
             this.tblypnRight = new System.Windows.Forms.TableLayoutPanel();
-            this.pnTop = new System.Windows.Forms.Panel();
-            this.tblypnTop = new System.Windows.Forms.TableLayoutPanel();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnShow = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.btnSearch = new System.Windows.Forms.Button();
+            this.pnTop = new System.Windows.Forms.Panel();
+            this.tblypnTop = new System.Windows.Forms.TableLayoutPanel();
             this.gbPatientInformation.SuspendLayout();
             this.tblypnPatientInformation.SuspendLayout();
             this.gbActivity.SuspendLayout();
@@ -138,6 +138,23 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "ឈ្នោះអ្នកជំងឺ :";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnSearch.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Font = new System.Drawing.Font("Modern No. 20", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
+            this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSearch.Location = new System.Drawing.Point(428, 3);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(230, 38);
+            this.btnSearch.TabIndex = 43;
+            this.btnSearch.Text = "ស្វែងរក";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // lbPatientName
             // 
@@ -398,33 +415,6 @@
             this.tblypnRight.Size = new System.Drawing.Size(200, 558);
             this.tblypnRight.TabIndex = 7;
             // 
-            // pnTop
-            // 
-            this.pnTop.Controls.Add(this.tblypnTop);
-            this.pnTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnTop.Location = new System.Drawing.Point(0, 0);
-            this.pnTop.Name = "pnTop";
-            this.pnTop.Size = new System.Drawing.Size(1347, 139);
-            this.pnTop.TabIndex = 0;
-            // 
-            // tblypnTop
-            // 
-            this.tblypnTop.ColumnCount = 2;
-            this.tblypnTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblypnTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblypnTop.Controls.Add(this.label1, 0, 0);
-            this.tblypnTop.Controls.Add(this.gbDoctorInformation, 1, 0);
-            this.tblypnTop.Controls.Add(this.gbPatientInformation, 0, 1);
-            this.tblypnTop.Controls.Add(this.gbActivity, 1, 1);
-            this.tblypnTop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tblypnTop.Location = new System.Drawing.Point(0, 0);
-            this.tblypnTop.Name = "tblypnTop";
-            this.tblypnTop.RowCount = 2;
-            this.tblypnTop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.79856F));
-            this.tblypnTop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.20144F));
-            this.tblypnTop.Size = new System.Drawing.Size(1347, 139);
-            this.tblypnTop.TabIndex = 6;
-            // 
             // btnAdd
             // 
             this.btnAdd.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -521,22 +511,32 @@
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // btnSearch
+            // pnTop
             // 
-            this.btnSearch.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnSearch.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.Font = new System.Drawing.Font("Modern No. 20", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
-            this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSearch.Location = new System.Drawing.Point(428, 3);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(230, 38);
-            this.btnSearch.TabIndex = 43;
-            this.btnSearch.Text = "ស្វែងរក";
-            this.btnSearch.UseVisualStyleBackColor = false;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            this.pnTop.Controls.Add(this.tblypnTop);
+            this.pnTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnTop.Location = new System.Drawing.Point(0, 0);
+            this.pnTop.Name = "pnTop";
+            this.pnTop.Size = new System.Drawing.Size(1347, 139);
+            this.pnTop.TabIndex = 0;
+            // 
+            // tblypnTop
+            // 
+            this.tblypnTop.ColumnCount = 2;
+            this.tblypnTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tblypnTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tblypnTop.Controls.Add(this.label1, 0, 0);
+            this.tblypnTop.Controls.Add(this.gbDoctorInformation, 1, 0);
+            this.tblypnTop.Controls.Add(this.gbPatientInformation, 0, 1);
+            this.tblypnTop.Controls.Add(this.gbActivity, 1, 1);
+            this.tblypnTop.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tblypnTop.Location = new System.Drawing.Point(0, 0);
+            this.tblypnTop.Name = "tblypnTop";
+            this.tblypnTop.RowCount = 2;
+            this.tblypnTop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.79856F));
+            this.tblypnTop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.20144F));
+            this.tblypnTop.Size = new System.Drawing.Size(1347, 139);
+            this.tblypnTop.TabIndex = 6;
             // 
             // DatingListForm
             // 

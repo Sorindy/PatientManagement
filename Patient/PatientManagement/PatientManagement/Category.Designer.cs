@@ -182,9 +182,9 @@
             // 
             this.panel1.Controls.Add(this.tableLayoutPanel5);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(796, 76);
+            this.panel1.Location = new System.Drawing.Point(820, 76);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(249, 604);
+            this.panel1.Size = new System.Drawing.Size(225, 604);
             this.panel1.TabIndex = 2;
             // 
             // tableLayoutPanel5
@@ -200,9 +200,9 @@
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 3;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 534F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 400F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(249, 604);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(225, 604);
             this.tableLayoutPanel5.TabIndex = 2;
             // 
             // gboButton
@@ -211,9 +211,9 @@
             this.gboButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gboButton.Font = new System.Drawing.Font("Kh Battambang", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gboButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.gboButton.Location = new System.Drawing.Point(13, 38);
+            this.gboButton.Location = new System.Drawing.Point(13, 105);
             this.gboButton.Name = "gboButton";
-            this.gboButton.Size = new System.Drawing.Size(223, 528);
+            this.gboButton.Size = new System.Drawing.Size(199, 394);
             this.gboButton.TabIndex = 0;
             this.gboButton.TabStop = false;
             this.gboButton.Text = "ប្រតិបត្តិការណ៏";
@@ -230,27 +230,27 @@
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 7;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(217, 482);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(193, 348);
             this.tableLayoutPanel4.TabIndex = 2;
             // 
             // btnNew
             // 
-            this.btnNew.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnNew.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnNew.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNew.Font = new System.Drawing.Font("Preah Vihear", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNew.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnNew.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNew.ForeColor = System.Drawing.SystemColors.Desktop;
             this.btnNew.Image = ((System.Drawing.Image)(resources.GetObject("btnNew.Image")));
             this.btnNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNew.Location = new System.Drawing.Point(3, 48);
+            this.btnNew.Location = new System.Drawing.Point(3, 45);
             this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(211, 94);
+            this.btnNew.Size = new System.Drawing.Size(187, 54);
             this.btnNew.TabIndex = 0;
             this.btnNew.Text = "បង្កើតថ្មី";
             this.btnNew.UseVisualStyleBackColor = false;
@@ -258,16 +258,16 @@
             // 
             // btnEdit
             // 
-            this.btnEdit.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.btnEdit.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnEdit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEdit.Font = new System.Drawing.Font("Preah Vihear", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnEdit.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.ForeColor = System.Drawing.SystemColors.Desktop;
             this.btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.Image")));
             this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEdit.Location = new System.Drawing.Point(3, 338);
+            this.btnEdit.Location = new System.Drawing.Point(3, 249);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(211, 94);
+            this.btnEdit.Size = new System.Drawing.Size(187, 54);
             this.btnEdit.TabIndex = 1;
             this.btnEdit.Text = "កែប្រែ";
             this.btnEdit.UseVisualStyleBackColor = false;
@@ -275,16 +275,16 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.BackColor = System.Drawing.Color.Crimson;
+            this.btnDelete.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnDelete.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Font = new System.Drawing.Font("Preah Vihear", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnDelete.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.ForeColor = System.Drawing.SystemColors.Desktop;
             this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
             this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDelete.Location = new System.Drawing.Point(3, 193);
+            this.btnDelete.Location = new System.Drawing.Point(3, 147);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(211, 94);
+            this.btnDelete.Size = new System.Drawing.Size(187, 54);
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "លុប";
             this.btnDelete.UseVisualStyleBackColor = false;
@@ -301,7 +301,7 @@
             // panel4
             // 
             this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel4.Location = new System.Drawing.Point(774, 76);
+            this.panel4.Location = new System.Drawing.Point(798, 76);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(22, 604);
             this.panel4.TabIndex = 4;
@@ -311,7 +311,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel5.Location = new System.Drawing.Point(41, 646);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(733, 34);
+            this.panel5.Size = new System.Drawing.Size(757, 34);
             this.panel5.TabIndex = 5;
             // 
             // dgvListCategory
@@ -376,7 +376,7 @@
             this.dgvListCategory.RowTemplate.ReadOnly = true;
             this.dgvListCategory.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvListCategory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListCategory.Size = new System.Drawing.Size(733, 570);
+            this.dgvListCategory.Size = new System.Drawing.Size(757, 570);
             this.dgvListCategory.TabIndex = 6;
             this.dgvListCategory.SelectionChanged += new System.EventHandler(this.dgvListCategory_SelectionChanged);
             // 
@@ -425,11 +425,11 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
         internal System.Windows.Forms.DataGridView dgvListCategory;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.GroupBox gboButton;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
     }
 }

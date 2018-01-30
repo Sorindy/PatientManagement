@@ -27,7 +27,8 @@ namespace PatientManagement
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-            WindowState=FormWindowState.Maximized;
+            WindowState = FormWindowState.Maximized;
+            tblControl.Hide();
             Clear();
             tblLogin.BackColor = Color.FromArgb(255,Color.CornflowerBlue);
             tblLogin.BackColor = Color.FromArgb(255, Color.CornflowerBlue);
@@ -36,6 +37,15 @@ namespace PatientManagement
             txtPassword.PasswordChar = '*';
             txtUserName.Focus();
         }
+
+        //private void MaximizeForm()
+        //{
+        //    FormBorderStyle = FormBorderStyle.Sizable;
+        //    Left = Top = 0;
+        //    Width = Screen.PrimaryScreen.WorkingArea.Width;
+        //    Height = Screen.PrimaryScreen.WorkingArea.Height;
+        //}
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
             _account = _login.LoginAccount(txtUserName.Text, txtPassword.Text);
@@ -99,10 +109,10 @@ namespace PatientManagement
             WindowState=FormWindowState.Minimized;
         }
 
-        private void picMazimize_Click(object sender, EventArgs e)
-        {
-            WindowState=FormWindowState.Maximized;
-        }
+        //private void picMazimize_Click(object sender, EventArgs e)
+        //{
+        //    MaximizeForm();
+        //}
 
         private void picNormal_Click(object sender, EventArgs e)
         {

@@ -59,9 +59,9 @@
             // 
             this.pnlButton.Controls.Add(this.tableLayoutPanel1);
             this.pnlButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlButton.Location = new System.Drawing.Point(739, 0);
+            this.pnlButton.Location = new System.Drawing.Point(765, 0);
             this.pnlButton.Name = "pnlButton";
-            this.pnlButton.Size = new System.Drawing.Size(269, 634);
+            this.pnlButton.Size = new System.Drawing.Size(243, 634);
             this.pnlButton.TabIndex = 1;
             // 
             // tableLayoutPanel1
@@ -76,9 +76,9 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 527F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 400F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(269, 634);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(243, 634);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // gboButton
@@ -87,9 +87,9 @@
             this.gboButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gboButton.Font = new System.Drawing.Font("Khmer Vanara", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gboButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.gboButton.Location = new System.Drawing.Point(12, 56);
+            this.gboButton.Location = new System.Drawing.Point(12, 120);
             this.gboButton.Name = "gboButton";
-            this.gboButton.Size = new System.Drawing.Size(246, 521);
+            this.gboButton.Size = new System.Drawing.Size(220, 394);
             this.gboButton.TabIndex = 0;
             this.gboButton.TabStop = false;
             this.gboButton.Text = "ប្រតិបត្តិការណ៏";
@@ -112,17 +112,20 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 90F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(240, 467);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(214, 340);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // btnClear
             // 
-            this.btnClear.BackColor = System.Drawing.Color.Crimson;
+            this.btnClear.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnClear.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClear.Location = new System.Drawing.Point(3, 191);
+            this.btnClear.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.btnClear.Image = global::PatientManagement.Properties.Resources._46839___trash;
+            this.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClear.Location = new System.Drawing.Point(3, 127);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(234, 84);
+            this.btnClear.Size = new System.Drawing.Size(208, 84);
             this.btnClear.TabIndex = 1;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;
@@ -130,12 +133,15 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.BackColor = System.Drawing.Color.Tomato;
+            this.btnCancel.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnCancel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Location = new System.Drawing.Point(3, 330);
+            this.btnCancel.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.btnCancel.Image = global::PatientManagement.Properties.Resources._46795___clear_delete_remove;
+            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancel.Location = new System.Drawing.Point(3, 234);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(234, 84);
+            this.btnCancel.Size = new System.Drawing.Size(208, 84);
             this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "ចាកចេញ";
             this.btnCancel.UseVisualStyleBackColor = false;
@@ -143,12 +149,15 @@
             // 
             // btnSubmit
             // 
-            this.btnSubmit.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnSubmit.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnSubmit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSubmit.Location = new System.Drawing.Point(3, 52);
+            this.btnSubmit.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.btnSubmit.Image = global::PatientManagement.Properties.Resources._46830___save__2_;
+            this.btnSubmit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSubmit.Location = new System.Drawing.Point(3, 20);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(234, 84);
+            this.btnSubmit.Size = new System.Drawing.Size(208, 84);
             this.btnSubmit.TabIndex = 3;
             this.btnSubmit.Text = "រក្សាទុក";
             this.btnSubmit.UseVisualStyleBackColor = false;
@@ -159,7 +168,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(12, 622);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(727, 12);
+            this.panel3.Size = new System.Drawing.Size(753, 12);
             this.panel3.TabIndex = 2;
             // 
             // panel4
@@ -167,7 +176,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(12, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(727, 11);
+            this.panel4.Size = new System.Drawing.Size(753, 11);
             this.panel4.TabIndex = 3;
             // 
             // pnlSelection
@@ -176,7 +185,7 @@
             this.pnlSelection.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlSelection.Location = new System.Drawing.Point(12, 11);
             this.pnlSelection.Name = "pnlSelection";
-            this.pnlSelection.Size = new System.Drawing.Size(727, 611);
+            this.pnlSelection.Size = new System.Drawing.Size(753, 611);
             this.pnlSelection.TabIndex = 4;
             // 
             // tabCategory
@@ -186,7 +195,7 @@
             this.tabCategory.Location = new System.Drawing.Point(0, 0);
             this.tabCategory.Name = "tabCategory";
             this.tabCategory.SelectedIndex = 0;
-            this.tabCategory.Size = new System.Drawing.Size(727, 611);
+            this.tabCategory.Size = new System.Drawing.Size(753, 611);
             this.tabCategory.TabIndex = 0;
             // 
             // CategorySelection

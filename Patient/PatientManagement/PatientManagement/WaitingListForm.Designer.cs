@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WaitingListForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -40,7 +39,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.btnClose = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WaitingListForm));
             this.pnBoss = new System.Windows.Forms.Panel();
             this.pnMidle = new System.Windows.Forms.Panel();
             this.tblypnMidle = new System.Windows.Forms.TableLayoutPanel();
@@ -55,6 +54,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tblypnTop = new System.Windows.Forms.TableLayoutPanel();
+            this.btnClose = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
@@ -71,21 +71,6 @@
             this.tblypnTop.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnClose
-            // 
-            this.btnClose.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnClose.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnClose.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
-            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(945, 3);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(182, 43);
-            this.btnClose.TabIndex = 3;
-            this.btnClose.Text = "បិត";
-            this.btnClose.UseVisualStyleBackColor = false;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
             // pnBoss
             // 
             this.pnBoss.Controls.Add(this.pnMidle);
@@ -100,9 +85,9 @@
             // 
             this.pnMidle.Controls.Add(this.tblypnMidle);
             this.pnMidle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnMidle.Location = new System.Drawing.Point(0, 49);
+            this.pnMidle.Location = new System.Drawing.Point(0, 65);
             this.pnMidle.Name = "pnMidle";
-            this.pnMidle.Size = new System.Drawing.Size(1130, 715);
+            this.pnMidle.Size = new System.Drawing.Size(1130, 699);
             this.pnMidle.TabIndex = 9;
             // 
             // tblypnMidle
@@ -119,7 +104,7 @@
             this.tblypnMidle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.98734F));
             this.tblypnMidle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.088608F));
             this.tblypnMidle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 43.79747F));
-            this.tblypnMidle.Size = new System.Drawing.Size(1130, 715);
+            this.tblypnMidle.Size = new System.Drawing.Size(1130, 699);
             this.tblypnMidle.TabIndex = 5;
             // 
             // gbWaitingCategory
@@ -132,7 +117,7 @@
             this.gbWaitingCategory.ForeColor = System.Drawing.Color.Black;
             this.gbWaitingCategory.Location = new System.Drawing.Point(3, 3);
             this.gbWaitingCategory.Name = "gbWaitingCategory";
-            this.gbWaitingCategory.Size = new System.Drawing.Size(1124, 344);
+            this.gbWaitingCategory.Size = new System.Drawing.Size(1124, 336);
             this.gbWaitingCategory.TabIndex = 0;
             this.gbWaitingCategory.TabStop = false;
             this.gbWaitingCategory.Text = "តារាងរបស់អ្នក";
@@ -199,7 +184,7 @@
             this.dgvWaitingCategory.RowTemplate.ReadOnly = true;
             this.dgvWaitingCategory.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvWaitingCategory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvWaitingCategory.Size = new System.Drawing.Size(1118, 309);
+            this.dgvWaitingCategory.Size = new System.Drawing.Size(1118, 301);
             this.dgvWaitingCategory.TabIndex = 7;
             this.dgvWaitingCategory.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvWaitingCategory_CellContentClick);
             // 
@@ -211,9 +196,9 @@
             this.gbAllWaiting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gbAllWaiting.Font = new System.Drawing.Font("Modern No. 20", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbAllWaiting.ForeColor = System.Drawing.Color.Black;
-            this.gbAllWaiting.Location = new System.Drawing.Point(3, 403);
+            this.gbAllWaiting.Location = new System.Drawing.Point(3, 394);
             this.gbAllWaiting.Name = "gbAllWaiting";
-            this.gbAllWaiting.Size = new System.Drawing.Size(1124, 309);
+            this.gbAllWaiting.Size = new System.Drawing.Size(1124, 302);
             this.gbAllWaiting.TabIndex = 1;
             this.gbAllWaiting.TabStop = false;
             this.gbAllWaiting.Text = "តារាង";
@@ -279,7 +264,7 @@
             this.dgvAllWatingList.RowTemplate.ReadOnly = true;
             this.dgvAllWatingList.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvAllWatingList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAllWatingList.Size = new System.Drawing.Size(1118, 274);
+            this.dgvAllWatingList.Size = new System.Drawing.Size(1118, 267);
             this.dgvAllWatingList.TabIndex = 7;
             // 
             // tblypnMidleMidle
@@ -294,11 +279,11 @@
             this.tblypnMidleMidle.Controls.Add(this.label2, 0, 0);
             this.tblypnMidleMidle.Controls.Add(this.label3, 2, 0);
             this.tblypnMidleMidle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tblypnMidleMidle.Location = new System.Drawing.Point(3, 353);
+            this.tblypnMidleMidle.Location = new System.Drawing.Point(3, 345);
             this.tblypnMidleMidle.Name = "tblypnMidleMidle";
             this.tblypnMidleMidle.RowCount = 1;
             this.tblypnMidleMidle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tblypnMidleMidle.Size = new System.Drawing.Size(1124, 44);
+            this.tblypnMidleMidle.Size = new System.Drawing.Size(1124, 43);
             this.tblypnMidleMidle.TabIndex = 2;
             // 
             // cboCategory
@@ -345,7 +330,7 @@
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(3, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(124, 44);
+            this.label2.Size = new System.Drawing.Size(124, 43);
             this.label2.TabIndex = 0;
             this.label2.Text = "សេវាកម្ម :";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -360,7 +345,7 @@
             this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(542, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(104, 44);
+            this.label3.Size = new System.Drawing.Size(104, 43);
             this.label3.TabIndex = 1;
             this.label3.Text = "ប្រភេទ :";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -372,7 +357,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1130, 49);
+            this.panel1.Size = new System.Drawing.Size(1130, 65);
             this.panel1.TabIndex = 8;
             // 
             // tblypnTop
@@ -384,13 +369,28 @@
             this.tblypnTop.Controls.Add(this.btnClose, 2, 0);
             this.tblypnTop.Controls.Add(this.label1, 0, 0);
             this.tblypnTop.Controls.Add(this.btnSubmit, 1, 0);
-            this.tblypnTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tblypnTop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tblypnTop.Location = new System.Drawing.Point(0, 0);
             this.tblypnTop.Name = "tblypnTop";
             this.tblypnTop.RowCount = 1;
             this.tblypnTop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tblypnTop.Size = new System.Drawing.Size(1130, 49);
+            this.tblypnTop.Size = new System.Drawing.Size(1130, 65);
             this.tblypnTop.TabIndex = 9;
+            // 
+            // btnClose
+            // 
+            this.btnClose.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnClose.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnClose.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
+            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClose.Location = new System.Drawing.Point(945, 3);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(182, 59);
+            this.btnClose.TabIndex = 3;
+            this.btnClose.Text = "បិត";
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // label1
             // 
@@ -402,7 +402,7 @@
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(747, 49);
+            this.label1.Size = new System.Drawing.Size(747, 65);
             this.label1.TabIndex = 4;
             this.label1.Text = "               ​​​​​                  តារាង ​បង្ហាញបញ្ចីររងចាំ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -416,7 +416,7 @@
             this.btnSubmit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSubmit.Location = new System.Drawing.Point(756, 3);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(183, 43);
+            this.btnSubmit.Size = new System.Drawing.Size(183, 59);
             this.btnSubmit.TabIndex = 5;
             this.btnSubmit.Text = "ចុចយក";
             this.btnSubmit.UseVisualStyleBackColor = false;

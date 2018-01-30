@@ -88,7 +88,7 @@ namespace PatientManagement
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30.96234F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 542F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 69.03766F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1280, 768);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1280, 741);
             this.tableLayoutPanel1.TabIndex = 0;
             this.tableLayoutPanel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tableLayoutPanel1_MouseDown);
             this.tableLayoutPanel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.tableLayoutPanel1_MouseMove);
@@ -104,7 +104,7 @@ namespace PatientManagement
             this.tblLogin.Controls.Add(this.btnLogin, 0, 2);
             this.tblLogin.Controls.Add(this.btnClose, 0, 3);
             this.tblLogin.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tblLogin.Location = new System.Drawing.Point(416, 72);
+            this.tblLogin.Location = new System.Drawing.Point(416, 64);
             this.tblLogin.Name = "tblLogin";
             this.tblLogin.RowCount = 5;
             this.tblLogin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -350,7 +350,6 @@ namespace PatientManagement
             this.picMazimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picMazimize.TabIndex = 2;
             this.picMazimize.TabStop = false;
-            this.picMazimize.Click += new System.EventHandler(this.picMazimize_Click);
             // 
             // panel4
             // 
@@ -379,12 +378,11 @@ namespace PatientManagement
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1280, 768);
+            this.ClientSize = new System.Drawing.Size(1280, 741);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "LoginForm";
+            this.Text = "Patient\'s Management System";
             this.Load += new System.EventHandler(this.LoginForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tblLogin.ResumeLayout(false);

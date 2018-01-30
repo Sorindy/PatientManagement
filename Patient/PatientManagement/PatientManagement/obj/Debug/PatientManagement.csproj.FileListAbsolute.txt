@@ -73,6 +73,7 @@ E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\AxInterop.CrystalActiveXReportViewerLib13.dll
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.exe
 E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.pdb
+<<<<<<< HEAD
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\PatientManagement.exe.config
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\Interop.CrystalActiveXReportViewerLib13.dll
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\AxInterop.CrystalActiveXReportViewerLib13.dll
@@ -148,3 +149,7 @@ D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\Patie
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.WorkerListForm.resources
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.csproj.GenerateResource.Cache
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.exe.licenses
+=======
+E:\Work\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.WaitingForm.resources
+>>>>>>> ca630d821d04a4082c6675e405d18546b86a7ce4
+D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.WaitingForm.resources

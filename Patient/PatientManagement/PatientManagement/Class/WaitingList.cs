@@ -48,7 +48,8 @@ namespace PatientManagement.Class
                 if (checkConsultationCategory)
                 {
                     var getList = from b in _db.WaitingLists
-                        where b.ConsultationCategories.Any(v => v.Id == categoryid )
+                                  where b.ConsultationCategories.Any(v => v.Id == categoryid)
+                                  orderby b.Number
                         select new
                         {
                             b.Id,
@@ -68,7 +69,7 @@ namespace PatientManagement.Class
                 if (checkLaboratoryCategory)
                 {
                     var getList = from b in _db.WaitingLists
-                        where b.LaboratoryCategories.Any(v => v.Id  == categoryid)
+                        where b.LaboratoryCategories.Any(v => v.Id  == categoryid) orderby b.Number
                         select new
                         {
                             b.Id,
@@ -88,7 +89,8 @@ namespace PatientManagement.Class
                 if (checkMedicalImagingCategory)
                 {
                     var getList = from b in _db.WaitingLists
-                        where b.ConsultationCategories.Any(v => v.Id  == categoryid)
+                                  where b.ConsultationCategories.Any(v => v.Id == categoryid)
+                                  orderby b.Number
                         select new
                         {
                             b.Id,
@@ -108,7 +110,8 @@ namespace PatientManagement.Class
                 if (checkPrescriptionCategory)
                 {
                     var getList = from b in _db.WaitingLists
-                        where b.PrescriptionCategories.Any(v => v.Id  == categoryid )
+                                  where b.PrescriptionCategories.Any(v => v.Id == categoryid)
+                                  orderby b.Number
                         select new
                         {
                             b.Id,
@@ -128,7 +131,8 @@ namespace PatientManagement.Class
                 if (checkVariousDocumentCategory)
                 {
                     var getList = from b in _db.WaitingLists
-                        where b.VariousDocumentCategories.Any(v => v.Id  == categoryid )
+                                  where b.VariousDocumentCategories.Any(v => v.Id == categoryid)
+                                  orderby b.Number
                         select new
                         {
                             b.Id,
