@@ -7,7 +7,6 @@ using PatientManagement.Interface;
 using Account = Hospital_Entity_Framework.Account;
 using Form = System.Windows.Forms.Form;
 using WaitingList = PatientManagement.Class.WaitingList;
-using Worker = Hospital_Entity_Framework.Worker;
 
 namespace PatientManagement
 {
@@ -171,6 +170,8 @@ namespace PatientManagement
                         TopLevel = false,
                         Dock = DockStyle.Fill,
                         WaitingList = getWaitinglist,
+                        cboService = {Enabled = false},
+                        cboCategory = {Enabled = false},
                     };
                     CatelogForm.pnlFill.Controls.Clear();
                     CatelogForm.pnlFill.Controls.Add(form);
@@ -187,7 +188,10 @@ namespace PatientManagement
                         TopLevel = false,
                         Dock = DockStyle.Fill
                     };
-
+                    CatelogForm.pnlFill.Controls.Clear();
+                    CatelogForm.pnlFill.Controls.Add(form);
+                    form.Show();
+                    Close();
                 }
             }
         }

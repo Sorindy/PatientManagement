@@ -83,6 +83,20 @@ namespace PatientManagement
                 lblPPhone.Text = WaitingList.Patient.Phone1;
             }
 
+            if (KeyService != null)
+            {
+                if (KeyCategory!=0)
+                {
+                    cboService.SelectedItem = KeyService;
+                    cboService_SelectedIndexChanged(this,new EventArgs());
+                    cboCategory.SelectedValue = KeyCategory;
+                }
+                else
+                {
+                    
+                }
+            }
+
             var path = AppDomain.CurrentDomain.BaseDirectory;
             _path = path.Remove(path.Length - 46);
             //_path = path;
@@ -610,8 +624,6 @@ namespace PatientManagement
 
         private void cboService_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (txtDescription.Text != null)return;
-
             if (cboService.Text == @"Consultation")
             {
                 _category=new ConsultationCategory();
@@ -660,7 +672,7 @@ namespace PatientManagement
                 }
                 KeyService = @"Prescription";
             }
-            if (cboService.Text == @"Various Document")
+            if (cboService.Text == @"Various Document"||cboService.Text==@"VariousDocument")
             {
                 _category = new VariousDocumentCategory();
                 var dic = _category.ShowCategoryForDoctor(Worker.Id);
