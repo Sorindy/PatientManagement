@@ -16,6 +16,10 @@ namespace PatientManagement
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+            WorkerListForm.dgvListWorker.Columns.Clear();
+            WorkerListForm.CatelogForm.pnlFill.Controls.Clear();
+            WorkerListForm.CatelogForm.pnlFill.Controls.Add(WorkerListForm);
+            WorkerListForm.WorkerListForm_Shown(WorkerListForm, new EventArgs());
             Close();
         }
         private void CheckData()
@@ -102,8 +106,9 @@ namespace PatientManagement
             {
                 _worker.Insert(txtfName.Text,txtlName.Text,cboGender.Text,dtpDOB.Value,Convert.ToByte(txtAge.Text),txtAddress.Text,txtPhone1.Text,txtPhone2.Text,
                                 txtEmail.Text,cboPosition.Text,Convert.ToInt32(txtSalary.Text),dtpSWD.Value);
-                WorkerListForm.dgvListWorker.Columns.RemoveAt(8);
-                WorkerListForm.dgvListWorker.Columns.RemoveAt(8);
+                WorkerListForm.dgvListWorker.Columns.Clear();
+                WorkerListForm.CatelogForm.pnlFill.Controls.Clear();
+                WorkerListForm.CatelogForm.pnlFill.Controls.Add(WorkerListForm);
                 WorkerListForm.WorkerListForm_Shown(WorkerListForm, new EventArgs());
                 Close();
             }

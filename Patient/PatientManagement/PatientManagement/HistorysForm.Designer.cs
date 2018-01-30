@@ -29,12 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HistorysForm));
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Patient\'s History");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Consultation");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Laboratory");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Medical Imaging");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Prescription");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("VariousDocument");
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -59,13 +53,17 @@
             this.lbdName = new System.Windows.Forms.Label();
             this.lbService = new System.Windows.Forms.Label();
             this.lbCategory = new System.Windows.Forms.Label();
-            this.pnlHideLeft = new System.Windows.Forms.Panel();
-            this.treeSelection = new System.Windows.Forms.TreeView();
             this.pnlShowHistory = new System.Windows.Forms.Panel();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.pnlHistory = new System.Windows.Forms.Panel();
             this.dgvHistory = new System.Windows.Forms.DataGridView();
             this.btnClose = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cboService = new System.Windows.Forms.ComboBox();
+            this.cboCategory = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.picHideTop = new System.Windows.Forms.PictureBox();
@@ -99,11 +97,12 @@
             this.tableLayoutPanel11.SuspendLayout();
             this.gboWorker.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
-            this.pnlHideLeft.SuspendLayout();
             this.pnlShowHistory.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.pnlHistory.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistory)).BeginInit();
+            this.panel2.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picHideTop)).BeginInit();
@@ -369,61 +368,14 @@
             this.lbCategory.Size = new System.Drawing.Size(0, 43);
             this.lbCategory.TabIndex = 5;
             // 
-            // pnlHideLeft
-            // 
-            this.pnlHideLeft.Controls.Add(this.treeSelection);
-            this.pnlHideLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlHideLeft.Location = new System.Drawing.Point(0, 159);
-            this.pnlHideLeft.Name = "pnlHideLeft";
-            this.pnlHideLeft.Size = new System.Drawing.Size(225, 593);
-            this.pnlHideLeft.TabIndex = 12;
-            // 
-            // treeSelection
-            // 
-            this.treeSelection.BackColor = System.Drawing.Color.DodgerBlue;
-            this.treeSelection.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeSelection.Font = new System.Drawing.Font("Modern No. 20", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.treeSelection.FullRowSelect = true;
-            this.treeSelection.ItemHeight = 80;
-            this.treeSelection.Location = new System.Drawing.Point(0, 0);
-            this.treeSelection.Name = "treeSelection";
-            treeNode1.Name = "History";
-            treeNode1.NodeFont = new System.Drawing.Font("Modern No. 20", 15.75F);
-            treeNode1.Text = "Patient\'s History";
-            treeNode2.Name = "Consultation";
-            treeNode2.NodeFont = new System.Drawing.Font("Modern No. 20", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            treeNode2.Text = "Consultation";
-            treeNode3.Name = "Laboratory";
-            treeNode3.NodeFont = new System.Drawing.Font("Modern No. 20", 15.75F);
-            treeNode3.Text = "Laboratory";
-            treeNode4.Name = "MedicalImaging";
-            treeNode4.NodeFont = new System.Drawing.Font("Modern No. 20", 15.75F);
-            treeNode4.Text = "Medical Imaging";
-            treeNode5.Name = "Prescription";
-            treeNode5.NodeFont = new System.Drawing.Font("Modern No. 20", 15.75F);
-            treeNode5.Text = "Prescription";
-            treeNode6.Name = "VariousDocument";
-            treeNode6.NodeFont = new System.Drawing.Font("Modern No. 20", 15.75F);
-            treeNode6.Text = "VariousDocument";
-            this.treeSelection.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3,
-            treeNode4,
-            treeNode5,
-            treeNode6});
-            this.treeSelection.Size = new System.Drawing.Size(225, 593);
-            this.treeSelection.TabIndex = 1;
-            this.treeSelection.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeSelection_AfterSelect);
-            // 
             // pnlShowHistory
             // 
             this.pnlShowHistory.BackColor = System.Drawing.Color.DodgerBlue;
             this.pnlShowHistory.Controls.Add(this.tableLayoutPanel7);
             this.pnlShowHistory.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlShowHistory.Location = new System.Drawing.Point(225, 159);
+            this.pnlShowHistory.Location = new System.Drawing.Point(0, 159);
             this.pnlShowHistory.Name = "pnlShowHistory";
-            this.pnlShowHistory.Size = new System.Drawing.Size(388, 593);
+            this.pnlShowHistory.Size = new System.Drawing.Size(553, 593);
             this.pnlShowHistory.TabIndex = 15;
             // 
             // tableLayoutPanel7
@@ -434,23 +386,24 @@
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanel7.Controls.Add(this.pnlHistory, 1, 1);
             this.tableLayoutPanel7.Controls.Add(this.btnClose, 1, 2);
+            this.tableLayoutPanel7.Controls.Add(this.panel2, 1, 0);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel7.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 3;
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 12F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 91F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(388, 593);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(553, 593);
             this.tableLayoutPanel7.TabIndex = 0;
             // 
             // pnlHistory
             // 
             this.pnlHistory.Controls.Add(this.dgvHistory);
             this.pnlHistory.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlHistory.Location = new System.Drawing.Point(13, 15);
+            this.pnlHistory.Location = new System.Drawing.Point(13, 94);
             this.pnlHistory.Name = "pnlHistory";
-            this.pnlHistory.Size = new System.Drawing.Size(362, 525);
+            this.pnlHistory.Size = new System.Drawing.Size(527, 446);
             this.pnlHistory.TabIndex = 1;
             // 
             // dgvHistory
@@ -515,7 +468,7 @@
             this.dgvHistory.RowTemplate.ReadOnly = true;
             this.dgvHistory.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvHistory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvHistory.Size = new System.Drawing.Size(362, 525);
+            this.dgvHistory.Size = new System.Drawing.Size(527, 446);
             this.dgvHistory.TabIndex = 2;
             this.dgvHistory.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHistory_CellClick);
             this.dgvHistory.SelectionChanged += new System.EventHandler(this.dgvHistory_SelectionChanged);
@@ -531,19 +484,98 @@
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnClose.Location = new System.Drawing.Point(13, 546);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(362, 44);
+            this.btnClose.Size = new System.Drawing.Size(527, 44);
             this.btnClose.TabIndex = 2;
             this.btnClose.Text = "ចាកចេញ";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.tableLayoutPanel4);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(13, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(527, 85);
+            this.panel2.TabIndex = 3;
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 2;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 125F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.Controls.Add(this.label6, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.label7, 0, 1);
+            this.tableLayoutPanel4.Controls.Add(this.cboService, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.cboCategory, 1, 1);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 2;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(527, 85);
+            this.tableLayoutPanel4.TabIndex = 0;
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Preah Vihear", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(3, 2);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(119, 38);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "សេវាកម្ម   :";
+            // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Preah Vihear", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(4, 44);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(116, 38);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "ប្រភេទ     :";
+            // 
+            // cboService
+            // 
+            this.cboService.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cboService.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboService.Font = new System.Drawing.Font("Preah Vihear", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboService.FormattingEnabled = true;
+            this.cboService.Items.AddRange(new object[] {
+            "Consultation",
+            "Laboratory",
+            "MedicalImaging",
+            "Prescription",
+            "VariousDocument"});
+            this.cboService.Location = new System.Drawing.Point(128, 3);
+            this.cboService.Name = "cboService";
+            this.cboService.Size = new System.Drawing.Size(396, 42);
+            this.cboService.TabIndex = 2;
+            this.cboService.SelectedIndexChanged += new System.EventHandler(this.cboService_SelectedIndexChanged);
+            // 
+            // cboCategory
+            // 
+            this.cboCategory.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cboCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboCategory.Font = new System.Drawing.Font("Preah Vihear", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboCategory.FormattingEnabled = true;
+            this.cboCategory.Location = new System.Drawing.Point(128, 45);
+            this.cboCategory.Name = "cboCategory";
+            this.cboCategory.Size = new System.Drawing.Size(396, 42);
+            this.cboCategory.TabIndex = 3;
+            this.cboCategory.SelectedIndexChanged += new System.EventHandler(this.cboCategory_SelectedIndexChanged);
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.tableLayoutPanel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(613, 159);
+            this.panel1.Location = new System.Drawing.Point(553, 159);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(749, 22);
+            this.panel1.Size = new System.Drawing.Size(809, 22);
             this.panel1.TabIndex = 16;
             // 
             // tableLayoutPanel2
@@ -558,13 +590,13 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(749, 22);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(809, 22);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // picHideTop
             // 
             this.picHideTop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.picHideTop.Location = new System.Drawing.Point(352, 3);
+            this.picHideTop.Location = new System.Drawing.Point(382, 3);
             this.picHideTop.Name = "picHideTop";
             this.picHideTop.Size = new System.Drawing.Size(44, 16);
             this.picHideTop.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -576,7 +608,7 @@
             // 
             this.pnlHide.Controls.Add(this.tableLayoutPanel3);
             this.pnlHide.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlHide.Location = new System.Drawing.Point(613, 181);
+            this.pnlHide.Location = new System.Drawing.Point(553, 181);
             this.pnlHide.Name = "pnlHide";
             this.pnlHide.Size = new System.Drawing.Size(25, 571);
             this.pnlHide.TabIndex = 17;
@@ -611,9 +643,9 @@
             // 
             this.pnlShow.Controls.Add(this.groupBox3);
             this.pnlShow.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlShow.Location = new System.Drawing.Point(638, 181);
+            this.pnlShow.Location = new System.Drawing.Point(578, 181);
             this.pnlShow.Name = "pnlShow";
-            this.pnlShow.Size = new System.Drawing.Size(724, 571);
+            this.pnlShow.Size = new System.Drawing.Size(784, 571);
             this.pnlShow.TabIndex = 18;
             // 
             // groupBox3
@@ -627,7 +659,7 @@
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Location = new System.Drawing.Point(0, 0);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(724, 571);
+            this.groupBox3.Size = new System.Drawing.Size(784, 571);
             this.groupBox3.TabIndex = 19;
             this.groupBox3.TabStop = false;
             // 
@@ -640,7 +672,7 @@
             this.txtDescription.Location = new System.Drawing.Point(28, 93);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.RulerBar = this.rulerBar2;
-            this.txtDescription.Size = new System.Drawing.Size(693, 453);
+            this.txtDescription.Size = new System.Drawing.Size(753, 453);
             this.txtDescription.StatusBar = this.statusBar1;
             this.txtDescription.TabIndex = 2;
             this.txtDescription.VerticalRulerBar = this.rulerBar1;
@@ -651,7 +683,7 @@
             this.buttonBar1.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonBar1.Location = new System.Drawing.Point(3, 40);
             this.buttonBar1.Name = "buttonBar1";
-            this.buttonBar1.Size = new System.Drawing.Size(718, 28);
+            this.buttonBar1.Size = new System.Drawing.Size(778, 28);
             this.buttonBar1.TabIndex = 10;
             this.buttonBar1.Text = "buttonBar1";
             // 
@@ -660,7 +692,7 @@
             this.rulerBar2.Dock = System.Windows.Forms.DockStyle.Top;
             this.rulerBar2.Location = new System.Drawing.Point(3, 68);
             this.rulerBar2.Name = "rulerBar2";
-            this.rulerBar2.Size = new System.Drawing.Size(718, 25);
+            this.rulerBar2.Size = new System.Drawing.Size(778, 25);
             this.rulerBar2.TabIndex = 9;
             this.rulerBar2.Text = "rulerBar2";
             // 
@@ -670,7 +702,7 @@
             this.statusBar1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.statusBar1.Location = new System.Drawing.Point(3, 546);
             this.statusBar1.Name = "statusBar1";
-            this.statusBar1.Size = new System.Drawing.Size(718, 22);
+            this.statusBar1.Size = new System.Drawing.Size(778, 22);
             this.statusBar1.TabIndex = 4;
             // 
             // rulerBar1
@@ -695,7 +727,7 @@
             this.formatStyleToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(3, 16);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(718, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(778, 24);
             this.menuStrip1.TabIndex = 11;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -790,7 +822,6 @@
             this.Controls.Add(this.pnlHide);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlShowHistory);
-            this.Controls.Add(this.pnlHideLeft);
             this.Controls.Add(this.pnlTitle);
             this.Name = "HistorysForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -808,11 +839,13 @@
             this.gboWorker.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel6.PerformLayout();
-            this.pnlHideLeft.ResumeLayout(false);
             this.pnlShowHistory.ResumeLayout(false);
             this.tableLayoutPanel7.ResumeLayout(false);
             this.pnlHistory.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistory)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picHideTop)).EndInit();
@@ -849,8 +882,6 @@
         private System.Windows.Forms.Label lbdName;
         private System.Windows.Forms.Label lbService;
         private System.Windows.Forms.Label lbCategory;
-        private System.Windows.Forms.Panel pnlHideLeft;
-        private System.Windows.Forms.TreeView treeSelection;
         private System.Windows.Forms.Panel pnlShowHistory;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private System.Windows.Forms.Panel pnlHistory;
@@ -881,5 +912,11 @@
         private System.Windows.Forms.ToolStripMenuItem tabToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pageColorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem formatStyleToolStripMenuItem;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cboService;
+        private System.Windows.Forms.ComboBox cboCategory;
     }
 }

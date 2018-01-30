@@ -16,6 +16,7 @@ namespace PatientManagement
         private string _path;
         internal PatientListForm PatientListForm;
         internal Patient Patient;
+        internal HistorysForm HistorysForm;
         private readonly Class.Patient _patient=new Class.Patient();
         internal Account Account; private bool _mouseDown;
         private Point _lastLocation;
@@ -69,6 +70,12 @@ namespace PatientManagement
             {
                 PatientListForm.dgvListPatient.Columns.RemoveAt(10);
                 PatientListForm.PatientListForm_Shown(PatientListForm, new EventArgs());
+            }
+            if (HistorysForm != null)
+            {
+                HistorysForm.CatelogForm.pnlFill.Controls.Clear();
+                HistorysForm.CatelogForm.pnlFill.Controls.Add(HistorysForm);
+                HistorysForm.Show();
             }
             Close();
         }

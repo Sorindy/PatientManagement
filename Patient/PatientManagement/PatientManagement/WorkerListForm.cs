@@ -13,6 +13,7 @@ namespace PatientManagement
         }
 
         internal Worker Worker=new Worker();
+        internal CatelogForm CatelogForm;
         
         private void CheckOrderDgv()
         {
@@ -61,20 +62,26 @@ namespace PatientManagement
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            var newWorker = new NewWorker {WorkerListForm = this};
-            newWorker.ShowDialog();
+            var newWorker = new NewWorker { WorkerListForm = this, Dock = DockStyle.Fill, TopLevel = false };
+            CatelogForm.pnlFill.Controls.Clear();
+            CatelogForm.pnlFill.Controls.Add(newWorker);
+            newWorker.Show();
         }
 
         private void lblNew_Click(object sender, EventArgs e)
         {
-            var newWorker = new NewWorker { WorkerListForm = this };
-            newWorker.ShowDialog();
+            var newWorker = new NewWorker { WorkerListForm = this ,Dock = DockStyle.Fill,TopLevel = false};
+            CatelogForm.pnlFill.Controls.Clear();
+            CatelogForm.pnlFill.Controls.Add(newWorker);
+            newWorker.Show();
         }
 
         private void tableLayoutPanel3_Click(object sender, EventArgs e)
         {
-            var newWorker = new NewWorker { WorkerListForm = this };
-            newWorker.ShowDialog();
+            var newWorker = new NewWorker { WorkerListForm = this, Dock = DockStyle.Fill, TopLevel = false };
+            CatelogForm.pnlFill.Controls.Clear();
+            CatelogForm.pnlFill.Controls.Add(newWorker);
+            newWorker.Show();
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
@@ -113,8 +120,10 @@ namespace PatientManagement
                 {
                     var id = dgvListWorker.CurrentRow.Cells[0].Value;
                     var worker = Worker.SelectedWorker(Convert.ToInt32(id));
-                    var form = new WorkerForm { Worker =worker ,WorkerListForm = this};
-                    form.ShowDialog();
+                    var form = new WorkerForm { Worker =worker ,WorkerListForm = this,TopLevel = false,Dock = DockStyle.Fill};
+                    CatelogForm.pnlFill.Controls.Clear();
+                    CatelogForm.pnlFill.Controls.Add(form);
+                    form.Show();
                 }
 
             }

@@ -86,11 +86,15 @@ namespace PatientManagement
             {
                 if (dgvWaitingCategory.CurrentRow.Cells[5].Value == null || dgvWaitingCategory.CurrentRow.Cells[5].Value.Equals(true))
                 {
+                    var obj = _waitingList.GetWaitingListObject(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[0]
+                        .Value));
                     Medicalsform.WaitingList = new Hospital_Entity_Framework.WaitingList();
-                    Medicalsform.WaitingList =_waitingList.GetWaitingListObject(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[0].Value));
-                    Medicalsform.Patient = _waitingList.GetWaitingListObject(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[0].Value)).Patient;
-                    Medicalsform.txtNamePatient.Text = _waitingList.GetWaitingListObject(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[0].Value)).Patient.LastName;
-                    Medicalsform.txtGenderPatient.Text = _waitingList.GetWaitingListObject(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[0].Value)).Patient.Gender;
+                    Medicalsform.WaitingList =obj;
+                    Medicalsform.Patient = obj.Patient;
+                    Medicalsform.lblPName.Text =obj.Patient.FirstName+@"    "+ obj.Patient.LastName;
+                    Medicalsform.lblPGender.Text = obj.Patient.Gender;
+                    Medicalsform.lblPAddress.Text = obj.Patient.Address;
+                    Medicalsform.lblPPhone.Text = obj.Patient.Phone1;
                     Close();
                     //_nurseRespone = new NurseRespone();
                     //_nurseRespone.Insert(Convert.ToInt32(dgvWaitingCategory.CurrentRow.Cells[0].Value.ToString()), Worker.Id);

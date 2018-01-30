@@ -54,8 +54,10 @@ namespace PatientManagement
             {
                 if (_patientstatus == "True")
                 {
-                    MedicalsForm.txtNamePatient.Text = _waitingList.GetWaitingListObject(_waitingid).Patient.FirstName + @"  " + _waitingList.GetWaitingListObject(_waitingid).Patient.LastName;
-                    MedicalsForm.txtGenderPatient.Text = _waitingList.GetWaitingListObject(_waitingid).Patient.Gender;
+                    MedicalsForm.lblPName.Text = _waitingList.GetWaitingListObject(_waitingid).Patient.FirstName + @"  " + _waitingList.GetWaitingListObject(_waitingid).Patient.LastName;
+                    MedicalsForm.lblPGender.Text = _waitingList.GetWaitingListObject(_waitingid).Patient.Gender;
+                    MedicalsForm.lblPAddress.Text = _waitingList.GetWaitingListObject(_waitingid).Patient.Address;
+                    MedicalsForm.lblPPhone.Text = _waitingList.GetWaitingListObject(_waitingid).Patient.Phone1;
                     MedicalsForm.WaitingList = WaitingList;
                     MedicalsForm.Patient= _waitingList.GetWaitingListObject(_waitingid).Patient;
                     Waitinglistform.Close();

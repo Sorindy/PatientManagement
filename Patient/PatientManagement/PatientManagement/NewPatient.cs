@@ -22,7 +22,9 @@ namespace PatientManagement
         private void btnClose_Click(object sender, EventArgs e)
         {
             PatientListForm.dgvListPatient.DataSource = null;
-            PatientListForm.dgvListPatient.Columns.RemoveAt(0); 
+            PatientListForm.dgvListPatient.Columns.Clear();
+            PatientListForm.CatelogForm.pnlFill.Controls.Clear();
+            PatientListForm.CatelogForm.pnlFill.Controls.Add(PatientListForm);
             PatientListForm.PatientListForm_Shown(PatientListForm, new EventArgs());
             Close();
         }
@@ -102,7 +104,9 @@ namespace PatientManagement
                 _patient.Insert(txtfName.Text,txtlName.Text,txtkhName.Text, cboGender.Text, dtpDOB.Value, Convert.ToByte(txtAge.Text), txtAddress.Text, txtPhone1.Text,
                     txtPhone1.Text, txtEmail.Text, Convert.ToInt16(txtWeight.Text), Convert.ToInt16(txtHeight.Text));
                 PatientListForm.dgvListPatient.DataSource=null;
-                PatientListForm.dgvListPatient.Columns.RemoveAt(0);
+                PatientListForm.dgvListPatient.Columns.Clear();
+                PatientListForm.CatelogForm.pnlFill.Controls.Clear();
+                PatientListForm.CatelogForm.pnlFill.Controls.Add(PatientListForm);
                 PatientListForm.PatientListForm_Shown(PatientListForm, new EventArgs());
                 Close();
             }
