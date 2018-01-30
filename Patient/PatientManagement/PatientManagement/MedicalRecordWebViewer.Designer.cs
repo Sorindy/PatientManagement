@@ -35,8 +35,9 @@
             this.cmbModel = new System.Windows.Forms.ComboBox();
             this.btnPrint = new System.Windows.Forms.Button();
             this.crystalReportViewer = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.MedicalRecortSampleC1 = new PatientManagement.MedicalRecortSampleC();
+            this.MedicalRecortSampleD1 = new PatientManagement.MedicalRecortSampleD();
             this.btnModel = new System.Windows.Forms.Button();
+            this.MedicalRecortSampleC1 = new PatientManagement.MedicalRecortSampleC();
             this.MedicalReportSampleB1 = new PatientManagement.MedicalReportSampleB();
             this.MedicalReportSampleA1 = new PatientManagement.MedicalReportSampleA();
             this.pnBoss.SuspendLayout();
@@ -90,8 +91,9 @@
             this.cmbModel.Items.AddRange(new object[] {
             "SampleA",
             "SampleB",
-            "SampleC"});
-            this.cmbModel.Location = new System.Drawing.Point(165, 11);
+            "SampleC",
+            "SampleD"});
+            this.cmbModel.Location = new System.Drawing.Point(259, 11);
             this.cmbModel.Name = "cmbModel";
             this.cmbModel.Size = new System.Drawing.Size(161, 21);
             this.cmbModel.TabIndex = 3;
@@ -99,7 +101,7 @@
             // 
             // btnPrint
             // 
-            this.btnPrint.Location = new System.Drawing.Point(3, 12);
+            this.btnPrint.Location = new System.Drawing.Point(97, 9);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(75, 23);
             this.btnPrint.TabIndex = 2;
@@ -114,18 +116,18 @@
             this.crystalReportViewer.Cursor = System.Windows.Forms.Cursors.Default;
             this.crystalReportViewer.Location = new System.Drawing.Point(1104, 11);
             this.crystalReportViewer.Name = "crystalReportViewer";
-            this.crystalReportViewer.ReportSource = this.MedicalRecortSampleC1;
+            this.crystalReportViewer.ReportSource = this.MedicalRecortSampleD1;
             this.crystalReportViewer.Size = new System.Drawing.Size(22, 33);
             this.crystalReportViewer.TabIndex = 1;
             this.crystalReportViewer.Visible = false;
             // 
             // btnModel
             // 
-            this.btnModel.Location = new System.Drawing.Point(84, 12);
+            this.btnModel.Location = new System.Drawing.Point(178, 9);
             this.btnModel.Name = "btnModel";
             this.btnModel.Size = new System.Drawing.Size(75, 23);
             this.btnModel.TabIndex = 0;
-            this.btnModel.Text = "Model";
+            this.btnModel.Text = "Content";
             this.btnModel.UseVisualStyleBackColor = true;
             this.btnModel.Click += new System.EventHandler(this.btnModel_Click);
             // 
@@ -158,5 +160,6 @@
         private MedicalReportSampleB MedicalReportSampleB1;
         private System.Windows.Forms.ComboBox cmbModel;
         private MedicalRecortSampleC MedicalRecortSampleC1;
+        private MedicalRecortSampleD MedicalRecortSampleD1;
     }
 }

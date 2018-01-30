@@ -69,6 +69,16 @@ namespace PatientManagement
                 MedicalRecortSampleC1.ExportToDisk(ExportFormatType.HTML40, @"D:\PatientManagement\Patient\RTF\SampleC");
                 wv.Navigate(@"D:\PatientManagement\Patient\RTF\SampleC.htm");
             }
+            else if (cmbModel.SelectedIndex == 3)
+            {
+                MedicalRecortSampleD1.SetParameterValue("pPatientName", Patient.FirstName + " " + Patient.LastName + " ( " + Patient.KhmerName + " )");
+                MedicalRecortSampleD1.SetParameterValue("pGender", Patient.Gender);
+                MedicalRecortSampleD1.SetParameterValue("pDatetime", DateTime.Now);
+                MedicalRecortSampleD1.SetParameterValue("pDoctorName", Account.Worker.FirstName + " " + Account.Worker.LastName);
+                MedicalRecortSampleD1.SetParameterValue("pAge", Patient.Age);
+                MedicalRecortSampleD1.ExportToDisk(ExportFormatType.HTML40, @"D:\PatientManagement\Patient\RTF\SampleD");
+                wv.Navigate(@"D:\PatientManagement\Patient\RTF\SampleD.htm");
+            }
         }
 
     }
