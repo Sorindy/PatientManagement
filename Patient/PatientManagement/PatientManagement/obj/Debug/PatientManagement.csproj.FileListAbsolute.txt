@@ -35,7 +35,6 @@ D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\fr\Sy
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\de\TXDrawing.resources.dll
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\Interop.CrystalActiveXReportViewerLib13.dll
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\bin\Debug\AxInterop.CrystalActiveXReportViewerLib13.dll
-D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.csprojResolveAssemblyReference.cache
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\Interop.CrystalActiveXReportViewerLib13.dll
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\AxInterop.CrystalActiveXReportViewerLib13.dll
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.csproj.ResolveComReference.cache

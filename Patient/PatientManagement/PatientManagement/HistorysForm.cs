@@ -28,8 +28,8 @@ namespace PatientManagement
         private Point _lastLocation;
         //private readonly MedicalHistory _medicalHistory=new MedicalHistory();
         private IHistory _history;
-        private int _keyCategory;
-        private string _keyService;
+        internal int KeyCategory;
+        internal string KeyService;
         private string _path;
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -65,6 +65,35 @@ namespace PatientManagement
             lbpName.Text =Patient.FirstName+@"   "+ Patient.LastName;
             lbpGender.Text = Patient.Gender;
             lbdName.Text =Account.Worker.FirstName+@"    "+ Account.Worker.LastName;
+            if (KeyService != null)
+            {
+                lbService.Text = KeyService;
+                if (KeyService == "Consultation")
+                {
+                    tabSelection_Selected(this,new TabControlEventArgs(tabConsultation,0,TabControlAction.Selected));
+                    cboConCategory.SelectedItem = KeyCategory;
+                }
+                if (KeyService == "Laboratory")
+                {
+                    tabSelection_Selected(this, new TabControlEventArgs(tabLaboratory, 1, TabControlAction.Selected));
+                    cboLabCategory.SelectedItem = KeyCategory;
+                }
+                if (KeyService == "MedicalImaging")
+                {
+                    tabMedicalImaging.Select();
+                    cboMedCategory.SelectedItem = KeyCategory;
+                }
+                if (KeyService == "Prescription")
+                {
+                    tabPrescription.Select();
+                    cboPreCategory.SelectedItem = KeyCategory;
+                }
+                if (KeyService == "VariousDocument")
+                {
+                    tabVariousDocument.Select();
+                    cboVarCategory.SelectedItem = KeyCategory;
+                }
+            }
             //AddNodesToTree();
             var path = AppDomain.CurrentDomain.BaseDirectory;
             _path = path.Remove(path.Length - 46);
@@ -798,18 +827,18 @@ namespace PatientManagement
             if (key != 0)
             {
                 dgvConsultation.Columns.Clear();
-                _keyCategory = Convert.ToInt32(key);
+                KeyCategory = Convert.ToInt32(key);
                 lbCategory.Text = cboConCategory.Text;
                 _history = new ConsultationHistory();
-                if (_history.CheckDoctorCategory(Account.WorkerId, _keyCategory))
+                if (_history.CheckDoctorCategory(Account.WorkerId, KeyCategory))
                 {
-                    dgvConsultation.DataSource = _history.Show(Patient.Id, _keyCategory);
+                    dgvConsultation.DataSource = _history.Show(Patient.Id, KeyCategory);
                     InsertButtonEditAndNewForDoctor();
                 }
 
                 else
                 {
-                    dgvConsultation.DataSource = _history.Show(Patient.Id, _keyCategory);
+                    dgvConsultation.DataSource = _history.Show(Patient.Id, KeyCategory);
                 }
             } if (dgvConsultation.DataSource != null) CheckOrderDgv(dgvConsultation);
         }
@@ -821,18 +850,18 @@ namespace PatientManagement
             if (key != 0)
             {
                 dgvLaboratory.Columns.Clear();
-                _keyCategory = Convert.ToInt32(key);
+                KeyCategory = Convert.ToInt32(key);
                 lbCategory.Text = cboConCategory.Text;
                 _history = new LaboratoryHistory();
-                if (_history.CheckDoctorCategory(Account.WorkerId, _keyCategory))
+                if (_history.CheckDoctorCategory(Account.WorkerId, KeyCategory))
                 {
-                    dgvLaboratory.DataSource = _history.Show(Patient.Id, _keyCategory);
+                    dgvLaboratory.DataSource = _history.Show(Patient.Id, KeyCategory);
                     InsertButtonEditAndNewForDoctor();
                 }
 
                 else
                 {
-                    dgvLaboratory.DataSource = _history.Show(Patient.Id, _keyCategory);
+                    dgvLaboratory.DataSource = _history.Show(Patient.Id, KeyCategory);
                 }
             } if (dgvLaboratory.DataSource != null) CheckOrderDgv(dgvLaboratory);
         }
@@ -844,18 +873,18 @@ namespace PatientManagement
             if (key != 0)
             {
                 dgvMedicalImaging.Columns.Clear();
-                _keyCategory = Convert.ToInt32(key);
+                KeyCategory = Convert.ToInt32(key);
                 lbCategory.Text = cboMedCategory.Text;
                 _history = new MedicalImagingHistory();
-                if (_history.CheckDoctorCategory(Account.WorkerId, _keyCategory))
+                if (_history.CheckDoctorCategory(Account.WorkerId, KeyCategory))
                 {
-                    dgvMedicalImaging.DataSource = _history.Show(Patient.Id, _keyCategory);
+                    dgvMedicalImaging.DataSource = _history.Show(Patient.Id, KeyCategory);
                     InsertButtonEditAndNewForDoctor();
                 }
 
                 else
                 {
-                    dgvMedicalImaging.DataSource = _history.Show(Patient.Id, _keyCategory);
+                    dgvMedicalImaging.DataSource = _history.Show(Patient.Id, KeyCategory);
                 }
             } if (dgvMedicalImaging.DataSource != null) CheckOrderDgv(dgvMedicalImaging);
         }
@@ -867,18 +896,18 @@ namespace PatientManagement
             if (key != 0)
             {
                 dgvPrescription.Columns.Clear();
-                _keyCategory = Convert.ToInt32(key);
+                KeyCategory = Convert.ToInt32(key);
                 lbCategory.Text = cboPreCategory.Text;
                 _history = new PrescriptionHistory();
-                if (_history.CheckDoctorCategory(Account.WorkerId, _keyCategory))
+                if (_history.CheckDoctorCategory(Account.WorkerId, KeyCategory))
                 {
-                    dgvPrescription.DataSource = _history.Show(Patient.Id, _keyCategory);
+                    dgvPrescription.DataSource = _history.Show(Patient.Id, KeyCategory);
                     InsertButtonEditAndNewForDoctor();
                 }
 
                 else
                 {
-                    dgvPrescription.DataSource = _history.Show(Patient.Id, _keyCategory);
+                    dgvPrescription.DataSource = _history.Show(Patient.Id, KeyCategory);
                 }
             } if (dgvPrescription.DataSource != null) CheckOrderDgv(dgvPrescription);
         }
@@ -890,25 +919,25 @@ namespace PatientManagement
             if (key != 0)
             {
                 dgvVariousDocument.Columns.Clear();
-                _keyCategory = Convert.ToInt32(key);
+                KeyCategory = Convert.ToInt32(key);
                 lbCategory.Text = cboVarCategory.Text;
                 _history = new VariousDocumentHistory();
-                if (_history.CheckDoctorCategory(Account.WorkerId, _keyCategory))
+                if (_history.CheckDoctorCategory(Account.WorkerId, KeyCategory))
                 {
-                    dgvVariousDocument.DataSource = _history.Show(Patient.Id, _keyCategory);
+                    dgvVariousDocument.DataSource = _history.Show(Patient.Id, KeyCategory);
                     InsertButtonEditAndNewForDoctor();
                 }
 
                 else
                 {
-                    dgvVariousDocument.DataSource = _history.Show(Patient.Id, _keyCategory);
+                    dgvVariousDocument.DataSource = _history.Show(Patient.Id, KeyCategory);
                 }
             } if (dgvVariousDocument.DataSource != null) CheckOrderDgv(dgvVariousDocument);
         }
 
         private void dgvVariousDocument_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            _keyService = @"VariousDocument";
+            KeyService = @"VariousDocument";
             if (e.ColumnIndex.Equals(7))
             {
                 if (dgvVariousDocument.DataSource != null)
@@ -920,8 +949,8 @@ namespace PatientManagement
                         Patient = Patient,
                         TopLevel = false,
                         Dock = DockStyle.Fill,
-                        KeyCategory = _keyCategory,
-                        KeyService = _keyService
+                        KeyCategory = KeyCategory,
+                        KeyService = KeyService
                     };
                     dgvVariousDocument.SelectionChanged -= dgvVariousDocument_SelectionChanged;
                     CatelogForm.pnlFill.Controls.Clear();
@@ -938,7 +967,7 @@ namespace PatientManagement
 
         private void dgvPrescription_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            _keyService = @"Prescription";
+            KeyService = @"Prescription";
             if (e.ColumnIndex.Equals(7))
             {
                 if (dgvPrescription.DataSource != null)
@@ -950,8 +979,8 @@ namespace PatientManagement
                         Patient = Patient,
                         TopLevel = false,
                         Dock = DockStyle.Fill,
-                        KeyCategory = _keyCategory,
-                        KeyService = _keyService
+                        KeyCategory = KeyCategory,
+                        KeyService = KeyService
                     };
                     dgvPrescription.SelectionChanged -= dgvPrescription_SelectionChanged;
                     CatelogForm.pnlFill.Controls.Clear();
@@ -1024,7 +1053,7 @@ namespace PatientManagement
 
         private void dgvMedicalImaging_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            _keyService = @"MedicalImaging";
+            KeyService = @"MedicalImaging";
             if (e.ColumnIndex.Equals(7))
             {
                 if (dgvMedicalImaging.DataSource != null)
@@ -1036,8 +1065,8 @@ namespace PatientManagement
                         Patient = Patient,
                         TopLevel = false,
                         Dock = DockStyle.Fill,
-                        KeyCategory = _keyCategory,
-                        KeyService = _keyService
+                        KeyCategory = KeyCategory,
+                        KeyService = KeyService
                     };
                     dgvMedicalImaging.SelectionChanged -= dgvMedicalImaging_SelectionChanged;
                     CatelogForm.pnlFill.Controls.Clear();
@@ -1070,7 +1099,7 @@ namespace PatientManagement
 
         private void dgvLaboratory_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            _keyService = @"Laboratory";
+            KeyService = @"Laboratory";
             if (e.ColumnIndex.Equals(7))
             {
                 if (dgvLaboratory.DataSource != null)
@@ -1082,8 +1111,8 @@ namespace PatientManagement
                         Patient = Patient,
                         TopLevel = false,
                         Dock = DockStyle.Fill,
-                        KeyCategory = _keyCategory,
-                        KeyService = _keyService
+                        KeyCategory = KeyCategory,
+                        KeyService = KeyService
                     };
                     dgvLaboratory.SelectionChanged -= dgvLaboratory_SelectionChanged;
                     CatelogForm.pnlFill.Controls.Clear();
@@ -1116,7 +1145,7 @@ namespace PatientManagement
 
         private void dgvConsultation_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            _keyService = @"Consultation";
+            KeyService = @"Consultation";
             if (e.ColumnIndex.Equals(7))
             {
                 if (dgvConsultation.DataSource != null)
@@ -1128,8 +1157,8 @@ namespace PatientManagement
                         Patient = Patient,
                         TopLevel = false,
                         Dock = DockStyle.Fill,
-                        KeyCategory = _keyCategory,
-                        KeyService = _keyService
+                        KeyCategory = KeyCategory,
+                        KeyService = KeyService
                     };
                     dgvConsultation.SelectionChanged -= dgvConsultation_SelectionChanged;
                     CatelogForm.pnlFill.Controls.Clear();

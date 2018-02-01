@@ -83,6 +83,20 @@ namespace PatientManagement
                 lblPPhone.Text = WaitingList.Patient.Phone1;
             }
 
+            if (KeyService != null)
+            {
+                if (KeyCategory!=0)
+                {
+                    cboService.SelectedItem = KeyService;
+                    cboService_SelectedIndexChanged(this,new EventArgs());
+                    cboCategory.SelectedValue = KeyCategory;
+                }
+                else
+                {
+                    
+                }
+            }
+
             var path = AppDomain.CurrentDomain.BaseDirectory;
             _path = path.Remove(path.Length - 46);
             //_path = path;
@@ -91,6 +105,7 @@ namespace PatientManagement
             picHideTop.ImageLocation = _path + @"Hide-Up-icon.png";
             txtDescription.ForeColor = Color.Black;
             btnSample.Text = @"Save as" + Environment.NewLine + @"Sample";
+            txtNameDoctor.Text = Account.Worker.FirstName + @"  " + Account.Worker.LastName;
         }
 
         private void picHideTop_Click(object sender, EventArgs e)
@@ -610,12 +625,10 @@ namespace PatientManagement
 
         private void cboService_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (txtDescription.Text != null)return;
-
             if (cboService.Text == @"Consultation")
             {
                 _category=new ConsultationCategory();
-                var dic = _category.ShowCategoryForDoctor(Worker.Id);
+                var dic = _category.ShowCategoryForDoctor(Account.WorkerId);
                 if (dic.Count != 0)
                 {
                     cboCategory.DataSource=new BindingSource(dic,null);
@@ -627,7 +640,7 @@ namespace PatientManagement
             if (cboService.Text == @"Laboratory")
             {
                 _category = new LaboratoryCategory();
-                var dic = _category.ShowCategoryForDoctor(Worker.Id);
+                var dic = _category.ShowCategoryForDoctor(Account.WorkerId);
                 if (dic.Count != 0)
                 {
                     cboCategory.DataSource = new BindingSource(dic, null);
@@ -639,7 +652,7 @@ namespace PatientManagement
             if (cboService.Text == @"MedicalImaging")
             {
                 _category = new MedicalImagingCategory();
-                var dic = _category.ShowCategoryForDoctor(Worker.Id);
+                var dic = _category.ShowCategoryForDoctor(Account.WorkerId);
                 if (dic.Count != 0)
                 {
                     cboCategory.DataSource = new BindingSource(dic, null);
@@ -651,7 +664,7 @@ namespace PatientManagement
             if (cboService.Text == @"Prescription")
             {
                 _category = new PrescriptionCategory();
-                var dic = _category.ShowCategoryForDoctor(Worker.Id);
+                var dic = _category.ShowCategoryForDoctor(Account.WorkerId);
                 if (dic.Count != 0)
                 {
                     cboCategory.DataSource = new BindingSource(dic, null);
@@ -660,10 +673,10 @@ namespace PatientManagement
                 }
                 KeyService = @"Prescription";
             }
-            if (cboService.Text == @"Various Document")
+            if (cboService.Text == @"Various Document"||cboService.Text==@"VariousDocument")
             {
                 _category = new VariousDocumentCategory();
-                var dic = _category.ShowCategoryForDoctor(Worker.Id);
+                var dic = _category.ShowCategoryForDoctor(Account.WorkerId);
                 if (dic.Count != 0)
                 {
                     cboCategory.DataSource = new BindingSource(dic, null);
