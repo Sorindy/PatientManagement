@@ -81,6 +81,8 @@ namespace PatientManagement
                 lblPGender.Text = WaitingList.Patient.Gender;
                 lblPAddress.Text = WaitingList.Patient.Address;
                 lblPPhone.Text = WaitingList.Patient.Phone1;
+                btnPatient.Enabled = false;
+                btnWaitingList.Enabled = false;
             }
 
             if (KeyService != null)

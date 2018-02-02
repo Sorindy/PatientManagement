@@ -149,6 +149,7 @@
             this.tabToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pageColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.formatStyleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlTitle.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.gboPatient.SuspendLayout();
@@ -561,6 +562,7 @@
             this.dgvConsultation.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvConsultation.EnableHeadersVisualStyles = false;
             this.dgvConsultation.Location = new System.Drawing.Point(0, 0);
+            this.dgvConsultation.MultiSelect = false;
             this.dgvConsultation.Name = "dgvConsultation";
             this.dgvConsultation.ReadOnly = true;
             this.dgvConsultation.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
@@ -660,6 +662,7 @@
             this.btnNewConsultation.TabIndex = 5;
             this.btnNewConsultation.Text = "ពិនិត្យថ្មី";
             this.btnNewConsultation.UseVisualStyleBackColor = false;
+            this.btnNewConsultation.Click += new System.EventHandler(this.btnNewConsultation_Click);
             // 
             // tabLaboratory
             // 
@@ -739,6 +742,7 @@
             this.dgvLaboratory.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvLaboratory.EnableHeadersVisualStyles = false;
             this.dgvLaboratory.Location = new System.Drawing.Point(0, 0);
+            this.dgvLaboratory.MultiSelect = false;
             this.dgvLaboratory.Name = "dgvLaboratory";
             this.dgvLaboratory.ReadOnly = true;
             this.dgvLaboratory.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
@@ -838,6 +842,7 @@
             this.btnNewLaboratory.TabIndex = 5;
             this.btnNewLaboratory.Text = "ពិនិត្យថ្មី";
             this.btnNewLaboratory.UseVisualStyleBackColor = false;
+            this.btnNewLaboratory.Click += new System.EventHandler(this.btnNewLaboratory_Click);
             // 
             // tabMedicalImaging
             // 
@@ -917,6 +922,7 @@
             this.dgvMedicalImaging.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvMedicalImaging.EnableHeadersVisualStyles = false;
             this.dgvMedicalImaging.Location = new System.Drawing.Point(0, 0);
+            this.dgvMedicalImaging.MultiSelect = false;
             this.dgvMedicalImaging.Name = "dgvMedicalImaging";
             this.dgvMedicalImaging.ReadOnly = true;
             this.dgvMedicalImaging.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
@@ -1016,6 +1022,7 @@
             this.btnNewMedicalImaging.TabIndex = 5;
             this.btnNewMedicalImaging.Text = "ពិនិត្យថ្មី";
             this.btnNewMedicalImaging.UseVisualStyleBackColor = false;
+            this.btnNewMedicalImaging.Click += new System.EventHandler(this.btnNewMedicalImaging_Click);
             // 
             // tabPrescription
             // 
@@ -1095,6 +1102,7 @@
             this.dgvPrescription.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvPrescription.EnableHeadersVisualStyles = false;
             this.dgvPrescription.Location = new System.Drawing.Point(0, 0);
+            this.dgvPrescription.MultiSelect = false;
             this.dgvPrescription.Name = "dgvPrescription";
             this.dgvPrescription.ReadOnly = true;
             this.dgvPrescription.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
@@ -1194,6 +1202,7 @@
             this.btnNewPresciption.TabIndex = 5;
             this.btnNewPresciption.Text = "ពិនិត្យថ្មី";
             this.btnNewPresciption.UseVisualStyleBackColor = false;
+            this.btnNewPresciption.Click += new System.EventHandler(this.btnNewPresciption_Click);
             // 
             // tabVariousDocument
             // 
@@ -1273,6 +1282,7 @@
             this.dgvVariousDocument.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvVariousDocument.EnableHeadersVisualStyles = false;
             this.dgvVariousDocument.Location = new System.Drawing.Point(0, 0);
+            this.dgvVariousDocument.MultiSelect = false;
             this.dgvVariousDocument.Name = "dgvVariousDocument";
             this.dgvVariousDocument.ReadOnly = true;
             this.dgvVariousDocument.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
@@ -1363,6 +1373,7 @@
             this.btnNewVarious.TabIndex = 4;
             this.btnNewVarious.Text = "ពិនិត្យថ្មី";
             this.btnNewVarious.UseVisualStyleBackColor = false;
+            this.btnNewVarious.Click += new System.EventHandler(this.btnNewVarious_Click);
             // 
             // panel1
             // 
@@ -1519,7 +1530,8 @@
             this.tableToolStripMenuItem,
             this.imageToolStripMenuItem,
             this.pageToolStripMenuItem,
-            this.formatStyleToolStripMenuItem});
+            this.formatStyleToolStripMenuItem,
+            this.saveToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(3, 16);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(842, 24);
@@ -1606,6 +1618,12 @@
             this.formatStyleToolStripMenuItem.Size = new System.Drawing.Size(85, 20);
             this.formatStyleToolStripMenuItem.Text = "Format Style";
             this.formatStyleToolStripMenuItem.Click += new System.EventHandler(this.formatStyleToolStripMenuItem_Click);
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.saveToolStripMenuItem.Text = "Save";
             // 
             // HistorysForm
             // 
@@ -1787,5 +1805,6 @@
         private System.Windows.Forms.Button btnNewMedicalImaging;
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.Button btnNewPresciption;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
     }
 }

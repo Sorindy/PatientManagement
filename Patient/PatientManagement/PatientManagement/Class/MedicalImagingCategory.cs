@@ -16,6 +16,17 @@ namespace PatientManagement.Class
         //private int _workerId;
         public Management Management;
 
+        public Hospital_Entity_Framework.WaitingList CheckWaitingList(int patientId, int categoryId)
+        {
+            var firstOrDefault = _db.WaitingLists.FirstOrDefault(v => v.PatientId == patientId);
+            var get = firstOrDefault != null && firstOrDefault.MedicalImagingCategories.Any(v => v.Id == categoryId);
+            if (get)
+            {
+                return firstOrDefault;
+            }
+            return null;
+        }
+
         public void Insert(string name)
         {
             var insert = new Hospital_Entity_Framework.MedicalImagingCategory()

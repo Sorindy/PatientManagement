@@ -23,15 +23,22 @@ namespace PatientManagement
         private ICategory _category;
         private int _keyCategory;
         private string _keyService;
-        private Hospital_Entity_Framework.WaitingList _waiting=new Hospital_Entity_Framework.WaitingList();
 
         private void WaitingForm_Shown(object sender, EventArgs e)
         {
             dgvAllWatingList.DataSource = null;
         }
 
+        private void Refreshing()
+        {
+            timer1.Interval =(1*10000);
+            timer1.Tick += cboCategory_SelectedIndexChanged;
+            timer1.Start();
+        }
+
         private void cboService_SelectedIndexChanged(object sender, EventArgs e)
         {
+            timer1.Stop();
             if (cboService.Text == @"Consultation")
             {
                 _keyService = @"Consultation";
@@ -92,6 +99,7 @@ namespace PatientManagement
                     cboCategory.ValueMember = "Key";
                 }
             }
+            Refreshing();
         }
 
         private void cboCategory_SelectedIndexChanged(object sender, EventArgs e)
@@ -143,6 +151,7 @@ namespace PatientManagement
                 dgvAllWatingList.Columns[0].Visible = false;
                 dgvAllWatingList.Columns[1].Visible = false;
             }
+            dgvAllWatingList.ClearSelection();
         }
         private void CheckOrderDgv()
         {
