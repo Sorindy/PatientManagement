@@ -34,7 +34,7 @@ namespace PatientManagement
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            wv.ShowPrintPreviewDialog();
+           wv.ShowPrintDialog();
         }
 
         private void cmbModel_SelectedIndexChanged(object sender, EventArgs e)
@@ -79,6 +79,11 @@ namespace PatientManagement
                 MedicalRecortSampleD1.ExportToDisk(ExportFormatType.HTML40, @"D:\PatientManagement\Patient\RTF\SampleD");
                 wv.Navigate(@"D:\PatientManagement\Patient\RTF\SampleD.htm");
             }
+        }
+
+        private void btnPrintPreview_Click(object sender, EventArgs e)
+        {
+            wv.ShowPrintPreviewDialog();
         }
 
     }

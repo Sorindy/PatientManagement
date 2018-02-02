@@ -32,6 +32,7 @@
             this.pnMiddle = new System.Windows.Forms.Panel();
             this.wv = new System.Windows.Forms.WebBrowser();
             this.pnTop = new System.Windows.Forms.Panel();
+            this.btnPrintPreview = new System.Windows.Forms.Button();
             this.cmbModel = new System.Windows.Forms.ComboBox();
             this.btnPrint = new System.Windows.Forms.Button();
             this.crystalReportViewer = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
@@ -75,6 +76,7 @@
             // 
             // pnTop
             // 
+            this.pnTop.Controls.Add(this.btnPrintPreview);
             this.pnTop.Controls.Add(this.cmbModel);
             this.pnTop.Controls.Add(this.btnPrint);
             this.pnTop.Controls.Add(this.crystalReportViewer);
@@ -85,6 +87,16 @@
             this.pnTop.Size = new System.Drawing.Size(1129, 51);
             this.pnTop.TabIndex = 1;
             // 
+            // btnPrintPreview
+            // 
+            this.btnPrintPreview.Location = new System.Drawing.Point(16, 10);
+            this.btnPrintPreview.Name = "btnPrintPreview";
+            this.btnPrintPreview.Size = new System.Drawing.Size(132, 23);
+            this.btnPrintPreview.TabIndex = 4;
+            this.btnPrintPreview.Text = "Print Preview";
+            this.btnPrintPreview.UseVisualStyleBackColor = true;
+            this.btnPrintPreview.Click += new System.EventHandler(this.btnPrintPreview_Click);
+            // 
             // cmbModel
             // 
             this.cmbModel.FormattingEnabled = true;
@@ -93,7 +105,7 @@
             "SampleB",
             "SampleC",
             "SampleD"});
-            this.cmbModel.Location = new System.Drawing.Point(259, 11);
+            this.cmbModel.Location = new System.Drawing.Point(316, 12);
             this.cmbModel.Name = "cmbModel";
             this.cmbModel.Size = new System.Drawing.Size(161, 21);
             this.cmbModel.TabIndex = 3;
@@ -101,9 +113,9 @@
             // 
             // btnPrint
             // 
-            this.btnPrint.Location = new System.Drawing.Point(97, 9);
+            this.btnPrint.Location = new System.Drawing.Point(16, 10);
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(75, 23);
+            this.btnPrint.Size = new System.Drawing.Size(132, 23);
             this.btnPrint.TabIndex = 2;
             this.btnPrint.Text = "Print";
             this.btnPrint.UseVisualStyleBackColor = true;
@@ -123,7 +135,7 @@
             // 
             // btnModel
             // 
-            this.btnModel.Location = new System.Drawing.Point(178, 9);
+            this.btnModel.Location = new System.Drawing.Point(235, 10);
             this.btnModel.Name = "btnModel";
             this.btnModel.Size = new System.Drawing.Size(75, 23);
             this.btnModel.TabIndex = 0;
@@ -161,5 +173,6 @@
         private System.Windows.Forms.ComboBox cmbModel;
         private MedicalRecortSampleC MedicalRecortSampleC1;
         private MedicalRecortSampleD MedicalRecortSampleD1;
+        private System.Windows.Forms.Button btnPrintPreview;
     }
 }

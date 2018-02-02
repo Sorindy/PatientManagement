@@ -689,8 +689,6 @@ namespace PatientManagement
 
         private void cboCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (txtDescription.Text != null) return;
-
             if (cboService.Text == @"Consultation")
             {
                 var get = (KeyValuePair<int, string>) cboCategory.SelectedItem;
