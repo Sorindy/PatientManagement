@@ -20,7 +20,10 @@ namespace PatientManagement
         private void MedicalRecordWebViewer_Load(object sender, EventArgs e)
         {
             html = html.Substring(229);
-            html = html.Remove(html.Length - 16);     
+            html = html.Remove(html.Length - 16);
+            btnPrint.Visible = false;
+            btnPrintPreview.Visible = false;
+            btnModel.Visible = false;
         }
 
         private void btnModel_Click(object sender, EventArgs e)
@@ -28,7 +31,7 @@ namespace PatientManagement
             if (wv.Document != null)
             {
                 var boxcontrol = wv.Document.GetElementById("Box2");
-                boxcontrol.InnerHtml = html;
+                if (boxcontrol != null) boxcontrol.InnerHtml = html;
             }
         }
 
@@ -41,6 +44,9 @@ namespace PatientManagement
         {
             if (cmbModel.SelectedIndex == 0)
             {
+                btnPrint.Visible = true;
+                btnPrintPreview.Visible = false;
+                btnModel.Visible = true;
                 MedicalReportSampleA1.SetParameterValue("pPatientName", Patient.FirstName + " " + Patient.LastName + " ( " + Patient.KhmerName + " )");
                 MedicalReportSampleA1.SetParameterValue("pGender", Patient.Gender);
                 MedicalReportSampleA1.SetParameterValue("pDatetime", DateTime.Now);
@@ -51,6 +57,9 @@ namespace PatientManagement
             }
             else if (cmbModel.SelectedIndex == 1)
             {
+                btnPrint.Visible = true;
+                btnPrintPreview.Visible = false;
+                btnModel.Visible = true;
                 MedicalReportSampleB1.SetParameterValue("pPatientName", Patient.FirstName + " " + Patient.LastName + " ( " + Patient.KhmerName + " )");
                 MedicalReportSampleB1.SetParameterValue("pGender", Patient.Gender);
                 MedicalReportSampleB1.SetParameterValue("pDatetime", DateTime.Now);
@@ -61,6 +70,9 @@ namespace PatientManagement
             }
             else if (cmbModel.SelectedIndex == 2)
             {
+                btnPrint.Visible = false;
+                btnPrintPreview.Visible = true ;
+                btnModel.Visible = true;
                 MedicalRecortSampleC1.SetParameterValue("pPatientName", Patient.FirstName + " " + Patient.LastName + " ( " + Patient.KhmerName + " )");
                 MedicalRecortSampleC1.SetParameterValue("pGender", Patient.Gender);
                 MedicalRecortSampleC1.SetParameterValue("pDatetime", DateTime.Now);
@@ -71,6 +83,9 @@ namespace PatientManagement
             }
             else if (cmbModel.SelectedIndex == 3)
             {
+                btnPrint.Visible = false;
+                btnPrintPreview.Visible = true;
+                btnModel.Visible = true;
                 MedicalRecortSampleD1.SetParameterValue("pPatientName", Patient.FirstName + " " + Patient.LastName + " ( " + Patient.KhmerName + " )");
                 MedicalRecortSampleD1.SetParameterValue("pGender", Patient.Gender);
                 MedicalRecortSampleD1.SetParameterValue("pDatetime", DateTime.Now);
@@ -79,6 +94,7 @@ namespace PatientManagement
                 MedicalRecortSampleD1.ExportToDisk(ExportFormatType.HTML40, @"D:\PatientManagement\Patient\RTF\SampleD");
                 wv.Navigate(@"D:\PatientManagement\Patient\RTF\SampleD.htm");
             }
+           
         }
 
         private void btnPrintPreview_Click(object sender, EventArgs e)

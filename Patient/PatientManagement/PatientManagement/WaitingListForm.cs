@@ -31,11 +31,11 @@ namespace PatientManagement
 
         private void CheckOrderDgv()
         {
-            for (int i = 0; i <= dgvAllWatingList.RowCount - 1; i++)
+            for (var i = 0; i <= dgvAllWatingList.RowCount - 1; i++)
             {
                 dgvAllWatingList.Rows[i].DefaultCellStyle.BackColor = i % 2 == 0 ? Color.LightGray : Color.MintCream;
             }
-            for (int i = 0; i <= dgvWaitingCategory.RowCount - 1; i++)
+            for (var i = 0; i <= dgvWaitingCategory.RowCount - 1; i++)
             {
                 dgvWaitingCategory.Rows[i].DefaultCellStyle.BackColor = i % 2 == 0 ? Color.LightGray : Color.MintCream;
             }

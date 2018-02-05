@@ -81,6 +81,8 @@ namespace PatientManagement
                 lblPGender.Text = WaitingList.Patient.Gender;
                 lblPAddress.Text = WaitingList.Patient.Address;
                 lblPPhone.Text = WaitingList.Patient.Phone1;
+                btnPatient.Enabled = false;
+                btnWaitingList.Enabled = false;
             }
 
             if (KeyService != null)
@@ -616,7 +618,7 @@ namespace PatientManagement
                 var wv = new MedicalRecordWebViewer
                 {
                     html = html,
-                    Patient = WaitingList.Patient,
+                    Patient = Patient,
                     Account = Account
                 };
                 wv.ShowDialog();

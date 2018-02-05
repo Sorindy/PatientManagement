@@ -92,6 +92,17 @@ namespace PatientManagement.Class
             }
             return dic;
         }
+
+        public Hospital_Entity_Framework.WaitingList CheckWaitingList(int patientId,int categoryId)
+        {
+            var firstOrDefault = _db.WaitingLists.FirstOrDefault(v => v.PatientId == patientId);
+            var get = firstOrDefault != null && firstOrDefault.ConsultationCategories.Any(v=>v.Id==categoryId);
+            if (get)
+            {
+                return firstOrDefault;
+            }
+            return null;
+        }
         //Use as check box
         //public GroupBox ShowCategoryBox(int workerId)
         //{

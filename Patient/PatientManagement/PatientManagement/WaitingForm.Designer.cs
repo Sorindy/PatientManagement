@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -46,6 +47,7 @@
             this.cboService = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pnlTop.SuspendLayout();
             this.tblypnTop.SuspendLayout();
             this.pnlFill.SuspendLayout();
@@ -180,6 +182,7 @@
             this.dgvAllWatingList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvAllWatingList.EnableHeadersVisualStyles = false;
             this.dgvAllWatingList.Location = new System.Drawing.Point(3, 32);
+            this.dgvAllWatingList.MultiSelect = false;
             this.dgvAllWatingList.Name = "dgvAllWatingList";
             this.dgvAllWatingList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -333,5 +336,6 @@
         private System.Windows.Forms.ComboBox cboService;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Timer timer1;
     }
 }

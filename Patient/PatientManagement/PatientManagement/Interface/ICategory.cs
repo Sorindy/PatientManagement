@@ -13,5 +13,6 @@ namespace PatientManagement.Interface
         int SearchId(int categoryId);
         Dictionary<int, string> ShowCategoryForDoctor(int workerId);
         Dictionary<int, string> ShowAllCategoryForHistory();
+        WaitingList CheckWaitingList(int patientId,int categoryId);
     }
 }
