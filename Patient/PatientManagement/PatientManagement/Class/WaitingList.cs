@@ -48,18 +48,18 @@ namespace PatientManagement.Class
                 if (checkConsultationCategory)
                 {
                     var getList = from b in _db.WaitingLists
-                                  where b.ConsultationCategories.Any(v => v.Id == categoryid)
-                                  orderby b.Number
-                        select new
-                        {
-                            b.Id,
-                            b.PatientId,
-                            b.Patient.FirstName,
-                            b.Patient.LastName ,
-                            b.Time,
-                            b.Status,
-                            b.Number,
-                        };
+                        where b.ConsultationCategories.Any(v => v.Id == categoryid)
+                        orderby b.Number
+                                  select new
+                                  {
+                                      b.Id,
+                                      b.PatientId,
+                                      b.Patient.FirstName,
+                                      b.Patient.LastName,
+                                      b.Time,
+                                      b.Status,
+                                      b.Number,
+                                  };
                     _bs.DataSource = getList.ToList();
                 }
             }

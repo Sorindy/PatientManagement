@@ -18,7 +18,7 @@ namespace PatientManagement
             var db=new HospitalDbContext();
             var name = db.Patients.Single(v => v.Id == WaitingList.PatientId).FirstName + @"  " + db.Patients.Single(v => v.Id == WaitingList.PatientId).LastName;
             waiting1.SetParameterValue("pName", name);
-            waiting1.SetParameterValue("pTime", WaitingList.Time.ToString());
+            waiting1.SetParameterValue("pTime", WaitingList.Time.ToString("g"));
             var getvalue = WaitingList.Number;
             var num = getvalue;
             waiting1.SetParameterValue("pNumber", num.ToString());

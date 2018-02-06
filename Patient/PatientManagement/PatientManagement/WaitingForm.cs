@@ -170,22 +170,29 @@ namespace PatientManagement
 
                 if (e.ColumnIndex == 7)
                 {
-                    var form = new MedicalsForm
+                    if (dgvAllWatingList.CurrentRow.Cells[5].Value==null)
                     {
-                        Account = Account,
-                        CatelogForm = CatelogForm,
-                        KeyCategory = _keyCategory,
-                        KeyService = _keyService,
-                        TopLevel = false,
-                        Dock = DockStyle.Fill,
-                        WaitingList = getWaitinglist,
-                        cboService = {Enabled = false},
-                        cboCategory = {Enabled = false},
-                    };
-                    CatelogForm.pnlFill.Controls.Clear();
-                    CatelogForm.pnlFill.Controls.Add(form);
-                    form.Show();
-                    Close();
+                        var form = new MedicalsForm
+                        {
+                            Account = Account,
+                            CatelogForm = CatelogForm,
+                            KeyCategory = _keyCategory,
+                            KeyService = _keyService,
+                            TopLevel = false,
+                            Dock = DockStyle.Fill,
+                            WaitingList = getWaitinglist,
+                            cboService = { Enabled = false },
+                            cboCategory = { Enabled = false },
+                        };
+                        CatelogForm.pnlFill.Controls.Clear();
+                        CatelogForm.pnlFill.Controls.Add(form);
+                        form.Show();
+                        Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show(@"Please select another patient.", @"Patient is busy");
+                    }
                 }
                 if (e.ColumnIndex == 8)
                 {

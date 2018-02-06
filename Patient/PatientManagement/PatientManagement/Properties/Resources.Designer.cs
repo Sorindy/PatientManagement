@@ -83,6 +83,16 @@ namespace PatientManagement.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _46775___add_user1 {
+            get {
+                object obj = ResourceManager.GetObject("46775 - add user1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _46795___clear_delete_remove {
             get {
                 object obj = ResourceManager.GetObject("46795 - clear delete remove", resourceCulture);
@@ -106,6 +116,26 @@ namespace PatientManagement.Properties {
         internal static System.Drawing.Bitmap _46830___save__2_ {
             get {
                 object obj = ResourceManager.GetObject("46830 - save (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _46833___search_user {
+            get {
+                object obj = ResourceManager.GetObject("46833 - search user", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _46833___search_user1 {
+            get {
+                object obj = ResourceManager.GetObject("46833 - search user1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

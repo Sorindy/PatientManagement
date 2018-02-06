@@ -87,6 +87,15 @@ namespace PatientManagement.Class
                         if (firstOrDefault != null)
                             firstOrDefault.Close();
                     }
+                    if (Application.OpenForms.OfType<MedicalsForm>().Count() == 1)
+                    {
+                        var firstOrDefault = Application.OpenForms.OfType<MedicalsForm>().FirstOrDefault();
+                        if (firstOrDefault != null)
+                        {
+                            firstOrDefault.Clear();
+                            firstOrDefault.Close();
+                        }                           
+                    }
                     var selectionForm = new WorkerListForm()
                         {
                             TopLevel = false,
@@ -102,10 +111,16 @@ namespace PatientManagement.Class
                     if (Application.OpenForms.OfType<Category>().Count() == 1)
                     {
                         var firstOrDefault = Application.OpenForms.OfType<Category>().FirstOrDefault();
+                        if (firstOrDefault != null)firstOrDefault.Show();                           
+                    }
+                    if (Application.OpenForms.OfType<MedicalsForm>().Count() == 1)
+                    {
+                        var firstOrDefault = Application.OpenForms.OfType<MedicalsForm>().FirstOrDefault();
                         if (firstOrDefault != null)
                         {
-                            firstOrDefault.Show();
-                        }                           
+                            firstOrDefault.Clear();
+                            firstOrDefault.Close();
+                        }
                     }
                         var selectionForm = new Category()
                         {
@@ -124,7 +139,16 @@ namespace PatientManagement.Class
                         if (firstOrDefault != null)
                         {
                             firstOrDefault.Show();
-                        }                           
+                        }
+                    } 
+                    if (Application.OpenForms.OfType<MedicalsForm>().Count() == 1)
+                    {
+                        var firstOrDefault = Application.OpenForms.OfType<MedicalsForm>().FirstOrDefault();
+                        if (firstOrDefault != null)
+                        {
+                            firstOrDefault.Clear();
+                            firstOrDefault.Close();
+                        }
                     }
                         var selectionForm = new PatientListForm()
                         {
@@ -147,6 +171,15 @@ namespace PatientManagement.Class
                             firstOrDefault.Show();
                         }                           
                     }
+                    if (Application.OpenForms.OfType<MedicalsForm>().Count() == 1)
+                    {
+                        var firstOrDefault = Application.OpenForms.OfType<MedicalsForm>().FirstOrDefault();
+                        if (firstOrDefault != null)
+                        {
+                            firstOrDefault.Clear();
+                            firstOrDefault.Close();
+                        }
+                    }
                     var selectionForm = new CheckInsForm
                         {
                             TopLevel = false,
@@ -165,6 +198,15 @@ namespace PatientManagement.Class
                         {
                             firstOrDefault.Show();
                         }                           
+                    }
+                    if (Application.OpenForms.OfType<MedicalsForm>().Count() == 1)
+                    {
+                        var firstOrDefault = Application.OpenForms.OfType<MedicalsForm>().FirstOrDefault();
+                        if (firstOrDefault != null)
+                        {
+                            firstOrDefault.Clear();
+                            firstOrDefault.Close();
+                        }
                     }
                         var selectionForm = new SamplesForm()
                         {
@@ -185,6 +227,15 @@ namespace PatientManagement.Class
                             firstOrDefault.Show();
                         }                           
                     }
+                    if (Application.OpenForms.OfType<MedicalsForm>().Count() == 1)
+                    {
+                        var firstOrDefault = Application.OpenForms.OfType<MedicalsForm>().FirstOrDefault();
+                        if (firstOrDefault != null)
+                        {
+                            firstOrDefault.Clear();
+                            firstOrDefault.Close();
+                        }
+                    }
                     var selectionForm = new Managements()
                     {
                         TopLevel = false,
@@ -203,6 +254,15 @@ namespace PatientManagement.Class
                         {
                             firstOrDefault.Show();
                         }                           
+                    }
+                    if (Application.OpenForms.OfType<MedicalsForm>().Count() == 1)
+                    {
+                        var firstOrDefault = Application.OpenForms.OfType<MedicalsForm>().FirstOrDefault();
+                        if (firstOrDefault != null)
+                        {
+                            firstOrDefault.Clear();
+                            firstOrDefault.Close();
+                        }
                     }
                         var selectionForm = new MedicalsForm()
                         {
@@ -225,6 +285,15 @@ namespace PatientManagement.Class
                             firstOrDefault.Show();
                         }                           
                     }
+                    if (Application.OpenForms.OfType<MedicalsForm>().Count() == 1)
+                    {
+                        var firstOrDefault = Application.OpenForms.OfType<MedicalsForm>().FirstOrDefault();
+                        if (firstOrDefault != null)
+                        {
+                            firstOrDefault.Clear();
+                            firstOrDefault.Close();
+                        }
+                    }
                     var selectionForm = new WaitingForm()
                     {
                         TopLevel = false,
@@ -235,6 +304,18 @@ namespace PatientManagement.Class
                     };
                     gbo.Controls.Add(selectionForm);
                     selectionForm.Show();
+                }
+            }
+        }
+
+        private void CheckDateAndDeleteAllWaitingList()
+        {
+            var get = _db.WaitingLists;
+            if (get != null)
+            {
+                foreach (var item in get)
+                {
+                    
                 }
             }
         }

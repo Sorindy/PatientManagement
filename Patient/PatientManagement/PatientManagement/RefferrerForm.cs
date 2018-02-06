@@ -42,7 +42,7 @@ namespace PatientManagement
 
                 btnEdit.Name = @"btnAdd";
                 btnEdit.Text = @"បញ្ចូល";
-                btnEdit.BackColor = Color.SeaGreen;
+                btnEdit.BackColor = Color.LightSkyBlue;
                 btnEdit.Click += btnAdd_Click;
             }
             else
@@ -78,18 +78,27 @@ namespace PatientManagement
             {
                 if (btnEdit.Name == @"btnAdd")
                 {
-                    _refferrer.Insert(txtfName.Text,txtlName.Text, txtSpeciality.Text, txtWorkPlace.Text, txtPhone1.Text, txtPhone2.Text, txtEmail.Text);
-
-                    if (MedicalForm.chkBoxReferrer.Checked)
+                    try
                     {
-                        MedicalForm.Medical = null;
-                        MedicalForm.Refferrer = null;
-                        MedicalForm.Refferrer=new Refferrer();
-                        MedicalForm.Medical = new MedicalRecord();
-                        MedicalForm.chkBoxReferrer_CheckedChanged(MedicalForm, new EventArgs());
-                    }
+                        var phone1 = Convert.ToInt32(txtPhone1.Text).ToString();
+                        var phone2 = Convert.ToInt32(txtPhone2.Text).ToString();
+                        _refferrer.Insert(txtfName.Text, txtlName.Text, txtSpeciality.Text, txtWorkPlace.Text,phone1, phone2, txtEmail.Text);
 
-                    Close();
+                        if (MedicalForm.chkBoxReferrer.Checked)
+                        {
+                            MedicalForm.Medical = null;
+                            MedicalForm.Refferrer = null;
+                            MedicalForm.Refferrer = new Refferrer();
+                            MedicalForm.Medical = new MedicalRecord();
+                            MedicalForm.chkBoxReferrer_CheckedChanged(MedicalForm, new EventArgs());
+                        }
+
+                        Close();
+                    }
+                    catch
+                    {
+                        MessageBox.Show(@"Please Input Phone number only digit number.", @"Error");
+                    }
                 }
             }
             catch
@@ -168,7 +177,11 @@ namespace PatientManagement
             {
                 if (btnEdit.Name == @"btnUpdate")
                 {
-                    _refferrer.Update(Referrer.Id,txtfName.Text,txtlName.Text, txtSpeciality.Text, txtWorkPlace.Text, txtPhone1.Text, txtPhone2.Text, txtEmail.Text);
+                    try
+                    {
+                        var phone1 = Convert.ToInt32(txtPhone1.Text).ToString();
+                        var phone2 = Convert.ToInt32(txtPhone2.Text).ToString();
+                    _refferrer.Update(Referrer.Id,txtfName.Text,txtlName.Text, txtSpeciality.Text, txtWorkPlace.Text, phone1, phone2, txtEmail.Text);
 
                     txtfName.Enabled = false;
                     txtlName.Enabled = false;
@@ -191,6 +204,11 @@ namespace PatientManagement
                         MedicalForm.Refferrer = new Refferrer();
                         MedicalForm.Medical = new MedicalRecord();
                         MedicalForm.chkBoxReferrer_CheckedChanged(MedicalForm, new EventArgs());
+                    }
+                    }
+                    catch
+                    {
+                        MessageBox.Show(@"Please Input Phone number only digit number.", @"Error");
                     }
                 }
             }

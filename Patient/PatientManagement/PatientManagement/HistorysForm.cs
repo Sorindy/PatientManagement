@@ -82,6 +82,10 @@ namespace PatientManagement
                     lbCategory.Text = cboVarCategory.Text;
                 }
             }
+            else
+            {
+                lbService.Text = @"Consultation";
+            }
             //AddNodesToTree();
             var path = AppDomain.CurrentDomain.BaseDirectory;
             _path = path.Remove(path.Length - 46);

@@ -317,12 +317,12 @@ namespace PatientManagement.Class
                 var getlastWaiting = _db.WaitingLists.OrderByDescending(v => v.Number).FirstOrDefault();
                 if (getlastWaiting != null)
                 {
-                    var insertWaitingList = new Hospital_Entity_Framework.WaitingList() { PatientId = patientId, Time = timeSpan, VisitId = getVisit.Id, VisitCount = getVisit.VisitCount, Visit = getVisit,Number = getlastWaiting.Number+1};
+                    var insertWaitingList = new Hospital_Entity_Framework.WaitingList() { PatientId = patientId,Date = DateTime.Today.Date, Time = timeSpan, VisitId = getVisit.Id, VisitCount = getVisit.VisitCount, Visit = getVisit,Number = getlastWaiting.Number+1};
                     _db.WaitingLists.Add(insertWaitingList);
                 }
                 else
                 {
-                    var insertWaitingList = new Hospital_Entity_Framework.WaitingList() { PatientId = patientId, Time = timeSpan, VisitId = getVisit.Id, VisitCount = getVisit.VisitCount, Visit = getVisit, Number = 1 };
+                    var insertWaitingList = new Hospital_Entity_Framework.WaitingList() { PatientId = patientId, Date = DateTime.Today.Date, Time = timeSpan, VisitId = getVisit.Id, VisitCount = getVisit.VisitCount, Visit = getVisit, Number = 1 };
                     _db.WaitingLists.Add(insertWaitingList);
                 }
                 _db.SaveChanges();

@@ -83,6 +83,11 @@ namespace PatientManagement
                 lblPPhone.Text = WaitingList.Patient.Phone1;
                 btnPatient.Enabled = false;
                 btnWaitingList.Enabled = false;
+                btnCreateNew.Enabled = false;
+                cboService.Enabled = false;
+                cboCategory.Enabled = false;
+                _waitingList.UpdatePatientStatus(WaitingList.Id,false);
+                Patient = WaitingList.Patient;
             }
 
             if (KeyService != null)
@@ -178,8 +183,25 @@ namespace PatientManagement
         {
             if (btnPatient.Name == "btnInfoPatient")
             {
-                var form = new HistorysForm() {Account = Account, Patient = Patient};
-                form.ShowDialog();
+                var form = new HistorysForm();
+                if (KeyService != null && KeyCategory != 0)
+                {
+                    form.Account = Account;
+                    form.Patient = Patient;
+                    form.CatelogForm = CatelogForm;
+                    form.KeyService = KeyService;
+                    form.KeyCategory = KeyCategory;
+                }
+                else
+                {
+                    form.Account = Account;
+                    form.Patient = Patient;
+                    form.CatelogForm = CatelogForm;
+                }
+                
+                CatelogForm.pnlFill.Controls.Clear();
+                CatelogForm.pnlFill.Controls.Add(form);
+                form.Show();
             }
         }
 
@@ -427,7 +449,7 @@ namespace PatientManagement
         {
             if (_waitingList.CheckWaitingList(WaitingList.PatientId, WaitingList.Id))
             {
-                _waitingList.DeleteWaitingList(WaitingList.Id);
+                //_waitingList.DeleteWaitingList(WaitingList.Id);
             }
             else
             {
@@ -435,8 +457,13 @@ namespace PatientManagement
             }
         }
 
-        private void Clear()
+        internal void Clear()
         {
+            if (WaitingList != null)
+            {
+                _waitingList.UpdatePatientStatus(WaitingList.Id,null);
+            }
+            
             WaitingList = null;
             Patient = null;
 
@@ -454,6 +481,11 @@ namespace PatientManagement
             chkBoxNurse.Checked = false;
             chkBoxReferrer.Checked = false;
             txtDescription.Text = "";
+            btnCreateNew.Enabled = true;
+            btnWaitingList.Enabled = true;
+            btnPatient.Enabled = true;
+            cboService.Enabled = true;
+            cboCategory.Enabled = true;
         }
 
         private void cboNurse_SelectedIndexChanged(object sender, EventArgs e)
@@ -617,7 +649,7 @@ namespace PatientManagement
                 txtDescription.Load(html, StringStreamType.HTMLFormat);
                 var wv = new MedicalRecordWebViewer
                 {
-                    html = html,
+                    Html = html,
                     Patient = Patient,
                     Account = Account
                 };
@@ -717,6 +749,5 @@ namespace PatientManagement
                 KeyCategory = get.Key;
             }
         }
-
     }
 }

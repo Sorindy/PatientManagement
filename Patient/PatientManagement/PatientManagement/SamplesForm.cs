@@ -12,7 +12,7 @@ namespace PatientManagement
         private string _path;
         private ICategory _category;
         private ISample _sample;
-        internal int GetCategoryId;
+        internal int GetCategoryId=0;
 
         public SamplesForm()
         {
