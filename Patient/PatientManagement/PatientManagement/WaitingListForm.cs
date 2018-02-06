@@ -18,8 +18,6 @@ namespace PatientManagement
         private ICategory _category;
         private int _keyCategory;
         //    private bool? _num ;
-        internal Hospital_Entity_Framework.WaitingList WaitingList;
-
 
         public int GetStaffCategoryid;
         public string Service;

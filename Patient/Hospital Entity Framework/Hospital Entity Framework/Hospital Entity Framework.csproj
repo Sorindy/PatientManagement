@@ -170,8 +170,18 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Hospital.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="Hospital.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Hospital.edmx</DependentUpon>
+      <LastGenOutput>Hospital.Context.cs</LastGenOutput>
+    </None>
     <None Include="Hospital.edmx.diagram">
       <DependentUpon>Hospital.edmx</DependentUpon>
+    </None>
+    <None Include="Hospital.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Hospital.edmx</DependentUpon>
+      <LastGenOutput>Hospital.cs</LastGenOutput>
     </None>
     <None Include="packages.config">
       <SubType>Designer</SubType>
@@ -183,18 +193,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Hospital.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Hospital.edmx</DependentUpon>
-      <LastGenOutput>Hospital.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Hospital.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Hospital.edmx</DependentUpon>
-      <LastGenOutput>Hospital.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

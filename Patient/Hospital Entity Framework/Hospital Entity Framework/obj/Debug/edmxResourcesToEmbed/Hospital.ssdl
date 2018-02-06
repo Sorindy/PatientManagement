@@ -764,6 +764,7 @@
     <Property Name="PatientId" Type="int" Nullable="false" />
     <Property Name="VisitId" Type="int" Nullable="false" />
     <Property Name="VisitCount" Type="int" Nullable="false" />
+    <Property Name="Date" Type="date" />
     <Property Name="Time" Type="time" Nullable="false" />
     <Property Name="Status" Type="bit" />
     <Property Name="Number" Type="int" Nullable="false" />

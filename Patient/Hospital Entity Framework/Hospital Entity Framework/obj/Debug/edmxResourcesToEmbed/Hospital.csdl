@@ -650,6 +650,7 @@
     <Property Name="PatientId" Type="Int32" Nullable="false" />
     <Property Name="VisitId" Type="Int32" Nullable="false" />
     <Property Name="VisitCount" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
     <Property Name="Time" Type="Time" Nullable="false" Precision="7" />
     <Property Name="Status" Type="Boolean" />
     <Property Name="Number" Type="Int32" Nullable="false" />

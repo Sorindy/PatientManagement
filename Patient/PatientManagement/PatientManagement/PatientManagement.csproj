@@ -526,6 +526,9 @@
     <None Include="Resources\46775 - add user.png" />
     <None Include="Resources\46839 - trash.png" />
     <None Include="Resources\46795 - clear delete remove.png" />
+    <None Include="Resources\46833 - search user.png" />
+    <None Include="Resources\46833 - search user1.png" />
+    <None Include="Resources\46775 - add user1.png" />
     <Content Include="UpdateTable\02.01.18 add PatientIdentify in patientTable.sql" />
     <Content Include="UpdateTable\29.12.17 add boolean to ConsultationCategory.sql" />
     <Content Include="UpdateTable\29.12.17 add boolean to LaboratoryCategory.sql" />

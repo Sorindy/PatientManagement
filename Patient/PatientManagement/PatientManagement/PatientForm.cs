@@ -34,7 +34,7 @@ namespace PatientManagement
             dtpDOB.Value = Patient.DOB;
             txtAge.Text = Patient.Age.ToString();
             txtPhone1.Text = Patient.Phone1;
-            txtPhone1.Text = Patient.Phone2;
+            txtPhone2.Text = Patient.Phone2;
             txtEmail.Text = Patient.Email;
             txtAddress.Text = Patient.Address;
             txtWeight.Text = Patient.Weight.ToString();
@@ -89,7 +89,7 @@ namespace PatientManagement
             txtAddress.Text = "";
             txtEmail.Text = "";
             txtPhone1.Text = "";
-            txtPhone1.Text = "";
+            txtPhone2.Text = "";
             txtWeight.Text = "";
             txtHeight.Text = "";
             dtpDOB.Value = DateTime.Today;
@@ -107,7 +107,7 @@ namespace PatientManagement
             if (btnEdit.Name == "btnEdit")
             {
                 btnEdit.Text = @"Cancel";
-                btnEdit.BackColor = Color.OrangeRed;
+                btnEdit.BackColor = Color.LightSkyBlue;
                 btnEdit.Image = Image.FromFile(_path + @"\46786 - cancel.png");
                 btnEdit.Name = @"btnCancel";
                 btnEdit.Click += btnCancel_Click;
@@ -136,7 +136,7 @@ namespace PatientManagement
             if (btnEdit.Name == "btnCancel")
             {
                 btnEdit.Name = @"btnEdit";
-                btnEdit.BackColor = Color.Blue;
+                btnEdit.BackColor = Color.LightSkyBlue;
                 btnEdit.Image = Image.FromFile(_path + @"\119040-medical-elements\119040-medical-elements\png\46798 - control edit.png");
                 btnEdit.Text = @"Edit";
                 btnEdit.Click -= btnCancel_Click;
@@ -203,9 +203,7 @@ namespace PatientManagement
             {
                 _patient.Update(Patient.Id,txtfName.Text,txtlName.Text,txtkhName.Text,cboGender.Text,dtpDOB.Value,Convert.ToByte(txtAge.Text),txtAddress.Text,txtPhone1.Text,
                     txtPhone1.Text,txtEmail.Text,Convert.ToInt16(txtWeight.Text),Convert.ToInt16(txtHeight.Text));
-                PatientListForm.dgvListPatient.Columns.RemoveAt(7);
-                PatientListForm.PatientListForm_Shown(PatientListForm,new EventArgs());
-                Close();
+                PatientForm_Shown(this,new EventArgs());
             }
             catch
             {
@@ -214,15 +212,15 @@ namespace PatientManagement
             }
         }
 
-        private void btnHistory_Click(object sender, EventArgs e)
-        {
-            if (Account != null && Patient !=null)
-            {
-                var form = new HistorysForm() { Patient = Patient, Account = Account };
-                form.ShowDialog();
-                Close();
-            }
-        }
+        //private void btnHistory_Click(object sender, EventArgs e)
+        //{
+        //    if (Account != null && Patient !=null)
+        //    {
+        //        var form = new HistorysForm() { Patient = Patient, Account = Account };
+        //        form.ShowDialog();
+        //        Close();
+        //    }
+        //}
 
         private void tableLayoutPanel2_MouseDown(object sender, MouseEventArgs e)
         {

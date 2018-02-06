@@ -7,10 +7,10 @@ namespace PatientManagement
 {
     public partial class MedicalRecordWebViewer : Form
     {
-
-        internal string html;
+        internal string Html;
         internal Patient Patient;
         internal Account Account;
+        private string _path;
         
         public MedicalRecordWebViewer()
         {
@@ -19,11 +19,16 @@ namespace PatientManagement
 
         private void MedicalRecordWebViewer_Load(object sender, EventArgs e)
         {
-            html = html.Substring(229);
-            html = html.Remove(html.Length - 16);
+            Html = Html.Substring(229);
+            Html = Html.Remove(Html.Length - 16);
+            var path = AppDomain.CurrentDomain.BaseDirectory;
+            _path = path.Remove(path.Length - 46);
+            //_path = path;
+            //_path = @"C:\Users\Health\Desktop\Debug\";
             btnPrint.Visible = false;
             btnPrintPreview.Visible = false;
             btnModel.Visible = false;
+
         }
 
         private void btnModel_Click(object sender, EventArgs e)
@@ -31,7 +36,8 @@ namespace PatientManagement
             if (wv.Document != null)
             {
                 var boxcontrol = wv.Document.GetElementById("Box2");
-                if (boxcontrol != null) boxcontrol.InnerHtml = html;
+                if (boxcontrol != null) boxcontrol.InnerHtml = Html;
+
             }
         }
 
@@ -52,8 +58,8 @@ namespace PatientManagement
                 MedicalReportSampleA1.SetParameterValue("pDatetime", DateTime.Now);
                 MedicalReportSampleA1.SetParameterValue("pDoctorName", Account.Worker.FirstName + " " + Account.Worker.LastName);
                 MedicalReportSampleA1.SetParameterValue("pAge", Patient.Age);
-                MedicalReportSampleA1.ExportToDisk(ExportFormatType.HTML40, @"D:\PatientManagement\Patient\RTF\SampleA");
-                wv.Navigate(@"D:\PatientManagement\Patient\RTF\SampleA.htm");
+                MedicalReportSampleA1.ExportToDisk(ExportFormatType.HTML40, _path+@"RTF\SampleA");
+                wv.Navigate(_path + @"RTF\SampleA.htm");
             }
             else if (cmbModel.SelectedIndex == 1)
             {
@@ -65,8 +71,8 @@ namespace PatientManagement
                 MedicalReportSampleB1.SetParameterValue("pDatetime", DateTime.Now);
                 MedicalReportSampleB1.SetParameterValue("pDoctorName", Account.Worker.FirstName + " " + Account.Worker.LastName);
                 MedicalReportSampleB1.SetParameterValue("pAge", Patient.Age);
-                MedicalReportSampleB1.ExportToDisk(ExportFormatType.HTML40, @"D:\PatientManagement\Patient\RTF\SampleB");
-                wv.Navigate(@"D:\PatientManagement\Patient\RTF\SampleB.htm");
+                MedicalReportSampleB1.ExportToDisk(ExportFormatType.HTML40, _path + @"RTF\SampleB");
+                wv.Navigate(_path + @"RTF\SampleB.htm");
             }
             else if (cmbModel.SelectedIndex == 2)
             {
@@ -78,8 +84,8 @@ namespace PatientManagement
                 MedicalRecortSampleC1.SetParameterValue("pDatetime", DateTime.Now);
                 MedicalRecortSampleC1.SetParameterValue("pDoctorName", Account.Worker.FirstName + " " + Account.Worker.LastName);
                 MedicalRecortSampleC1.SetParameterValue("pAge", Patient.Age);
-                MedicalRecortSampleC1.ExportToDisk(ExportFormatType.HTML40, @"D:\PatientManagement\Patient\RTF\SampleC");
-                wv.Navigate(@"D:\PatientManagement\Patient\RTF\SampleC.htm");
+                MedicalRecortSampleC1.ExportToDisk(ExportFormatType.HTML40, _path + @"RTF\SampleC");
+                wv.Navigate(_path+@"RTF\SampleC.htm");
             }
             else if (cmbModel.SelectedIndex == 3)
             {
@@ -91,8 +97,8 @@ namespace PatientManagement
                 MedicalRecortSampleD1.SetParameterValue("pDatetime", DateTime.Now);
                 MedicalRecortSampleD1.SetParameterValue("pDoctorName", Account.Worker.FirstName + " " + Account.Worker.LastName);
                 MedicalRecortSampleD1.SetParameterValue("pAge", Patient.Age);
-                MedicalRecortSampleD1.ExportToDisk(ExportFormatType.HTML40, @"D:\PatientManagement\Patient\RTF\SampleD");
-                wv.Navigate(@"D:\PatientManagement\Patient\RTF\SampleD.htm");
+                MedicalRecortSampleD1.ExportToDisk(ExportFormatType.HTML40, _path + @"RTF\SampleD");
+                wv.Navigate(_path + @"RTF\SampleD.htm");
             }
            
         }
