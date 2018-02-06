@@ -650,7 +650,7 @@
     <Property Name="PatientId" Type="Int32" Nullable="false" />
     <Property Name="VisitId" Type="Int32" Nullable="false" />
     <Property Name="VisitCount" Type="Int32" Nullable="false" />
-    <Property Name="Time" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="Time" Type="Time" Nullable="false" />
     <Property Name="Status" Type="Boolean" />
     <Property Name="Number" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Patient" Relationship="HospitalModel.FK_WaitingList_Patient" FromRole="WaitingList" ToRole="Patient" />
@@ -661,6 +661,7 @@
     <NavigationProperty Name="MedicalImagingCategories" Relationship="HospitalModel.WaitingMedicalImaging" FromRole="WaitingList" ToRole="MedicalImagingCategory" />
     <NavigationProperty Name="PrescriptionCategories" Relationship="HospitalModel.WaitingPrescription" FromRole="WaitingList" ToRole="PrescriptionCategory" />
     <NavigationProperty Name="VariousDocumentCategories" Relationship="HospitalModel.WaitingVariousDocument" FromRole="WaitingList" ToRole="VariousDocumentCategory" />
+    <Property Type="DateTime" Name="Date" Precision="0" />
   </EntityType>
   <EntityType Name="Worker">
     <Key>

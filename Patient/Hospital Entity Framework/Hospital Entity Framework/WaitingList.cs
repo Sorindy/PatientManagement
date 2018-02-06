@@ -31,6 +31,7 @@ namespace Hospital_Entity_Framework
         public System.TimeSpan Time { get; set; }
         public Nullable<bool> Status { get; set; }
         public int Number { get; set; }
+        public Nullable<System.DateTime> Date { get; set; }
     
         public virtual Patient Patient { get; set; }
         public virtual ICollection<TempWaitingList> TempWaitingLists { get; set; }
