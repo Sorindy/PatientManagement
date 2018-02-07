@@ -14,6 +14,7 @@ namespace PatientManagement.Class
         public Hospital_Entity_Framework.Account LoginAccount(string username, string password)
         {
             var check = _db.Accounts.SingleOrDefault(v => v.UserName == username && v.Password == password && v.Worker.Hire);
+            CheckDateAndDeleteAllWaitingList();
             return check;
         }
 
@@ -311,13 +312,37 @@ namespace PatientManagement.Class
         private void CheckDateAndDeleteAllWaitingList()
         {
             var get = _db.WaitingLists;
-            if (get != null)
+            if (get.Count() != 0)
             {
-                foreach (var item in get)
+                if (DateTime.Today.Date > get.First().Date)
                 {
-                    
-                }
+                    foreach (var item in get.ToList())
+                    {
+                        foreach (var consultation in item.ConsultationCategories.ToList())
+                        {
+                            item.ConsultationCategories.Remove(consultation);
+                        }
+                        foreach (var laboratory in item.LaboratoryCategories.ToList())
+                        {
+                            item.LaboratoryCategories.Remove(laboratory);
+                        }
+                        foreach (var medicalImaging in item.MedicalImagingCategories.ToList())
+                        {
+                            item.MedicalImagingCategories.Remove(medicalImaging);
+                        }
+                        foreach (var prescription in item.PrescriptionCategories.ToList())
+                        {
+                            item.PrescriptionCategories.Remove(prescription);
+                        }
+                        foreach (var variousDocument in item.VariousDocumentCategories.ToList())
+                        {
+                            item.VariousDocumentCategories.Remove(variousDocument);
+                        }
+                        get.Remove(item);
+                    }
+                }                
             }
+            _db.SaveChanges();
         }
     }
 }

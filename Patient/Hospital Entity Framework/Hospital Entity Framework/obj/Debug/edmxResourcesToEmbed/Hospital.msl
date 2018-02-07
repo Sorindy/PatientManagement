@@ -319,6 +319,7 @@
           <ScalarProperty Name="PatientId" ColumnName="PatientId" />
           <ScalarProperty Name="VisitId" ColumnName="VisitId" />
           <ScalarProperty Name="VisitCount" ColumnName="VisitCount" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="Time" ColumnName="Time" />
           <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="Number" ColumnName="Number" />

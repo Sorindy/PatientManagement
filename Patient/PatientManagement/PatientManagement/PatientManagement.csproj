@@ -337,6 +337,12 @@
     <Compile Include="SearchWorker.Designer.cs">
       <DependentUpon>SearchWorker.cs</DependentUpon>
     </Compile>
+    <Compile Include="TitleInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TitleInput.Designer.cs">
+      <DependentUpon>TitleInput.cs</DependentUpon>
+    </Compile>
     <Compile Include="UpdateAccount.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -475,6 +481,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SearchWorker.resx">
       <DependentUpon>SearchWorker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TitleInput.resx">
+      <DependentUpon>TitleInput.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateAccount.resx">
       <DependentUpon>UpdateAccount.cs</DependentUpon>

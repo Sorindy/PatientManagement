@@ -650,7 +650,12 @@
     <Property Name="PatientId" Type="Int32" Nullable="false" />
     <Property Name="VisitId" Type="Int32" Nullable="false" />
     <Property Name="VisitCount" Type="Int32" Nullable="false" />
+<<<<<<< HEAD
     <Property Name="Time" Type="Time" Nullable="false" />
+=======
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="Time" Type="Time" Nullable="false" Precision="7" />
+>>>>>>> c34d3b291d1a051ba21c661ec578c6727e332e44
     <Property Name="Status" Type="Boolean" />
     <Property Name="Number" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Patient" Relationship="HospitalModel.FK_WaitingList_Patient" FromRole="WaitingList" ToRole="Patient" />
