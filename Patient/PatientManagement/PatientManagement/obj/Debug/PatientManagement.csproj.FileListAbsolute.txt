@@ -156,7 +156,6 @@ D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\AxInt
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.csproj.ResolveComReference.cache
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.exe
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.pdb
-D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.csprojResolveAssemblyReference.cache
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.AccountRecoveryForm.resources
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.Category.resources
 D:\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.CategorySelection.resources

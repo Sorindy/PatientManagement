@@ -166,7 +166,6 @@
             this.lbPatientName.Name = "lbPatientName";
             this.lbPatientName.Size = new System.Drawing.Size(265, 44);
             this.lbPatientName.TabIndex = 44;
-            this.lbPatientName.Text = "lbPatientName";
             this.lbPatientName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // gbActivity
@@ -237,7 +236,6 @@
             this.lbDatingId.Name = "lbDatingId";
             this.lbDatingId.Size = new System.Drawing.Size(237, 44);
             this.lbDatingId.TabIndex = 51;
-            this.lbDatingId.Text = "lbDatingId";
             this.lbDatingId.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // gbDoctorInformation
@@ -295,7 +293,6 @@
             this.lbStaffName.Name = "lbStaffName";
             this.lbStaffName.Size = new System.Drawing.Size(433, 47);
             this.lbStaffName.TabIndex = 6;
-            this.lbStaffName.Text = "lbStaffName";
             this.lbStaffName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnBoss

@@ -342,6 +342,14 @@ namespace PatientManagement
             {
                 MessageBox.Show(@"Please checking Service and Category or Document is empty", @"Error");
             }
+            var messageDocument = "Do You Want to Print This Document or not...?";
+            var titlesDocument = "Print Document";
+            var buttons = MessageBoxButtons.YesNo;
+            var result = MessageBox.Show(messageDocument, titlesDocument, buttons, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                btnPrint.PerformClick();
+            }
         }
 
         
@@ -644,11 +652,11 @@ namespace PatientManagement
         {
             if (Patient == null)
             {
-                MessageBox.Show(@"Something is going wrong please check again.", @"Error");
+                MessageBox.Show(@"Patient Null Refferrent.", @"Error");
             }
-            if (Account == null)
+             if  (Account == null)
             {
-                MessageBox.Show(@"Something is going wrong please check again.", @"Error");
+                MessageBox.Show(@"Doctor Null Refferrent.", @"Error");
             }
             if (txtDescription.Text == "")
             {
