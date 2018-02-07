@@ -126,7 +126,7 @@
             // 
             this.txtSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.txtSearch.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtSearch.Font = new System.Drawing.Font("Preah Vihear", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearch.Location = new System.Drawing.Point(55, 3);
             this.txtSearch.Multiline = true;
             this.txtSearch.Name = "txtSearch";
@@ -149,7 +149,7 @@
             // 
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 53F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 108F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 147F));
             this.tableLayoutPanel3.Controls.Add(this.lblNew, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.pictureBox1, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -165,11 +165,11 @@
             // 
             this.lblNew.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblNew.AutoSize = true;
-            this.lblNew.Font = new System.Drawing.Font("Preah Vihear", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNew.ForeColor = System.Drawing.Color.LightCoral;
-            this.lblNew.Location = new System.Drawing.Point(72, 5);
+            this.lblNew.Location = new System.Drawing.Point(80, 12);
             this.lblNew.Name = "lblNew";
-            this.lblNew.Size = new System.Drawing.Size(108, 43);
+            this.lblNew.Size = new System.Drawing.Size(93, 29);
             this.lblNew.TabIndex = 1;
             this.lblNew.Text = "បុគ្គលិកថ្មី";
             this.lblNew.Click += new System.EventHandler(this.lblNew_Click);
@@ -191,11 +191,11 @@
             this.lblWorker.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.lblWorker.AutoSize = true;
-            this.lblWorker.Font = new System.Drawing.Font("Preah Vihear", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWorker.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblWorker.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWorker.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblWorker.Location = new System.Drawing.Point(3, 6);
             this.lblWorker.Name = "lblWorker";
-            this.lblWorker.Size = new System.Drawing.Size(218, 49);
+            this.lblWorker.Size = new System.Drawing.Size(179, 31);
             this.lblWorker.TabIndex = 0;
             this.lblWorker.Text = "បញ្ជីឈ្មោះបុគ្គលិក";
             // 
