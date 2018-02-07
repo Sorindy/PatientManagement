@@ -189,16 +189,15 @@
             // 
             // lblPatient
             // 
-            this.lblPatient.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
             this.lblPatient.AutoSize = true;
-            this.lblPatient.Font = new System.Drawing.Font("Modern No. 20", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPatient.Font = new System.Drawing.Font("Modern No. 20", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPatient.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblPatient.Location = new System.Drawing.Point(3, 6);
             this.lblPatient.Name = "lblPatient";
-            this.lblPatient.Size = new System.Drawing.Size(206, 34);
+            this.lblPatient.Size = new System.Drawing.Size(195, 34);
             this.lblPatient.TabIndex = 0;
-            this.lblPatient.Text = "បញ្ចើឈ្មោះ អ្នកជំងឺ";
+            this.lblPatient.Text = "បញ្ចីឈ្មោះ អ្នកជំងឺ";
+            this.lblPatient.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel2
             // 
