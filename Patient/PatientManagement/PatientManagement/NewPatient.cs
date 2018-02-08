@@ -12,6 +12,7 @@ namespace PatientManagement
         }
 
         internal PatientListForm PatientListForm;
+        internal MedicalsForm MedicalForm;
         private readonly Patient _patient=new Patient();
 
         private void NewPatient_Shown(object sender, EventArgs e)
@@ -99,21 +100,41 @@ namespace PatientManagement
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            try
+            if (PatientListForm != null)
             {
-                _patient.Insert(txtfName.Text,txtlName.Text,txtkhName.Text, cboGender.Text, dtpDOB.Value, Convert.ToByte(txtAge.Text), txtAddress.Text, txtPhone1.Text,
-                    txtPhone1.Text, txtEmail.Text, Convert.ToInt16(txtWeight.Text), Convert.ToInt16(txtHeight.Text));
-                PatientListForm.dgvListPatient.DataSource=null;
-                PatientListForm.dgvListPatient.Columns.Clear();
-                PatientListForm.CatelogForm.pnlFill.Controls.Clear();
-                PatientListForm.CatelogForm.pnlFill.Controls.Add(PatientListForm);
-                PatientListForm.PatientListForm_Shown(PatientListForm, new EventArgs());
-                Close();
+                try
+                {
+                    _patient.Insert(txtfName.Text, txtlName.Text, txtkhName.Text, cboGender.Text, dtpDOB.Value, Convert.ToByte(txtAge.Text), txtAddress.Text, txtPhone1.Text,
+                        txtPhone1.Text, txtEmail.Text, Convert.ToInt16(txtWeight.Text), Convert.ToInt16(txtHeight.Text));
+                    PatientListForm.dgvListPatient.DataSource = null;
+                    PatientListForm.dgvListPatient.Columns.Clear();
+                    PatientListForm.CatelogForm.pnlFill.Controls.Clear();
+                    PatientListForm.CatelogForm.pnlFill.Controls.Add(PatientListForm);
+                    PatientListForm.PatientListForm_Shown(PatientListForm, new EventArgs());
+                    Close();
+                }
+                catch
+                {
+                    CheckData();
+                    MessageBox.Show(@"Please Checking again !", @"Error");
+                }
             }
-            catch
+            else
             {
-                CheckData();
-                MessageBox.Show(@"Please Checking again !", @"Error");
+                try
+                {
+                    _patient.Insert(txtfName.Text, txtlName.Text, txtkhName.Text, cboGender.Text, dtpDOB.Value, Convert.ToByte(txtAge.Text), txtAddress.Text, txtPhone1.Text,
+                        txtPhone1.Text, txtEmail.Text, Convert.ToInt16(txtWeight.Text), Convert.ToInt16(txtHeight.Text));
+                    MedicalForm.CatelogForm.pnlFill.Controls.Clear();
+                    MedicalForm.CatelogForm.pnlFill.Controls.Add(MedicalForm);
+                    MedicalForm.Show();
+                    Close();
+                }
+                catch
+                {
+                    CheckData();
+                    MessageBox.Show(@"Please Checking again !", @"Error");
+                }
             }
         }
 

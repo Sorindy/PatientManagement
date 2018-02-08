@@ -5,10 +5,3 @@ E:\Work\PatientManagement\Patient\Hospital Entity Framework\Hospital Entity Fram
 E:\Work\PatientManagement\Patient\Hospital Entity Framework\Hospital Entity Framework\obj\Debug\Hospital Entity Framework.csprojResolveAssemblyReference.cache
 E:\Work\PatientManagement\Patient\Hospital Entity Framework\Hospital Entity Framework\obj\Debug\Hospital Entity Framework.dll
 E:\Work\PatientManagement\Patient\Hospital Entity Framework\Hospital Entity Framework\obj\Debug\Hospital Entity Framework.pdb
-D:\PatientManagement\Patient\Hospital Entity Framework\Hospital Entity Framework\bin\Debug\Hospital Entity Framework.dll.config
-D:\PatientManagement\Patient\Hospital Entity Framework\Hospital Entity Framework\bin\Debug\Hospital Entity Framework.pdb
-D:\PatientManagement\Patient\Hospital Entity Framework\Hospital Entity Framework\bin\Debug\EntityFramework.dll
-D:\PatientManagement\Patient\Hospital Entity Framework\Hospital Entity Framework\bin\Debug\EntityFramework.xml
-D:\PatientManagement\Patient\Hospital Entity Framework\Hospital Entity Framework\obj\Debug\Hospital Entity Framework.csprojResolveAssemblyReference.cache
-D:\PatientManagement\Patient\Hospital Entity Framework\Hospital Entity Framework\obj\Debug\Hospital Entity Framework.dll
-D:\PatientManagement\Patient\Hospital Entity Framework\Hospital Entity Framework\obj\Debug\Hospital Entity Framework.pdb
