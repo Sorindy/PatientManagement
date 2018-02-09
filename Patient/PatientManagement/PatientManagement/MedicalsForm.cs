@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 using PatientManagement.Class;
 using PatientManagement.Interface;
@@ -335,6 +336,14 @@ namespace PatientManagement
                         _path + @"RTF\VariousdocumentEstimate\" +title,
                         StreamType.RichTextFormat);
                 }
+                var messageDocument = "Do You Want to Print This Document or not...?";
+                var titlesDocument = "Print Document";
+                var buttons = MessageBoxButtons.YesNo;
+                var result = MessageBox.Show(messageDocument, titlesDocument, buttons, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    btnPrint.PerformClick();
+                }
                 if (WaitingList != null) CheckWaitingListDeleteOrUpdate();
                 Clear();
             }
@@ -342,14 +351,7 @@ namespace PatientManagement
             {
                 MessageBox.Show(@"Please checking Service and Category or Document is empty", @"Error");
             }
-            var messageDocument = "Do You Want to Print This Document or not...?";
-            var titlesDocument = "Print Document";
-            var buttons = MessageBoxButtons.YesNo;
-            var result = MessageBox.Show(messageDocument, titlesDocument, buttons, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                btnPrint.PerformClick();
-            }
+            
         }
 
         
@@ -395,11 +397,20 @@ namespace PatientManagement
                 _dating.Insert(Patient.Id, Account.Worker.Id, dtpDate.Value);
                 MessageBox.Show(@"Dating is Complect....");
             }
+            else
+            {
+                MessageBox.Show(@"Please Make Sure Patient is Not Null...!");
+            }
         }
 
         private void imageToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            txtDescription.Images.Add();
+            TXTextControl.Image imagesobject = new TXTextControl.Image();
+            txtDescription.Images.Add(imagesobject,-1);
+            var filePath = imagesobject.ExportFileName;
+            
+            File.Copy(filePath, @"D:\PatientManagement\Patient\RTF\ServerImage\Strix.png");
+           // MessageBox.Show(filename.ToString( ));
         }
 
         private void fontToolStripMenuItem_Click(object sender, EventArgs e)
