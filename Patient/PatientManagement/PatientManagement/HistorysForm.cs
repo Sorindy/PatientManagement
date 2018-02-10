@@ -26,6 +26,7 @@ namespace PatientManagement
         private ICategory _category;
         private bool _mouseDown;
         private Point _lastLocation;
+        private IEstimate _estimate;
         //private readonly MedicalHistory _medicalHistory=new MedicalHistory();
         private IHistory _history;
         private int _keyCategory;
@@ -968,6 +969,7 @@ namespace PatientManagement
             if (e.ColumnIndex.Equals(7))
             {
                 txtDescription.EditMode = txtDescription.EditMode == EditMode.Edit ? EditMode.ReadAndSelect : EditMode.Edit;
+                saveToolStripMenuItem.Enabled = true;
             }
         }
 
@@ -998,6 +1000,7 @@ namespace PatientManagement
             if (e.ColumnIndex.Equals(7))
             {
                 txtDescription.EditMode = txtDescription.EditMode == EditMode.Edit ? EditMode.ReadAndSelect : EditMode.Edit;
+                saveToolStripMenuItem.Enabled = true;
             }
         }
 
@@ -1012,7 +1015,8 @@ namespace PatientManagement
             try
             {
                 txtDescription.Load(_history.GetPath(Convert.ToInt32(dgvVariousDocument.CurrentRow.Cells[0].Value)),
-                    StreamType.RichTextFormat);
+                    StreamType.HTMLFormat);
+                saveToolStripMenuItem.Enabled = false;
             }
             catch
             {
@@ -1055,7 +1059,8 @@ namespace PatientManagement
             try
             {
                 txtDescription.Load(_history.GetPath(Convert.ToInt32(dgvPrescription.CurrentRow.Cells[0].Value)),
-                    StreamType.RichTextFormat);
+                    StreamType.HTMLFormat);
+                saveToolStripMenuItem.Enabled = false;
             }
             catch
             {
@@ -1090,6 +1095,7 @@ namespace PatientManagement
             //if (e.ColumnIndex.Equals(8))
             //{
                 txtDescription.EditMode = txtDescription.EditMode == EditMode.Edit ? EditMode.ReadAndSelect : EditMode.Edit;
+                saveToolStripMenuItem.Enabled = true;
             }
         }
 
@@ -1104,7 +1110,8 @@ namespace PatientManagement
             try
             {
                 txtDescription.Load(_history.GetPath(Convert.ToInt32(dgvMedicalImaging.CurrentRow.Cells[0].Value)),
-                    StreamType.RichTextFormat);
+                    StreamType.HTMLFormat);
+                saveToolStripMenuItem.Enabled = false;
             }
             catch
             {
@@ -1139,6 +1146,7 @@ namespace PatientManagement
             //if (e.ColumnIndex.Equals(8))
             //{
                 txtDescription.EditMode = txtDescription.EditMode == EditMode.Edit ? EditMode.ReadAndSelect : EditMode.Edit;
+                saveToolStripMenuItem.Enabled = true;
             }
         }
 
@@ -1153,7 +1161,8 @@ namespace PatientManagement
             try
             {
                 txtDescription.Load(_history.GetPath(Convert.ToInt32(dgvLaboratory.CurrentRow.Cells[0].Value)),
-                    StreamType.RichTextFormat);
+                    StreamType.HTMLFormat);
+                saveToolStripMenuItem.Enabled = false;
             }
             catch
             {
@@ -1188,6 +1197,7 @@ namespace PatientManagement
             //if (e.ColumnIndex.Equals(8))
             //{
                 txtDescription.EditMode = txtDescription.EditMode == EditMode.Edit ? EditMode.ReadAndSelect : EditMode.Edit;
+                saveToolStripMenuItem.Enabled = true;
             }
         }
 
@@ -1203,6 +1213,7 @@ namespace PatientManagement
             {
                 txtDescription.Load(_history.GetPath(Convert.ToInt32(dgvConsultation.CurrentRow.Cells[0].Value)),
                     StreamType.RichTextFormat);
+                saveToolStripMenuItem.Enabled = false;
             }
             catch
             {
@@ -1396,6 +1407,106 @@ namespace PatientManagement
                 CatelogForm.pnlFill.Controls.Clear();
                 CatelogForm.pnlFill.Controls.Add(form);
                 form.Show();
+            }
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (txtDescription.Text != "" && KeyService != null && _keyCategory != 0)
+            {
+                var title = Patient.Id + DateTime.Today.Day +
+                            DateTime.Today.Month + DateTime.Today.Year + DateTime.Now.Hour.ToString() +
+                            DateTime.Now.Minute.ToString() + DateTime.Now.Millisecond.ToString();
+                if (KeyService == @"Consultation")
+                {
+                    if (dgvConsultation.CurrentRow != null)
+                    {
+                        var id = Convert.ToInt32(dgvConsultation.CurrentRow.Cells[0].Value);
+                        _estimate = new ConsultationEstimate();
+                        _estimate.Update(id, _keyCategory, Account.WorkerId, null, null, DateTime.Today, _path + @"RTF\ConsultationEstimate\"+title);
+
+                        txtDescription.Save(_path + @"RTF\ConsultationEstimate\" + title, StreamType.RichTextFormat);
+                    }
+                    
+                }
+                if (KeyService == @"Laboratory")
+                {
+                    if (dgvLaboratory.CurrentRow != null)
+                    {
+                        var id = Convert.ToInt32(dgvLaboratory.CurrentRow.Cells[0].Value);
+                        _estimate = new LaboratoryEstimate();
+                        _estimate.Update(id, _keyCategory, Account.WorkerId, null, null, DateTime.Today, _path + @"RTF\Laboratorystimate\" + title);
+
+                        txtDescription.Save(_path + @"RTF\LaboratoryEstimate\" + title, StreamType.RichTextFormat);
+                    }
+
+                }
+                if (KeyService == @"MedicalImaging")
+                {
+                    if (dgvMedicalImaging.CurrentRow != null)
+                    {
+                        var id = Convert.ToInt32(dgvMedicalImaging.CurrentRow.Cells[0].Value);
+                        _estimate = new MedicalImagingEstimate();
+                        _estimate.Update(id, _keyCategory, Account.WorkerId, null, null, DateTime.Today, _path + @"RTF\MedicalImagingEstimate\" + title);
+
+                        txtDescription.Save(_path + @"RTF\MedicalImaingEstimate\" + title, StreamType.RichTextFormat);
+                    }
+
+                }
+                if (KeyService == @"Prescription")
+                {
+                    if (dgvPrescription.CurrentRow != null)
+                    {
+                        var id = Convert.ToInt32(dgvPrescription.CurrentRow.Cells[0].Value);
+                        _estimate = new PrescriptionEstimate();
+                        _estimate.Update(id, _keyCategory, Account.WorkerId, null, null, DateTime.Today, _path + @"RTF\PrescriptionEstimate\" + title);
+
+                        txtDescription.Save(_path + @"RTF\PrescriptionEstimate\" + title, StreamType.RichTextFormat);
+                    }
+
+                }
+                if (KeyService == @"VariousDocument")
+                {
+                    if (dgvVariousDocument.CurrentRow != null)
+                    {
+                        var id = Convert.ToInt32(dgvVariousDocument.CurrentRow.Cells[0].Value);
+                        _estimate = new VariousDocumentEstimate();
+                        _estimate.Update(id, _keyCategory, Account.WorkerId, null, null, DateTime.Today, _path + @"RTF\VariousdocumentEstimate\" + title);
+
+                        txtDescription.Save(_path + @"RTF\VariousdocumentEstimate\" + title, StreamType.RichTextFormat);
+                    }
+
+                }
+                txtDescription.EditMode=EditMode.ReadAndSelect;
+            }
+        }
+
+        private void printToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Patient == null)
+            {
+                MessageBox.Show(@"Patient Null Refferrent.", @"Error");
+            }
+            if (Account == null)
+            {
+                MessageBox.Show(@"Doctor Null Refferrent.", @"Error");
+            }
+            if (txtDescription.Text == "")
+            {
+                MessageBox.Show(@"Document is empty.", @"Empty Document");
+            }
+            else
+            {
+                string html;
+                txtDescription.Save(out html, StringStreamType.HTMLFormat);
+                txtDescription.Load(html, StringStreamType.HTMLFormat);
+                var wv = new MedicalRecordWebViewer
+                {
+                    Html = html,
+                    Patient = Patient,
+                    Account = Account
+                };
+                wv.ShowDialog();
             }
         }
 

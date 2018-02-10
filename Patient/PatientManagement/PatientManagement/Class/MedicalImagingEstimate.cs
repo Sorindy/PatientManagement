@@ -84,10 +84,9 @@ namespace PatientManagement.Class
         public void Update(int id, int categoryid, int workerid, int? nurseid, int? referrerid, DateTime date, string description)
         {
             var update = _db.MedicalImagingEstimates.Single(v => v.Id == id);
-            update.CategoryId  = categoryid ;
             update.WorkerId = workerid;
-            update.NurseId = nurseid;
-            update.ReferrerId = referrerid;
+            if (nurseid != null) update.NurseId = nurseid;
+            if (referrerid != null) update.ReferrerId = referrerid;
             update.Date = date;
             update.Description = description;
             update.Edit = true;

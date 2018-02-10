@@ -49,7 +49,7 @@ namespace PatientManagement
             dtpDOB.Enabled = false;
             txtAge.Enabled = false;
             txtPhone1.Enabled = false;
-            txtPhone1.Enabled = false;
+            txtPhone2.Enabled = false;
             txtEmail.Enabled = false;
             txtAddress.Enabled = false;
             txtWeight.Enabled = false;
@@ -120,7 +120,7 @@ namespace PatientManagement
             dtpDOB.Enabled = true;
             txtAge.Enabled = true;
             txtPhone1.Enabled = true;
-            txtPhone1.Enabled = true;
+            txtPhone2.Enabled = true;
             txtEmail.Enabled = true;
             txtAddress.Enabled = true;
             txtWeight.Enabled = true;
@@ -202,7 +202,7 @@ namespace PatientManagement
             try
             {
                 _patient.Update(Patient.Id,txtfName.Text,txtlName.Text,txtkhName.Text,cboGender.Text,dtpDOB.Value,Convert.ToByte(txtAge.Text),txtAddress.Text,txtPhone1.Text,
-                    txtPhone1.Text,txtEmail.Text,Convert.ToInt16(txtWeight.Text),Convert.ToInt16(txtHeight.Text));
+                    txtPhone2.Text,txtEmail.Text,Convert.ToInt16(txtWeight.Text),Convert.ToInt16(txtHeight.Text));
                 PatientForm_Shown(this,new EventArgs());
             }
             catch
