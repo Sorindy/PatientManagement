@@ -405,12 +405,49 @@ namespace PatientManagement
 
         private void imageToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            TXTextControl.Image imagesobject = new TXTextControl.Image();
-            txtDescription.Images.Add(imagesobject,-1);
+            var imagesobject = new TXTextControl.Image();
+            txtDescription.Images.Add(imagesobject, -1);
             var filePath = imagesobject.ExportFileName;
-            
-            File.Copy(filePath, @"D:\PatientManagement\Patient\RTF\ServerImage\Strix.png");
-           // MessageBox.Show(filename.ToString( ));
+            var filefilter = imagesobject.FilterIndex;
+           // var filename = filePath.Replace(@"\", "").Replace(" ", "").Replace(":", "").Replace(";", "").Replace("'", "").Replace(".", "");
+            var filename =  DateTime.Today.Date + DateTime.Today.TimeOfDay+DateTime.Today.Millisecond.ToString( );
+            filename = filename.Replace(":", "").Replace("/", "").Replace(" ", "");
+            File.Copy(filePath, @"D:\PatientManagement\Patient\RTF\ServerImage\" + filename + Extend(filefilter));
+            //txtDescription.Images.Add(imagesobject, -1);
+
+        }
+
+        public string Extend(int filter)
+        {
+
+            if (filter == 1)
+            {
+                return ".BMP";
+            }
+            if (filter == 2)
+            {
+                return ".TIG";
+            }
+            if (filter == 3)
+            {
+                return ".WMF";
+            }
+            if (filter == 4)
+            {
+                return ".PNG";
+            }
+            if (filter == 5)
+            {
+                return ".JPG";
+            }
+            if (filter == 6)
+            {
+                return ".GI";
+            }
+            else
+            {
+                return ".EMP";
+            }
         }
 
         private void fontToolStripMenuItem_Click(object sender, EventArgs e)

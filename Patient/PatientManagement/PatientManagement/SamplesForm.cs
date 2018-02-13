@@ -55,8 +55,8 @@ namespace PatientManagement
         private void SamplesForm_Shown(object sender, EventArgs e)
         {
             var path = AppDomain.CurrentDomain.BaseDirectory;
-            //_path = path.Remove(path.Length - 46);
-            _path = path;
+            _path = path.Remove(path.Length - 46);
+            //_path = path;
             //_path = @"C:\Users\Health\Desktop\Debug\";
             picboxHide.ImageLocation = _path+@"Hide-right-icon.png";
             cboService.SelectedItem = null;
