@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using CrystalDecisions.Shared;
 using Hospital_Entity_Framework;
 using Form = System.Windows.Forms.Form;
@@ -19,11 +20,18 @@ namespace PatientManagement
 
         private void MedicalRecordWebViewer_Load(object sender, EventArgs e)
         {
-            Html = Html.Substring(229);
+            var start = '<';
+            var startindex = Html.IndexOf(start);
+            var end = "left;"+'"'+'>';
+            var endindex = Html.IndexOf(end, StringComparison.Ordinal);
+            var count = Html.Substring(startindex, endindex + start - startindex).Count();
+
+
+            Html = Html.Substring(count-51);
             Html = Html.Remove(Html.Length - 16);
             var path = AppDomain.CurrentDomain.BaseDirectory;
-            _path = path.Remove(path.Length - 46);
-            //_path = path;
+            //_path = path.Remove(path.Length - 46);
+            _path = path;
             //_path = @"C:\Users\Health\Desktop\Debug\";
             btnPrint.Visible = false;
             btnPrintPreview.Visible = false;

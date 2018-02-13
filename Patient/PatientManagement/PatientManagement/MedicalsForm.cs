@@ -107,8 +107,8 @@ namespace PatientManagement
             }
 
             var path = AppDomain.CurrentDomain.BaseDirectory;
-            _path = path.Remove(path.Length - 46);
-            //_path = path;
+            //_path = path.Remove(path.Length - 46);
+            _path = path;
             //_path = @"C:\Users\Health\Desktop\Debug\";
             picHideRight.ImageLocation = _path + @"Hide-right-icon.png";
             picHideTop.ImageLocation = _path + @"Hide-Up-icon.png";
@@ -672,6 +672,10 @@ namespace PatientManagement
             if (txtDescription.Text == "")
             {
                 MessageBox.Show(@"Document is empty.", @"Empty Document");
+            }
+            if(cboService.SelectedItem==null&&cboCategory.SelectedItem==null)
+            {
+                MessageBox.Show(@"Please Check Service and Category.", @"Empty Document");
             }
             else
             {
