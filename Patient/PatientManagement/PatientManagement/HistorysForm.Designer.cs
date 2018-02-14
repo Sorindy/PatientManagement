@@ -213,7 +213,7 @@
             this.pnlTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTitle.Location = new System.Drawing.Point(0, 0);
             this.pnlTitle.Name = "pnlTitle";
-            this.pnlTitle.Size = new System.Drawing.Size(1362, 139);
+            this.pnlTitle.Size = new System.Drawing.Size(1354, 139);
             this.pnlTitle.TabIndex = 2;
             // 
             // tableLayoutPanel1
@@ -229,7 +229,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1362, 139);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1354, 139);
             this.tableLayoutPanel1.TabIndex = 0;
             this.tableLayoutPanel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tableLayoutPanel1_MouseDown);
             this.tableLayoutPanel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.tableLayoutPanel1_MouseMove);
@@ -243,7 +243,7 @@
             this.gboPatient.ForeColor = System.Drawing.Color.Gainsboro;
             this.gboPatient.Location = new System.Drawing.Point(3, 3);
             this.gboPatient.Name = "gboPatient";
-            this.gboPatient.Size = new System.Drawing.Size(675, 133);
+            this.gboPatient.Size = new System.Drawing.Size(671, 133);
             this.gboPatient.TabIndex = 2;
             this.gboPatient.TabStop = false;
             this.gboPatient.Text = "ពត៏មានរបស់ អ្នកជម្ងឺ";
@@ -260,7 +260,7 @@
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(669, 105);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(665, 105);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
             // tableLayoutPanel12
@@ -275,7 +275,7 @@
             this.tableLayoutPanel12.Name = "tableLayoutPanel12";
             this.tableLayoutPanel12.RowCount = 1;
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel12.Size = new System.Drawing.Size(663, 40);
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(659, 40);
             this.tableLayoutPanel12.TabIndex = 1;
             // 
             // btnPatient
@@ -286,7 +286,7 @@
             this.btnPatient.ForeColor = System.Drawing.SystemColors.Desktop;
             this.btnPatient.Image = ((System.Drawing.Image)(resources.GetObject("btnPatient.Image")));
             this.btnPatient.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPatient.Location = new System.Drawing.Point(253, 3);
+            this.btnPatient.Location = new System.Drawing.Point(251, 3);
             this.btnPatient.Name = "btnPatient";
             this.btnPatient.Size = new System.Drawing.Size(157, 34);
             this.btnPatient.TabIndex = 0;
@@ -309,7 +309,7 @@
             this.tableLayoutPanel11.RowCount = 2;
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(663, 53);
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(659, 53);
             this.tableLayoutPanel11.TabIndex = 0;
             // 
             // label1
@@ -330,7 +330,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label2.Location = new System.Drawing.Point(47, 26);
+            this.label2.Location = new System.Drawing.Point(46, 26);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(96, 27);
             this.label2.TabIndex = 1;
@@ -340,8 +340,13 @@
             // 
             this.lbpName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbpName.AutoSize = true;
+<<<<<<< HEAD
             this.lbpName.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbpName.Location = new System.Drawing.Point(376, 0);
+=======
+            this.lbpName.Font = new System.Drawing.Font("Preah Vihear", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbpName.Location = new System.Drawing.Point(357, 0);
+>>>>>>> aa48e72c4c6b57288e0954de33ce9e4055b671e1
             this.lbpName.Name = "lbpName";
             this.lbpName.Size = new System.Drawing.Size(101, 26);
             this.lbpName.TabIndex = 2;
@@ -351,8 +356,13 @@
             // 
             this.lbpGender.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbpGender.AutoSize = true;
+<<<<<<< HEAD
             this.lbpGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbpGender.Location = new System.Drawing.Point(367, 26);
+=======
+            this.lbpGender.Font = new System.Drawing.Font("Preah Vihear", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbpGender.Location = new System.Drawing.Point(346, 26);
+>>>>>>> aa48e72c4c6b57288e0954de33ce9e4055b671e1
             this.lbpGender.Name = "lbpGender";
             this.lbpGender.Size = new System.Drawing.Size(119, 27);
             this.lbpGender.TabIndex = 3;
@@ -364,9 +374,9 @@
             this.gboWorker.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gboWorker.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gboWorker.ForeColor = System.Drawing.Color.Gainsboro;
-            this.gboWorker.Location = new System.Drawing.Point(684, 3);
+            this.gboWorker.Location = new System.Drawing.Point(680, 3);
             this.gboWorker.Name = "gboWorker";
-            this.gboWorker.Size = new System.Drawing.Size(675, 133);
+            this.gboWorker.Size = new System.Drawing.Size(671, 133);
             this.gboWorker.TabIndex = 1;
             this.gboWorker.TabStop = false;
             this.gboWorker.Text = "ពត៏មានរបស់​ គ្រូពេទ្យ";
@@ -389,7 +399,7 @@
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(669, 105);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(665, 105);
             this.tableLayoutPanel6.TabIndex = 0;
             // 
             // label3
@@ -422,7 +432,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label5.Location = new System.Drawing.Point(47, 72);
+            this.label5.Location = new System.Drawing.Point(46, 72);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(100, 29);
             this.label5.TabIndex = 2;
@@ -432,8 +442,13 @@
             // 
             this.lbdName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbdName.AutoSize = true;
+<<<<<<< HEAD
             this.lbdName.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbdName.Location = new System.Drawing.Point(381, 1);
+=======
+            this.lbdName.Font = new System.Drawing.Font("Preah Vihear", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbdName.Location = new System.Drawing.Point(362, 0);
+>>>>>>> aa48e72c4c6b57288e0954de33ce9e4055b671e1
             this.lbdName.Name = "lbdName";
             this.lbdName.Size = new System.Drawing.Size(101, 31);
             this.lbdName.TabIndex = 3;
@@ -443,8 +458,13 @@
             // 
             this.lbService.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbService.AutoSize = true;
+<<<<<<< HEAD
             this.lbService.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbService.Location = new System.Drawing.Point(431, 35);
+=======
+            this.lbService.Font = new System.Drawing.Font("Preah Vihear", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbService.Location = new System.Drawing.Point(429, 34);
+>>>>>>> aa48e72c4c6b57288e0954de33ce9e4055b671e1
             this.lbService.Name = "lbService";
             this.lbService.Size = new System.Drawing.Size(0, 31);
             this.lbService.TabIndex = 4;
@@ -453,8 +473,13 @@
             // 
             this.lbCategory.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbCategory.AutoSize = true;
+<<<<<<< HEAD
             this.lbCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbCategory.Location = new System.Drawing.Point(431, 71);
+=======
+            this.lbCategory.Font = new System.Drawing.Font("Preah Vihear", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCategory.Location = new System.Drawing.Point(429, 68);
+>>>>>>> aa48e72c4c6b57288e0954de33ce9e4055b671e1
             this.lbCategory.Name = "lbCategory";
             this.lbCategory.Size = new System.Drawing.Size(0, 31);
             this.lbCategory.TabIndex = 5;
@@ -1382,7 +1407,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(489, 139);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(873, 22);
+            this.panel1.Size = new System.Drawing.Size(865, 22);
             this.panel1.TabIndex = 16;
             // 
             // tableLayoutPanel2
@@ -1397,13 +1422,13 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(873, 22);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(865, 22);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // picHideTop
             // 
             this.picHideTop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.picHideTop.Location = new System.Drawing.Point(424, 3);
+            this.picHideTop.Location = new System.Drawing.Point(420, 3);
             this.picHideTop.Name = "picHideTop";
             this.picHideTop.Size = new System.Drawing.Size(25, 16);
             this.picHideTop.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1452,7 +1477,7 @@
             this.pnlShow.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlShow.Location = new System.Drawing.Point(514, 161);
             this.pnlShow.Name = "pnlShow";
-            this.pnlShow.Size = new System.Drawing.Size(848, 591);
+            this.pnlShow.Size = new System.Drawing.Size(840, 591);
             this.pnlShow.TabIndex = 18;
             // 
             // groupBox3
@@ -1466,7 +1491,7 @@
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Location = new System.Drawing.Point(0, 0);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(848, 591);
+            this.groupBox3.Size = new System.Drawing.Size(840, 591);
             this.groupBox3.TabIndex = 19;
             this.groupBox3.TabStop = false;
             // 
@@ -1479,7 +1504,7 @@
             this.txtDescription.Location = new System.Drawing.Point(28, 93);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.RulerBar = this.rulerBar2;
-            this.txtDescription.Size = new System.Drawing.Size(817, 473);
+            this.txtDescription.Size = new System.Drawing.Size(809, 473);
             this.txtDescription.StatusBar = this.statusBar1;
             this.txtDescription.TabIndex = 2;
             this.txtDescription.VerticalRulerBar = this.rulerBar1;
@@ -1490,7 +1515,7 @@
             this.buttonBar1.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonBar1.Location = new System.Drawing.Point(3, 40);
             this.buttonBar1.Name = "buttonBar1";
-            this.buttonBar1.Size = new System.Drawing.Size(842, 28);
+            this.buttonBar1.Size = new System.Drawing.Size(834, 28);
             this.buttonBar1.TabIndex = 10;
             this.buttonBar1.Text = "buttonBar1";
             // 
@@ -1499,7 +1524,7 @@
             this.rulerBar2.Dock = System.Windows.Forms.DockStyle.Top;
             this.rulerBar2.Location = new System.Drawing.Point(3, 68);
             this.rulerBar2.Name = "rulerBar2";
-            this.rulerBar2.Size = new System.Drawing.Size(842, 25);
+            this.rulerBar2.Size = new System.Drawing.Size(834, 25);
             this.rulerBar2.TabIndex = 9;
             this.rulerBar2.Text = "rulerBar2";
             // 
@@ -1509,7 +1534,7 @@
             this.statusBar1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.statusBar1.Location = new System.Drawing.Point(3, 566);
             this.statusBar1.Name = "statusBar1";
-            this.statusBar1.Size = new System.Drawing.Size(842, 22);
+            this.statusBar1.Size = new System.Drawing.Size(834, 22);
             this.statusBar1.TabIndex = 4;
             // 
             // rulerBar1
@@ -1536,7 +1561,7 @@
             this.printToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(3, 16);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(842, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(834, 24);
             this.menuStrip1.TabIndex = 11;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -1639,7 +1664,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1362, 752);
+            this.ClientSize = new System.Drawing.Size(1354, 752);
             this.ControlBox = false;
             this.Controls.Add(this.pnlShow);
             this.Controls.Add(this.pnlHide);

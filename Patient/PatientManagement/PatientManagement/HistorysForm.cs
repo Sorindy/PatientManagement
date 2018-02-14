@@ -1502,6 +1502,7 @@ namespace PatientManagement
                 string html;
                 txtDescription.Save(out html, StringStreamType.HTMLFormat);
                 txtDescription.Load(html, StringStreamType.HTMLFormat);
+                MessageBox.Show(html);
                 var wv = new MedicalRecordWebViewer
                 {
                     Html = html,
