@@ -351,7 +351,9 @@ namespace PatientManagement
 
         private void imageToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            txtDescription.Images.Add();
+            var imagesobject1 = new Image();
+            imagesobject1.SaveMode = ImageSaveMode.SaveAsData;
+            txtDescription.Images.Add(imagesobject1, -1);
         }
 
         private void tabToolStripMenuItem_Click(object sender, EventArgs e)

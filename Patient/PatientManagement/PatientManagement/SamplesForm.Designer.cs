@@ -199,7 +199,7 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.01809F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.98191F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 65F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 65F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 66F));
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel5, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.label3, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.picboxNew, 2, 0);
@@ -223,7 +223,7 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.77778F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 82.22222F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(225, 64);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(224, 64);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
             // cboTitle
@@ -234,7 +234,7 @@
             this.cboTitle.FormattingEnabled = true;
             this.cboTitle.Location = new System.Drawing.Point(3, 12);
             this.cboTitle.Name = "cboTitle";
-            this.cboTitle.Size = new System.Drawing.Size(219, 34);
+            this.cboTitle.Size = new System.Drawing.Size(218, 34);
             this.cboTitle.TabIndex = 0;
             this.cboTitle.SelectedIndexChanged += new System.EventHandler(this.cboTitle_SelectedIndexChanged);
             // 
@@ -254,7 +254,7 @@
             // 
             this.picboxNew.Dock = System.Windows.Forms.DockStyle.Fill;
             this.picboxNew.Image = ((System.Drawing.Image)(resources.GetObject("picboxNew.Image")));
-            this.picboxNew.Location = new System.Drawing.Point(381, 3);
+            this.picboxNew.Location = new System.Drawing.Point(380, 3);
             this.picboxNew.Name = "picboxNew";
             this.picboxNew.Size = new System.Drawing.Size(59, 64);
             this.picboxNew.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

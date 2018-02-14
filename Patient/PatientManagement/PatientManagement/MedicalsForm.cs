@@ -256,9 +256,8 @@ namespace PatientManagement
                         _estimate.Insert(null, null, Patient.Id, KeyCategory, Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today,
                             _path + @"RTF\ConsultationEstimate\" + title);
                     }
-                    txtDescription.Save(
-                        _path + @"RTF\ConsultationEstimate\" + title,
-                        StreamType.HTMLFormat);
+                    txtDescription.Save(_path + @"RTF\ConsultationEstimate\" + title,
+                        StreamType.RichTextFormat);
                 }
                 if (KeyService == @"Laboratory")
                 {
@@ -405,16 +404,24 @@ namespace PatientManagement
 
         private void imageToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var imagesobject = new TXTextControl.Image();
-            txtDescription.Images.Add(imagesobject, -1);
-            var filePath = imagesobject.ExportFileName;
-            var filefilter = imagesobject.FilterIndex;
+            var imagesobject1 = new TXTextControl.Image();
+           // var imagesobject2 = new TXTextControl.Image();
+            imagesobject1.SaveMode = ImageSaveMode.SaveAsData;
+            txtDescription.Images.Add(imagesobject1, -1);
+           // var filePath = imagesobject1.ExportFileName;
+          //  var filefilter = imagesobject1.FilterIndex;
            // var filename = filePath.Replace(@"\", "").Replace(" ", "").Replace(":", "").Replace(";", "").Replace("'", "").Replace(".", "");
-            var filename =  DateTime.Today.Date + DateTime.Today.TimeOfDay+DateTime.Today.Millisecond.ToString( );
-            filename = filename.Replace(":", "").Replace("/", "").Replace(" ", "");
-            File.Copy(filePath, @"D:\PatientManagement\Patient\RTF\ServerImage\" + filename + Extend(filefilter));
-            //txtDescription.Images.Add(imagesobject, -1);
+        //    var filename = DateTime.Today.Day + DateTime.Today.Month + DateTime.Today.Year + DateTime.Now.Hour.ToString() + DateTime.Now.Minute + DateTime.Now.Millisecond;
+           // filename = filename.Replace(":", "").Replace("/", "").Replace(" ", "");
+           // File.Copy(filePath, @"D:\PatientManagement\Patient\RTF\ServerImage\" + filename + Extend(filefilter));
+            //imagesobject1.ExportFileName = @"D:\PatientManagement\Patient\RTF\ServerImage\" + filename + Extend(filefilter);
+            //imagesobject1.FileName = imagesobject1.ExportFileName;
+            //imagesobject1.ExportFilterIndex = filefilter;
+            
+            // imagesobject2 = imagesobject1;
 
+
+            //txtDescription.Images.Add(imagesobject2, -1);
         }
 
         public string Extend(int filter)
