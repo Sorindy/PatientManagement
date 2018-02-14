@@ -126,5 +126,10 @@ namespace PatientManagement
         {
             _mouseDown = false;
         }
+
+        private void CatelogForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

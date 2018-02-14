@@ -89,8 +89,8 @@ namespace PatientManagement
             }
             //AddNodesToTree();
             var path = AppDomain.CurrentDomain.BaseDirectory;
-            _path = path.Remove(path.Length - 46);
-            //_path = path;
+            //_path = path.Remove(path.Length - 46);
+            _path = path;
             //_path = @"C:\Users\Health\Desktop\Debug\";
             //dgvConsultation.Columns.Clear();
             //dgvLaboratory.Columns.Clear();
@@ -1500,7 +1500,7 @@ namespace PatientManagement
                 string html;
                 txtDescription.Save(out html, StringStreamType.HTMLFormat);
                 txtDescription.Load(html, StringStreamType.HTMLFormat);
-                MessageBox.Show(html);
+                //MessageBox.Show(html);
                 var wv = new MedicalRecordWebViewer
                 {
                     Html = html,
