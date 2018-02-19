@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
 using System.Windows.Forms;
 using PatientManagement.Class;
 using PatientManagement.Interface;
@@ -256,9 +255,8 @@ namespace PatientManagement
                         _estimate.Insert(null, null, Patient.Id, KeyCategory, Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today,
                             _path + @"RTF\ConsultationEstimate\" + title);
                     }
-                    txtDescription.Save(
-                        _path + @"RTF\ConsultationEstimate\" + title,
-                        StreamType.HTMLFormat);
+                    txtDescription.Save(_path + @"RTF\ConsultationEstimate\" + title,
+                        StreamType.RichTextFormat);
                 }
                 if (KeyService == @"Laboratory")
                 {
@@ -405,12 +403,56 @@ namespace PatientManagement
 
         private void imageToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            TXTextControl.Image imagesobject = new TXTextControl.Image();
-            txtDescription.Images.Add(imagesobject,-1);
-            var filePath = imagesobject.ExportFileName;
+            var imagesobject1 = new TXTextControl.Image {SaveMode = ImageSaveMode.SaveAsData};
+            // var imagesobject2 = new TXTextControl.Image();
+            txtDescription.Images.Add(imagesobject1, -1);
+           // var filePath = imagesobject1.ExportFileName;
+          //  var filefilter = imagesobject1.FilterIndex;
+           // var filename = filePath.Replace(@"\", "").Replace(" ", "").Replace(":", "").Replace(";", "").Replace("'", "").Replace(".", "");
+        //    var filename = DateTime.Today.Day + DateTime.Today.Month + DateTime.Today.Year + DateTime.Now.Hour.ToString() + DateTime.Now.Minute + DateTime.Now.Millisecond;
+           // filename = filename.Replace(":", "").Replace("/", "").Replace(" ", "");
+           // File.Copy(filePath, @"D:\PatientManagement\Patient\RTF\ServerImage\" + filename + Extend(filefilter));
+            //imagesobject1.ExportFileName = @"D:\PatientManagement\Patient\RTF\ServerImage\" + filename + Extend(filefilter);
+            //imagesobject1.FileName = imagesobject1.ExportFileName;
+            //imagesobject1.ExportFilterIndex = filefilter;
             
-            File.Copy(filePath, @"D:\PatientManagement\Patient\RTF\ServerImage\Strix.png");
-           // MessageBox.Show(filename.ToString( ));
+            // imagesobject2 = imagesobject1;
+
+
+            //txtDescription.Images.Add(imagesobject2, -1);
+        }
+
+        public string Extend(int filter)
+        {
+
+            if (filter == 1)
+            {
+                return ".BMP";
+            }
+            if (filter == 2)
+            {
+                return ".TIG";
+            }
+            if (filter == 3)
+            {
+                return ".WMF";
+            }
+            if (filter == 4)
+            {
+                return ".PNG";
+            }
+            if (filter == 5)
+            {
+                return ".JPG";
+            }
+            if (filter == 6)
+            {
+                return ".GI";
+            }
+            else
+            {
+                return ".EMP";
+            }
         }
 
         private void fontToolStripMenuItem_Click(object sender, EventArgs e)

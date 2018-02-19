@@ -340,10 +340,15 @@
             // 
             this.lbpName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbpName.AutoSize = true;
+<<<<<<< HEAD
+            this.lbpName.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbpName.Location = new System.Drawing.Point(376, 0);
+=======
             this.lbpName.Font = new System.Drawing.Font("Preah Vihear", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbpName.Location = new System.Drawing.Point(357, 0);
+>>>>>>> aa48e72c4c6b57288e0954de33ce9e4055b671e1
             this.lbpName.Name = "lbpName";
-            this.lbpName.Size = new System.Drawing.Size(134, 26);
+            this.lbpName.Size = new System.Drawing.Size(101, 26);
             this.lbpName.TabIndex = 2;
             this.lbpName.Text = "pName";
             // 
@@ -351,10 +356,15 @@
             // 
             this.lbpGender.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbpGender.AutoSize = true;
+<<<<<<< HEAD
+            this.lbpGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbpGender.Location = new System.Drawing.Point(367, 26);
+=======
             this.lbpGender.Font = new System.Drawing.Font("Preah Vihear", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbpGender.Location = new System.Drawing.Point(346, 26);
+>>>>>>> aa48e72c4c6b57288e0954de33ce9e4055b671e1
             this.lbpGender.Name = "lbpGender";
-            this.lbpGender.Size = new System.Drawing.Size(156, 27);
+            this.lbpGender.Size = new System.Drawing.Size(119, 27);
             this.lbpGender.TabIndex = 3;
             this.lbpGender.Text = "pGender";
             // 
@@ -432,10 +442,15 @@
             // 
             this.lbdName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbdName.AutoSize = true;
+<<<<<<< HEAD
+            this.lbdName.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbdName.Location = new System.Drawing.Point(381, 1);
+=======
             this.lbdName.Font = new System.Drawing.Font("Preah Vihear", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbdName.Location = new System.Drawing.Point(362, 0);
+>>>>>>> aa48e72c4c6b57288e0954de33ce9e4055b671e1
             this.lbdName.Name = "lbdName";
-            this.lbdName.Size = new System.Drawing.Size(134, 34);
+            this.lbdName.Size = new System.Drawing.Size(101, 31);
             this.lbdName.TabIndex = 3;
             this.lbdName.Text = "dName";
             // 
@@ -443,20 +458,30 @@
             // 
             this.lbService.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbService.AutoSize = true;
+<<<<<<< HEAD
+            this.lbService.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbService.Location = new System.Drawing.Point(431, 35);
+=======
             this.lbService.Font = new System.Drawing.Font("Preah Vihear", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbService.Location = new System.Drawing.Point(429, 34);
+>>>>>>> aa48e72c4c6b57288e0954de33ce9e4055b671e1
             this.lbService.Name = "lbService";
-            this.lbService.Size = new System.Drawing.Size(0, 34);
+            this.lbService.Size = new System.Drawing.Size(0, 31);
             this.lbService.TabIndex = 4;
             // 
             // lbCategory
             // 
             this.lbCategory.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbCategory.AutoSize = true;
+<<<<<<< HEAD
+            this.lbCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCategory.Location = new System.Drawing.Point(431, 71);
+=======
             this.lbCategory.Font = new System.Drawing.Font("Preah Vihear", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbCategory.Location = new System.Drawing.Point(429, 68);
+>>>>>>> aa48e72c4c6b57288e0954de33ce9e4055b671e1
             this.lbCategory.Name = "lbCategory";
-            this.lbCategory.Size = new System.Drawing.Size(0, 37);
+            this.lbCategory.Size = new System.Drawing.Size(0, 31);
             this.lbCategory.TabIndex = 5;
             // 
             // pnlShowHistory
@@ -624,10 +649,10 @@
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Preah Vihear", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(4, 5);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(15, 11);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(116, 38);
+            this.label7.Size = new System.Drawing.Size(95, 25);
             this.label7.TabIndex = 1;
             this.label7.Text = "ប្រភេទ     :";
             // 
@@ -635,11 +660,11 @@
             // 
             this.cboConCategory.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cboConCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboConCategory.Font = new System.Drawing.Font("Preah Vihear", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboConCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboConCategory.FormattingEnabled = true;
             this.cboConCategory.Location = new System.Drawing.Point(128, 3);
             this.cboConCategory.Name = "cboConCategory";
-            this.cboConCategory.Size = new System.Drawing.Size(314, 42);
+            this.cboConCategory.Size = new System.Drawing.Size(314, 32);
             this.cboConCategory.TabIndex = 3;
             this.cboConCategory.SelectedIndexChanged += new System.EventHandler(this.cboConCategory_SelectedIndexChanged);
             // 
@@ -804,10 +829,10 @@
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Preah Vihear", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(4, 4);
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(15, 11);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(116, 38);
+            this.label8.Size = new System.Drawing.Size(95, 25);
             this.label8.TabIndex = 1;
             this.label8.Text = "ប្រភេទ     :";
             // 
@@ -815,11 +840,11 @@
             // 
             this.cboLabCategory.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cboLabCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboLabCategory.Font = new System.Drawing.Font("Preah Vihear", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboLabCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboLabCategory.FormattingEnabled = true;
             this.cboLabCategory.Location = new System.Drawing.Point(128, 3);
             this.cboLabCategory.Name = "cboLabCategory";
-            this.cboLabCategory.Size = new System.Drawing.Size(314, 42);
+            this.cboLabCategory.Size = new System.Drawing.Size(314, 32);
             this.cboLabCategory.TabIndex = 3;
             this.cboLabCategory.SelectedIndexChanged += new System.EventHandler(this.cboLabCategory_SelectedIndexChanged);
             // 
@@ -984,10 +1009,10 @@
             // 
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Preah Vihear", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(4, 5);
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(15, 12);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(116, 38);
+            this.label9.Size = new System.Drawing.Size(95, 25);
             this.label9.TabIndex = 1;
             this.label9.Text = "ប្រភេទ     :";
             // 
@@ -995,11 +1020,11 @@
             // 
             this.cboMedCategory.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cboMedCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboMedCategory.Font = new System.Drawing.Font("Preah Vihear", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboMedCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboMedCategory.FormattingEnabled = true;
             this.cboMedCategory.Location = new System.Drawing.Point(128, 3);
             this.cboMedCategory.Name = "cboMedCategory";
-            this.cboMedCategory.Size = new System.Drawing.Size(314, 42);
+            this.cboMedCategory.Size = new System.Drawing.Size(314, 32);
             this.cboMedCategory.TabIndex = 3;
             this.cboMedCategory.SelectedIndexChanged += new System.EventHandler(this.cboMedCategory_SelectedIndexChanged);
             // 
@@ -1164,10 +1189,10 @@
             // 
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Preah Vihear", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(4, 5);
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(15, 11);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(116, 38);
+            this.label10.Size = new System.Drawing.Size(95, 25);
             this.label10.TabIndex = 1;
             this.label10.Text = "ប្រភេទ     :";
             // 
@@ -1175,11 +1200,11 @@
             // 
             this.cboPreCategory.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cboPreCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboPreCategory.Font = new System.Drawing.Font("Preah Vihear", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboPreCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboPreCategory.FormattingEnabled = true;
             this.cboPreCategory.Location = new System.Drawing.Point(128, 3);
             this.cboPreCategory.Name = "cboPreCategory";
-            this.cboPreCategory.Size = new System.Drawing.Size(314, 42);
+            this.cboPreCategory.Size = new System.Drawing.Size(314, 32);
             this.cboPreCategory.TabIndex = 3;
             this.cboPreCategory.SelectedIndexChanged += new System.EventHandler(this.cboPreCategory_SelectedIndexChanged);
             // 
@@ -1344,10 +1369,10 @@
             // 
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Preah Vihear", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(4, 3);
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(15, 10);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(116, 38);
+            this.label11.Size = new System.Drawing.Size(95, 25);
             this.label11.TabIndex = 1;
             this.label11.Text = "ប្រភេទ     :";
             // 
@@ -1355,11 +1380,11 @@
             // 
             this.cboVarCategory.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cboVarCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboVarCategory.Font = new System.Drawing.Font("Preah Vihear", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboVarCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboVarCategory.FormattingEnabled = true;
             this.cboVarCategory.Location = new System.Drawing.Point(128, 3);
             this.cboVarCategory.Name = "cboVarCategory";
-            this.cboVarCategory.Size = new System.Drawing.Size(314, 42);
+            this.cboVarCategory.Size = new System.Drawing.Size(314, 32);
             this.cboVarCategory.TabIndex = 3;
             this.cboVarCategory.SelectedIndexChanged += new System.EventHandler(this.cboVarCategory_SelectedIndexChanged);
             // 

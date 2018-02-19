@@ -28,11 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // ImageSelection
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(691, 360);
+            this.Name = "ImageSelection";
             this.Text = "ImageSelection";
+            this.Load += new System.EventHandler(this.ImageSelection_Load);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
     }
 }

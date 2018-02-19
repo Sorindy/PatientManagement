@@ -16,5 +16,10 @@ namespace PatientManagement
         {
             InitializeComponent();
         }
+
+        private void ImageSelection_Load(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
