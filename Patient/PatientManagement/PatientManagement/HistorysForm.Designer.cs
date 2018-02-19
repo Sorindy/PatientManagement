@@ -340,13 +340,10 @@
             // 
             this.lbpName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbpName.AutoSize = true;
-<<<<<<< HEAD
-            this.lbpName.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbpName.Location = new System.Drawing.Point(376, 0);
-=======
+
             this.lbpName.Font = new System.Drawing.Font("Preah Vihear", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbpName.Location = new System.Drawing.Point(357, 0);
->>>>>>> aa48e72c4c6b57288e0954de33ce9e4055b671e1
+
             this.lbpName.Name = "lbpName";
             this.lbpName.Size = new System.Drawing.Size(101, 26);
             this.lbpName.TabIndex = 2;
@@ -356,13 +353,10 @@
             // 
             this.lbpGender.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbpGender.AutoSize = true;
-<<<<<<< HEAD
-            this.lbpGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbpGender.Location = new System.Drawing.Point(367, 26);
-=======
+
             this.lbpGender.Font = new System.Drawing.Font("Preah Vihear", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbpGender.Location = new System.Drawing.Point(346, 26);
->>>>>>> aa48e72c4c6b57288e0954de33ce9e4055b671e1
+
             this.lbpGender.Name = "lbpGender";
             this.lbpGender.Size = new System.Drawing.Size(119, 27);
             this.lbpGender.TabIndex = 3;
@@ -442,13 +436,10 @@
             // 
             this.lbdName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbdName.AutoSize = true;
-<<<<<<< HEAD
-            this.lbdName.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbdName.Location = new System.Drawing.Point(381, 1);
-=======
+
             this.lbdName.Font = new System.Drawing.Font("Preah Vihear", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbdName.Location = new System.Drawing.Point(362, 0);
->>>>>>> aa48e72c4c6b57288e0954de33ce9e4055b671e1
+
             this.lbdName.Name = "lbdName";
             this.lbdName.Size = new System.Drawing.Size(101, 31);
             this.lbdName.TabIndex = 3;
@@ -458,13 +449,10 @@
             // 
             this.lbService.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbService.AutoSize = true;
-<<<<<<< HEAD
-            this.lbService.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbService.Location = new System.Drawing.Point(431, 35);
-=======
+
             this.lbService.Font = new System.Drawing.Font("Preah Vihear", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbService.Location = new System.Drawing.Point(429, 34);
->>>>>>> aa48e72c4c6b57288e0954de33ce9e4055b671e1
+
             this.lbService.Name = "lbService";
             this.lbService.Size = new System.Drawing.Size(0, 31);
             this.lbService.TabIndex = 4;
@@ -473,13 +461,10 @@
             // 
             this.lbCategory.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbCategory.AutoSize = true;
-<<<<<<< HEAD
-            this.lbCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCategory.Location = new System.Drawing.Point(431, 71);
-=======
+
             this.lbCategory.Font = new System.Drawing.Font("Preah Vihear", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbCategory.Location = new System.Drawing.Point(429, 68);
->>>>>>> aa48e72c4c6b57288e0954de33ce9e4055b671e1
+
             this.lbCategory.Name = "lbCategory";
             this.lbCategory.Size = new System.Drawing.Size(0, 31);
             this.lbCategory.TabIndex = 5;
