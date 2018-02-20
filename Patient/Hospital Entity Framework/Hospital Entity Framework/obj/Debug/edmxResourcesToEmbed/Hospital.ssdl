@@ -377,7 +377,7 @@
     <Property Name="NurseId" Type="int" />
     <Property Name="ReferrerId" Type="int" />
     <Property Name="Date" Type="datetime" Nullable="false" />
-    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="varchar(max)" Nullable="false" />
     <Property Name="Edit" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="ConsultationSample">

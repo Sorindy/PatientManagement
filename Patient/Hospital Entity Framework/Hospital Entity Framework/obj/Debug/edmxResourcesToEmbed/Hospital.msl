@@ -314,7 +314,6 @@
     <EntitySetMapping Name="WaitingLists">
       <EntityTypeMapping TypeName="HospitalModel.WaitingList">
         <MappingFragment StoreEntitySet="WaitingList">
-          <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="PatientId" ColumnName="PatientId" />
           <ScalarProperty Name="VisitId" ColumnName="VisitId" />

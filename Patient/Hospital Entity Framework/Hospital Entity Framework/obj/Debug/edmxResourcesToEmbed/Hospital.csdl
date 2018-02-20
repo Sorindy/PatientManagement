@@ -298,7 +298,7 @@
     <Property Name="NurseId" Type="Int32" />
     <Property Name="ReferrerId" Type="Int32" />
     <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
     <Property Name="Edit" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="ConsultationCategory" Relationship="HospitalModel.FK_ConsultationEstimate_ConsultationCategory" FromRole="ConsultationEstimate" ToRole="ConsultationCategory" />
     <NavigationProperty Name="Patient" Relationship="HospitalModel.FK_ConsultationEstimate_Patient" FromRole="ConsultationEstimate" ToRole="Patient" />
@@ -650,12 +650,8 @@
     <Property Name="PatientId" Type="Int32" Nullable="false" />
     <Property Name="VisitId" Type="Int32" Nullable="false" />
     <Property Name="VisitCount" Type="Int32" Nullable="false" />
-<<<<<<< HEAD
-    <Property Name="Time" Type="Time" Nullable="false" />
-=======
     <Property Name="Date" Type="DateTime" Precision="0" />
     <Property Name="Time" Type="Time" Nullable="false" Precision="7" />
->>>>>>> c34d3b291d1a051ba21c661ec578c6727e332e44
     <Property Name="Status" Type="Boolean" />
     <Property Name="Number" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Patient" Relationship="HospitalModel.FK_WaitingList_Patient" FromRole="WaitingList" ToRole="Patient" />
@@ -666,7 +662,6 @@
     <NavigationProperty Name="MedicalImagingCategories" Relationship="HospitalModel.WaitingMedicalImaging" FromRole="WaitingList" ToRole="MedicalImagingCategory" />
     <NavigationProperty Name="PrescriptionCategories" Relationship="HospitalModel.WaitingPrescription" FromRole="WaitingList" ToRole="PrescriptionCategory" />
     <NavigationProperty Name="VariousDocumentCategories" Relationship="HospitalModel.WaitingVariousDocument" FromRole="WaitingList" ToRole="VariousDocumentCategory" />
-    <Property Type="DateTime" Name="Date" Precision="0" />
   </EntityType>
   <EntityType Name="Worker">
     <Key>

@@ -106,8 +106,8 @@ namespace PatientManagement
             }
 
             var path = AppDomain.CurrentDomain.BaseDirectory;
-            //_path = path.Remove(path.Length - 46);
-            _path = path;
+            _path = path.Remove(path.Length - 46);
+            //_path = path;
             //_path = @"C:\Users\Health\Desktop\Debug\";
             picHideRight.ImageLocation = _path + @"Hide-right-icon.png";
             picHideTop.ImageLocation = _path + @"Hide-Up-icon.png";
@@ -237,6 +237,9 @@ namespace PatientManagement
         {
             if(txtDescription.Text!=""&&KeyService!=""&&KeyCategory!=0)
             {
+                string html;
+                txtDescription.Save(out html, StringStreamType.HTMLFormat);
+                txtDescription.Load(html, StringStreamType.HTMLFormat);
                 var title = Patient.Id + DateTime.Today.Day +
                             DateTime.Today.Month + DateTime.Today.Year + DateTime.Now.Hour.ToString() +
                             DateTime.Now.Minute.ToString() + DateTime.Now.Millisecond.ToString();
@@ -247,16 +250,17 @@ namespace PatientManagement
                     {
                         _estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, KeyCategory,
                             Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today,
-                            _path + @"RTF\ConsultationEstimate\" + title);
+                            html);
                         _waitingList.DeleteConsultationWaitingList(WaitingList.Id, KeyCategory);
                     }
                     else
                     {
                         _estimate.Insert(null, null, Patient.Id, KeyCategory, Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today,
-                            _path + @"RTF\ConsultationEstimate\" + title);
+                           html);
                     }
                     txtDescription.Save(_path + @"RTF\ConsultationEstimate\" + title,
                         StreamType.RichTextFormat);
+                    MessageBox.Show(html.Length.ToString());
                 }
                 if (KeyService == @"Laboratory")
                 {
