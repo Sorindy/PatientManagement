@@ -16,7 +16,6 @@ namespace PatientManagement
         private readonly CheckIn _chkIn = new CheckIn();
         internal WaitingList WaitingList;
         internal Patient Patient;
-        private string _path = "";
 
         private void CheckInsForm_Shown(object sender, EventArgs e)
         {
@@ -24,11 +23,8 @@ namespace PatientManagement
             pnlSelection.Controls.Clear();
             pnlSelection.Enabled = false;
             pnlShowService.Enabled = false;
-            var path = AppDomain.CurrentDomain.BaseDirectory;
-            _path = path.Remove(path.Length - 46);
-            //_path = path;
-            //_path = @"C:\Users\Health\Desktop\Debug\";
-            picboxHide.ImageLocation = _path + @"Hide-right-icon.png";
+            picboxHide.Image = Properties.Resources.Hide_right_icon;
+            //picboxHide.ImageLocation = _path + @"Hide-right-icon.png";
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
@@ -103,7 +99,8 @@ namespace PatientManagement
             if (picboxHide.Name == "picboxHide")
             {
                 picboxHide.Name = "picboxShow";
-                picboxHide.ImageLocation = _path + @"Hide-Left-icon.png";
+                picboxHide.Image = Properties.Resources.Hide_left_icon;
+                //picboxHide.ImageLocation = _path + @"Hide-Left-icon.png";
                 pnlButton.Visible = false;
                 picboxHide.Click += picboxShow_Click;
             }
@@ -111,7 +108,8 @@ namespace PatientManagement
         private void picboxShow_Click(object sender, EventArgs e)
         {
             picboxHide.Name = "picboxHide";
-            picboxHide.ImageLocation = _path + @"Hide-right-icon.png";
+            picboxHide.Image = Properties.Resources.Hide_right_icon;
+            //picboxHide.ImageLocation = _path + @"Hide-right-icon.png";
             pnlButton.Visible = true;
             picboxHide.Click -= picboxShow_Click;
         }

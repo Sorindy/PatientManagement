@@ -109,8 +109,10 @@ namespace PatientManagement
             _path = path.Remove(path.Length - 46);
             //_path = path;
             //_path = @"C:\Users\Health\Desktop\Debug\";
-            picHideRight.ImageLocation = _path + @"Hide-right-icon.png";
-            picHideTop.ImageLocation = _path + @"Hide-Up-icon.png";
+            picHideRight.Image = Properties.Resources.Hide_right_icon;
+            //picHideRight.ImageLocation = _path + @"Hide-right-icon.png";
+            picHideTop.Image = Properties.Resources.Hide_Up_icon;
+            //picHideTop.ImageLocation = _path + @"Hide-Up-icon.png";
             txtDescription.ForeColor = Color.Black;
             btnSample.Text = @"Save as" + Environment.NewLine + @"Sample";
             txtNameDoctor.Text = Account.Worker.FirstName + @"  " + Account.Worker.LastName;
@@ -121,7 +123,7 @@ namespace PatientManagement
             if (picHideTop.Name == "picHideTop")
             {
                 picHideTop.Name = "picShowTop";
-                picHideTop.ImageLocation = _path + @"Hide-down-icon.png";
+                picHideTop.Image=Properties.Resources.Hide_down_icon;
                 pnlTitle.Visible = false;
                 picHideTop.Click += picShowTop_Click;
             }
@@ -129,13 +131,12 @@ namespace PatientManagement
 
         private void picShowTop_Click(object sender, EventArgs e)
         {
-            if (picHideTop.Name == "picShowTop")
-            {
-                picHideTop.Name = "picHideTop";
-                picHideTop.ImageLocation = _path + @"Hide-Up-icon.png";
-                pnlTitle.Visible = true;
-                picHideTop.Click -= picShowTop_Click;
-            }
+            if (picHideTop.Name != "picShowTop") return;
+            picHideTop.Name = "picHideTop";
+            picHideTop.Image = Properties.Resources.Hide_Up_icon;
+            //picHideTop.ImageLocation = _path + @"Hide-Up-icon.png";
+            pnlTitle.Visible = true;
+            picHideTop.Click -= picShowTop_Click;
         }
 
         private void picHideRight_Click(object sender, EventArgs e)
@@ -143,7 +144,8 @@ namespace PatientManagement
             if (picHideRight.Name == "picHideRight")
             {
                 picHideRight.Name = "picShowRight";
-                picHideRight.ImageLocation = _path + @"Hide-Left-icon.png";
+                picHideRight.Image = Properties.Resources.Hide_left_icon;
+                //picHideRight.ImageLocation = _path + @"Hide-Left-icon.png";
                 pnlButton.Visible = false;
                 picHideRight.Click += picShowRight_Click;
             }
@@ -154,7 +156,8 @@ namespace PatientManagement
             if (picHideRight.Name == "picShowRight")
             {
                 picHideRight.Name = "picHideRight";
-                picHideRight.ImageLocation = _path + @"Hide-right-icon.png";
+                picHideRight.Image = Properties.Resources.Hide_right_icon;
+                //picHideRight.ImageLocation = _path + @"Hide-right-icon.png";
                 pnlButton.Visible = true;
                 picHideRight.Click -= picShowRight_Click;
             }
@@ -259,7 +262,7 @@ namespace PatientManagement
                            html);
                     }
                     txtDescription.Save(_path + @"RTF\ConsultationEstimate\" + title,
-                        StreamType.RichTextFormat);
+                        StreamType.HTMLFormat);
                     MessageBox.Show(html.Length.ToString());
                 }
                 if (KeyService == @"Laboratory")
@@ -355,8 +358,6 @@ namespace PatientManagement
             }
             
         }
-
-        
 
         internal void chkBoxReferrer_CheckedChanged(object sender, EventArgs e)
         {

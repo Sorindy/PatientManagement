@@ -21,8 +21,6 @@ namespace PatientManagement
         internal Patient Patient;
         internal Account Account;
         internal CatelogForm CatelogForm;
-        internal PatientListForm PatientListForm;
-        internal MedicalsForm MedicalsForm;
         private ICategory _category;
         private bool _mouseDown;
         private Point _lastLocation;
@@ -97,8 +95,10 @@ namespace PatientManagement
             //dgvMedicalImaging.Columns.Clear();
             //dgvPrescription.Columns.Clear();
             //dgvVariousDocument.Columns.Clear();
-            picHideRight.ImageLocation = _path + @"Hide-right-icon.png";
-            picHideTop.ImageLocation = _path + @"Hide-Up-icon.png";
+            picHideRight.Image = Properties.Resources.Hide_right_icon;
+            //picHideRight.ImageLocation = _path + @"Hide-right-icon.png";
+            picHideTop.Image = Properties.Resources.Hide_Up_icon;
+            //picHideTop.ImageLocation = _path + @"Hide-Up-icon.png";
             txtDescription.EditMode = EditMode.ReadAndSelect;
         }
 
@@ -417,8 +417,7 @@ namespace PatientManagement
 
         private void imageToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var imagesobject1 = new TXTextControl.Image();
-            imagesobject1.SaveMode = ImageSaveMode.SaveAsData;
+            var imagesobject1 = new TXTextControl.Image {SaveMode = ImageSaveMode.SaveAsData};
             txtDescription.Images.Add(imagesobject1, -1);
         }
 
@@ -545,7 +544,8 @@ namespace PatientManagement
             if (picHideTop.Name == "picHideTop")
             {
                 picHideTop.Name = "picShowTop";
-                picHideTop.ImageLocation = _path + @"Hide-down-icon.png";
+                picHideTop.Image = Properties.Resources.Hide_down_icon;
+                //picHideTop.ImageLocation = _path + @"Hide-down-icon.png";
                 pnlTitle.Visible = false;
                 picHideTop.Click += picShowTop_Click;
             }
@@ -556,7 +556,8 @@ namespace PatientManagement
             if (picHideTop.Name == "picShowTop")
             {
                 picHideTop.Name = "picHideTop";
-                picHideTop.ImageLocation = _path + @"Hide-Up-icon.png";
+                picHideTop.Image = Properties.Resources.Hide_Up_icon;
+                //picHideTop.ImageLocation = _path + @"Hide-Up-icon.png";
                 pnlTitle.Visible = true;
                 picHideTop.Click -= picShowTop_Click;
             }
@@ -567,7 +568,8 @@ namespace PatientManagement
             if (picHideRight.Name == "picHideRight")
             {
                 picHideRight.Name = "picShowRight";
-                picHideRight.ImageLocation = _path + @"Hide-Left-icon.png";
+                picHideRight.Image = Properties.Resources.Hide_left_icon;
+                //picHideRight.ImageLocation = _path + @"Hide-Left-icon.png";
                 pnlShowHistory.Visible = false;
                 picHideRight.Click += picShowRight_Click;
             }
@@ -578,7 +580,8 @@ namespace PatientManagement
             if (picHideRight.Name == "picShowRight")
             {
                 picHideRight.Name = "picHideRight";
-                picHideRight.ImageLocation = _path + @"Hide-Right-icon.png";
+                picHideRight.Image = Properties.Resources.Hide_right_icon;
+                //picHideRight.ImageLocation = _path + @"Hide-Right-icon.png";
                 pnlShowHistory.Visible = true;
                 picHideRight.Click -= picShowRight_Click;
             }
@@ -1214,7 +1217,7 @@ namespace PatientManagement
             try
             {
                 txtDescription.Load(_history.GetPath(Convert.ToInt32(dgvConsultation.CurrentRow.Cells[0].Value)),
-                    StreamType.HTMLFormat);
+                    StreamType.RichTextFormat);
                 saveToolStripMenuItem.Enabled = false;
             }
             catch

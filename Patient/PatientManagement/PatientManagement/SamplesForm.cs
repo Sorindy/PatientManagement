@@ -38,7 +38,8 @@ namespace PatientManagement
             if (picboxHide.Name == "picboxHide")
             {
                 picboxHide.Name = "picboxShow";
-                picboxHide.ImageLocation =_path+@"Hide-Left-icon.png";
+                picboxHide.Image = Properties.Resources.Hide_left_icon;
+                //picboxHide.ImageLocation =_path+@"Hide-Left-icon.png";
                 pnlButton.Visible = false;
                 picboxHide.Click += picboxShow_Click;
             }
@@ -47,7 +48,8 @@ namespace PatientManagement
         private void picboxShow_Click(object sender, EventArgs e)
         {
             picboxHide.Name = "picboxHide";
-            picboxHide.ImageLocation = _path+@"Hide-right-icon.png";
+            picboxHide.Image = Properties.Resources.Hide_right_icon;
+            //picboxHide.ImageLocation = _path+@"Hide-right-icon.png";
             pnlButton.Visible = true;
             picboxHide.Click -= picboxShow_Click;
         }
@@ -55,10 +57,11 @@ namespace PatientManagement
         private void SamplesForm_Shown(object sender, EventArgs e)
         {
             var path = AppDomain.CurrentDomain.BaseDirectory;
-            //_path = path.Remove(path.Length - 46);
-            _path = path;
+            _path = path.Remove(path.Length - 46);
+            //_path = path;
             //_path = @"C:\Users\Health\Desktop\Debug\";
-            picboxHide.ImageLocation = _path+@"Hide-right-icon.png";
+            picboxHide.Image = Properties.Resources.Hide_right_icon;
+            //picboxHide.ImageLocation = _path+@"Hide-right-icon.png";
             cboService.SelectedItem = null;
             cboCategory.SelectedItem = null;
             cboTitle.DataSource=null;
@@ -351,8 +354,7 @@ namespace PatientManagement
 
         private void imageToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var imagesobject1 = new Image();
-            imagesobject1.SaveMode = ImageSaveMode.SaveAsData;
+            var imagesobject1 = new Image {SaveMode = ImageSaveMode.SaveAsData};
             txtDescription.Images.Add(imagesobject1, -1);
         }
 

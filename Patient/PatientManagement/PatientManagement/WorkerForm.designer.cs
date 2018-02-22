@@ -231,7 +231,6 @@
             this.btnEdit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnEdit.Font = new System.Drawing.Font("Arial Black", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.btnEdit.Image = global::PatientManagement.Properties.Resources._46798___control_edit;
             this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEdit.Location = new System.Drawing.Point(3, 9);
             this.btnEdit.Name = "btnEdit";

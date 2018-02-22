@@ -18,7 +18,7 @@ namespace PatientManagement
         internal Patient Patient;
         internal HistorysForm HistorysForm;
         private readonly Class.Patient _patient=new Class.Patient();
-        internal Account Account; private bool _mouseDown;
+        private bool _mouseDown;
         private Point _lastLocation;
 
         private void PatientForm_Shown(object sender, EventArgs e)
@@ -26,6 +26,7 @@ namespace PatientManagement
             Clear();
             var path = AppDomain.CurrentDomain.BaseDirectory;
             _path = path.Remove(path.Length - 46);
+            Patient = _patient.Select(Patient.Id);
             txtId.Text = Patient.PatientIdentify.ToString();
             txtfName.Text = Patient.FirstName;
             txtlName.Text = Patient.LastName;
