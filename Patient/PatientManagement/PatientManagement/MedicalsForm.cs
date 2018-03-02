@@ -15,9 +15,17 @@ namespace PatientManagement
 {
     public partial class MedicalsForm : Form
     {
+        private readonly int _pnlButtonWidth;
+        private int _pnlTitleHeigh;
+        private bool _hidedButton;
+        private bool _hidedTitle;
         public MedicalsForm()
         {
             InitializeComponent();
+            _pnlButtonWidth = pnlButton.Width;
+            _pnlTitleHeigh = pnlTitle.Height;
+            _hidedButton = false;
+            _hidedTitle = false;
         }
 
         private string _path;
@@ -147,6 +155,7 @@ namespace PatientManagement
                 picHideRight.Image = Properties.Resources.Hide_left_icon;
                 //picHideRight.ImageLocation = _path + @"Hide-Left-icon.png";
                 pnlButton.Visible = false;
+                timerButton.Start();
                 picHideRight.Click += picShowRight_Click;
             }
         }
@@ -159,6 +168,7 @@ namespace PatientManagement
                 picHideRight.Image = Properties.Resources.Hide_right_icon;
                 //picHideRight.ImageLocation = _path + @"Hide-right-icon.png";
                 pnlButton.Visible = true;
+                timerButton.Start();
                 picHideRight.Click -= picShowRight_Click;
             }
         }
@@ -882,6 +892,30 @@ namespace PatientManagement
             else
             {
                 MessageBox.Show(@"Document is empty.", @"Empty Document");
+            }
+        }
+
+        private void timerButton_Tick(object sender, EventArgs e)
+        {
+            if (_hidedButton)
+            {
+                pnlButton.Width = pnlButton.Width + 20;
+                if (pnlButton.Width >= _pnlButtonWidth)
+                {
+                    timerButton.Stop();
+                    _hidedButton = false;
+                    Refresh();
+                }
+            }
+            else
+            {
+                pnlButton.Width = pnlButton.Width - 20;
+                if (pnlButton.Width <= 0)
+                {
+                    timerButton.Stop();
+                    _hidedButton = true;
+                    Refresh();
+                }
             }
         }
     }
