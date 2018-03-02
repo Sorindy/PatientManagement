@@ -1020,7 +1020,7 @@ namespace PatientManagement
             try
             {
                 txtDescription.Load(_history.GetPath(Convert.ToInt32(dgvVariousDocument.CurrentRow.Cells[0].Value)),
-                    StreamType.HTMLFormat);
+                    StreamType.RichTextFormat);
                 saveToolStripMenuItem.Enabled = false;
             }
             catch
@@ -1064,7 +1064,7 @@ namespace PatientManagement
             try
             {
                 txtDescription.Load(_history.GetPath(Convert.ToInt32(dgvPrescription.CurrentRow.Cells[0].Value)),
-                    StreamType.HTMLFormat);
+                    StreamType.RichTextFormat );
                 saveToolStripMenuItem.Enabled = false;
             }
             catch
@@ -1115,7 +1115,7 @@ namespace PatientManagement
             try
             {
                 txtDescription.Load(_history.GetPath(Convert.ToInt32(dgvMedicalImaging.CurrentRow.Cells[0].Value)),
-                    StreamType.HTMLFormat);
+                    StreamType.RichTextFormat );
                 saveToolStripMenuItem.Enabled = false;
             }
             catch
@@ -1166,7 +1166,7 @@ namespace PatientManagement
             try
             {
                 txtDescription.Load(_history.GetPath(Convert.ToInt32(dgvLaboratory.CurrentRow.Cells[0].Value)),
-                    StreamType.HTMLFormat);
+                    StreamType.RichTextFormat );
                 saveToolStripMenuItem.Enabled = false;
             }
             catch
@@ -1514,6 +1514,11 @@ namespace PatientManagement
                 };
                 wv.ShowDialog();
             }
+        }
+
+        private void dgvConsultation_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
     }

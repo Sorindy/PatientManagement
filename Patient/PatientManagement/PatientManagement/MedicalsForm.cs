@@ -253,7 +253,7 @@ namespace PatientManagement
                     {
                         _estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, KeyCategory,
                             Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today,
-                            html);
+                            _path + @"RTF\ConsulationEstimate\" + title);
                         _waitingList.DeleteConsultationWaitingList(WaitingList.Id, KeyCategory);
                     }
                     else
@@ -262,8 +262,7 @@ namespace PatientManagement
                            html);
                     }
                     txtDescription.Save(_path + @"RTF\ConsultationEstimate\" + title,
-                        StreamType.HTMLFormat);
-                    MessageBox.Show(html.Length.ToString());
+                        StreamType.RichTextFormat);
                 }
                 if (KeyService == @"Laboratory")
                 {
@@ -273,7 +272,7 @@ namespace PatientManagement
                         _estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, KeyCategory,
                             Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today,
                             _path + @"RTF\LaboratoryEstimate\" + title);
-                        _waitingList.DeleteConsultationWaitingList(WaitingList.Id, KeyCategory);
+                        _waitingList.DeleteLaboratoryWaitingList( WaitingList.Id, KeyCategory);
                     }
                     else
                     {
@@ -292,7 +291,7 @@ namespace PatientManagement
                         _estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, KeyCategory,
                             Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today,
                             _path + @"RTF\MedicalImagingEstimate\" + title);
-                        _waitingList.DeleteConsultationWaitingList(WaitingList.Id, KeyCategory);
+                        _waitingList.DeleteMedicalImagingWatingList(WaitingList.Id, KeyCategory);
                     }
                     else
                     {
@@ -311,7 +310,7 @@ namespace PatientManagement
                         _estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, KeyCategory,
                             Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today,
                             _path + @"RTF\PrescriptionEstimate\" + title);
-                        _waitingList.DeleteConsultationWaitingList(WaitingList.Id, KeyCategory);
+                        _waitingList.DeletePrescriptionWatingList(WaitingList.Id, KeyCategory);
                     }
                     else
                     {
@@ -330,7 +329,7 @@ namespace PatientManagement
                         _estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, KeyCategory,
                             Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today,
                             _path + @"RTF\VariousdocumentEstimate\" + title);
-                        _waitingList.DeleteConsultationWaitingList(WaitingList.Id, KeyCategory);
+                        _waitingList.DeleteVariousDocumentWatingList( WaitingList.Id, KeyCategory);
                     }
                     else
                     {
