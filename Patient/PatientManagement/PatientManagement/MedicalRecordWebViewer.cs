@@ -29,10 +29,10 @@ namespace PatientManagement
 
             Html = Html.Substring(count-51);
             Html = Html.Remove(Html.Length - 16);
-            var path = AppDomain.CurrentDomain.BaseDirectory;
-            _path = path.Remove(path.Length - 46);
+            //var path = AppDomain.CurrentDomain.BaseDirectory;
+            //_path = path.Remove(path.Length - 46);
             //_path = path;
-            //_path = @"C:\Users\Health\Desktop\Debug\";
+            _path = @"S:\";
             btnPrint.Visible = false;
             btnPrintPreview.Visible = false;
             btnModel.Visible = false;

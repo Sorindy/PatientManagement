@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Windows.Forms;
 using PatientManagement.Class;
 using PatientManagement.Interface;
@@ -56,10 +57,10 @@ namespace PatientManagement
 
         private void SamplesForm_Shown(object sender, EventArgs e)
         {
-            var path = AppDomain.CurrentDomain.BaseDirectory;
-            _path = path.Remove(path.Length - 46);
+            //var path = AppDomain.CurrentDomain.BaseDirectory;
+            //_path = path.Remove(path.Length - 46);
             //_path = path;
-            //_path = @"C:\Users\Health\Desktop\Debug\";
+            _path = @"S:\";
             picboxHide.Image = Properties.Resources.Hide_right_icon;
             //picboxHide.ImageLocation = _path+@"Hide-right-icon.png";
             cboService.SelectedItem = null;
@@ -197,38 +198,47 @@ namespace PatientManagement
             if (cboTitle.Text == "") { MessageBox.Show(@"Something is going wrong please check again", @"Error"); }
             else
             {
+                string path;
+                if (!Directory.Exists(@"S:\"))
+                {
+                    path = @"D:\ABC soft\";
+                }
+                else
+                {
+                    path = _path;
+                }
                 var selectedItem = (KeyValuePair<int, string>)cboCategory.SelectedItem;
                 var key = selectedItem.Key;
                 if (cboService.SelectedIndex.Equals(0))
                 {
                     _sample = new ConsultationSample();
                     _sample.Insert(cboTitle.Text, _path + @"RTF\ConsultationSample\" + cboTitle.Text, key);
-                    txtDescription.Save(_path + @"RTF\ConsultationSample\" + cboTitle.Text, StreamType.RichTextFormat);
+                    txtDescription.Save(path + @"RTF\ConsultationSample\" + cboTitle.Text, StreamType.RichTextFormat);
                 }
                 if (cboService.SelectedIndex.Equals(1))
                 {
                     _sample = new LaboratorySample();
                     _sample.Insert(cboTitle.Text, _path + @"RTF\LaboratorySample\" + cboTitle.Text, key);
-                    txtDescription.Save(_path + @"RTF\LaboratorySample\" + cboTitle.Text, StreamType.RichTextFormat);
+                    txtDescription.Save(path + @"RTF\LaboratorySample\" + cboTitle.Text, StreamType.RichTextFormat);
 
                 }
                 if (cboService.SelectedIndex.Equals(2))
                 {
                     _sample = new MedicalImagingSample();
                     _sample.Insert(cboTitle.Text, _path + @"RTF\MedicalImagingSample\" + cboTitle.Text, key);
-                    txtDescription.Save(_path + @"RTF\MedicalImagingSample\" + cboTitle.Text, StreamType.RichTextFormat);
+                    txtDescription.Save(path + @"RTF\MedicalImagingSample\" + cboTitle.Text, StreamType.RichTextFormat);
                 }
                 if (cboService.SelectedIndex.Equals(3))
                 {
                     _sample = new PrescriptionSample();
                     _sample.Insert(cboTitle.Text, _path + @"RTF\PrescriptionSample\" + cboTitle.Text, key);
-                    txtDescription.Save(_path + @"RTF\PrescriptionSample\" + cboTitle.Text, StreamType.RichTextFormat);
+                    txtDescription.Save(path + @"RTF\PrescriptionSample\" + cboTitle.Text, StreamType.RichTextFormat);
                 }
                 if (cboService.SelectedIndex.Equals(4))
                 {
                     _sample = new VariousDocumentSample();
                     _sample.Insert(cboTitle.Text, _path + @"RTF\VariousdocumentSample\" + cboTitle.Text, key);
-                    txtDescription.Save(_path + @"RTF\VariousdocumentSample\" + cboTitle.Text, StreamType.RichTextFormat);
+                    txtDescription.Save(path + @"RTF\VariousdocumentSample\" + cboTitle.Text, StreamType.RichTextFormat);
                 }
                 SamplesForm_Shown(this, new EventArgs());
                 cboService.Focus();
