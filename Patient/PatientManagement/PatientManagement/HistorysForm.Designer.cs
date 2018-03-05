@@ -340,10 +340,8 @@
             // 
             this.lbpName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbpName.AutoSize = true;
-
-            this.lbpName.Font = new System.Drawing.Font("Preah Vihear", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbpName.Location = new System.Drawing.Point(357, 0);
-
+            this.lbpName.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbpName.Location = new System.Drawing.Point(373, 0);
             this.lbpName.Name = "lbpName";
             this.lbpName.Size = new System.Drawing.Size(101, 26);
             this.lbpName.TabIndex = 2;
@@ -353,10 +351,8 @@
             // 
             this.lbpGender.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbpGender.AutoSize = true;
-
-            this.lbpGender.Font = new System.Drawing.Font("Preah Vihear", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbpGender.Location = new System.Drawing.Point(346, 26);
-
+            this.lbpGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbpGender.Location = new System.Drawing.Point(364, 26);
             this.lbpGender.Name = "lbpGender";
             this.lbpGender.Size = new System.Drawing.Size(119, 27);
             this.lbpGender.TabIndex = 3;
@@ -436,10 +432,8 @@
             // 
             this.lbdName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbdName.AutoSize = true;
-
-            this.lbdName.Font = new System.Drawing.Font("Preah Vihear", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbdName.Location = new System.Drawing.Point(362, 0);
-
+            this.lbdName.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbdName.Location = new System.Drawing.Point(378, 1);
             this.lbdName.Name = "lbdName";
             this.lbdName.Size = new System.Drawing.Size(101, 31);
             this.lbdName.TabIndex = 3;
@@ -449,10 +443,8 @@
             // 
             this.lbService.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbService.AutoSize = true;
-
-            this.lbService.Font = new System.Drawing.Font("Preah Vihear", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbService.Location = new System.Drawing.Point(429, 34);
-
+            this.lbService.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbService.Location = new System.Drawing.Point(429, 35);
             this.lbService.Name = "lbService";
             this.lbService.Size = new System.Drawing.Size(0, 31);
             this.lbService.TabIndex = 4;
@@ -461,10 +453,8 @@
             // 
             this.lbCategory.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbCategory.AutoSize = true;
-
-            this.lbCategory.Font = new System.Drawing.Font("Preah Vihear", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCategory.Location = new System.Drawing.Point(429, 68);
-
+            this.lbCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCategory.Location = new System.Drawing.Point(429, 71);
             this.lbCategory.Name = "lbCategory";
             this.lbCategory.Size = new System.Drawing.Size(0, 31);
             this.lbCategory.TabIndex = 5;
@@ -603,6 +593,7 @@
             this.dgvConsultation.Size = new System.Drawing.Size(445, 468);
             this.dgvConsultation.TabIndex = 2;
             this.dgvConsultation.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvConsultation_CellClick);
+            this.dgvConsultation.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvConsultation_CellContentClick);
             this.dgvConsultation.SelectionChanged += new System.EventHandler(this.dgvConsultation_SelectionChanged);
             // 
             // panel2

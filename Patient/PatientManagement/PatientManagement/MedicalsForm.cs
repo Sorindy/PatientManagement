@@ -36,6 +36,7 @@ namespace PatientManagement
         private ISample _sample;
         private int? _keyReferrer;
         internal string Title = "";
+        private int _keyCategory;
 
         //private bool? _status;
         private readonly Dating _dating = new Dating();
@@ -96,9 +97,8 @@ namespace PatientManagement
             {
                 if (KeyCategory!=0)
                 {
+                    _keyCategory=KeyCategory;
                     cboService.SelectedItem = KeyService;
-                    cboService_SelectedIndexChanged(this,new EventArgs());
-                    cboCategory.SelectedValue = KeyCategory;
                 }
                 else
                 {
@@ -106,10 +106,10 @@ namespace PatientManagement
                 }
             }
 
-            //var path = AppDomain.CurrentDomain.BaseDirectory;
-            //_path = path.Remove(path.Length - 46);
+            var path = AppDomain.CurrentDomain.BaseDirectory;
+            _path = path.Remove(path.Length - 46);
             //_path = path;
-            _path = @"S:\";
+            //_path = @"S:\";
             picHideRight.Image = Properties.Resources.Hide_right_icon;
             //picHideRight.ImageLocation = _path + @"Hide-right-icon.png";
             picHideTop.Image = Properties.Resources.Hide_Up_icon;
@@ -241,12 +241,18 @@ namespace PatientManagement
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if (Patient == null)
+            {
+                MessageBox.Show(@"Patient is null. Please select one patient.", @"No patient selected");
+                return;
+            }
             if(txtDescription.Text!=""&&KeyService!=""&&KeyCategory!=0)
             {
                 string path;
-                if (!Directory.Exists(@"S:\"))
+                var str = @"S:";
+                if (Directory.Exists(str))
                 {
-                    path = @"D:\ABC soft\";
+                     path = @"D:\ABC soft\";
                 }
                 else
                 {
@@ -281,7 +287,7 @@ namespace PatientManagement
                         _estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, KeyCategory,
                             Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today,
                             _path + @"RTF\LaboratoryEstimate\" + title);
-                        _waitingList.DeleteConsultationWaitingList(WaitingList.Id, KeyCategory);
+                        _waitingList.DeleteLaboratoryWaitingList( WaitingList.Id, KeyCategory);
                     }
                     else
                     {
@@ -300,7 +306,7 @@ namespace PatientManagement
                         _estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, KeyCategory,
                             Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today,
                             _path + @"RTF\MedicalImagingEstimate\" + title);
-                        _waitingList.DeleteConsultationWaitingList(WaitingList.Id, KeyCategory);
+                        _waitingList.DeleteMedicalImagingWatingList(WaitingList.Id, KeyCategory);
                     }
                     else
                     {
@@ -319,7 +325,7 @@ namespace PatientManagement
                         _estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, KeyCategory,
                             Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today,
                             _path + @"RTF\PrescriptionEstimate\" + title);
-                        _waitingList.DeleteConsultationWaitingList(WaitingList.Id, KeyCategory);
+                        _waitingList.DeletePrescriptionWatingList(WaitingList.Id, KeyCategory);
                     }
                     else
                     {
@@ -338,7 +344,7 @@ namespace PatientManagement
                         _estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, KeyCategory,
                             Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today,
                             _path + @"RTF\VariousdocumentEstimate\" + title);
-                        _waitingList.DeleteConsultationWaitingList(WaitingList.Id, KeyCategory);
+                        _waitingList.DeleteVariousDocumentWatingList( WaitingList.Id, KeyCategory);
                     }
                     else
                     {
@@ -591,7 +597,7 @@ namespace PatientManagement
             }
 
             var selectedItem = cboReferrer.SelectedIndex;
-            _keyReferrer = selectedItem;
+            _keyReferrer = Convert.ToInt32(selectedItem);
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -809,6 +815,7 @@ namespace PatientManagement
                 }
                 KeyService = @"VariousDocument";
             }
+            if (_keyCategory != 0) cboCategory.SelectedValue = _keyCategory;
         }
 
         private void cboCategory_SelectedIndexChanged(object sender, EventArgs e)
