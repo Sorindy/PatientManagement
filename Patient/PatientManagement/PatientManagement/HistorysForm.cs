@@ -89,7 +89,7 @@ namespace PatientManagement
             var path = AppDomain.CurrentDomain.BaseDirectory;
             _path = path.Remove(path.Length - 46);
             //_path = path;
-            //_path = @"C:\Users\Health\Desktop\Debug\";
+            //_path = @"S:\";
             //dgvConsultation.Columns.Clear();
             //dgvLaboratory.Columns.Clear();
             //dgvMedicalImaging.Columns.Clear();
@@ -1025,7 +1025,18 @@ namespace PatientManagement
             }
             catch
             {
-                // ignored
+                try
+                {
+                    var path = _history.GetPath(Convert.ToInt32(dgvVariousDocument.CurrentRow.Cells[0].Value));
+                    var subpath = path.Substring(3, path.Length);
+                    txtDescription.Load(@"D:\ABC soft\" + subpath,
+                        StreamType.RichTextFormat);
+                    saveToolStripMenuItem.Enabled = false;
+                }
+                catch
+                {
+                    // ignored
+                }
             }
         }
 
@@ -1069,7 +1080,18 @@ namespace PatientManagement
             }
             catch
             {
-                // ignored
+                try
+                {
+                    var path = _history.GetPath(Convert.ToInt32(dgvPrescription.CurrentRow.Cells[0].Value));
+                    var subpath = path.Substring(3, path.Length);
+                    txtDescription.Load(@"D:\ABC soft\" + subpath,
+                        StreamType.RichTextFormat);
+                    saveToolStripMenuItem.Enabled = false;
+                }
+                catch
+                {
+                    // ignored
+                }
             }
         }
 
@@ -1120,7 +1142,18 @@ namespace PatientManagement
             }
             catch
             {
-                // ignored
+                try
+                {
+                    var path = _history.GetPath(Convert.ToInt32(dgvMedicalImaging.CurrentRow.Cells[0].Value));
+                    var subpath = path.Substring(3, path.Length);
+                    txtDescription.Load(@"D:\ABC soft\" + subpath,
+                        StreamType.RichTextFormat);
+                    saveToolStripMenuItem.Enabled = false;
+                }
+                catch
+                {
+                    // ignored
+                }
             }
         }
 
@@ -1171,7 +1204,18 @@ namespace PatientManagement
             }
             catch
             {
-                // ignored
+                try
+                {
+                    var path = _history.GetPath(Convert.ToInt32(dgvLaboratory.CurrentRow.Cells[0].Value));
+                    var subpath = path.Substring(3, path.Length);
+                    txtDescription.Load(@"D:\ABC soft\" + subpath,
+                        StreamType.RichTextFormat);
+                    saveToolStripMenuItem.Enabled = false;
+                }
+                catch
+                {
+                    // ignored
+                }
             }
         }
 
@@ -1222,7 +1266,18 @@ namespace PatientManagement
             }
             catch
             {
-                // ignored
+                try
+                {
+                    var path = _history.GetPath(Convert.ToInt32(dgvConsultation.CurrentRow.Cells[0].Value));
+                    var subpath = path.Substring(3, path.Length);
+                    txtDescription.Load(@"D:\ABC soft\"+subpath,
+                        StreamType.RichTextFormat);
+                    saveToolStripMenuItem.Enabled = false;
+                }
+                catch
+                {
+                   // ignored
+                }
             }
         }
 

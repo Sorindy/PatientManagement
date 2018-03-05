@@ -32,7 +32,7 @@ namespace PatientManagement
             var path = AppDomain.CurrentDomain.BaseDirectory;
             _path = path.Remove(path.Length - 46);
             //_path = path;
-            //_path = @"C:\Users\Health\Desktop\Debug\";
+            //_path = @"S:\";
             btnPrint.Visible = false;
             btnPrintPreview.Visible = false;
             btnModel.Visible = false;

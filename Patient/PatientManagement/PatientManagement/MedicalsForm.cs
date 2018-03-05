@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 using PatientManagement.Class;
 using PatientManagement.Interface;
@@ -15,17 +16,9 @@ namespace PatientManagement
 {
     public partial class MedicalsForm : Form
     {
-        private readonly int _pnlButtonWidth;
-        private int _pnlTitleHeigh;
-        private bool _hidedButton;
-        private bool _hidedTitle;
         public MedicalsForm()
         {
             InitializeComponent();
-            _pnlButtonWidth = pnlButton.Width;
-            _pnlTitleHeigh = pnlTitle.Height;
-            _hidedButton = false;
-            _hidedTitle = false;
         }
 
         private string _path;
@@ -43,6 +36,7 @@ namespace PatientManagement
         private ISample _sample;
         private int? _keyReferrer;
         internal string Title = "";
+        private int _keyCategory;
 
         //private bool? _status;
         private readonly Dating _dating = new Dating();
@@ -103,9 +97,8 @@ namespace PatientManagement
             {
                 if (KeyCategory!=0)
                 {
+                    _keyCategory=KeyCategory;
                     cboService.SelectedItem = KeyService;
-                    cboService_SelectedIndexChanged(this,new EventArgs());
-                    cboCategory.SelectedValue = KeyCategory;
                 }
                 else
                 {
@@ -116,7 +109,7 @@ namespace PatientManagement
             var path = AppDomain.CurrentDomain.BaseDirectory;
             _path = path.Remove(path.Length - 46);
             //_path = path;
-            //_path = @"C:\Users\Health\Desktop\Debug\";
+            //_path = @"S:\";
             picHideRight.Image = Properties.Resources.Hide_right_icon;
             //picHideRight.ImageLocation = _path + @"Hide-right-icon.png";
             picHideTop.Image = Properties.Resources.Hide_Up_icon;
@@ -248,11 +241,23 @@ namespace PatientManagement
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if (Patient == null)
+            {
+                MessageBox.Show(@"Patient is null. Please select one patient.", @"No patient selected");
+                return;
+            }
             if(txtDescription.Text!=""&&KeyService!=""&&KeyCategory!=0)
             {
-                string html;
-                txtDescription.Save(out html, StringStreamType.HTMLFormat);
-                txtDescription.Load(html, StringStreamType.HTMLFormat);
+                string path;
+                var str = @"S:";
+                if (Directory.Exists(str))
+                {
+                     path = @"D:\ABC soft\";
+                }
+                else
+                {
+                    path = _path;
+                }
                 var title = Patient.Id + DateTime.Today.Day +
                             DateTime.Today.Month + DateTime.Today.Year + DateTime.Now.Hour.ToString() +
                             DateTime.Now.Minute.ToString() + DateTime.Now.Millisecond.ToString();
@@ -269,9 +274,9 @@ namespace PatientManagement
                     else
                     {
                         _estimate.Insert(null, null, Patient.Id, KeyCategory, Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today,
-                           html);
+                            _path + @"RTF\ConsultationEstimate\" + title);
                     }
-                    txtDescription.Save(_path + @"RTF\ConsultationEstimate\" + title,
+                    txtDescription.Save(path + @"RTF\ConsultationEstimate\" + title,
                         StreamType.RichTextFormat);
                 }
                 if (KeyService == @"Laboratory")
@@ -290,7 +295,7 @@ namespace PatientManagement
                             _path + @"RTF\LaboratoryEstimate\" + title);
                     }
                     txtDescription.Save(
-                        _path + @"RTF\LaboratoryEstimate\" + title,
+                        path + @"RTF\LaboratoryEstimate\" + title,
                         StreamType.RichTextFormat);
                 }
                 if (KeyService == @"Medical Imaging")
@@ -309,7 +314,7 @@ namespace PatientManagement
                             _path + @"RTF\MedicalImagingEstimate\" + title);
                     }
                     txtDescription.Save(
-                        _path + @"RTF\MedicalImagingEstimate\" +title,
+                        path + @"RTF\MedicalImagingEstimate\" +title,
                         StreamType.RichTextFormat);
                 }
                 if (KeyService == @"Prescription")
@@ -328,7 +333,7 @@ namespace PatientManagement
                             _path + @"RTF\PrescriptionEstimate\" + title);
                     }
                     txtDescription.Save(
-                        _path + @"RTF\PrescriptionEstimate\" + title,
+                        path + @"RTF\PrescriptionEstimate\" + title,
                         StreamType.RichTextFormat);
                 }
                 if (KeyService == @"Various Document")
@@ -347,7 +352,7 @@ namespace PatientManagement
                             _path + @"RTF\VariousdocumentEstimate\" + title);
                     }
                     txtDescription.Save(
-                        _path + @"RTF\VariousdocumentEstimate\" +title,
+                        path + @"RTF\VariousdocumentEstimate\" +title,
                         StreamType.RichTextFormat);
                 }
                 var messageDocument = "Do You Want to Print This Document or not...?";
@@ -592,7 +597,7 @@ namespace PatientManagement
             }
 
             var selectedItem = cboReferrer.SelectedIndex;
-            _keyReferrer = selectedItem;
+            _keyReferrer = Convert.ToInt32(selectedItem);
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -810,6 +815,7 @@ namespace PatientManagement
                 }
                 KeyService = @"VariousDocument";
             }
+            if (_keyCategory != 0) cboCategory.SelectedValue = _keyCategory;
         }
 
         private void cboCategory_SelectedIndexChanged(object sender, EventArgs e)
@@ -853,6 +859,15 @@ namespace PatientManagement
         {
             if (txtDescription.Text != "" && KeyCategory != 0 && KeyService != "")
             {
+                string path;
+                if (!Directory.Exists(@"S:\"))
+                {
+                    path = @"D:\ABC soft\";
+                }
+                else
+                {
+                    path = _path;
+                }
                 var form =new TitleInput(){MedicalForm = this};
                 form.ShowDialog();
                 if (Title != "")
@@ -861,61 +876,37 @@ namespace PatientManagement
                     {
                         _sample = new ConsultationSample();
                         _sample.Insert(Title, _path + @"RTF\ConsultationSample\" + Title, KeyCategory);
-                        txtDescription.Save(_path + @"RTF\ConsultationSample\" + Title, StreamType.RichTextFormat);
+                        txtDescription.Save(path + @"RTF\ConsultationSample\" + Title, StreamType.RichTextFormat);
                     }
                     if (KeyService == @"Laboratory")
                     {
                         _sample = new LaboratorySample();
                         _sample.Insert(Title, _path + @"RTF\LaboratorySample\" + Title, KeyCategory);
-                        txtDescription.Save(_path + @"RTF\LaboratorySample\" + Title, StreamType.RichTextFormat);
+                        txtDescription.Save(path + @"RTF\LaboratorySample\" + Title, StreamType.RichTextFormat);
                     }
                     if (KeyService == @"MedicalImaging")
                     {
                         _sample = new MedicalImagingSample();
                         _sample.Insert(Title, _path + @"RTF\MedicalImagingSample\" + Title, KeyCategory);
-                        txtDescription.Save(_path + @"RTF\MedicalImagingSample\" + Title, StreamType.RichTextFormat);
+                        txtDescription.Save(path + @"RTF\MedicalImagingSample\" + Title, StreamType.RichTextFormat);
                     }
                     if (KeyService == @"Prescription")
                     {
                         _sample = new ConsultationSample();
                         _sample.Insert(Title, _path + @"RTF\PrescriptionSample\" + Title, KeyCategory);
-                        txtDescription.Save(_path + @"RTF\PrescriptionSample\" + Title, StreamType.RichTextFormat);
+                        txtDescription.Save(path + @"RTF\PrescriptionSample\" + Title, StreamType.RichTextFormat);
                     }
                     if (KeyService == @"VariousDocument")
                     {
                         _sample = new ConsultationSample();
                         _sample.Insert(Title, _path + @"RTF\VariousdocumentSample\" + Title, KeyCategory);
-                        txtDescription.Save(_path + @"RTF\VariousdocumentSample\" + Title, StreamType.RichTextFormat);
+                        txtDescription.Save(path + @"RTF\VariousdocumentSample\" + Title, StreamType.RichTextFormat);
                     }   
                 }
             }
             else
             {
                 MessageBox.Show(@"Document is empty.", @"Empty Document");
-            }
-        }
-
-        private void timerButton_Tick(object sender, EventArgs e)
-        {
-            if (_hidedButton)
-            {
-                pnlButton.Width = pnlButton.Width + 20;
-                if (pnlButton.Width >= _pnlButtonWidth)
-                {
-                    timerButton.Stop();
-                    _hidedButton = false;
-                    Refresh();
-                }
-            }
-            else
-            {
-                pnlButton.Width = pnlButton.Width - 20;
-                if (pnlButton.Width <= 0)
-                {
-                    timerButton.Stop();
-                    _hidedButton = true;
-                    Refresh();
-                }
             }
         }
     }

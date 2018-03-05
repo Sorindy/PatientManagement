@@ -180,7 +180,7 @@ namespace PatientManagement
                             KeyService = _keyService,
                             TopLevel = false,
                             Dock = DockStyle.Fill,
-                            WaitingList = getWaitinglist,
+                            WaitingList =getWaitinglist,
                             cboService = { Enabled = false },
                             cboCategory = { Enabled = false },
                         };
