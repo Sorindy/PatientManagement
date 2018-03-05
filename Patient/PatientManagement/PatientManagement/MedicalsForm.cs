@@ -263,7 +263,7 @@ namespace PatientManagement
                     {
                         _estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, KeyCategory,
                             Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today,
-                            _path + @"RTF\ConsulationEstimate\" + title);
+                            _path + @"RTF\ConsultationEstimate\" + title);
                         _waitingList.DeleteConsultationWaitingList(WaitingList.Id, KeyCategory);
                     }
                     else

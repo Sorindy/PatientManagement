@@ -167,9 +167,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.00001F));
-
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 412F));
-
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 414F));
             this.tableLayoutPanel1.Controls.Add(this.gboWorker, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.gboPatient, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.gboRefferAndNurse, 2, 0);
@@ -187,9 +185,9 @@
             this.gboWorker.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gboWorker.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gboWorker.ForeColor = System.Drawing.Color.Gainsboro;
-            this.gboWorker.Location = new System.Drawing.Point(311, 3);
+            this.gboWorker.Location = new System.Drawing.Point(310, 3);
             this.gboWorker.Name = "gboWorker";
-            this.gboWorker.Size = new System.Drawing.Size(302, 134);
+            this.gboWorker.Size = new System.Drawing.Size(301, 134);
             this.gboWorker.TabIndex = 3;
             this.gboWorker.TabStop = false;
             this.gboWorker.Text = "ពត៏មានរបស់​ គ្រូពេទ្យ";
@@ -212,7 +210,7 @@
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(296, 106);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(295, 106);
             this.tableLayoutPanel8.TabIndex = 0;
             // 
             // tableLayoutPanel17
@@ -221,7 +219,7 @@
             this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel17.Controls.Add(this.cboCategory, 0, 0);
             this.tableLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel17.Location = new System.Drawing.Point(89, 71);
+            this.tableLayoutPanel17.Location = new System.Drawing.Point(88, 71);
             this.tableLayoutPanel17.Name = "tableLayoutPanel17";
             this.tableLayoutPanel17.RowCount = 3;
             this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -247,7 +245,7 @@
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel16.Controls.Add(this.cboService, 0, 1);
             this.tableLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel16.Location = new System.Drawing.Point(89, 37);
+            this.tableLayoutPanel16.Location = new System.Drawing.Point(88, 37);
             this.tableLayoutPanel16.Name = "tableLayoutPanel16";
             this.tableLayoutPanel16.RowCount = 3;
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -279,7 +277,7 @@
             this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel15.Controls.Add(this.txtNameDoctor, 0, 1);
             this.tableLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel15.Location = new System.Drawing.Point(89, 3);
+            this.tableLayoutPanel15.Location = new System.Drawing.Point(88, 3);
             this.tableLayoutPanel15.Name = "tableLayoutPanel15";
             this.tableLayoutPanel15.RowCount = 3;
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -304,7 +302,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label5.Location = new System.Drawing.Point(15, 2);
+            this.label5.Location = new System.Drawing.Point(14, 2);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(56, 29);
             this.label5.TabIndex = 0;
@@ -316,7 +314,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label8.Location = new System.Drawing.Point(10, 34);
+            this.label8.Location = new System.Drawing.Point(9, 34);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(66, 34);
             this.label8.TabIndex = 1;
@@ -342,7 +340,7 @@
             this.gboPatient.ForeColor = System.Drawing.Color.Gainsboro;
             this.gboPatient.Location = new System.Drawing.Point(3, 3);
             this.gboPatient.Name = "gboPatient";
-            this.gboPatient.Size = new System.Drawing.Size(302, 134);
+            this.gboPatient.Size = new System.Drawing.Size(301, 134);
             this.gboPatient.TabIndex = 0;
             this.gboPatient.TabStop = false;
             this.gboPatient.Text = "ពត៏មានរបស់ អ្នកជម្ងឺ";
@@ -359,7 +357,7 @@
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(296, 106);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(295, 106);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
             // tableLayoutPanel12
@@ -377,7 +375,7 @@
             this.tableLayoutPanel12.Name = "tableLayoutPanel12";
             this.tableLayoutPanel12.RowCount = 1;
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel12.Size = new System.Drawing.Size(290, 41);
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(289, 41);
             this.tableLayoutPanel12.TabIndex = 1;
             // 
             // btnPatient
@@ -435,7 +433,7 @@
             this.tableLayoutPanel11.RowCount = 2;
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(290, 53);
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(289, 53);
             this.tableLayoutPanel11.TabIndex = 0;
             // 
             // label1
@@ -485,7 +483,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(128, 0);
+            this.label3.Location = new System.Drawing.Point(127, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(131, 26);
             this.label3.TabIndex = 4;
@@ -496,7 +494,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(128, 26);
+            this.label4.Location = new System.Drawing.Point(127, 26);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(132, 27);
             this.label4.TabIndex = 5;
@@ -506,7 +504,7 @@
             // 
             this.lblPAddress.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblPAddress.AutoSize = true;
-            this.lblPAddress.Location = new System.Drawing.Point(278, 1);
+            this.lblPAddress.Location = new System.Drawing.Point(277, 1);
             this.lblPAddress.Name = "lblPAddress";
             this.lblPAddress.Size = new System.Drawing.Size(0, 24);
             this.lblPAddress.TabIndex = 6;
@@ -515,7 +513,7 @@
             // 
             this.lblPPhone.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblPPhone.AutoSize = true;
-            this.lblPPhone.Location = new System.Drawing.Point(278, 27);
+            this.lblPPhone.Location = new System.Drawing.Point(277, 27);
             this.lblPPhone.Name = "lblPPhone";
             this.lblPPhone.Size = new System.Drawing.Size(0, 24);
             this.lblPPhone.TabIndex = 7;
@@ -526,11 +524,9 @@
             this.gboRefferAndNurse.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gboRefferAndNurse.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gboRefferAndNurse.ForeColor = System.Drawing.Color.Gainsboro;
-
-            this.gboRefferAndNurse.Location = new System.Drawing.Point(619, 3);
+            this.gboRefferAndNurse.Location = new System.Drawing.Point(617, 3);
             this.gboRefferAndNurse.Name = "gboRefferAndNurse";
-            this.gboRefferAndNurse.Size = new System.Drawing.Size(407, 134);
-
+            this.gboRefferAndNurse.Size = new System.Drawing.Size(409, 134);
             this.gboRefferAndNurse.TabIndex = 2;
             this.gboRefferAndNurse.TabStop = false;
             this.gboRefferAndNurse.Text = "ផ្សេងៗ";
@@ -552,9 +548,7 @@
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(401, 106);
-
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(403, 106);
             this.tableLayoutPanel7.TabIndex = 0;
             // 
             // tableLayoutPanel19
@@ -565,15 +559,13 @@
             this.tableLayoutPanel19.Controls.Add(this.cboNurse, 0, 0);
             this.tableLayoutPanel19.Controls.Add(this.chkBoxNurse, 1, 1);
             this.tableLayoutPanel19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel19.Location = new System.Drawing.Point(125, 76);
+            this.tableLayoutPanel19.Location = new System.Drawing.Point(126, 76);
             this.tableLayoutPanel19.Name = "tableLayoutPanel19";
             this.tableLayoutPanel19.RowCount = 3;
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-
-            this.tableLayoutPanel19.Size = new System.Drawing.Size(273, 27);
-
+            this.tableLayoutPanel19.Size = new System.Drawing.Size(274, 27);
             this.tableLayoutPanel19.TabIndex = 7;
             // 
             // cboNurse
@@ -584,9 +576,7 @@
             this.cboNurse.FormattingEnabled = true;
             this.cboNurse.Location = new System.Drawing.Point(3, 3);
             this.cboNurse.Name = "cboNurse";
-
-            this.cboNurse.Size = new System.Drawing.Size(237, 28);
-
+            this.cboNurse.Size = new System.Drawing.Size(238, 28);
             this.cboNurse.TabIndex = 1;
             this.cboNurse.SelectedIndexChanged += new System.EventHandler(this.cboNurse_SelectedIndexChanged);
             // 
@@ -594,9 +584,7 @@
             // 
             this.chkBoxNurse.AutoSize = true;
             this.chkBoxNurse.Dock = System.Windows.Forms.DockStyle.Fill;
-
-            this.chkBoxNurse.Location = new System.Drawing.Point(246, -13);
-
+            this.chkBoxNurse.Location = new System.Drawing.Point(247, -13);
             this.chkBoxNurse.Name = "chkBoxNurse";
             this.chkBoxNurse.Size = new System.Drawing.Size(24, 54);
             this.chkBoxNurse.TabIndex = 2;
@@ -611,14 +599,13 @@
             this.tableLayoutPanel18.Controls.Add(this.cboReferrer, 0, 0);
             this.tableLayoutPanel18.Controls.Add(this.chkBoxReferrer, 1, 1);
             this.tableLayoutPanel18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel18.Location = new System.Drawing.Point(125, 3);
+            this.tableLayoutPanel18.Location = new System.Drawing.Point(126, 3);
             this.tableLayoutPanel18.Name = "tableLayoutPanel18";
             this.tableLayoutPanel18.RowCount = 3;
             this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-
-            this.tableLayoutPanel18.Size = new System.Drawing.Size(273, 27);
+            this.tableLayoutPanel18.Size = new System.Drawing.Size(274, 27);
             this.tableLayoutPanel18.TabIndex = 6;
             // 
             // cboReferrer
@@ -629,7 +616,7 @@
             this.cboReferrer.FormattingEnabled = true;
             this.cboReferrer.Location = new System.Drawing.Point(3, 3);
             this.cboReferrer.Name = "cboReferrer";
-            this.cboReferrer.Size = new System.Drawing.Size(237, 28);
+            this.cboReferrer.Size = new System.Drawing.Size(238, 28);
             this.cboReferrer.TabIndex = 1;
             this.cboReferrer.SelectedIndexChanged += new System.EventHandler(this.cboReferrer_SelectedIndexChanged);
             // 
@@ -637,7 +624,7 @@
             // 
             this.chkBoxReferrer.AutoSize = true;
             this.chkBoxReferrer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chkBoxReferrer.Location = new System.Drawing.Point(246, -13);
+            this.chkBoxReferrer.Location = new System.Drawing.Point(247, -13);
             this.chkBoxReferrer.Name = "chkBoxReferrer";
             this.chkBoxReferrer.Size = new System.Drawing.Size(24, 54);
             this.chkBoxReferrer.TabIndex = 2;
@@ -650,7 +637,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label6.Location = new System.Drawing.Point(20, 4);
+            this.label6.Location = new System.Drawing.Point(21, 4);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(81, 25);
             this.label6.TabIndex = 0;
@@ -679,11 +666,11 @@
             this.tableLayoutPanel21.Controls.Add(this.btnNew, 1, 0);
             this.tableLayoutPanel21.Controls.Add(this.btnInfoReferrer, 3, 0);
             this.tableLayoutPanel21.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel21.Location = new System.Drawing.Point(125, 36);
+            this.tableLayoutPanel21.Location = new System.Drawing.Point(126, 36);
             this.tableLayoutPanel21.Name = "tableLayoutPanel21";
             this.tableLayoutPanel21.RowCount = 1;
             this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel21.Size = new System.Drawing.Size(273, 34);
+            this.tableLayoutPanel21.Size = new System.Drawing.Size(274, 34);
             this.tableLayoutPanel21.TabIndex = 8;
             // 
             // btnNew
@@ -694,7 +681,7 @@
             this.btnNew.ForeColor = System.Drawing.SystemColors.Desktop;
             this.btnNew.Image = ((System.Drawing.Image)(resources.GetObject("btnNew.Image")));
             this.btnNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNew.Location = new System.Drawing.Point(17, 3);
+            this.btnNew.Location = new System.Drawing.Point(18, 3);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(94, 28);
             this.btnNew.TabIndex = 0;
@@ -708,7 +695,7 @@
             this.btnInfoReferrer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnInfoReferrer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInfoReferrer.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.btnInfoReferrer.Location = new System.Drawing.Point(132, 3);
+            this.btnInfoReferrer.Location = new System.Drawing.Point(133, 3);
             this.btnInfoReferrer.Name = "btnInfoReferrer";
             this.btnInfoReferrer.Size = new System.Drawing.Size(122, 28);
             this.btnInfoReferrer.TabIndex = 1;
