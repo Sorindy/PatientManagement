@@ -41,7 +41,6 @@
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.cboTitle = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.picboxNew = new System.Windows.Forms.PictureBox();
             this.pnlButton = new System.Windows.Forms.Panel();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -80,7 +79,6 @@
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picboxNew)).BeginInit();
             this.pnlButton.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -196,13 +194,12 @@
             // tableLayoutPanel4
             // 
             this.tableLayoutPanel4.ColumnCount = 4;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.01809F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.98191F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 65F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 68F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.23652F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.76349F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 19F));
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel5, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.label3, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.picboxNew, 2, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(517, 3);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
@@ -217,13 +214,13 @@
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.Controls.Add(this.cboTitle, 0, 1);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(149, 3);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(115, 3);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 3;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.77778F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 82.22222F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(223, 64);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(363, 64);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
             // cboTitle
@@ -234,7 +231,7 @@
             this.cboTitle.FormattingEnabled = true;
             this.cboTitle.Location = new System.Drawing.Point(3, 12);
             this.cboTitle.Name = "cboTitle";
-            this.cboTitle.Size = new System.Drawing.Size(217, 34);
+            this.cboTitle.Size = new System.Drawing.Size(357, 34);
             this.cboTitle.TabIndex = 0;
             this.cboTitle.SelectedIndexChanged += new System.EventHandler(this.cboTitle_SelectedIndexChanged);
             // 
@@ -244,23 +241,11 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Modern No. 20", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label3.Location = new System.Drawing.Point(20, 20);
+            this.label3.Location = new System.Drawing.Point(3, 20);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(106, 29);
             this.label3.TabIndex = 1;
             this.label3.Text = "ចំណងជើង";
-            // 
-            // picboxNew
-            // 
-            this.picboxNew.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.picboxNew.Image = ((System.Drawing.Image)(resources.GetObject("picboxNew.Image")));
-            this.picboxNew.Location = new System.Drawing.Point(378, 3);
-            this.picboxNew.Name = "picboxNew";
-            this.picboxNew.Size = new System.Drawing.Size(59, 64);
-            this.picboxNew.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picboxNew.TabIndex = 2;
-            this.picboxNew.TabStop = false;
-            this.picboxNew.Click += new System.EventHandler(this.picboxNew_Click);
             // 
             // pnlButton
             // 
@@ -625,7 +610,6 @@
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picboxNew)).EndInit();
             this.pnlButton.ResumeLayout(false);
             this.tableLayoutPanel7.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -662,7 +646,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cboService;
         private System.Windows.Forms.ComboBox cboCategory;
-        private System.Windows.Forms.PictureBox picboxNew;
         private System.Windows.Forms.GroupBox groupBox3;
         private TXTextControl.TextControl txtDescription;
         private TXTextControl.ButtonBar buttonBar1;
