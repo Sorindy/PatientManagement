@@ -86,10 +86,10 @@ namespace PatientManagement
                 lbService.Text = @"Consultation";
             }
             //AddNodesToTree();
-            var path = AppDomain.CurrentDomain.BaseDirectory;
-            _path = path.Remove(path.Length - 46);
+            //var path = AppDomain.CurrentDomain.BaseDirectory;
+            //_path = path.Remove(path.Length - 46);
             //_path = path;
-            //_path = @"S:\";
+            _path = @"S:\";
             //dgvConsultation.Columns.Clear();
             //dgvLaboratory.Columns.Clear();
             //dgvMedicalImaging.Columns.Clear();
@@ -100,6 +100,11 @@ namespace PatientManagement
             picHideTop.Image = Properties.Resources.Hide_Up_icon;
             //picHideTop.ImageLocation = _path + @"Hide-Up-icon.png";
             txtDescription.EditMode = EditMode.ReadAndSelect;
+            dgvConsultation.ColumnHeadersDefaultCellStyle.Alignment=DataGridViewContentAlignment.MiddleCenter;
+            dgvLaboratory.ColumnHeadersDefaultCellStyle.Alignment=DataGridViewContentAlignment.MiddleCenter;
+            dgvMedicalImaging.ColumnHeadersDefaultCellStyle.Alignment=DataGridViewContentAlignment.MiddleCenter;
+            dgvPrescription.ColumnHeadersDefaultCellStyle.Alignment=DataGridViewContentAlignment.MiddleCenter;
+            dgvVariousDocument.ColumnHeadersDefaultCellStyle.Alignment=DataGridViewContentAlignment.MiddleCenter;
         }
 
         //private void cboService_SelectedIndexChanged(object sender, EventArgs e)

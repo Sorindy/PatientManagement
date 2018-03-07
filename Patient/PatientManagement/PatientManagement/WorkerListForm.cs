@@ -45,6 +45,7 @@ namespace PatientManagement
             btnDelete.UseColumnTextForButtonValue = true;
             dgvListWorker.Columns.AddRange(btnView,btnDelete);
             dgvListWorker.ClearSelection();
+            dgvListWorker.ColumnHeadersDefaultCellStyle.Alignment=DataGridViewContentAlignment.MiddleCenter;
             CheckOrderDgv();
         }
 
@@ -80,8 +81,7 @@ namespace PatientManagement
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             dgvListWorker.DataSource = null;
-            dgvListWorker.Columns.RemoveAt(1);
-            dgvListWorker.Columns.RemoveAt(0);
+            dgvListWorker.Columns.Clear();
             dgvListWorker.DataSource = Worker.Search(txtSearch.Text);
 
             dgvListWorker.Columns[0].Visible = false;

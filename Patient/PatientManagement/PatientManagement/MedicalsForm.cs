@@ -106,10 +106,10 @@ namespace PatientManagement
                 }
             }
 
-            var path = AppDomain.CurrentDomain.BaseDirectory;
-            _path = path.Remove(path.Length - 46);
+            //var path = AppDomain.CurrentDomain.BaseDirectory;
+            //_path = path.Remove(path.Length - 46);
             //_path = path;
-            //_path = @"S:\";
+            _path = @"S:\";
             picHideRight.Image = Properties.Resources.Hide_right_icon;
             //picHideRight.ImageLocation = _path + @"Hide-right-icon.png";
             picHideTop.Image = Properties.Resources.Hide_Up_icon;
@@ -249,10 +249,9 @@ namespace PatientManagement
             if(txtDescription.Text!=""&&KeyService!=""&&KeyCategory!=0)
             {
                 string path;
-                var str = @"S:";
-                if (Directory.Exists(str))
+                if (!Directory.Exists(@"S:\"))
                 {
-                     path = @"D:\ABC soft\";
+                    path = @"D:\ABC soft\";
                 }
                 else
                 {

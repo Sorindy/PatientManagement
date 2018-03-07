@@ -57,10 +57,10 @@ namespace PatientManagement
 
         private void SamplesForm_Shown(object sender, EventArgs e)
         {
-            var path = AppDomain.CurrentDomain.BaseDirectory;
-            _path = path.Remove(path.Length - 46);
+            //var path = AppDomain.CurrentDomain.BaseDirectory;
+            //_path = path.Remove(path.Length - 46);
             //_path = path;
-            //_path = @"S:\";
+            _path = @"S:\";
             picboxHide.Image = Properties.Resources.Hide_right_icon;
             //picboxHide.ImageLocation = _path+@"Hide-right-icon.png";
             cboService.SelectedItem = null;
@@ -75,7 +75,6 @@ namespace PatientManagement
 
         private void cboService_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txtDescription.Text = "";
             if (cboService.SelectedIndex.Equals(0))
             {
                 _category = new ConsultationCategory();
@@ -141,6 +140,7 @@ namespace PatientManagement
                     btnSave.Click -= btnSave_Click;
                 }
             }
+            
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -159,36 +159,45 @@ namespace PatientManagement
             var keyCategory = selectedItem.Key;
             var selectedTitle = (KeyValuePair<int, string>) cboTitle.SelectedItem;
             var keyTitle = selectedTitle.Key;
+            string path;
+            if (!Directory.Exists(@"S:\"))
+            {
+                path = @"D:\ABC soft\";
+            }
+            else
+            {
+                path = _path;
+            }
             if (cboService.SelectedIndex.Equals(0))
             {
                 _sample = new ConsultationSample();
                 _sample.Update(keyTitle,cboTitle.Text, _path + @"RTF\ConsultationSample\" + cboTitle.Text, keyCategory);
-                txtDescription.Save(_path + @"RTF\ConsultationSample\" + cboTitle.Text, StreamType.RichTextFormat);
+                txtDescription.Save(path + @"RTF\ConsultationSample\" + cboTitle.Text, StreamType.RichTextFormat);
             }
             if (cboService.SelectedIndex.Equals(1))
             {
                 _sample = new LaboratorySample();
                 _sample.Update(keyTitle,cboTitle.Text, _path + @"RTF\LaboratorySample\" + cboTitle.Text, keyCategory);
-                txtDescription.Save(_path + @"RTF\LaboratorySample\" + cboTitle.Text, StreamType.RichTextFormat);
+                txtDescription.Save(path + @"RTF\LaboratorySample\" + cboTitle.Text, StreamType.RichTextFormat);
 
             }
             if (cboService.SelectedIndex.Equals(2))
             {
                 _sample = new MedicalImagingSample();
                 _sample.Update(keyTitle,cboTitle.Text, _path + @"RTF\MedicalImagingSample\" + cboTitle.Text, keyCategory);
-                txtDescription.Save(_path + @"RTF\MedicalImagingSample\" + cboTitle.Text, StreamType.RichTextFormat);
+                txtDescription.Save(path + @"RTF\MedicalImagingSample\" + cboTitle.Text, StreamType.RichTextFormat);
             }
             if (cboService.SelectedIndex.Equals(3))
             {
                 _sample = new PrescriptionSample();
                 _sample.Update(keyTitle,cboTitle.Text, _path + @"RTF\PrescriptionSample\" + cboTitle.Text, keyCategory);
-                txtDescription.Save(_path + @"RTF\PrescriptionSample\" + cboTitle.Text, StreamType.RichTextFormat);
+                txtDescription.Save(path + @"RTF\PrescriptionSample\" + cboTitle.Text, StreamType.RichTextFormat);
             }
             if (cboService.SelectedIndex.Equals(4))
             {
                 _sample = new VariousDocumentSample();
                 _sample.Update(keyTitle,cboTitle.Text, _path + @"RTF\VariousdocumentSample\" + cboTitle.Text, keyCategory);
-                txtDescription.Save(_path + @"RTF\VariousdocumentSample\" + cboTitle.Text, StreamType.RichTextFormat);
+                txtDescription.Save(path + @"RTF\VariousdocumentSample\" + cboTitle.Text, StreamType.RichTextFormat);
             }
             SamplesForm_Shown(this,new EventArgs());
         }
