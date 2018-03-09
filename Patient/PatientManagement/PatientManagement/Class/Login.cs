@@ -352,14 +352,12 @@ namespace PatientManagement.Class
 
         public void DeleteImageFolder()
         {
-            var fdb = new FolderBrowserDialog();
-           // File.Delete(@"S:\cafe\PetCafeShop\PetCafeShop\PetCafeShopDatabase.accdb");
-            if (fdb.SelectedPath == @"D:\PatientManagement\Patient\RTF\images")
-            {
-                File.Delete(@"D:\PatientManagement\Patient\RTF\images");
-            }
-            
+            var directory  = new DirectoryInfo(@"D:\PatientManagement\Patient\RTF\images");
+                directory.Attributes = directory.Attributes & ~FileAttributes.ReadOnly;
+                directory.Delete(true);     
         }
+
+
 
     }
 }

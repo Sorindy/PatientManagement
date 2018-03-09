@@ -127,6 +127,7 @@ namespace PatientManagement
             if (cboService.Text == @"Consultation")
             {
                 dgvAllWatingList.DataSource = _waitingList.ShowWaiting(_keyService, _keyCategory);
+                
             }
             if (cboService.Text == @"Laboratory")
             {

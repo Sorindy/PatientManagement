@@ -40,14 +40,14 @@
             this.crystalReportViewer2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.crystalReportViewer2.Location = new System.Drawing.Point(0, 0);
             this.crystalReportViewer2.Name = "crystalReportViewer2";
-            this.crystalReportViewer2.Size = new System.Drawing.Size(719, 446);
+            this.crystalReportViewer2.Size = new System.Drawing.Size(1264, 729);
             this.crystalReportViewer2.TabIndex = 0;
             // 
             // PrintWaitingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(719, 446);
+            this.ClientSize = new System.Drawing.Size(1264, 729);
             this.Controls.Add(this.crystalReportViewer2);
             this.Name = "PrintWaitingForm";
             this.Text = "PrintWaitingForm";
