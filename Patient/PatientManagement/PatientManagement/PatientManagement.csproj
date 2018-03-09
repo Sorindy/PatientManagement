@@ -773,6 +773,7 @@
     <Content Include="Resources\64\46840 - unlock.png" />
     <Content Include="Resources\64\46841 - upload.png" />
     <Content Include="Resources\64\46842 - skype.png" />
+    <None Include="Resources\add %282%29.png" />
     <Content Include="Resources\Hide-down-icon.png" />
     <Content Include="Resources\Hide-left-icon.png" />
     <Content Include="Resources\Hide-right-icon.png" />

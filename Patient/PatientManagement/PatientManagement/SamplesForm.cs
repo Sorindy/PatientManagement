@@ -14,6 +14,7 @@ namespace PatientManagement
         private ICategory _category;
         private ISample _sample;
         internal int GetCategoryId=0;
+        private bool _edit;
 
         public SamplesForm()
         {
@@ -57,20 +58,28 @@ namespace PatientManagement
 
         private void SamplesForm_Shown(object sender, EventArgs e)
         {
-            //var path = AppDomain.CurrentDomain.BaseDirectory;
-            //_path = path.Remove(path.Length - 46);
+            var path = AppDomain.CurrentDomain.BaseDirectory;
+            _path = path.Remove(path.Length - 46);
             //_path = path;
-            _path = @"S:\";
+            //_path = @"S:\";
             picboxHide.Image = Properties.Resources.Hide_right_icon;
             //picboxHide.ImageLocation = _path+@"Hide-right-icon.png";
             cboService.SelectedItem = null;
+            cboService.Enabled = false;
             cboCategory.SelectedItem = null;
+            cboCategory.Enabled = false;
             cboTitle.DataSource=null;
+            cboTitle.Enabled = false;
             cboTitle.Text = "";
             cboTitle.DropDownStyle=ComboBoxStyle.DropDownList;
             txtDescription.Text = "";
             btnSave.Text = @"រក្សាទុក";
             btnSave.Name = @"btnSave";
+            txtDescription.EditMode=EditMode.ReadAndSelect;
+            btnSave.Enabled = false;
+            btnDelete.Enabled = false;
+            btnEdit.Enabled = true;
+            btnNew.Enabled = true;
         }
 
         private void cboService_SelectedIndexChanged(object sender, EventArgs e)
@@ -130,29 +139,33 @@ namespace PatientManagement
                     cboCategory.ValueMember = "Key";
                 }
             }
-            if (cboTitle.DataSource != null)
-            {
-                if (btnSave.Name == "btnSave")
-                {
-                    btnSave.Text = @"កែប្រែ";
-                    btnSave.Name = @"btnUpdate";
-                    btnSave.Click += btnUpdate_Click;
-                    btnSave.Click -= btnSave_Click;
-                }
-            }
+            //if (cboTitle.DataSource != null)
+            //{
+            //    if (btnSave.Name == "btnSave")
+            //    {
+            //        btnSave.Text = @"កែប្រែ";
+            //        btnSave.Name = @"btnUpdate";
+            //        btnSave.Click += btnUpdate_Click;
+            //        btnSave.Click -= btnSave_Click;
+            //    }
+            //}
             
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if(cboTitle.Text==null)return;
-            if (btnSave.Name == "btnUpdate")
+            if (cboTitle.Text == null)
             {
-                btnSave.Text = @"Save";
-                btnSave.Name = @"btnSave";
-                btnSave.Click -= btnUpdate_Click;
-                btnSave.Click += btnSave_Click;
+                MessageBox.Show(@"Please fill Title.", @"Empty Title");
+                return;
             }
+            //if (btnSave.Name == "btnUpdate")
+            //{
+            //    btnSave.Text = @"Save";
+            //    btnSave.Name = @"btnSave";
+            //    btnSave.Click -= btnUpdate_Click;
+            //    btnSave.Click += btnSave_Click;
+            //}
 
             if (cboCategory.SelectedItem == null) return;
             var selectedItem = (KeyValuePair<int, string>)cboCategory.SelectedItem;
@@ -160,7 +173,7 @@ namespace PatientManagement
             var selectedTitle = (KeyValuePair<int, string>) cboTitle.SelectedItem;
             var keyTitle = selectedTitle.Key;
             string path;
-            if (!Directory.Exists(@"S:\"))
+            if (Directory.Exists(@"S:\"))
             {
                 path = @"D:\ABC soft\";
             }
@@ -204,53 +217,60 @@ namespace PatientManagement
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (cboTitle.Text == "") { MessageBox.Show(@"Something is going wrong please check again", @"Error"); }
+            if (_edit)
+            {
+                btnUpdate_Click(this,new EventArgs());
+            }
             else
             {
-                string path;
-                if (!Directory.Exists(@"S:\"))
-                {
-                    path = @"D:\ABC soft\";
-                }
+                if (cboTitle.Text == "") { MessageBox.Show(@"Please fill Title.", @"Empty Title"); }
                 else
                 {
-                    path = _path;
-                }
-                var selectedItem = (KeyValuePair<int, string>)cboCategory.SelectedItem;
-                var key = selectedItem.Key;
-                if (cboService.SelectedIndex.Equals(0))
-                {
-                    _sample = new ConsultationSample();
-                    _sample.Insert(cboTitle.Text, _path + @"RTF\ConsultationSample\" + cboTitle.Text, key);
-                    txtDescription.Save(path + @"RTF\ConsultationSample\" + cboTitle.Text, StreamType.RichTextFormat);
-                }
-                if (cboService.SelectedIndex.Equals(1))
-                {
-                    _sample = new LaboratorySample();
-                    _sample.Insert(cboTitle.Text, _path + @"RTF\LaboratorySample\" + cboTitle.Text, key);
-                    txtDescription.Save(path + @"RTF\LaboratorySample\" + cboTitle.Text, StreamType.RichTextFormat);
+                    string path;
+                    if (Directory.Exists(@"S:\"))
+                    {
+                        path = @"D:\ABC soft\";
+                    }
+                    else
+                    {
+                        path = _path;
+                    }
+                    var selectedItem = (KeyValuePair<int, string>)cboCategory.SelectedItem;
+                    var key = selectedItem.Key;
+                    if (cboService.SelectedIndex.Equals(0))
+                    {
+                        _sample = new ConsultationSample();
+                        _sample.Insert(cboTitle.Text, _path + @"RTF\ConsultationSample\" + cboTitle.Text, key);
+                        txtDescription.Save(path + @"RTF\ConsultationSample\" + cboTitle.Text, StreamType.RichTextFormat);
+                    }
+                    if (cboService.SelectedIndex.Equals(1))
+                    {
+                        _sample = new LaboratorySample();
+                        _sample.Insert(cboTitle.Text, _path + @"RTF\LaboratorySample\" + cboTitle.Text, key);
+                        txtDescription.Save(path + @"RTF\LaboratorySample\" + cboTitle.Text, StreamType.RichTextFormat);
 
+                    }
+                    if (cboService.SelectedIndex.Equals(2))
+                    {
+                        _sample = new MedicalImagingSample();
+                        _sample.Insert(cboTitle.Text, _path + @"RTF\MedicalImagingSample\" + cboTitle.Text, key);
+                        txtDescription.Save(path + @"RTF\MedicalImagingSample\" + cboTitle.Text, StreamType.RichTextFormat);
+                    }
+                    if (cboService.SelectedIndex.Equals(3))
+                    {
+                        _sample = new PrescriptionSample();
+                        _sample.Insert(cboTitle.Text, _path + @"RTF\PrescriptionSample\" + cboTitle.Text, key);
+                        txtDescription.Save(path + @"RTF\PrescriptionSample\" + cboTitle.Text, StreamType.RichTextFormat);
+                    }
+                    if (cboService.SelectedIndex.Equals(4))
+                    {
+                        _sample = new VariousDocumentSample();
+                        _sample.Insert(cboTitle.Text, _path + @"RTF\VariousdocumentSample\" + cboTitle.Text, key);
+                        txtDescription.Save(path + @"RTF\VariousdocumentSample\" + cboTitle.Text, StreamType.RichTextFormat);
+                    }
+                    SamplesForm_Shown(this, new EventArgs());
+                    cboService.Focus();
                 }
-                if (cboService.SelectedIndex.Equals(2))
-                {
-                    _sample = new MedicalImagingSample();
-                    _sample.Insert(cboTitle.Text, _path + @"RTF\MedicalImagingSample\" + cboTitle.Text, key);
-                    txtDescription.Save(path + @"RTF\MedicalImagingSample\" + cboTitle.Text, StreamType.RichTextFormat);
-                }
-                if (cboService.SelectedIndex.Equals(3))
-                {
-                    _sample = new PrescriptionSample();
-                    _sample.Insert(cboTitle.Text, _path + @"RTF\PrescriptionSample\" + cboTitle.Text, key);
-                    txtDescription.Save(path + @"RTF\PrescriptionSample\" + cboTitle.Text, StreamType.RichTextFormat);
-                }
-                if (cboService.SelectedIndex.Equals(4))
-                {
-                    _sample = new VariousDocumentSample();
-                    _sample.Insert(cboTitle.Text, _path + @"RTF\VariousdocumentSample\" + cboTitle.Text, key);
-                    txtDescription.Save(path + @"RTF\VariousdocumentSample\" + cboTitle.Text, StreamType.RichTextFormat);
-                }
-                SamplesForm_Shown(this, new EventArgs());
-                cboService.Focus();
             }
         }
 
@@ -309,50 +329,53 @@ namespace PatientManagement
         private void cboCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(cboCategory.SelectedItem==null)return;
-            txtDescription.Text = "";
             var selectedItem =(KeyValuePair<int,string>)cboCategory.SelectedItem;
             var key = selectedItem.Key;
-            cboTitle.DataSource = null;
-            if (cboService.SelectedIndex.Equals(0))
+            if (_edit)
             {
-                _sample = new ConsultationSample();
-                var dic = _sample.ShowDictionary(key);
-                if(dic.Count==0)return;
-                cboTitle.DataSource=new BindingSource(dic,null);
-                cboTitle.DisplayMember = "Value";
-                cboTitle.ValueMember = "Key";
-            }
-            if (cboService.SelectedIndex.Equals(1))
-            {
-                _sample = new LaboratorySample();
-                var dic = _sample.ShowDictionary(key);
-                if (dic.Count == 0) return;
-                cboTitle.DataSource = new BindingSource(dic, null); cboTitle.DisplayMember = "Value";
-                cboTitle.ValueMember = "Key";
-            }
-            if (cboService.SelectedIndex.Equals(2))
-            {
-                _sample = new MedicalImagingSample();
-                var dic = _sample.ShowDictionary(key);
-                if (dic.Count == 0) return;
-                cboTitle.DataSource = new BindingSource(dic, null); cboTitle.DisplayMember = "Value";
-                cboTitle.ValueMember = "Key";
-            }
-            if (cboService.SelectedIndex.Equals(3))
-            {
-                _sample = new PrescriptionSample();
-                var dic = _sample.ShowDictionary(key);
-                if (dic.Count == 0) return;
-                cboTitle.DataSource = new BindingSource(dic, null); cboTitle.DisplayMember = "Value";
-                cboTitle.ValueMember = "Key";
-            }
-            if (cboService.SelectedIndex.Equals(4))
-            {
-                _sample = new VariousDocumentSample();
-                var dic = _sample.ShowDictionary(key);
-                if (dic.Count == 0) return;
-                cboTitle.DataSource = new BindingSource(dic, null); cboTitle.DisplayMember = "Value";
-                cboTitle.ValueMember = "Key";
+                cboTitle.DataSource = null;
+                txtDescription.Text = "";
+                if (cboService.SelectedIndex.Equals(0))
+                {
+                    _sample = new ConsultationSample();
+                    var dic = _sample.ShowDictionary(key);
+                    if (dic.Count == 0) return;
+                    cboTitle.DataSource = new BindingSource(dic, null);
+                    cboTitle.DisplayMember = "Value";
+                    cboTitle.ValueMember = "Key";
+                }
+                if (cboService.SelectedIndex.Equals(1))
+                {
+                    _sample = new LaboratorySample();
+                    var dic = _sample.ShowDictionary(key);
+                    if (dic.Count == 0) return;
+                    cboTitle.DataSource = new BindingSource(dic, null); cboTitle.DisplayMember = "Value";
+                    cboTitle.ValueMember = "Key";
+                }
+                if (cboService.SelectedIndex.Equals(2))
+                {
+                    _sample = new MedicalImagingSample();
+                    var dic = _sample.ShowDictionary(key);
+                    if (dic.Count == 0) return;
+                    cboTitle.DataSource = new BindingSource(dic, null); cboTitle.DisplayMember = "Value";
+                    cboTitle.ValueMember = "Key";
+                }
+                if (cboService.SelectedIndex.Equals(3))
+                {
+                    _sample = new PrescriptionSample();
+                    var dic = _sample.ShowDictionary(key);
+                    if (dic.Count == 0) return;
+                    cboTitle.DataSource = new BindingSource(dic, null); cboTitle.DisplayMember = "Value";
+                    cboTitle.ValueMember = "Key";
+                }
+                if (cboService.SelectedIndex.Equals(4))
+                {
+                    _sample = new VariousDocumentSample();
+                    var dic = _sample.ShowDictionary(key);
+                    if (dic.Count == 0) return;
+                    cboTitle.DataSource = new BindingSource(dic, null); cboTitle.DisplayMember = "Value";
+                    cboTitle.ValueMember = "Key";
+                }
             }
         }
 
@@ -437,6 +460,31 @@ namespace PatientManagement
                 txtDescription.Text = "";
                 txtDescription.Load(_sample.Path(key), StreamType.RichTextFormat);
             }
+        }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            cboService.Enabled = true;
+            cboCategory.Enabled = true;
+            cboTitle.Enabled = true;
+            txtDescription.EditMode=EditMode.Edit;
+            _edit = false;
+            btnEdit.Enabled = false;
+            btnSave.Enabled = true;
+            btnDelete.Enabled = true;
+            cboTitle.DropDownStyle = ComboBoxStyle.DropDown;
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            cboService.Enabled = true;
+            cboCategory.Enabled = true;
+            cboTitle.Enabled = true;
+            txtDescription.EditMode = EditMode.Edit;
+            _edit = true;
+            btnNew.Enabled = false;
+            btnSave.Enabled = true;
+            btnDelete.Enabled = true;
         }
     }
 }
