@@ -249,10 +249,9 @@ namespace PatientManagement
             if(txtDescription.Text!=""&&KeyService!=""&&KeyCategory!=0)
             {
                 string path;
-                var str = @"S:";
-                if (Directory.Exists(str))
+                if (Directory.Exists(@"S:\"))
                 {
-                     path = @"D:\ABC soft\";
+                    path = @"D:\ABC soft\";
                 }
                 else
                 {
@@ -860,7 +859,7 @@ namespace PatientManagement
             if (txtDescription.Text != "" && KeyCategory != 0 && KeyService != "")
             {
                 string path;
-                if (!Directory.Exists(@"S:\"))
+                if (Directory.Exists(@"S:\"))
                 {
                     path = @"D:\ABC soft\";
                 }

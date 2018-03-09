@@ -36,14 +36,23 @@ namespace PatientManagement
             };
             btnView.CellTemplate.Style.BackColor = Color.LightSeaGreen;
             btnView.UseColumnTextForButtonValue = true;
-            dgvListPatient.Columns.AddRange(btnView);
+            var btnCheckIn = new DataGridViewButtonColumn
+            {
+                FlatStyle = FlatStyle.Flat,
+                Text = @"CheckIn",
+                HeaderText = @"CheckIn"
+            };
+            btnCheckIn.CellTemplate.Style.BackColor = Color.Aqua;
+            btnCheckIn.UseColumnTextForButtonValue = true;
+            dgvListPatient.Columns.AddRange(btnCheckIn,btnView);
+            dgvListPatient.ColumnHeadersDefaultCellStyle.Alignment=DataGridViewContentAlignment.MiddleCenter;
             CheckOrderDgv();
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             dgvListPatient.DataSource = null;
-            dgvListPatient.Columns.RemoveAt(0);
+            dgvListPatient.Columns.Clear();
             dgvListPatient.DataSource = _patient.Search(txtSearch.Text);
 
             dgvListPatient.Columns[0].Visible = false;
@@ -55,7 +64,15 @@ namespace PatientManagement
             };
             btnView.CellTemplate.Style.BackColor = Color.LightSeaGreen;
             btnView.UseColumnTextForButtonValue = true;
-            dgvListPatient.Columns.AddRange(btnView);
+            var btnCheckIn = new DataGridViewButtonColumn
+            {
+                FlatStyle = FlatStyle.Flat,
+                Text = @"CheckIn",
+                HeaderText = @"CheckIn"
+            };
+            btnCheckIn.CellTemplate.Style.BackColor = Color.Aqua;
+            btnCheckIn.UseColumnTextForButtonValue = true;
+            dgvListPatient.Columns.AddRange(btnCheckIn, btnView);
         }
 
         private void txtSearch_Click(object sender, EventArgs e)
@@ -72,6 +89,18 @@ namespace PatientManagement
                     var id = dgvListPatient.CurrentRow.Cells[0].Value;
                     var patient = _patient.Select(Convert.ToInt32(id));
                     var form = new HistorysForm() {Account = Account,Patient = patient,CatelogForm = CatelogForm,TopLevel = false,Dock = DockStyle.Fill};
+                    CatelogForm.pnlFill.Controls.Clear();
+                    CatelogForm.pnlFill.Controls.Add(form);
+                    form.Show();
+                }
+            }
+            if (e.ColumnIndex == 9)
+            {
+                if (dgvListPatient.CurrentRow != null)
+                {
+                    var id = dgvListPatient.CurrentRow.Cells[0].Value;
+                    var patient = _patient.Select(Convert.ToInt32(id));
+                    var form = new CheckInsForm {Patient = patient,TopLevel = false,Dock = DockStyle.Fill};
                     CatelogForm.pnlFill.Controls.Clear();
                     CatelogForm.pnlFill.Controls.Add(form);
                     form.Show();

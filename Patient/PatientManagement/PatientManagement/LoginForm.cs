@@ -94,6 +94,7 @@ namespace PatientManagement
                 Clear();
                 MessageBox.Show(@"Pleas input correct UserName and Password");
             }
+            _login.DeleteImageFolder();
         }
 
         private void txtPassword_KeyDown(object sender, KeyEventArgs e)

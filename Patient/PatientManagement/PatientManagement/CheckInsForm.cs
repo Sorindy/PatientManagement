@@ -25,6 +25,12 @@ namespace PatientManagement
             pnlShowService.Enabled = false;
             picboxHide.Image = Properties.Resources.Hide_right_icon;
             //picboxHide.ImageLocation = _path + @"Hide-right-icon.png";
+            if (Patient == null) return;
+            txtName.Text = Patient.FirstName + @"    " + Patient.LastName;
+            txtGender.Text = Patient.Gender;
+            pnlShowService.Controls.Add(_chkIn.ShowService(this));
+            pnlShowService.Enabled = true;
+            pnlSelection.Enabled = true;
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)

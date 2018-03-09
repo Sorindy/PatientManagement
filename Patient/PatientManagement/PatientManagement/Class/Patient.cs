@@ -60,21 +60,23 @@ namespace PatientManagement.Class
         {
             if (!string.IsNullOrEmpty(text))
             {
-                var patients = from v in _db.Patients
-                               where v.KhmerName.ToLower().Contains(text.ToLower() )
-                                         || v.Phone1.Contains(text) || v.Phone2.Contains(text) ||v.Email.Contains(text)||v.PatientIdentify.ToString().Contains(text)
-                                         ||v.FirstName.Contains(text)||v.LastName.Contains(text)
-                               select new
-                               {
-                                   v.Id,v.PatientIdentify,
-                                   v.FirstName,v.LastName,v.KhmerName,
-                                   v.Gender,
-                                   v.Age,
-                                   v.Address,
-                                   v.Phone1,
-                                   v.Email,
-                               };
-                _binding.DataSource = patients.ToList();
+                var patientList = _db.Patients.ToList();
+                var patients = patientList.Where(v => v.KhmerName.ToLower().Contains(text.ToLower())
+                                                      || v.Phone1.Contains(text) || v.Phone2.Contains(text) ||
+                                                      v.Email.Contains(text) ||
+                                                      v.PatientIdentify.ToString().Contains(text)
+                                                      || v.FirstName.Contains(text) || v.LastName.Contains(text));
+                              
+                               
+                _binding.DataSource = patients.Select(v=> new
+                {
+                    v.Id,v.PatientIdentify,
+                    v.FirstName,v.LastName,v.KhmerName,
+                    v.Gender,
+                    v.Age,
+                    v.Address,
+                    v.Phone1
+                }).ToList();
 
             }
             else
@@ -87,8 +89,7 @@ namespace PatientManagement.Class
                                            v.Gender,
                                            v.Age,
                                            v.Address,
-                                           v.Phone1,
-                                           v.Email,
+                                           v.Phone1
                                        }).ToList();
             }
 
@@ -134,7 +135,7 @@ namespace PatientManagement.Class
         {
             var show = _db.Patients;
 
-            _binding.DataSource = show.Select(v => new { v.Id,v.PatientIdentify, v.FirstName,v.LastName,v.KhmerName, v.Gender, v.Age, v.Address, v.Phone1, v.Email }).ToList();
+            _binding.DataSource = show.Select(v => new { v.Id,v.PatientIdentify, v.FirstName,v.LastName,v.KhmerName, v.Gender, v.Age, v.Address, v.Phone1 }).ToList();
 
             return _binding;
         }

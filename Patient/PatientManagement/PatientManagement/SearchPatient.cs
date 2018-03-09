@@ -20,6 +20,7 @@ namespace PatientManagement
         {
             txtSearch.Text = "";
             txtSearch.Focus();
+            dgvSearchPatient.ColumnHeadersDefaultCellStyle.Alignment=DataGridViewContentAlignment.MiddleCenter;
         }
 
         private void dgvSearchPatient_CellClick(object sender, DataGridViewCellEventArgs e)

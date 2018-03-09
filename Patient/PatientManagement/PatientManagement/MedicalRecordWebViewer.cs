@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using CrystalDecisions.Shared;
 using Hospital_Entity_Framework;
@@ -56,6 +57,15 @@ namespace PatientManagement
 
         private void cmbModel_SelectedIndexChanged(object sender, EventArgs e)
         {
+            string path;
+            if (Directory.Exists(@"S:\"))
+            {
+                path = @"D:\ABC soft\";
+            }
+            else
+            {
+                path = _path;
+            }
             if (cmbModel.SelectedIndex == 0)
             {
                 btnPrint.Visible = true;
@@ -66,8 +76,8 @@ namespace PatientManagement
                 MedicalReportSampleA1.SetParameterValue("pDatetime", DateTime.Now);
                 MedicalReportSampleA1.SetParameterValue("pDoctorName", Account.Worker.FirstName + " " + Account.Worker.LastName);
                 MedicalReportSampleA1.SetParameterValue("pAge", Patient.Age);
-                MedicalReportSampleA1.ExportToDisk(ExportFormatType.HTML40, _path+@"RTF\SampleA");
-                wv.Navigate(_path + @"RTF\SampleA.htm");
+                MedicalReportSampleA1.ExportToDisk(ExportFormatType.HTML40, path+@"RTF\SampleA");
+                wv.Navigate(path + @"RTF\SampleA.htm");
             }
             else if (cmbModel.SelectedIndex == 1)
             {
@@ -79,8 +89,8 @@ namespace PatientManagement
                 MedicalReportSampleB1.SetParameterValue("pDatetime", DateTime.Now);
                 MedicalReportSampleB1.SetParameterValue("pDoctorName", Account.Worker.FirstName + " " + Account.Worker.LastName);
                 MedicalReportSampleB1.SetParameterValue("pAge", Patient.Age);
-                MedicalReportSampleB1.ExportToDisk(ExportFormatType.HTML40, _path + @"RTF\SampleB");
-                wv.Navigate(_path + @"RTF\SampleB.htm");
+                MedicalReportSampleB1.ExportToDisk(ExportFormatType.HTML40, path + @"RTF\SampleB");
+                wv.Navigate(path + @"RTF\SampleB.htm");
             }
             else if (cmbModel.SelectedIndex == 2)
             {
@@ -92,8 +102,8 @@ namespace PatientManagement
                 MedicalRecortSampleC1.SetParameterValue("pDatetime", DateTime.Now);
                 MedicalRecortSampleC1.SetParameterValue("pDoctorName", Account.Worker.FirstName + " " + Account.Worker.LastName);
                 MedicalRecortSampleC1.SetParameterValue("pAge", Patient.Age);
-                MedicalRecortSampleC1.ExportToDisk(ExportFormatType.HTML40, _path + @"RTF\SampleC");
-                wv.Navigate(_path+@"RTF\SampleC.htm");
+                MedicalRecortSampleC1.ExportToDisk(ExportFormatType.HTML40, path + @"RTF\SampleC");
+                wv.Navigate(path+@"RTF\SampleC.htm");
             }
             else if (cmbModel.SelectedIndex == 3)
             {
@@ -105,8 +115,8 @@ namespace PatientManagement
                 MedicalRecortSampleD1.SetParameterValue("pDatetime", DateTime.Now);
                 MedicalRecortSampleD1.SetParameterValue("pDoctorName", Account.Worker.FirstName + " " + Account.Worker.LastName);
                 MedicalRecortSampleD1.SetParameterValue("pAge", Patient.Age);
-                MedicalRecortSampleD1.ExportToDisk(ExportFormatType.HTML40, _path + @"RTF\SampleD");
-                wv.Navigate(_path + @"RTF\SampleD.htm");
+                MedicalRecortSampleD1.ExportToDisk(ExportFormatType.HTML40, path + @"RTF\SampleD");
+                wv.Navigate(path + @"RTF\SampleD.htm");
             }
            
         }

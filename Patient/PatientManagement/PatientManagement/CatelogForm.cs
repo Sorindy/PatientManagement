@@ -18,6 +18,7 @@ namespace PatientManagement
         internal Account Account;
         private bool _mouseDown;
         private Point _lastLocation;
+        private bool _chklogout;
 
         private void CatelogForm_Shown(object sender, EventArgs e)
         {
@@ -72,9 +73,10 @@ namespace PatientManagement
 
         private void panelLogout_Click(object sender, EventArgs e)
         {
-            Close();
             LoginForm.Show();
             LoginForm.Clear();
+            _chklogout = true;
+            Close();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -129,7 +131,10 @@ namespace PatientManagement
 
         private void CatelogForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            if (_chklogout == false)
+            {
+                Application.Exit();
+            }
         }
     }
 }
