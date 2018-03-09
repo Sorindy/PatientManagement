@@ -46,8 +46,8 @@ namespace PatientManagement
             {
                 var boxcontrol = wv.Document.GetElementById("Box2");
                 if (boxcontrol != null) boxcontrol.InnerHtml = Html;
-
             }
+            DeleteImageFolder();
         }
 
         private void btnPrint_Click(object sender, EventArgs e)
@@ -124,6 +124,22 @@ namespace PatientManagement
         private void btnPrintPreview_Click(object sender, EventArgs e)
         {
             wv.ShowPrintPreviewDialog();
+        }
+
+        public void DeleteImageFolder()
+        {
+            string path;
+            if (!Directory.Exists(@"S:\"))
+            {
+                path = @"D:\ABC soft\";
+            }
+            else
+            {
+                path = _path;
+            }
+            var directory = new DirectoryInfo(path+@"RTF\images");
+            directory.Attributes = directory.Attributes & ~FileAttributes.ReadOnly;
+            directory.Delete(true);
         }
 
     }

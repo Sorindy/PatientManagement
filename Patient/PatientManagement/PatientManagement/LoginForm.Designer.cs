@@ -243,6 +243,7 @@ namespace PatientManagement
             this.btnLogin.Size = new System.Drawing.Size(443, 65);
             this.btnLogin.TabIndex = 3;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            this.btnLogin.Paint += new System.Windows.Forms.PaintEventHandler(this.btnLogin_Paint);
             // 
             // lbLogin
             // 

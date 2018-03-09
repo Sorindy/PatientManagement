@@ -56,7 +56,7 @@ namespace PatientManagement.Class
                                       b.PatientId,
                                       b.Patient.FirstName,
                                       b.Patient.LastName,
-                                      b.Time,
+                                      Time = b.Time.Hours + " : " + b.Time.Minutes,
                                       b.Status,
                                       b.Number,
                                   };
@@ -76,7 +76,7 @@ namespace PatientManagement.Class
                             b.PatientId,
                             b.Patient.FirstName,
                             b.Patient.LastName,
-                            b.Time,
+                            Time = b.Time.Hours + " : " + b.Time.Minutes,
                             b.Status,
                             b.Number
                         };
@@ -97,7 +97,7 @@ namespace PatientManagement.Class
                             b.PatientId,
                             b.Patient.FirstName,
                             b.Patient.LastName,
-                            b.Time,
+                            Time = b.Time.Hours + " : " + b.Time.Minutes,
                             b.Status,
                             b.Number
                         };
@@ -118,7 +118,7 @@ namespace PatientManagement.Class
                             b.PatientId,
                             b.Patient.FirstName,
                             b.Patient.LastName,
-                            b.Time,
+                            Time = b.Time.Hours + " : " + b.Time.Minutes,
                             b.Status,
                             b.Number
                         };
@@ -139,7 +139,7 @@ namespace PatientManagement.Class
                             b.PatientId,
                             b.Patient.FirstName,
                             b.Patient.LastName,
-                            b.Time,
+                            Time = b.Time.Hours + " : " + b.Time.Minutes,
                             b.Status,
                             b.Number
                         };
@@ -166,7 +166,7 @@ namespace PatientManagement.Class
                     b.PatientId,
                     b.Patient.FirstName,
                     b.Patient.LastName,
-                    b.Time,
+                    Time = b.Time.Hours + " : " + b.Time.Minutes,
                     b.Status,
                     b.Number
                 };

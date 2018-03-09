@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using Hospital_Entity_Framework;
@@ -348,5 +349,15 @@ namespace PatientManagement.Class
             }
             _db.SaveChanges();
         }
+
+        public void DeleteImageFolder()
+        {
+            var directory  = new DirectoryInfo(@"D:\PatientManagement\Patient\RTF\images");
+                directory.Attributes = directory.Attributes & ~FileAttributes.ReadOnly;
+                directory.Delete(true);     
+        }
+
+
+
     }
 }
