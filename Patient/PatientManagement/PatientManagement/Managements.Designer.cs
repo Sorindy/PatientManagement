@@ -93,7 +93,7 @@
             // 
             this.panel1.Controls.Add(this.tableLayoutPanel6);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(772, 33);
+            this.panel1.Location = new System.Drawing.Point(768, 33);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(34, 553);
             this.panel1.TabIndex = 2;
@@ -106,7 +106,7 @@
             this.pnlShow.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlShow.Location = new System.Drawing.Point(0, 55);
             this.pnlShow.Name = "pnlShow";
-            this.pnlShow.Size = new System.Drawing.Size(806, 586);
+            this.pnlShow.Size = new System.Drawing.Size(802, 586);
             this.pnlShow.TabIndex = 5;
             // 
             // pnlSelection
@@ -114,7 +114,7 @@
             this.pnlSelection.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlSelection.Location = new System.Drawing.Point(0, 33);
             this.pnlSelection.Name = "pnlSelection";
-            this.pnlSelection.Size = new System.Drawing.Size(806, 553);
+            this.pnlSelection.Size = new System.Drawing.Size(802, 553);
             this.pnlSelection.TabIndex = 1;
             // 
             // pnlShowService
@@ -123,7 +123,7 @@
             this.pnlShowService.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlShowService.Location = new System.Drawing.Point(0, 0);
             this.pnlShowService.Name = "pnlShowService";
-            this.pnlShowService.Size = new System.Drawing.Size(806, 33);
+            this.pnlShowService.Size = new System.Drawing.Size(802, 33);
             this.pnlShowService.TabIndex = 0;
             // 
             // tableLayoutPanel3
@@ -141,7 +141,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 340F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(223, 586);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(227, 586);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // gboButton
@@ -152,7 +152,7 @@
             this.gboButton.ForeColor = System.Drawing.SystemColors.Control;
             this.gboButton.Location = new System.Drawing.Point(13, 126);
             this.gboButton.Name = "gboButton";
-            this.gboButton.Size = new System.Drawing.Size(197, 334);
+            this.gboButton.Size = new System.Drawing.Size(201, 334);
             this.gboButton.TabIndex = 0;
             this.gboButton.TabStop = false;
             this.gboButton.Text = "ប្រតិបត្តិការណ៏";
@@ -172,7 +172,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 75F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(191, 304);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(195, 304);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // btnSubmit
@@ -186,7 +186,7 @@
             this.btnSubmit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSubmit.Location = new System.Drawing.Point(3, 53);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(185, 69);
+            this.btnSubmit.Size = new System.Drawing.Size(189, 69);
             this.btnSubmit.TabIndex = 0;
             this.btnSubmit.Text = "រក្សាទុក";
             this.btnSubmit.UseVisualStyleBackColor = false;
@@ -203,7 +203,7 @@
             this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDelete.Location = new System.Drawing.Point(3, 178);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(185, 69);
+            this.btnDelete.Size = new System.Drawing.Size(189, 69);
             this.btnDelete.TabIndex = 1;
             this.btnDelete.Text = "លុប";
             this.btnDelete.UseVisualStyleBackColor = false;
@@ -213,9 +213,9 @@
             // 
             this.pnlButton.Controls.Add(this.tableLayoutPanel3);
             this.pnlButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlButton.Location = new System.Drawing.Point(806, 55);
+            this.pnlButton.Location = new System.Drawing.Point(802, 55);
             this.pnlButton.Name = "pnlButton";
-            this.pnlButton.Size = new System.Drawing.Size(223, 586);
+            this.pnlButton.Size = new System.Drawing.Size(227, 586);
             this.pnlButton.TabIndex = 4;
             // 
             // picboxSearch
@@ -265,7 +265,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(459, 9);
+            this.label2.Location = new System.Drawing.Point(458, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(84, 36);
             this.label2.TabIndex = 0;
@@ -292,7 +292,7 @@
             this.txtName.Multiline = true;
             this.txtName.Name = "txtName";
             this.txtName.ReadOnly = true;
-            this.txtName.Size = new System.Drawing.Size(330, 49);
+            this.txtName.Size = new System.Drawing.Size(329, 49);
             this.txtName.TabIndex = 2;
             // 
             // txtPosition
@@ -300,11 +300,11 @@
             this.txtPosition.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.txtPosition.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtPosition.Font = new System.Drawing.Font("Modern No. 20", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPosition.Location = new System.Drawing.Point(560, 3);
+            this.txtPosition.Location = new System.Drawing.Point(559, 3);
             this.txtPosition.Multiline = true;
             this.txtPosition.Name = "txtPosition";
             this.txtPosition.ReadOnly = true;
-            this.txtPosition.Size = new System.Drawing.Size(223, 49);
+            this.txtPosition.Size = new System.Drawing.Size(224, 49);
             this.txtPosition.TabIndex = 3;
             // 
             // tableLayoutPanel2
@@ -313,7 +313,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.72406F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75.27594F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 111F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 228F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 229F));
             this.tableLayoutPanel2.Controls.Add(this.label2, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.label3, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.txtName, 1, 0);

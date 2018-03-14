@@ -31,6 +31,8 @@ namespace PatientManagement
             pnlShowService.Controls.Add(_chkIn.ShowService(this));
             pnlShowService.Enabled = true;
             pnlSelection.Enabled = true;
+            txtGender.Enabled = false;
+            txtName.Enabled = false;
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)

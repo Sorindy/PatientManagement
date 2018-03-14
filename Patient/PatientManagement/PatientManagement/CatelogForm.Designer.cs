@@ -172,7 +172,7 @@
             this.tblpanelPicture.ColumnCount = 3;
             this.tblpanelPicture.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.63415F));
             this.tblpanelPicture.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 85.36585F));
-            this.tblpanelPicture.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 43F));
+            this.tblpanelPicture.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tblpanelPicture.Controls.Add(this.panelLogout, 2, 0);
             this.tblpanelPicture.Controls.Add(this.pictureBox1, 1, 0);
             this.tblpanelPicture.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -189,10 +189,10 @@
             this.panelLogout.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelLogout.BackgroundImage")));
             this.panelLogout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelLogout.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelLogout.Location = new System.Drawing.Point(177, 4);
+            this.panelLogout.Location = new System.Drawing.Point(176, 4);
             this.panelLogout.Margin = new System.Windows.Forms.Padding(4);
             this.panelLogout.Name = "panelLogout";
-            this.panelLogout.Size = new System.Drawing.Size(36, 40);
+            this.panelLogout.Size = new System.Drawing.Size(37, 40);
             this.panelLogout.TabIndex = 1;
             this.panelLogout.Click += new System.EventHandler(this.panelLogout_Click);
             // 
@@ -203,7 +203,7 @@
             this.pictureBox1.Location = new System.Drawing.Point(29, 4);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(140, 103);
+            this.pictureBox1.Size = new System.Drawing.Size(139, 103);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
@@ -264,11 +264,11 @@
             // 
             this.lblDatetime.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblDatetime.AutoSize = true;
-            this.lblDatetime.Font = new System.Drawing.Font("Times New Roman", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDatetime.Location = new System.Drawing.Point(352, 0);
+            this.lblDatetime.Font = new System.Drawing.Font("Times New Roman", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDatetime.Location = new System.Drawing.Point(376, 2);
             this.lblDatetime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDatetime.Name = "lblDatetime";
-            this.lblDatetime.Size = new System.Drawing.Size(226, 48);
+            this.lblDatetime.Size = new System.Drawing.Size(178, 43);
             this.lblDatetime.TabIndex = 3;
             this.lblDatetime.Text = "DateTime";
             this.lblDatetime.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblDatetime_MouseDown);

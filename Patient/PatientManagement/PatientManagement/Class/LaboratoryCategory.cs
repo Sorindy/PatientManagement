@@ -34,6 +34,15 @@ namespace PatientManagement.Class
             };
             _db.LaboratoryCategories.Add(insert);
             _db.SaveChanges();
+
+            AddCategoryToAdmin(insert.Id);
+        }
+
+        private void AddCategoryToAdmin(int id)
+        {
+            _db.Managements.First(v => v.Account.Worker.Position == @"Admin").LaboratoryCategories
+                .Add(_db.LaboratoryCategories.First(v => v.Id == id));
+            _db.SaveChanges();
         }
 
         public void Update(int id, string name)

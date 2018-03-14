@@ -25,6 +25,15 @@ namespace PatientManagement.Class
             };
             _db.ConsultationCategories.Add(insert);
             _db.SaveChanges();
+
+            AddCategoryToAdmin(insert.Id);
+        }
+
+        private void AddCategoryToAdmin(int id)
+        {
+            _db.Managements.First(v => v.Account.Worker.Position == @"Admin").ConsultationCategories
+                .Add(_db.ConsultationCategories.First(v => v.Id == id));
+            _db.SaveChanges();
         }
 
         public void Update(int id, string name)

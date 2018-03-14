@@ -47,6 +47,7 @@ namespace PatientManagement
             dgvListWorker.ClearSelection();
             dgvListWorker.ColumnHeadersDefaultCellStyle.Alignment=DataGridViewContentAlignment.MiddleCenter;
             CheckOrderDgv();
+            dgvListWorker.ColumnHeadersDefaultCellStyle.Font = new Font(@"Arial", 14);
         }
 
         private void txtSearch_Click(object sender, EventArgs e)

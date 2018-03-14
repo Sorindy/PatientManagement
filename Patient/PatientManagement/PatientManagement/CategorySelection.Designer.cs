@@ -196,6 +196,7 @@
             this.tabCategory.Name = "tabCategory";
             this.tabCategory.SelectedIndex = 0;
             this.tabCategory.Size = new System.Drawing.Size(753, 611);
+            this.tabCategory.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabCategory.TabIndex = 0;
             // 
             // CategorySelection

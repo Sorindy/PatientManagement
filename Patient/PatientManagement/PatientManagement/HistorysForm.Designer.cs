@@ -482,6 +482,7 @@
             this.tabSelection.Name = "tabSelection";
             this.tabSelection.SelectedIndex = 0;
             this.tabSelection.Size = new System.Drawing.Size(489, 613);
+            this.tabSelection.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabSelection.TabIndex = 0;
             this.tabSelection.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabSelection_Selected);
             // 

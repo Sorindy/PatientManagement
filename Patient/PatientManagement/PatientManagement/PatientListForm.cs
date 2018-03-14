@@ -46,6 +46,7 @@ namespace PatientManagement
             btnCheckIn.UseColumnTextForButtonValue = true;
             dgvListPatient.Columns.AddRange(btnCheckIn,btnView);
             dgvListPatient.ColumnHeadersDefaultCellStyle.Alignment=DataGridViewContentAlignment.MiddleCenter;
+            dgvListPatient.ColumnHeadersDefaultCellStyle.Font = new Font(@"Arial", 14);
             CheckOrderDgv();
         }
 

@@ -35,6 +35,15 @@ namespace PatientManagement.Class
             };
             _db.VariousDocumentCategories.Add(insert);
             _db.SaveChanges();
+
+            AddCategoryToAdmin(insert.Id);
+        }
+
+        private void AddCategoryToAdmin(int id)
+        {
+            _db.Managements.First(v => v.Account.Worker.Position == @"Admin").VariousDocumentCategories
+                .Add(_db.VariousDocumentCategories.First(v=>v.Id==id));
+            _db.SaveChanges();
         }
 
         public void Update(int id, string name)
