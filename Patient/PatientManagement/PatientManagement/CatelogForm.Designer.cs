@@ -264,11 +264,12 @@
             // 
             this.lblDatetime.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblDatetime.AutoSize = true;
-            this.lblDatetime.Font = new System.Drawing.Font("Times New Roman", 32.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDatetime.Location = new System.Drawing.Point(364, 0);
+
+            this.lblDatetime.Font = new System.Drawing.Font("Times New Roman", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDatetime.Location = new System.Drawing.Point(376, 2);
             this.lblDatetime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDatetime.Name = "lblDatetime";
-            this.lblDatetime.Size = new System.Drawing.Size(203, 48);
+            this.lblDatetime.Size = new System.Drawing.Size(178, 43);
             this.lblDatetime.TabIndex = 3;
             this.lblDatetime.Text = "DateTime";
             this.lblDatetime.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblDatetime_MouseDown);

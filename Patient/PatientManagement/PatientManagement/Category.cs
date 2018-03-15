@@ -33,6 +33,7 @@ namespace PatientManagement
             dgvListCategory.DataSource = null;
             btnDelete.Enabled = false;
             CheckOrderDgv();
+            dgvListCategory.ColumnHeadersDefaultCellStyle.Font=new Font(@"Arial",20);
         }
 
         private void btnNew_Click(object sender, EventArgs e)
@@ -50,7 +51,6 @@ namespace PatientManagement
                     btnNew.Name = @"btnAdd";
                     btnNew.Click += btnAdd_Click;
                     btnEdit.Text = @"Cancel";
-                    btnEdit.BackColor = Color.Tomato;
                     btnEdit.Name = @"btnCancel";
                     btnEdit.Click += btnCancel_Click;
                 }
@@ -66,11 +66,9 @@ namespace PatientManagement
             if (btnEdit.Name == "btnCancel")
             {
                 btnEdit.Text = @"កែប្រែ";
-                btnEdit.BackColor = Color.DarkSlateGray;
                 btnEdit.Name = @"btnEdit";
                 btnEdit.Click -= btnCancel_Click;
                 btnNew.Text = @"បង្កើតថ្មី";
-                btnNew.BackColor = Color.SeaGreen;
                 btnNew.Name = @"btnNew";
                 btnNew.Click -= btnAdd_Click;
                 cboService_TextChanged(this,new EventArgs());
@@ -78,11 +76,9 @@ namespace PatientManagement
             if (btnNew.Name == "btnCancel")
             {
                 btnEdit.Text = @"កែប្រែ";
-                btnEdit.BackColor = Color.DarkSlateGray;
                 btnEdit.Name = @"btnEdit";
                 btnEdit.Click -= btnUpdate_Click;
                 btnNew.Text = @"បង្កើតថ្មី";
-                btnNew.BackColor = Color.SeaGreen;
                 btnNew.Name = @"btnNew";
                 btnNew.Click -= btnCancel_Click;
                 cboService_TextChanged(this,new EventArgs());
@@ -96,11 +92,9 @@ namespace PatientManagement
                 if (btnNew.Name == "btnAdd")
                 {
                     btnNew.Text = @"បង្កើតថ្មី";
-                    btnNew.BackColor = Color.SeaGreen;
                     btnNew.Name = @"btnNew";
                     btnNew.Click -= btnAdd_Click;
                     btnEdit.Text = @"កែប្រែ";
-                    btnEdit.BackColor = Color.DarkSlateGray;
                     btnEdit.Name = @"btnEdit";
                     btnEdit.Click -= btnCancel_Click;
                 }
@@ -184,11 +178,9 @@ namespace PatientManagement
                 if (btnEdit.Name == "btnEdit")
                 {
                     btnEdit.Text = @"បញ្ចូល";
-                    btnEdit.BackColor = Color.SeaGreen;
                     btnEdit.Name = @"btnUpdate";
                     cboService.Enabled = false;
                     btnNew.Text = @"Canel";
-                    btnNew.BackColor = Color.Tomato;
                     btnNew.Name = @"btnCancel";
                     btnNew.Click += btnCancel_Click;
                     btnEdit.Click += btnUpdate_Click;
@@ -218,12 +210,10 @@ namespace PatientManagement
                     if (btnEdit.Name == "btnUpdate")
                     {
                         btnEdit.Text = @"កែប្រែ";
-                        btnEdit.BackColor = Color.DarkSlateGray;
                         btnEdit.Name = @"btnEdit";
                         cboService.Enabled = true;
                         btnNew.Text = @"បង្កើតថ្មី";
                         btnNew.Name = @"btnNew";
-                        btnNew.BackColor = Color.SeaGreen;
                         btnNew.Enabled = true;
                         btnEdit.Click -= btnUpdate_Click;
                         btnNew.Click -= btnCancel_Click;

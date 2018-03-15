@@ -34,9 +34,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.pnlTop = new System.Windows.Forms.Panel();
-            this.tblypnTop = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
             this.pnlFill = new System.Windows.Forms.Panel();
             this.pnMidle = new System.Windows.Forms.Panel();
             this.tblypnMidle = new System.Windows.Forms.TableLayoutPanel();
@@ -48,8 +45,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.pnlTop.SuspendLayout();
-            this.tblypnTop.SuspendLayout();
             this.pnlFill.SuspendLayout();
             this.pnMidle.SuspendLayout();
             this.tblypnMidle.SuspendLayout();
@@ -58,53 +53,13 @@
             this.tblypnMidleMidle.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pnlTop
-            // 
-            this.pnlTop.Controls.Add(this.tblypnTop);
-            this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlTop.Location = new System.Drawing.Point(0, 0);
-            this.pnlTop.Name = "pnlTop";
-            this.pnlTop.Size = new System.Drawing.Size(1064, 65);
-            this.pnlTop.TabIndex = 9;
-            // 
-            // tblypnTop
-            // 
-            this.tblypnTop.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.tblypnTop.ColumnCount = 1;
-            this.tblypnTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tblypnTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tblypnTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tblypnTop.Controls.Add(this.label1, 0, 0);
-            this.tblypnTop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tblypnTop.Location = new System.Drawing.Point(0, 0);
-            this.tblypnTop.Name = "tblypnTop";
-            this.tblypnTop.RowCount = 1;
-            this.tblypnTop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tblypnTop.Size = new System.Drawing.Size(1064, 65);
-            this.tblypnTop.TabIndex = 9;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label1.Font = new System.Drawing.Font("Modern No. 20", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(400, 15);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(263, 34);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "តារាង ​បង្ហាញបញ្ចីររងចាំ";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // pnlFill
             // 
             this.pnlFill.Controls.Add(this.pnMidle);
             this.pnlFill.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlFill.Location = new System.Drawing.Point(0, 65);
+            this.pnlFill.Location = new System.Drawing.Point(0, 0);
             this.pnlFill.Name = "pnlFill";
-            this.pnlFill.Size = new System.Drawing.Size(1064, 664);
+            this.pnlFill.Size = new System.Drawing.Size(1064, 729);
             this.pnlFill.TabIndex = 10;
             // 
             // pnMidle
@@ -113,7 +68,7 @@
             this.pnMidle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnMidle.Location = new System.Drawing.Point(0, 0);
             this.pnMidle.Name = "pnMidle";
-            this.pnMidle.Size = new System.Drawing.Size(1064, 664);
+            this.pnMidle.Size = new System.Drawing.Size(1064, 729);
             this.pnMidle.TabIndex = 10;
             // 
             // tblypnMidle
@@ -128,7 +83,7 @@
             this.tblypnMidle.RowCount = 2;
             this.tblypnMidle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tblypnMidle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tblypnMidle.Size = new System.Drawing.Size(1064, 664);
+            this.tblypnMidle.Size = new System.Drawing.Size(1064, 729);
             this.tblypnMidle.TabIndex = 5;
             // 
             // gbAllWaiting
@@ -141,7 +96,7 @@
             this.gbAllWaiting.ForeColor = System.Drawing.Color.Black;
             this.gbAllWaiting.Location = new System.Drawing.Point(3, 63);
             this.gbAllWaiting.Name = "gbAllWaiting";
-            this.gbAllWaiting.Size = new System.Drawing.Size(1058, 598);
+            this.gbAllWaiting.Size = new System.Drawing.Size(1058, 663);
             this.gbAllWaiting.TabIndex = 1;
             this.gbAllWaiting.TabStop = false;
             this.gbAllWaiting.Text = "តារាង";
@@ -208,7 +163,7 @@
             this.dgvAllWatingList.RowTemplate.ReadOnly = true;
             this.dgvAllWatingList.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvAllWatingList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAllWatingList.Size = new System.Drawing.Size(1052, 563);
+            this.dgvAllWatingList.Size = new System.Drawing.Size(1052, 628);
             this.dgvAllWatingList.TabIndex = 7;
             this.dgvAllWatingList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAllWatingList_CellClick);
             // 
@@ -302,14 +257,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1064, 729);
             this.Controls.Add(this.pnlFill);
-            this.Controls.Add(this.pnlTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "WaitingForm";
             this.Text = "WaitingForm";
             this.Shown += new System.EventHandler(this.WaitingForm_Shown);
-            this.pnlTop.ResumeLayout(false);
-            this.tblypnTop.ResumeLayout(false);
-            this.tblypnTop.PerformLayout();
             this.pnlFill.ResumeLayout(false);
             this.pnMidle.ResumeLayout(false);
             this.tblypnMidle.ResumeLayout(false);
@@ -323,9 +274,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel pnlTop;
-        private System.Windows.Forms.TableLayoutPanel tblypnTop;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel pnlFill;
         private System.Windows.Forms.Panel pnMidle;
         private System.Windows.Forms.TableLayoutPanel tblypnMidle;

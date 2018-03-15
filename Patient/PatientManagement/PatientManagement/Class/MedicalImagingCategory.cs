@@ -36,6 +36,15 @@ namespace PatientManagement.Class
             };
             _db.MedicalImagingCategories.Add(insert);
             _db.SaveChanges();
+        
+            AddCategoryToAdmin(insert.Id);
+        }
+
+        private void AddCategoryToAdmin(int id)
+        {
+            _db.Managements.First(v => v.Account.Worker.Position == @"Admin").MedicalImagingCategories
+                .Add(_db.MedicalImagingCategories.First(v => v.Id == id));
+            _db.SaveChanges();
         }
 
         public void Update(int id, string name)

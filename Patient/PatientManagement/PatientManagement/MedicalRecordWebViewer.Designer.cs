@@ -57,7 +57,7 @@
             this.pnBoss.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnBoss.Location = new System.Drawing.Point(0, 0);
             this.pnBoss.Name = "pnBoss";
-            this.pnBoss.Size = new System.Drawing.Size(1129, 776);
+            this.pnBoss.Size = new System.Drawing.Size(1129, 733);
             this.pnBoss.TabIndex = 1;
             // 
             // pnMiddle
@@ -66,7 +66,7 @@
             this.pnMiddle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnMiddle.Location = new System.Drawing.Point(0, 51);
             this.pnMiddle.Name = "pnMiddle";
-            this.pnMiddle.Size = new System.Drawing.Size(1129, 725);
+            this.pnMiddle.Size = new System.Drawing.Size(1129, 682);
             this.pnMiddle.TabIndex = 2;
             // 
             // wv
@@ -75,7 +75,7 @@
             this.wv.Location = new System.Drawing.Point(0, 0);
             this.wv.MinimumSize = new System.Drawing.Size(20, 20);
             this.wv.Name = "wv";
-            this.wv.Size = new System.Drawing.Size(1129, 725);
+            this.wv.Size = new System.Drawing.Size(1129, 682);
             this.wv.TabIndex = 1;
             // 
             // pnTop
@@ -191,7 +191,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1129, 776);
+            this.ClientSize = new System.Drawing.Size(1129, 733);
             this.Controls.Add(this.pnBoss);
             this.Name = "MedicalRecordWebViewer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -30,10 +30,10 @@ namespace PatientManagement
 
             Html = Html.Substring(count-51);
             Html = Html.Remove(Html.Length - 16);
-            //var path = AppDomain.CurrentDomain.BaseDirectory;
-            //_path = path.Remove(path.Length - 46);
-            //_path = path;
-            _path = @"S:\";
+            var path = AppDomain.CurrentDomain.BaseDirectory;
+            _path = path.Remove(path.Length - 46);
+            _path = path;
+            //_path = @"S:\";
             btnPrint.Visible = false;
             btnPrintPreview.Visible = false;
             btnModel.Visible = false;
@@ -58,14 +58,14 @@ namespace PatientManagement
         private void cmbModel_SelectedIndexChanged(object sender, EventArgs e)
         {
             string path;
-            if (!Directory.Exists(@"S:\"))
-            {
-                path = @"D:\ABC soft\";
-            }
-            else
-            {
+            //if (!Directory.Exists(@"S:\"))
+            //{
+            //    path = @"D:\ABC soft\";
+            //}
+            //else
+            //{
                 path = _path;
-            }
+            //}
             if (cmbModel.SelectedIndex == 0)
             {
                 btnPrint.Visible = true;
@@ -129,14 +129,14 @@ namespace PatientManagement
         public void DeleteImageFolder()
         {
             string path;
-            if (!Directory.Exists(@"S:\"))
-            {
-                path = @"D:\ABC soft\";
-            }
-            else
-            {
+            //if (!Directory.Exists(@"S:\"))
+            //{
+            //    path = @"D:\ABC soft\";
+            //}
+            //else
+            //{
                 path = _path;
-            }
+            //}
             var directory = new DirectoryInfo(path+@"RTF\images");
             directory.Attributes = directory.Attributes & ~FileAttributes.ReadOnly;
             directory.Delete(true);
