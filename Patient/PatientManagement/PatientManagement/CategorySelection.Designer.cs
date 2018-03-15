@@ -192,6 +192,7 @@
             // 
             this.tabCategory.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabCategory.Font = new System.Drawing.Font("Eras Bold ITC", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabCategory.ItemSize = new System.Drawing.Size(62, 33);
             this.tabCategory.Location = new System.Drawing.Point(0, 0);
             this.tabCategory.Name = "tabCategory";
             this.tabCategory.SelectedIndex = 0;

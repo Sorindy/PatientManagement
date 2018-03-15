@@ -132,14 +132,12 @@ namespace PatientManagement
                     if (showDeleteMsg == DialogResult.Yes)
                     {
                         Worker.Delete(Convert.ToInt32(id));
-                        dgvListWorker.Columns.RemoveAt(8);
-                        dgvListWorker.Columns.RemoveAt(8);
+                        dgvListWorker.Columns.Clear();
                         WorkerListForm_Shown(this, new EventArgs());
                     }
                     if (showDeleteMsg == DialogResult.No)
                     {
-                        dgvListWorker.Columns.RemoveAt(8);
-                        dgvListWorker.Columns.RemoveAt(8);
+                        dgvListWorker.Columns.Clear();
                         WorkerListForm_Shown(this,new EventArgs());
                     }
                 }

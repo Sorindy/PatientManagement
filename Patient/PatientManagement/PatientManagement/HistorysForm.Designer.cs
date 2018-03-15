@@ -471,6 +471,7 @@
             // 
             // tabSelection
             // 
+            this.tabSelection.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
             this.tabSelection.Controls.Add(this.tabConsultation);
             this.tabSelection.Controls.Add(this.tabLaboratory);
             this.tabSelection.Controls.Add(this.tabMedicalImaging);
@@ -478,6 +479,7 @@
             this.tabSelection.Controls.Add(this.tabVariousDocument);
             this.tabSelection.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabSelection.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabSelection.ItemSize = new System.Drawing.Size(62, 35);
             this.tabSelection.Location = new System.Drawing.Point(0, 0);
             this.tabSelection.Name = "tabSelection";
             this.tabSelection.SelectedIndex = 0;
@@ -491,14 +493,15 @@
             this.tabConsultation.AutoScroll = true;
             this.tabConsultation.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.tabConsultation.Controls.Add(this.tableLayoutPanel7);
-            this.tabConsultation.Location = new System.Drawing.Point(4, 31);
+            this.tabConsultation.Location = new System.Drawing.Point(4, 39);
             this.tabConsultation.Name = "tabConsultation";
             this.tabConsultation.Padding = new System.Windows.Forms.Padding(3);
             this.tabConsultation.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.tabConsultation.Size = new System.Drawing.Size(481, 578);
+            this.tabConsultation.Size = new System.Drawing.Size(481, 570);
             this.tabConsultation.TabIndex = 0;
             this.tabConsultation.Text = "Consultation";
             this.tabConsultation.UseVisualStyleBackColor = true;
+            this.tabConsultation.Click += new System.EventHandler(this.tabConsultation_Click);
             // 
             // tableLayoutPanel7
             // 
@@ -516,7 +519,7 @@
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(471, 568);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(471, 560);
             this.tableLayoutPanel7.TabIndex = 1;
             // 
             // pnlHistory
@@ -525,7 +528,7 @@
             this.pnlHistory.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlHistory.Location = new System.Drawing.Point(13, 57);
             this.pnlHistory.Name = "pnlHistory";
-            this.pnlHistory.Size = new System.Drawing.Size(445, 468);
+            this.pnlHistory.Size = new System.Drawing.Size(445, 460);
             this.pnlHistory.TabIndex = 1;
             // 
             // dgvConsultation
@@ -540,6 +543,8 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dgvConsultation.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvConsultation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvConsultation.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvConsultation.BackgroundColor = System.Drawing.SystemColors.ControlLight;
             this.dgvConsultation.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical;
@@ -561,7 +566,6 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvConsultation.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvConsultation.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvConsultation.EnableHeadersVisualStyles = false;
             this.dgvConsultation.Location = new System.Drawing.Point(0, 0);
             this.dgvConsultation.MultiSelect = false;
@@ -591,7 +595,7 @@
             this.dgvConsultation.RowTemplate.ReadOnly = true;
             this.dgvConsultation.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvConsultation.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvConsultation.Size = new System.Drawing.Size(445, 468);
+            this.dgvConsultation.Size = new System.Drawing.Size(444, 468);
             this.dgvConsultation.TabIndex = 2;
             this.dgvConsultation.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvConsultation_CellClick);
             this.dgvConsultation.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvConsultation_CellContentClick);
@@ -649,7 +653,7 @@
             // 
             this.panel11.Controls.Add(this.btnNewConsultation);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel11.Location = new System.Drawing.Point(13, 531);
+            this.panel11.Location = new System.Drawing.Point(13, 523);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(445, 34);
             this.panel11.TabIndex = 4;
@@ -672,11 +676,11 @@
             this.tabLaboratory.AutoScroll = true;
             this.tabLaboratory.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.tabLaboratory.Controls.Add(this.tableLayoutPanel8);
-            this.tabLaboratory.Location = new System.Drawing.Point(4, 31);
+            this.tabLaboratory.Location = new System.Drawing.Point(4, 39);
             this.tabLaboratory.Name = "tabLaboratory";
             this.tabLaboratory.Padding = new System.Windows.Forms.Padding(3);
             this.tabLaboratory.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.tabLaboratory.Size = new System.Drawing.Size(481, 578);
+            this.tabLaboratory.Size = new System.Drawing.Size(481, 570);
             this.tabLaboratory.TabIndex = 1;
             this.tabLaboratory.Text = "Laboratory";
             this.tabLaboratory.UseVisualStyleBackColor = true;
@@ -694,19 +698,19 @@
             this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 3;
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 53F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(471, 568);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(471, 560);
             this.tableLayoutPanel8.TabIndex = 2;
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.dgvLaboratory);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(13, 56);
+            this.panel3.Location = new System.Drawing.Point(13, 57);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(445, 469);
+            this.panel3.Size = new System.Drawing.Size(445, 460);
             this.panel3.TabIndex = 1;
             // 
             // dgvLaboratory
@@ -772,7 +776,7 @@
             this.dgvLaboratory.RowTemplate.ReadOnly = true;
             this.dgvLaboratory.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvLaboratory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLaboratory.Size = new System.Drawing.Size(445, 469);
+            this.dgvLaboratory.Size = new System.Drawing.Size(445, 460);
             this.dgvLaboratory.TabIndex = 2;
             this.dgvLaboratory.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLaboratory_CellClick);
             this.dgvLaboratory.SelectionChanged += new System.EventHandler(this.dgvLaboratory_SelectionChanged);
@@ -783,7 +787,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(13, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(445, 47);
+            this.panel4.Size = new System.Drawing.Size(445, 48);
             this.panel4.TabIndex = 3;
             // 
             // tableLayoutPanel9
@@ -799,7 +803,7 @@
             this.tableLayoutPanel9.RowCount = 1;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(445, 47);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(445, 48);
             this.tableLayoutPanel9.TabIndex = 0;
             // 
             // label8
@@ -829,7 +833,7 @@
             // 
             this.panel15.Controls.Add(this.btnNewLaboratory);
             this.panel15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel15.Location = new System.Drawing.Point(13, 531);
+            this.panel15.Location = new System.Drawing.Point(13, 523);
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(445, 34);
             this.panel15.TabIndex = 4;
@@ -852,11 +856,11 @@
             this.tabMedicalImaging.AutoScroll = true;
             this.tabMedicalImaging.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.tabMedicalImaging.Controls.Add(this.tableLayoutPanel10);
-            this.tabMedicalImaging.Location = new System.Drawing.Point(4, 31);
+            this.tabMedicalImaging.Location = new System.Drawing.Point(4, 39);
             this.tabMedicalImaging.Name = "tabMedicalImaging";
             this.tabMedicalImaging.Padding = new System.Windows.Forms.Padding(3);
             this.tabMedicalImaging.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.tabMedicalImaging.Size = new System.Drawing.Size(481, 578);
+            this.tabMedicalImaging.Size = new System.Drawing.Size(481, 570);
             this.tabMedicalImaging.TabIndex = 2;
             this.tabMedicalImaging.Text = "MedicalImaging";
             this.tabMedicalImaging.UseVisualStyleBackColor = true;
@@ -874,19 +878,19 @@
             this.tableLayoutPanel10.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
             this.tableLayoutPanel10.RowCount = 3;
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(471, 568);
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(471, 560);
             this.tableLayoutPanel10.TabIndex = 2;
             // 
             // panel5
             // 
             this.panel5.Controls.Add(this.dgvMedicalImaging);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(13, 58);
+            this.panel5.Location = new System.Drawing.Point(13, 57);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(445, 467);
+            this.panel5.Size = new System.Drawing.Size(445, 460);
             this.panel5.TabIndex = 1;
             // 
             // dgvMedicalImaging
@@ -952,7 +956,7 @@
             this.dgvMedicalImaging.RowTemplate.ReadOnly = true;
             this.dgvMedicalImaging.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvMedicalImaging.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMedicalImaging.Size = new System.Drawing.Size(445, 467);
+            this.dgvMedicalImaging.Size = new System.Drawing.Size(445, 460);
             this.dgvMedicalImaging.TabIndex = 2;
             this.dgvMedicalImaging.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMedicalImaging_CellClick);
             this.dgvMedicalImaging.SelectionChanged += new System.EventHandler(this.dgvMedicalImaging_SelectionChanged);
@@ -963,7 +967,7 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(13, 3);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(445, 49);
+            this.panel6.Size = new System.Drawing.Size(445, 48);
             this.panel6.TabIndex = 3;
             // 
             // tableLayoutPanel13
@@ -979,7 +983,7 @@
             this.tableLayoutPanel13.RowCount = 1;
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
-            this.tableLayoutPanel13.Size = new System.Drawing.Size(445, 49);
+            this.tableLayoutPanel13.Size = new System.Drawing.Size(445, 48);
             this.tableLayoutPanel13.TabIndex = 0;
             // 
             // label9
@@ -987,7 +991,7 @@
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(15, 12);
+            this.label9.Location = new System.Drawing.Point(15, 11);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(95, 25);
             this.label9.TabIndex = 1;
@@ -1009,7 +1013,7 @@
             // 
             this.panel14.Controls.Add(this.btnNewMedicalImaging);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel14.Location = new System.Drawing.Point(13, 531);
+            this.panel14.Location = new System.Drawing.Point(13, 523);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(445, 34);
             this.panel14.TabIndex = 4;
@@ -1032,11 +1036,11 @@
             this.tabPrescription.AutoScroll = true;
             this.tabPrescription.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.tabPrescription.Controls.Add(this.tableLayoutPanel14);
-            this.tabPrescription.Location = new System.Drawing.Point(4, 31);
+            this.tabPrescription.Location = new System.Drawing.Point(4, 39);
             this.tabPrescription.Name = "tabPrescription";
             this.tabPrescription.Padding = new System.Windows.Forms.Padding(3);
             this.tabPrescription.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.tabPrescription.Size = new System.Drawing.Size(481, 578);
+            this.tabPrescription.Size = new System.Drawing.Size(481, 570);
             this.tabPrescription.TabIndex = 3;
             this.tabPrescription.Text = "Prescription";
             this.tabPrescription.UseVisualStyleBackColor = true;
@@ -1057,7 +1061,7 @@
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel14.Size = new System.Drawing.Size(471, 568);
+            this.tableLayoutPanel14.Size = new System.Drawing.Size(471, 560);
             this.tableLayoutPanel14.TabIndex = 2;
             // 
             // panel7
@@ -1066,7 +1070,7 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(13, 57);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(445, 468);
+            this.panel7.Size = new System.Drawing.Size(445, 460);
             this.panel7.TabIndex = 1;
             // 
             // dgvPrescription
@@ -1132,7 +1136,7 @@
             this.dgvPrescription.RowTemplate.ReadOnly = true;
             this.dgvPrescription.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvPrescription.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPrescription.Size = new System.Drawing.Size(445, 468);
+            this.dgvPrescription.Size = new System.Drawing.Size(445, 460);
             this.dgvPrescription.TabIndex = 2;
             this.dgvPrescription.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPrescription_CellClick);
             this.dgvPrescription.SelectionChanged += new System.EventHandler(this.dgvPrescription_SelectionChanged);
@@ -1189,7 +1193,7 @@
             // 
             this.panel13.Controls.Add(this.btnNewPresciption);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel13.Location = new System.Drawing.Point(13, 531);
+            this.panel13.Location = new System.Drawing.Point(13, 523);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(445, 34);
             this.panel13.TabIndex = 4;
@@ -1212,11 +1216,11 @@
             this.tabVariousDocument.AutoScroll = true;
             this.tabVariousDocument.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.tabVariousDocument.Controls.Add(this.tableLayoutPanel16);
-            this.tabVariousDocument.Location = new System.Drawing.Point(4, 31);
+            this.tabVariousDocument.Location = new System.Drawing.Point(4, 39);
             this.tabVariousDocument.Name = "tabVariousDocument";
             this.tabVariousDocument.Padding = new System.Windows.Forms.Padding(3);
             this.tabVariousDocument.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.tabVariousDocument.Size = new System.Drawing.Size(481, 578);
+            this.tabVariousDocument.Size = new System.Drawing.Size(481, 570);
             this.tabVariousDocument.TabIndex = 4;
             this.tabVariousDocument.Text = "VariousDocument";
             this.tabVariousDocument.UseVisualStyleBackColor = true;
@@ -1234,19 +1238,19 @@
             this.tableLayoutPanel16.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel16.Name = "tableLayoutPanel16";
             this.tableLayoutPanel16.RowCount = 3;
-            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 51F));
+            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel16.Size = new System.Drawing.Size(471, 568);
+            this.tableLayoutPanel16.Size = new System.Drawing.Size(471, 560);
             this.tableLayoutPanel16.TabIndex = 2;
             // 
             // panel9
             // 
             this.panel9.Controls.Add(this.dgvVariousDocument);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel9.Location = new System.Drawing.Point(13, 54);
+            this.panel9.Location = new System.Drawing.Point(13, 57);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(445, 471);
+            this.panel9.Size = new System.Drawing.Size(445, 460);
             this.panel9.TabIndex = 1;
             // 
             // dgvVariousDocument
@@ -1312,7 +1316,7 @@
             this.dgvVariousDocument.RowTemplate.ReadOnly = true;
             this.dgvVariousDocument.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvVariousDocument.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvVariousDocument.Size = new System.Drawing.Size(445, 471);
+            this.dgvVariousDocument.Size = new System.Drawing.Size(445, 460);
             this.dgvVariousDocument.TabIndex = 2;
             this.dgvVariousDocument.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVariousDocument_CellClick);
             this.dgvVariousDocument.SelectionChanged += new System.EventHandler(this.dgvVariousDocument_SelectionChanged);
@@ -1323,7 +1327,7 @@
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel10.Location = new System.Drawing.Point(13, 3);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(445, 45);
+            this.panel10.Size = new System.Drawing.Size(445, 48);
             this.panel10.TabIndex = 3;
             // 
             // tableLayoutPanel17
@@ -1339,7 +1343,7 @@
             this.tableLayoutPanel17.RowCount = 1;
             this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
-            this.tableLayoutPanel17.Size = new System.Drawing.Size(445, 45);
+            this.tableLayoutPanel17.Size = new System.Drawing.Size(445, 48);
             this.tableLayoutPanel17.TabIndex = 0;
             // 
             // label11
@@ -1347,7 +1351,7 @@
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(15, 10);
+            this.label11.Location = new System.Drawing.Point(15, 11);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(95, 25);
             this.label11.TabIndex = 1;
@@ -1370,7 +1374,7 @@
             this.btnNewVarious.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnNewVarious.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnNewVarious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNewVarious.Location = new System.Drawing.Point(13, 531);
+            this.btnNewVarious.Location = new System.Drawing.Point(13, 523);
             this.btnNewVarious.Name = "btnNewVarious";
             this.btnNewVarious.Size = new System.Drawing.Size(445, 34);
             this.btnNewVarious.TabIndex = 4;

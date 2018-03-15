@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using PatientManagement.Class;
 using PatientManagement.Interface;
 using TXTextControl;
+using WinFormAnimation;
 using Account = Hospital_Entity_Framework.Account;
 using Form = System.Windows.Forms.Form;
 using Patient = Hospital_Entity_Framework.Patient;
@@ -1579,6 +1580,11 @@ namespace PatientManagement
         private void dgvConsultation_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void tabConsultation_Click(object sender, EventArgs e)
+        {
+           
         }
 
     }
