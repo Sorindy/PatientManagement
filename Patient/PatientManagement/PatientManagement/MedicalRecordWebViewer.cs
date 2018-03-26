@@ -32,17 +32,13 @@ namespace PatientManagement
             Html = Html.Remove(Html.Length - 16);
             var path = AppDomain.CurrentDomain.BaseDirectory;
             _path = path.Remove(path.Length - 46);
-            _path = path;
+            //_path = path;
             //_path = @"S:\";
-            btnPrintPreview.Visible = false;
             ShowSample_A_InWebViewer();
             ShowSample_B_InWebViewer();
             ShowSample_C_InWebViewer();
             ShowSample_D_InWebViewer();
-            wvSampleA.Visible = false;
-            wvSampleB.Visible = false;
-            wvSampleC.Visible = false;
-            wvSampleD.Visible = false;
+            WebviewerVisible(false, false, false, false);
         }
 
         private void cmbModel_SelectedIndexChanged(object sender, EventArgs e)
@@ -54,10 +50,7 @@ namespace PatientManagement
                     var boxcontrol = wvSampleA.Document.GetElementById("Box2");
                     if (boxcontrol != null) boxcontrol.InnerHtml = Html;
                 }
-                wvSampleA.Visible = true;
-                wvSampleB.Visible = false;
-                wvSampleC.Visible = false;
-                wvSampleD.Visible = false;
+                WebviewerVisible(true, false, false, false);
             }
             else if (cmbModel.SelectedIndex == 1)
             {
@@ -66,10 +59,7 @@ namespace PatientManagement
                     var boxcontrol = wvSampleB.Document.GetElementById("Box2");
                     if (boxcontrol != null) boxcontrol.InnerHtml = Html;
                 }
-                wvSampleB.Visible = true;
-                wvSampleA.Visible = false;
-                wvSampleC.Visible = false;
-                wvSampleD.Visible = false;
+                WebviewerVisible(false, true , false, false);
             }
             else if (cmbModel.SelectedIndex == 2)
             {
@@ -78,10 +68,7 @@ namespace PatientManagement
                     var boxcontrol = wvSampleC.Document.GetElementById("Box2");
                     if (boxcontrol != null) boxcontrol.InnerHtml = Html;
                 }
-                wvSampleC.Visible = true;
-                wvSampleB.Visible = false;
-                wvSampleA.Visible = false;
-                wvSampleD.Visible = false;
+                WebviewerVisible(false, false, true , false);
             }
             else if (cmbModel.SelectedIndex == 3)
             {
@@ -90,12 +77,16 @@ namespace PatientManagement
                     var boxcontrol = wvSampleD.Document.GetElementById("Box2");
                     if (boxcontrol != null) boxcontrol.InnerHtml = Html;
                 }
-                wvSampleD.Visible = true;
-                wvSampleB.Visible = false;
-                wvSampleC.Visible = false;
-                wvSampleA.Visible = false;
+                WebviewerVisible(false, false, false, true );
             }
-           
+        }
+
+        public void WebviewerVisible(bool sampleA, bool sampleB, bool sampleC, bool sampleD)
+        {
+            wvSampleA.Visible = sampleA ;
+            wvSampleB.Visible = sampleB ;
+            wvSampleC.Visible = sampleC ;
+            wvSampleD.Visible = sampleD ;
         }
 
         private void btnPrintPreview_Click(object sender, EventArgs e)
@@ -116,25 +107,10 @@ namespace PatientManagement
             {
                 wvSampleD.ShowPrintPreviewDialog();
             }
+           // DeleteImageFolder();
         }
 
-        public void DeleteImageFolder()
-        {
-            string path;
-            //if (!Directory.Exists(@"S:\"))
-            //{
-            //    path = @"D:\ABC soft\";
-            //}
-            //else
-            //{
-                path = _path;
-            //}
-            var directory = new DirectoryInfo(path+@"RTF\images");
-            directory.Attributes = directory.Attributes & ~FileAttributes.ReadOnly;
-            directory.Delete(true);
-        }
-
-        public void ShowSample_A_InWebViewer()
+        public string DirectoryAndPath()
         {
             string path;
             //if (!Directory.Exists(@"S:\"))
@@ -145,77 +121,68 @@ namespace PatientManagement
             //{
             path = _path;
             //}
-            btnPrintPreview.Visible = true;
+            return path;
+        }
+
+        //public void DeleteImageFolder()
+        //{
+        //    try
+        //    {
+        //        var directory = new DirectoryInfo(DirectoryAndPath() + @"RTF\images");
+        //        directory.Attributes = directory.Attributes & ~FileAttributes.ReadOnly;
+        //        if (directory.CreationTime < DateTime.Now.AddSeconds( -60))
+        //        {
+        //            directory.Delete(true);
+        //        }
+        //    }
+        //    catch
+        //    {
+        //    }
+
+        //}
+
+        public void ShowSample_A_InWebViewer()
+        {
             MedicalReportSampleA1.SetParameterValue("pPatientName", Patient.FirstName + " " + Patient.LastName + " ( " + Patient.KhmerName + " )");
             MedicalReportSampleA1.SetParameterValue("pGender", Patient.Gender);
             MedicalReportSampleA1.SetParameterValue("pDatetime", DateTime.Now);
             MedicalReportSampleA1.SetParameterValue("pDoctorName", Account.Worker.FirstName + " " + Account.Worker.LastName);
             MedicalReportSampleA1.SetParameterValue("pAge", Patient.Age);
-            MedicalReportSampleA1.ExportToDisk(ExportFormatType.HTML40, path + @"RTF\SampleA");
-            wvSampleA.Navigate(path + @"RTF\SampleA.htm");
+            MedicalReportSampleA1.ExportToDisk(ExportFormatType.HTML40, DirectoryAndPath() + @"RTF\SampleA");
+            wvSampleA.Navigate(DirectoryAndPath() + @"RTF\SampleA.htm");
         }
 
         public void ShowSample_B_InWebViewer()
         {
-            string path;
-            //if (!Directory.Exists(@"S:\"))
-            //{
-            //    path = @"D:\ABC soft\";
-            //}
-            //else
-            //{
-            path = _path;
-            //}
-            btnPrintPreview.Visible = true;
             MedicalReportSampleB1.SetParameterValue("pPatientName", Patient.FirstName + " " + Patient.LastName + " ( " + Patient.KhmerName + " )");
             MedicalReportSampleB1.SetParameterValue("pGender", Patient.Gender);
             MedicalReportSampleB1.SetParameterValue("pDatetime", DateTime.Now);
             MedicalReportSampleB1.SetParameterValue("pDoctorName", Account.Worker.FirstName + " " + Account.Worker.LastName);
             MedicalReportSampleB1.SetParameterValue("pAge", Patient.Age);
-            MedicalReportSampleB1.ExportToDisk(ExportFormatType.HTML40, path + @"RTF\SampleB");
-            wvSampleB.Navigate(path + @"RTF\SampleB.htm");
+            MedicalReportSampleB1.ExportToDisk(ExportFormatType.HTML40, DirectoryAndPath() + @"RTF\SampleB");
+            wvSampleB.Navigate(DirectoryAndPath() + @"RTF\SampleB.htm");
         }
 
         public void ShowSample_C_InWebViewer()
         {
-            string path;
-            //if (!Directory.Exists(@"S:\"))
-            //{
-            //    path = @"D:\ABC soft\";
-            //}
-            //else
-            //{
-            path = _path;
-            //}
-            btnPrintPreview.Visible = true;
             MedicalRecortSampleC1.SetParameterValue("pPatientName", Patient.FirstName + " " + Patient.LastName + " ( " + Patient.KhmerName + " )");
             MedicalRecortSampleC1.SetParameterValue("pGender", Patient.Gender);
             MedicalRecortSampleC1.SetParameterValue("pDatetime", DateTime.Now);
             MedicalRecortSampleC1.SetParameterValue("pDoctorName", Account.Worker.FirstName + " " + Account.Worker.LastName);
             MedicalRecortSampleC1.SetParameterValue("pAge", Patient.Age);
-            MedicalRecortSampleC1.ExportToDisk(ExportFormatType.HTML40, path + @"RTF\SampleC");
-            wvSampleC.Navigate(path + @"RTF\SampleC.htm");
+            MedicalRecortSampleC1.ExportToDisk(ExportFormatType.HTML40, DirectoryAndPath() + @"RTF\SampleC");
+            wvSampleC.Navigate(DirectoryAndPath() + @"RTF\SampleC.htm");
         }
 
         public void ShowSample_D_InWebViewer()
         {
-            string path;
-            //if (!Directory.Exists(@"S:\"))
-            //{
-            //    path = @"D:\ABC soft\";
-            //}
-            //else
-            //{
-            path = _path;
-            //}
-            btnPrintPreview.Visible = true;
             MedicalRecortSampleD1.SetParameterValue("pPatientName", Patient.FirstName + " " + Patient.LastName + " ( " + Patient.KhmerName + " )");
             MedicalRecortSampleD1.SetParameterValue("pGender", Patient.Gender);
             MedicalRecortSampleD1.SetParameterValue("pDatetime", DateTime.Now);
             MedicalRecortSampleD1.SetParameterValue("pDoctorName", Account.Worker.FirstName + " " + Account.Worker.LastName);
             MedicalRecortSampleD1.SetParameterValue("pAge", Patient.Age);
-            MedicalRecortSampleD1.ExportToDisk(ExportFormatType.HTML40, path + @"RTF\SampleD");
-            wvSampleD.Navigate(path + @"RTF\SampleD.htm"); 
+            MedicalRecortSampleD1.ExportToDisk(ExportFormatType.HTML40, DirectoryAndPath() + @"RTF\SampleD");
+            wvSampleD.Navigate(DirectoryAndPath() + @"RTF\SampleD.htm"); 
         }
     }
 }

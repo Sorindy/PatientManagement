@@ -352,9 +352,29 @@ namespace PatientManagement.Class
 
         public void DeleteImageFolder()
         {
-            var directory  = new DirectoryInfo(@"D:\PatientManagement\Patient\RTF\images");
+            string _path;
+            var path = AppDomain.CurrentDomain.BaseDirectory;
+            _path = path.Remove(path.Length - 46);
+            //if (!Directory.Exists(@"S:\"))
+            //{
+            //    path = @"D:\ABC soft\";
+            //}
+            //else
+            //{
+            //}
+            try
+            {
+                var directory = new DirectoryInfo(_path + @"RTF\images");
                 directory.Attributes = directory.Attributes & ~FileAttributes.ReadOnly;
-                directory.Delete(true);     
+                if (directory.CreationTime < DateTime.Now.AddDays(-1))
+                {
+                    directory.Delete(true);
+                }
+            }
+            catch
+            {
+            }
+
         }
 
 
