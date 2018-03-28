@@ -47,7 +47,7 @@ namespace PatientManagement
                 var boxcontrol = wv.Document.GetElementById("Box2");
                 if (boxcontrol != null) boxcontrol.InnerHtml = Html;
             }
-            DeleteImageFolder();
+            //DeleteImageFolder();
         }
 
         private void btnPrint_Click(object sender, EventArgs e)

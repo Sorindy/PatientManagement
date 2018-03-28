@@ -311,6 +311,34 @@ namespace PatientManagement.Class
                     gbo.Controls.Add(selectionForm);
                     selectionForm.Show();
                 }
+                if (text == "Report")
+                {
+                    if (Application.OpenForms.OfType<WaitingForm>().Count() == 1)
+                    {
+                        var firstOrDefault = Application.OpenForms.OfType<WaitingForm>().FirstOrDefault();
+                        if (firstOrDefault != null)
+                        {
+                            firstOrDefault.Show();
+                        }
+                    }
+                    //if (Application.OpenForms.OfType<MedicalsForm>().Count() == 1)
+                    //{
+                    //    var firstOrDefault = Application.OpenForms.OfType<MedicalsForm>().FirstOrDefault();
+                    //    if (firstOrDefault != null)
+                    //    {
+                    //        firstOrDefault.Clear();
+                    //        firstOrDefault.Close();
+                    //    }
+                    //}
+                    var selectionForm = new Report()
+                    {
+                        TopLevel = false,
+                        Dock = DockStyle.Fill,
+                        AutoScroll = true,
+                    };
+                    gbo.Controls.Add(selectionForm);
+                    selectionForm.Show();
+                }
             }
         }
 

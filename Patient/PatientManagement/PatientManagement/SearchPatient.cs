@@ -68,6 +68,7 @@ namespace PatientManagement
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             dgvSearchPatient.DataSource = _patient.Search(txtSearch.Text);
+            dgvSearchPatient.Columns[0].Visible = false;
         }
     }
 }

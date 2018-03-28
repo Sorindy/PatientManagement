@@ -30,9 +30,8 @@ namespace PatientManagement
             WindowState = FormWindowState.Maximized;
             tblControl.Hide();
             Clear();
-            tblLogin.BackColor = Color.FromArgb(255,Color.CornflowerBlue);
-            tblLogin.BackColor = Color.FromArgb(255, Color.CornflowerBlue);
-            tblControl.BackColor = Color.FromArgb(0, Color.AntiqueWhite);
+            //tblLogin.BackColor = Color.FromArgb(255,Color.CornflowerBlue);
+            //tblControl.BackColor = Color.FromArgb(0, Color.AntiqueWhite);
             panel1.BackColor = Color.FromArgb(0, Color.AntiqueWhite);
             txtPassword.PasswordChar = '*';
             txtUserName.Focus();
