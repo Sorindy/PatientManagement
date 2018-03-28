@@ -23,7 +23,7 @@ namespace PatientManagement.Class
                 foreach (var con in getCon.ToList())
                 {
                     string refferrer;
-                    if (con.Referrer == null) refferrer = @"NUll";
+                    if (con.Referrer == null) refferrer = @"NULL";
                     else
                     {
                         refferrer = con.Referrer.FirstName + @" " + con.Referrer.LastName;
@@ -47,7 +47,7 @@ namespace PatientManagement.Class
                 foreach (var lab in getLab.ToList())
                 {
                     string refferrer;
-                    if (lab.Referrer == null) refferrer = @"NUll";
+                    if (lab.Referrer == null) refferrer = @"NULL";
                     else
                     {
                         refferrer = lab.Referrer.FirstName + @" " + lab.Referrer.LastName;
@@ -71,7 +71,7 @@ namespace PatientManagement.Class
                 foreach (var med in getMed.ToList())
                 {
                     string refferrer;
-                    if (med.Referrer == null) refferrer = @"NUll";
+                    if (med.Referrer == null) refferrer = @"NULL";
                     else
                     {
                         refferrer = med.Referrer.FirstName + @" " + med.Referrer.LastName;
@@ -95,7 +95,7 @@ namespace PatientManagement.Class
                 foreach (var pre in getPre.ToList())
                 {
                     string refferrer;
-                    if (pre.Referrer == null) refferrer = @"NUll";
+                    if (pre.Referrer == null) refferrer = @"NULL";
                     else
                     {
                         refferrer = pre.Referrer.FirstName + @" " + pre.Referrer.LastName;
@@ -119,7 +119,7 @@ namespace PatientManagement.Class
                 foreach (var various in getVar.ToList())
                 {
                     string refferrer;
-                    if (various.Referrer == null) refferrer = @"NUll";
+                    if (various.Referrer == null) refferrer = @"NULL";
                     else
                     {
                         refferrer = various.Referrer.FirstName + @" " + various.Referrer.LastName;

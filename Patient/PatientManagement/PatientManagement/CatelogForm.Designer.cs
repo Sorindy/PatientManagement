@@ -264,6 +264,7 @@
             // 
             this.lblDatetime.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblDatetime.AutoSize = true;
+
             this.lblDatetime.Font = new System.Drawing.Font("Times New Roman", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDatetime.Location = new System.Drawing.Point(376, 2);
             this.lblDatetime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
