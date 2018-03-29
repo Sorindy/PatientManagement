@@ -35,6 +35,7 @@ namespace PatientManagement
             panel1.BackColor = Color.FromArgb(0, Color.AntiqueWhite);
             txtPassword.PasswordChar = '*';
             txtUserName.Focus();
+            _login.DeleteImageFolder();
         }
 
         //private void MaximizeForm()

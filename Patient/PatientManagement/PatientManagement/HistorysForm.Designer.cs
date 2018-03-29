@@ -490,6 +490,7 @@
             // 
             // tabConsultation
             // 
+            this.tabConsultation.AccessibleName = "";
             this.tabConsultation.AutoScroll = true;
             this.tabConsultation.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.tabConsultation.Controls.Add(this.tableLayoutPanel7);
@@ -499,6 +500,7 @@
             this.tabConsultation.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tabConsultation.Size = new System.Drawing.Size(481, 570);
             this.tabConsultation.TabIndex = 0;
+            this.tabConsultation.Tag = "";
             this.tabConsultation.Text = "Consultation";
             this.tabConsultation.UseVisualStyleBackColor = true;
             this.tabConsultation.Click += new System.EventHandler(this.tabConsultation_Click);
