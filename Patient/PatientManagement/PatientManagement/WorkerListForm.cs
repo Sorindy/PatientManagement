@@ -25,6 +25,7 @@ namespace PatientManagement
 
         internal void WorkerListForm_Shown(object sender, EventArgs e)
         {
+            
             dgvListWorker.DataSource = Worker.ShowAll();
             dgvListWorker.Columns[0].Visible = false;
             var btnView = new DataGridViewButtonColumn
@@ -48,6 +49,7 @@ namespace PatientManagement
             dgvListWorker.ColumnHeadersDefaultCellStyle.Alignment=DataGridViewContentAlignment.MiddleCenter;
             CheckOrderDgv();
             dgvListWorker.ColumnHeadersDefaultCellStyle.Font = new Font(@"Arial", 14);
+            DtgHeaderText();
         }
 
         private void txtSearch_Click(object sender, EventArgs e)
@@ -81,6 +83,7 @@ namespace PatientManagement
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
+            
             dgvListWorker.DataSource = null;
             dgvListWorker.Columns.Clear();
             dgvListWorker.DataSource = Worker.Search(txtSearch.Text);
@@ -104,6 +107,7 @@ namespace PatientManagement
             btnDelete.UseColumnTextForButtonValue = true;
             dgvListWorker.Columns.AddRange(btnView, btnDelete);
             //WorkerListForm_Shown(this, new EventArgs());
+            DtgHeaderText();
         }
 
         private void dgvListWorker_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -142,6 +146,19 @@ namespace PatientManagement
                     }
                 }
             }
+        }
+
+        public void DtgHeaderText()
+        {
+            dgvListWorker.Columns[1].HeaderText = @"ត្រកូល";
+            dgvListWorker.Columns[2].HeaderText = @"ឈ្មោះ";
+            dgvListWorker.Columns[3].HeaderText = @"ភេទ";
+            dgvListWorker.Columns[4].HeaderText = @"អាយុ";
+            dgvListWorker.Columns[5].HeaderText = @"ទូរស័ព្ទ";
+           // dgvListWorker.Columns[6].HeaderText = @"Email";
+            dgvListWorker.Columns[7].HeaderText = @"តួនាទី";
+            dgvListWorker.Columns[8].HeaderText = @"ពត័មាន";
+            dgvListWorker.Columns[9].HeaderText = @"លុប";
         }
     }
 }

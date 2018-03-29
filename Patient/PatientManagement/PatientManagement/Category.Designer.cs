@@ -158,11 +158,11 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Kh Battambang", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.label1.Location = new System.Drawing.Point(34, 6);
+            this.label1.Location = new System.Drawing.Point(50, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(153, 64);
+            this.label1.Size = new System.Drawing.Size(121, 39);
             this.label1.TabIndex = 2;
             this.label1.Text = "សេវាកម្ម";
             // 
@@ -170,11 +170,11 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Kh Battambang", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.label2.Location = new System.Drawing.Point(549, 6);
+            this.label2.Location = new System.Drawing.Point(567, 18);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(119, 64);
+            this.label2.Size = new System.Drawing.Size(82, 39);
             this.label2.TabIndex = 3;
             this.label2.Text = "ឈ្មោះ";
             // 
@@ -209,7 +209,7 @@
             // 
             this.gboButton.Controls.Add(this.tableLayoutPanel4);
             this.gboButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gboButton.Font = new System.Drawing.Font("Kh Battambang", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gboButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gboButton.ForeColor = System.Drawing.SystemColors.Control;
             this.gboButton.Location = new System.Drawing.Point(13, 105);
             this.gboButton.Name = "gboButton";
@@ -226,7 +226,7 @@
             this.tableLayoutPanel4.Controls.Add(this.btnEdit, 0, 5);
             this.tableLayoutPanel4.Controls.Add(this.btnDelete, 0, 3);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 43);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 27);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 7;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
@@ -236,7 +236,7 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(193, 348);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(193, 364);
             this.tableLayoutPanel4.TabIndex = 2;
             // 
             // btnNew
@@ -248,7 +248,7 @@
             this.btnNew.ForeColor = System.Drawing.SystemColors.Desktop;
             this.btnNew.Image = ((System.Drawing.Image)(resources.GetObject("btnNew.Image")));
             this.btnNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNew.Location = new System.Drawing.Point(3, 45);
+            this.btnNew.Location = new System.Drawing.Point(3, 49);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(187, 54);
             this.btnNew.TabIndex = 0;
@@ -265,7 +265,7 @@
             this.btnEdit.ForeColor = System.Drawing.SystemColors.Desktop;
             this.btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.Image")));
             this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEdit.Location = new System.Drawing.Point(3, 249);
+            this.btnEdit.Location = new System.Drawing.Point(3, 261);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(187, 54);
             this.btnEdit.TabIndex = 1;
@@ -282,7 +282,7 @@
             this.btnDelete.ForeColor = System.Drawing.SystemColors.Desktop;
             this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
             this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDelete.Location = new System.Drawing.Point(3, 147);
+            this.btnDelete.Location = new System.Drawing.Point(3, 155);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(187, 54);
             this.btnDelete.TabIndex = 2;

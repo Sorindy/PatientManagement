@@ -47,7 +47,7 @@ namespace PatientManagement
         private void WaitingListForm_Load(object sender, EventArgs e)
         {
 
-            timer.Interval = (1 * 1000);
+            timer.Interval = (1 * 10000);
             timer.Tick += btnRefresh_Click;
             timer.Start();
             //var btnReset = new DataGridViewButtonColumn
@@ -65,6 +65,7 @@ namespace PatientManagement
         {
             dgvWaitingCategory.DataSource = _waitingList.ShowWaiting(Service, GetStaffCategoryid);
             CheckOrderDgv();
+            DgvWatingListCategoryHeaderText();
         }
 
         private void dgvWaitingCategory_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -182,6 +183,42 @@ namespace PatientManagement
             var selectkey = (KeyValuePair<int, string>)cboCategory.SelectedItem;
             _keyCategory = selectkey.Key;
             dgvAllWatingList.DataSource = _waitingList.ShowWaiting(cboService.Text, _keyCategory);
+            DgvAllWatingListHeaderText();
         }
+
+        public void DgvAllWatingListHeaderText()
+        {
+            try
+            {
+                dgvAllWatingList.Columns[0].Visible = false;
+                dgvAllWatingList.Columns[1].Visible = false;
+                dgvAllWatingList.Columns[2].HeaderText = @"ត្រកូល";
+                dgvAllWatingList.Columns[3].HeaderText = @"ឈ្មោះ";
+                dgvAllWatingList.Columns[4].HeaderText = @"ពេលវាលា";
+                dgvAllWatingList.Columns[5].HeaderText = @"ទំនេរ";
+                dgvAllWatingList.Columns[6].HeaderText = @"លេខរងចាំ";
+            }
+            catch
+            {
+            }    
+        }
+
+        public void DgvWatingListCategoryHeaderText()
+        {
+            try
+            {
+                dgvWaitingCategory.Columns[0].Visible = false;
+                dgvWaitingCategory.Columns[1].Visible = false;
+                dgvWaitingCategory.Columns[2].HeaderText = @"ត្រកូល";
+                dgvWaitingCategory.Columns[3].HeaderText = @"ឈ្មោះ";
+                dgvWaitingCategory.Columns[4].HeaderText = @"ពេលវាលា";
+                dgvWaitingCategory.Columns[5].HeaderText = @"ទំនេរ";
+                dgvWaitingCategory.Columns[6].HeaderText = @"លេខរងចាំ";
+            }
+            catch
+            {
+            }
+        }
+
     }
     }

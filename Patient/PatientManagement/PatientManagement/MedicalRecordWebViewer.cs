@@ -119,27 +119,10 @@ namespace PatientManagement
             //}
             //else
             //{
-            path = _path;
+                path = _path;
             //}
             return path;
         }
-
-        //public void DeleteImageFolder()
-        //{
-        //    try
-        //    {
-        //        var directory = new DirectoryInfo(DirectoryAndPath() + @"RTF\images");
-        //        directory.Attributes = directory.Attributes & ~FileAttributes.ReadOnly;
-        //        if (directory.CreationTime < DateTime.Now.AddSeconds( -60))
-        //        {
-        //            directory.Delete(true);
-        //        }
-        //    }
-        //    catch
-        //    {
-        //    }
-
-        //}
 
         public void ShowSample_A_InWebViewer()
         {
