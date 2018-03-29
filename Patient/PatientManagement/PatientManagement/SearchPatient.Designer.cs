@@ -59,7 +59,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(984, 80);
+            this.panel1.Size = new System.Drawing.Size(1134, 80);
             this.panel1.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -79,7 +79,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(984, 80);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1134, 80);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -94,7 +94,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.86792F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 81.13207F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(399, 74);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(549, 74);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // txtSearch
@@ -105,7 +105,7 @@
             this.txtSearch.Location = new System.Drawing.Point(3, 15);
             this.txtSearch.Multiline = true;
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(393, 45);
+            this.txtSearch.Size = new System.Drawing.Size(543, 45);
             this.txtSearch.TabIndex = 0;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
@@ -125,11 +125,11 @@
             this.btnAdd.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnAdd.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Font = new System.Drawing.Font("Preah Vihear", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.SystemColors.Desktop;
             this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
             this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAdd.Location = new System.Drawing.Point(587, 3);
+            this.btnAdd.Location = new System.Drawing.Point(737, 3);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(194, 74);
             this.btnAdd.TabIndex = 2;
@@ -142,11 +142,11 @@
             this.btnCancel.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnCancel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Font = new System.Drawing.Font("Preah Vihear", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.SystemColors.Desktop;
             this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
             this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCancel.Location = new System.Drawing.Point(787, 3);
+            this.btnCancel.Location = new System.Drawing.Point(937, 3);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(194, 74);
             this.btnCancel.TabIndex = 3;
@@ -157,7 +157,7 @@
             // panel2
             // 
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(950, 80);
+            this.panel2.Location = new System.Drawing.Point(1100, 80);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(34, 404);
             this.panel2.TabIndex = 1;
@@ -175,7 +175,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel4.Location = new System.Drawing.Point(34, 460);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(916, 24);
+            this.panel4.Size = new System.Drawing.Size(1066, 24);
             this.panel4.TabIndex = 3;
             // 
             // panel5
@@ -184,7 +184,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(34, 80);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(916, 380);
+            this.panel5.Size = new System.Drawing.Size(1066, 380);
             this.panel5.TabIndex = 4;
             // 
             // dgvSearchPatient
@@ -249,7 +249,7 @@
             this.dgvSearchPatient.RowTemplate.ReadOnly = true;
             this.dgvSearchPatient.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvSearchPatient.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSearchPatient.Size = new System.Drawing.Size(916, 380);
+            this.dgvSearchPatient.Size = new System.Drawing.Size(1066, 380);
             this.dgvSearchPatient.TabIndex = 1;
             this.dgvSearchPatient.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSearchPatient_CellClick);
             // 
@@ -258,7 +258,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.ClientSize = new System.Drawing.Size(984, 484);
+            this.ClientSize = new System.Drawing.Size(1134, 484);
             this.ControlBox = false;
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);

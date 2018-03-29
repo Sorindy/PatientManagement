@@ -92,6 +92,7 @@ namespace PatientManagement
         private void btnShow_Click(object sender, EventArgs e)
         {
             dtgInformation.DataSource = _dating.Show(Worker.Id);
+            DtgInformationHeaderText();
         }
 
         private void dtgInformation_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -101,6 +102,24 @@ namespace PatientManagement
                 lbDatingId.Text = dtgInformation.CurrentRow.Cells[0].Value.ToString();
                 dtpDating.Text = dtgInformation.CurrentRow.Cells[1].Value.ToString();
                 lbPatientName.Text = dtgInformation.CurrentRow.Cells[3].Value.ToString();
+            }
+        }
+
+        public void DtgInformationHeaderText()
+        {
+            try
+            {
+                dtgInformation.Columns[0].Visible = false;
+                dtgInformation.Columns[2].Visible = false;
+                dtgInformation.Columns[6].Visible = false;
+                dtgInformation.Columns[1].HeaderText = @"កាលបរិច្ឆេទ";
+                dtgInformation.Columns[3].HeaderText = @"ត្រកូល";
+                dtgInformation.Columns[4].HeaderText = @"ឈ្មោះ";
+                dtgInformation.Columns[5].HeaderText = @"ឈ្មោះខ្មែរ";
+                
+            }
+            catch
+            {
             }
         }
 

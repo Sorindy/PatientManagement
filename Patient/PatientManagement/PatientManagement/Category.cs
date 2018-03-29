@@ -34,6 +34,7 @@ namespace PatientManagement
             btnDelete.Enabled = false;
             CheckOrderDgv();
             dgvListCategory.ColumnHeadersDefaultCellStyle.Font=new Font(@"Arial",20);
+            
         }
 
         private void btnNew_Click(object sender, EventArgs e)
@@ -128,6 +129,7 @@ namespace PatientManagement
                 dgvListCategory.Enabled = true;
                 txtName.Text = "";
                 cboService_TextChanged(this, new EventArgs());
+               
             }
             else
             {
@@ -169,6 +171,7 @@ namespace PatientManagement
             cboService.Enabled = true;
             txtName.Enabled = false;
             txtName.Text = "";
+            DtgHeaderText();
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -251,6 +254,7 @@ namespace PatientManagement
                     }
                     dgvListCategory.Enabled = true;
                     cboService_TextChanged(this, new EventArgs());
+                    
                 }
                 else
                 {
@@ -292,6 +296,12 @@ namespace PatientManagement
                     btnUpdate_Click(this,new EventArgs());
                 }
             }
+        }
+
+        public void DtgHeaderText()
+        {
+            dgvListCategory.Columns[0].HeaderText = @"លេខកូដ";
+            dgvListCategory.Columns[1].HeaderText = @"ឈ្មោះ";
         }
     }
 }

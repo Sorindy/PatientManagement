@@ -24,6 +24,7 @@ namespace PatientManagement
         {
             dgvSearchWorker.DataSource = _management.Search_WorkerHasAccount(txtSearch.Text);
             dgvSearchWorker.Columns[0].Visible = false;
+            DtgHeaderText();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -43,6 +44,14 @@ namespace PatientManagement
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        public void DtgHeaderText()
+        {
+            dgvSearchWorker.Columns[1].HeaderText = @"ត្រកូល";
+            dgvSearchWorker.Columns[2].HeaderText = @"ឈ្មោះ";
+            dgvSearchWorker.Columns[3].HeaderText = @"ភេទ";
+            dgvSearchWorker.Columns[4].HeaderText = @"តួនាទី";
         }
     }
 }

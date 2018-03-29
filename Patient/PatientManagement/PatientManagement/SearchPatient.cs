@@ -56,7 +56,7 @@ namespace PatientManagement
             }
             else
             {
-                var form=new NewPatient();
+                var form=new NewPatient{MedicalForm = MedicalsForm};
                 form.ShowDialog();
                 Close();
             }
@@ -72,6 +72,20 @@ namespace PatientManagement
         {
             dgvSearchPatient.DataSource = _patient.Search(txtSearch.Text);
             dgvSearchPatient.Columns[0].Visible = false;
+            DtgHeaderText();
+        }
+
+        public void DtgHeaderText()
+        {
+            dgvSearchPatient.Columns[0].HeaderText = @"លេខកូដ";
+            dgvSearchPatient.Columns[1].HeaderText = @"លេខសំគាល់";
+            dgvSearchPatient.Columns[2].HeaderText = @"ត្រកូល";
+            dgvSearchPatient.Columns[3].HeaderText = @"ឈ្មោះ";
+            dgvSearchPatient.Columns[4].HeaderText = @"ឈ្មោះខ្មែរ";
+            dgvSearchPatient.Columns[5].HeaderText = @"ភេទ";
+            dgvSearchPatient.Columns[6].HeaderText = @"អាយុ";
+            dgvSearchPatient.Columns[7].HeaderText = @"អាស័យដ្ធាន";
+            dgvSearchPatient.Columns[8].HeaderText = @"ទូរស័ព្ទ";
         }
     }
 }

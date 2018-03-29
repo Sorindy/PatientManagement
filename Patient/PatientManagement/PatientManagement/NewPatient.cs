@@ -128,10 +128,11 @@ namespace PatientManagement
                 {
                     try
                     {
-                        _patient.Insert(txtfName.Text, txtlName.Text, txtkhName.Text, cboGender.Text, dtpDOB.Value, Convert.ToByte(txtAge.Text), txtAddress.Text, txtPhone1.Text,
+                        var patient = _patient.InsertAndGet(txtfName.Text, txtlName.Text, txtkhName.Text, cboGender.Text, dtpDOB.Value, Convert.ToByte(txtAge.Text), txtAddress.Text, txtPhone1.Text,
                             txtPhone1.Text, txtEmail.Text, Convert.ToInt16(txtWeight.Text), Convert.ToInt16(txtHeight.Text));
                         MedicalForm.CatelogForm.pnlFill.Controls.Clear();
                         MedicalForm.CatelogForm.pnlFill.Controls.Add(MedicalForm);
+                        MedicalForm.Patient = patient;
                         MedicalForm.Show();
                         Close();
                     }
@@ -145,8 +146,9 @@ namespace PatientManagement
                 {
                     try
                     {
-                        _patient.Insert(txtfName.Text, txtlName.Text, txtkhName.Text, cboGender.Text, dtpDOB.Value, Convert.ToByte(txtAge.Text), txtAddress.Text, txtPhone1.Text,
+                        var patient= _patient.InsertAndGet(txtfName.Text, txtlName.Text, txtkhName.Text, cboGender.Text, dtpDOB.Value, Convert.ToByte(txtAge.Text), txtAddress.Text, txtPhone1.Text,
                             txtPhone1.Text, txtEmail.Text, Convert.ToInt16(txtWeight.Text), Convert.ToInt16(txtHeight.Text));
+                        if (MedicalForm != null) MedicalForm.Patient = patient;
                         Close();
                     }
                     catch

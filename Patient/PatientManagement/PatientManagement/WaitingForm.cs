@@ -153,6 +153,7 @@ namespace PatientManagement
                 dgvAllWatingList.Columns[1].Visible = false;
             }
             dgvAllWatingList.ClearSelection();
+            DtgHeaderText();
         }
         private void CheckOrderDgv()
         {
@@ -214,5 +215,24 @@ namespace PatientManagement
                 }
             }
         }
+
+        public void DtgHeaderText()
+        {
+            try
+            {
+                dgvAllWatingList.Columns[2].HeaderText = @"ត្រកូល";
+                dgvAllWatingList.Columns[3].HeaderText = @"ឈ្នោះ";
+                dgvAllWatingList.Columns[4].HeaderText = @"ពេលវេលា";
+                dgvAllWatingList.Columns[5].HeaderText = @"ទំនេរ";
+                dgvAllWatingList.Columns[6].HeaderText = @"លេខរងចាំ";
+                dgvAllWatingList.Columns[7].HeaderText = @"ពិគ្រោះ";
+                dgvAllWatingList.Columns[8].HeaderText = @"ប្រវត្តិរូប";
+            }
+            catch
+            {
+            }
+
+        }
+
     }
 }
