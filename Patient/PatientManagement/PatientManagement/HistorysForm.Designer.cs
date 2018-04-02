@@ -503,7 +503,6 @@
             this.tabConsultation.Tag = "";
             this.tabConsultation.Text = "Consultation";
             this.tabConsultation.UseVisualStyleBackColor = true;
-            this.tabConsultation.Click += new System.EventHandler(this.tabConsultation_Click);
             // 
             // tableLayoutPanel7
             // 
@@ -600,7 +599,6 @@
             this.dgvConsultation.Size = new System.Drawing.Size(444, 468);
             this.dgvConsultation.TabIndex = 2;
             this.dgvConsultation.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvConsultation_CellClick);
-            this.dgvConsultation.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvConsultation_CellContentClick);
             this.dgvConsultation.SelectionChanged += new System.EventHandler(this.dgvConsultation_SelectionChanged);
             // 
             // panel2

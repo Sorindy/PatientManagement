@@ -129,7 +129,7 @@ namespace PatientManagement
         {
             MedicalReportSampleA1.SetParameterValue("pPatientName", Patient.FirstName + " " + Patient.LastName + " ( " + Patient.KhmerName + " )");
             MedicalReportSampleA1.SetParameterValue("pGender", Patient.Gender);
-            MedicalReportSampleA1.SetParameterValue("pDatetime", DateTime.Now);
+            MedicalReportSampleA1.SetParameterValue("pDatetime", DateTime.Now.ToLongDateString());
             MedicalReportSampleA1.SetParameterValue("pDoctorName", Account.Worker.FirstName + " " + Account.Worker.LastName);
             MedicalReportSampleA1.SetParameterValue("pAge", Patient.Age);
             MedicalReportSampleA1.ExportToDisk(ExportFormatType.HTML40, DirectoryAndPath() + @"RTF\SampleA");
@@ -140,7 +140,7 @@ namespace PatientManagement
         {
             MedicalReportSampleB1.SetParameterValue("pPatientName", Patient.FirstName + " " + Patient.LastName + " ( " + Patient.KhmerName + " )");
             MedicalReportSampleB1.SetParameterValue("pGender", Patient.Gender);
-            MedicalReportSampleB1.SetParameterValue("pDatetime", DateTime.Now);
+            MedicalReportSampleB1.SetParameterValue("pDatetime", DateTime.Now.ToLongDateString());
             MedicalReportSampleB1.SetParameterValue("pDoctorName", Account.Worker.FirstName + " " + Account.Worker.LastName);
             MedicalReportSampleB1.SetParameterValue("pAge", Patient.Age);
             MedicalReportSampleB1.ExportToDisk(ExportFormatType.HTML40, DirectoryAndPath() + @"RTF\SampleB");
@@ -151,7 +151,7 @@ namespace PatientManagement
         {
             MedicalRecortSampleC1.SetParameterValue("pPatientName", Patient.FirstName + " " + Patient.LastName + " ( " + Patient.KhmerName + " )");
             MedicalRecortSampleC1.SetParameterValue("pGender", Patient.Gender);
-            MedicalRecortSampleC1.SetParameterValue("pDatetime", DateTime.Now);
+            MedicalRecortSampleC1.SetParameterValue("pDatetime", DateTime.Now.ToLongDateString());
             MedicalRecortSampleC1.SetParameterValue("pDoctorName", Account.Worker.FirstName + " " + Account.Worker.LastName);
             MedicalRecortSampleC1.SetParameterValue("pAge", Patient.Age);
             MedicalRecortSampleC1.ExportToDisk(ExportFormatType.HTML40, DirectoryAndPath() + @"RTF\SampleC");
@@ -162,7 +162,7 @@ namespace PatientManagement
         {
             MedicalRecortSampleD1.SetParameterValue("pPatientName", Patient.FirstName + " " + Patient.LastName + " ( " + Patient.KhmerName + " )");
             MedicalRecortSampleD1.SetParameterValue("pGender", Patient.Gender);
-            MedicalRecortSampleD1.SetParameterValue("pDatetime", DateTime.Now);
+            MedicalRecortSampleD1.SetParameterValue("pDatetime", DateTime.Now.ToLongDateString());
             MedicalRecortSampleD1.SetParameterValue("pDoctorName", Account.Worker.FirstName + " " + Account.Worker.LastName);
             MedicalRecortSampleD1.SetParameterValue("pAge", Patient.Age);
             MedicalRecortSampleD1.ExportToDisk(ExportFormatType.HTML40, DirectoryAndPath() + @"RTF\SampleD");
