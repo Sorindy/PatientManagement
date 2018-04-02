@@ -37,7 +37,7 @@ namespace PatientManagement
         private int? _keyReferrer;
         internal string Title = "";
         private int _keyCategory;
-        private bool _have=false;
+        private bool _have;
 
         //private bool? _status;
         private readonly Dating _dating = new Dating();
@@ -191,7 +191,11 @@ namespace PatientManagement
         {
             if (btnPatient.Name == "btnInfoPatient")
             {
-                var form = new HistorysForm();
+                var form = new HistorysForm
+                {
+                    TopLevel = false,
+                    Dock = DockStyle.Fill
+                };
                 if (KeyService != null && KeyCategory != 0)
                 {
                     form.Account = Account;
@@ -244,8 +248,7 @@ namespace PatientManagement
         {
             if (Patient == null)
             {
-                MessageBox.Show(@"Patient is null. Please select one patient.", @"No patient selected");
-                return;
+              btnPatient_Click(this,new EventArgs());
             }
             if(txtDescription.Text!=""&&KeyService!=""&&KeyCategory!=0)
             {

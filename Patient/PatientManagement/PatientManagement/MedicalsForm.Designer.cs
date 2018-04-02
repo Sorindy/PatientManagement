@@ -832,7 +832,7 @@
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(174, 44);
             this.btnPrint.TabIndex = 1;
-            this.btnPrint.Text = "ថតចម្លង";
+            this.btnPrint.Text = "បោះពុម្ព";
             this.btnPrint.UseVisualStyleBackColor = false;
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
