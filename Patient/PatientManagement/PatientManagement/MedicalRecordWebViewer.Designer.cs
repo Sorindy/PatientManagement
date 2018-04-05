@@ -36,14 +36,14 @@
             this.wvSampleA = new System.Windows.Forms.WebBrowser();
             this.pnTop = new System.Windows.Forms.Panel();
             this.tblypnTop = new System.Windows.Forms.TableLayoutPanel();
-            this.btnPrintPreview = new System.Windows.Forms.Button();
+            this.btnPrintDialog = new System.Windows.Forms.Button();
             this.cmbModel = new System.Windows.Forms.ComboBox();
+            this.btnPrintPreview = new System.Windows.Forms.Button();
+            this.btnPrint = new System.Windows.Forms.Button();
             this.crystalReportViewer = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.MedicalRecortSampleD1 = new PatientManagement.MedicalRecortSampleD();
             this.MedicalRecortSampleC1 = new PatientManagement.MedicalRecortSampleC();
             this.MedicalReportSampleA1 = new PatientManagement.MedicalReportSampleA();
-            this.btnPrint = new System.Windows.Forms.Button();
-            this.btnPrintDialog = new System.Windows.Forms.Button();
             this.MedicalReportSampleB1 = new PatientManagement.MedicalReportSampleB();
             this.pnBoss.SuspendLayout();
             this.pnMiddle.SuspendLayout();
@@ -141,18 +141,19 @@
             this.tblypnTop.Size = new System.Drawing.Size(1129, 51);
             this.tblypnTop.TabIndex = 2;
             // 
-            // btnPrintPreview
+            // btnPrintDialog
             // 
-            this.btnPrintPreview.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnPrintPreview.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrintPreview.Font = new System.Drawing.Font("Modern No. 20", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrintPreview.Location = new System.Drawing.Point(679, 3);
-            this.btnPrintPreview.Name = "btnPrintPreview";
-            this.btnPrintPreview.Size = new System.Drawing.Size(446, 45);
-            this.btnPrintPreview.TabIndex = 4;
-            this.btnPrintPreview.Text = "Print Preview Dialog";
-            this.btnPrintPreview.UseVisualStyleBackColor = false;
-            this.btnPrintPreview.Click += new System.EventHandler(this.btnPrintPreview_Click);
+            this.btnPrintDialog.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnPrintDialog.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnPrintDialog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrintDialog.Font = new System.Drawing.Font("Modern No. 20", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrintDialog.Location = new System.Drawing.Point(419, 3);
+            this.btnPrintDialog.Name = "btnPrintDialog";
+            this.btnPrintDialog.Size = new System.Drawing.Size(254, 45);
+            this.btnPrintDialog.TabIndex = 3;
+            this.btnPrintDialog.Text = "Print Dialog";
+            this.btnPrintDialog.UseVisualStyleBackColor = false;
+            this.btnPrintDialog.Click += new System.EventHandler(this.btnPrintDialog_Click);
             // 
             // cmbModel
             // 
@@ -172,17 +173,18 @@
             this.cmbModel.Text = "Sample Frame";
             this.cmbModel.SelectedIndexChanged += new System.EventHandler(this.cmbModel_SelectedIndexChanged);
             // 
-            // crystalReportViewer
+            // btnPrintPreview
             // 
-            this.crystalReportViewer.ActiveViewIndex = 0;
-            this.crystalReportViewer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.crystalReportViewer.Cursor = System.Windows.Forms.Cursors.Default;
-            this.crystalReportViewer.Location = new System.Drawing.Point(1104, 11);
-            this.crystalReportViewer.Name = "crystalReportViewer";
-            this.crystalReportViewer.ReportSource = this.MedicalRecortSampleD1;
-            this.crystalReportViewer.Size = new System.Drawing.Size(22, 33);
-            this.crystalReportViewer.TabIndex = 1;
-            this.crystalReportViewer.Visible = false;
+            this.btnPrintPreview.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnPrintPreview.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrintPreview.Font = new System.Drawing.Font("Modern No. 20", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrintPreview.Location = new System.Drawing.Point(679, 3);
+            this.btnPrintPreview.Name = "btnPrintPreview";
+            this.btnPrintPreview.Size = new System.Drawing.Size(446, 45);
+            this.btnPrintPreview.TabIndex = 4;
+            this.btnPrintPreview.Text = "Print Preview Dialog";
+            this.btnPrintPreview.UseVisualStyleBackColor = false;
+            this.btnPrintPreview.Click += new System.EventHandler(this.btnPrintPreview_Click);
             // 
             // btnPrint
             // 
@@ -198,19 +200,17 @@
             this.btnPrint.UseVisualStyleBackColor = false;
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
-            // btnPrintDialog
+            // crystalReportViewer
             // 
-            this.btnPrintDialog.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnPrintDialog.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnPrintDialog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrintDialog.Font = new System.Drawing.Font("Modern No. 20", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrintDialog.Location = new System.Drawing.Point(419, 3);
-            this.btnPrintDialog.Name = "btnPrintDialog";
-            this.btnPrintDialog.Size = new System.Drawing.Size(254, 45);
-            this.btnPrintDialog.TabIndex = 3;
-            this.btnPrintDialog.Text = "Print Dialog";
-            this.btnPrintDialog.UseVisualStyleBackColor = false;
-            this.btnPrintDialog.Click += new System.EventHandler(this.btnPrintDialog_Click);
+            this.crystalReportViewer.ActiveViewIndex = 0;
+            this.crystalReportViewer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.crystalReportViewer.Cursor = System.Windows.Forms.Cursors.Default;
+            this.crystalReportViewer.Location = new System.Drawing.Point(1104, 11);
+            this.crystalReportViewer.Name = "crystalReportViewer";
+            this.crystalReportViewer.ReportSource = this.MedicalRecortSampleD1;
+            this.crystalReportViewer.Size = new System.Drawing.Size(22, 33);
+            this.crystalReportViewer.TabIndex = 1;
+            this.crystalReportViewer.Visible = false;
             // 
             // MedicalRecordWebViewer
             // 

@@ -37,6 +37,7 @@ namespace PatientManagement
         private int? _keyReferrer;
         internal string Title = "";
         private int _keyCategory;
+        private bool _have;
 
         //private bool? _status;
         private readonly Dating _dating = new Dating();
@@ -106,10 +107,10 @@ namespace PatientManagement
                 }
             }
 
-            //var path = AppDomain.CurrentDomain.BaseDirectory;
-            //_path = path.Remove(path.Length - 46);
+            var path = AppDomain.CurrentDomain.BaseDirectory;
+            _path = path.Remove(path.Length - 46);
             //_path = path;
-            _path = @"S:\";
+            //_path = @"S:\";
             picHideRight.Image = Properties.Resources.Hide_right_icon;
             //picHideRight.ImageLocation = _path + @"Hide-right-icon.png";
             picHideTop.Image = Properties.Resources.Hide_Up_icon;
@@ -190,7 +191,11 @@ namespace PatientManagement
         {
             if (btnPatient.Name == "btnInfoPatient")
             {
-                var form = new HistorysForm();
+                var form = new HistorysForm
+                {
+                    TopLevel = false,
+                    Dock = DockStyle.Fill
+                };
                 if (KeyService != null && KeyCategory != 0)
                 {
                     form.Account = Account;
@@ -243,13 +248,12 @@ namespace PatientManagement
         {
             if (Patient == null)
             {
-                MessageBox.Show(@"Patient is null. Please select one patient.", @"No patient selected");
-                return;
+              btnPatient_Click(this,new EventArgs());
             }
             if(txtDescription.Text!=""&&KeyService!=""&&KeyCategory!=0)
             {
                 string path;
-                if (!Directory.Exists(@"S:\"))
+                if (Directory.Exists(@"S:\"))
                 {
                     path = @"D:\ABC soft\";
                 }
@@ -297,7 +301,7 @@ namespace PatientManagement
                         path + @"RTF\LaboratoryEstimate\" + title,
                         StreamType.RichTextFormat);
                 }
-                if (KeyService == @"Medical Imaging")
+                if (KeyService == @"MedicalImaging")
                 {
                     _estimate = new MedicalImagingEstimate();
                     if (WaitingList != null)
@@ -335,7 +339,7 @@ namespace PatientManagement
                         path + @"RTF\PrescriptionEstimate\" + title,
                         StreamType.RichTextFormat);
                 }
-                if (KeyService == @"Various Document")
+                if (KeyService == @"VariousDocument")
                 {
                     _estimate = new VariousDocumentEstimate();
                     if (WaitingList != null)
@@ -731,6 +735,13 @@ namespace PatientManagement
                     cboCategory.DataSource=new BindingSource(dic,null);
                     cboCategory.DisplayMember = "Value";
                     cboCategory.ValueMember = "Key";
+                    _have = true;
+                }
+                else
+                {
+                    _have = false;
+                    cboCategory.DataSource = null;
+                    cboCategory.Items.Clear();
                 }
                 KeyService = @"Consultation";
             }
@@ -743,6 +754,13 @@ namespace PatientManagement
                     cboCategory.DataSource = new BindingSource(dic, null);
                     cboCategory.DisplayMember = "Value";
                     cboCategory.ValueMember = "Key";
+                    _have = true;
+                }
+                else
+                {
+                    _have = false;
+                    cboCategory.DataSource = null;
+                    cboCategory.Items.Clear();
                 }
                 KeyService = @"Laboratory";
             }
@@ -755,6 +773,13 @@ namespace PatientManagement
                     cboCategory.DataSource = new BindingSource(dic, null);
                     cboCategory.DisplayMember = "Value";
                     cboCategory.ValueMember = "Key";
+                    _have = true;
+                }
+                else
+                {
+                    _have = false;
+                    cboCategory.DataSource = null;
+                    cboCategory.Items.Clear();
                 }
                 KeyService = @"MedicalImaging";
             }
@@ -767,6 +792,13 @@ namespace PatientManagement
                     cboCategory.DataSource = new BindingSource(dic, null);
                     cboCategory.DisplayMember = "Value";
                     cboCategory.ValueMember = "Key";
+                    _have = true;
+                }
+                else
+                {
+                    _have = false;
+                    cboCategory.DataSource = null;
+                    cboCategory.Items.Clear();
                 }
                 KeyService = @"Prescription";
             }
@@ -779,6 +811,13 @@ namespace PatientManagement
                     cboCategory.DataSource = new BindingSource(dic, null);
                     cboCategory.DisplayMember = "Value";
                     cboCategory.ValueMember = "Key";
+                    _have = true;
+                }
+                else
+                {
+                    _have = false;
+                    cboCategory.DataSource = null;
+                    cboCategory.Items.Clear();
                 }
                 KeyService = @"VariousDocument";
             }
@@ -787,27 +826,27 @@ namespace PatientManagement
 
         private void cboCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cboService.Text == @"Consultation")
+            if (cboService.Text == @"Consultation"&&_have)
             {
                 var get = (KeyValuePair<int, string>) cboCategory.SelectedItem;
                 KeyCategory = get.Key;                
             }
-            if (cboService.Text == @"Laboratory")
+            if (cboService.Text == @"Laboratory" && _have)
             {
                 var get = (KeyValuePair<int, string>)cboCategory.SelectedItem;
                 KeyCategory = get.Key;
             }
-            if (cboService.Text == @"MedicalImaging")
+            if (cboService.Text == @"MedicalImaging" && _have)
             {
                 var get = (KeyValuePair<int, string>)cboCategory.SelectedItem;
                 KeyCategory = get.Key;
             }
-            if (cboService.Text == @"Prescription")
+            if (cboService.Text == @"Prescription" && _have)
             {
                 var get = (KeyValuePair<int, string>)cboCategory.SelectedItem;
                 KeyCategory = get.Key;
             }
-            if (cboService.Text == @"Various Document")
+            if (cboService.Text == @"Various Document" && _have)
             {
                 var get = (KeyValuePair<int, string>)cboCategory.SelectedItem;
                 KeyCategory = get.Key;

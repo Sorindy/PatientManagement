@@ -5,7 +5,6 @@ using System.Windows.Forms;
 using PatientManagement.Class;
 using PatientManagement.Interface;
 using TXTextControl;
-using WinFormAnimation;
 using Account = Hospital_Entity_Framework.Account;
 using Form = System.Windows.Forms.Form;
 using Patient = Hospital_Entity_Framework.Patient;
@@ -87,10 +86,10 @@ namespace PatientManagement
                 lbService.Text = @"Consultation";
             }
             //AddNodesToTree();
-            //var path = AppDomain.CurrentDomain.BaseDirectory;
-            //_path = path.Remove(path.Length - 46);
+            var path = AppDomain.CurrentDomain.BaseDirectory;
+            _path = path.Remove(path.Length - 46);
             //_path = path;
-            _path = @"S:\";
+            //_path = @"S:\";
             //dgvConsultation.Columns.Clear();
             //dgvLaboratory.Columns.Clear();
             //dgvMedicalImaging.Columns.Clear();
@@ -784,6 +783,7 @@ namespace PatientManagement
                     cboConCategory.DataSource=new BindingSource(dic,null);
                     cboConCategory.DisplayMember = "Value";
                     cboConCategory.ValueMember = "Key";
+                    cboConCategory.SelectedItem = 1;
                 }
             }
             {
@@ -794,6 +794,7 @@ namespace PatientManagement
                     cboLabCategory.DataSource = new BindingSource(dic, null);
                     cboLabCategory.DisplayMember = "Value";
                     cboLabCategory.ValueMember = "Key";
+                    cboLabCategory.SelectedItem = 1;
                 }
             }
             {
@@ -804,6 +805,7 @@ namespace PatientManagement
                     cboMedCategory.DataSource = new BindingSource(dic, null);
                     cboMedCategory.DisplayMember = "Value";
                     cboMedCategory.ValueMember = "Key";
+                    cboMedCategory.SelectedItem = 1;
                 }
             }
             {
@@ -814,6 +816,7 @@ namespace PatientManagement
                     cboPreCategory.DataSource = new BindingSource(dic, null);
                     cboPreCategory.DisplayMember = "Value";
                     cboPreCategory.ValueMember = "Key";
+                    cboPreCategory.SelectedItem = 1;
                 }
             }
             {
@@ -824,6 +827,7 @@ namespace PatientManagement
                     cboVarCategory.DataSource = new BindingSource(dic, null);
                     cboVarCategory.DisplayMember = "Value";
                     cboVarCategory.ValueMember = "Key";
+                    cboVarCategory.SelectedItem = 1;
                 }
             }
         }
@@ -1575,16 +1579,6 @@ namespace PatientManagement
                 };
                 wv.ShowDialog();
             }
-        }
-
-        private void dgvConsultation_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void tabConsultation_Click(object sender, EventArgs e)
-        {
-           
         }
 
     }
