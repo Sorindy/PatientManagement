@@ -40,9 +40,11 @@
             this.cmbModel = new System.Windows.Forms.ComboBox();
             this.crystalReportViewer = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.MedicalRecortSampleD1 = new PatientManagement.MedicalRecortSampleD();
-            this.MedicalReportSampleB1 = new PatientManagement.MedicalReportSampleB();
-            this.MedicalReportSampleA1 = new PatientManagement.MedicalReportSampleA();
             this.MedicalRecortSampleC1 = new PatientManagement.MedicalRecortSampleC();
+            this.MedicalReportSampleA1 = new PatientManagement.MedicalReportSampleA();
+            this.btnPrint = new System.Windows.Forms.Button();
+            this.btnPrintDialog = new System.Windows.Forms.Button();
+            this.MedicalReportSampleB1 = new PatientManagement.MedicalReportSampleB();
             this.pnBoss.SuspendLayout();
             this.pnMiddle.SuspendLayout();
             this.pnTop.SuspendLayout();
@@ -75,6 +77,7 @@
             // 
             this.wvSampleD.Dock = System.Windows.Forms.DockStyle.Fill;
             this.wvSampleD.Location = new System.Drawing.Point(0, 0);
+            this.wvSampleD.Margin = new System.Windows.Forms.Padding(0);
             this.wvSampleD.MinimumSize = new System.Drawing.Size(20, 20);
             this.wvSampleD.Name = "wvSampleD";
             this.wvSampleD.Size = new System.Drawing.Size(1129, 682);
@@ -86,6 +89,7 @@
             this.wvSampleC.Location = new System.Drawing.Point(0, 0);
             this.wvSampleC.MinimumSize = new System.Drawing.Size(20, 20);
             this.wvSampleC.Name = "wvSampleC";
+            this.wvSampleC.ScrollBarsEnabled = false;
             this.wvSampleC.Size = new System.Drawing.Size(1129, 682);
             this.wvSampleC.TabIndex = 3;
             // 
@@ -104,6 +108,7 @@
             this.wvSampleA.Location = new System.Drawing.Point(0, 0);
             this.wvSampleA.MinimumSize = new System.Drawing.Size(20, 20);
             this.wvSampleA.Name = "wvSampleA";
+            this.wvSampleA.ScrollBarsEnabled = false;
             this.wvSampleA.Size = new System.Drawing.Size(1129, 682);
             this.wvSampleA.TabIndex = 1;
             // 
@@ -119,11 +124,15 @@
             // 
             // tblypnTop
             // 
-            this.tblypnTop.ColumnCount = 2;
-            this.tblypnTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42.85714F));
-            this.tblypnTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.57143F));
-            this.tblypnTop.Controls.Add(this.btnPrintPreview, 1, 0);
+            this.tblypnTop.ColumnCount = 4;
+            this.tblypnTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.46154F));
+            this.tblypnTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.07692F));
+            this.tblypnTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.46154F));
+            this.tblypnTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tblypnTop.Controls.Add(this.btnPrintDialog, 2, 0);
             this.tblypnTop.Controls.Add(this.cmbModel, 0, 0);
+            this.tblypnTop.Controls.Add(this.btnPrintPreview, 3, 0);
+            this.tblypnTop.Controls.Add(this.btnPrint, 1, 0);
             this.tblypnTop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tblypnTop.Location = new System.Drawing.Point(0, 0);
             this.tblypnTop.Name = "tblypnTop";
@@ -135,14 +144,13 @@
             // btnPrintPreview
             // 
             this.btnPrintPreview.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnPrintPreview.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnPrintPreview.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrintPreview.Font = new System.Drawing.Font("Modern No. 20", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrintPreview.Location = new System.Drawing.Point(680, 3);
+            this.btnPrintPreview.Location = new System.Drawing.Point(679, 3);
             this.btnPrintPreview.Name = "btnPrintPreview";
             this.btnPrintPreview.Size = new System.Drawing.Size(446, 45);
             this.btnPrintPreview.TabIndex = 4;
-            this.btnPrintPreview.Text = "Print Preview";
+            this.btnPrintPreview.Text = "Print Preview Dialog";
             this.btnPrintPreview.UseVisualStyleBackColor = false;
             this.btnPrintPreview.Click += new System.EventHandler(this.btnPrintPreview_Click);
             // 
@@ -159,7 +167,7 @@
             "SampleD"});
             this.cmbModel.Location = new System.Drawing.Point(3, 3);
             this.cmbModel.Name = "cmbModel";
-            this.cmbModel.Size = new System.Drawing.Size(671, 42);
+            this.cmbModel.Size = new System.Drawing.Size(254, 42);
             this.cmbModel.TabIndex = 3;
             this.cmbModel.Text = "Sample Frame";
             this.cmbModel.SelectedIndexChanged += new System.EventHandler(this.cmbModel_SelectedIndexChanged);
@@ -175,6 +183,34 @@
             this.crystalReportViewer.Size = new System.Drawing.Size(22, 33);
             this.crystalReportViewer.TabIndex = 1;
             this.crystalReportViewer.Visible = false;
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnPrint.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrint.Font = new System.Drawing.Font("Modern No. 20", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrint.Location = new System.Drawing.Point(263, 3);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(150, 45);
+            this.btnPrint.TabIndex = 2;
+            this.btnPrint.Text = "Print";
+            this.btnPrint.UseVisualStyleBackColor = false;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
+            // btnPrintDialog
+            // 
+            this.btnPrintDialog.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnPrintDialog.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnPrintDialog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrintDialog.Font = new System.Drawing.Font("Modern No. 20", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrintDialog.Location = new System.Drawing.Point(419, 3);
+            this.btnPrintDialog.Name = "btnPrintDialog";
+            this.btnPrintDialog.Size = new System.Drawing.Size(254, 45);
+            this.btnPrintDialog.TabIndex = 3;
+            this.btnPrintDialog.Text = "Print Dialog";
+            this.btnPrintDialog.UseVisualStyleBackColor = false;
+            this.btnPrintDialog.Click += new System.EventHandler(this.btnPrintDialog_Click);
             // 
             // MedicalRecordWebViewer
             // 
@@ -211,5 +247,7 @@
         private System.Windows.Forms.WebBrowser wvSampleB;
         private System.Windows.Forms.WebBrowser wvSampleD;
         private System.Windows.Forms.WebBrowser wvSampleC;
+        private System.Windows.Forms.Button btnPrint;
+        private System.Windows.Forms.Button btnPrintDialog;
     }
 }

@@ -311,6 +311,34 @@ namespace PatientManagement.Class
                     gbo.Controls.Add(selectionForm);
                     selectionForm.Show();
                 }
+                if (text == "Report")
+                {
+                    if (Application.OpenForms.OfType<WaitingForm>().Count() == 1)
+                    {
+                        var firstOrDefault = Application.OpenForms.OfType<WaitingForm>().FirstOrDefault();
+                        if (firstOrDefault != null)
+                        {
+                            firstOrDefault.Show();
+                        }
+                    }
+                    //if (Application.OpenForms.OfType<MedicalsForm>().Count() == 1)
+                    //{
+                    //    var firstOrDefault = Application.OpenForms.OfType<MedicalsForm>().FirstOrDefault();
+                    //    if (firstOrDefault != null)
+                    //    {
+                    //        firstOrDefault.Clear();
+                    //        firstOrDefault.Close();
+                    //    }
+                    //}
+                    var selectionForm = new Report()
+                    {
+                        TopLevel = false,
+                        Dock = DockStyle.Fill,
+                        AutoScroll = true,
+                    };
+                    gbo.Controls.Add(selectionForm);
+                    selectionForm.Show();
+                }
             }
         }
 
@@ -353,15 +381,16 @@ namespace PatientManagement.Class
         public void DeleteImageFolder()
         {
             string _path;
-            var path = AppDomain.CurrentDomain.BaseDirectory;
-            _path = path.Remove(path.Length - 46);
-            //if (!Directory.Exists(@"S:\"))
-            //{
-            //    path = @"D:\ABC soft\";
-            //}
-            //else
-            //{
-            //}
+            //var path = AppDomain.CurrentDomain.BaseDirectory;
+            //_path = path.Remove(path.Length - 46);
+            if (!Directory.Exists(@"S:\"))
+            {
+                _path = @"D:\ABC soft\";
+            }
+            else
+            {
+                _path = @"S:\";
+            }
             try
             {
                 var directory = new DirectoryInfo(_path + @"RTF\images");

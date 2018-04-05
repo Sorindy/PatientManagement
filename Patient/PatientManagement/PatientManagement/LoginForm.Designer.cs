@@ -85,10 +85,10 @@ namespace PatientManagement
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30.96234F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 542F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 69.03766F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1280, 741);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1280, 733);
             this.tableLayoutPanel1.TabIndex = 0;
             this.tableLayoutPanel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tableLayoutPanel1_MouseDown);
             this.tableLayoutPanel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.tableLayoutPanel1_MouseMove);
@@ -96,6 +96,7 @@ namespace PatientManagement
             // 
             // tblLogin
             // 
+            this.tblLogin.BackColor = System.Drawing.Color.CornflowerBlue;
             this.tblLogin.ColumnCount = 1;
             this.tblLogin.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tblLogin.Controls.Add(this.label2, 0, 0);
@@ -104,7 +105,7 @@ namespace PatientManagement
             this.tblLogin.Controls.Add(this.btnLogin, 0, 2);
             this.tblLogin.Controls.Add(this.btnClose, 0, 3);
             this.tblLogin.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tblLogin.Location = new System.Drawing.Point(416, 64);
+            this.tblLogin.Location = new System.Drawing.Point(416, 98);
             this.tblLogin.Name = "tblLogin";
             this.tblLogin.RowCount = 5;
             this.tblLogin.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -379,7 +380,7 @@ namespace PatientManagement
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1280, 741);
+            this.ClientSize = new System.Drawing.Size(1280, 733);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

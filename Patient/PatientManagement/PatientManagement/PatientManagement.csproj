@@ -169,6 +169,7 @@
     <Compile Include="Class\NurseRespone.cs" />
     <Compile Include="Class\PrescriptionHistory.cs" />
     <Compile Include="Class\Refferrer.cs" />
+    <Compile Include="Class\ReportClass.cs" />
     <Compile Include="Class\VariousDocumentHistory.cs" />
     <Compile Include="Class\Visit.cs" />
     <Compile Include="Class\WaitingList.cs" />
@@ -319,6 +320,12 @@
     </Compile>
     <Compile Include="RefferrerForm.Designer.cs">
       <DependentUpon>RefferrerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report.Designer.cs">
+      <DependentUpon>Report.cs</DependentUpon>
     </Compile>
     <Compile Include="SamplesDialogForm.cs">
       <SubType>Form</SubType>
@@ -480,6 +487,9 @@
     <EmbeddedResource Include="RefferrerForm.resx">
       <DependentUpon>RefferrerForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report.resx">
+      <DependentUpon>Report.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SamplesDialogForm.resx">
       <DependentUpon>SamplesDialogForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -623,6 +633,7 @@
     <Content Include="Resources\32\46840 - unlock.png" />
     <Content Include="Resources\32\46841 - upload.png" />
     <Content Include="Resources\32\46842 - skype.png" />
+    <None Include="Resources\46834 - search.png" />
     <Content Include="Resources\48\46768 - add address.png" />
     <Content Include="Resources\48\46769 - add blog.png" />
     <Content Include="Resources\48\46770 - add bug.png" />

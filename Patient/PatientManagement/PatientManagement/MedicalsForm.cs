@@ -106,10 +106,10 @@ namespace PatientManagement
                 }
             }
 
-            var path = AppDomain.CurrentDomain.BaseDirectory;
-            _path = path.Remove(path.Length - 46);
+            //var path = AppDomain.CurrentDomain.BaseDirectory;
+            //_path = path.Remove(path.Length - 46);
             //_path = path;
-            //_path = @"S:\";
+            _path = @"S:\";
             picHideRight.Image = Properties.Resources.Hide_right_icon;
             //picHideRight.ImageLocation = _path + @"Hide-right-icon.png";
             picHideTop.Image = Properties.Resources.Hide_Up_icon;
@@ -249,7 +249,7 @@ namespace PatientManagement
             if(txtDescription.Text!=""&&KeyService!=""&&KeyCategory!=0)
             {
                 string path;
-                if (Directory.Exists(@"S:\"))
+                if (!Directory.Exists(@"S:\"))
                 {
                     path = @"D:\ABC soft\";
                 }
@@ -438,39 +438,6 @@ namespace PatientManagement
 
 
             //txtDescription.Images.Add(imagesobject2, -1);
-        }
-
-        public string Extend(int filter)
-        {
-
-            if (filter == 1)
-            {
-                return ".BMP";
-            }
-            if (filter == 2)
-            {
-                return ".TIG";
-            }
-            if (filter == 3)
-            {
-                return ".WMF";
-            }
-            if (filter == 4)
-            {
-                return ".PNG";
-            }
-            if (filter == 5)
-            {
-                return ".JPG";
-            }
-            if (filter == 6)
-            {
-                return ".GI";
-            }
-            else
-            {
-                return ".EMP";
-            }
         }
 
         private void fontToolStripMenuItem_Click(object sender, EventArgs e)

@@ -143,6 +143,16 @@ namespace PatientManagement.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _46834___search {
+            get {
+                object obj = ResourceManager.GetObject("46834 - search", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _46839___trash {
             get {
                 object obj = ResourceManager.GetObject("46839 - trash", resourceCulture);

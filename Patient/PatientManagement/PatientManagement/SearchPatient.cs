@@ -37,23 +37,26 @@ namespace PatientManagement
         {
             if (dgvSearchPatient.CurrentRow != null)
             {
-                if (CheckInsForm != null)
+                if (dgvSearchPatient.SelectedRows.Count>=0)
                 {
-                    CheckInsForm.Patient = _patient.Select(Convert.ToInt32(dgvSearchPatient.CurrentRow.Cells[0].Value));
-                }
-                if (MedicalsForm != null)
-                {
-                    MedicalsForm.Patient = _patient.Select(Convert.ToInt32(dgvSearchPatient.CurrentRow.Cells[0].Value));
-                }
-                if (Datinglistform != null)
-                {
-                    Datinglistform.Patient =_patient.Select(Convert.ToInt32(dgvSearchPatient.CurrentRow.Cells[0].Value));
-                    Datinglistform.lbPatientName.Text = _patient.Select(Convert.ToInt32(dgvSearchPatient.CurrentRow.Cells[0].Value)).FirstName +@" "+ _patient.Select(Convert.ToInt32(dgvSearchPatient.CurrentRow.Cells[0].Value)).LastName;
+                    if (CheckInsForm != null)
+                    {
+                        CheckInsForm.Patient = _patient.Select(Convert.ToInt32(dgvSearchPatient.CurrentRow.Cells[0].Value));
+                    }
+                    if (MedicalsForm != null)
+                    {
+                        MedicalsForm.Patient = _patient.Select(Convert.ToInt32(dgvSearchPatient.CurrentRow.Cells[0].Value));
+                    }
+                    if (Datinglistform != null)
+                    {
+                        Datinglistform.Patient = _patient.Select(Convert.ToInt32(dgvSearchPatient.CurrentRow.Cells[0].Value));
+                        Datinglistform.lbPatientName.Text = _patient.Select(Convert.ToInt32(dgvSearchPatient.CurrentRow.Cells[0].Value)).FirstName + @" " + _patient.Select(Convert.ToInt32(dgvSearchPatient.CurrentRow.Cells[0].Value)).LastName;
+                    }
                 }
             }
             else
             {
-                var form=new NewPatient();
+                var form=new NewPatient{MedicalForm = MedicalsForm};
                 form.ShowDialog();
                 Close();
             }
@@ -68,6 +71,7 @@ namespace PatientManagement
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             dgvSearchPatient.DataSource = _patient.Search(txtSearch.Text);
+            dgvSearchPatient.Columns[0].Visible = false;
             DtgHeaderText();
         }
 

@@ -79,6 +79,7 @@ namespace PatientManagement
                 }
                 WebviewerVisible(false, false, false, true );
             }
+
         }
 
         public void WebviewerVisible(bool sampleA, bool sampleB, bool sampleC, bool sampleD)
@@ -107,20 +108,19 @@ namespace PatientManagement
             {
                 wvSampleD.ShowPrintPreviewDialog();
             }
-           // DeleteImageFolder();
         }
 
         public string DirectoryAndPath()
         {
             string path;
-            //if (!Directory.Exists(@"S:\"))
-            //{
-            //    path = @"D:\ABC soft\";
-            //}
-            //else
-            //{
+            if (Directory.Exists(@"S:\"))
+            {
+                path = @"D:\ABC soft\";
+            }
+            else
+            {
                 path = _path;
-            //}
+            }
             return path;
         }
 
@@ -131,6 +131,7 @@ namespace PatientManagement
             MedicalReportSampleA1.SetParameterValue("pDatetime", DateTime.Now);
             MedicalReportSampleA1.SetParameterValue("pDoctorName", Account.Worker.FirstName + " " + Account.Worker.LastName);
             MedicalReportSampleA1.SetParameterValue("pAge", Patient.Age);
+            MedicalReportSampleA1.SetParameterValue("pPatientId", Patient.Id );
             MedicalReportSampleA1.ExportToDisk(ExportFormatType.HTML40, DirectoryAndPath() + @"RTF\SampleA");
             wvSampleA.Navigate(DirectoryAndPath() + @"RTF\SampleA.htm");
         }
@@ -142,6 +143,8 @@ namespace PatientManagement
             MedicalReportSampleB1.SetParameterValue("pDatetime", DateTime.Now);
             MedicalReportSampleB1.SetParameterValue("pDoctorName", Account.Worker.FirstName + " " + Account.Worker.LastName);
             MedicalReportSampleB1.SetParameterValue("pAge", Patient.Age);
+            MedicalReportSampleB1.SetParameterValue("pPatientId", Patient.Id );
+            MedicalReportSampleB1.SetParameterValue("pPhoneNumber", Patient.Phone1 );
             MedicalReportSampleB1.ExportToDisk(ExportFormatType.HTML40, DirectoryAndPath() + @"RTF\SampleB");
             wvSampleB.Navigate(DirectoryAndPath() + @"RTF\SampleB.htm");
         }
@@ -153,6 +156,7 @@ namespace PatientManagement
             MedicalRecortSampleC1.SetParameterValue("pDatetime", DateTime.Now);
             MedicalRecortSampleC1.SetParameterValue("pDoctorName", Account.Worker.FirstName + " " + Account.Worker.LastName);
             MedicalRecortSampleC1.SetParameterValue("pAge", Patient.Age);
+            MedicalRecortSampleC1.SetParameterValue("pPatientId", Patient.Id);
             MedicalRecortSampleC1.ExportToDisk(ExportFormatType.HTML40, DirectoryAndPath() + @"RTF\SampleC");
             wvSampleC.Navigate(DirectoryAndPath() + @"RTF\SampleC.htm");
         }
@@ -164,8 +168,52 @@ namespace PatientManagement
             MedicalRecortSampleD1.SetParameterValue("pDatetime", DateTime.Now);
             MedicalRecortSampleD1.SetParameterValue("pDoctorName", Account.Worker.FirstName + " " + Account.Worker.LastName);
             MedicalRecortSampleD1.SetParameterValue("pAge", Patient.Age);
+            MedicalRecortSampleD1.SetParameterValue("pPatientId", Patient.Id);
+            MedicalRecortSampleD1.SetParameterValue("pPhoneNumber", Patient.Phone1);
             MedicalRecortSampleD1.ExportToDisk(ExportFormatType.HTML40, DirectoryAndPath() + @"RTF\SampleD");
             wvSampleD.Navigate(DirectoryAndPath() + @"RTF\SampleD.htm"); 
         }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            if (cmbModel.SelectedIndex == 0)
+            {
+                wvSampleA.Print();
+            }
+            else if (cmbModel.SelectedIndex == 1)
+            {
+                wvSampleB.Print();
+            }
+            else if (cmbModel.SelectedIndex == 2)
+            {
+                wvSampleC.Print();
+            }
+            else if (cmbModel.SelectedIndex == 3)
+            {
+                wvSampleD.Print();
+            }
+        }
+
+        private void btnPrintDialog_Click(object sender, EventArgs e)
+        {
+            if (cmbModel.SelectedIndex == 0)
+            {
+                wvSampleA.ShowPageSetupDialog();
+            }
+            else if (cmbModel.SelectedIndex == 1)
+            {
+                wvSampleB.ShowPrintDialog();
+            }
+            else if (cmbModel.SelectedIndex == 2)
+            {
+                wvSampleC.ShowPrintDialog();
+            }
+            else if (cmbModel.SelectedIndex == 3)
+            {
+                wvSampleD.ShowPrintDialog();
+            }
+        }
+
+     
     }
 }

@@ -36,6 +36,33 @@ namespace PatientManagement.Class
             _db.SaveChanges();
         }
 
+        public Hospital_Entity_Framework.Patient InsertAndGet(string fname, string lname, string khname, string gender, DateTime dob, byte age, string address, string phone1,
+            string phone2,
+            string email, short weigh, short heigh)
+        {
+            var insert = new Hospital_Entity_Framework.Patient()
+            {
+                PatientIdentify = Convert.ToInt64
+                    (DateTime.Today.Day.ToString() + DateTime.Today.Month.ToString() + DateTime.Today.Year.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Millisecond.ToString()),
+                FirstName = fname,
+                LastName = lname,
+                KhmerName = khname,
+                Gender = gender,
+                DOB = dob,
+                Age = age,
+                Address = address,
+                Phone1 = phone1,
+                Phone2 = phone2,
+                Email = email,
+                Weight = weigh,
+                Height = heigh,
+            };
+            _db.Patients.Add(insert);
+            _db.SaveChanges();
+
+            return insert;
+        }
+
         public void Update(int id, string fname,string lname,string khname, string gender, DateTime dob, byte age, string address, string phone1,
             string phone2, string email, short weigh, short heigh)
         {
