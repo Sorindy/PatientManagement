@@ -34,6 +34,9 @@
   <PropertyGroup>
     <StartupObject>PatientManagement.Program</StartupObject>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Sanine Logo.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="CircularProgressBar">
       <HintPath>..\packages\CircularProgressBar.2.5.6403.13419\lib\net35-client\CircularProgressBar.dll</HintPath>
@@ -789,6 +792,11 @@
     <Content Include="Resources\Hide-left-icon.png" />
     <Content Include="Resources\Hide-right-icon.png" />
     <Content Include="Resources\Hide-Up-icon.png" />
+    <None Include="Resources\Logo.bmp" />
+    <Resource Include="Resources\Sanine Logo.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Content Include="Sanine Logo.ico" />
     <Content Include="UpdateTable\02.01.18 add PatientIdentify in patientTable.sql" />
     <Content Include="UpdateTable\29.12.17 add boolean to ConsultationCategory.sql" />
     <Content Include="UpdateTable\29.12.17 add boolean to LaboratoryCategory.sql" />

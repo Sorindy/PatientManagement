@@ -155,3 +155,4 @@ E:\Work\PatientManagement\PatientManagement\Patient\PatientManagement\PatientMan
 E:\Work\PatientManagement\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.exe
 E:\Work\PatientManagement\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.pdb
 E:\Work\PatientManagement\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.Report.resources
+E:\Work\PatientManagement\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.g.resources

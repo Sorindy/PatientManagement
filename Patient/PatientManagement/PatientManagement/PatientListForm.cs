@@ -23,6 +23,7 @@ namespace PatientManagement
             {
                 dgvListPatient.Rows[i].DefaultCellStyle.BackColor = i % 2 == 0 ? Color.LightGray : Color.MintCream;
             }
+            dgvListPatient.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
         }
 
         internal void PatientListForm_Shown(object sender, EventArgs e)
@@ -47,9 +48,10 @@ namespace PatientManagement
             btnCheckIn.UseColumnTextForButtonValue = true;
             dgvListPatient.Columns.AddRange(btnCheckIn, btnView);
             dgvListPatient.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvListPatient.ColumnHeadersDefaultCellStyle.Font = new Font(@"Arial", 14);
+            dgvListPatient.ColumnHeadersDefaultCellStyle.Font = new Font(@"Arial", 18, FontStyle.Bold);
             CheckOrderDgv();
             DtgHeaderText();
+            dgvListPatient.ClearSelection();
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)

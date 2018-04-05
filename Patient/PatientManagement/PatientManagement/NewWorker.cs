@@ -92,6 +92,8 @@ namespace PatientManagement
         {
             Clear();
             txtfName.Focus();
+            dtpDOB.CustomFormat = @"dd/MM/yyyy";
+            dtpSWD.CustomFormat = @"dd/MM/yyyy";
         }
 
         private void btnClear_Click(object sender, EventArgs e)

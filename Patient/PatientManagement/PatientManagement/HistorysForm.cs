@@ -39,6 +39,8 @@ namespace PatientManagement
             {
                 dgv.Rows[i].DefaultCellStyle.BackColor = i % 2 == 0 ? Color.LightGray : Color.MintCream;
             }
+            dgv.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dgv.ColumnHeadersDefaultCellStyle.Font = new Font(@"Arial", 14, FontStyle.Bold);
         }
         private void HistorysForm_Shown(object sender, EventArgs e)
         {

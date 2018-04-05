@@ -21,6 +21,7 @@ namespace PatientManagement
             {
                 dgvListWorker.Rows[i].DefaultCellStyle.BackColor = i % 2 == 0 ? Color.LightGray : Color.MintCream;
             }
+            dgvListWorker.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
         }
 
         internal void WorkerListForm_Shown(object sender, EventArgs e)
@@ -48,7 +49,7 @@ namespace PatientManagement
             dgvListWorker.ClearSelection();
             dgvListWorker.ColumnHeadersDefaultCellStyle.Alignment=DataGridViewContentAlignment.MiddleCenter;
             CheckOrderDgv();
-            dgvListWorker.ColumnHeadersDefaultCellStyle.Font = new Font(@"Arial", 14);
+            dgvListWorker.ColumnHeadersDefaultCellStyle.Font = new Font(@"Arial", 18,FontStyle.Bold);
             DtgHeaderText();
         }
 

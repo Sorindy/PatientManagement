@@ -18,6 +18,7 @@ namespace PatientManagement
         private void NewPatient_Shown(object sender, EventArgs e)
         {
             Clear();
+            dtpDOB.CustomFormat = @"dd/MM/yyyy";
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -59,9 +60,9 @@ namespace PatientManagement
                 MessageBox.Show(@"Please fill Phone1.");
                 txtfName.Focus();
             }
-            if (txtPhone1.Text.Trim() == "" || txtPhone1.Text == null)
+            if (txtPhone2.Text.Trim() == "" || txtPhone2.Text == null)
             {
-                txtPhone1.Text = @"None";
+                txtPhone2.Text = @"None";
             }
             if (txtEmail.Text.Trim() == "" || txtEmail.Text == null)
             {
@@ -93,7 +94,7 @@ namespace PatientManagement
             txtAddress.Text = "";
             txtEmail.Text = "";
             txtPhone1.Text = "";
-            txtPhone1.Text = "";
+            txtPhone2.Text = "";
             txtWeight.Text = "";
             txtHeight.Text = "";
             dtpDOB.Value = DateTime.Today;
@@ -108,7 +109,7 @@ namespace PatientManagement
                 try
                 {
                     _patient.Insert(txtfName.Text, txtlName.Text, txtkhName.Text, cboGender.Text, dtpDOB.Value, Convert.ToByte(txtAge.Text), txtAddress.Text, txtPhone1.Text,
-                        txtPhone1.Text, txtEmail.Text, Convert.ToInt16(txtWeight.Text), Convert.ToInt16(txtHeight.Text));
+                        txtPhone2.Text, txtEmail.Text, Convert.ToInt16(txtWeight.Text), Convert.ToInt16(txtHeight.Text));
                     PatientListForm.dgvListPatient.DataSource = null;
                     PatientListForm.dgvListPatient.Columns.Clear();
                     PatientListForm.CatelogForm.pnlFill.Controls.Clear();
@@ -129,7 +130,7 @@ namespace PatientManagement
                     try
                     {
                         var patient = _patient.InsertAndGet(txtfName.Text, txtlName.Text, txtkhName.Text, cboGender.Text, dtpDOB.Value, Convert.ToByte(txtAge.Text), txtAddress.Text, txtPhone1.Text,
-                            txtPhone1.Text, txtEmail.Text, Convert.ToInt16(txtWeight.Text), Convert.ToInt16(txtHeight.Text));
+                            txtPhone2.Text, txtEmail.Text, Convert.ToInt16(txtWeight.Text), Convert.ToInt16(txtHeight.Text));
                         MedicalForm.CatelogForm.pnlFill.Controls.Clear();
                         MedicalForm.CatelogForm.pnlFill.Controls.Add(MedicalForm);
                         MedicalForm.Patient = patient;
@@ -147,7 +148,7 @@ namespace PatientManagement
                     try
                     {
                         var patient= _patient.InsertAndGet(txtfName.Text, txtlName.Text, txtkhName.Text, cboGender.Text, dtpDOB.Value, Convert.ToByte(txtAge.Text), txtAddress.Text, txtPhone1.Text,
-                            txtPhone1.Text, txtEmail.Text, Convert.ToInt16(txtWeight.Text), Convert.ToInt16(txtHeight.Text));
+                            txtPhone2.Text, txtEmail.Text, Convert.ToInt16(txtWeight.Text), Convert.ToInt16(txtHeight.Text));
                         if (MedicalForm != null) MedicalForm.Patient = patient;
                         Close();
                     }
