@@ -33,8 +33,10 @@ namespace PatientManagement
 
             Html = Html.Substring(count-51);
             Html = Html.Remove(Html.Length - 16);
-            //Html = Html.Insert(0,@"<div class=" + "ad281d4f79-0002-451a-a51d-f2ce0baa9e4d-2" +"style=z-index:10;top:247px;left:161px;width:629px;height:837px;" + ">");
-            //Html = Html.Insert(Html.Length, @"</div>");
+           // Html = Html.Insert(0, @"<section>");
+           // Html = Html.Insert(Html.Length, @"</section>");
+            Html = Html.Insert(0, @"<span class=" + "ad281d4f79-0002-451a-a51d-f2ce0baa9e4d-2" + "style=z-index:10;top:247px;left:161px;width:629px;height:837px;" + ">");
+            Html = Html.Insert(Html.Length, @"</span>");
             var path = AppDomain.CurrentDomain.BaseDirectory;
             _path = path.Remove(path.Length - 46);
             //_path = path;
