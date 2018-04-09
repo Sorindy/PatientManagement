@@ -27,6 +27,8 @@ namespace PatientManagement
         private void WaitingForm_Shown(object sender, EventArgs e)
         {
             dgvAllWatingList.DataSource = null;
+            dgvAllWatingList.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
         }
 
         private void Refreshing()
@@ -161,6 +163,8 @@ namespace PatientManagement
             {
                 dgvAllWatingList.Rows[i].DefaultCellStyle.BackColor = i % 2 == 0 ? Color.LightGray : Color.MintCream;
             }
+            dgvAllWatingList.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dgvAllWatingList.ColumnHeadersDefaultCellStyle.Font = new Font(@"Arial", 14, FontStyle.Bold);
         }
 
         private void dgvAllWatingList_CellClick(object sender, DataGridViewCellEventArgs e)

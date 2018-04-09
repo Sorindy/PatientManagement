@@ -86,6 +86,9 @@ namespace PatientManagement
             else
             {
                 lbService.Text = @"Consultation";
+                cboConCategory.SelectedIndex=0;
+                lbCategory.Text = cboConCategory.Text;
+                KeyService = @"Consultation";
             }
             //AddNodesToTree();
             var path = AppDomain.CurrentDomain.BaseDirectory;
@@ -107,6 +110,7 @@ namespace PatientManagement
             dgvMedicalImaging.ColumnHeadersDefaultCellStyle.Alignment=DataGridViewContentAlignment.MiddleCenter;
             dgvPrescription.ColumnHeadersDefaultCellStyle.Alignment=DataGridViewContentAlignment.MiddleCenter;
             dgvVariousDocument.ColumnHeadersDefaultCellStyle.Alignment=DataGridViewContentAlignment.MiddleCenter;
+            tabSelection.ItemSize = new Size(Convert.ToInt32(pnlShowHistory.Width / 5.3), 35);
         }
 
         //private void cboService_SelectedIndexChanged(object sender, EventArgs e)

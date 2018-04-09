@@ -735,6 +735,7 @@ namespace PatientManagement
                     cboCategory.DisplayMember = "Value";
                     cboCategory.ValueMember = "Key";
                     _have = true;
+                    cboCategory_SelectedIndexChanged(this, new EventArgs());
                 }
                 else
                 {
@@ -754,6 +755,7 @@ namespace PatientManagement
                     cboCategory.DisplayMember = "Value";
                     cboCategory.ValueMember = "Key";
                     _have = true;
+                    cboCategory_SelectedIndexChanged(this, new EventArgs());
                 }
                 else
                 {
@@ -773,6 +775,7 @@ namespace PatientManagement
                     cboCategory.DisplayMember = "Value";
                     cboCategory.ValueMember = "Key";
                     _have = true;
+                    cboCategory_SelectedIndexChanged(this, new EventArgs());
                 }
                 else
                 {
@@ -792,6 +795,7 @@ namespace PatientManagement
                     cboCategory.DisplayMember = "Value";
                     cboCategory.ValueMember = "Key";
                     _have = true;
+                    cboCategory_SelectedIndexChanged(this, new EventArgs());
                 }
                 else
                 {
@@ -811,6 +815,7 @@ namespace PatientManagement
                     cboCategory.DisplayMember = "Value";
                     cboCategory.ValueMember = "Key";
                     _have = true;
+                    cboCategory_SelectedIndexChanged(this, new EventArgs());
                 }
                 else
                 {
