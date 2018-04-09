@@ -2,8 +2,10 @@
 using System.IO;
 using System.Linq;
 using CrystalDecisions.Shared;
-using Hospital_Entity_Framework;
+using PatientManagement.Class;
+using Account = Hospital_Entity_Framework.Account;
 using Form = System.Windows.Forms.Form;
+using Patient = Hospital_Entity_Framework.Patient;
 
 namespace PatientManagement
 {
@@ -13,6 +15,7 @@ namespace PatientManagement
         internal Patient Patient;
         internal Account Account;
         private string _path;
+        private   DefaultSamplePrint  defaultSample= new DefaultSamplePrint() ;
         
         public MedicalRecordWebViewer()
         {
@@ -30,84 +33,13 @@ namespace PatientManagement
 
             Html = Html.Substring(count-51);
             Html = Html.Remove(Html.Length - 16);
+            //Html = Html.Insert(0,@"<div class=" + "ad281d4f79-0002-451a-a51d-f2ce0baa9e4d-2" +"style=z-index:10;top:247px;left:161px;width:629px;height:837px;" + ">");
+            //Html = Html.Insert(Html.Length, @"</div>");
             var path = AppDomain.CurrentDomain.BaseDirectory;
             _path = path.Remove(path.Length - 46);
             //_path = path;
-            //_path = @"S:\";
-            ShowSample_A_InWebViewer();
-            ShowSample_B_InWebViewer();
-            ShowSample_C_InWebViewer();
-            ShowSample_D_InWebViewer();
-            WebviewerVisible(false, false, false, false);
-        }
-
-        private void cmbModel_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cmbModel.SelectedIndex == 0)
-            {
-                if (wvSampleA.Document != null)
-                {
-                    var boxcontrol = wvSampleA.Document.GetElementById("Box2");
-                    if (boxcontrol != null) boxcontrol.InnerHtml = Html;
-                }
-                WebviewerVisible(true, false, false, false);
-            }
-            else if (cmbModel.SelectedIndex == 1)
-            {
-                if (wvSampleB.Document != null)
-                {
-                    var boxcontrol = wvSampleB.Document.GetElementById("Box2");
-                    if (boxcontrol != null) boxcontrol.InnerHtml = Html;
-                }
-                WebviewerVisible(false, true , false, false);
-            }
-            else if (cmbModel.SelectedIndex == 2)
-            {
-                if (wvSampleC.Document != null)
-                {
-                    var boxcontrol = wvSampleC.Document.GetElementById("Box2");
-                    if (boxcontrol != null) boxcontrol.InnerHtml = Html;
-                }
-                WebviewerVisible(false, false, true , false);
-            }
-            else if (cmbModel.SelectedIndex == 3)
-            {
-                if (wvSampleD.Document != null)
-                {
-                    var boxcontrol = wvSampleD.Document.GetElementById("Box2");
-                    if (boxcontrol != null) boxcontrol.InnerHtml = Html;
-                }
-                WebviewerVisible(false, false, false, true );
-            }
-
-        }
-
-        public void WebviewerVisible(bool sampleA, bool sampleB, bool sampleC, bool sampleD)
-        {
-            wvSampleA.Visible = sampleA ;
-            wvSampleB.Visible = sampleB ;
-            wvSampleC.Visible = sampleC ;
-            wvSampleD.Visible = sampleD ;
-        }
-
-        private void btnPrintPreview_Click(object sender, EventArgs e)
-        {
-            if (cmbModel.SelectedIndex == 0)
-            {
-                wvSampleA.ShowPrintPreviewDialog();
-            }
-            else if (cmbModel.SelectedIndex == 1)
-            {
-                wvSampleB.ShowPrintPreviewDialog();
-            }
-            else if (cmbModel.SelectedIndex == 2)
-            {
-                wvSampleC.ShowPrintPreviewDialog();
-            }
-            else if (cmbModel.SelectedIndex == 3)
-            {
-                wvSampleD.ShowPrintPreviewDialog();
-            }
+            //_path = @"S:\";   
+            CheckDefaultPrintSample(defaultSample.SearchId(Account.WorkerId));
         }
 
         public string DirectoryAndPath()
@@ -133,7 +65,9 @@ namespace PatientManagement
             MedicalReportSampleA1.SetParameterValue("pAge", Patient.Age);
             MedicalReportSampleA1.SetParameterValue("pPatientId", Patient.Id );
             MedicalReportSampleA1.ExportToDisk(ExportFormatType.HTML40, DirectoryAndPath() + @"RTF\SampleA");
-            wvSampleA.Navigate(DirectoryAndPath() + @"RTF\SampleA.htm");
+            wvPrintSample.Navigate(DirectoryAndPath() + @"RTF\SampleA.htm");
+           // wvPrintSample.DocumentText.Insert(13, @"@page { size: A4; margin: 0;}@media print {html, body { width: 210mm;height: 297mm;}}");
+
         }
 
         public void ShowSample_B_InWebViewer()
@@ -146,7 +80,7 @@ namespace PatientManagement
             MedicalReportSampleB1.SetParameterValue("pPatientId", Patient.Id );
             MedicalReportSampleB1.SetParameterValue("pPhoneNumber", Patient.Phone1 );
             MedicalReportSampleB1.ExportToDisk(ExportFormatType.HTML40, DirectoryAndPath() + @"RTF\SampleB");
-            wvSampleB.Navigate(DirectoryAndPath() + @"RTF\SampleB.htm");
+            wvPrintSample.Navigate(DirectoryAndPath() + @"RTF\SampleB.htm");
         }
 
         public void ShowSample_C_InWebViewer()
@@ -158,7 +92,7 @@ namespace PatientManagement
             MedicalRecortSampleC1.SetParameterValue("pAge", Patient.Age);
             MedicalRecortSampleC1.SetParameterValue("pPatientId", Patient.Id);
             MedicalRecortSampleC1.ExportToDisk(ExportFormatType.HTML40, DirectoryAndPath() + @"RTF\SampleC");
-            wvSampleC.Navigate(DirectoryAndPath() + @"RTF\SampleC.htm");
+            wvPrintSample.Navigate(DirectoryAndPath() + @"RTF\SampleC.htm");
         }
 
         public void ShowSample_D_InWebViewer()
@@ -171,49 +105,133 @@ namespace PatientManagement
             MedicalRecortSampleD1.SetParameterValue("pPatientId", Patient.Id);
             MedicalRecortSampleD1.SetParameterValue("pPhoneNumber", Patient.Phone1);
             MedicalRecortSampleD1.ExportToDisk(ExportFormatType.HTML40, DirectoryAndPath() + @"RTF\SampleD");
-            wvSampleD.Navigate(DirectoryAndPath() + @"RTF\SampleD.htm"); 
+            wvPrintSample.Navigate(DirectoryAndPath() + @"RTF\SampleD.htm");
         }
 
-        private void btnPrint_Click(object sender, EventArgs e)
+        private void printToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (cmbModel.SelectedIndex == 0)
-            {
-                wvSampleA.Print();
-            }
-            else if (cmbModel.SelectedIndex == 1)
-            {
-                wvSampleB.Print();
-            }
-            else if (cmbModel.SelectedIndex == 2)
-            {
-                wvSampleC.Print();
-            }
-            else if (cmbModel.SelectedIndex == 3)
-            {
-                wvSampleD.Print();
-            }
+            wvPrintSample.Print();
         }
 
-        private void btnPrintDialog_Click(object sender, EventArgs e)
+        private void printDialogToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (cmbModel.SelectedIndex == 0)
+            wvPrintSample.ShowPrintDialog();
+        }
+
+        private void printPreviewDialogToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            wvPrintSample.ShowPrintPreviewDialog();
+        }
+
+        private void sampleAToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowSample_A_InWebViewer();
+        }
+
+        private void sampleBToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowSample_B_InWebViewer();
+        }
+
+        private void sampleCToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowSample_C_InWebViewer();
+        }
+
+        private void sampleDToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowSample_D_InWebViewer();
+        }
+
+        public void InputContent()
+        {
+            if (wvPrintSample.Document != null)
             {
-                wvSampleA.ShowPageSetupDialog();
-            }
-            else if (cmbModel.SelectedIndex == 1)
-            {
-                wvSampleB.ShowPrintDialog();
-            }
-            else if (cmbModel.SelectedIndex == 2)
-            {
-                wvSampleC.ShowPrintDialog();
-            }
-            else if (cmbModel.SelectedIndex == 3)
-            {
-                wvSampleD.ShowPrintDialog();
+                var boxcontrol = wvPrintSample.Document.GetElementById("Box2");
+                if (boxcontrol != null) boxcontrol.InnerHtml = Html;
             }
         }
 
+        private void wvPrintSample_Navigated(object sender, System.Windows.Forms.WebBrowserNavigatedEventArgs e)
+        {
+            InputContent();
+            
+        }
+
+        public void CheckDefaultPrintSample(int defualtsample)
+        {
+            if (defualtsample == 1)
+            {
+                sampleAToolStripMenuItem.PerformClick();
+            }
+            else if (defualtsample == 2)
+            {
+                sampleBToolStripMenuItem.PerformClick();
+            }
+            else if (defualtsample == 3)
+            {
+                sampleCToolStripMenuItem.PerformClick();
+            }
+            else if (defualtsample == 4)
+            {
+                sampleDToolStripMenuItem.PerformClick();
+            }
+            else
+            {
+                sampleAToolStripMenuItem.PerformClick();
+            }
+        }
+
+        private void aToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (defaultSample.SearchWorkerId(Account.WorkerId))
+            {
+                defaultSample.Update(Account.WorkerId, 1);
+            }
+            else
+            {
+                defaultSample.Insert(Account.WorkerId, 1);
+            }    
+        }
+
+        private void bToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (defaultSample.SearchWorkerId(Account.WorkerId))
+            {
+                defaultSample.Update( Account.WorkerId, 2);
+            }
+            else
+            {
+                defaultSample.Insert(Account.WorkerId, 2);
+            }
+        }
+
+        private void cToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (defaultSample.SearchWorkerId(Account.WorkerId))
+            {
+                defaultSample.Update( Account.WorkerId, 3);
+            }
+            else
+            {
+                defaultSample.Insert(Account.WorkerId, 3);
+            }
+            
+        }
+
+        private void dToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (defaultSample.SearchWorkerId(Account.WorkerId))
+            {
+                defaultSample.Update( Account.WorkerId, 4);
+            }
+            else
+            {
+                defaultSample.Insert(Account.WorkerId, 4);
+            }
+        }
      
+    
+    
     }
 }

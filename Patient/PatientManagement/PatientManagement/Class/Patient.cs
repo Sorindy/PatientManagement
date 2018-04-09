@@ -18,7 +18,7 @@ namespace PatientManagement.Class
             var insert = new Hospital_Entity_Framework.Patient()
             {
                 PatientIdentify = Convert.ToInt64
-                (DateTime.Today.Day.ToString() + DateTime.Today.Month.ToString() + DateTime.Today.Year.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Millisecond.ToString()),
+                (DateTime.Today.Day.ToString("D2") + DateTime.Today.Month.ToString("D2") + DateTime.Today.Year%100 + DateTime.Now.Hour.ToString("D2") + DateTime.Now.Minute.ToString("D2") + DateTime.Now.Millisecond.ToString("D2")),
                 FirstName = fname,
                 LastName = lname,
                 KhmerName = khname,
@@ -43,7 +43,7 @@ namespace PatientManagement.Class
             var insert = new Hospital_Entity_Framework.Patient()
             {
                 PatientIdentify = Convert.ToInt64
-                    (DateTime.Today.Day.ToString() + DateTime.Today.Month.ToString() + DateTime.Today.Year.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Millisecond.ToString()),
+                    (DateTime.Today.Day.ToString("D2") + DateTime.Today.Month.ToString("D2") + DateTime.Today.Year%100 + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Millisecond.ToString()),
                 FirstName = fname,
                 LastName = lname,
                 KhmerName = khname,

@@ -13,7 +13,55 @@ namespace PatientManagement.Class
 
         public BindingSource ShowAll(DateTime startDate, DateTime endDate)
         {
-            var lists=new List<ListReport>();
+            var lists = GetList(startDate, endDate);
+            var getAll = lists.OrderBy(v => v.Date).ThenBy(v => v.Service).ThenBy(v => v.Category)
+                .ThenBy(v => v.Patient).ThenBy(v => v.Doctor)
+                .ThenBy(v => v.Nurse).ThenBy(v => v.Refferrer);
+
+            var bs = new BindingSource {DataSource = getAll.ToList()};
+            return bs;
+        }
+
+        public BindingSource Searching(DateTime startDate, DateTime endDate,string service,string category,string doctor,string nurse,string reffer,string patient )
+        {
+            var lists = GetList(startDate, endDate);
+
+            if (service != "")
+            {
+                lists = lists.Where(v => v.Service == service);
+            }
+            if (category!="")
+            {
+                lists = lists.Where(v => v.Category == category);
+            }
+            if (doctor != "")
+            {
+                lists = lists.Where(v => v.Doctor == doctor);
+            }
+            if (nurse != "")
+            {
+                lists = lists.Where(v => v.Nurse == nurse);
+            }
+            if (reffer != "")
+            {
+                lists = lists.Where(v => v.Refferrer == reffer);
+            }
+            if (patient != "")
+            {
+                lists = lists.Where(v => v.Patient == patient);
+            }
+
+            var getAll = lists.OrderBy(v => v.Date).ThenBy(v => v.Service).ThenBy(v => v.Category)
+                .ThenBy(v => v.Patient).ThenBy(v => v.Doctor)
+                .ThenBy(v => v.Nurse).ThenBy(v => v.Refferrer);
+
+            var bs = new BindingSource { DataSource = getAll.ToList() };
+            return bs;
+        }
+
+        private IEnumerable<ListReport> GetList(DateTime startDate, DateTime endDate)
+        {
+            var lists = new List<ListReport>();
             var get = _db.Patients;
             foreach (var item in get)
             {
@@ -56,14 +104,14 @@ namespace PatientManagement.Class
                     if (lab.Worker1 == null) nurse = @"NULL";
                     else
                     {
-                        nurse =lab.Worker1.FirstName + @" " + lab.Worker1.LastName;
+                        nurse = lab.Worker1.FirstName + @" " + lab.Worker1.LastName;
                     }
                     lists.Add(new ListReport(lab.Date, @"Laboratory"
                         , lab.LaboratoryCategory.Name
                         , lab.Patient.FirstName + " " + lab.Patient.LastName
                         , lab.Worker.FirstName + @" " + lab.Worker.LastName
                         , nurse
-                        , refferrer)); 
+                        , refferrer));
                 }
                 var getMed = from c in item.MedicalImagingEstimates
                     where c.Date >= startDate && c.Date <= endDate
@@ -87,7 +135,7 @@ namespace PatientManagement.Class
                         , med.Patient.FirstName + " " + med.Patient.LastName
                         , med.Worker.FirstName + @" " + med.Worker.LastName
                         , nurse
-                        ,refferrer));
+                        , refferrer));
                 }
                 var getPre = from c in item.PrescriptionEstimates
                     where c.Date >= startDate && c.Date <= endDate
@@ -138,14 +186,32 @@ namespace PatientManagement.Class
                         , refferrer));
                 }
             }
-            var getAll = lists.OrderBy(v => v.Date).ThenBy(v => v.Service).ThenBy(v => v.Category)
-                .ThenBy(v => v.Patient).ThenBy(v => v.Doctor)
-                .ThenBy(v => v.Nurse).ThenBy(v => v.Refferrer);
-
-            var bs = new BindingSource {DataSource = getAll.ToList()};
-            return bs;
+            return lists;
         }
 
+        public Dictionary<int, string> ListsDoctor()
+        {
+            var get = _db.Workers.Where(v => v.Position == "Doctor");
+            return get.ToList().ToDictionary(item => item.Id, item => item.FirstName + " " + item.LastName);
+        }
+
+        public Dictionary<int, string> ListNurse()
+        {
+            var get = _db.Workers.Where(v => v.Position == "Nurse");
+            return get.ToList().ToDictionary(item => item.Id, item => item.FirstName + " " + item.LastName);
+        }
+
+        public Dictionary<int, string> ListRefferrer()
+        {
+            var get = _db.Referrers;
+            return get.ToList().ToDictionary(item => item.Id, item => item.FirstName + " " + item.LastName);
+        }
+
+        public Dictionary<int, string> ListPatient()
+        {
+            var get = _db.Patients;
+            return get.ToList().ToDictionary(item => item.Id, item => item.FirstName + " " + item.LastName);
+        }
     }
 
     public class ListReport

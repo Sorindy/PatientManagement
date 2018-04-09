@@ -506,13 +506,13 @@
             // 
             // tableLayoutPanel7
             // 
-            this.tableLayoutPanel7.ColumnCount = 3;
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tableLayoutPanel7.ColumnCount = 1;
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel7.Controls.Add(this.pnlHistory, 1, 1);
-            this.tableLayoutPanel7.Controls.Add(this.panel2, 1, 0);
-            this.tableLayoutPanel7.Controls.Add(this.panel11, 1, 2);
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel7.Controls.Add(this.pnlHistory, 0, 1);
+            this.tableLayoutPanel7.Controls.Add(this.panel2, 0, 0);
+            this.tableLayoutPanel7.Controls.Add(this.panel11, 0, 2);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
@@ -527,9 +527,9 @@
             // 
             this.pnlHistory.Controls.Add(this.dgvConsultation);
             this.pnlHistory.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlHistory.Location = new System.Drawing.Point(13, 57);
+            this.pnlHistory.Location = new System.Drawing.Point(3, 57);
             this.pnlHistory.Name = "pnlHistory";
-            this.pnlHistory.Size = new System.Drawing.Size(445, 460);
+            this.pnlHistory.Size = new System.Drawing.Size(465, 460);
             this.pnlHistory.TabIndex = 1;
             // 
             // dgvConsultation
@@ -596,7 +596,7 @@
             this.dgvConsultation.RowTemplate.ReadOnly = true;
             this.dgvConsultation.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvConsultation.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvConsultation.Size = new System.Drawing.Size(444, 468);
+            this.dgvConsultation.Size = new System.Drawing.Size(464, 468);
             this.dgvConsultation.TabIndex = 2;
             this.dgvConsultation.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvConsultation_CellClick);
             this.dgvConsultation.SelectionChanged += new System.EventHandler(this.dgvConsultation_SelectionChanged);
@@ -605,9 +605,9 @@
             // 
             this.panel2.Controls.Add(this.tableLayoutPanel4);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(13, 3);
+            this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(445, 48);
+            this.panel2.Size = new System.Drawing.Size(465, 48);
             this.panel2.TabIndex = 3;
             // 
             // tableLayoutPanel4
@@ -623,7 +623,7 @@
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(445, 48);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(465, 48);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
             // label7
@@ -645,7 +645,7 @@
             this.cboConCategory.FormattingEnabled = true;
             this.cboConCategory.Location = new System.Drawing.Point(128, 3);
             this.cboConCategory.Name = "cboConCategory";
-            this.cboConCategory.Size = new System.Drawing.Size(314, 32);
+            this.cboConCategory.Size = new System.Drawing.Size(334, 32);
             this.cboConCategory.TabIndex = 3;
             this.cboConCategory.SelectedIndexChanged += new System.EventHandler(this.cboConCategory_SelectedIndexChanged);
             // 
@@ -653,9 +653,9 @@
             // 
             this.panel11.Controls.Add(this.btnNewConsultation);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel11.Location = new System.Drawing.Point(13, 523);
+            this.panel11.Location = new System.Drawing.Point(3, 523);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(445, 34);
+            this.panel11.Size = new System.Drawing.Size(465, 34);
             this.panel11.TabIndex = 4;
             // 
             // btnNewConsultation
@@ -665,7 +665,7 @@
             this.btnNewConsultation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNewConsultation.Location = new System.Drawing.Point(0, 0);
             this.btnNewConsultation.Name = "btnNewConsultation";
-            this.btnNewConsultation.Size = new System.Drawing.Size(445, 34);
+            this.btnNewConsultation.Size = new System.Drawing.Size(465, 34);
             this.btnNewConsultation.TabIndex = 5;
             this.btnNewConsultation.Text = "ពិនិត្យថ្មី";
             this.btnNewConsultation.UseVisualStyleBackColor = false;
