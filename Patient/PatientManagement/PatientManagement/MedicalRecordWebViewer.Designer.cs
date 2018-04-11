@@ -80,6 +80,7 @@
             // 
             this.wvPrintSample.Dock = System.Windows.Forms.DockStyle.Fill;
             this.wvPrintSample.Location = new System.Drawing.Point(0, 0);
+            this.wvPrintSample.Margin = new System.Windows.Forms.Padding(0);
             this.wvPrintSample.MinimumSize = new System.Drawing.Size(20, 20);
             this.wvPrintSample.Name = "wvPrintSample";
             this.wvPrintSample.Size = new System.Drawing.Size(1129, 682);

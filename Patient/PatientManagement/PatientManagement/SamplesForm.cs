@@ -60,7 +60,7 @@ namespace PatientManagement
         {
             //var path = AppDomain.CurrentDomain.BaseDirectory;
             //_path = path.Remove(path.Length - 46);
-            //_path = path;
+            ////_path = path;
             _path = @"S:\";
             picboxHide.Image = Properties.Resources.Hide_right_icon;
             //picboxHide.ImageLocation = _path+@"Hide-right-icon.png";

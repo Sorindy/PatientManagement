@@ -711,7 +711,7 @@ namespace PatientManagement
             else
             {
                 string html;
-                
+
                 txtDescription.Save(out html, StringStreamType.HTMLFormat);
                 txtDescription.Load(html, StringStreamType.HTMLFormat);
                 var wv = new MedicalRecordWebViewer
