@@ -29,6 +29,7 @@ namespace Hospital_Entity_Framework
             this.TempWaitingLists = new HashSet<TempWaitingList>();
             this.VariousDocumentEstimates = new HashSet<VariousDocumentEstimate>();
             this.VariousDocumentEstimates1 = new HashSet<VariousDocumentEstimate>();
+            this.DefaultSamples = new HashSet<DefaultSample>();
         }
     
         public int Id { get; set; }
@@ -60,5 +61,6 @@ namespace Hospital_Entity_Framework
         public virtual ICollection<TempWaitingList> TempWaitingLists { get; set; }
         public virtual ICollection<VariousDocumentEstimate> VariousDocumentEstimates { get; set; }
         public virtual ICollection<VariousDocumentEstimate> VariousDocumentEstimates1 { get; set; }
+        public virtual ICollection<DefaultSample> DefaultSamples { get; set; }
     }
 }

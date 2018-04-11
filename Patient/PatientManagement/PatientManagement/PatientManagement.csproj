@@ -164,6 +164,7 @@
     <Compile Include="Class\ConsultationHistory.cs" />
     <Compile Include="Class\ConsultationSample.cs" />
     <Compile Include="Class\Dating.cs" />
+    <Compile Include="Class\DefaultSamplePrint.cs" />
     <Compile Include="Class\FullManagement.cs" />
     <Compile Include="Class\LaboratoryHistory.cs" />
     <Compile Include="Class\Login.cs" />

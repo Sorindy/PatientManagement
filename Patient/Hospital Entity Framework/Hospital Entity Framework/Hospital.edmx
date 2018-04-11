@@ -11,6 +11,7 @@
           <EntitySet Name="ConsultationEstimate" EntityType="HospitalModel.Store.ConsultationEstimate" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ConsultationSample" EntityType="HospitalModel.Store.ConsultationSample" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Dating" EntityType="HospitalModel.Store.Dating" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DefaultSample" EntityType="HospitalModel.Store.DefaultSample" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Form" EntityType="HospitalModel.Store.Form" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="LaboratoryCategory" EntityType="HospitalModel.Store.LaboratoryCategory" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="LaboratoryEstimate" EntityType="HospitalModel.Store.LaboratoryEstimate" store:Type="Tables" Schema="dbo" />
@@ -88,6 +89,10 @@
           <AssociationSet Name="FK_Dating_Worker" Association="HospitalModel.Store.FK_Dating_Worker">
             <End Role="Worker" EntitySet="Worker" />
             <End Role="Dating" EntitySet="Dating" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DefaultSample_Worker" Association="HospitalModel.Store.FK_DefaultSample_Worker">
+            <End Role="Worker" EntitySet="Worker" />
+            <End Role="DefaultSample" EntitySet="DefaultSample" />
           </AssociationSet>
           <AssociationSet Name="FK_LaboratoryEstimate_LaboratoryCategory" Association="HospitalModel.Store.FK_LaboratoryEstimate_LaboratoryCategory">
             <End Role="LaboratoryCategory" EntitySet="LaboratoryCategory" />
@@ -382,7 +387,7 @@
           <Property Name="NurseId" Type="int" />
           <Property Name="ReferrerId" Type="int" />
           <Property Name="Date" Type="datetime" Nullable="false" />
-          <Property Name="Description" Type="varchar(max)" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Edit" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="ConsultationSample">
@@ -402,6 +407,14 @@
           <Property Name="PatientId" Type="int" Nullable="false" />
           <Property Name="WorkerId" Type="int" Nullable="false" />
           <Property Name="Date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DefaultSample">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="WorkerId" Type="int" Nullable="false" />
+          <Property Name="DefaultSample" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Form">
           <Key>
@@ -922,6 +935,18 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Dating">
+              <PropertyRef Name="WorkerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DefaultSample_Worker">
+          <End Role="Worker" Type="HospitalModel.Store.Worker" Multiplicity="1" />
+          <End Role="DefaultSample" Type="HospitalModel.Store.DefaultSample" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Worker">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DefaultSample">
               <PropertyRef Name="WorkerId" />
             </Dependent>
           </ReferentialConstraint>
@@ -1999,6 +2024,11 @@
             <End Role="VariousDocumentCategory" EntitySet="VariousDocumentCategories" />
             <End Role="WaitingList" EntitySet="WaitingLists" />
           </AssociationSet>
+          <EntitySet Name="DefaultSamples" EntityType="HospitalModel.DefaultSample" />
+          <AssociationSet Name="FK_DefaultSample_Worker" Association="HospitalModel.FK_DefaultSample_Worker">
+            <End Role="Worker" EntitySet="Workers" />
+            <End Role="DefaultSample" EntitySet="DefaultSamples" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Account">
           <Key>
@@ -2034,7 +2064,7 @@
           <Property Name="NurseId" Type="Int32" />
           <Property Name="ReferrerId" Type="Int32" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Edit" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="ConsultationCategory" Relationship="HospitalModel.FK_ConsultationEstimate_ConsultationCategory" FromRole="ConsultationEstimate" ToRole="ConsultationCategory" />
           <NavigationProperty Name="Patient" Relationship="HospitalModel.FK_ConsultationEstimate_Patient" FromRole="ConsultationEstimate" ToRole="Patient" />
@@ -2431,6 +2461,7 @@
           <NavigationProperty Name="TempWaitingLists" Relationship="HospitalModel.FK_TempWaitingList_Worker" FromRole="Worker" ToRole="TempWaitingList" />
           <NavigationProperty Name="VariousDocumentEstimates" Relationship="HospitalModel.FK_VariousDocumentEstimate_Worker" FromRole="Worker" ToRole="VariousDocumentEstimate" />
           <NavigationProperty Name="VariousDocumentEstimates1" Relationship="HospitalModel.FK_VariousDocumentEstimate_Worker1" FromRole="Worker" ToRole="VariousDocumentEstimate" />
+          <NavigationProperty Name="DefaultSamples" Relationship="HospitalModel.FK_DefaultSample_Worker" FromRole="Worker" ToRole="DefaultSample" />
         </EntityType>
         <Association Name="FK_Account_Worker">
           <End Role="Worker" Type="HospitalModel.Worker" Multiplicity="1" />
@@ -2994,6 +3025,27 @@
           <End Role="VariousDocumentCategory" Type="HospitalModel.VariousDocumentCategory" Multiplicity="*" />
           <End Role="WaitingList" Type="HospitalModel.WaitingList" Multiplicity="*" />
         </Association>
+        <EntityType Name="DefaultSample">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="WorkerId" Nullable="false" />
+          <Property Type="Int32" Name="DefaultSample1" Nullable="false" />
+          <NavigationProperty Name="Worker" Relationship="HospitalModel.FK_DefaultSample_Worker" FromRole="DefaultSample" ToRole="Worker" />
+        </EntityType>
+        <Association Name="FK_DefaultSample_Worker">
+          <End Type="HospitalModel.Worker" Role="Worker" Multiplicity="1" />
+          <End Type="HospitalModel.DefaultSample" Role="DefaultSample" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Worker">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DefaultSample">
+              <PropertyRef Name="WorkerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3487,6 +3539,15 @@
               <ScalarProperty Name="Id" ColumnName="WaitId" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="DefaultSamples">
+            <EntityTypeMapping TypeName="HospitalModel.DefaultSample">
+              <MappingFragment StoreEntitySet="DefaultSample">
+                <ScalarProperty Name="DefaultSample1" ColumnName="DefaultSample" />
+                <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

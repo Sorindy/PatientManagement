@@ -55,5 +55,6 @@ namespace Hospital_Entity_Framework
         public DbSet<Visit> Visits { get; set; }
         public DbSet<WaitingList> WaitingLists { get; set; }
         public DbSet<Worker> Workers { get; set; }
+        public DbSet<DefaultSample> DefaultSamples { get; set; }
     }
 }

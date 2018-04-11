@@ -65,6 +65,9 @@
     <Compile Include="Dating.cs">
       <DependentUpon>Hospital.tt</DependentUpon>
     </Compile>
+    <Compile Include="DefaultSample.cs">
+      <DependentUpon>Hospital.tt</DependentUpon>
+    </Compile>
     <Compile Include="Form.cs">
       <DependentUpon>Hospital.tt</DependentUpon>
     </Compile>

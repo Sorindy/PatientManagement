@@ -56,7 +56,7 @@ namespace PatientManagement
             {
                 _dating.Update(Convert.ToInt32(lbDatingId.Text), dtpDating.Value);
                 btnShow.PerformClick();
-            } 
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)

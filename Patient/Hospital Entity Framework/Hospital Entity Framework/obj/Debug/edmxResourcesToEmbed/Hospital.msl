@@ -488,5 +488,14 @@
         <ScalarProperty Name="Id" ColumnName="WaitId" />
       </EndProperty>
     </AssociationSetMapping>
+    <EntitySetMapping Name="DefaultSamples">
+      <EntityTypeMapping TypeName="HospitalModel.DefaultSample">
+        <MappingFragment StoreEntitySet="DefaultSample">
+          <ScalarProperty Name="DefaultSample1" ColumnName="DefaultSample" />
+          <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

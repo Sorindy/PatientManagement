@@ -30,23 +30,31 @@
         {
             this.pnBoss = new System.Windows.Forms.Panel();
             this.pnMiddle = new System.Windows.Forms.Panel();
-            this.wvSampleD = new System.Windows.Forms.WebBrowser();
-            this.wvSampleC = new System.Windows.Forms.WebBrowser();
-            this.wvSampleB = new System.Windows.Forms.WebBrowser();
-            this.wvSampleA = new System.Windows.Forms.WebBrowser();
+            this.wvPrintSample = new System.Windows.Forms.WebBrowser();
             this.pnTop = new System.Windows.Forms.Panel();
-            this.tblypnTop = new System.Windows.Forms.TableLayoutPanel();
-            this.btnPrintPreview = new System.Windows.Forms.Button();
-            this.cmbModel = new System.Windows.Forms.ComboBox();
             this.crystalReportViewer = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.MedicalRecortSampleD1 = new PatientManagement.MedicalRecortSampleD();
-            this.MedicalReportSampleB1 = new PatientManagement.MedicalReportSampleB();
-            this.MedicalReportSampleA1 = new PatientManagement.MedicalReportSampleA();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.toolStripcmbModel = new System.Windows.Forms.ToolStripMenuItem();
+            this.sampleAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sampleBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sampleCToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sampleDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.setAsDefaultPrintToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.aToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.printDialogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.printPreviewDialogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MedicalRecortSampleC1 = new PatientManagement.MedicalRecortSampleC();
+            this.MedicalReportSampleA1 = new PatientManagement.MedicalReportSampleA();
+            this.MedicalReportSampleB1 = new PatientManagement.MedicalReportSampleB();
             this.pnBoss.SuspendLayout();
             this.pnMiddle.SuspendLayout();
             this.pnTop.SuspendLayout();
-            this.tblypnTop.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnBoss
@@ -61,108 +69,32 @@
             // 
             // pnMiddle
             // 
-            this.pnMiddle.Controls.Add(this.wvSampleD);
-            this.pnMiddle.Controls.Add(this.wvSampleC);
-            this.pnMiddle.Controls.Add(this.wvSampleB);
-            this.pnMiddle.Controls.Add(this.wvSampleA);
+            this.pnMiddle.Controls.Add(this.wvPrintSample);
             this.pnMiddle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnMiddle.Location = new System.Drawing.Point(0, 51);
             this.pnMiddle.Name = "pnMiddle";
             this.pnMiddle.Size = new System.Drawing.Size(1129, 682);
             this.pnMiddle.TabIndex = 2;
             // 
-            // wvSampleD
+            // wvPrintSample
             // 
-            this.wvSampleD.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.wvSampleD.Location = new System.Drawing.Point(0, 0);
-            this.wvSampleD.MinimumSize = new System.Drawing.Size(20, 20);
-            this.wvSampleD.Name = "wvSampleD";
-            this.wvSampleD.Size = new System.Drawing.Size(1129, 682);
-            this.wvSampleD.TabIndex = 4;
-            // 
-            // wvSampleC
-            // 
-            this.wvSampleC.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.wvSampleC.Location = new System.Drawing.Point(0, 0);
-            this.wvSampleC.MinimumSize = new System.Drawing.Size(20, 20);
-            this.wvSampleC.Name = "wvSampleC";
-            this.wvSampleC.Size = new System.Drawing.Size(1129, 682);
-            this.wvSampleC.TabIndex = 3;
-            // 
-            // wvSampleB
-            // 
-            this.wvSampleB.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.wvSampleB.Location = new System.Drawing.Point(0, 0);
-            this.wvSampleB.MinimumSize = new System.Drawing.Size(20, 20);
-            this.wvSampleB.Name = "wvSampleB";
-            this.wvSampleB.Size = new System.Drawing.Size(1129, 682);
-            this.wvSampleB.TabIndex = 2;
-            // 
-            // wvSampleA
-            // 
-            this.wvSampleA.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.wvSampleA.Location = new System.Drawing.Point(0, 0);
-            this.wvSampleA.MinimumSize = new System.Drawing.Size(20, 20);
-            this.wvSampleA.Name = "wvSampleA";
-            this.wvSampleA.Size = new System.Drawing.Size(1129, 682);
-            this.wvSampleA.TabIndex = 1;
+            this.wvPrintSample.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.wvPrintSample.Location = new System.Drawing.Point(0, 0);
+            this.wvPrintSample.MinimumSize = new System.Drawing.Size(20, 20);
+            this.wvPrintSample.Name = "wvPrintSample";
+            this.wvPrintSample.Size = new System.Drawing.Size(1129, 682);
+            this.wvPrintSample.TabIndex = 1;
+            this.wvPrintSample.Navigated += new System.Windows.Forms.WebBrowserNavigatedEventHandler(this.wvPrintSample_Navigated);
             // 
             // pnTop
             // 
-            this.pnTop.Controls.Add(this.tblypnTop);
             this.pnTop.Controls.Add(this.crystalReportViewer);
+            this.pnTop.Controls.Add(this.menuStrip1);
             this.pnTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnTop.Location = new System.Drawing.Point(0, 0);
             this.pnTop.Name = "pnTop";
             this.pnTop.Size = new System.Drawing.Size(1129, 51);
             this.pnTop.TabIndex = 1;
-            // 
-            // tblypnTop
-            // 
-            this.tblypnTop.ColumnCount = 2;
-            this.tblypnTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42.85714F));
-            this.tblypnTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.57143F));
-            this.tblypnTop.Controls.Add(this.btnPrintPreview, 1, 0);
-            this.tblypnTop.Controls.Add(this.cmbModel, 0, 0);
-            this.tblypnTop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tblypnTop.Location = new System.Drawing.Point(0, 0);
-            this.tblypnTop.Name = "tblypnTop";
-            this.tblypnTop.RowCount = 1;
-            this.tblypnTop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tblypnTop.Size = new System.Drawing.Size(1129, 51);
-            this.tblypnTop.TabIndex = 2;
-            // 
-            // btnPrintPreview
-            // 
-            this.btnPrintPreview.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnPrintPreview.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnPrintPreview.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrintPreview.Font = new System.Drawing.Font("Modern No. 20", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrintPreview.Location = new System.Drawing.Point(680, 3);
-            this.btnPrintPreview.Name = "btnPrintPreview";
-            this.btnPrintPreview.Size = new System.Drawing.Size(446, 45);
-            this.btnPrintPreview.TabIndex = 4;
-            this.btnPrintPreview.Text = "Print Preview";
-            this.btnPrintPreview.UseVisualStyleBackColor = false;
-            this.btnPrintPreview.Click += new System.EventHandler(this.btnPrintPreview_Click);
-            // 
-            // cmbModel
-            // 
-            this.cmbModel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmbModel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmbModel.Font = new System.Drawing.Font("Modern No. 20", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbModel.FormattingEnabled = true;
-            this.cmbModel.Items.AddRange(new object[] {
-            "SampleA",
-            "SampleB",
-            "SampleC",
-            "SampleD"});
-            this.cmbModel.Location = new System.Drawing.Point(3, 3);
-            this.cmbModel.Name = "cmbModel";
-            this.cmbModel.Size = new System.Drawing.Size(671, 42);
-            this.cmbModel.TabIndex = 3;
-            this.cmbModel.Text = "Sample Frame";
-            this.cmbModel.SelectedIndexChanged += new System.EventHandler(this.cmbModel_SelectedIndexChanged);
             // 
             // crystalReportViewer
             // 
@@ -176,12 +108,127 @@
             this.crystalReportViewer.TabIndex = 1;
             this.crystalReportViewer.Visible = false;
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripcmbModel,
+            this.printToolStripMenuItem,
+            this.printDialogToolStripMenuItem,
+            this.printPreviewDialogToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1129, 51);
+            this.menuStrip1.TabIndex = 2;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // toolStripcmbModel
+            // 
+            this.toolStripcmbModel.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sampleAToolStripMenuItem,
+            this.sampleBToolStripMenuItem,
+            this.sampleCToolStripMenuItem,
+            this.sampleDToolStripMenuItem,
+            this.setAsDefaultPrintToolStripMenuItem1});
+            this.toolStripcmbModel.Name = "toolStripcmbModel";
+            this.toolStripcmbModel.Size = new System.Drawing.Size(85, 47);
+            this.toolStripcmbModel.Text = "Default Print";
+            // 
+            // sampleAToolStripMenuItem
+            // 
+            this.sampleAToolStripMenuItem.Name = "sampleAToolStripMenuItem";
+            this.sampleAToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.sampleAToolStripMenuItem.Text = "SampleA";
+            this.sampleAToolStripMenuItem.Click += new System.EventHandler(this.sampleAToolStripMenuItem_Click);
+            // 
+            // sampleBToolStripMenuItem
+            // 
+            this.sampleBToolStripMenuItem.Name = "sampleBToolStripMenuItem";
+            this.sampleBToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.sampleBToolStripMenuItem.Text = "SampleB";
+            this.sampleBToolStripMenuItem.Click += new System.EventHandler(this.sampleBToolStripMenuItem_Click);
+            // 
+            // sampleCToolStripMenuItem
+            // 
+            this.sampleCToolStripMenuItem.Name = "sampleCToolStripMenuItem";
+            this.sampleCToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.sampleCToolStripMenuItem.Text = "SampleC";
+            this.sampleCToolStripMenuItem.Click += new System.EventHandler(this.sampleCToolStripMenuItem_Click);
+            // 
+            // sampleDToolStripMenuItem
+            // 
+            this.sampleDToolStripMenuItem.Name = "sampleDToolStripMenuItem";
+            this.sampleDToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.sampleDToolStripMenuItem.Text = "SampleD";
+            this.sampleDToolStripMenuItem.Click += new System.EventHandler(this.sampleDToolStripMenuItem_Click);
+            // 
+            // setAsDefaultPrintToolStripMenuItem1
+            // 
+            this.setAsDefaultPrintToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aToolStripMenuItem,
+            this.bToolStripMenuItem,
+            this.cToolStripMenuItem,
+            this.dToolStripMenuItem});
+            this.setAsDefaultPrintToolStripMenuItem1.Name = "setAsDefaultPrintToolStripMenuItem1";
+            this.setAsDefaultPrintToolStripMenuItem1.Size = new System.Drawing.Size(175, 22);
+            this.setAsDefaultPrintToolStripMenuItem1.Text = "Set As Default Print";
+            // 
+            // aToolStripMenuItem
+            // 
+            this.aToolStripMenuItem.Name = "aToolStripMenuItem";
+            this.aToolStripMenuItem.Size = new System.Drawing.Size(82, 22);
+            this.aToolStripMenuItem.Text = "A";
+            this.aToolStripMenuItem.Click += new System.EventHandler(this.aToolStripMenuItem_Click);
+            // 
+            // bToolStripMenuItem
+            // 
+            this.bToolStripMenuItem.Name = "bToolStripMenuItem";
+            this.bToolStripMenuItem.Size = new System.Drawing.Size(82, 22);
+            this.bToolStripMenuItem.Text = "B";
+            this.bToolStripMenuItem.Click += new System.EventHandler(this.bToolStripMenuItem_Click);
+            // 
+            // cToolStripMenuItem
+            // 
+            this.cToolStripMenuItem.Name = "cToolStripMenuItem";
+            this.cToolStripMenuItem.Size = new System.Drawing.Size(82, 22);
+            this.cToolStripMenuItem.Text = "C";
+            this.cToolStripMenuItem.Click += new System.EventHandler(this.cToolStripMenuItem_Click);
+            // 
+            // dToolStripMenuItem
+            // 
+            this.dToolStripMenuItem.Name = "dToolStripMenuItem";
+            this.dToolStripMenuItem.Size = new System.Drawing.Size(82, 22);
+            this.dToolStripMenuItem.Text = "D";
+            this.dToolStripMenuItem.Click += new System.EventHandler(this.dToolStripMenuItem_Click);
+            // 
+            // printToolStripMenuItem
+            // 
+            this.printToolStripMenuItem.Name = "printToolStripMenuItem";
+            this.printToolStripMenuItem.Size = new System.Drawing.Size(44, 47);
+            this.printToolStripMenuItem.Text = "Print";
+            this.printToolStripMenuItem.Click += new System.EventHandler(this.printToolStripMenuItem_Click);
+            // 
+            // printDialogToolStripMenuItem
+            // 
+            this.printDialogToolStripMenuItem.Name = "printDialogToolStripMenuItem";
+            this.printDialogToolStripMenuItem.Size = new System.Drawing.Size(81, 47);
+            this.printDialogToolStripMenuItem.Text = "Print Dialog";
+            this.printDialogToolStripMenuItem.Click += new System.EventHandler(this.printDialogToolStripMenuItem_Click);
+            // 
+            // printPreviewDialogToolStripMenuItem
+            // 
+            this.printPreviewDialogToolStripMenuItem.Name = "printPreviewDialogToolStripMenuItem";
+            this.printPreviewDialogToolStripMenuItem.Size = new System.Drawing.Size(125, 47);
+            this.printPreviewDialogToolStripMenuItem.Text = "Print Preview Dialog";
+            this.printPreviewDialogToolStripMenuItem.Click += new System.EventHandler(this.printPreviewDialogToolStripMenuItem_Click);
+            // 
             // MedicalRecordWebViewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1129, 733);
             this.Controls.Add(this.pnBoss);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "MedicalRecordWebViewer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Print";
@@ -189,7 +236,9 @@
             this.pnBoss.ResumeLayout(false);
             this.pnMiddle.ResumeLayout(false);
             this.pnTop.ResumeLayout(false);
-            this.tblypnTop.ResumeLayout(false);
+            this.pnTop.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -200,16 +249,24 @@
         private System.Windows.Forms.Panel pnMiddle;
         private System.Windows.Forms.Panel pnTop;
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer;
-        private System.Windows.Forms.WebBrowser wvSampleA;
+        private System.Windows.Forms.WebBrowser wvPrintSample;
         private MedicalReportSampleA MedicalReportSampleA1;
         private MedicalReportSampleB MedicalReportSampleB1;
-        private System.Windows.Forms.ComboBox cmbModel;
         private MedicalRecortSampleC MedicalRecortSampleC1;
         private MedicalRecortSampleD MedicalRecortSampleD1;
-        private System.Windows.Forms.Button btnPrintPreview;
-        private System.Windows.Forms.TableLayoutPanel tblypnTop;
-        private System.Windows.Forms.WebBrowser wvSampleB;
-        private System.Windows.Forms.WebBrowser wvSampleD;
-        private System.Windows.Forms.WebBrowser wvSampleC;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem printToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem printDialogToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem printPreviewDialogToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripcmbModel;
+        private System.Windows.Forms.ToolStripMenuItem sampleAToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sampleBToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sampleCToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sampleDToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem setAsDefaultPrintToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem aToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dToolStripMenuItem;
     }
 }
