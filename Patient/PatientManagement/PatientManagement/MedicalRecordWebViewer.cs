@@ -65,7 +65,7 @@ namespace PatientManagement
             MedicalReportSampleA1.SetParameterValue("pDatetime", DateTime.Now.ToLongDateString());
             MedicalReportSampleA1.SetParameterValue("pDoctorName", Account.Worker.FirstName + " " + Account.Worker.LastName);
             MedicalReportSampleA1.SetParameterValue("pAge", Patient.Age);
-            MedicalReportSampleA1.SetParameterValue("pPatientId", Patient.Id );
+            MedicalReportSampleA1.SetParameterValue("pPatientId", Patient.PatientIdentify);
             MedicalReportSampleA1.ExportToDisk(ExportFormatType.HTML40, DirectoryAndPath() + @"RTF\SampleA");
             wvPrintSample.Navigate(DirectoryAndPath() + @"RTF\SampleA.htm");
            // wvPrintSample.DocumentText.Insert(13, @"@page { size: A4; margin: 0;}@media print {html, body { width: 210mm;height: 297mm;}}");
@@ -79,7 +79,7 @@ namespace PatientManagement
             MedicalReportSampleB1.SetParameterValue("pDatetime", DateTime.Now.ToLongDateString());
             MedicalReportSampleB1.SetParameterValue("pDoctorName", Account.Worker.FirstName + " " + Account.Worker.LastName);
             MedicalReportSampleB1.SetParameterValue("pAge", Patient.Age);
-            MedicalReportSampleB1.SetParameterValue("pPatientId", Patient.Id );
+            MedicalReportSampleB1.SetParameterValue("pPatientId", Patient.PatientIdentify  );
             MedicalReportSampleB1.SetParameterValue("pPhoneNumber", Patient.Phone1 );
             MedicalReportSampleB1.ExportToDisk(ExportFormatType.HTML40, DirectoryAndPath() + @"RTF\SampleB");
             wvPrintSample.Navigate(DirectoryAndPath() + @"RTF\SampleB.htm");
@@ -92,7 +92,7 @@ namespace PatientManagement
             MedicalRecortSampleC1.SetParameterValue("pDatetime", DateTime.Now.ToLongDateString());
             MedicalRecortSampleC1.SetParameterValue("pDoctorName", Account.Worker.FirstName + " " + Account.Worker.LastName);
             MedicalRecortSampleC1.SetParameterValue("pAge", Patient.Age);
-            MedicalRecortSampleC1.SetParameterValue("pPatientId", Patient.Id);
+            MedicalRecortSampleC1.SetParameterValue("pPatientId", Patient.PatientIdentify);
             MedicalRecortSampleC1.ExportToDisk(ExportFormatType.HTML40, DirectoryAndPath() + @"RTF\SampleC");
             wvPrintSample.Navigate(DirectoryAndPath() + @"RTF\SampleC.htm");
         }
@@ -104,7 +104,7 @@ namespace PatientManagement
             MedicalRecortSampleD1.SetParameterValue("pDatetime", DateTime.Now.ToLongDateString());
             MedicalRecortSampleD1.SetParameterValue("pDoctorName", Account.Worker.FirstName + " " + Account.Worker.LastName);
             MedicalRecortSampleD1.SetParameterValue("pAge", Patient.Age);
-            MedicalRecortSampleD1.SetParameterValue("pPatientId", Patient.Id);
+            MedicalRecortSampleD1.SetParameterValue("pPatientId", Patient.PatientIdentify);
             MedicalRecortSampleD1.SetParameterValue("pPhoneNumber", Patient.Phone1);
             MedicalRecortSampleD1.ExportToDisk(ExportFormatType.HTML40, DirectoryAndPath() + @"RTF\SampleD");
             wvPrintSample.Navigate(DirectoryAndPath() + @"RTF\SampleD.htm");
