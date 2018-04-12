@@ -14,6 +14,7 @@ namespace PatientManagement
         internal string Html;
         internal Patient Patient;
         internal Account Account;
+        public string Refferrer;
         private string _path;
         private   DefaultSamplePrint  defaultSample= new DefaultSamplePrint() ;
         
@@ -35,8 +36,8 @@ namespace PatientManagement
             Html = Html.Remove(Html.Length - 16);
            // Html = Html.Insert(0, @"<section>");
            // Html = Html.Insert(Html.Length, @"</section>");
-            Html = Html.Insert(0, @"<span class=" + "ad281d4f79-0002-451a-a51d-f2ce0baa9e4d-2" + "style=z-index:10;top:247px;left:161px;width:629px;height:837px;" + ">");
-            Html = Html.Insert(Html.Length, @"</span>");
+            //Html = Html.Insert(0, @"<span class=" + "ad281d4f79-0002-451a-a51d-f2ce0baa9e4d-2" + "style=z-index:10;top:247px;left:161px;width:629px;height:837px;" + ">");
+            //Html = Html.Insert(Html.Length, @"</span>");
             var path = AppDomain.CurrentDomain.BaseDirectory;
             _path = path.Remove(path.Length - 46);
             //_path = path;
@@ -60,11 +61,12 @@ namespace PatientManagement
 
         public void ShowSample_A_InWebViewer()
         {
-            MedicalReportSampleA1.SetParameterValue("pPatientName", Patient.FirstName + " " + Patient.LastName + " ( " + Patient.KhmerName + " )");
+            MedicalReportSampleA1.SetParameterValue("pPatientName", Patient.FirstName.ToUpper( ) + " " + Patient.LastName.ToUpper( ) + " ( " + Patient.KhmerName + " )");
             MedicalReportSampleA1.SetParameterValue("pGender", Patient.Gender);
-            MedicalReportSampleA1.SetParameterValue("pDatetime", DateTime.Now.ToLongDateString());
-            MedicalReportSampleA1.SetParameterValue("pDoctorName", Account.Worker.FirstName + " " + Account.Worker.LastName);
+            MedicalReportSampleA1.SetParameterValue("pDatetime", DateTime.Now.ToLongDateString()  );
+            MedicalReportSampleA1.SetParameterValue("pDoctorName", Account.Worker.FirstName.ToUpper( ) + " " + Account.Worker.LastName.ToUpper( ));
             MedicalReportSampleA1.SetParameterValue("pAge", Patient.Age);
+            //MedicalReportSampleA1.SetParameterValue("pRefferrer", Refferrer);
             MedicalReportSampleA1.SetParameterValue("pPatientId", Patient.PatientIdentify);
             MedicalReportSampleA1.ExportToDisk(ExportFormatType.HTML40, DirectoryAndPath() + @"RTF\SampleA");
             wvPrintSample.Navigate(DirectoryAndPath() + @"RTF\SampleA.htm");
@@ -74,12 +76,13 @@ namespace PatientManagement
 
         public void ShowSample_B_InWebViewer()
         {
-            MedicalReportSampleB1.SetParameterValue("pPatientName", Patient.FirstName + " " + Patient.LastName + " ( " + Patient.KhmerName + " )");
+            MedicalReportSampleB1.SetParameterValue("pPatientName", Patient.FirstName.ToUpper() + " " + Patient.LastName.ToUpper() + " ( " + Patient.KhmerName + " )");
             MedicalReportSampleB1.SetParameterValue("pGender", Patient.Gender);
             MedicalReportSampleB1.SetParameterValue("pDatetime", DateTime.Now.ToLongDateString());
-            MedicalReportSampleB1.SetParameterValue("pDoctorName", Account.Worker.FirstName + " " + Account.Worker.LastName);
+            MedicalReportSampleB1.SetParameterValue("pDoctorName", Account.Worker.FirstName.ToUpper() + " " + Account.Worker.LastName.ToUpper());
             MedicalReportSampleB1.SetParameterValue("pAge", Patient.Age);
             MedicalReportSampleB1.SetParameterValue("pPatientId", Patient.PatientIdentify  );
+            //MedicalReportSampleB1.SetParameterValue("pRefferrer", Refferrer.ToUpper());
             MedicalReportSampleB1.SetParameterValue("pPhoneNumber", Patient.Phone1 );
             MedicalReportSampleB1.ExportToDisk(ExportFormatType.HTML40, DirectoryAndPath() + @"RTF\SampleB");
             wvPrintSample.Navigate(DirectoryAndPath() + @"RTF\SampleB.htm");
@@ -87,11 +90,12 @@ namespace PatientManagement
 
         public void ShowSample_C_InWebViewer()
         {
-            MedicalRecortSampleC1.SetParameterValue("pPatientName", Patient.FirstName + " " + Patient.LastName + " ( " + Patient.KhmerName + " )");
+            MedicalRecortSampleC1.SetParameterValue("pPatientName", Patient.FirstName.ToUpper() + " " + Patient.LastName.ToUpper() + " ( " + Patient.KhmerName + " )");
             MedicalRecortSampleC1.SetParameterValue("pGender", Patient.Gender);
             MedicalRecortSampleC1.SetParameterValue("pDatetime", DateTime.Now.ToLongDateString());
-            MedicalRecortSampleC1.SetParameterValue("pDoctorName", Account.Worker.FirstName + " " + Account.Worker.LastName);
+            MedicalRecortSampleC1.SetParameterValue("pDoctorName", Account.Worker.FirstName.ToUpper() + " " + Account.Worker.LastName.ToUpper());
             MedicalRecortSampleC1.SetParameterValue("pAge", Patient.Age);
+            //MedicalRecortSampleC1.SetParameterValue("pRefferrer", Refferrer.ToUpper());
             MedicalRecortSampleC1.SetParameterValue("pPatientId", Patient.PatientIdentify);
             MedicalRecortSampleC1.ExportToDisk(ExportFormatType.HTML40, DirectoryAndPath() + @"RTF\SampleC");
             wvPrintSample.Navigate(DirectoryAndPath() + @"RTF\SampleC.htm");
@@ -99,13 +103,14 @@ namespace PatientManagement
 
         public void ShowSample_D_InWebViewer()
         {
-            MedicalRecortSampleD1.SetParameterValue("pPatientName", Patient.FirstName + " " + Patient.LastName + " ( " + Patient.KhmerName + " )");
+            MedicalRecortSampleD1.SetParameterValue("pPatientName", Patient.FirstName.ToUpper() + " " + Patient.LastName.ToUpper() + " ( " + Patient.KhmerName + " )");
             MedicalRecortSampleD1.SetParameterValue("pGender", Patient.Gender);
             MedicalRecortSampleD1.SetParameterValue("pDatetime", DateTime.Now.ToLongDateString());
-            MedicalRecortSampleD1.SetParameterValue("pDoctorName", Account.Worker.FirstName + " " + Account.Worker.LastName);
+            MedicalRecortSampleD1.SetParameterValue("pDoctorName", Account.Worker.FirstName.ToUpper() + " " + Account.Worker.LastName.ToUpper());
             MedicalRecortSampleD1.SetParameterValue("pAge", Patient.Age);
             MedicalRecortSampleD1.SetParameterValue("pPatientId", Patient.PatientIdentify);
             MedicalRecortSampleD1.SetParameterValue("pPhoneNumber", Patient.Phone1);
+            //MedicalRecortSampleD1.SetParameterValue("pRefferrer", Refferrer.ToUpper());
             MedicalRecortSampleD1.ExportToDisk(ExportFormatType.HTML40, DirectoryAndPath() + @"RTF\SampleD");
             wvPrintSample.Navigate(DirectoryAndPath() + @"RTF\SampleD.htm");
         }
