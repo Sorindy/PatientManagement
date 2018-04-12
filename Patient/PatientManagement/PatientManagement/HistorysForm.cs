@@ -31,6 +31,7 @@ namespace PatientManagement
         internal int KeyCategory;
         internal string KeyService;
         private string _path;
+        private string _refferer;
 
         private static void CheckOrderDgv(DataGridView dgv)
         {
@@ -1054,6 +1055,7 @@ namespace PatientManagement
                     // ignored
                 }
             }
+            _refferer = dgvVariousDocument.CurrentRow.Cells[4].Value.ToString();
         }
 
         private void tabSelection_Selected(object sender, TabControlEventArgs e)
@@ -1129,6 +1131,7 @@ namespace PatientManagement
                     // ignored
                 }
             }
+            _refferer = dgvPrescription.CurrentRow.Cells[4].Value.ToString();
         }
 
         private void dgvMedicalImaging_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -1191,6 +1194,7 @@ namespace PatientManagement
                     // ignored
                 }
             }
+            _refferer = dgvMedicalImaging.CurrentRow.Cells[4].Value.ToString();
         }
 
         private void dgvLaboratory_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -1253,6 +1257,7 @@ namespace PatientManagement
                     // ignored
                 }
             }
+            _refferer = dgvLaboratory.CurrentRow.Cells[4].Value.ToString();
         }
 
         private void dgvConsultation_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -1315,6 +1320,7 @@ namespace PatientManagement
                    // ignored
                 }
             }
+            _refferer = dgvConsultation.CurrentRow.Cells[4].Value.ToString();
         }
 
         private void btnNewConsultation_Click(object sender, EventArgs e)
@@ -1601,7 +1607,8 @@ namespace PatientManagement
                 {
                     Html = html,
                     Patient = Patient,
-                    Account = Account
+                    Account = Account,
+                    Refferrer=_refferer
                 };
                 wv.ShowDialog();
             }
