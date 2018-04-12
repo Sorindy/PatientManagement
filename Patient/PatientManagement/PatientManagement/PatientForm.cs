@@ -58,6 +58,8 @@ namespace PatientManagement
 
             btnClear.Enabled = false;
             btnUpdate.Enabled = false;
+
+            dtpDOB.CustomFormat = @"dd/MM/yyyy";
         }
 
         private void dtpDOB_Leave(object sender, EventArgs e)

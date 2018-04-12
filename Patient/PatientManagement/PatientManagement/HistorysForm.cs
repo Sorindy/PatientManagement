@@ -91,10 +91,10 @@ namespace PatientManagement
                 KeyService = @"Consultation";
             }
             //AddNodesToTree();
-            var path = AppDomain.CurrentDomain.BaseDirectory;
-            _path = path.Remove(path.Length - 46);
+            //var path = AppDomain.CurrentDomain.BaseDirectory;
+            //_path = path.Remove(path.Length - 46);
             //_path = path;
-            //_path = @"S:\";
+            _path = @"S:\";
             //dgvConsultation.Columns.Clear();
             //dgvLaboratory.Columns.Clear();
             //dgvMedicalImaging.Columns.Clear();
@@ -1065,18 +1065,38 @@ namespace PatientManagement
             if (tabSelection.SelectedTab.Text == @"Laboratory")
             {
                 lbService.Text = @"Laboratory";
+                if (cboLabCategory.DataSource != null)
+                {
+                    cboLabCategory.SelectedIndex = 0;
+                    dgvLaboratory.ClearSelection();
+                }
             }
             if (tabSelection.SelectedTab.Text == @"MedicalImaging")
             {
                 lbService.Text = @"MedicalImaging";
+                if (cboMedCategory.DataSource != null)
+                {
+                    cboMedCategory.SelectedIndex = 0;
+                    dgvMedicalImaging.ClearSelection();
+                }
             }
             if (tabSelection.SelectedTab.Text == @"Prescription")
             {
                 lbService.Text = @"Prescription";
+                if (cboPreCategory.DataSource != null)
+                {
+                    cboPreCategory.SelectedIndex = 0;
+                    dgvPrescription.ClearSelection();
+                }
             }
             if (tabSelection.SelectedTab.Text == @"VariousDocument")
             {
                 lbService.Text = @"VariousDocument";
+                if (cboVarCategory.DataSource != null)
+                {
+                    cboVarCategory.SelectedIndex = 0;
+                    dgvVariousDocument.ClearSelection();
+                }
             }
         }
 

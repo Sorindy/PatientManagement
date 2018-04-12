@@ -31,7 +31,7 @@ namespace PatientManagement.Class
                 select new
                 {
                     v.Id,
-                    v.Date,
+                    Date= v.Date.Day,
                     Doctor = v.Worker.LastName,
                     Nurse =v.Worker1.LastName,
                     Referrer=v.Referrer.LastName,

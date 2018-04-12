@@ -107,10 +107,10 @@ namespace PatientManagement
                 }
             }
 
-            var path = AppDomain.CurrentDomain.BaseDirectory;
-            _path = path.Remove(path.Length - 46);
+            //var path = AppDomain.CurrentDomain.BaseDirectory;
+            //_path = path.Remove(path.Length - 46);
             //_path = path;
-            //_path = @"S:\";
+            _path = @"S:\";
             picHideRight.Image = Properties.Resources.Hide_right_icon;
             //picHideRight.ImageLocation = _path + @"Hide-right-icon.png";
             picHideTop.Image = Properties.Resources.Hide_Up_icon;
@@ -253,7 +253,7 @@ namespace PatientManagement
             if(txtDescription.Text!=""&&KeyService!=""&&KeyCategory!=0)
             {
                 string path;
-                if (Directory.Exists(@"S:\"))
+                if (!Directory.Exists(@"S:\"))
                 {
                     path = @"D:\ABC soft\";
                 }
@@ -871,14 +871,14 @@ namespace PatientManagement
             if (txtDescription.Text != "" && KeyCategory != 0 && KeyService != "")
             {
                 string path;
-                //if (Directory.Exists(@"S:\"))
-                //{
-                //    path = @"D:\ABC soft\";
-                //}
-                //else
-                //{
+                if (!Directory.Exists(@"S:\"))
+                {
+                    path = @"D:\ABC soft\";
+                }
+                else
+                {
                     path = _path;
-                //}
+                }
                 var form =new TitleInput(){MedicalForm = this};
                 form.ShowDialog();
                 if (Title != "")

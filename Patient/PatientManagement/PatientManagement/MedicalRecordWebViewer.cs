@@ -39,7 +39,7 @@ namespace PatientManagement
             //Html = Html.Insert(Html.Length, @"</span>");
             var path = AppDomain.CurrentDomain.BaseDirectory;
             _path = path.Remove(path.Length - 46);
-            //_path = path;
+            _path = path;
             //_path = @"S:\";   
             CheckDefaultPrintSample(defaultSample.SearchId(Account.WorkerId));
         }
@@ -62,7 +62,7 @@ namespace PatientManagement
         {
             MedicalReportSampleA1.SetParameterValue("pPatientName", Patient.FirstName + " " + Patient.LastName + " ( " + Patient.KhmerName + " )");
             MedicalReportSampleA1.SetParameterValue("pGender", Patient.Gender);
-            MedicalReportSampleA1.SetParameterValue("pDatetime", DateTime.Now.ToLongDateString());
+            MedicalReportSampleA1.SetParameterValue("pDatetime", DateTime.Now.ToString("dddd, dd MMMM yyyy"));
             MedicalReportSampleA1.SetParameterValue("pDoctorName", Account.Worker.FirstName + " " + Account.Worker.LastName);
             MedicalReportSampleA1.SetParameterValue("pAge", Patient.Age);
             MedicalReportSampleA1.SetParameterValue("pPatientId", Patient.PatientIdentify);
