@@ -37,6 +37,14 @@ namespace PatientManagement
             {
                 dgvWaitingCategory.Rows[i].DefaultCellStyle.BackColor = i % 2 == 0 ? Color.LightGray : Color.MintCream;
             }
+            dgvAllWatingList.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dgvAllWatingList.ColumnHeadersDefaultCellStyle.Font = new Font(@"Arial", 14, FontStyle.Bold);
+            dgvAllWatingList.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            dgvWaitingCategory.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dgvWaitingCategory.ColumnHeadersDefaultCellStyle.Font = new Font(@"Arial", 14, FontStyle.Bold);
+            dgvWaitingCategory.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -221,4 +229,4 @@ namespace PatientManagement
         }
 
     }
-    }
+}

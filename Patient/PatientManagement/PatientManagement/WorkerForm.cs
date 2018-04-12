@@ -124,6 +124,8 @@ namespace PatientManagement
             btnUpdate.Enabled = false;
             CheckAccount();
             btnCategory.Enabled = false;
+            dtpDOB.CustomFormat = @"dd/MM/yyyy";
+            dtpSWD.CustomFormat = @"dd/MM/yyyy";
         }
 
         private void btnClose_Click(object sender, EventArgs e)

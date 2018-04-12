@@ -30,10 +30,10 @@ namespace PatientManagement.Class
                 select new
                 {
                     v.Id,
-                    v.Date,
-                    Doctor = v.Worker.LastName ,
-                    Nurse = v.Worker1.LastName ,
-                    Referrer = v.Referrer.LastName ,
+                    Date = v.Date.Day + "/" + v.Date.Month + "/" + v.Date.Year,
+                    Doctor = v.Worker.FirstName + " " + v.Worker.LastName,
+                    Nurse = v.Worker1.FirstName + " " + v.Worker1.LastName,
+                    Referrer = v.Referrer.FirstName + " " + v.Referrer.LastName,
                     Category = v.VariousDocumentCategory.Name,
                     Edited=v.Edit
                 };

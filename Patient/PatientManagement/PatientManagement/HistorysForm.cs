@@ -31,6 +31,7 @@ namespace PatientManagement
         internal int KeyCategory;
         internal string KeyService;
         private string _path;
+        private string _refferer;
 
         private static void CheckOrderDgv(DataGridView dgv)
         {
@@ -86,12 +87,15 @@ namespace PatientManagement
             else
             {
                 lbService.Text = @"Consultation";
+                cboConCategory.SelectedIndex=0;
+                lbCategory.Text = cboConCategory.Text;
+                KeyService = @"Consultation";
             }
             //AddNodesToTree();
-            var path = AppDomain.CurrentDomain.BaseDirectory;
-            _path = path.Remove(path.Length - 46);
+            //var path = AppDomain.CurrentDomain.BaseDirectory;
+            //_path = path.Remove(path.Length - 46);
             //_path = path;
-            //_path = @"S:\";
+            _path = @"S:\";
             //dgvConsultation.Columns.Clear();
             //dgvLaboratory.Columns.Clear();
             //dgvMedicalImaging.Columns.Clear();
@@ -107,6 +111,7 @@ namespace PatientManagement
             dgvMedicalImaging.ColumnHeadersDefaultCellStyle.Alignment=DataGridViewContentAlignment.MiddleCenter;
             dgvPrescription.ColumnHeadersDefaultCellStyle.Alignment=DataGridViewContentAlignment.MiddleCenter;
             dgvVariousDocument.ColumnHeadersDefaultCellStyle.Alignment=DataGridViewContentAlignment.MiddleCenter;
+            tabSelection.ItemSize = new Size(Convert.ToInt32(pnlShowHistory.Width / 5.3), 35);
         }
 
         //private void cboService_SelectedIndexChanged(object sender, EventArgs e)
@@ -1050,6 +1055,7 @@ namespace PatientManagement
                     // ignored
                 }
             }
+            _refferer = dgvVariousDocument.CurrentRow.Cells[4].Value.ToString();
         }
 
         private void tabSelection_Selected(object sender, TabControlEventArgs e)
@@ -1061,18 +1067,38 @@ namespace PatientManagement
             if (tabSelection.SelectedTab.Text == @"Laboratory")
             {
                 lbService.Text = @"Laboratory";
+                if (cboLabCategory.DataSource != null)
+                {
+                    cboLabCategory.SelectedIndex = 0;
+                    dgvLaboratory.ClearSelection();
+                }
             }
             if (tabSelection.SelectedTab.Text == @"MedicalImaging")
             {
                 lbService.Text = @"MedicalImaging";
+                if (cboMedCategory.DataSource != null)
+                {
+                    cboMedCategory.SelectedIndex = 0;
+                    dgvMedicalImaging.ClearSelection();
+                }
             }
             if (tabSelection.SelectedTab.Text == @"Prescription")
             {
                 lbService.Text = @"Prescription";
+                if (cboPreCategory.DataSource != null)
+                {
+                    cboPreCategory.SelectedIndex = 0;
+                    dgvPrescription.ClearSelection();
+                }
             }
             if (tabSelection.SelectedTab.Text == @"VariousDocument")
             {
                 lbService.Text = @"VariousDocument";
+                if (cboVarCategory.DataSource != null)
+                {
+                    cboVarCategory.SelectedIndex = 0;
+                    dgvVariousDocument.ClearSelection();
+                }
             }
         }
 
@@ -1105,6 +1131,7 @@ namespace PatientManagement
                     // ignored
                 }
             }
+            _refferer = dgvPrescription.CurrentRow.Cells[4].Value.ToString();
         }
 
         private void dgvMedicalImaging_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -1167,6 +1194,7 @@ namespace PatientManagement
                     // ignored
                 }
             }
+            _refferer = dgvMedicalImaging.CurrentRow.Cells[4].Value.ToString();
         }
 
         private void dgvLaboratory_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -1229,6 +1257,7 @@ namespace PatientManagement
                     // ignored
                 }
             }
+            _refferer = dgvLaboratory.CurrentRow.Cells[4].Value.ToString();
         }
 
         private void dgvConsultation_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -1291,6 +1320,7 @@ namespace PatientManagement
                    // ignored
                 }
             }
+            _refferer = dgvConsultation.CurrentRow.Cells[4].Value.ToString();
         }
 
         private void btnNewConsultation_Click(object sender, EventArgs e)
@@ -1577,7 +1607,8 @@ namespace PatientManagement
                 {
                     Html = html,
                     Patient = Patient,
-                    Account = Account
+                    Account = Account,
+                    Refferrer=_refferer
                 };
                 wv.ShowDialog();
             }

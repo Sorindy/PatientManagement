@@ -29,6 +29,7 @@ namespace PatientManagement
             WindowState=FormWindowState.Maximized;
             pnlLeftFill.Controls.Clear();
             pnlLeftFill.Controls.Add(_login.ButtonToForm(Account));
+            pnlLeftbuttom.Hide();
         }
 
         //private void MaximizeForm()

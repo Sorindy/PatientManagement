@@ -466,12 +466,12 @@
             this.pnlShowHistory.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlShowHistory.Location = new System.Drawing.Point(0, 139);
             this.pnlShowHistory.Name = "pnlShowHistory";
-            this.pnlShowHistory.Size = new System.Drawing.Size(489, 613);
+            this.pnlShowHistory.Size = new System.Drawing.Size(571, 613);
             this.pnlShowHistory.TabIndex = 15;
             // 
             // tabSelection
             // 
-            this.tabSelection.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
+            this.tabSelection.Appearance = System.Windows.Forms.TabAppearance.Buttons;
             this.tabSelection.Controls.Add(this.tabConsultation);
             this.tabSelection.Controls.Add(this.tabLaboratory);
             this.tabSelection.Controls.Add(this.tabMedicalImaging);
@@ -483,7 +483,7 @@
             this.tabSelection.Location = new System.Drawing.Point(0, 0);
             this.tabSelection.Name = "tabSelection";
             this.tabSelection.SelectedIndex = 0;
-            this.tabSelection.Size = new System.Drawing.Size(489, 613);
+            this.tabSelection.Size = new System.Drawing.Size(571, 613);
             this.tabSelection.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabSelection.TabIndex = 0;
             this.tabSelection.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabSelection_Selected);
@@ -492,13 +492,12 @@
             // 
             this.tabConsultation.AccessibleName = "";
             this.tabConsultation.AutoScroll = true;
-            this.tabConsultation.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.tabConsultation.Controls.Add(this.tableLayoutPanel7);
             this.tabConsultation.Location = new System.Drawing.Point(4, 39);
             this.tabConsultation.Name = "tabConsultation";
             this.tabConsultation.Padding = new System.Windows.Forms.Padding(3);
             this.tabConsultation.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.tabConsultation.Size = new System.Drawing.Size(481, 570);
+            this.tabConsultation.Size = new System.Drawing.Size(563, 570);
             this.tabConsultation.TabIndex = 0;
             this.tabConsultation.Tag = "";
             this.tabConsultation.Text = "Consultation";
@@ -520,7 +519,7 @@
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(471, 560);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(557, 564);
             this.tableLayoutPanel7.TabIndex = 1;
             // 
             // pnlHistory
@@ -529,7 +528,7 @@
             this.pnlHistory.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlHistory.Location = new System.Drawing.Point(3, 57);
             this.pnlHistory.Name = "pnlHistory";
-            this.pnlHistory.Size = new System.Drawing.Size(465, 460);
+            this.pnlHistory.Size = new System.Drawing.Size(551, 464);
             this.pnlHistory.TabIndex = 1;
             // 
             // dgvConsultation
@@ -544,8 +543,6 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dgvConsultation.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvConsultation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvConsultation.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvConsultation.BackgroundColor = System.Drawing.SystemColors.ControlLight;
             this.dgvConsultation.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical;
@@ -567,6 +564,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvConsultation.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvConsultation.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvConsultation.EnableHeadersVisualStyles = false;
             this.dgvConsultation.Location = new System.Drawing.Point(0, 0);
             this.dgvConsultation.MultiSelect = false;
@@ -596,7 +594,7 @@
             this.dgvConsultation.RowTemplate.ReadOnly = true;
             this.dgvConsultation.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvConsultation.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvConsultation.Size = new System.Drawing.Size(464, 468);
+            this.dgvConsultation.Size = new System.Drawing.Size(551, 464);
             this.dgvConsultation.TabIndex = 2;
             this.dgvConsultation.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvConsultation_CellClick);
             this.dgvConsultation.SelectionChanged += new System.EventHandler(this.dgvConsultation_SelectionChanged);
@@ -607,7 +605,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(465, 48);
+            this.panel2.Size = new System.Drawing.Size(551, 48);
             this.panel2.TabIndex = 3;
             // 
             // tableLayoutPanel4
@@ -623,7 +621,7 @@
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(465, 48);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(551, 48);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
             // label7
@@ -645,7 +643,7 @@
             this.cboConCategory.FormattingEnabled = true;
             this.cboConCategory.Location = new System.Drawing.Point(128, 3);
             this.cboConCategory.Name = "cboConCategory";
-            this.cboConCategory.Size = new System.Drawing.Size(334, 32);
+            this.cboConCategory.Size = new System.Drawing.Size(420, 32);
             this.cboConCategory.TabIndex = 3;
             this.cboConCategory.SelectedIndexChanged += new System.EventHandler(this.cboConCategory_SelectedIndexChanged);
             // 
@@ -653,9 +651,9 @@
             // 
             this.panel11.Controls.Add(this.btnNewConsultation);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel11.Location = new System.Drawing.Point(3, 523);
+            this.panel11.Location = new System.Drawing.Point(3, 527);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(465, 34);
+            this.panel11.Size = new System.Drawing.Size(551, 34);
             this.panel11.TabIndex = 4;
             // 
             // btnNewConsultation
@@ -665,7 +663,7 @@
             this.btnNewConsultation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNewConsultation.Location = new System.Drawing.Point(0, 0);
             this.btnNewConsultation.Name = "btnNewConsultation";
-            this.btnNewConsultation.Size = new System.Drawing.Size(465, 34);
+            this.btnNewConsultation.Size = new System.Drawing.Size(551, 34);
             this.btnNewConsultation.TabIndex = 5;
             this.btnNewConsultation.Text = "ពិនិត្យថ្មី";
             this.btnNewConsultation.UseVisualStyleBackColor = false;
@@ -674,26 +672,25 @@
             // tabLaboratory
             // 
             this.tabLaboratory.AutoScroll = true;
-            this.tabLaboratory.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.tabLaboratory.Controls.Add(this.tableLayoutPanel8);
             this.tabLaboratory.Location = new System.Drawing.Point(4, 39);
             this.tabLaboratory.Name = "tabLaboratory";
             this.tabLaboratory.Padding = new System.Windows.Forms.Padding(3);
             this.tabLaboratory.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.tabLaboratory.Size = new System.Drawing.Size(481, 570);
+            this.tabLaboratory.Size = new System.Drawing.Size(563, 570);
             this.tabLaboratory.TabIndex = 1;
             this.tabLaboratory.Text = "Laboratory";
             this.tabLaboratory.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel8
             // 
-            this.tableLayoutPanel8.ColumnCount = 3;
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tableLayoutPanel8.ColumnCount = 1;
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel8.Controls.Add(this.panel3, 1, 1);
-            this.tableLayoutPanel8.Controls.Add(this.panel4, 1, 0);
-            this.tableLayoutPanel8.Controls.Add(this.panel15, 1, 2);
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel8.Controls.Add(this.panel3, 0, 1);
+            this.tableLayoutPanel8.Controls.Add(this.panel4, 0, 0);
+            this.tableLayoutPanel8.Controls.Add(this.panel15, 0, 2);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
@@ -701,16 +698,16 @@
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(471, 560);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(557, 564);
             this.tableLayoutPanel8.TabIndex = 2;
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.dgvLaboratory);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(13, 57);
+            this.panel3.Location = new System.Drawing.Point(3, 57);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(445, 460);
+            this.panel3.Size = new System.Drawing.Size(551, 464);
             this.panel3.TabIndex = 1;
             // 
             // dgvLaboratory
@@ -776,7 +773,7 @@
             this.dgvLaboratory.RowTemplate.ReadOnly = true;
             this.dgvLaboratory.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvLaboratory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLaboratory.Size = new System.Drawing.Size(445, 460);
+            this.dgvLaboratory.Size = new System.Drawing.Size(551, 464);
             this.dgvLaboratory.TabIndex = 2;
             this.dgvLaboratory.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLaboratory_CellClick);
             this.dgvLaboratory.SelectionChanged += new System.EventHandler(this.dgvLaboratory_SelectionChanged);
@@ -785,9 +782,9 @@
             // 
             this.panel4.Controls.Add(this.tableLayoutPanel9);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(13, 3);
+            this.panel4.Location = new System.Drawing.Point(3, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(445, 48);
+            this.panel4.Size = new System.Drawing.Size(551, 48);
             this.panel4.TabIndex = 3;
             // 
             // tableLayoutPanel9
@@ -803,7 +800,7 @@
             this.tableLayoutPanel9.RowCount = 1;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(445, 48);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(551, 48);
             this.tableLayoutPanel9.TabIndex = 0;
             // 
             // label8
@@ -825,7 +822,7 @@
             this.cboLabCategory.FormattingEnabled = true;
             this.cboLabCategory.Location = new System.Drawing.Point(128, 3);
             this.cboLabCategory.Name = "cboLabCategory";
-            this.cboLabCategory.Size = new System.Drawing.Size(314, 32);
+            this.cboLabCategory.Size = new System.Drawing.Size(420, 32);
             this.cboLabCategory.TabIndex = 3;
             this.cboLabCategory.SelectedIndexChanged += new System.EventHandler(this.cboLabCategory_SelectedIndexChanged);
             // 
@@ -833,9 +830,9 @@
             // 
             this.panel15.Controls.Add(this.btnNewLaboratory);
             this.panel15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel15.Location = new System.Drawing.Point(13, 523);
+            this.panel15.Location = new System.Drawing.Point(3, 527);
             this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(445, 34);
+            this.panel15.Size = new System.Drawing.Size(551, 34);
             this.panel15.TabIndex = 4;
             // 
             // btnNewLaboratory
@@ -845,7 +842,7 @@
             this.btnNewLaboratory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNewLaboratory.Location = new System.Drawing.Point(0, 0);
             this.btnNewLaboratory.Name = "btnNewLaboratory";
-            this.btnNewLaboratory.Size = new System.Drawing.Size(445, 34);
+            this.btnNewLaboratory.Size = new System.Drawing.Size(551, 34);
             this.btnNewLaboratory.TabIndex = 5;
             this.btnNewLaboratory.Text = "ពិនិត្យថ្មី";
             this.btnNewLaboratory.UseVisualStyleBackColor = false;
@@ -854,26 +851,25 @@
             // tabMedicalImaging
             // 
             this.tabMedicalImaging.AutoScroll = true;
-            this.tabMedicalImaging.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.tabMedicalImaging.Controls.Add(this.tableLayoutPanel10);
             this.tabMedicalImaging.Location = new System.Drawing.Point(4, 39);
             this.tabMedicalImaging.Name = "tabMedicalImaging";
             this.tabMedicalImaging.Padding = new System.Windows.Forms.Padding(3);
             this.tabMedicalImaging.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.tabMedicalImaging.Size = new System.Drawing.Size(481, 570);
+            this.tabMedicalImaging.Size = new System.Drawing.Size(563, 570);
             this.tabMedicalImaging.TabIndex = 2;
             this.tabMedicalImaging.Text = "MedicalImaging";
             this.tabMedicalImaging.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel10
             // 
-            this.tableLayoutPanel10.ColumnCount = 3;
-            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tableLayoutPanel10.ColumnCount = 1;
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel10.Controls.Add(this.panel5, 1, 1);
-            this.tableLayoutPanel10.Controls.Add(this.panel6, 1, 0);
-            this.tableLayoutPanel10.Controls.Add(this.panel14, 1, 2);
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel10.Controls.Add(this.panel5, 0, 1);
+            this.tableLayoutPanel10.Controls.Add(this.panel6, 0, 0);
+            this.tableLayoutPanel10.Controls.Add(this.panel14, 0, 2);
             this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel10.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
@@ -881,16 +877,16 @@
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(471, 560);
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(557, 564);
             this.tableLayoutPanel10.TabIndex = 2;
             // 
             // panel5
             // 
             this.panel5.Controls.Add(this.dgvMedicalImaging);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(13, 57);
+            this.panel5.Location = new System.Drawing.Point(3, 57);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(445, 460);
+            this.panel5.Size = new System.Drawing.Size(551, 464);
             this.panel5.TabIndex = 1;
             // 
             // dgvMedicalImaging
@@ -956,7 +952,7 @@
             this.dgvMedicalImaging.RowTemplate.ReadOnly = true;
             this.dgvMedicalImaging.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvMedicalImaging.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMedicalImaging.Size = new System.Drawing.Size(445, 460);
+            this.dgvMedicalImaging.Size = new System.Drawing.Size(551, 464);
             this.dgvMedicalImaging.TabIndex = 2;
             this.dgvMedicalImaging.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMedicalImaging_CellClick);
             this.dgvMedicalImaging.SelectionChanged += new System.EventHandler(this.dgvMedicalImaging_SelectionChanged);
@@ -965,9 +961,9 @@
             // 
             this.panel6.Controls.Add(this.tableLayoutPanel13);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(13, 3);
+            this.panel6.Location = new System.Drawing.Point(3, 3);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(445, 48);
+            this.panel6.Size = new System.Drawing.Size(551, 48);
             this.panel6.TabIndex = 3;
             // 
             // tableLayoutPanel13
@@ -983,7 +979,7 @@
             this.tableLayoutPanel13.RowCount = 1;
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48F));
-            this.tableLayoutPanel13.Size = new System.Drawing.Size(445, 48);
+            this.tableLayoutPanel13.Size = new System.Drawing.Size(551, 48);
             this.tableLayoutPanel13.TabIndex = 0;
             // 
             // label9
@@ -1005,7 +1001,7 @@
             this.cboMedCategory.FormattingEnabled = true;
             this.cboMedCategory.Location = new System.Drawing.Point(128, 3);
             this.cboMedCategory.Name = "cboMedCategory";
-            this.cboMedCategory.Size = new System.Drawing.Size(314, 32);
+            this.cboMedCategory.Size = new System.Drawing.Size(420, 32);
             this.cboMedCategory.TabIndex = 3;
             this.cboMedCategory.SelectedIndexChanged += new System.EventHandler(this.cboMedCategory_SelectedIndexChanged);
             // 
@@ -1013,9 +1009,9 @@
             // 
             this.panel14.Controls.Add(this.btnNewMedicalImaging);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel14.Location = new System.Drawing.Point(13, 523);
+            this.panel14.Location = new System.Drawing.Point(3, 527);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(445, 34);
+            this.panel14.Size = new System.Drawing.Size(551, 34);
             this.panel14.TabIndex = 4;
             // 
             // btnNewMedicalImaging
@@ -1025,7 +1021,7 @@
             this.btnNewMedicalImaging.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNewMedicalImaging.Location = new System.Drawing.Point(0, 0);
             this.btnNewMedicalImaging.Name = "btnNewMedicalImaging";
-            this.btnNewMedicalImaging.Size = new System.Drawing.Size(445, 34);
+            this.btnNewMedicalImaging.Size = new System.Drawing.Size(551, 34);
             this.btnNewMedicalImaging.TabIndex = 5;
             this.btnNewMedicalImaging.Text = "ពិនិត្យថ្មី";
             this.btnNewMedicalImaging.UseVisualStyleBackColor = false;
@@ -1034,26 +1030,25 @@
             // tabPrescription
             // 
             this.tabPrescription.AutoScroll = true;
-            this.tabPrescription.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.tabPrescription.Controls.Add(this.tableLayoutPanel14);
             this.tabPrescription.Location = new System.Drawing.Point(4, 39);
             this.tabPrescription.Name = "tabPrescription";
             this.tabPrescription.Padding = new System.Windows.Forms.Padding(3);
             this.tabPrescription.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.tabPrescription.Size = new System.Drawing.Size(481, 570);
+            this.tabPrescription.Size = new System.Drawing.Size(563, 570);
             this.tabPrescription.TabIndex = 3;
             this.tabPrescription.Text = "Prescription";
             this.tabPrescription.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel14
             // 
-            this.tableLayoutPanel14.ColumnCount = 3;
-            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tableLayoutPanel14.ColumnCount = 1;
             this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel14.Controls.Add(this.panel7, 1, 1);
-            this.tableLayoutPanel14.Controls.Add(this.panel8, 1, 0);
-            this.tableLayoutPanel14.Controls.Add(this.panel13, 1, 2);
+            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel14.Controls.Add(this.panel7, 0, 1);
+            this.tableLayoutPanel14.Controls.Add(this.panel8, 0, 0);
+            this.tableLayoutPanel14.Controls.Add(this.panel13, 0, 2);
             this.tableLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel14.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel14.Name = "tableLayoutPanel14";
@@ -1061,16 +1056,16 @@
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel14.Size = new System.Drawing.Size(471, 560);
+            this.tableLayoutPanel14.Size = new System.Drawing.Size(557, 564);
             this.tableLayoutPanel14.TabIndex = 2;
             // 
             // panel7
             // 
             this.panel7.Controls.Add(this.dgvPrescription);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(13, 57);
+            this.panel7.Location = new System.Drawing.Point(3, 57);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(445, 460);
+            this.panel7.Size = new System.Drawing.Size(551, 464);
             this.panel7.TabIndex = 1;
             // 
             // dgvPrescription
@@ -1136,7 +1131,7 @@
             this.dgvPrescription.RowTemplate.ReadOnly = true;
             this.dgvPrescription.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvPrescription.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPrescription.Size = new System.Drawing.Size(445, 460);
+            this.dgvPrescription.Size = new System.Drawing.Size(551, 464);
             this.dgvPrescription.TabIndex = 2;
             this.dgvPrescription.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPrescription_CellClick);
             this.dgvPrescription.SelectionChanged += new System.EventHandler(this.dgvPrescription_SelectionChanged);
@@ -1145,9 +1140,9 @@
             // 
             this.panel8.Controls.Add(this.tableLayoutPanel15);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(13, 3);
+            this.panel8.Location = new System.Drawing.Point(3, 3);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(445, 48);
+            this.panel8.Size = new System.Drawing.Size(551, 48);
             this.panel8.TabIndex = 3;
             // 
             // tableLayoutPanel15
@@ -1163,7 +1158,7 @@
             this.tableLayoutPanel15.RowCount = 1;
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48F));
-            this.tableLayoutPanel15.Size = new System.Drawing.Size(445, 48);
+            this.tableLayoutPanel15.Size = new System.Drawing.Size(551, 48);
             this.tableLayoutPanel15.TabIndex = 0;
             // 
             // label10
@@ -1185,7 +1180,7 @@
             this.cboPreCategory.FormattingEnabled = true;
             this.cboPreCategory.Location = new System.Drawing.Point(128, 3);
             this.cboPreCategory.Name = "cboPreCategory";
-            this.cboPreCategory.Size = new System.Drawing.Size(314, 32);
+            this.cboPreCategory.Size = new System.Drawing.Size(420, 32);
             this.cboPreCategory.TabIndex = 3;
             this.cboPreCategory.SelectedIndexChanged += new System.EventHandler(this.cboPreCategory_SelectedIndexChanged);
             // 
@@ -1193,9 +1188,9 @@
             // 
             this.panel13.Controls.Add(this.btnNewPresciption);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel13.Location = new System.Drawing.Point(13, 523);
+            this.panel13.Location = new System.Drawing.Point(3, 527);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(445, 34);
+            this.panel13.Size = new System.Drawing.Size(551, 34);
             this.panel13.TabIndex = 4;
             // 
             // btnNewPresciption
@@ -1205,7 +1200,7 @@
             this.btnNewPresciption.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNewPresciption.Location = new System.Drawing.Point(0, 0);
             this.btnNewPresciption.Name = "btnNewPresciption";
-            this.btnNewPresciption.Size = new System.Drawing.Size(445, 34);
+            this.btnNewPresciption.Size = new System.Drawing.Size(551, 34);
             this.btnNewPresciption.TabIndex = 5;
             this.btnNewPresciption.Text = "ពិនិត្យថ្មី";
             this.btnNewPresciption.UseVisualStyleBackColor = false;
@@ -1214,26 +1209,25 @@
             // tabVariousDocument
             // 
             this.tabVariousDocument.AutoScroll = true;
-            this.tabVariousDocument.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.tabVariousDocument.Controls.Add(this.tableLayoutPanel16);
             this.tabVariousDocument.Location = new System.Drawing.Point(4, 39);
             this.tabVariousDocument.Name = "tabVariousDocument";
             this.tabVariousDocument.Padding = new System.Windows.Forms.Padding(3);
             this.tabVariousDocument.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.tabVariousDocument.Size = new System.Drawing.Size(481, 570);
+            this.tabVariousDocument.Size = new System.Drawing.Size(563, 570);
             this.tabVariousDocument.TabIndex = 4;
             this.tabVariousDocument.Text = "VariousDocument";
             this.tabVariousDocument.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel16
             // 
-            this.tableLayoutPanel16.ColumnCount = 3;
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tableLayoutPanel16.ColumnCount = 1;
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel16.Controls.Add(this.panel9, 1, 1);
-            this.tableLayoutPanel16.Controls.Add(this.panel10, 1, 0);
-            this.tableLayoutPanel16.Controls.Add(this.btnNewVarious, 1, 2);
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel16.Controls.Add(this.panel9, 0, 1);
+            this.tableLayoutPanel16.Controls.Add(this.panel10, 0, 0);
+            this.tableLayoutPanel16.Controls.Add(this.btnNewVarious, 0, 2);
             this.tableLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel16.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel16.Name = "tableLayoutPanel16";
@@ -1241,16 +1235,16 @@
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel16.Size = new System.Drawing.Size(471, 560);
+            this.tableLayoutPanel16.Size = new System.Drawing.Size(557, 564);
             this.tableLayoutPanel16.TabIndex = 2;
             // 
             // panel9
             // 
             this.panel9.Controls.Add(this.dgvVariousDocument);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel9.Location = new System.Drawing.Point(13, 57);
+            this.panel9.Location = new System.Drawing.Point(3, 57);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(445, 460);
+            this.panel9.Size = new System.Drawing.Size(551, 464);
             this.panel9.TabIndex = 1;
             // 
             // dgvVariousDocument
@@ -1316,7 +1310,7 @@
             this.dgvVariousDocument.RowTemplate.ReadOnly = true;
             this.dgvVariousDocument.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvVariousDocument.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvVariousDocument.Size = new System.Drawing.Size(445, 460);
+            this.dgvVariousDocument.Size = new System.Drawing.Size(551, 464);
             this.dgvVariousDocument.TabIndex = 2;
             this.dgvVariousDocument.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVariousDocument_CellClick);
             this.dgvVariousDocument.SelectionChanged += new System.EventHandler(this.dgvVariousDocument_SelectionChanged);
@@ -1325,9 +1319,9 @@
             // 
             this.panel10.Controls.Add(this.tableLayoutPanel17);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel10.Location = new System.Drawing.Point(13, 3);
+            this.panel10.Location = new System.Drawing.Point(3, 3);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(445, 48);
+            this.panel10.Size = new System.Drawing.Size(551, 48);
             this.panel10.TabIndex = 3;
             // 
             // tableLayoutPanel17
@@ -1343,7 +1337,7 @@
             this.tableLayoutPanel17.RowCount = 1;
             this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48F));
-            this.tableLayoutPanel17.Size = new System.Drawing.Size(445, 48);
+            this.tableLayoutPanel17.Size = new System.Drawing.Size(551, 48);
             this.tableLayoutPanel17.TabIndex = 0;
             // 
             // label11
@@ -1365,7 +1359,7 @@
             this.cboVarCategory.FormattingEnabled = true;
             this.cboVarCategory.Location = new System.Drawing.Point(128, 3);
             this.cboVarCategory.Name = "cboVarCategory";
-            this.cboVarCategory.Size = new System.Drawing.Size(314, 32);
+            this.cboVarCategory.Size = new System.Drawing.Size(420, 32);
             this.cboVarCategory.TabIndex = 3;
             this.cboVarCategory.SelectedIndexChanged += new System.EventHandler(this.cboVarCategory_SelectedIndexChanged);
             // 
@@ -1374,9 +1368,9 @@
             this.btnNewVarious.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnNewVarious.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnNewVarious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNewVarious.Location = new System.Drawing.Point(13, 523);
+            this.btnNewVarious.Location = new System.Drawing.Point(3, 527);
             this.btnNewVarious.Name = "btnNewVarious";
-            this.btnNewVarious.Size = new System.Drawing.Size(445, 34);
+            this.btnNewVarious.Size = new System.Drawing.Size(551, 34);
             this.btnNewVarious.TabIndex = 4;
             this.btnNewVarious.Text = "ពិនិត្យថ្មី";
             this.btnNewVarious.UseVisualStyleBackColor = false;
@@ -1386,9 +1380,9 @@
             // 
             this.panel1.Controls.Add(this.tableLayoutPanel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(489, 139);
+            this.panel1.Location = new System.Drawing.Point(571, 139);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(865, 22);
+            this.panel1.Size = new System.Drawing.Size(783, 22);
             this.panel1.TabIndex = 16;
             // 
             // tableLayoutPanel2
@@ -1403,13 +1397,13 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(865, 22);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(783, 22);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // picHideTop
             // 
             this.picHideTop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.picHideTop.Location = new System.Drawing.Point(420, 3);
+            this.picHideTop.Location = new System.Drawing.Point(379, 3);
             this.picHideTop.Name = "picHideTop";
             this.picHideTop.Size = new System.Drawing.Size(25, 16);
             this.picHideTop.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1421,7 +1415,7 @@
             // 
             this.pnlHide.Controls.Add(this.tableLayoutPanel3);
             this.pnlHide.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlHide.Location = new System.Drawing.Point(489, 161);
+            this.pnlHide.Location = new System.Drawing.Point(571, 161);
             this.pnlHide.Name = "pnlHide";
             this.pnlHide.Size = new System.Drawing.Size(25, 591);
             this.pnlHide.TabIndex = 17;
@@ -1456,9 +1450,9 @@
             // 
             this.pnlShow.Controls.Add(this.groupBox3);
             this.pnlShow.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlShow.Location = new System.Drawing.Point(514, 161);
+            this.pnlShow.Location = new System.Drawing.Point(596, 161);
             this.pnlShow.Name = "pnlShow";
-            this.pnlShow.Size = new System.Drawing.Size(840, 591);
+            this.pnlShow.Size = new System.Drawing.Size(758, 591);
             this.pnlShow.TabIndex = 18;
             // 
             // groupBox3
@@ -1472,7 +1466,7 @@
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Location = new System.Drawing.Point(0, 0);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(840, 591);
+            this.groupBox3.Size = new System.Drawing.Size(758, 591);
             this.groupBox3.TabIndex = 19;
             this.groupBox3.TabStop = false;
             // 
@@ -1485,7 +1479,7 @@
             this.txtDescription.Location = new System.Drawing.Point(28, 93);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.RulerBar = this.rulerBar2;
-            this.txtDescription.Size = new System.Drawing.Size(809, 473);
+            this.txtDescription.Size = new System.Drawing.Size(727, 473);
             this.txtDescription.StatusBar = this.statusBar1;
             this.txtDescription.TabIndex = 2;
             this.txtDescription.VerticalRulerBar = this.rulerBar1;
@@ -1496,7 +1490,7 @@
             this.buttonBar1.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonBar1.Location = new System.Drawing.Point(3, 40);
             this.buttonBar1.Name = "buttonBar1";
-            this.buttonBar1.Size = new System.Drawing.Size(834, 28);
+            this.buttonBar1.Size = new System.Drawing.Size(752, 28);
             this.buttonBar1.TabIndex = 10;
             this.buttonBar1.Text = "buttonBar1";
             // 
@@ -1505,7 +1499,7 @@
             this.rulerBar2.Dock = System.Windows.Forms.DockStyle.Top;
             this.rulerBar2.Location = new System.Drawing.Point(3, 68);
             this.rulerBar2.Name = "rulerBar2";
-            this.rulerBar2.Size = new System.Drawing.Size(834, 25);
+            this.rulerBar2.Size = new System.Drawing.Size(752, 25);
             this.rulerBar2.TabIndex = 9;
             this.rulerBar2.Text = "rulerBar2";
             // 
@@ -1515,7 +1509,7 @@
             this.statusBar1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.statusBar1.Location = new System.Drawing.Point(3, 566);
             this.statusBar1.Name = "statusBar1";
-            this.statusBar1.Size = new System.Drawing.Size(834, 22);
+            this.statusBar1.Size = new System.Drawing.Size(752, 22);
             this.statusBar1.TabIndex = 4;
             // 
             // rulerBar1
@@ -1542,7 +1536,7 @@
             this.printToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(3, 16);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(834, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(752, 24);
             this.menuStrip1.TabIndex = 11;
             this.menuStrip1.Text = "menuStrip1";
             // 

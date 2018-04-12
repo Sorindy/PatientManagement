@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
 using Hospital_Entity_Framework;
@@ -13,6 +14,8 @@ namespace PatientManagement
         private readonly Dating _dating = new Dating();
         internal Patient Patient ;
         internal Worker Worker ;
+        private bool _mouseDown;
+        private Point _lastLocation;
 
         public DatingListForm()
         {
@@ -121,6 +124,28 @@ namespace PatientManagement
             catch
             {
             }
+        }
+
+        private void tblypnTop_MouseDown(object sender, MouseEventArgs e)
+        {
+            _mouseDown = true;
+            _lastLocation = e.Location;
+        }
+
+        private void tblypnTop_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (_mouseDown)
+            {
+                Location = new Point(
+                    Location.X - _lastLocation.X + e.X, (Location.Y - _lastLocation.Y) + e.Y);
+
+                Update();
+            }
+        }
+
+        private void tblypnTop_MouseUp(object sender, MouseEventArgs e)
+        {
+            _mouseDown = false;
         }
 
     }

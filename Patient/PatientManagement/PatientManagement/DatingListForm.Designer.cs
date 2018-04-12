@@ -79,17 +79,16 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label1.Font = new System.Drawing.Font("Modern No. 20", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Location = new System.Drawing.Point(221, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(667, 71);
+            this.label1.Size = new System.Drawing.Size(231, 36);
             this.label1.TabIndex = 0;
-            this.label1.Text = "​​​​​​​​​​​​​​​                          តារាង ការណាត់ជួប";
+            this.label1.Text = "តារាង ការណាត់ជួប";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // gbPatientInformation
@@ -519,6 +518,7 @@
             // 
             // tblypnTop
             // 
+            this.tblypnTop.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.tblypnTop.ColumnCount = 2;
             this.tblypnTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tblypnTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -534,6 +534,9 @@
             this.tblypnTop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.20144F));
             this.tblypnTop.Size = new System.Drawing.Size(1347, 139);
             this.tblypnTop.TabIndex = 6;
+            this.tblypnTop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tblypnTop_MouseDown);
+            this.tblypnTop.MouseMove += new System.Windows.Forms.MouseEventHandler(this.tblypnTop_MouseMove);
+            this.tblypnTop.MouseUp += new System.Windows.Forms.MouseEventHandler(this.tblypnTop_MouseUp);
             // 
             // DatingListForm
             // 
@@ -542,6 +545,7 @@
             this.ClientSize = new System.Drawing.Size(1347, 697);
             this.ControlBox = false;
             this.Controls.Add(this.pnBoss);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "DatingListForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.DatingListForm_Load);

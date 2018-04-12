@@ -6,6 +6,7 @@
     <EntitySet Name="ConsultationEstimate" EntityType="HospitalModel.Store.ConsultationEstimate" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="ConsultationSample" EntityType="HospitalModel.Store.ConsultationSample" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Dating" EntityType="HospitalModel.Store.Dating" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DefaultSample" EntityType="HospitalModel.Store.DefaultSample" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Form" EntityType="HospitalModel.Store.Form" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="LaboratoryCategory" EntityType="HospitalModel.Store.LaboratoryCategory" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="LaboratoryEstimate" EntityType="HospitalModel.Store.LaboratoryEstimate" store:Type="Tables" Schema="dbo" />
@@ -83,6 +84,10 @@
     <AssociationSet Name="FK_Dating_Worker" Association="HospitalModel.Store.FK_Dating_Worker">
       <End Role="Worker" EntitySet="Worker" />
       <End Role="Dating" EntitySet="Dating" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DefaultSample_Worker" Association="HospitalModel.Store.FK_DefaultSample_Worker">
+      <End Role="Worker" EntitySet="Worker" />
+      <End Role="DefaultSample" EntitySet="DefaultSample" />
     </AssociationSet>
     <AssociationSet Name="FK_LaboratoryEstimate_LaboratoryCategory" Association="HospitalModel.Store.FK_LaboratoryEstimate_LaboratoryCategory">
       <End Role="LaboratoryCategory" EntitySet="LaboratoryCategory" />
@@ -377,7 +382,7 @@
     <Property Name="NurseId" Type="int" />
     <Property Name="ReferrerId" Type="int" />
     <Property Name="Date" Type="datetime" Nullable="false" />
-    <Property Name="Description" Type="varchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Edit" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="ConsultationSample">
@@ -397,6 +402,14 @@
     <Property Name="PatientId" Type="int" Nullable="false" />
     <Property Name="WorkerId" Type="int" Nullable="false" />
     <Property Name="Date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DefaultSample">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="WorkerId" Type="int" Nullable="false" />
+    <Property Name="DefaultSample" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Form">
     <Key>
@@ -917,6 +930,18 @@
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Dating">
+        <PropertyRef Name="WorkerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DefaultSample_Worker">
+    <End Role="Worker" Type="HospitalModel.Store.Worker" Multiplicity="1" />
+    <End Role="DefaultSample" Type="HospitalModel.Store.DefaultSample" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Worker">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DefaultSample">
         <PropertyRef Name="WorkerId" />
       </Dependent>
     </ReferentialConstraint>

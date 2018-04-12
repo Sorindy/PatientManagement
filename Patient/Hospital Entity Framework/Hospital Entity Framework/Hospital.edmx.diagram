@@ -93,6 +93,8 @@
         <AssociationConnector Association="HospitalModel.WaitingMedicalImaging" ManuallyRouted="false" />
         <AssociationConnector Association="HospitalModel.WaitingPrescription" ManuallyRouted="false" />
         <AssociationConnector Association="HospitalModel.WaitingVariousDocument" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="HospitalModel.DefaultSample" Width="1.5" PointX="4.625" PointY="13.875" />
+        <AssociationConnector Association="HospitalModel.FK_DefaultSample_Worker" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
