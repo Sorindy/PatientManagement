@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
-using CrystalDecisions.Shared;
+using System.Windows.Forms;
 using PatientManagement.Class;
 using Account = Hospital_Entity_Framework.Account;
 using Form = System.Windows.Forms.Form;
@@ -17,7 +17,8 @@ namespace PatientManagement
         public string Refferrer;
         private string _path;
         private readonly DefaultSamplePrint  _defaultSample= new DefaultSamplePrint() ;
-        
+        internal int Defaultsampleprint;
+
         public MedicalRecordWebViewer()
         {
             InitializeComponent();
@@ -34,21 +35,19 @@ namespace PatientManagement
 
             Html = Html.Substring(count-51);
             Html = Html.Remove(Html.Length - 16);
-           // Html = Html.Insert(0, @"<section>");
-           // Html = Html.Insert(Html.Length, @"</section>");
-            //Html = Html.Insert(0, @"<span class=" + "ad281d4f79-0002-451a-a51d-f2ce0baa9e4d-2" + "style=z-index:10;top:247px;left:161px;width:629px;height:837px;" + ">");
-            //Html = Html.Insert(Html.Length, @"</span>");
-            //var path = AppDomain.CurrentDomain.BaseDirectory;
-            //_path = path.Remove(path.Length - 46);
+      
+            var path = AppDomain.CurrentDomain.BaseDirectory;
+            _path = path.Remove(path.Length - 46);
             //_path = path;
-            _path = @"S:\";   
-            CheckDefaultPrintSample(_defaultSample.SearchId(Account.WorkerId));
+            //_path = @"S:\";
+            Defaultsampleprint = _defaultSample.SearchId(Account.WorkerId);
+            CheckDefaultPrintSample(Defaultsampleprint);
         }
 
         public string DirectoryAndPath()
         {
             string path;
-            if (!Directory.Exists(@"S:\"))
+            if (Directory.Exists(@"S:\"))
             {
                 path = @"D:\ABC soft\";
             }
@@ -61,58 +60,22 @@ namespace PatientManagement
 
         public void ShowSample_A_InWebViewer()
         {
-            MedicalReportSampleA1.SetParameterValue("pPatientName", Patient.FirstName.ToUpper( ) + " " + Patient.LastName.ToUpper( ) + " ( " + Patient.KhmerName + " )");
-            MedicalReportSampleA1.SetParameterValue("pGender", Patient.Gender);
-            MedicalReportSampleA1.SetParameterValue("pDatetime", DateTime.Now.ToString("dddd, dd MMMM yyyy"));
-            MedicalReportSampleA1.SetParameterValue("pDoctorName", Account.Worker.FirstName + " " + Account.Worker.LastName);
-            MedicalReportSampleA1.SetParameterValue("pAge", Patient.Age);
-            MedicalReportSampleA1.SetParameterValue("pRefferrer", Refferrer.ToUpper());
-            MedicalReportSampleA1.SetParameterValue("pPatientId", Patient.PatientIdentify);
-            MedicalReportSampleA1.ExportToDisk(ExportFormatType.HTML40, DirectoryAndPath() + @"RTF\SampleA");
-            wvPrintSample.Navigate(DirectoryAndPath() + @"RTF\SampleA.htm");
-           // wvPrintSample.DocumentText.Insert(13, @"@page { size: A4; margin: 0;}@media print {html, body { width: 210mm;height: 297mm;}}");
-
+            wvPrintSample.Navigate(DirectoryAndPath() + @"RTF\SampleA.html");
         }
 
         public void ShowSample_B_InWebViewer()
         {
-            MedicalReportSampleB1.SetParameterValue("pPatientName", Patient.FirstName.ToUpper() + " " + Patient.LastName.ToUpper() + " ( " + Patient.KhmerName + " )");
-            MedicalReportSampleB1.SetParameterValue("pGender", Patient.Gender);
-            MedicalReportSampleB1.SetParameterValue("pDatetime", DateTime.Now.ToString("dddd, dd MMMM yyyy"));
-            MedicalReportSampleB1.SetParameterValue("pDoctorName", Account.Worker.FirstName.ToUpper() + " " + Account.Worker.LastName.ToUpper());
-            MedicalReportSampleB1.SetParameterValue("pAge", Patient.Age);
-            MedicalReportSampleB1.SetParameterValue("pPatientId", Patient.PatientIdentify  );
-            MedicalReportSampleB1.SetParameterValue("pRefferrer", Refferrer.ToUpper());
-            MedicalReportSampleB1.SetParameterValue("pPhoneNumber", Patient.Phone1 );
-            MedicalReportSampleB1.ExportToDisk(ExportFormatType.HTML40, DirectoryAndPath() + @"RTF\SampleB");
-            wvPrintSample.Navigate(DirectoryAndPath() + @"RTF\SampleB.htm");
+            wvPrintSample.Navigate(DirectoryAndPath() + @"RTF\SampleB.html");
         }
 
         public void ShowSample_C_InWebViewer()
         {
-            MedicalRecortSampleC1.SetParameterValue("pPatientName", Patient.FirstName.ToUpper() + " " + Patient.LastName.ToUpper() + " ( " + Patient.KhmerName + " )");
-            MedicalRecortSampleC1.SetParameterValue("pGender", Patient.Gender);
-            MedicalRecortSampleC1.SetParameterValue("pDatetime", DateTime.Now.ToString("dddd, dd MMMM yyyy"));
-            MedicalRecortSampleC1.SetParameterValue("pDoctorName", Account.Worker.FirstName.ToUpper() + " " + Account.Worker.LastName.ToUpper());
-            MedicalRecortSampleC1.SetParameterValue("pAge", Patient.Age);
-            MedicalRecortSampleC1.SetParameterValue("pRefferrer", Refferrer.ToUpper());
-            MedicalRecortSampleC1.SetParameterValue("pPatientId", Patient.PatientIdentify);
-            MedicalRecortSampleC1.ExportToDisk(ExportFormatType.HTML40, DirectoryAndPath() + @"RTF\SampleC");
-            wvPrintSample.Navigate(DirectoryAndPath() + @"RTF\SampleC.htm");
+            wvPrintSample.Navigate(DirectoryAndPath() + @"RTF\SampleC.html");
         }
 
         public void ShowSample_D_InWebViewer()
         {
-            MedicalRecortSampleD1.SetParameterValue("pPatientName", Patient.FirstName.ToUpper() + " " + Patient.LastName.ToUpper() + " ( " + Patient.KhmerName + " )");
-            MedicalRecortSampleD1.SetParameterValue("pGender", Patient.Gender);
-            MedicalRecortSampleD1.SetParameterValue("pDatetime", DateTime.Now.ToString("dddd, dd MMMM yyyy"));
-            MedicalRecortSampleD1.SetParameterValue("pDoctorName", Account.Worker.FirstName.ToUpper() + " " + Account.Worker.LastName.ToUpper());
-            MedicalRecortSampleD1.SetParameterValue("pAge", Patient.Age);
-            MedicalRecortSampleD1.SetParameterValue("pPatientId", Patient.PatientIdentify);
-            MedicalRecortSampleD1.SetParameterValue("pPhoneNumber", Patient.Phone1);
-            MedicalRecortSampleD1.SetParameterValue("pRefferrer", Refferrer.ToUpper());
-            MedicalRecortSampleD1.ExportToDisk(ExportFormatType.HTML40, DirectoryAndPath() + @"RTF\SampleD");
-            wvPrintSample.Navigate(DirectoryAndPath() + @"RTF\SampleD.htm");
+            wvPrintSample.Navigate(DirectoryAndPath() + @"RTF\SampleD.html");
         }
 
         private void printToolStripMenuItem_Click(object sender, EventArgs e)
@@ -150,19 +113,49 @@ namespace PatientManagement
             ShowSample_D_InWebViewer();
         }
 
-        public void InputContent()
+        public void InputContentSampleA_B_C_D()
         {
             if (wvPrintSample.Document != null)
             {
+                var daydate = wvPrintSample.Document.GetElementById("DayDate");
+                if (daydate != null) daydate.InnerHtml = DateTime.Now.ToString("dddd, dd MMMM yyyy");
+
+                var patientname = wvPrintSample.Document.GetElementById("PatientName");
+                if (patientname != null) patientname.InnerHtml = Patient.FirstName.ToUpper() + " " + Patient.LastName.ToUpper() + "( " + Patient.KhmerName + " )";
+
+                var patientId = wvPrintSample.Document.GetElementById("PatientId");
+                if (patientId != null) patientId.InnerHtml = Patient.PatientIdentify.ToString();
+
+                var gender = wvPrintSample.Document.GetElementById("Gender");
+                if (gender != null) gender.InnerHtml = Patient.Gender;
+
+                var age = wvPrintSample.Document.GetElementById("Age");
+                if (age != null) age.InnerHtml = Patient.Age.ToString();
+
+                var referrerName = wvPrintSample.Document.GetElementById("ReferrerName");
+                if (referrerName != null) referrerName.InnerHtml = Refferrer;
+
+                var dr = wvPrintSample.Document.GetElementById("Dr");
+                if (dr != null) dr.InnerHtml = Account.Worker.FirstName.ToUpper() + " " + Account.Worker.LastName.ToUpper();
+
+                var phonenumber = wvPrintSample.Document.GetElementById("PhoneNumber");
+                if (phonenumber != null) phonenumber.InnerHtml = Patient.Phone1;
+
                 var boxcontrol = wvPrintSample.Document.GetElementById("Box2");
                 if (boxcontrol != null) boxcontrol.InnerHtml = Html;
+
+                var body = wvPrintSample.Document.GetElementById("Body");
+                if (body != null) body.Style =
+                      "padding-left: " + _defaultSample.SetPadding(Account.WorkerId, Defaultsampleprint).PadddingLeft + "px; "
+                    + "padding-top: " + _defaultSample.SetPadding(Account.WorkerId, Defaultsampleprint).PaddingTop + "px; "
+                    + "padding-right: " + _defaultSample.SetPadding(Account.WorkerId, Defaultsampleprint).PaddingRight + "px; "
+                    + "padding-down: " + _defaultSample.SetPadding(Account.WorkerId, Defaultsampleprint).PaddingDown + "px; ";
             }
         }
 
-        private void wvPrintSample_Navigated(object sender, System.Windows.Forms.WebBrowserNavigatedEventArgs e)
+        private void wvPrintSample_Navigated(object sender,WebBrowserNavigatedEventArgs e)
         {
-            InputContent();
-            
+                InputContentSampleA_B_C_D();  
         }
 
         public void CheckDefaultPrintSample(int defualtsample)
@@ -189,55 +182,74 @@ namespace PatientManagement
             }
         }
 
-        private void aToolStripMenuItem_Click(object sender, EventArgs e)
+        private void setAAsDefaultToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (_defaultSample.SearchWorkerId(Account.WorkerId))
+            if (txtATop.Text != @"top" || txtADown.Text != @"down" || txtAleft.Text != @"left" || txtARight.Text != @"right")
             {
-                _defaultSample.Update(Account.WorkerId, 1);
+                _defaultSample.InsertOrUpdate(Account.WorkerId, 1, Convert.ToInt16(txtATop.Text),
+                    Convert.ToInt16(txtAleft.Text), Convert.ToInt16(txtARight.Text), Convert.ToInt16(txtADown.Text));
+                
+                _defaultSample.SetUsing(Account.WorkerId, 2, false);
+                _defaultSample.SetUsing(Account.WorkerId, 3, false);
+                _defaultSample.SetUsing(Account.WorkerId, 4, false);
             }
             else
             {
-                _defaultSample.Insert(Account.WorkerId, 1);
-            }    
-        }
-
-        private void bToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (_defaultSample.SearchWorkerId(Account.WorkerId))
-            {
-                _defaultSample.Update( Account.WorkerId, 2);
-            }
-            else
-            {
-                _defaultSample.Insert(Account.WorkerId, 2);
+                MessageBox.Show(@"Please Make Sure Your Magin is not Null");
             }
         }
 
-        private void cToolStripMenuItem_Click(object sender, EventArgs e)
+        private void setBAsDefaultToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (_defaultSample.SearchWorkerId(Account.WorkerId))
+            if (txtBTop.Text != @"top" || txtBDown.Text != @"down" || txtBLeft.Text != @"left" || txtBRight.Text != @"right")
             {
-                _defaultSample.Update( Account.WorkerId, 3);
+                _defaultSample.InsertOrUpdate(Account.WorkerId, 2, Convert.ToInt16(txtBTop.Text),
+                    Convert.ToInt16(txtBLeft.Text), Convert.ToInt16(txtBRight.Text), Convert.ToInt16(txtBDown.Text));
+                _defaultSample.SetUsing(Account.WorkerId, 1, false);
+               
+                _defaultSample.SetUsing(Account.WorkerId, 3, false);
+                _defaultSample.SetUsing(Account.WorkerId, 4, false);
             }
             else
             {
-                _defaultSample.Insert(Account.WorkerId, 3);
+                MessageBox.Show(@"Please Make Sure Your Magin is not Null");
             }
-            
         }
 
-        private void dToolStripMenuItem_Click(object sender, EventArgs e)
+        private void setCAsDefaultToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (_defaultSample.SearchWorkerId(Account.WorkerId))
+            if (txtCTop.Text != @"top" || txtCDown.Text != @"down" || txtCLeft.Text != @"left" || txtCRight.Text != @"right")
             {
-                _defaultSample.Update( Account.WorkerId, 4);
+                _defaultSample.InsertOrUpdate(Account.WorkerId, 3, Convert.ToInt16(txtCTop.Text),
+                    Convert.ToInt16(txtCLeft.Text), Convert.ToInt16(txtCRight.Text), Convert.ToInt16(txtCDown.Text));
+                _defaultSample.SetUsing(Account.WorkerId, 1, false);
+                _defaultSample.SetUsing(Account.WorkerId, 2, false);
+                
+                _defaultSample.SetUsing(Account.WorkerId, 4, false);
             }
             else
             {
-                _defaultSample.Insert(Account.WorkerId, 4);
+                MessageBox.Show(@"Please Make Sure Your Magin is not Null");
             }
         }
-     
+
+        private void setDAsDefaultToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (txtDTop.Text != @"top" || txtDDown.Text != @"down" || txtDLeft.Text != @"left" || txtDRight.Text != @"right")
+            {
+                _defaultSample.InsertOrUpdate(Account.WorkerId, 4, Convert.ToInt16(txtDTop.Text),
+                    Convert.ToInt16(txtDLeft.Text), Convert.ToInt16(txtDRight.Text), Convert.ToInt16(txtDDown.Text));
+                _defaultSample.SetUsing(Account.WorkerId, 1, false);
+                _defaultSample.SetUsing(Account.WorkerId, 2, false);
+                _defaultSample.SetUsing(Account.WorkerId, 3,false);
+               
+            }
+            else
+            {
+                MessageBox.Show(@"Please Make Sure Your Magin is not Null");
+            }
+        }
+
     
     
     }

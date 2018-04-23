@@ -92,10 +92,10 @@ namespace PatientManagement
                 KeyService = @"Consultation";
             }
             //AddNodesToTree();
-            //var path = AppDomain.CurrentDomain.BaseDirectory;
-            //_path = path.Remove(path.Length - 46);
+            var path = AppDomain.CurrentDomain.BaseDirectory;
+            _path = path.Remove(path.Length - 46);
             //_path = path;
-            _path = @"S:\";
+            //_path = @"S:\";
             //dgvConsultation.Columns.Clear();
             //dgvLaboratory.Columns.Clear();
             //dgvMedicalImaging.Columns.Clear();
