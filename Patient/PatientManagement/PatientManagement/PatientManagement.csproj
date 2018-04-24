@@ -343,12 +343,6 @@
     <Compile Include="UpdateAccount.Designer.cs">
       <DependentUpon>UpdateAccount.cs</DependentUpon>
     </Compile>
-    <Compile Include="Waiting.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Waiting.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="WaitingForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -471,10 +465,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateAccount.resx">
       <DependentUpon>UpdateAccount.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Waiting.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>Waiting.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="WaitingForm.resx">
       <DependentUpon>WaitingForm.cs</DependentUpon>
