@@ -105,10 +105,10 @@ namespace PatientManagement
                 KeyService = @"Consultation";
             }
             //AddNodesToTree();
-            var path = AppDomain.CurrentDomain.BaseDirectory;
-            _path = path.Remove(path.Length - 46);
+            //var path = AppDomain.CurrentDomain.BaseDirectory;
+            //_path = path.Remove(path.Length - 46);
             //_path = path;
-            //_path = @"S:\";
+            _path = @"S:\";
             //dgvConsultation.Columns.Clear();
             //dgvLaboratory.Columns.Clear();
             //dgvMedicalImaging.Columns.Clear();
@@ -1870,7 +1870,7 @@ namespace PatientManagement
             if (txtDescription.Text != "" && KeyService != null && _keyCategory != 0)
             {
                 string path;
-                if (Directory.Exists(@"S:\"))
+                if (!Directory.Exists(@"S:\"))
                 {
                     path = @"D:\ABC soft\";
                 }

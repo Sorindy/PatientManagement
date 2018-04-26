@@ -37,6 +37,7 @@ namespace PatientManagement
             else
             {
                 dgvListWorker.DataSource = _report.ShowAll(dtpFrom.Value.Date, dtpTo.Value.Date);
+               
             }
 
             if (dgvListWorker.DataSource != null)
