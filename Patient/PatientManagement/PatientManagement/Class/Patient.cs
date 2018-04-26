@@ -13,7 +13,7 @@ namespace PatientManagement.Class
 
         public void Insert(string fname,string lname,string khname, string gender, DateTime dob, byte age, string address, string phone1,
             string phone2,
-            string email, short weigh, short heigh)
+            string email, short? weigh, short? heigh)
         {
             var insert = new Hospital_Entity_Framework.Patient()
             {
@@ -38,7 +38,7 @@ namespace PatientManagement.Class
 
         public Hospital_Entity_Framework.Patient InsertAndGet(string fname, string lname, string khname, string gender, DateTime dob, byte age, string address, string phone1,
             string phone2,
-            string email, short weigh, short heigh)
+            string email, short? weigh, short? heigh)
         {
             var insert = new Hospital_Entity_Framework.Patient()
             {
@@ -64,7 +64,7 @@ namespace PatientManagement.Class
         }
 
         public void Update(int id, string fname,string lname,string khname, string gender, DateTime dob, byte age, string address, string phone1,
-            string phone2, string email, short weigh, short heigh)
+            string phone2, string email, short? weigh, short? heigh)
         {
             var update = _db.Patients.Single(v => v.Id == id);
             update.FirstName = fname;

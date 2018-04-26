@@ -4,6 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using Hospital_Entity_Framework;
+using TXTextControl;
+using Button = System.Windows.Forms.Button;
 
 namespace PatientManagement.Class
 {
@@ -75,19 +77,55 @@ namespace PatientManagement.Class
             var btn = (Button) sender;
             var text = btn.Text;
 
-            var form = (CatelogForm)Application.OpenForms["CatelogForm"];
+            CatelogForm form = null;
+            if(Application.OpenForms.OfType<CatelogForm>().Count()!=0)
+            form = Application.OpenForms.OfType<CatelogForm>().LastOrDefault();
             if (form != null)
             {
                 var gbo = form.pnlFill;
+                form.Skip = true;
                 gbo.Controls.Clear();
 
                 if (text == "Worker")
                 {
+                    if (Application.OpenForms.OfType<HistorysForm>().Count() != 0)
+                    {
+                        var firstOrDefault = Application.OpenForms.OfType<HistorysForm>().LastOrDefault();
+                        if (firstOrDefault != null)
+                        {
+                            if (firstOrDefault.NewMedical||firstOrDefault.Editing)
+                            {
+                                var result = MessageBox.Show(@"Do you really want to leave this? leaving this document will delete all your current work.", @"Leave", MessageBoxButtons.YesNo);
+                                if (result == DialogResult.No)
+                                {
+                                    gbo.Controls.Add(firstOrDefault);
+                                    firstOrDefault.CatelogForm.Skip = false;
+                                    firstOrDefault.Show();
+                                    return;
+                                }
+                                if (result == DialogResult.Yes)
+                                {
+                                    firstOrDefault.Close();
+                                }
+                            }
+                        }
+                    }
                     if (Application.OpenForms.OfType<WorkerListForm>().Count() == 1)
                     {
                         var firstOrDefault = Application.OpenForms.OfType<WorkerListForm>().FirstOrDefault();
                         if (firstOrDefault != null)
-                            firstOrDefault.Close();
+                        {
+                           firstOrDefault.Close();
+                           var selectionForm = new WorkerListForm()
+                            {
+                                TopLevel = false,
+                                Dock = DockStyle.Fill,
+                                AutoScroll = true,
+                                CatelogForm = form
+                            };
+                           gbo.Controls.Add(selectionForm);
+                           selectionForm.Show();
+                        }
                     }
                     //if (Application.OpenForms.OfType<MedicalsForm>().Count() == 1)
                     //{
@@ -98,7 +136,9 @@ namespace PatientManagement.Class
                     //        firstOrDefault.Close();
                     //    }                           
                     //}
-                    var selectionForm = new WorkerListForm()
+                    else
+                    {
+                        var selectionForm = new WorkerListForm()
                         {
                             TopLevel = false,
                             Dock = DockStyle.Fill,
@@ -107,13 +147,44 @@ namespace PatientManagement.Class
                         };
                         gbo.Controls.Add(selectionForm);
                         selectionForm.Show();
+                    }
                 }
                 if (text == "Category")
                 {
+                    if (Application.OpenForms.OfType<HistorysForm>().Count() != 0)
+                    {
+                        var firstOrDefault = Application.OpenForms.OfType<HistorysForm>().LastOrDefault();
+                        if (firstOrDefault != null)
+                        {
+                            if (firstOrDefault.NewMedical || firstOrDefault.Editing)
+                            {
+                                var result = MessageBox.Show(@"Do you really want to leave this? leaving this document will delete all your current work.", @"Leave", MessageBoxButtons.YesNo);
+                                if (result == DialogResult.No)
+                                {
+                                    gbo.Controls.Add(firstOrDefault);
+                                    firstOrDefault.CatelogForm.Skip = false;
+                                    firstOrDefault.Show();
+                                    return;
+                                }
+                                if (result == DialogResult.Yes)
+                                {
+                                    firstOrDefault.Close();
+                                }
+                            }
+                        }
+                    }
                     if (Application.OpenForms.OfType<Category>().Count() == 1)
                     {
                         var firstOrDefault = Application.OpenForms.OfType<Category>().FirstOrDefault();
-                        if (firstOrDefault != null)firstOrDefault.Show();                           
+                        if (firstOrDefault != null)firstOrDefault.Close();
+                        var selectionForm = new Category()
+                        {
+                            TopLevel = false,
+                            Dock = DockStyle.Fill,
+                            AutoScroll = true
+                        };
+                        gbo.Controls.Add(selectionForm);
+                        selectionForm.Show();   
                     }
                     //if (Application.OpenForms.OfType<MedicalsForm>().Count() == 1)
                     //{
@@ -124,6 +195,8 @@ namespace PatientManagement.Class
                     //        firstOrDefault.Close();
                     //    }
                     //}
+                    else
+                    {
                         var selectionForm = new Category()
                         {
                             TopLevel = false,
@@ -132,15 +205,48 @@ namespace PatientManagement.Class
                         };
                         gbo.Controls.Add(selectionForm);
                         selectionForm.Show();
+                    }
                 }
                 if (text == "Patient")
                 {
+                    if (Application.OpenForms.OfType<HistorysForm>().Count() != 0)
+                    {
+                        var firstOrDefault = Application.OpenForms.OfType<HistorysForm>().LastOrDefault();
+                        if (firstOrDefault != null)
+                        {
+                            if (firstOrDefault.NewMedical || firstOrDefault.Editing)
+                            {
+                                var result = MessageBox.Show(@"Do you really want to leave this? leaving this document will delete all your current work.", @"Leave", MessageBoxButtons.YesNo);
+                                if (result == DialogResult.No)
+                                {
+                                    gbo.Controls.Add(firstOrDefault);
+                                    firstOrDefault.CatelogForm.Skip = false;
+                                    firstOrDefault.Show();
+                                    return;
+                                } 
+                                if (result == DialogResult.Yes)
+                                {
+                                    firstOrDefault.Close();
+                                }
+                            }
+                        }
+                    }
                     if (Application.OpenForms.OfType<PatientListForm>().Count() == 1)
                     {
                         var firstOrDefault = Application.OpenForms.OfType<PatientListForm>().FirstOrDefault();
                         if (firstOrDefault != null)
                         {
-                            firstOrDefault.Show();
+                            firstOrDefault.Close();
+                            var selectionForm = new PatientListForm()
+                            {
+                                TopLevel = false,
+                                Dock = DockStyle.Fill,
+                                AutoScroll = true,
+                                Account = _account,
+                                CatelogForm = form
+                            };
+                            gbo.Controls.Add(selectionForm);
+                            selectionForm.Show();
                         }
                     } 
                     //if (Application.OpenForms.OfType<MedicalsForm>().Count() == 1)
@@ -152,6 +258,9 @@ namespace PatientManagement.Class
                     //        firstOrDefault.Close();
                     //    }
                     //}
+
+                    else
+                    {
                         var selectionForm = new PatientListForm()
                         {
                             TopLevel = false,
@@ -162,15 +271,46 @@ namespace PatientManagement.Class
                         };
                         gbo.Controls.Add(selectionForm);
                         selectionForm.Show();
+                    }
                 }
                 if (text == "CheckIn")
                 {
+                    if (Application.OpenForms.OfType<HistorysForm>().Count() != 0)
+                    {
+                        var firstOrDefault = Application.OpenForms.OfType<HistorysForm>().LastOrDefault();
+                        if (firstOrDefault != null)
+                        {
+                            if (firstOrDefault.NewMedical || firstOrDefault.Editing)
+                            {
+                                var result = MessageBox.Show(@"Do you really want to leave this? leaving this document will delete all your current work.", @"Leave", MessageBoxButtons.YesNo);
+                                if (result == DialogResult.No)
+                                {
+                                    gbo.Controls.Add(firstOrDefault);
+                                    firstOrDefault.CatelogForm.Skip = false;
+                                    firstOrDefault.Show();
+                                    return;
+                                }
+                                if (result == DialogResult.Yes)
+                                {
+                                    firstOrDefault.Close();
+                                }
+                            }
+                        }
+                    }
                     if(Application.OpenForms.OfType<CheckInsForm>().Count()==1)
                     {
                         var firstOrDefault = Application.OpenForms.OfType<CheckInsForm>().FirstOrDefault();
                         if (firstOrDefault != null)
                         {
-                            firstOrDefault.Show();
+                            firstOrDefault.Close();
+                            var selectionForm = new CheckInsForm
+                            {
+                                TopLevel = false,
+                                Dock = DockStyle.Fill,
+                                AutoScroll = true
+                            };
+                            gbo.Controls.Add(selectionForm);
+                            selectionForm.Show();
                         }                           
                     }
                     //if (Application.OpenForms.OfType<MedicalsForm>().Count() == 1)
@@ -182,7 +322,9 @@ namespace PatientManagement.Class
                     //        firstOrDefault.Close();
                     //    }
                     //}
-                    var selectionForm = new CheckInsForm
+                    else
+                    {
+                        var selectionForm = new CheckInsForm
                         {
                             TopLevel = false,
                             Dock = DockStyle.Fill,
@@ -190,15 +332,46 @@ namespace PatientManagement.Class
                         };
                         gbo.Controls.Add(selectionForm);
                         selectionForm.Show();
+                    }
                 }
                 if (text == "Sample")
                 {
+                    if (Application.OpenForms.OfType<HistorysForm>().Count() != 0)
+                    {
+                        var firstOrDefault = Application.OpenForms.OfType<HistorysForm>().LastOrDefault();
+                        if (firstOrDefault != null)
+                        {
+                            if (firstOrDefault.NewMedical || firstOrDefault.Editing)
+                            {
+                                var result = MessageBox.Show(@"Do you really want to leave this? leaving this document will delete all your current work.", @"Leave", MessageBoxButtons.YesNo);
+                                if (result == DialogResult.No)
+                                {
+                                    gbo.Controls.Add(firstOrDefault);
+                                    firstOrDefault.CatelogForm.Skip = false;
+                                    firstOrDefault.Show();
+                                    return;
+                                }
+                                if (result == DialogResult.Yes)
+                                {
+                                    firstOrDefault.Close();
+                                }
+                            }
+                        }
+                    }
                     if (Application.OpenForms.OfType<SamplesForm>().Count() == 1)
                     {
                         var firstOrDefault = Application.OpenForms.OfType<SamplesForm>().FirstOrDefault();
                         if (firstOrDefault != null)
                         {
-                            firstOrDefault.Show();
+                            firstOrDefault.Close();
+                            var selectionForm = new SamplesForm()
+                            {
+                                TopLevel = false,
+                                Dock = DockStyle.Fill,
+                                AutoScroll = true
+                            };
+                            gbo.Controls.Add(selectionForm);
+                            selectionForm.Show();
                         }                           
                     }
                     //if (Application.OpenForms.OfType<MedicalsForm>().Count() == 1)
@@ -210,6 +383,8 @@ namespace PatientManagement.Class
                     //        firstOrDefault.Close();
                     //    }
                     //}
+                    else
+                    {
                         var selectionForm = new SamplesForm()
                         {
                             TopLevel = false,
@@ -218,15 +393,46 @@ namespace PatientManagement.Class
                         };
                         gbo.Controls.Add(selectionForm);
                         selectionForm.Show();
+                    }
                 }
                 if (text == "Management")
                 {
+                    if (Application.OpenForms.OfType<HistorysForm>().Count() != 0)
+                    {
+                        var firstOrDefault = Application.OpenForms.OfType<HistorysForm>().LastOrDefault();
+                        if (firstOrDefault != null)
+                        {
+                            if (firstOrDefault.NewMedical || firstOrDefault.Editing)
+                            {
+                                var result = MessageBox.Show(@"Do you really want to leave this? leaving this document will delete all your current work.", @"Leave", MessageBoxButtons.YesNo);
+                                if (result == DialogResult.No)
+                                {
+                                    gbo.Controls.Add(firstOrDefault);
+                                    firstOrDefault.CatelogForm.Skip = false;
+                                    firstOrDefault.Show();
+                                    return;
+                                }
+                                if (result == DialogResult.Yes)
+                                {
+                                    firstOrDefault.Close();
+                                }
+                            }
+                        }
+                    }
                     if (Application.OpenForms.OfType<Managements>().Count() == 1)
                     {
                         var firstOrDefault = Application.OpenForms.OfType<Managements>().FirstOrDefault();
                         if (firstOrDefault != null)
                         {
-                            firstOrDefault.Show();
+                            firstOrDefault.Close();
+                            var selectionForm = new Managements()
+                            {
+                                TopLevel = false,
+                                Dock = DockStyle.Fill,
+                                AutoScroll = true
+                            };
+                            gbo.Controls.Add(selectionForm);
+                            selectionForm.Show();
                         }                           
                     }
                     //if (Application.OpenForms.OfType<MedicalsForm>().Count() == 1)
@@ -238,17 +444,42 @@ namespace PatientManagement.Class
                     //        firstOrDefault.Close();
                     //    }
                     //}
-                    var selectionForm = new Managements()
+                    else
                     {
-                        TopLevel = false,
-                        Dock = DockStyle.Fill,
-                        AutoScroll = true
-                    };
-                    gbo.Controls.Add(selectionForm);
-                    selectionForm.Show();
+                        var selectionForm = new Managements()
+                        {
+                            TopLevel = false,
+                            Dock = DockStyle.Fill,
+                            AutoScroll = true
+                        };
+                        gbo.Controls.Add(selectionForm);
+                        selectionForm.Show();
+                    }
                 }
                 if (text == "Medical")
                 {
+                    if (Application.OpenForms.OfType<HistorysForm>().Count() != 0)
+                    {
+                        var firstOrDefault = Application.OpenForms.OfType<HistorysForm>().LastOrDefault();
+                        if (firstOrDefault != null)
+                        {
+                            if (firstOrDefault.NewMedical || firstOrDefault.Editing)
+                            {
+                                var result = MessageBox.Show(@"Do you really want to leave this? leaving this document will delete all your current work.", @"Leave", MessageBoxButtons.YesNo);
+                                if (result == DialogResult.No)
+                                {
+                                    gbo.Controls.Add(firstOrDefault);
+                                    firstOrDefault.CatelogForm.Skip = false;
+                                    firstOrDefault.Show();
+                                    return;
+                                }
+                                if (result == DialogResult.Yes)
+                                {
+                                    firstOrDefault.Close();
+                                }
+                            }
+                        }
+                    }
                     if (Application.OpenForms.OfType<MedicalsForm>().Count() == 1)
                     {
                         var firstOrDefault = Application.OpenForms.OfType<MedicalsForm>().FirstOrDefault();
@@ -283,12 +514,44 @@ namespace PatientManagement.Class
                 }
                 if (text == "WaitingList")
                 {
+                    if (Application.OpenForms.OfType<HistorysForm>().Count() != 0)
+                    {
+                        var firstOrDefault = Application.OpenForms.OfType<HistorysForm>().LastOrDefault();
+                        if (firstOrDefault != null)
+                        {
+                            if (firstOrDefault.NewMedical || firstOrDefault.Editing)
+                            {
+                                var result = MessageBox.Show(@"Do you really want to leave this? leaving this document will delete all your current work.", @"Leave", MessageBoxButtons.YesNo);
+                                if (result == DialogResult.No)
+                                {
+                                    gbo.Controls.Add(firstOrDefault);
+                                    firstOrDefault.CatelogForm.Skip = false;
+                                    firstOrDefault.Show();
+                                    return;
+                                }
+                                if (result == DialogResult.Yes)
+                                {
+                                    firstOrDefault.Close();
+                                }
+                            }
+                        }
+                    }
                     if (Application.OpenForms.OfType<WaitingForm>().Count() == 1)
                     {
                         var firstOrDefault = Application.OpenForms.OfType<WaitingForm>().FirstOrDefault();
                         if (firstOrDefault != null)
                         {
-                            firstOrDefault.Show();
+                            firstOrDefault.Close();
+                            var selectionForm = new WaitingForm()
+                            {
+                                TopLevel = false,
+                                Dock = DockStyle.Fill,
+                                AutoScroll = true,
+                                Account = _account,
+                                CatelogForm = form
+                            };
+                            gbo.Controls.Add(selectionForm);
+                            selectionForm.Show();
                         }                           
                     }
                     //if (Application.OpenForms.OfType<MedicalsForm>().Count() == 1)
@@ -300,25 +563,58 @@ namespace PatientManagement.Class
                     //        firstOrDefault.Close();
                     //    }
                     //}
-                    var selectionForm = new WaitingForm()
+                    else
                     {
-                        TopLevel = false,
-                        Dock = DockStyle.Fill,
-                        AutoScroll = true,
-                        Account = _account,
-                        CatelogForm = form
-                    };
-                    gbo.Controls.Add(selectionForm);
-                    selectionForm.Show();
+                        var selectionForm = new WaitingForm()
+                        {
+                            TopLevel = false,
+                            Dock = DockStyle.Fill,
+                            AutoScroll = true,
+                            Account = _account,
+                            CatelogForm = form
+                        };
+                        gbo.Controls.Add(selectionForm);
+                        selectionForm.Show();
+                    }
                 }
                 if (text == "Report")
                 {
+                    if (Application.OpenForms.OfType<HistorysForm>().Count() != 0)
+                    {
+                        var firstOrDefault = Application.OpenForms.OfType<HistorysForm>().LastOrDefault();
+                        if (firstOrDefault != null)
+                        {
+                            if (firstOrDefault.NewMedical || firstOrDefault.Editing)
+                            {
+                                var result = MessageBox.Show(@"Do you really want to leave this? leaving this document will delete all your current work.", @"Leave", MessageBoxButtons.YesNo);
+                                if (result == DialogResult.No)
+                                {
+                                    gbo.Controls.Add(firstOrDefault);
+                                    firstOrDefault.CatelogForm.Skip = false;
+                                    firstOrDefault.Show();
+                                    return;
+                                }
+                                if (result == DialogResult.Yes)
+                                {
+                                    firstOrDefault.Close();
+                                }
+                            }
+                        }
+                    }
                     if (Application.OpenForms.OfType<WaitingForm>().Count() == 1)
                     {
                         var firstOrDefault = Application.OpenForms.OfType<WaitingForm>().FirstOrDefault();
                         if (firstOrDefault != null)
                         {
-                            firstOrDefault.Show();
+                            firstOrDefault.Close();
+                            var selectionForm = new Report()
+                            {
+                                TopLevel = false,
+                                Dock = DockStyle.Fill,
+                                AutoScroll = true,
+                            };
+                            gbo.Controls.Add(selectionForm);
+                            selectionForm.Show();
                         }
                     }
                     //if (Application.OpenForms.OfType<MedicalsForm>().Count() == 1)
@@ -330,14 +626,17 @@ namespace PatientManagement.Class
                     //        firstOrDefault.Close();
                     //    }
                     //}
-                    var selectionForm = new Report()
+                    else
                     {
-                        TopLevel = false,
-                        Dock = DockStyle.Fill,
-                        AutoScroll = true,
-                    };
-                    gbo.Controls.Add(selectionForm);
-                    selectionForm.Show();
+                        var selectionForm = new Report()
+                        {
+                            TopLevel = false,
+                            Dock = DockStyle.Fill,
+                            AutoScroll = true,
+                        };
+                        gbo.Controls.Add(selectionForm);
+                        selectionForm.Show();
+                    }
                 }
             }
         }
@@ -380,20 +679,20 @@ namespace PatientManagement.Class
 
         public void DeleteImageFolder()
         {
-            string _path;
+            string path;
             //var path = AppDomain.CurrentDomain.BaseDirectory;
             //_path = path.Remove(path.Length - 46);
             if (!Directory.Exists(@"S:\"))
             {
-                _path = @"D:\ABC soft\";
+                path = @"D:\ABC soft\";
             }
             else
             {
-                _path = @"S:\";
+                path = @"S:\";
             }
             try
             {
-                var directory = new DirectoryInfo(_path + @"RTF\images");
+                var directory = new DirectoryInfo(path + @"RTF\images");
                 directory.Attributes = directory.Attributes & ~FileAttributes.ReadOnly;
                 if (directory.CreationTime < DateTime.Now.AddDays(-1))
                 {
@@ -402,6 +701,7 @@ namespace PatientManagement.Class
             }
             catch
             {
+                //NO action
             }
 
         }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using System.Windows.Forms;
 using CrystalDecisions.Shared;
 using PatientManagement.Class;
 using Account = Hospital_Entity_Framework.Account;
@@ -38,17 +39,18 @@ namespace PatientManagement
            // Html = Html.Insert(Html.Length, @"</section>");
             //Html = Html.Insert(0, @"<span class=" + "ad281d4f79-0002-451a-a51d-f2ce0baa9e4d-2" + "style=z-index:10;top:247px;left:161px;width:629px;height:837px;" + ">");
             //Html = Html.Insert(Html.Length, @"</span>");
-            //var path = AppDomain.CurrentDomain.BaseDirectory;
-            //_path = path.Remove(path.Length - 46);
+            var path = AppDomain.CurrentDomain.BaseDirectory;
+            _path = path.Remove(path.Length - 46);
             //_path = path;
-            _path = @"S:\";   
+            //_path = @"S:\";   
             CheckDefaultPrintSample(_defaultSample.SearchId(Account.WorkerId));
+            Margin=new Padding(0,0,0,0);
         }
 
         public string DirectoryAndPath()
         {
             string path;
-            if (!Directory.Exists(@"S:\"))
+            if (Directory.Exists(@"S:\"))
             {
                 path = @"D:\ABC soft\";
             }
@@ -159,7 +161,7 @@ namespace PatientManagement
             }
         }
 
-        private void wvPrintSample_Navigated(object sender, System.Windows.Forms.WebBrowserNavigatedEventArgs e)
+        private void wvPrintSample_Navigated(object sender,WebBrowserNavigatedEventArgs e)
         {
             InputContent();
             

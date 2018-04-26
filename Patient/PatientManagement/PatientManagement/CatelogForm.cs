@@ -19,6 +19,7 @@ namespace PatientManagement
         private bool _mouseDown;
         private Point _lastLocation;
         private bool _chklogout;
+        internal bool Skip;
 
         private void CatelogForm_Shown(object sender, EventArgs e)
         {

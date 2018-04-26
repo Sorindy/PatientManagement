@@ -64,6 +64,8 @@ namespace PatientManagement
             txtName.Text = "";
             txtPosition.Text = "";
             pnlSelection.Controls.Clear();
+            txtName.Enabled = false;
+            txtPosition.Enabled = false;
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)

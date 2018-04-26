@@ -10,6 +10,7 @@ namespace PatientManagement
         private readonly Refferrer _refferrer = new Refferrer();
         internal Hospital_Entity_Framework.Referrer Referrer;
         internal MedicalsForm MedicalForm;
+        internal HistorysForm HistoryForm;
         private bool _mouseDown;
         private Point _lastLocation;
 
@@ -42,7 +43,6 @@ namespace PatientManagement
 
                 btnEdit.Name = @"btnAdd";
                 btnEdit.Text = @"បញ្ចូល";
-                btnEdit.BackColor = Color.LightSkyBlue;
                 btnEdit.Click += btnAdd_Click;
             }
             else
@@ -65,7 +65,6 @@ namespace PatientManagement
                 txtWorkPlace.Enabled = false;
                 btnEdit.Name = @"btnEdit";
                 btnEdit.Text = @"កែប្រែ";
-                btnEdit.BackColor=Color.Blue;
                 btnEdit.Click +=btnEdit_Click;
 
                 btnClear.Enabled = false;
@@ -81,16 +80,70 @@ namespace PatientManagement
                     try
                     {
                         var phone1 = Convert.ToInt32(txtPhone1.Text).ToString();
-                        var phone2 = Convert.ToInt32(txtPhone2.Text).ToString();
-                        _refferrer.Insert(txtfName.Text, txtlName.Text, txtSpeciality.Text, txtWorkPlace.Text,phone1, phone2, txtEmail.Text);
+                        var phone2="";
+                        if (txtPhone2.Text != "")
+                        {
+                             phone2 = Convert.ToInt32(txtPhone2.Text).ToString();
+                        }
+                        var getref= _refferrer.Insert(txtfName.Text, txtlName.Text, txtSpeciality.Text, txtWorkPlace.Text,phone1, phone2, txtEmail.Text);
 
-                        if (MedicalForm.chkBoxReferrer.Checked)
+                        if (MedicalForm!=null)
                         {
                             MedicalForm.Medical = null;
                             MedicalForm.Refferrer = null;
                             MedicalForm.Refferrer = new Refferrer();
                             MedicalForm.Medical = new MedicalRecord();
-                            MedicalForm.chkBoxReferrer_CheckedChanged(MedicalForm, new EventArgs());
+                            MedicalForm.chkBoxReferrer.Checked = true;
+                            MedicalForm.cboReferrer.SelectedValue = getref.Id;
+                        }
+
+                        if (HistoryForm != null)
+                        {
+                            HistoryForm.Medical = null;
+                            HistoryForm.Refferrer = null;
+                            HistoryForm.Medical=new MedicalRecord();
+                            HistoryForm.Refferrer=new Refferrer();
+                            HistoryForm.chkBoxReferrer.Checked = true;
+                            HistoryForm.cboReferrer.SelectedValue = getref.Id;
+                        }
+
+                        Close();
+                    }
+                    catch
+                    {
+                        MessageBox.Show(@"Please Input Phone number only digit number.", @"Error");
+                    }
+                }
+                if (btnEdit.Name == @"btnUpdate")
+                {
+                    try
+                    {
+                        var phone1 = Convert.ToInt32(txtPhone1.Text).ToString();
+                        var phone2 = "";
+                        if (txtPhone2.Text != "")
+                        {
+                            phone2 = Convert.ToInt32(txtPhone2.Text).ToString();
+                        }
+                        var getref = _refferrer.Update(Referrer.Id, txtfName.Text, txtlName.Text, txtSpeciality.Text, txtWorkPlace.Text, phone1, phone2, txtEmail.Text);
+
+                        if (MedicalForm != null)
+                        {
+                            MedicalForm.Medical = null;
+                            MedicalForm.Refferrer = null;
+                            MedicalForm.Refferrer = new Refferrer();
+                            MedicalForm.Medical = new MedicalRecord();
+                            MedicalForm.chkBoxReferrer.Checked = true;
+                            MedicalForm.cboReferrer.SelectedValue = getref.Id;
+                        }
+
+                        if (HistoryForm != null)
+                        {
+                            HistoryForm.Medical = null;
+                            HistoryForm.Refferrer = null;
+                            HistoryForm.Medical = new MedicalRecord();
+                            HistoryForm.Refferrer = new Refferrer();
+                            HistoryForm.chkBoxReferrer.Checked = true;
+                            HistoryForm.cboReferrer.SelectedValue = getref.Id;
                         }
 
                         Close();
@@ -113,7 +166,6 @@ namespace PatientManagement
             {
                 btnEdit.Name = @"btnUpdate";
                 btnEdit.Text = @"បញ្ចូល";
-                btnEdit.BackColor = Color.SeaGreen;
                 btnEdit.Click += btnUpdate_Click;
 
                 btnClear.Enabled = true;
@@ -166,8 +218,7 @@ namespace PatientManagement
             }
             if (txtEmail.Text == "")
             {
-                MessageBox.Show(@"Please filling Email.", @"Error");
-                txtEmail.Focus();
+                txtEmail.Text=@"NONE";
             }
         }
 
@@ -180,8 +231,12 @@ namespace PatientManagement
                     try
                     {
                         var phone1 = Convert.ToInt32(txtPhone1.Text).ToString();
-                        var phone2 = Convert.ToInt32(txtPhone2.Text).ToString();
-                    _refferrer.Update(Referrer.Id,txtfName.Text,txtlName.Text, txtSpeciality.Text, txtWorkPlace.Text, phone1, phone2, txtEmail.Text);
+                        var phone2 = "";
+                        if (txtPhone2.Text != "")
+                        {
+                            phone2 = Convert.ToInt32(txtPhone2.Text).ToString();
+                        } 
+                        _refferrer.Update(Referrer.Id, txtfName.Text, txtlName.Text, txtSpeciality.Text, txtWorkPlace.Text, phone1, phone2, txtEmail.Text);
 
                     txtfName.Enabled = false;
                     txtlName.Enabled = false;
@@ -192,7 +247,6 @@ namespace PatientManagement
                     txtWorkPlace.Enabled = false;
                     btnEdit.Name = @"btnEdit";
                     btnEdit.Text = @"កែប្រែ";
-                    btnEdit.BackColor = Color.Blue;
                     btnEdit.Click += btnEdit_Click;
 
                     btnClear.Enabled = false;
@@ -221,14 +275,15 @@ namespace PatientManagement
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            if (MedicalForm.chkBoxReferrer.Checked)
-            {
-                MedicalForm.Medical = null;
-                MedicalForm.Refferrer = null;
-                MedicalForm.Refferrer = new Refferrer();
-                MedicalForm.Medical=new MedicalRecord();
-                MedicalForm.chkBoxReferrer_CheckedChanged(MedicalForm, new EventArgs());
-            }
+            //if (MedicalForm.chkBoxReferrer.Checked)
+            //{
+            //    MedicalForm.Medical = null;
+            //    MedicalForm.Refferrer = null;
+            //    MedicalForm.Refferrer = new Refferrer();
+            //    MedicalForm.Medical=new MedicalRecord();
+            //    MedicalForm.chkBoxReferrer_CheckedChanged(MedicalForm, new EventArgs());
+            //}
+            if(btnEdit.Name!="btnAdd"||btnEdit.Name!="btnEdit")return;
             Clear();
         }
 

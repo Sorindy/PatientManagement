@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Report));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -76,7 +75,6 @@
             this.chkPatient = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnPrint = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.pnlHide = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -351,6 +349,7 @@
             // cboService
             // 
             this.cboService.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cboService.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboService.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboService.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboService.FormattingEnabled = true;
@@ -364,7 +363,7 @@
             this.cboService.Name = "cboService";
             this.cboService.Size = new System.Drawing.Size(241, 32);
             this.cboService.TabIndex = 0;
-            this.cboService.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cboService_KeyDown);
+            this.cboService.SelectedIndexChanged += new System.EventHandler(this.cboService_SelectedIndexChanged);
             // 
             // tableLayoutPanel8
             // 
@@ -391,7 +390,7 @@
             this.cboCategory.Name = "cboCategory";
             this.cboCategory.Size = new System.Drawing.Size(241, 32);
             this.cboCategory.TabIndex = 0;
-            this.cboCategory.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cboCategory_KeyDown);
+            this.cboCategory.TextUpdate += new System.EventHandler(this.cboCategory_TextUpdate);
             // 
             // tableLayoutPanel9
             // 
@@ -418,7 +417,7 @@
             this.cboDoctor.Name = "cboDoctor";
             this.cboDoctor.Size = new System.Drawing.Size(241, 32);
             this.cboDoctor.TabIndex = 0;
-            this.cboDoctor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cboDoctor_KeyDown);
+            this.cboDoctor.TextUpdate += new System.EventHandler(this.cboDoctor_TextUpdate);
             // 
             // tableLayoutPanel10
             // 
@@ -445,7 +444,7 @@
             this.cboNurse.Name = "cboNurse";
             this.cboNurse.Size = new System.Drawing.Size(241, 32);
             this.cboNurse.TabIndex = 0;
-            this.cboNurse.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cboNurse_KeyDown);
+            this.cboNurse.TextUpdate += new System.EventHandler(this.cboNurse_TextUpdate);
             // 
             // tableLayoutPanel11
             // 
@@ -472,7 +471,7 @@
             this.cboRefferrer.Name = "cboRefferrer";
             this.cboRefferrer.Size = new System.Drawing.Size(241, 32);
             this.cboRefferrer.TabIndex = 0;
-            this.cboRefferrer.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cboRefferrer_KeyDown);
+            this.cboRefferrer.TextUpdate += new System.EventHandler(this.cboRefferrer_TextUpdate);
             // 
             // tableLayoutPanel12
             // 
@@ -645,7 +644,7 @@
             this.cboPatient.Name = "cboPatient";
             this.cboPatient.Size = new System.Drawing.Size(241, 32);
             this.cboPatient.TabIndex = 0;
-            this.cboPatient.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cboPatient_KeyDown);
+            this.cboPatient.TextUpdate += new System.EventHandler(this.cboPatient_TextUpdate);
             // 
             // tableLayoutPanel19
             // 
@@ -685,35 +684,17 @@
             // 
             // tableLayoutPanel17
             // 
-            this.tableLayoutPanel17.ColumnCount = 2;
-            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel17.Controls.Add(this.btnPrint, 0, 0);
+            this.tableLayoutPanel17.ColumnCount = 1;
+            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel17.Controls.Add(this.btnSearch, 0, 0);
             this.tableLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel17.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel17.Name = "tableLayoutPanel17";
             this.tableLayoutPanel17.RowCount = 1;
             this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanel17.Size = new System.Drawing.Size(403, 44);
             this.tableLayoutPanel17.TabIndex = 0;
-            // 
-            // btnPrint
-            // 
-            this.btnPrint.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.btnPrint.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrint.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrint.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
-            this.btnPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPrint.Location = new System.Drawing.Point(204, 3);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(196, 38);
-            this.btnPrint.TabIndex = 6;
-            this.btnPrint.Text = "ថតចម្លង";
-            this.btnPrint.UseVisualStyleBackColor = false;
             // 
             // btnSearch
             // 
@@ -726,7 +707,7 @@
             this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSearch.Location = new System.Drawing.Point(3, 3);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(195, 38);
+            this.btnSearch.Size = new System.Drawing.Size(397, 38);
             this.btnSearch.TabIndex = 5;
             this.btnSearch.Text = "ស្វែងរក";
             this.btnSearch.UseVisualStyleBackColor = false;
@@ -933,7 +914,6 @@
         internal System.Windows.Forms.DataGridView dgvListWorker;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel17;
-        private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel18;

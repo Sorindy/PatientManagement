@@ -18,6 +18,7 @@ namespace PatientManagement
 
         internal MedicalsForm MedicalsForm;
         internal CatelogForm CatelogForm;
+        internal HistorysForm HistorysForm;
         internal string ServiceText;
         internal int CategoryId=0;
         private ISample _sample;
@@ -264,8 +265,21 @@ namespace PatientManagement
         private void btnClose_Click(object sender, EventArgs e)
         {
             Close();
-            CatelogForm.pnlFill.Controls.Clear();
-            CatelogForm.pnlFill.Controls.Add(MedicalsForm);
+            if (MedicalsForm != null)
+            {
+                CatelogForm.pnlFill.Controls.Clear();
+                CatelogForm.pnlFill.Controls.Add(MedicalsForm);
+            }
+            if (HistorysForm != null)
+            {
+                CatelogForm.pnlFill.Controls.Clear();
+                CatelogForm.pnlFill.Controls.Add(HistorysForm);
+                HistorysForm.dgvConsultation.Columns.Clear();
+                HistorysForm.dgvLaboratory.Columns.Clear();
+                HistorysForm.dgvMedicalImaging.Columns.Clear();
+                HistorysForm.dgvPrescription.Columns.Clear();
+                HistorysForm.dgvVariousDocument.Columns.Clear();
+            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -275,9 +289,18 @@ namespace PatientManagement
                 string html;
                 txtDescription.Save(out html, StringStreamType.HTMLFormat);
                 txtDescription.Load(html, StringStreamType.HTMLFormat);
-                MedicalsForm.txtDescription.Load(Str+html, StringStreamType.HTMLFormat);
-                CatelogForm.pnlFill.Controls.Clear();
-                CatelogForm.pnlFill.Controls.Add(MedicalsForm);
+                if (MedicalsForm != null)
+                {
+                    MedicalsForm.txtDescription.Load(Str + html, StringStreamType.HTMLFormat);
+                    CatelogForm.pnlFill.Controls.Clear();
+                    CatelogForm.pnlFill.Controls.Add(MedicalsForm);
+                }
+                if (HistorysForm != null)
+                {
+                    HistorysForm.txtDescription.Load(Str + html, StringStreamType.HTMLFormat);
+                    CatelogForm.pnlFill.Controls.Clear();
+                    CatelogForm.pnlFill.Controls.Add(HistorysForm);
+                }
                 Close();
             }
             else
@@ -303,7 +326,8 @@ namespace PatientManagement
 
         private void imageToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            txtDescription.Images.Add();
+            var imagesobject1 = new TXTextControl.Image { SaveMode = ImageSaveMode.SaveAsData };
+            txtDescription.Images.Add(imagesobject1, -1);
         }
 
         private void tabToolStripMenuItem_Click(object sender, EventArgs e)

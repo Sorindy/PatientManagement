@@ -41,9 +41,10 @@
             this.dgvAllWatingList = new System.Windows.Forms.DataGridView();
             this.tblypnMidleMidle = new System.Windows.Forms.TableLayoutPanel();
             this.cboCategory = new System.Windows.Forms.ComboBox();
-            this.cboService = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.cboService = new System.Windows.Forms.ComboBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pnlFill.SuspendLayout();
             this.pnMidle.SuspendLayout();
@@ -51,6 +52,7 @@
             this.gbAllWaiting.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllWatingList)).BeginInit();
             this.tblypnMidleMidle.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlFill
@@ -176,9 +178,9 @@
             this.tblypnMidleMidle.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 125F));
             this.tblypnMidleMidle.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tblypnMidleMidle.Controls.Add(this.cboCategory, 3, 0);
-            this.tblypnMidleMidle.Controls.Add(this.cboService, 1, 0);
             this.tblypnMidleMidle.Controls.Add(this.label2, 0, 0);
             this.tblypnMidleMidle.Controls.Add(this.label3, 2, 0);
+            this.tblypnMidleMidle.Controls.Add(this.panel1, 1, 0);
             this.tblypnMidleMidle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tblypnMidleMidle.Location = new System.Drawing.Point(3, 3);
             this.tblypnMidleMidle.Name = "tblypnMidleMidle";
@@ -200,26 +202,6 @@
             this.cboCategory.Size = new System.Drawing.Size(379, 44);
             this.cboCategory.TabIndex = 3;
             this.cboCategory.SelectedIndexChanged += new System.EventHandler(this.cboCategory_SelectedIndexChanged);
-            // 
-            // cboService
-            // 
-            this.cboService.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.cboService.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cboService.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboService.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cboService.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboService.FormattingEnabled = true;
-            this.cboService.Items.AddRange(new object[] {
-            "Consultation",
-            "Laboratory",
-            "Medical Imaging",
-            "Prescription",
-            "Various Document"});
-            this.cboService.Location = new System.Drawing.Point(166, 3);
-            this.cboService.Name = "cboService";
-            this.cboService.Size = new System.Drawing.Size(379, 44);
-            this.cboService.TabIndex = 2;
-            this.cboService.SelectedIndexChanged += new System.EventHandler(this.cboService_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -251,6 +233,35 @@
             this.label3.Text = "ប្រភេទ :";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.cboService);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(166, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(379, 48);
+            this.panel1.TabIndex = 4;
+            // 
+            // cboService
+            // 
+            this.cboService.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.cboService.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cboService.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboService.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cboService.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboService.FormattingEnabled = true;
+            this.cboService.Items.AddRange(new object[] {
+            "Consultation",
+            "Laboratory",
+            "Medical Imaging",
+            "Prescription",
+            "Various Document"});
+            this.cboService.Location = new System.Drawing.Point(0, 0);
+            this.cboService.Name = "cboService";
+            this.cboService.Size = new System.Drawing.Size(379, 44);
+            this.cboService.TabIndex = 3;
+            this.cboService.SelectedIndexChanged += new System.EventHandler(this.cboService_SelectedIndexChanged);
+            // 
             // WaitingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -268,6 +279,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllWatingList)).EndInit();
             this.tblypnMidleMidle.ResumeLayout(false);
             this.tblypnMidleMidle.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -281,9 +293,10 @@
         internal System.Windows.Forms.DataGridView dgvAllWatingList;
         private System.Windows.Forms.TableLayoutPanel tblypnMidleMidle;
         private System.Windows.Forms.ComboBox cboCategory;
-        private System.Windows.Forms.ComboBox cboService;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ComboBox cboService;
     }
 }

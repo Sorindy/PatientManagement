@@ -16,14 +16,7 @@ namespace PatientManagement
 
         private readonly ReportClass _report=new ReportClass();
         private ICategory _category;
-        private bool _chkService;
-        private bool _chkCategory;
-        private bool _chkDoctor;
-        private bool _chkNurse;
-        private bool _chkRefferrer;
-        private bool _chkPatient;
-
-
+        
         private void CheckOrderDgv()
         {
             for (var i = 0; i <= dgvListWorker.RowCount - 1; i++)
@@ -111,12 +104,9 @@ namespace PatientManagement
                 cboService.Enabled = true;
                 cboService.SelectedIndex = 0;
                 chkCategory.Enabled = true;
-                _chkService = true;
             }
             else
             {
-                _chkService = false;
-                _chkCategory = false;
                 cboService.Enabled = false;
                 chkCategory.Checked = false;
                 chkCategory.Enabled = false;
@@ -142,7 +132,6 @@ namespace PatientManagement
                         cboCategory.DisplayMember = "Value";
                         cboCategory.ValueMember = "Key";
                         cboCategory.SelectedIndex = 0;
-                        _chkCategory = true;
                     }
                 }
                 if (cboService.SelectedIndex == 1)
@@ -155,7 +144,6 @@ namespace PatientManagement
                         cboCategory.DisplayMember = "Value";
                         cboCategory.ValueMember = "Key";
                         cboCategory.SelectedIndex = 0;
-                        _chkCategory = true;
                     }
                 }
                 if (cboService.SelectedIndex == 2)
@@ -168,7 +156,6 @@ namespace PatientManagement
                         cboCategory.DisplayMember = "Value";
                         cboCategory.ValueMember = "Key";
                         cboCategory.SelectedIndex = 0;
-                        _chkCategory = true;
                     }
                 }
                 if (cboService.SelectedIndex == 3)
@@ -181,7 +168,6 @@ namespace PatientManagement
                         cboCategory.DisplayMember = "Value";
                         cboCategory.ValueMember = "Key";
                         cboCategory.SelectedIndex = 0;
-                        _chkCategory = true;
                     }
                 }
                 if (cboService.SelectedIndex == 4)
@@ -194,13 +180,12 @@ namespace PatientManagement
                         cboCategory.DisplayMember = "Value";
                         cboCategory.ValueMember = "Key";
                         cboCategory.SelectedIndex = 0;
-                        _chkCategory = true;                    }
+                    }
                 }
                 cboCategory.Enabled = true;
             }
             else
             {
-                _chkCategory = false;
                 cboCategory.Enabled = false;
                 cboCategory.DataSource = null;
                 cboCategory.Items.Clear();
@@ -221,12 +206,10 @@ namespace PatientManagement
                     cboDoctor.DisplayMember = "Value";
                     cboDoctor.ValueMember = "Key";
                     cboDoctor.SelectedIndex = 0;
-                    _chkDoctor = true;
                 }
             }
             else
             {
-                _chkDoctor = false;
                 cboDoctor.Enabled = false;
                 cboDoctor.DataSource = null;
                 cboDoctor.Items.Clear();
@@ -247,12 +230,10 @@ namespace PatientManagement
                     cboNurse.DisplayMember = "Value";
                     cboNurse.ValueMember = "Key";
                     cboNurse.SelectedIndex = 0;
-                    _chkNurse = true;
                 }
             }
             else
             {
-                _chkNurse = false;
                 cboNurse.Enabled = false;
                 cboNurse.DataSource = null;
                 cboNurse.Items.Clear();
@@ -273,12 +254,10 @@ namespace PatientManagement
                     cboRefferrer.DisplayMember = "Value";
                     cboRefferrer.ValueMember = "Key";
                     cboRefferrer.SelectedIndex = 0;
-                    _chkRefferrer = true;
                 }
             }
             else
             {
-                _chkRefferrer = false;
                 cboRefferrer.Enabled = false;
                 cboRefferrer.DataSource = null;
                 cboRefferrer.Items.Clear();
@@ -299,64 +278,87 @@ namespace PatientManagement
                     cboPatient.DisplayMember = "Value";
                     cboPatient.ValueMember = "Key";
                     cboPatient.SelectedIndex = 0;
-                    _chkPatient = true;
                 }
             }
             else
             {
-                _chkPatient = false;
                 cboPatient.Enabled = false;
                 cboPatient.DataSource = null;
                 cboPatient.Items.Clear();
             }
         }
 
-        private void cboNurse_KeyDown(object sender, KeyEventArgs e)
+        private void cboCategory_TextUpdate(object sender, EventArgs e)
         {
-            if (e.KeyCode != Keys.Enter) return;
-            if (!_chkNurse) return;
-            var index = cboNurse.FindString(cboNurse.Text);
-            cboNurse.SelectedIndex = index;
+            var dic = _report.SearchCategory(cboService.SelectedIndex, cboCategory.Text);
+            var text = cboCategory.Text;
+            if (dic.Count == 0) return;
+            cboCategory.DataSource = new BindingSource(dic, null);
+            cboCategory.DisplayMember = "Value";
+            cboCategory.ValueMember = "Key";
+            cboCategory.SelectedIndex = -1;
+            cboCategory.Text = text;
+            cboCategory.Select(text.Length, 0);
         }
 
-        private void cboService_KeyDown(object sender, KeyEventArgs e)
+        private void cboService_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (e.KeyCode != Keys.Enter) return;
-            if (!_chkService) return;
-            var index = cboService.FindString(cboService.Text);
-            cboService.SelectedIndex = index;
+            chkCategory.Checked = false;
         }
 
-        private void cboCategory_KeyDown(object sender, KeyEventArgs e)
+        private void cboDoctor_TextUpdate(object sender, EventArgs e)
         {
-            if (e.KeyCode != Keys.Enter) return;
-            if (!_chkCategory) return;
-            var index = cboCategory.FindString(cboCategory.Text);
-            cboCategory.SelectedIndex = index;
+            var dic = _report.SearchDoctor(cboDoctor.Text);
+            var text = cboDoctor.Text;
+            if (dic.Count == 0) return;
+            cboDoctor.DataSource = new BindingSource(dic, null);
+            cboDoctor.DisplayMember = "Value";
+            cboDoctor.ValueMember = "Key";
+            cboDoctor.SelectedIndex = -1;
+            cboDoctor.Text = text;
+            cboDoctor.Select(text.Length, 0);
         }
 
-        private void cboDoctor_KeyDown(object sender, KeyEventArgs e)
+        private void cboNurse_TextUpdate(object sender, EventArgs e)
         {
-            if (e.KeyCode != Keys.Enter) return;
-            if (!_chkDoctor) return;
-            var index = cboDoctor.FindString(cboDoctor.Text);
-            cboDoctor.SelectedIndex = index;
+            var dic = _report.SearchNurse(cboNurse.Text);
+            var text = cboNurse.Text;
+            if (dic.Count == 0) return;
+            cboNurse.DataSource = new BindingSource(dic, null);
+            cboNurse.DisplayMember = "Value";
+            cboNurse.ValueMember = "Key";
+            cboNurse.SelectedIndex = -1;
+            cboNurse.Text = text;
+            cboNurse.Select(text.Length, 0);
         }
 
-        private void cboPatient_KeyDown(object sender, KeyEventArgs e)
+        private void cboRefferrer_TextUpdate(object sender, EventArgs e)
         {
-            if (e.KeyCode != Keys.Enter) return;
-            if (!_chkPatient) return;
-            var index = cboPatient.FindString(cboPatient.Text);
-            cboPatient.SelectedIndex = index;
+            var dic = _report.SearchRefferrer(cboRefferrer.Text);
+            var text = cboRefferrer.Text;
+            if (dic.Count == 0) return;
+            cboRefferrer.DataSource = new BindingSource(dic, null);
+            cboRefferrer.DisplayMember = "Value";
+            cboRefferrer.ValueMember = "Key";
+            cboRefferrer.SelectedIndex = -1;
+            cboRefferrer.Text = text;
+            cboRefferrer.Select(text.Length, 0);
         }
 
-        private void cboRefferrer_KeyDown(object sender, KeyEventArgs e)
+        private void cboPatient_TextUpdate(object sender, EventArgs e)
         {
-            if (e.KeyCode != Keys.Enter) return;
-            if (!_chkRefferrer) return;
-            var index = cboRefferrer.FindString(cboRefferrer.Text);
-            cboRefferrer.SelectedIndex = index;
+            var dic = _report.SearchPatient(cboPatient.Text);
+            var text = cboPatient.Text;
+            if (dic.Count == 0) return;
+            cboPatient.DataSource = new BindingSource(dic, null);
+            cboPatient.DisplayMember = "Value";
+            cboPatient.ValueMember = "Key";
+            cboPatient.SelectedIndex = -1;
+            cboPatient.Text = text;
+            cboPatient.Select(text.Length, 0);
         }
+
+
+
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using PatientManagement.Class;
 using Account = Hospital_Entity_Framework.Account;
@@ -29,6 +30,7 @@ namespace PatientManagement
                 _fullManagement.TabPrescription(Account,this),
                 _fullManagement.TabVariousDocument(Account,this)
             });
+            tabCategory.ItemSize=new Size(Convert.ToInt32(pnlSelection.Width/5.3),35);
         }
 
         private void btnClear_Click(object sender, EventArgs e)

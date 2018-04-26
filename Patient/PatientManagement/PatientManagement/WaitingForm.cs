@@ -108,6 +108,7 @@ namespace PatientManagement
         {
             dgvAllWatingList.DataSource = null;
             dgvAllWatingList.Columns.Clear();
+            if(cboCategory.DataSource==null)return;
             var btnView = new DataGridViewButtonColumn
             {
                 FlatStyle = FlatStyle.Flat,

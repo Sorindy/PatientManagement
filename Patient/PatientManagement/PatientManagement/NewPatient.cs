@@ -31,6 +31,13 @@ namespace PatientManagement
                 PatientListForm.CatelogForm.pnlFill.Controls.Add(PatientListForm);
                 PatientListForm.PatientListForm_Shown(PatientListForm, new EventArgs());
             }
+            if (MedicalForm != null) 
+            {
+                MedicalForm.CatelogForm.pnlFill.Controls.Clear();
+                MedicalForm.CatelogForm.pnlFill.Controls.Add(MedicalForm);
+                MedicalForm.Show();
+            }
+
             Close();
         }
 
@@ -73,16 +80,16 @@ namespace PatientManagement
                 MessageBox.Show(@"Make sure " + txtfName.Text + @" date of birth correct.");
                 dtpDOB.Focus();
             }
-            if (txtWeight.Text.Trim() == "" || txtWeight.Text == null)
-            {
-                MessageBox.Show(@"Please input weight .");
-                txtWeight.Focus();
-            }
-            if (txtHeight.Text.Trim() == "" || txtHeight.Text == null)
-            {
-                MessageBox.Show(@"Please input height .");
-                txtHeight.Focus();
-            }
+            //if (txtWeight.Text.Trim() == "" || txtWeight.Text == null)
+            //{
+            //    MessageBox.Show(@"Please input weight .");
+            //    txtWeight.Focus();
+            //}
+            //if (txtHeight.Text.Trim() == "" || txtHeight.Text == null)
+            //{
+            //    MessageBox.Show(@"Please input height .");
+            //    txtHeight.Focus();
+            //}
         }
 
         private void Clear()
@@ -108,8 +115,26 @@ namespace PatientManagement
             {
                 try
                 {
+                    short? weight;
+                    if (txtWeight.Text.Trim() == "")
+                    {
+                        weight = 0;
+                    }
+                    else
+                    {
+                        weight= Convert.ToInt16(txtWeight.Text);
+                    }
+                    short? height;
+                    if (txtHeight.Text.Trim() == "")
+                    {
+                        height = 0;
+                    }
+                    else
+                    {
+                        height = Convert.ToInt16(txtHeight.Text);
+                    }
                     _patient.Insert(txtfName.Text, txtlName.Text, txtkhName.Text, cboGender.Text, dtpDOB.Value, Convert.ToByte(txtAge.Text), txtAddress.Text, txtPhone1.Text,
-                        txtPhone2.Text, txtEmail.Text, Convert.ToInt16(txtWeight.Text), Convert.ToInt16(txtHeight.Text));
+                        txtPhone2.Text, txtEmail.Text, weight,height );
                     PatientListForm.dgvListPatient.DataSource = null;
                     PatientListForm.dgvListPatient.Columns.Clear();
                     PatientListForm.CatelogForm.pnlFill.Controls.Clear();
@@ -143,7 +168,7 @@ namespace PatientManagement
                         MessageBox.Show(@"Please Checking again !", @"Error");
                     }
                 }
-                else
+                if(MedicalForm==null)
                 {
                     try
                     {

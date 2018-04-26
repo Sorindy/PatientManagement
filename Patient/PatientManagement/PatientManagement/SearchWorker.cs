@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Drawing;
+using System.Windows.Forms;
 using PatientManagement.Class;
 using Form = System.Windows.Forms.Form;
 
@@ -18,13 +20,26 @@ namespace PatientManagement
         {
             txtSearch.Text = "";
             txtSearch.Focus();
+            dgvSearchWorker.DataSource = _management.ShowAllWorkerHasAccout();
+            dgvSearchWorker.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            CheckOrderDgv(dgvSearchWorker);
         }
-
+        private static void CheckOrderDgv(DataGridView dgv)
+        {
+            dgv.Columns[0].Visible = false;
+            for (var i = 0; i <= dgv.RowCount - 1; i++)
+            {
+                dgv.Rows[i].DefaultCellStyle.BackColor = i % 2 == 0 ? Color.LightGray : Color.MintCream;
+            }
+            dgv.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dgv.ColumnHeadersDefaultCellStyle.Font = new Font(@"Arial", 14, FontStyle.Bold);
+        }
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             dgvSearchWorker.DataSource = _management.Search_WorkerHasAccount(txtSearch.Text);
             dgvSearchWorker.Columns[0].Visible = false;
             DtgHeaderText();
+            CheckOrderDgv(dgvSearchWorker);
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

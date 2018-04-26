@@ -79,7 +79,7 @@ namespace PatientManagement.Class
         public object Search(string text)
         {
             var bs=new BindingSource();
-            var list = _db.Workers.ToList();
+            var list = _db.Workers.Where(v=>v.Position!="Admin"&&v.Hire).ToList();
             var search = list.Where(v => v.FirstName.Contains(text) ||
                                                 v.LastName.Contains(text)||
                                                 v.Phone1.Contains(text) || 

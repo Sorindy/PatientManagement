@@ -24,18 +24,19 @@ namespace PatientManagement.Class
             var getNurse = _db.Workers.Where(v => v.Position == "Nurse" && v.Hire);
             foreach (var item in getNurse)
             {
-                dic.Add(item.Id,item.LastName);
+                dic.Add(item.Id,item.FirstName+" "+ item.LastName);
             }
             return dic;
         }
 
-        public Dictionary<int, string> ShowReferrer()
+        public Dictionary<int, string> SearchNurse(string text)
         {
             var dic=new Dictionary<int,string>();
-            var getReferrer = _db.Referrers;
-            foreach (var item in getReferrer)
+            var getNurse = _db.Workers.Where(v => v.Position == "Nurse" && v.Hire).Where(v=>v.FirstName.ToLower().Contains(text)||
+                v.LastName.ToLower().Contains(text));
+            foreach (var item in getNurse)
             {
-                dic.Add(item.Id,item.LastName);
+                dic.Add(item.Id, item.FirstName + " " + item.LastName);
             }
             return dic;
         }
@@ -44,6 +45,28 @@ namespace PatientManagement.Class
         {
             var getReferrer = _db.Referrers.First(v => v.Id == id);
             return getReferrer;
+        }
+
+        public Dictionary<int, string> SearchRefferer(string text)
+        {
+            var getrefferer = _db.Referrers.Where(v => v.FirstName.ToLower().Contains(text) || v.LastName.ToLower().Contains(text)).ToList();
+            var dic = new Dictionary<int, string>();
+            foreach (var item in getrefferer)
+            {
+                dic.Add(item.Id, item.FirstName + " " + item.LastName);
+            }
+            return dic;
+        }
+
+        public Dictionary<int, string> DicAllRefferer()
+        {
+            var getrefferer = _db.Referrers.ToList();
+            var dic = new Dictionary<int, string>();
+            foreach (var item in getrefferer)
+            {
+                dic.Add(item.Id, item.FirstName + " " + item.LastName);
+            }
+            return dic;
         }
 
     }

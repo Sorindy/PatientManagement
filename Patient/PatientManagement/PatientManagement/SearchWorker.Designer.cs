@@ -59,7 +59,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(930, 80);
+            this.panel1.Size = new System.Drawing.Size(1134, 80);
             this.panel1.TabIndex = 1;
             // 
             // tableLayoutPanel1
@@ -70,7 +70,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.021482F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.021482F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 202F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 204F));
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnAdd, 3, 0);
@@ -80,7 +80,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(930, 80);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1134, 80);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -95,7 +95,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(328, 74);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(510, 74);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // txtSearch
@@ -106,7 +106,7 @@
             this.txtSearch.Location = new System.Drawing.Point(3, 15);
             this.txtSearch.Multiline = true;
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(322, 44);
+            this.txtSearch.Size = new System.Drawing.Size(504, 44);
             this.txtSearch.TabIndex = 0;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
@@ -125,11 +125,12 @@
             // 
             this.btnAdd.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnAdd.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Preah Vihear", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.SystemColors.Desktop;
             this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
             this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAdd.Location = new System.Drawing.Point(511, 3);
+            this.btnAdd.Location = new System.Drawing.Point(703, 3);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(194, 74);
             this.btnAdd.TabIndex = 2;
@@ -141,13 +142,14 @@
             // 
             this.btnCancel.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnCancel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Preah Vihear", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.SystemColors.Desktop;
             this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
             this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCancel.Location = new System.Drawing.Point(729, 3);
+            this.btnCancel.Location = new System.Drawing.Point(931, 3);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(198, 74);
+            this.btnCancel.Size = new System.Drawing.Size(200, 74);
             this.btnCancel.TabIndex = 3;
             this.btnCancel.Text = "ចាកចេញ";
             this.btnCancel.UseVisualStyleBackColor = false;
@@ -156,9 +158,9 @@
             // panel2
             // 
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(896, 80);
+            this.panel2.Location = new System.Drawing.Point(1100, 80);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(34, 351);
+            this.panel2.Size = new System.Drawing.Size(34, 404);
             this.panel2.TabIndex = 2;
             // 
             // panel3
@@ -166,15 +168,15 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel3.Location = new System.Drawing.Point(0, 80);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(34, 351);
+            this.panel3.Size = new System.Drawing.Size(34, 404);
             this.panel3.TabIndex = 3;
             // 
             // panel4
             // 
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(34, 407);
+            this.panel4.Location = new System.Drawing.Point(34, 460);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(862, 24);
+            this.panel4.Size = new System.Drawing.Size(1066, 24);
             this.panel4.TabIndex = 4;
             // 
             // panel5
@@ -183,7 +185,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(34, 80);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(862, 327);
+            this.panel5.Size = new System.Drawing.Size(1066, 380);
             this.panel5.TabIndex = 5;
             // 
             // dgvSearchWorker
@@ -248,7 +250,7 @@
             this.dgvSearchWorker.RowTemplate.ReadOnly = true;
             this.dgvSearchWorker.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvSearchWorker.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSearchWorker.Size = new System.Drawing.Size(862, 327);
+            this.dgvSearchWorker.Size = new System.Drawing.Size(1066, 380);
             this.dgvSearchWorker.TabIndex = 1;
             // 
             // SearchWorker
@@ -256,7 +258,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.ClientSize = new System.Drawing.Size(930, 431);
+            this.ClientSize = new System.Drawing.Size(1134, 484);
             this.ControlBox = false;
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);

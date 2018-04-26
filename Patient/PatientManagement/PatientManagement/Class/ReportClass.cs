@@ -10,6 +10,7 @@ namespace PatientManagement.Class
     {
 
         private readonly HospitalDbContext _db=new HospitalDbContext();
+        private readonly MedicalRecord _medical=new MedicalRecord();
 
         public BindingSource ShowAll(DateTime startDate, DateTime endDate)
         {
@@ -211,6 +212,75 @@ namespace PatientManagement.Class
         {
             var get = _db.Patients;
             return get.ToList().ToDictionary(item => item.Id, item => item.FirstName + " " + item.LastName);
+        }
+
+        public Dictionary<int, string> SearchDoctor(string str)
+        {
+            var get = _db.Workers.Where(v => v.Position == "Doctor"&&v.Hire).ToList().Where(v=>v.FirstName.ToLower().Contains(str)||
+                v.LastName.ToLower().Contains(str));
+            return get.ToDictionary(item => item.Id, item => item.FirstName + " " + item.LastName);
+        }
+
+        public Dictionary<int, string> SearchNurse(string str)
+        {
+            return _medical.SearchNurse(str);
+        }
+
+        public Dictionary<int, string> SearchRefferrer(string str)
+        {
+            return _medical.SearchRefferer(str);
+        }
+
+        public Dictionary<int, string> SearchPatient(string str)
+        {
+            var get = _db.Patients.ToList().Where(v => v.FirstName.ToLower().Contains(str)||v.LastName.ToLower().Contains(str));
+            return get.ToDictionary(item => item.Id, item => item.FirstName + " " + item.LastName);
+        }
+
+        public Dictionary<int, string> SearchCategory(int serviceIndex, string str)
+        {
+            var dic=new Dictionary<int,string>();
+            if (serviceIndex == 0)
+            {
+                var get = _db.ConsultationCategories.ToList().Where(v => v.Name.ToLower().Contains(str));
+                foreach (var item in get.ToList())
+                {
+                    dic.Add(item.Id,item.Name);
+                }
+            }
+            if (serviceIndex == 1)
+            {
+                var get = _db.LaboratoryCategories.ToList().Where(v => v.Name.ToLower().Contains(str));
+                foreach (var item in get.ToList())
+                {
+                    dic.Add(item.Id, item.Name);
+                }
+            }
+            if (serviceIndex == 2)
+            {
+                var get = _db.MedicalImagingCategories.ToList().Where(v => v.Name.ToLower().Contains(str));
+                foreach (var item in get.ToList())
+                {
+                    dic.Add(item.Id, item.Name);
+                }
+            }
+            if (serviceIndex == 3)
+            {
+                var get = _db.PrescriptionCategories.ToList().Where(v => v.Name.ToLower().Contains(str));
+                foreach (var item in get.ToList())
+                {
+                    dic.Add(item.Id, item.Name);
+                }
+            }
+            if (serviceIndex == 4)
+            {
+                var get = _db.VariousDocumentCategories.ToList().Where(v => v.Name.ToLower().Contains(str));
+                foreach (var item in get.ToList())
+                {
+                    dic.Add(item.Id, item.Name);
+                }
+            }
+            return dic;
         }
     }
 

@@ -1044,5 +1044,16 @@ namespace PatientManagement.Class
             categorySelection.tabCategory.SelectTab("Consultation");
             categorySelection.tabCategory.Enabled = true;
         }
+
+        public object ShowAllWorkerHasAccout()
+        {
+            var bs2 = new BindingSource();
+
+            var searchs = _db.Accounts.Where(v => v.Worker.Position != "Admin").Where(v => v.Worker.Hire);
+            bs2.DataSource = searchs
+                .Select(s => new { s.Worker.Id, s.Worker.FirstName, s.Worker.LastName, s.Worker.Gender, s.Worker.Position, s.UserName }).ToList();
+
+            return bs2;
+        }
     }
 }

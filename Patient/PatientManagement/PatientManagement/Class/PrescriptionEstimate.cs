@@ -108,5 +108,21 @@ namespace PatientManagement.Class
             _bs.DataSource = getestimate.ToList();
             return _bs;
         }
+        public string GetPath(int estimateId)
+        {
+            var get = _db.PrescriptionEstimates.First(v => v.Id == estimateId).Description;
+            return get;
+        }
+        public string GetRefferrerId(int estimateId)
+        {
+            var get = _db.PrescriptionEstimates.First(v => v.Id == estimateId).ReferrerId;
+            return get.ToString();
+        }
+
+        public string GetNurseId(int estimateId)
+        {
+            var get = _db.PrescriptionEstimates.First(v => v.Id == estimateId).NurseId;
+            return get.ToString();
+        }
     }
 }

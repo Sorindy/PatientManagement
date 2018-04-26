@@ -104,6 +104,7 @@ namespace PatientManagement
                     };
                     CatelogForm.pnlFill.Controls.Clear();
                     CatelogForm.pnlFill.Controls.Add(form);
+                    Close();
                     form.Show();
                 }
             }

@@ -38,10 +38,8 @@ namespace PatientManagement
         internal string Title = "";
         private int _keyCategory;
         private bool _have;
-
         //private bool? _status;
         private readonly Dating _dating = new Dating();
-
         internal Refferrer Refferrer = new Refferrer();
         private IEstimate _estimate;
 
@@ -380,7 +378,7 @@ namespace PatientManagement
         {
             if (chkBoxReferrer.Checked)
             {
-                var dicReferrer = Medical.ShowReferrer();
+                var dicReferrer = Medical.DicAllRefferer();
                 if (dicReferrer.Count != 0)
                 {
                     cboReferrer.DataSource = new BindingSource(dicReferrer, null);
@@ -488,11 +486,11 @@ namespace PatientManagement
         {
             if (cboReferrer.SelectedItem == null) return;
             var selectedItem = (KeyValuePair<int, string>) cboReferrer.SelectedItem;
-            var keyCategory = selectedItem.Key;
+            var key = selectedItem.Key;
             var form = new RefferrerForm()
             {
                 MedicalForm = this,
-                Referrer = Refferrer.GetRefferrer(keyCategory)
+                Referrer = Refferrer.GetRefferrer(key)
             };
             form.ShowDialog();
         }
@@ -554,8 +552,8 @@ namespace PatientManagement
                 return;
             }
 
-            var selectedItem = cboNurse.SelectedIndex;
-            _keyNurse = selectedItem;
+            var get = (KeyValuePair<int, string>)cboNurse.SelectedItem;
+            _keyNurse = get.Key;  
         }
 
         private void cboReferrer_SelectedIndexChanged(object sender, EventArgs e)
@@ -566,8 +564,8 @@ namespace PatientManagement
                 return;
             }
 
-            var selectedItem = cboReferrer.SelectedIndex;
-            _keyReferrer = Convert.ToInt32(selectedItem);
+            var get = (KeyValuePair<int, string>)cboReferrer.SelectedItem;
+            _keyReferrer = get.Key;  
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -915,10 +913,59 @@ namespace PatientManagement
                         txtDescription.Save(path + @"RTF\VariousdocumentSample\" + Title, StreamType.RichTextFormat);
                     }   
                 }
+                else
+                {
+                    MessageBox.Show(@"Sample's Title is empty.", @"Empty Title");
+                }
             }
             else
             {
                 MessageBox.Show(@"Document is empty.", @"Empty Document");
+            }
+        }
+
+        private void cboReferrer_TextUpdate(object sender, EventArgs e)
+        {
+            if (chkBoxReferrer.Checked)
+            {
+                var dicReferrer = Medical.SearchRefferer(cboReferrer.Text);
+                var text = cboReferrer.Text;
+                if (dicReferrer.Count == 0) return;
+                cboReferrer.DataSource = new BindingSource(dicReferrer, null);
+                cboReferrer.DisplayMember = "Value";
+                cboReferrer.ValueMember = "Key";
+                cboReferrer.Enabled = true;
+                cboReferrer.SelectedIndex = -1;
+                cboReferrer.Text = text;
+                cboReferrer.Select(text.Length, 0);
+            }
+            else
+            {
+                cboReferrer.DataSource = null;
+                cboReferrer.Items.Clear();
+                cboReferrer.Enabled = false;
+            }
+        }
+
+        private void cboNurse_TextUpdate(object sender, EventArgs e)
+        {
+            if (chkBoxNurse.Checked)
+            {
+                var dicNurse = Medical.SearchNurse(cboNurse.Text);
+                var text = cboNurse.Text;
+                if (dicNurse.Count == 0) return;
+                cboNurse.DataSource = new BindingSource(dicNurse, null);
+                cboNurse.DisplayMember = "Value";
+                cboNurse.ValueMember = "Key";
+                cboNurse.Enabled = true;
+                cboNurse.Text = text;
+                cboNurse.Select(text.Length, 0);
+            }
+            else
+            {
+                cboNurse.DataSource = null;
+                cboNurse.Items.Clear();
+                cboNurse.Enabled = false;
             }
         }
     }

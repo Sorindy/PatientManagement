@@ -21,6 +21,8 @@ namespace PatientManagement
             txtSearch.Text = "";
             txtSearch.Focus();
             dgvSearchPatient.ColumnHeadersDefaultCellStyle.Alignment=DataGridViewContentAlignment.MiddleCenter;
+            dgvSearchPatient.DataSource = _patient.ShowAll();
+            if (dgvSearchPatient.DataSource != null) dgvSearchPatient.Columns[0].Visible = false;
         }
 
         private void dgvSearchPatient_CellClick(object sender, DataGridViewCellEventArgs e)

@@ -13,7 +13,6 @@ namespace PatientManagement
             InitializeComponent();
         }
 
-        private string _path;
         internal PatientListForm PatientListForm;
         internal Patient Patient;
         internal HistorysForm HistorysForm;
@@ -24,8 +23,6 @@ namespace PatientManagement
         private void PatientForm_Shown(object sender, EventArgs e)
         {
             Clear();
-            var path = AppDomain.CurrentDomain.BaseDirectory;
-            _path = path.Remove(path.Length - 46);
             Patient = _patient.Select(Patient.Id);
             txtId.Text = Patient.PatientIdentify.ToString();
             txtfName.Text = Patient.FirstName;
@@ -43,6 +40,7 @@ namespace PatientManagement
 
             btnEdit.Focus();
 
+            txtId.Enabled = false;
             txtfName.Enabled = false;
             txtlName.Enabled = false;
             txtkhName.Enabled = false;
@@ -71,13 +69,18 @@ namespace PatientManagement
         {
             if (PatientListForm != null)
             {
-                PatientListForm.dgvListPatient.Columns.RemoveAt(10);
+                PatientListForm.dgvListPatient.Columns.Clear();
                 PatientListForm.PatientListForm_Shown(PatientListForm, new EventArgs());
             }
             if (HistorysForm != null)
             {
                 HistorysForm.CatelogForm.pnlFill.Controls.Clear();
                 HistorysForm.CatelogForm.pnlFill.Controls.Add(HistorysForm);
+                HistorysForm.dgvConsultation.Columns.Clear();
+                HistorysForm.dgvLaboratory.Columns.Clear();
+                HistorysForm.dgvMedicalImaging.Columns.Clear();
+                HistorysForm.dgvPrescription.Columns.Clear();
+                HistorysForm.dgvVariousDocument.Columns.Clear();
                 HistorysForm.Show();
             }
             Close();
@@ -111,7 +114,7 @@ namespace PatientManagement
             {
                 btnEdit.Text = @"Cancel";
                 btnEdit.BackColor = Color.LightSkyBlue;
-                btnEdit.Image = Image.FromFile(_path + @"\46786 - cancel.png");
+                btnEdit.Image = Properties.Resources._46795___clear_delete_remove;
                 btnEdit.Name = @"btnCancel";
                 btnEdit.Click += btnCancel_Click;
             }
@@ -140,7 +143,7 @@ namespace PatientManagement
             {
                 btnEdit.Name = @"btnEdit";
                 btnEdit.BackColor = Color.LightSkyBlue;
-                btnEdit.Image = Image.FromFile(_path + @"\119040-medical-elements\119040-medical-elements\png\46798 - control edit.png");
+                btnEdit.Image = Properties.Resources._46798___control_edit;
                 btnEdit.Text = @"Edit";
                 btnEdit.Click -= btnCancel_Click;
             }
@@ -207,6 +210,11 @@ namespace PatientManagement
                 _patient.Update(Patient.Id,txtfName.Text,txtlName.Text,txtkhName.Text,cboGender.Text,dtpDOB.Value,Convert.ToByte(txtAge.Text),txtAddress.Text,txtPhone1.Text,
                     txtPhone2.Text,txtEmail.Text,Convert.ToInt16(txtWeight.Text),Convert.ToInt16(txtHeight.Text));
                 PatientForm_Shown(this,new EventArgs());
+                btnEdit.Name = @"btnEdit";
+                btnEdit.BackColor = Color.LightSkyBlue;
+                btnEdit.Image = Properties.Resources._46798___control_edit;
+                btnEdit.Text = @"Edit";
+                btnEdit.Click -= btnCancel_Click;
             }
             catch
             {
