@@ -72,8 +72,19 @@ namespace PatientManagement.Class
 
         public DefaultSample SetPadding(int workerid,int samplenumber)
         {
-            var getdefaultsamplepadding = _db.DefaultSamples.Single(v => v.WorkerId == workerid && v.Using == "True" && v.SampleNumber==samplenumber );
+            var getdefaultsamplepadding = _db.DefaultSamples.Single(v => v.WorkerId == workerid && v.SampleNumber == samplenumber && v.Using == "True");
             return getdefaultsamplepadding;
+        }
+
+        public bool CheckSampleNumber(int workerid,int samplenumber)
+        {
+            var checkdefaultsample = _db.DefaultSamples.Any(v => v.WorkerId == workerid && v.SampleNumber  == samplenumber);
+            return checkdefaultsample;
+        }
+        public DefaultSample ShowPadding(int workerid, int samplenumber)
+        {
+            var getsamplepadding = _db.DefaultSamples.Single(v => v.WorkerId == workerid && v.SampleNumber == samplenumber);
+            return getsamplepadding;
         }
     }
 }

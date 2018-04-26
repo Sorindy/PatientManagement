@@ -189,30 +189,39 @@
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(201, 22);
             this.toolStripMenuItem1.Text = "A (Top,Left,Right,Down)";
+            this.toolStripMenuItem1.MouseEnter += new System.EventHandler(this.toolStripMenuItem1_MouseEnter);
             // 
             // txtATop
             // 
             this.txtATop.Name = "txtATop";
             this.txtATop.Size = new System.Drawing.Size(100, 23);
             this.txtATop.Text = "top";
+            this.txtATop.Click += new System.EventHandler(this.txtATop_Click);
+            this.txtATop.MouseEnter += new System.EventHandler(this.txtATop_Click);
             // 
             // txtAleft
             // 
             this.txtAleft.Name = "txtAleft";
             this.txtAleft.Size = new System.Drawing.Size(100, 23);
             this.txtAleft.Text = "left";
+            this.txtAleft.Click += new System.EventHandler(this.txtAleft_Click);
+            this.txtAleft.MouseEnter += new System.EventHandler(this.txtAleft_Click);
             // 
             // txtARight
             // 
             this.txtARight.Name = "txtARight";
             this.txtARight.Size = new System.Drawing.Size(100, 23);
             this.txtARight.Text = "right";
+            this.txtARight.Click += new System.EventHandler(this.txtARight_Click);
+            this.txtARight.MouseEnter += new System.EventHandler(this.txtARight_Click);
             // 
             // txtADown
             // 
             this.txtADown.Name = "txtADown";
             this.txtADown.Size = new System.Drawing.Size(100, 23);
             this.txtADown.Text = "down";
+            this.txtADown.Click += new System.EventHandler(this.txtADown_Click);
+            this.txtADown.MouseEnter += new System.EventHandler(this.txtADown_Click);
             // 
             // toolStripSeparator1
             // 
@@ -237,30 +246,35 @@
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.Size = new System.Drawing.Size(201, 22);
             this.toolStripMenuItem2.Text = "B (Top,Left,Right,Down)";
+            this.toolStripMenuItem2.MouseEnter += new System.EventHandler(this.toolStripMenuItem2_MouseEnter);
             // 
             // txtBTop
             // 
             this.txtBTop.Name = "txtBTop";
             this.txtBTop.Size = new System.Drawing.Size(100, 23);
             this.txtBTop.Text = "top";
+            this.txtBTop.MouseEnter += new System.EventHandler(this.txtBTop_MouseEnter);
             // 
             // txtBLeft
             // 
             this.txtBLeft.Name = "txtBLeft";
             this.txtBLeft.Size = new System.Drawing.Size(100, 23);
             this.txtBLeft.Text = "left";
+            this.txtBLeft.MouseEnter += new System.EventHandler(this.txtBLeft_MouseEnter);
             // 
             // txtBRight
             // 
             this.txtBRight.Name = "txtBRight";
             this.txtBRight.Size = new System.Drawing.Size(100, 23);
             this.txtBRight.Text = "right";
+            this.txtBRight.MouseEnter += new System.EventHandler(this.txtBRight_MouseEnter);
             // 
             // txtBDown
             // 
             this.txtBDown.Name = "txtBDown";
             this.txtBDown.Size = new System.Drawing.Size(100, 23);
             this.txtBDown.Text = "down";
+            this.txtBDown.MouseEnter += new System.EventHandler(this.txtBDown_MouseEnter);
             // 
             // setBAsDefaultToolStripMenuItem
             // 
@@ -280,30 +294,35 @@
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
             this.toolStripMenuItem3.Size = new System.Drawing.Size(201, 22);
             this.toolStripMenuItem3.Text = "C (Top,Left,Right,Down)";
+            this.toolStripMenuItem3.MouseEnter += new System.EventHandler(this.toolStripMenuItem3_MouseEnter);
             // 
             // txtCTop
             // 
             this.txtCTop.Name = "txtCTop";
             this.txtCTop.Size = new System.Drawing.Size(100, 23);
             this.txtCTop.Text = "top";
+            this.txtCTop.MouseEnter += new System.EventHandler(this.txtCTop_MouseEnter);
             // 
             // txtCLeft
             // 
             this.txtCLeft.Name = "txtCLeft";
             this.txtCLeft.Size = new System.Drawing.Size(100, 23);
             this.txtCLeft.Text = "left";
+            this.txtCLeft.MouseEnter += new System.EventHandler(this.txtCLeft_MouseEnter);
             // 
             // txtCRight
             // 
             this.txtCRight.Name = "txtCRight";
             this.txtCRight.Size = new System.Drawing.Size(100, 23);
             this.txtCRight.Text = "right";
+            this.txtCRight.MouseEnter += new System.EventHandler(this.txtCRight_MouseEnter);
             // 
             // txtCDown
             // 
             this.txtCDown.Name = "txtCDown";
             this.txtCDown.Size = new System.Drawing.Size(100, 23);
             this.txtCDown.Text = "down";
+            this.txtCDown.MouseEnter += new System.EventHandler(this.txtCDown_MouseEnter);
             // 
             // setCAsDefaultToolStripMenuItem
             // 
@@ -323,30 +342,35 @@
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
             this.toolStripMenuItem4.Size = new System.Drawing.Size(201, 22);
             this.toolStripMenuItem4.Text = "D (Top,Left,Right,Down)";
+            this.toolStripMenuItem4.MouseEnter += new System.EventHandler(this.toolStripMenuItem4_MouseEnter);
             // 
             // txtDTop
             // 
             this.txtDTop.Name = "txtDTop";
             this.txtDTop.Size = new System.Drawing.Size(100, 23);
             this.txtDTop.Text = "top";
+            this.txtDTop.MouseEnter += new System.EventHandler(this.txtDTop_MouseEnter);
             // 
             // txtDLeft
             // 
             this.txtDLeft.Name = "txtDLeft";
             this.txtDLeft.Size = new System.Drawing.Size(100, 23);
             this.txtDLeft.Text = "left";
+            this.txtDLeft.MouseEnter += new System.EventHandler(this.txtDLeft_MouseEnter);
             // 
             // txtDRight
             // 
             this.txtDRight.Name = "txtDRight";
             this.txtDRight.Size = new System.Drawing.Size(100, 23);
             this.txtDRight.Text = "right";
+            this.txtDRight.MouseEnter += new System.EventHandler(this.txtDRight_MouseEnter);
             // 
             // txtDDown
             // 
             this.txtDDown.Name = "txtDDown";
             this.txtDDown.Size = new System.Drawing.Size(100, 23);
             this.txtDDown.Text = "down";
+            this.txtDDown.MouseEnter += new System.EventHandler(this.txtDDown_MouseEnter);
             // 
             // setDAsDefaultToolStripMenuItem
             // 
