@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using Hospital_Entity_Framework;
-using TXTextControl;
 using Button = System.Windows.Forms.Button;
 
 namespace PatientManagement.Class
@@ -677,34 +675,34 @@ namespace PatientManagement.Class
             _db.SaveChanges();
         }
 
-        public void DeleteImageFolder()
-        {
-            string path;
-            //var path = AppDomain.CurrentDomain.BaseDirectory;
-            //_path = path.Remove(path.Length - 46);
-            if (!Directory.Exists(@"S:\"))
-            {
-                path = @"D:\ABC soft\";
-            }
-            else
-            {
-                path = @"S:\";
-            }
-            try
-            {
-                var directory = new DirectoryInfo(path + @"RTF\images");
-                directory.Attributes = directory.Attributes & ~FileAttributes.ReadOnly;
-                if (directory.CreationTime < DateTime.Now.AddDays(-1))
-                {
-                    directory.Delete(true);
-                }
-            }
-            catch
-            {
-                //NO action
-            }
+        //public void DeleteImageFolder()
+        //{
+        //    string path;
+        //    //var path = AppDomain.CurrentDomain.BaseDirectory;
+        //    //_path = path.Remove(path.Length - 46);
+        //    if (!Directory.Exists(@"S:\"))
+        //    {
+        //        path = @"D:\ABC soft\";
+        //    }
+        //    else
+        //    {
+        //        path = @"S:\";
+        //    }
+        //    try
+        //    {
+        //        var directory = new DirectoryInfo(path + @"RTF\images");
+        //        directory.Attributes = directory.Attributes & ~FileAttributes.ReadOnly;
+        //        if (directory.CreationTime < DateTime.Now.AddDays(-1))
+        //        {
+        //            directory.Delete(true);
+        //        }
+        //    }
+        //    catch
+        //    {
+        //        //NO action
+        //    }
 
-        }
+        //}
 
 
 

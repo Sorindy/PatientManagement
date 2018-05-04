@@ -25,7 +25,15 @@ namespace PatientManagement.Class
             return null;
         }
 
-       public void Insert(string name)
+        public Dictionary<int, string> SearchCategory(int workerId, string text)
+        {
+            var getcategory = _db.Managements.First(v => v.Account.WorkerId == workerId).
+                PrescriptionCategories.Where(v => v.Available && v.Name.ToLower().Contains(text));
+            return getcategory.ToDictionary(item => item.Id, item => item.Name);
+        }
+
+
+        public void Insert(string name)
         {
             var insert = new Hospital_Entity_Framework.PrescriptionCategory()
             {

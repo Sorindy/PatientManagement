@@ -254,7 +254,7 @@
     <Compile Include="MedicalRecordWebViewer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MedicalRecordWebViewer.Designer.cs">
+    <Compile Include="MedicalRecordWebViewer.designer.cs">
       <DependentUpon>MedicalRecordWebViewer.cs</DependentUpon>
     </Compile>
     <Compile Include="MedicalsForm.cs">
@@ -337,6 +337,12 @@
     <Compile Include="SearchWorker.Designer.cs">
       <DependentUpon>SearchWorker.cs</DependentUpon>
     </Compile>
+    <Compile Include="ServiceAndCategegorySelection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ServiceAndCategegorySelection.Designer.cs">
+      <DependentUpon>ServiceAndCategegorySelection.cs</DependentUpon>
+    </Compile>
     <Compile Include="TitleInput.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -417,7 +423,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MedicalRecordWebViewer.resx">
       <DependentUpon>MedicalRecordWebViewer.cs</DependentUpon>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="MedicalsForm.resx">
       <DependentUpon>MedicalsForm.cs</DependentUpon>
@@ -468,6 +473,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SearchWorker.resx">
       <DependentUpon>SearchWorker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ServiceAndCategegorySelection.resx">
+      <DependentUpon>ServiceAndCategegorySelection.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TitleInput.resx">
       <DependentUpon>TitleInput.cs</DependentUpon>

@@ -29,6 +29,13 @@ namespace PatientManagement.Class
             AddCategoryToAdmin(insert.Id);
         }
 
+        public Dictionary<int, string> SearchCategory(int workerId, string text)
+        {
+            var getcategory = _db.Managements.First(v => v.Account.WorkerId == workerId).
+                ConsultationCategories.Where(v => v.Available && v.Name.ToLower().Contains(text));
+            return getcategory.ToDictionary(item => item.Id, item => item.Name);
+        }
+
         private void AddCategoryToAdmin(int id)
         {
             _db.Managements.First(v => v.Account.Worker.Position == @"Admin").ConsultationCategories

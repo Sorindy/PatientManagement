@@ -80,7 +80,7 @@
             this.pnBoss.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnBoss.Location = new System.Drawing.Point(0, 0);
             this.pnBoss.Name = "pnBoss";
-            this.pnBoss.Size = new System.Drawing.Size(1284, 961);
+            this.pnBoss.Size = new System.Drawing.Size(1284, 749);
             this.pnBoss.TabIndex = 1;
             // 
             // pnMiddle
@@ -89,7 +89,7 @@
             this.pnMiddle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnMiddle.Location = new System.Drawing.Point(0, 51);
             this.pnMiddle.Name = "pnMiddle";
-            this.pnMiddle.Size = new System.Drawing.Size(1284, 910);
+            this.pnMiddle.Size = new System.Drawing.Size(1284, 698);
             this.pnMiddle.TabIndex = 2;
             // 
             // wvPrintSample
@@ -99,7 +99,7 @@
             this.wvPrintSample.Margin = new System.Windows.Forms.Padding(0);
             this.wvPrintSample.MinimumSize = new System.Drawing.Size(20, 20);
             this.wvPrintSample.Name = "wvPrintSample";
-            this.wvPrintSample.Size = new System.Drawing.Size(1284, 910);
+            this.wvPrintSample.Size = new System.Drawing.Size(1284, 698);
             this.wvPrintSample.TabIndex = 1;
             this.wvPrintSample.Navigated += new System.Windows.Forms.WebBrowserNavigatedEventHandler(this.wvPrintSample_Navigated);
             // 
@@ -404,7 +404,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1284, 961);
+            this.ClientSize = new System.Drawing.Size(1284, 749);
             this.Controls.Add(this.pnBoss);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MedicalRecordWebViewer";

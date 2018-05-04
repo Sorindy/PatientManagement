@@ -13,9 +13,15 @@ namespace PatientManagement
             InitializeComponent();
         }
 
+        private string _path;
+
         private void PrintWaitingForm_Load(object sender, EventArgs e)
         {
-            wvPrint.Navigate(@"D:\PatientManagement\Patient\RTF\waiting.html");
+            //var path = AppDomain.CurrentDomain.BaseDirectory;
+            //_path = path.Remove(path.Length - 46);
+            //_path = path;
+            _path = @"S:\";
+            wvPrint.Navigate(_path+@"RTF\waiting.html");
             //crystalReportViewer2.PrintReport();
             //Close();
         }

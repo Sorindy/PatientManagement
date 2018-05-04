@@ -105,10 +105,10 @@ namespace PatientManagement
                 KeyService = @"Consultation";
             }
             //AddNodesToTree();
-            //var path = AppDomain.CurrentDomain.BaseDirectory;
-            //_path = path.Remove(path.Length - 46);
+            var path = AppDomain.CurrentDomain.BaseDirectory;
+            _path = path.Remove(path.Length - 46);
             //_path = path;
-            _path = @"S:\";
+            //_path = @"S:\";
             //dgvConsultation.Columns.Clear();
             //dgvLaboratory.Columns.Clear();
             //dgvMedicalImaging.Columns.Clear();
@@ -866,7 +866,7 @@ namespace PatientManagement
             if (key != 0)
             {
                 dgvConsultation.Columns.Clear();
-                _keyCategory = Convert.ToInt32(key);
+                if (!Editing || !NewMedical) _keyCategory = Convert.ToInt32(key);
                 lbCategory.Text = cboConCategory.Text;
                 _history = new ConsultationHistory();
                 if (_history.CheckDoctorCategory(Account.WorkerId, _keyCategory))
@@ -891,8 +891,8 @@ namespace PatientManagement
             if (key != 0)
             {
                 dgvLaboratory.Columns.Clear();
-                _keyCategory = Convert.ToInt32(key);
-                lbCategory.Text = cboConCategory.Text;
+                if (!Editing || !NewMedical) _keyCategory = Convert.ToInt32(key);
+                lbCategory.Text = cboLabCategory.Text;
                 _history = new LaboratoryHistory();
                 if (_history.CheckDoctorCategory(Account.WorkerId, _keyCategory))
                 {
@@ -916,7 +916,7 @@ namespace PatientManagement
             if (key != 0)
             {
                 dgvMedicalImaging.Columns.Clear();
-                _keyCategory = Convert.ToInt32(key);
+                if (!Editing || !NewMedical) _keyCategory = Convert.ToInt32(key);
                 lbCategory.Text = cboMedCategory.Text;
                 _history = new MedicalImagingHistory();
                 if (_history.CheckDoctorCategory(Account.WorkerId, _keyCategory))
@@ -941,7 +941,7 @@ namespace PatientManagement
             if (key != 0)
             {
                 dgvPrescription.Columns.Clear();
-                _keyCategory = Convert.ToInt32(key);
+                if (!Editing || !NewMedical) _keyCategory = Convert.ToInt32(key);
                 lbCategory.Text = cboPreCategory.Text;
                 _history = new PrescriptionHistory();
                 if (_history.CheckDoctorCategory(Account.WorkerId, _keyCategory))
@@ -966,7 +966,7 @@ namespace PatientManagement
             if (key != 0)
             {
                 dgvVariousDocument.Columns.Clear();
-                _keyCategory = Convert.ToInt32(key);
+                if (!Editing || !NewMedical) _keyCategory = Convert.ToInt32(key);
                 lbCategory.Text = cboVarCategory.Text;
                 _history = new VariousDocumentHistory();
                 if (_history.CheckDoctorCategory(Account.WorkerId, _keyCategory))
@@ -1160,6 +1160,8 @@ namespace PatientManagement
                     cboConCategory.SelectedIndex = 0;
                     lbCategory.Text = cboConCategory.Text;
                     dgvConsultation.ClearSelection();
+                    if(Editing||NewMedical)return;
+                    KeyService = @"Consultation";
                 }
             }
             if (tabSelection.SelectedTab.Text == @"Laboratory")
@@ -1178,6 +1180,8 @@ namespace PatientManagement
                     cboLabCategory.SelectedIndex = 0;
                     lbCategory.Text = cboLabCategory.Text;
                     dgvLaboratory.ClearSelection();
+                    if (Editing || NewMedical) return;
+                    KeyService = @"Laboratory";
                 }
             }
             if (tabSelection.SelectedTab.Text == @"MedicalImaging")
@@ -1196,6 +1200,8 @@ namespace PatientManagement
                     cboMedCategory.SelectedIndex = 0;
                     lbCategory.Text = cboMedCategory.Text;
                     dgvMedicalImaging.ClearSelection();
+                    if (Editing || NewMedical) return;
+                    KeyService = @"MedicalImaging";
                 }
             }
             if (tabSelection.SelectedTab.Text == @"Prescription")
@@ -1214,6 +1220,8 @@ namespace PatientManagement
                     cboPreCategory.SelectedIndex = 0;
                     lbCategory.Text = cboPreCategory.Text;
                     dgvPrescription.ClearSelection();
+                    if (Editing || NewMedical) return;
+                    KeyService = @"Prescription";
                 }
             }
             if (tabSelection.SelectedTab.Text == @"VariousDocument")
@@ -1232,6 +1240,8 @@ namespace PatientManagement
                     cboVarCategory.SelectedIndex = 0;
                     lbCategory.Text = cboVarCategory.Text;
                     dgvVariousDocument.ClearSelection();
+                    if (Editing || NewMedical) return;
+                    KeyService = @"VariousDocument";
                 }
             }
         }
@@ -1867,272 +1877,284 @@ namespace PatientManagement
 
         private void saveToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            if (txtDescription.Text != "" && KeyService != null && _keyCategory != 0)
+            if (txtDescription.Text == "" || KeyService == null || _keyCategory == 0) return;
+            string path;
+            if (Directory.Exists(@"S:\"))
             {
-                string path;
-                if (!Directory.Exists(@"S:\"))
+                path = @"D:\ABC soft\";
+            }
+            else
+            {
+                path = _path;
+            }
+            var title = Patient.Id + DateTime.Today.Day +
+                        DateTime.Today.Month + DateTime.Today.Year + DateTime.Now.Hour.ToString() +
+                        DateTime.Now.Minute.ToString() + DateTime.Now.Millisecond.ToString();
+            if (NewMedical)
+            {
+                var form = new ServiceAndCategegorySelection
                 {
-                    path = @"D:\ABC soft\";
+                    HistoryForm = this,
+                    Account = Account,
+                    Service = KeyService,
+                    Category = _keyCategory
+                };
+                form.ShowDialog();
+                if (KeyCategory == 0) return;
+                _keyCategory = KeyCategory;
+            }
+            if (KeyService == @"Consultation")
+            {
+                _estimate = new ConsultationEstimate();
+                if (NewMedical)
+                {
+                    _category=new ConsultationCategory();
+                    if (_category.CheckWaitingList(Patient.Id, _keyCategory) != null)
+                    {
+                        WaitingList = _category.CheckWaitingList(Patient.Id, _keyCategory);
+                    }
+                    if (WaitingList != null)
+                    {
+                        _estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, _keyCategory,
+                            Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today,
+                            _path + @"RTF\ConsultationEstimate\" + title);
+                        _waitingList.DeleteConsultationWaitingList(WaitingList.Id, KeyCategory);
+                    }
+                    else
+                    {
+                        _estimate.Insert(null, null, Patient.Id, _keyCategory, Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today,
+                            _path + @"RTF\ConsultationEstimate\" + title);
+                    }
+                    txtDescription.Save(path + @"RTF\ConsultationEstimate\" + title,
+                        StreamType.RichTextFormat);
                 }
                 else
                 {
-                    path = _path;
-                }
-                var title = Patient.Id + DateTime.Today.Day +
-                            DateTime.Today.Month + DateTime.Today.Year + DateTime.Now.Hour.ToString() +
-                            DateTime.Now.Minute.ToString() + DateTime.Now.Millisecond.ToString();
-                if (KeyService == @"Consultation")
-                {
-                    _estimate = new ConsultationEstimate();
-                    if (NewMedical)
+                    if (dgvConsultation.CurrentRow != null)
                     {
-                        _category=new ConsultationCategory();
-                        if (_category.CheckWaitingList(Patient.Id, _keyCategory) != null)
-                        {
-                            WaitingList = _category.CheckWaitingList(Patient.Id, _keyCategory);
-                        }
-                        if (WaitingList != null)
-                        {
-                            _estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, _keyCategory,
-                                Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today,
-                                _path + @"RTF\ConsultationEstimate\" + title);
-                            _waitingList.DeleteConsultationWaitingList(WaitingList.Id, KeyCategory);
-                        }
-                        else
-                        {
-                            _estimate.Insert(null, null, Patient.Id, _keyCategory, Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today,
-                                _path + @"RTF\ConsultationEstimate\" + title);
-                        }
-                        txtDescription.Save(path + @"RTF\ConsultationEstimate\" + title,
-                            StreamType.RichTextFormat);
-                    }
-                    else
-                    {
-                        if (dgvConsultation.CurrentRow != null)
-                        {
-                            var id = Convert.ToInt32(dgvConsultation.CurrentRow.Cells[0].Value);
-                            //int? refId = null;
-                            //if (_estimate.GetRefferrerId(id)!="")
-                            //{
-                            //    refId = Convert.ToInt32(_estimate.GetRefferrerId(id));
-                            //}
-                            //int? nurId = null;
-                            //if (_estimate.GetNurseId(id) != "")
-                            //{
-                            //    nurId = Convert.ToInt32(_estimate.GetNurseId(id));
-                            //}
-                            var hisPath = _estimate.GetPath(id);
-                            _estimate.Update(id, _keyCategory, Account.WorkerId, _keyReferrer, _keyReferrer, DateTime.Today, hisPath);
+                        var id = Convert.ToInt32(dgvConsultation.CurrentRow.Cells[0].Value);
+                        //int? refId = null;
+                        //if (_estimate.GetRefferrerId(id)!="")
+                        //{
+                        //    refId = Convert.ToInt32(_estimate.GetRefferrerId(id));
+                        //}
+                        //int? nurId = null;
+                        //if (_estimate.GetNurseId(id) != "")
+                        //{
+                        //    nurId = Convert.ToInt32(_estimate.GetNurseId(id));
+                        //}
+                        var hisPath = _estimate.GetPath(id);
+                        _estimate.Update(id, _keyCategory, Account.WorkerId, _keyReferrer, _keyReferrer, DateTime.Today, hisPath);
 
-                            txtDescription.Save(hisPath, StreamType.RichTextFormat);
-                        }   
-                    }                    
-                }
-                if (KeyService == @"Laboratory")
-                {
-                    _estimate = new LaboratoryEstimate();
-                    if (NewMedical)
-                    {
-                        _category = new LaboratoryCategory();
-                        if (_category.CheckWaitingList(Patient.Id, _keyCategory) != null)
-                        {
-                            WaitingList = _category.CheckWaitingList(Patient.Id, _keyCategory);
-                        }
-                        if (WaitingList != null)
-                        {
-                            _estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, _keyCategory,
-                                Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today,
-                                _path + @"RTF\LaboratoryEstimate\" + title);
-                            _waitingList.DeleteLaboratoryWaitingList(WaitingList.Id, KeyCategory);
-                        }
-                        else
-                        {
-                            _estimate.Insert(null, null, Patient.Id, _keyCategory, Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today,
-                                _path + @"RTF\LaboratoryEstimate\" + title);
-                        }
-                        txtDescription.Save(
-                            path + @"RTF\LaboratoryEstimate\" + title,
-                            StreamType.RichTextFormat);
-                    }
-                    else
-                    {
-                        if (dgvLaboratory.CurrentRow != null)
-                        {
-                            var id = Convert.ToInt32(dgvLaboratory.CurrentRow.Cells[0].Value);
-                            //int? refId = null;
-                            //if (_estimate.GetRefferrerId(id) != "")
-                            //{
-                            //    refId = Convert.ToInt32(_estimate.GetRefferrerId(id));
-                            //}
-                            //int? nurId = null;
-                            //if (_estimate.GetNurseId(id) != "")
-                            //{
-                            //    nurId = Convert.ToInt32(_estimate.GetNurseId(id));
-                            //}
-                            var hisPath = _estimate.GetPath(id);
-                            _estimate.Update(id, _keyCategory, Account.WorkerId, _keyReferrer, _keyReferrer, DateTime.Today, hisPath);
-
-                            txtDescription.Save(hisPath, StreamType.RichTextFormat);
-                        }
-                    }
-                }
-                if (KeyService == @"MedicalImaging")
-                {
-                    _estimate = new MedicalImagingEstimate();
-                    if (NewMedical)
-                    {
-                        _category = new MedicalImagingCategory();
-                        if (_category.CheckWaitingList(Patient.Id, _keyCategory) != null)
-                        {
-                            WaitingList = _category.CheckWaitingList(Patient.Id, _keyCategory);
-                        }
-                        if (WaitingList != null)
-                        {
-                            _estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, _keyCategory,
-                                Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today,
-                                _path + @"RTF\MedicalImagingEstimate\" + title);
-                            _waitingList.DeleteMedicalImagingWatingList(WaitingList.Id, KeyCategory);
-                        }
-                        else
-                        {
-                            _estimate.Insert(null, null, Patient.Id, _keyCategory, Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today,
-                                _path + @"RTF\MedicalImagingEstimate\" + title);
-                        }
-                        txtDescription.Save(
-                            path + @"RTF\MedicalImagingEstimate\" + title,
-                            StreamType.RichTextFormat);
-                    }
-                    else
-                    {
-                        if (dgvMedicalImaging.CurrentRow != null)
-                        {
-                            var id = Convert.ToInt32(dgvMedicalImaging.CurrentRow.Cells[0].Value);
-                            //int? refId = null;
-                            //if (_estimate.GetRefferrerId(id) != "")
-                            //{
-                            //    refId = Convert.ToInt32(_estimate.GetRefferrerId(id));
-                            //}
-                            //int? nurId = null;
-                            //if (_estimate.GetNurseId(id) != "")
-                            //{
-                            //    nurId = Convert.ToInt32(_estimate.GetNurseId(id));
-                            //}
-                            var hisPath = _estimate.GetPath(id);
-                            _estimate.Update(id, _keyCategory, Account.WorkerId, _keyReferrer, _keyReferrer, DateTime.Today, hisPath);
-
-                            txtDescription.Save(hisPath, StreamType.RichTextFormat);
-                        }
-    
-                    }                    
-                }
-                if (KeyService == @"Prescription")
-                {
-                    _estimate = new PrescriptionEstimate();
-                    if (NewMedical)
-                    {
-                        _category = new PrescriptionCategory();
-                        if (_category.CheckWaitingList(Patient.Id, _keyCategory) != null)
-                        {
-                            WaitingList = _category.CheckWaitingList(Patient.Id, _keyCategory);
-                        }
-                        if (WaitingList != null)
-                        {
-                            _estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, _keyCategory,
-                                Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today,
-                                _path + @"RTF\PrescriptionEstimate\" + title);
-                            _waitingList.DeletePrescriptionWatingList(WaitingList.Id, KeyCategory);
-                        }
-                        else
-                        {
-                            _estimate.Insert(null, null, Patient.Id, _keyCategory, Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today,
-                                _path + @"RTF\PrescriptionEstimate\" + title);
-                        }
-                        txtDescription.Save(
-                            path + @"RTF\PrescriptionEstimate\" + title,
-                            StreamType.RichTextFormat);
-                    }
-                    else
-                    {
-                        if (dgvPrescription.CurrentRow != null)
-                        {
-                            var id = Convert.ToInt32(dgvPrescription.CurrentRow.Cells[0].Value);
-                            //int? refId = null;
-                            //if (_estimate.GetRefferrerId(id) != "")
-                            //{
-                            //    refId = Convert.ToInt32(_estimate.GetRefferrerId(id));
-                            //}
-                            //int? nurId = null;
-                            //if (_estimate.GetNurseId(id) != "")
-                            //{
-                            //    nurId = Convert.ToInt32(_estimate.GetNurseId(id));
-                            //}
-                            var hisPath = _estimate.GetPath(id);
-                            _estimate.Update(id, _keyCategory, Account.WorkerId, _keyReferrer, _keyReferrer, DateTime.Today, hisPath);
-
-                            txtDescription.Save(hisPath, StreamType.RichTextFormat);
-                        }    
-                    }
-                }
-                if (KeyService == @"VariousDocument")
-                {
-                    _estimate = new VariousDocumentEstimate();
-                    if (NewMedical)
-                    {
-                        _category = new VariousDocumentCategory();
-                        if (_category.CheckWaitingList(Patient.Id, _keyCategory) != null)
-                        {
-                            WaitingList = _category.CheckWaitingList(Patient.Id, _keyCategory);
-                        }
-                        if (WaitingList != null)
-                        {
-                            _estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, _keyCategory,
-                                Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today,
-                                _path + @"RTF\VariousdocumentEstimate\" + title);
-                            _waitingList.DeleteVariousDocumentWatingList(WaitingList.Id, KeyCategory);
-                        }
-                        else
-                        {
-                            _estimate.Insert(null, null, Patient.Id, _keyCategory, Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today,
-                                _path + @"RTF\VariousdocumentEstimate\" + title);
-                        }
-                        txtDescription.Save(
-                            path + @"RTF\VariousdocumentEstimate\" + title,
-                            StreamType.RichTextFormat);
-                    }
-                    else
-                    {
-                        if (dgvVariousDocument.CurrentRow != null)
-                        {
-                            var id = Convert.ToInt32(dgvVariousDocument.CurrentRow.Cells[0].Value);
-                            //int? refId = null;
-                            //if (_estimate.GetRefferrerId(id) != "")
-                            //{
-                            //    refId = Convert.ToInt32(_estimate.GetRefferrerId(id));
-                            //}
-                            //int? nurId = null;
-                            //if (_estimate.GetNurseId(id) != "")
-                            //{
-                            //    nurId = Convert.ToInt32(_estimate.GetNurseId(id));
-                            //}
-                            var hisPath = _estimate.GetPath(id);
-                            _estimate.Update(id, _keyCategory, Account.WorkerId, _keyReferrer, _keyReferrer, DateTime.Today, hisPath);
-
-                            txtDescription.Save(hisPath, StreamType.RichTextFormat);
-                        }
-                    }
-
-                }
-                var messageDocument = "Do You Want to Print This Document or not...?";
-                var titlesDocument = "Print Document";
-                var buttons = MessageBoxButtons.YesNo;
-                var result = MessageBox.Show(messageDocument, titlesDocument, buttons, MessageBoxIcon.Question);
-                if (result == DialogResult.Yes)
-                {
-                    printToolStripMenuItem.PerformClick();
-                }
-                if (WaitingList != null) CheckWaitingListDeleteOrUpdate();
-                HistorysForm_Shown(this,new EventArgs());
+                        txtDescription.Save(hisPath, StreamType.RichTextFormat);
+                    }   
+                }                    
             }
+            if (KeyService == @"Laboratory")
+            {
+                _estimate = new LaboratoryEstimate();
+                if (NewMedical)
+                {
+                    _category = new LaboratoryCategory();
+                    if (_category.CheckWaitingList(Patient.Id, _keyCategory) != null)
+                    {
+                        WaitingList = _category.CheckWaitingList(Patient.Id, _keyCategory);
+                    }
+                    if (WaitingList != null)
+                    {
+                        _estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, _keyCategory,
+                            Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today,
+                            _path + @"RTF\LaboratoryEstimate\" + title);
+                        _waitingList.DeleteLaboratoryWaitingList(WaitingList.Id, KeyCategory);
+                    }
+                    else
+                    {
+                        _estimate.Insert(null, null, Patient.Id, _keyCategory, Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today,
+                            _path + @"RTF\LaboratoryEstimate\" + title);
+                    }
+                    txtDescription.Save(
+                        path + @"RTF\LaboratoryEstimate\" + title,
+                        StreamType.RichTextFormat);
+                }
+                else
+                {
+                    if (dgvLaboratory.CurrentRow != null)
+                    {
+                        var id = Convert.ToInt32(dgvLaboratory.CurrentRow.Cells[0].Value);
+                        //int? refId = null;
+                        //if (_estimate.GetRefferrerId(id) != "")
+                        //{
+                        //    refId = Convert.ToInt32(_estimate.GetRefferrerId(id));
+                        //}
+                        //int? nurId = null;
+                        //if (_estimate.GetNurseId(id) != "")
+                        //{
+                        //    nurId = Convert.ToInt32(_estimate.GetNurseId(id));
+                        //}
+                        var hisPath = _estimate.GetPath(id);
+                        _estimate.Update(id, _keyCategory, Account.WorkerId, _keyReferrer, _keyReferrer, DateTime.Today, hisPath);
+
+                        txtDescription.Save(hisPath, StreamType.RichTextFormat);
+                    }
+                }
+            }
+            if (KeyService == @"MedicalImaging")
+            {
+                _estimate = new MedicalImagingEstimate();
+                if (NewMedical)
+                {
+                    _category = new MedicalImagingCategory();
+                    if (_category.CheckWaitingList(Patient.Id, _keyCategory) != null)
+                    {
+                        WaitingList = _category.CheckWaitingList(Patient.Id, _keyCategory);
+                    }
+                    if (WaitingList != null)
+                    {
+                        _estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, _keyCategory,
+                            Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today,
+                            _path + @"RTF\MedicalImagingEstimate\" + title);
+                        _waitingList.DeleteMedicalImagingWatingList(WaitingList.Id, KeyCategory);
+                    }
+                    else
+                    {
+                        _estimate.Insert(null, null, Patient.Id, _keyCategory, Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today,
+                            _path + @"RTF\MedicalImagingEstimate\" + title);
+                    }
+                    txtDescription.Save(
+                        path + @"RTF\MedicalImagingEstimate\" + title,
+                        StreamType.RichTextFormat);
+                }
+                else
+                {
+                    if (dgvMedicalImaging.CurrentRow != null)
+                    {
+                        var id = Convert.ToInt32(dgvMedicalImaging.CurrentRow.Cells[0].Value);
+                        //int? refId = null;
+                        //if (_estimate.GetRefferrerId(id) != "")
+                        //{
+                        //    refId = Convert.ToInt32(_estimate.GetRefferrerId(id));
+                        //}
+                        //int? nurId = null;
+                        //if (_estimate.GetNurseId(id) != "")
+                        //{
+                        //    nurId = Convert.ToInt32(_estimate.GetNurseId(id));
+                        //}
+                        var hisPath = _estimate.GetPath(id);
+                        _estimate.Update(id, _keyCategory, Account.WorkerId, _keyReferrer, _keyReferrer, DateTime.Today, hisPath);
+
+                        txtDescription.Save(hisPath, StreamType.RichTextFormat);
+                    }
+    
+                }                    
+            }
+            if (KeyService == @"Prescription")
+            {
+                _estimate = new PrescriptionEstimate();
+                if (NewMedical)
+                {
+                    _category = new PrescriptionCategory();
+                    if (_category.CheckWaitingList(Patient.Id, _keyCategory) != null)
+                    {
+                        WaitingList = _category.CheckWaitingList(Patient.Id, _keyCategory);
+                    }
+                    if (WaitingList != null)
+                    {
+                        _estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, _keyCategory,
+                            Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today,
+                            _path + @"RTF\PrescriptionEstimate\" + title);
+                        _waitingList.DeletePrescriptionWatingList(WaitingList.Id, KeyCategory);
+                    }
+                    else
+                    {
+                        _estimate.Insert(null, null, Patient.Id, _keyCategory, Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today,
+                            _path + @"RTF\PrescriptionEstimate\" + title);
+                    }
+                    txtDescription.Save(
+                        path + @"RTF\PrescriptionEstimate\" + title,
+                        StreamType.RichTextFormat);
+                }
+                else
+                {
+                    if (dgvPrescription.CurrentRow != null)
+                    {
+                        var id = Convert.ToInt32(dgvPrescription.CurrentRow.Cells[0].Value);
+                        //int? refId = null;
+                        //if (_estimate.GetRefferrerId(id) != "")
+                        //{
+                        //    refId = Convert.ToInt32(_estimate.GetRefferrerId(id));
+                        //}
+                        //int? nurId = null;
+                        //if (_estimate.GetNurseId(id) != "")
+                        //{
+                        //    nurId = Convert.ToInt32(_estimate.GetNurseId(id));
+                        //}
+                        var hisPath = _estimate.GetPath(id);
+                        _estimate.Update(id, _keyCategory, Account.WorkerId, _keyReferrer, _keyReferrer, DateTime.Today, hisPath);
+
+                        txtDescription.Save(hisPath, StreamType.RichTextFormat);
+                    }    
+                }
+            }
+            if (KeyService == @"VariousDocument")
+            {
+                _estimate = new VariousDocumentEstimate();
+                if (NewMedical)
+                {
+                    _category = new VariousDocumentCategory();
+                    if (_category.CheckWaitingList(Patient.Id, _keyCategory) != null)
+                    {
+                        WaitingList = _category.CheckWaitingList(Patient.Id, _keyCategory);
+                    }
+                    if (WaitingList != null)
+                    {
+                        _estimate.Insert(WaitingList.VisitId, WaitingList.VisitCount, WaitingList.PatientId, _keyCategory,
+                            Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today,
+                            _path + @"RTF\VariousdocumentEstimate\" + title);
+                        _waitingList.DeleteVariousDocumentWatingList(WaitingList.Id, KeyCategory);
+                    }
+                    else
+                    {
+                        _estimate.Insert(null, null, Patient.Id, _keyCategory, Account.WorkerId, _keyNurse, _keyReferrer, DateTime.Today,
+                            _path + @"RTF\VariousdocumentEstimate\" + title);
+                    }
+                    txtDescription.Save(
+                        path + @"RTF\VariousdocumentEstimate\" + title,
+                        StreamType.RichTextFormat);
+                }
+                else
+                {
+                    if (dgvVariousDocument.CurrentRow != null)
+                    {
+                        var id = Convert.ToInt32(dgvVariousDocument.CurrentRow.Cells[0].Value);
+                        //int? refId = null;
+                        //if (_estimate.GetRefferrerId(id) != "")
+                        //{
+                        //    refId = Convert.ToInt32(_estimate.GetRefferrerId(id));
+                        //}
+                        //int? nurId = null;
+                        //if (_estimate.GetNurseId(id) != "")
+                        //{
+                        //    nurId = Convert.ToInt32(_estimate.GetNurseId(id));
+                        //}
+                        var hisPath = _estimate.GetPath(id);
+                        _estimate.Update(id, _keyCategory, Account.WorkerId, _keyReferrer, _keyReferrer, DateTime.Today, hisPath);
+                        txtDescription.Save(hisPath, StreamType.RichTextFormat);
+                    }
+                }
+            }
+            NewMedical = false;
+            Editing = false;
+            var messageDocument = "Do You Want to Print This Document or not...?";
+            var titlesDocument = "Print Document";
+            var buttons = MessageBoxButtons.YesNo;
+            var result = MessageBox.Show(messageDocument, titlesDocument, buttons, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                printToolStripMenuItem_Click(this, new EventArgs());
+            }
+            if (WaitingList == null) return;
+            CheckWaitingListDeleteOrUpdate();
+            WaitingList = null;
         }
         private void CheckWaitingListDeleteOrUpdate()
         {

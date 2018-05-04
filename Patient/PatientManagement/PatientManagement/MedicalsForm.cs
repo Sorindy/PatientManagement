@@ -830,31 +830,9 @@ namespace PatientManagement
 
         private void cboCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cboService.Text == @"Consultation"&&_have)
-            {
-                var get = (KeyValuePair<int, string>) cboCategory.SelectedItem;
-                KeyCategory = get.Key;                
-            }
-            if (cboService.Text == @"Laboratory" && _have)
-            {
-                var get = (KeyValuePair<int, string>)cboCategory.SelectedItem;
-                KeyCategory = get.Key;
-            }
-            if (cboService.Text == @"MedicalImaging" && _have)
-            {
-                var get = (KeyValuePair<int, string>)cboCategory.SelectedItem;
-                KeyCategory = get.Key;
-            }
-            if (cboService.Text == @"Prescription" && _have)
-            {
-                var get = (KeyValuePair<int, string>)cboCategory.SelectedItem;
-                KeyCategory = get.Key;
-            }
-            if (cboService.Text == @"Various Document" && _have)
-            {
-                var get = (KeyValuePair<int, string>)cboCategory.SelectedItem;
-                KeyCategory = get.Key;
-            }
+           if(!_have)return;
+            var get = (KeyValuePair<int, string>)cboCategory.SelectedItem;
+            KeyCategory = get.Key;   
         }
 
         private void btnCreateNew_Click(object sender, EventArgs e)
@@ -870,7 +848,7 @@ namespace PatientManagement
             if (txtDescription.Text != "" && KeyCategory != 0 && KeyService != "")
             {
                 string path;
-                if (Directory.Exists(@"S:\"))
+                if (!Directory.Exists(@"S:\"))
                 {
                     path = @"D:\ABC soft\";
                 }
