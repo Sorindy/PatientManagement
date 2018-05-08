@@ -30,6 +30,7 @@ namespace Hospital_Entity_Framework
         public DbSet<ConsultationEstimate> ConsultationEstimates { get; set; }
         public DbSet<ConsultationSample> ConsultationSamples { get; set; }
         public DbSet<Dating> Datings { get; set; }
+        public DbSet<DefaultSample> DefaultSamples { get; set; }
         public DbSet<Form> Forms { get; set; }
         public DbSet<LaboratoryCategory> LaboratoryCategories { get; set; }
         public DbSet<LaboratoryEstimate> LaboratoryEstimates { get; set; }
@@ -55,6 +56,5 @@ namespace Hospital_Entity_Framework
         public DbSet<Visit> Visits { get; set; }
         public DbSet<WaitingList> WaitingLists { get; set; }
         public DbSet<Worker> Workers { get; set; }
-        public DbSet<DefaultSample> DefaultSamples { get; set; }
     }
 }

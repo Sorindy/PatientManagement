@@ -16,7 +16,12 @@ namespace Hospital_Entity_Framework
     {
         public int Id { get; set; }
         public int WorkerId { get; set; }
-        public int DefaultSample1 { get; set; }
+        public int SampleNumber { get; set; }
+        public int PaddingTop { get; set; }
+        public int PadddingLeft { get; set; }
+        public int PaddingRight { get; set; }
+        public int PaddingDown { get; set; }
+        public string Using { get; set; }
     
         public virtual Worker Worker { get; set; }
     }

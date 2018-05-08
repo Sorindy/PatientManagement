@@ -1529,7 +1529,7 @@
             this.dgvVariousDocument.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvVariousDocument.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvVariousDocument.Size = new System.Drawing.Size(551, 464);
-            this.dgvVariousDocument.TabIndex = 2;
+            this.dgvVariousDocument.TabIndex = 3;
             this.dgvVariousDocument.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVariousDocument_CellClick);
             this.dgvVariousDocument.SelectionChanged += new System.EventHandler(this.dgvVariousDocument_SelectionChanged);
             // 
@@ -1862,7 +1862,6 @@
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
             this.saveToolStripMenuItem.Text = "Save";
-            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem1
             // 
@@ -2052,7 +2051,6 @@
         private System.Windows.Forms.ComboBox cboPreCategory;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel16;
         private System.Windows.Forms.Panel panel9;
-        internal System.Windows.Forms.DataGridView dgvVariousDocument;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel17;
         private System.Windows.Forms.Label label11;
@@ -2086,5 +2084,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel21;
         private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.Button btnInfoReferrer;
+        internal System.Windows.Forms.DataGridView dgvVariousDocument;
     }
 }

@@ -409,7 +409,12 @@
     </Key>
     <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="WorkerId" Type="int" Nullable="false" />
-    <Property Name="DefaultSample" Type="int" Nullable="false" />
+    <Property Name="SampleNumber" Type="int" Nullable="false" />
+    <Property Name="PaddingTop" Type="int" Nullable="false" />
+    <Property Name="PadddingLeft" Type="int" Nullable="false" />
+    <Property Name="PaddingRight" Type="int" Nullable="false" />
+    <Property Name="PaddingDown" Type="int" Nullable="false" />
+    <Property Name="Using" Type="nchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Form">
     <Key>

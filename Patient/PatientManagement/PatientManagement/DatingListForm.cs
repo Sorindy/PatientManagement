@@ -52,21 +52,27 @@ namespace PatientManagement
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (lbPatientName.Text != null)
+            if (Patient != null && Worker != null)
             {
-                _dating.Update(Convert.ToInt32(lbDatingId.Text), dtpDating.Value);
-                btnShow.PerformClick();
+                if (lbPatientName.Text != null)
+                {
+                    _dating.Update(Convert.ToInt32(lbDatingId.Text), dtpDating.Value);
+                    btnShow.PerformClick();
+                }
             }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (lbPatientName.Text != null)
+            if (Patient != null && Worker != null)
             {
-                _dating.Delete(Convert.ToInt32(lbDatingId.Text));
-                btnShow.PerformClick();
-                Clear();
-            } 
+                if (lbPatientName.Text != null)
+                {
+                    _dating.Delete(Convert.ToInt32(lbDatingId.Text));
+                    btnShow.PerformClick();
+                    Clear();
+                }
+            }
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -123,6 +129,7 @@ namespace PatientManagement
             }
             catch
             {
+                //
             }
         }
 

@@ -6,6 +6,7 @@
     <EntitySet Name="ConsultationEstimates" EntityType="HospitalModel.ConsultationEstimate" />
     <EntitySet Name="ConsultationSamples" EntityType="HospitalModel.ConsultationSample" />
     <EntitySet Name="Datings" EntityType="HospitalModel.Dating" />
+    <EntitySet Name="DefaultSamples" EntityType="HospitalModel.DefaultSample" />
     <EntitySet Name="Forms" EntityType="HospitalModel.Form" />
     <EntitySet Name="LaboratoryCategories" EntityType="HospitalModel.LaboratoryCategory" />
     <EntitySet Name="LaboratoryEstimates" EntityType="HospitalModel.LaboratoryEstimate" />
@@ -70,6 +71,10 @@
     <AssociationSet Name="FK_Dating_Worker" Association="HospitalModel.FK_Dating_Worker">
       <End Role="Worker" EntitySet="Workers" />
       <End Role="Dating" EntitySet="Datings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DefaultSample_Worker" Association="HospitalModel.FK_DefaultSample_Worker">
+      <End Role="Worker" EntitySet="Workers" />
+      <End Role="DefaultSample" EntitySet="DefaultSamples" />
     </AssociationSet>
     <AssociationSet Name="FK_LaboratoryEstimate_LaboratoryCategory" Association="HospitalModel.FK_LaboratoryEstimate_LaboratoryCategory">
       <End Role="LaboratoryCategory" EntitySet="LaboratoryCategories" />
@@ -263,11 +268,6 @@
       <End Role="VariousDocumentCategory" EntitySet="VariousDocumentCategories" />
       <End Role="WaitingList" EntitySet="WaitingLists" />
     </AssociationSet>
-    <EntitySet Name="DefaultSamples" EntityType="HospitalModel.DefaultSample" />
-    <AssociationSet Name="FK_DefaultSample_Worker" Association="HospitalModel.FK_DefaultSample_Worker">
-      <End Role="Worker" EntitySet="Workers" />
-      <End Role="DefaultSample" EntitySet="DefaultSamples" />
-    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Account">
     <Key>
@@ -332,6 +332,20 @@
     <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
     <NavigationProperty Name="Patient" Relationship="HospitalModel.FK_Dating_Patient" FromRole="Dating" ToRole="Patient" />
     <NavigationProperty Name="Worker" Relationship="HospitalModel.FK_Dating_Worker" FromRole="Dating" ToRole="Worker" />
+  </EntityType>
+  <EntityType Name="DefaultSample">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="WorkerId" Type="Int32" Nullable="false" />
+    <Property Name="SampleNumber" Type="Int32" Nullable="false" />
+    <Property Name="PaddingTop" Type="Int32" Nullable="false" />
+    <Property Name="PadddingLeft" Type="Int32" Nullable="false" />
+    <Property Name="PaddingRight" Type="Int32" Nullable="false" />
+    <Property Name="PaddingDown" Type="Int32" Nullable="false" />
+    <Property Name="Using" Type="String" MaxLength="50" Unicode="true" FixedLength="true" />
+    <NavigationProperty Name="Worker" Relationship="HospitalModel.FK_DefaultSample_Worker" FromRole="DefaultSample" ToRole="Worker" />
   </EntityType>
   <EntityType Name="Form">
     <Key>
@@ -691,6 +705,7 @@
     <NavigationProperty Name="ConsultationEstimates" Relationship="HospitalModel.FK_ConsultationEstimate_Worker" FromRole="Worker" ToRole="ConsultationEstimate" />
     <NavigationProperty Name="ConsultationEstimates1" Relationship="HospitalModel.FK_ConsultationEstimate_Worker1" FromRole="Worker" ToRole="ConsultationEstimate" />
     <NavigationProperty Name="Datings" Relationship="HospitalModel.FK_Dating_Worker" FromRole="Worker" ToRole="Dating" />
+    <NavigationProperty Name="DefaultSamples" Relationship="HospitalModel.FK_DefaultSample_Worker" FromRole="Worker" ToRole="DefaultSample" />
     <NavigationProperty Name="LaboratoryEstimates" Relationship="HospitalModel.FK_LaboratoryEstimate_Worker" FromRole="Worker" ToRole="LaboratoryEstimate" />
     <NavigationProperty Name="LaboratoryEstimates1" Relationship="HospitalModel.FK_LaboratoryEstimate_Worker1" FromRole="Worker" ToRole="LaboratoryEstimate" />
     <NavigationProperty Name="MedicalImagingEstimates" Relationship="HospitalModel.FK_MedicalImagingEstimate_Worker" FromRole="Worker" ToRole="MedicalImagingEstimate" />
@@ -700,7 +715,6 @@
     <NavigationProperty Name="TempWaitingLists" Relationship="HospitalModel.FK_TempWaitingList_Worker" FromRole="Worker" ToRole="TempWaitingList" />
     <NavigationProperty Name="VariousDocumentEstimates" Relationship="HospitalModel.FK_VariousDocumentEstimate_Worker" FromRole="Worker" ToRole="VariousDocumentEstimate" />
     <NavigationProperty Name="VariousDocumentEstimates1" Relationship="HospitalModel.FK_VariousDocumentEstimate_Worker1" FromRole="Worker" ToRole="VariousDocumentEstimate" />
-    <NavigationProperty Name="DefaultSamples" Relationship="HospitalModel.FK_DefaultSample_Worker" FromRole="Worker" ToRole="DefaultSample" />
   </EntityType>
   <Association Name="FK_Account_Worker">
     <End Role="Worker" Type="HospitalModel.Worker" Multiplicity="1" />
@@ -818,6 +832,18 @@
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Dating">
+        <PropertyRef Name="WorkerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DefaultSample_Worker">
+    <End Role="Worker" Type="HospitalModel.Worker" Multiplicity="1" />
+    <End Role="DefaultSample" Type="HospitalModel.DefaultSample" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Worker">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DefaultSample">
         <PropertyRef Name="WorkerId" />
       </Dependent>
     </ReferentialConstraint>
@@ -1263,26 +1289,5 @@
   <Association Name="WaitingVariousDocument">
     <End Role="VariousDocumentCategory" Type="HospitalModel.VariousDocumentCategory" Multiplicity="*" />
     <End Role="WaitingList" Type="HospitalModel.WaitingList" Multiplicity="*" />
-  </Association>
-  <EntityType Name="DefaultSample">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="Int32" Name="WorkerId" Nullable="false" />
-    <Property Type="Int32" Name="DefaultSample1" Nullable="false" />
-    <NavigationProperty Name="Worker" Relationship="HospitalModel.FK_DefaultSample_Worker" FromRole="DefaultSample" ToRole="Worker" />
-  </EntityType>
-  <Association Name="FK_DefaultSample_Worker">
-    <End Type="HospitalModel.Worker" Role="Worker" Multiplicity="1" />
-    <End Type="HospitalModel.DefaultSample" Role="DefaultSample" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Worker">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="DefaultSample">
-        <PropertyRef Name="WorkerId" />
-      </Dependent>
-    </ReferentialConstraint>
   </Association>
 </Schema>

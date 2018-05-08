@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 using PatientManagement.Class;
 using PatientManagement.Interface;
@@ -21,7 +22,10 @@ namespace PatientManagement
         private int _keyCategory;
         private ICategory _iCategory;
         private bool _have;
-
+        private bool _mouseDown;
+        private Point _lastLocation;
+        internal string Ref;
+        internal string Nur;
 
         private void ServiceAndCategegorySelection_Load(object sender, EventArgs e)
         {
@@ -30,6 +34,9 @@ namespace PatientManagement
             if (Service == "MedicalImaging") cboService.SelectedIndex = 2;
             if (Service == "Prescription") cboService.SelectedIndex = 3;
             if (Service == "VariousDocument") cboService.SelectedIndex = 4;
+            lbRef.Text = Ref;
+            lbNur.Text = Nur;
+            if(Category==0)return;
             cboCategory.SelectedValue = Category;
         }
 
@@ -41,10 +48,10 @@ namespace PatientManagement
                 var dic = _iCategory.ShowCategoryForDoctor(Account.WorkerId);
                 if (dic.Count != 0)
                 {
+                    _have = true;
                     cboCategory.DataSource = new BindingSource(dic, null);
                     cboCategory.DisplayMember = "Value";
                     cboCategory.ValueMember = "Key";
-                    _have = true;
                 }
                 else
                 {
@@ -60,10 +67,10 @@ namespace PatientManagement
                 var dic = _iCategory.ShowCategoryForDoctor(Account.WorkerId);
                 if (dic.Count != 0)
                 {
+                    _have = true;
                     cboCategory.DataSource = new BindingSource(dic, null);
                     cboCategory.DisplayMember = "Value";
                     cboCategory.ValueMember = "Key";
-                    _have = true;
                 }
                 else
                 {
@@ -79,10 +86,10 @@ namespace PatientManagement
                 var dic = _iCategory.ShowCategoryForDoctor(Account.WorkerId);
                 if (dic.Count != 0)
                 {
+                    _have = true;
                     cboCategory.DataSource = new BindingSource(dic, null);
                     cboCategory.DisplayMember = "Value";
                     cboCategory.ValueMember = "Key";
-                    _have = true;
                 }
                 else
                 {
@@ -98,10 +105,10 @@ namespace PatientManagement
                 var dic = _iCategory.ShowCategoryForDoctor(Account.WorkerId);
                 if (dic.Count != 0)
                 {
+                    _have = true;
                     cboCategory.DataSource = new BindingSource(dic, null);
                     cboCategory.DisplayMember = "Value";
                     cboCategory.ValueMember = "Key";
-                    _have = true;
                 }
                 else
                 {
@@ -117,10 +124,10 @@ namespace PatientManagement
                 var dic = _iCategory.ShowCategoryForDoctor(Account.WorkerId);
                 if (dic.Count != 0)
                 {
+                    _have = true;
                     cboCategory.DataSource = new BindingSource(dic, null);
                     cboCategory.DisplayMember = "Value";
                     cboCategory.ValueMember = "Key";
-                    _have = true;
                 }
                 else
                 {
@@ -261,6 +268,28 @@ namespace PatientManagement
             HistoryForm.KeyService = _keyService;
             HistoryForm.KeyCategory = _keyCategory;
             Close();
+        }
+
+        private void ServiceAndCategegorySelection_MouseDown(object sender, MouseEventArgs e)
+        {
+            _mouseDown = true;
+            _lastLocation = e.Location;
+        }
+
+        private void ServiceAndCategegorySelection_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (_mouseDown)
+            {
+                Location = new Point(
+                    Location.X - _lastLocation.X + e.X, (Location.Y - _lastLocation.Y) + e.Y);
+
+                Update();
+            }
+        }
+
+        private void ServiceAndCategegorySelection_MouseUp(object sender, MouseEventArgs e)
+        {
+            _mouseDown = false;
         }
     }
 }

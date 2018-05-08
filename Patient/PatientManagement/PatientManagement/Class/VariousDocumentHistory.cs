@@ -35,7 +35,7 @@ namespace PatientManagement.Class
                     Nurse = v.Worker1.FirstName + " " + v.Worker1.LastName,
                     Referrer = v.Referrer.FirstName + " " + v.Referrer.LastName,
                     Category = v.VariousDocumentCategory.Name,
-                    Edited=v.Edit
+                    v.Edit
                 };
             var bs = new BindingSource { DataSource = getEstimate.ToList() };
 

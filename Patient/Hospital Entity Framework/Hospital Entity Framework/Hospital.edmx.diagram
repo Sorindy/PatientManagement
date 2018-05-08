@@ -4,37 +4,38 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="47bc00f7d13446a195ed2adedc2017b2" Name="Diagram1" ZoomLevel="65">
-        <EntityTypeShape EntityType="HospitalModel.Account" Width="1.5" PointX="3" PointY="18.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalModel.ConsultationCategory" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalModel.ConsultationEstimate" Width="1.5" PointX="3" PointY="13.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalModel.ConsultationSample" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalModel.Dating" Width="1.5" PointX="3" PointY="21.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalModel.Form" Width="1.5" PointX="3" PointY="11.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalModel.LaboratoryCategory" Width="1.5" PointX="3" PointY="24.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalModel.LaboratoryEstimate" Width="1.5" PointX="8" PointY="17.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalModel.LaboratorySample" Width="1.5" PointX="5.25" PointY="24.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalModel.Management" Width="1.5" PointX="5.25" PointY="18" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalModel.MedicalHistory" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalModel.MedicalImagingCategory" Width="1.5" PointX="7.5" PointY="14.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalModel.MedicalImagingEstimate" Width="1.5" PointX="10.75" PointY="17.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalModel.MedicalImagingSample" Width="1.5" PointX="9.75" PointY="23" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalModel.MedicalRecord" Width="1.5" PointX="12.75" PointY="9.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalModel.Patient" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalModel.PrescriptionCategory" Width="1.5" PointX="7.5" PointY="26.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalModel.PrescriptionEstimate" Width="1.5" PointX="12.75" PointY="22.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalModel.PrescriptionSample" Width="1.5" PointX="9.75" PointY="31.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalModel.Referrer" Width="1.5" PointX="0.75" PointY="24.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalModel.sysdiagram" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalModel.TempManagement" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalModel.TempWait" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalModel.TempWaitingList" Width="1.5" PointX="19.5" PointY="18.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalModel.VariousDocumentCategory" Width="1.5" PointX="7.5" PointY="10.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalModel.VariousDocumentEstimate" Width="1.5" PointX="12.75" PointY="12.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalModel.VariousDocumentSample" Width="1.5" PointX="9.75" PointY="14.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalModel.Visit" Width="1.5" PointX="15" PointY="17.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalModel.WaitingList" Width="1.5" PointX="17.25" PointY="17.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="HospitalModel.Worker" Width="1.5" PointX="0.75" PointY="16.25" IsExpanded="true" />
+      <Diagram DiagramId="740247193485424b99ff68a0c649c4a3" Name="Diagram1">
+        <EntityTypeShape EntityType="HospitalModel.Account" Width="1.5" PointX="3" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalModel.ConsultationCategory" Width="1.5" PointX="3" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalModel.ConsultationEstimate" Width="1.5" PointX="3" PointY="22.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalModel.ConsultationSample" Width="1.5" PointX="5.25" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalModel.Dating" Width="1.5" PointX="6" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalModel.DefaultSample" Width="1.5" PointX="3" PointY="29" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalModel.Form" Width="1.5" PointX="3" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalModel.LaboratoryCategory" Width="1.5" PointX="5.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalModel.LaboratoryEstimate" Width="1.5" PointX="8" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalModel.LaboratorySample" Width="1.5" PointX="8" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalModel.Management" Width="1.5" PointX="5.25" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalModel.MedicalHistory" Width="1.5" PointX="8" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalModel.MedicalImagingCategory" Width="1.5" PointX="7.5" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalModel.MedicalImagingEstimate" Width="1.5" PointX="10.75" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalModel.MedicalImagingSample" Width="1.5" PointX="9.75" PointY="22.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalModel.MedicalRecord" Width="1.5" PointX="12.75" PointY="27.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalModel.Patient" Width="1.5" PointX="5.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalModel.PrescriptionCategory" Width="1.5" PointX="7.5" PointY="25.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalModel.PrescriptionEstimate" Width="1.5" PointX="12.75" PointY="22" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalModel.PrescriptionSample" Width="1.5" PointX="9.75" PointY="30.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalModel.Referrer" Width="1.5" PointX="5.75" PointY="37.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalModel.TempManagement" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalModel.TempWait" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalModel.TempWaitingList" Width="1.5" PointX="19.5" PointY="21.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalModel.VariousDocumentCategory" Width="1.5" PointX="7.5" PointY="33.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalModel.VariousDocumentEstimate" Width="1.5" PointX="9.75" PointY="25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalModel.VariousDocumentSample" Width="1.5" PointX="9.75" PointY="38.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalModel.Visit" Width="1.5" PointX="15" PointY="21.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalModel.WaitingList" Width="1.5" PointX="17.25" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalModel.Worker" Width="1.5" PointX="0.75" PointY="18" IsExpanded="true" />
         <AssociationConnector Association="HospitalModel.FK_Account_Worker" ManuallyRouted="false" />
         <AssociationConnector Association="HospitalModel.FK_Management_Account" ManuallyRouted="false" />
         <AssociationConnector Association="HospitalModel.FK_ConsultationEstimate_ConsultationCategory" ManuallyRouted="false" />
@@ -45,6 +46,7 @@
         <AssociationConnector Association="HospitalModel.FK_ConsultationEstimate_Worker1" ManuallyRouted="false" />
         <AssociationConnector Association="HospitalModel.FK_Dating_Patient" ManuallyRouted="false" />
         <AssociationConnector Association="HospitalModel.FK_Dating_Worker" ManuallyRouted="false" />
+        <AssociationConnector Association="HospitalModel.FK_DefaultSample_Worker" ManuallyRouted="false" />
         <AssociationConnector Association="HospitalModel.FK_LaboratoryEstimate_LaboratoryCategory" ManuallyRouted="false" />
         <AssociationConnector Association="HospitalModel.FK_LaboratorySample_LaboratoryCategory" ManuallyRouted="false" />
         <AssociationConnector Association="HospitalModel.FK_LaboratoryEstimate_Patient" ManuallyRouted="false" />
@@ -93,8 +95,6 @@
         <AssociationConnector Association="HospitalModel.WaitingMedicalImaging" ManuallyRouted="false" />
         <AssociationConnector Association="HospitalModel.WaitingPrescription" ManuallyRouted="false" />
         <AssociationConnector Association="HospitalModel.WaitingVariousDocument" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="HospitalModel.DefaultSample" Width="1.5" PointX="4.625" PointY="13.875" />
-        <AssociationConnector Association="HospitalModel.FK_DefaultSample_Worker" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

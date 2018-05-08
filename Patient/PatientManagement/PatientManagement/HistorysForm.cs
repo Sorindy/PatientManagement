@@ -132,6 +132,11 @@ namespace PatientManagement
             gboRefferAndNurse.Enabled = false;
             txtDescription.ForeColor=Color.Black;
             CatelogForm.Skip = false;
+            tabSelection.SelectedTab = tabLaboratory;
+            tabSelection.SelectedTab = tabMedicalImaging;
+            tabSelection.SelectedTab = tabPrescription;
+            tabSelection.SelectedTab = tabVariousDocument;
+            tabSelection.SelectedTab = tabConsultation;
         }
 
         //private void cboService_SelectedIndexChanged(object sender, EventArgs e)
@@ -810,7 +815,7 @@ namespace PatientManagement
                     cboConCategory.DataSource=new BindingSource(dic,null);
                     cboConCategory.DisplayMember = "Value";
                     cboConCategory.ValueMember = "Key";
-                    cboConCategory.SelectedItem = 1;
+                    cboConCategory.SelectedIndex=0;
                 }
             }
             {
@@ -821,7 +826,7 @@ namespace PatientManagement
                     cboLabCategory.DataSource = new BindingSource(dic, null);
                     cboLabCategory.DisplayMember = "Value";
                     cboLabCategory.ValueMember = "Key";
-                    cboLabCategory.SelectedItem = 1;
+                    cboLabCategory.SelectedIndex = 0;
                 }
             }
             {
@@ -832,7 +837,7 @@ namespace PatientManagement
                     cboMedCategory.DataSource = new BindingSource(dic, null);
                     cboMedCategory.DisplayMember = "Value";
                     cboMedCategory.ValueMember = "Key";
-                    cboMedCategory.SelectedItem = 1;
+                    cboMedCategory.SelectedIndex = 0;
                 }
             }
             {
@@ -843,7 +848,7 @@ namespace PatientManagement
                     cboPreCategory.DataSource = new BindingSource(dic, null);
                     cboPreCategory.DisplayMember = "Value";
                     cboPreCategory.ValueMember = "Key";
-                    cboPreCategory.SelectedItem = 1;
+                    cboPreCategory.SelectedIndex = 0;
                 }
             }
             {
@@ -854,7 +859,7 @@ namespace PatientManagement
                     cboVarCategory.DataSource = new BindingSource(dic, null);
                     cboVarCategory.DisplayMember = "Value";
                     cboVarCategory.ValueMember = "Key";
-                    cboVarCategory.SelectedItem = 1;
+                    cboVarCategory.SelectedIndex = 0;
                 }
             }
         }
@@ -873,13 +878,11 @@ namespace PatientManagement
                 {
                     dgvConsultation.DataSource = _history.Show(Patient.Id, _keyCategory);
                     InsertButtonEditAndNewForDoctor(dgvConsultation);
-                    btnNewConsultation.Enabled = true;
                 }
 
                 else
                 {
                     dgvConsultation.DataSource = _history.Show(Patient.Id, _keyCategory);
-                    btnNewConsultation.Enabled = false;
                 }
             } if (dgvConsultation.DataSource != null) CheckOrderDgv(dgvConsultation);
         }
@@ -898,7 +901,6 @@ namespace PatientManagement
                 {
                     dgvLaboratory.DataSource = _history.Show(Patient.Id, _keyCategory);
                     InsertButtonEditAndNewForDoctor(dgvLaboratory);
-                    btnNewLaboratory.Enabled = true;
                 }
 
                 else
@@ -1136,7 +1138,16 @@ namespace PatientManagement
                 }
                 catch
                 {
-                    // ignored
+                    try
+                    {
+                        txtDescription.Load(_history.GetPath(Convert.ToInt32(dgvVariousDocument.CurrentRow.Cells[1].Value)),
+                            StreamType.RichTextFormat);
+                        saveToolStripMenuItem.Enabled = false;
+                    }
+                    catch
+                    {
+                       //Ignore
+                    }
                 }
             }
         }
@@ -1292,7 +1303,16 @@ namespace PatientManagement
                 }
                 catch
                 {
-                    // ignored
+                    try
+                    {
+                        txtDescription.Load(_history.GetPath(Convert.ToInt32(dgvPrescription.CurrentRow.Cells[1].Value)),
+                            StreamType.RichTextFormat);
+                        saveToolStripMenuItem.Enabled = false;
+                    }
+                    catch
+                    {
+                       //Ignore
+                    }
                 }
             }
         }
@@ -1397,7 +1417,16 @@ namespace PatientManagement
                 }
                 catch
                 {
-                    // ignored
+                    try
+                    {
+                        txtDescription.Load(_history.GetPath(Convert.ToInt32(dgvMedicalImaging.CurrentRow.Cells[1].Value)),
+                            StreamType.RichTextFormat);
+                        saveToolStripMenuItem.Enabled = false;
+                    }
+                    catch
+                    {
+                        //Ignore
+                    }
                 }
             }
         }
@@ -1502,7 +1531,16 @@ namespace PatientManagement
                 }
                 catch
                 {
-                    // ignored
+                    try
+                    {
+                        txtDescription.Load(_history.GetPath(Convert.ToInt32(dgvLaboratory.CurrentRow.Cells[1].Value)),
+                            StreamType.RichTextFormat);
+                        saveToolStripMenuItem.Enabled = false;
+                    }
+                    catch
+                    {
+                       //Ignore
+                    }
                 }
             }
         }
@@ -1607,19 +1645,40 @@ namespace PatientManagement
                 }
                 catch
                 {
-                    // ignored
+                    try
+                    {
+                        txtDescription.Load(_history.GetPath(Convert.ToInt32(dgvConsultation.CurrentRow.Cells[0].Value)),
+                            StreamType.RichTextFormat);
+                        saveToolStripMenuItem.Enabled = false;
+                    }
+                    catch
+                    {
+                       //Ignore
+                    }
                 }
             }
         }
 
         private void btnNewConsultation_Click(object sender, EventArgs e)
         {
+            var status = true;
+            if (NewMedical || Editing)
+            {
+                var msg = MessageBox.Show(@"Are you sure want to leave this document? All text will be deleted.", @"Delete",
+                    MessageBoxButtons.YesNo);
+                if (msg == DialogResult.No)
+                {
+                    status = false;
+                }
+            }
+            if (!status) return;
             //_category=new ConsultationCategory();
             gboRefferAndNurse.Enabled = true;
             txtDescription.Text = "";
             txtDescription.EditMode = EditMode.Edit;
             txtDescription.Focus();
             NewMedical = true;
+            saveToolStripMenuItem.Enabled = true;
             if (picHideRight.Name == "picHideRight") picHideRight_Click(this, new EventArgs());
             //if (_category.CheckWaitingList(Patient.Id, _keyCategory) != null)
             //{
@@ -1659,12 +1718,24 @@ namespace PatientManagement
 
         private void btnNewLaboratory_Click(object sender, EventArgs e)
         {
+            var status = true;
+            if (NewMedical || Editing)
+            {
+                var msg = MessageBox.Show(@"Are you sure want to leave this document? All text will be deleted.", @"Delete",
+                    MessageBoxButtons.YesNo);
+                if (msg == DialogResult.No)
+                {
+                    status = false;
+                }
+            }
+            if (!status) return;
             //_category = new LaboratoryCategory();
             gboRefferAndNurse.Enabled = true;
             txtDescription.Text = "";
             txtDescription.EditMode = EditMode.Edit;
             txtDescription.Focus();
-            NewMedical = true;
+            NewMedical = true; 
+            saveToolStripMenuItem.Enabled = true;
             if (picHideRight.Name == "picHideRight") picHideRight_Click(this, new EventArgs());
             //if (_category.CheckWaitingList(Patient.Id, _keyCategory) != null)
             //{
@@ -1704,12 +1775,24 @@ namespace PatientManagement
 
         private void btnNewMedicalImaging_Click(object sender, EventArgs e)
         {
+            var status = true;
+            if (NewMedical || Editing)
+            {
+                var msg = MessageBox.Show(@"Are you sure want to leave this document? All text will be deleted.", @"Delete",
+                    MessageBoxButtons.YesNo);
+                if (msg == DialogResult.No)
+                {
+                    status = false;
+                }
+            }
+            if (!status) return;
             //_category = new MedicalImagingCategory();
             gboRefferAndNurse.Enabled = true;
             txtDescription.Text = "";
             txtDescription.EditMode = EditMode.Edit;
             txtDescription.Focus();
             NewMedical = true;
+            saveToolStripMenuItem.Enabled = true;
             if (picHideRight.Name == "picHideRight") picHideRight_Click(this, new EventArgs());
             //if (_category.CheckWaitingList(Patient.Id, _keyCategory) != null)
             //{
@@ -1749,12 +1832,24 @@ namespace PatientManagement
 
         private void btnNewPresciption_Click(object sender, EventArgs e)
         {
+            var status = true;
+            if (NewMedical || Editing)
+            {
+                var msg = MessageBox.Show(@"Are you sure want to leave this document? All text will be deleted.", @"Delete",
+                    MessageBoxButtons.YesNo);
+                if (msg == DialogResult.No)
+                {
+                    status = false;
+                }
+            }
+            if (!status) return;
             //_category = new PrescriptionCategory();
             gboRefferAndNurse.Enabled = true;
             txtDescription.Text = "";
             txtDescription.EditMode = EditMode.Edit;
             txtDescription.Focus();
-            NewMedical = true; 
+            NewMedical = true;
+            saveToolStripMenuItem.Enabled = true;
             if (picHideRight.Name == "picHideRight") picHideRight_Click(this, new EventArgs());
 
             //if (_category.CheckWaitingList(Patient.Id, _keyCategory) != null)
@@ -1795,12 +1890,24 @@ namespace PatientManagement
 
         private void btnNewVarious_Click(object sender, EventArgs e)
         {
+            var status = true;
+            if (NewMedical || Editing)
+            {
+                var msg = MessageBox.Show(@"Are you sure want to leave this document? All text will be deleted.", @"Delete",
+                    MessageBoxButtons.YesNo);
+                if (msg == DialogResult.No)
+                {
+                    status = false;
+                }
+            }
+            if (!status) return;
             //_category = new VariousDocumentCategory();
             gboRefferAndNurse.Enabled = true;
             txtDescription.Text = "";
             txtDescription.EditMode = EditMode.Edit;
             txtDescription.Focus();
             NewMedical = true;
+            saveToolStripMenuItem.Enabled = true;
             if (picHideRight.Name == "picHideRight") picHideRight_Click(this,new EventArgs());
 
             //if (_category.CheckWaitingList(Patient.Id, _keyCategory) != null)
@@ -1837,11 +1944,6 @@ namespace PatientManagement
             //    CatelogForm.pnlFill.Controls.Add(form);
             //    form.Show();
             //}
-        }
-
-        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
         }
 
         private void printToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1897,7 +1999,9 @@ namespace PatientManagement
                     HistoryForm = this,
                     Account = Account,
                     Service = KeyService,
-                    Category = _keyCategory
+                    Category = _keyCategory,
+                    Ref = cboReferrer.Text,
+                    Nur = cboNurse.Text
                 };
                 form.ShowDialog();
                 if (KeyCategory == 0) return;

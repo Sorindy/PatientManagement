@@ -27,6 +27,7 @@ namespace PatientManagement
         private void WaitingForm_Shown(object sender, EventArgs e)
         {
             dgvAllWatingList.DataSource = null;
+            cboService.SelectedIndex = 0;
             dgvAllWatingList.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
         }

@@ -67,23 +67,22 @@ namespace PatientManagement
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+            Close();
+
             if (PatientListForm != null)
             {
                 PatientListForm.dgvListPatient.Columns.Clear();
                 PatientListForm.PatientListForm_Shown(PatientListForm, new EventArgs());
             }
-            if (HistorysForm != null)
-            {
-                HistorysForm.CatelogForm.pnlFill.Controls.Clear();
-                HistorysForm.CatelogForm.pnlFill.Controls.Add(HistorysForm);
-                HistorysForm.dgvConsultation.Columns.Clear();
-                HistorysForm.dgvLaboratory.Columns.Clear();
-                HistorysForm.dgvMedicalImaging.Columns.Clear();
-                HistorysForm.dgvPrescription.Columns.Clear();
-                HistorysForm.dgvVariousDocument.Columns.Clear();
-                HistorysForm.Show();
-            }
-            Close();
+            if (HistorysForm == null) return;
+            //HistorysForm.CatelogForm.pnlFill.Controls.Clear();
+            //HistorysForm.CatelogForm.pnlFill.Controls.Add(HistorysForm);
+            //HistorysForm.dgvConsultation.Columns.Clear();
+            //HistorysForm.dgvLaboratory.Columns.Clear();
+            //HistorysForm.dgvMedicalImaging.Columns.Clear();
+            //HistorysForm.dgvPrescription.Columns.Clear();
+            //HistorysForm.dgvVariousDocument.Columns.Clear();
+            HistorysForm.Show();
         }
 
         private void Clear()

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace PatientManagement
@@ -12,6 +13,8 @@ namespace PatientManagement
 
         internal MedicalsForm MedicalForm;
         internal HistorysForm HistoryForm;
+        private bool _mouseDown;
+        private Point _lastLocation;
 
         private void btnOk_Click(object sender, EventArgs e)
         {
@@ -34,5 +37,28 @@ namespace PatientManagement
             if (HistoryForm != null) HistoryForm.Title = "";
             Close();
         }
+
+        private void TitleInput_MouseDown(object sender, MouseEventArgs e)
+        {
+            _mouseDown = true;
+            _lastLocation = e.Location;
+        }
+
+        private void TitleInput_MouseUp(object sender, MouseEventArgs e)
+        {
+            _mouseDown = false;
+        }
+
+        private void TitleInput_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (_mouseDown)
+            {
+                Location = new Point(
+                    Location.X - _lastLocation.X + e.X, (Location.Y - _lastLocation.Y) + e.Y);
+
+                Update();
+            }
+        }
+
     }
 }
