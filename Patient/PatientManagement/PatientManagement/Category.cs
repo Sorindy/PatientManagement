@@ -171,6 +171,7 @@ namespace PatientManagement
             cboService.Enabled = true;
             txtName.Enabled = false;
             txtName.Text = "";
+            dgvListCategory.Columns[0].Visible = false;
             DtgHeaderText();
         }
 
@@ -190,7 +191,7 @@ namespace PatientManagement
 
                     if (dgvListCategory.CurrentRow != null)
                     {
-                        txtName.Text = dgvListCategory.CurrentRow.Cells[1].Value.ToString();
+                        txtName.Text = dgvListCategory.CurrentRow.Cells[2].Value.ToString();
                         dgvListCategory.Enabled = false;
                         txtName.Enabled = true;
                     }
@@ -300,8 +301,9 @@ namespace PatientManagement
 
         public void DtgHeaderText()
         {
-            dgvListCategory.Columns[0].HeaderText = @"លេខកូដ";
-            dgvListCategory.Columns[1].HeaderText = @"ឈ្មោះ";
+            dgvListCategory.Columns[0].HeaderText = @"ID";
+            dgvListCategory.Columns[1].HeaderText = @"លេខរៀង";
+            dgvListCategory.Columns[2].HeaderText = @"ឈ្មោះ";
         }
     }
 }

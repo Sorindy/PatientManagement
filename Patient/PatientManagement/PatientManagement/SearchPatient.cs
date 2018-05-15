@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using PatientManagement.Class;
 
@@ -16,13 +17,25 @@ namespace PatientManagement
         internal MedicalsForm MedicalsForm;
         internal DatingListForm Datinglistform;
 
+        private static void CheckOrderDgv(DataGridView dgv)
+        {
+            dgv.Columns[0].Visible = false;
+            for (var i = 0; i <= dgv.RowCount - 1; i++)
+            {
+                dgv.Rows[i].DefaultCellStyle.BackColor = i % 2 == 0 ? Color.LightGray : Color.MintCream;
+            }
+            dgv.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dgv.ColumnHeadersDefaultCellStyle.Font = new Font(@"Arial", 14, FontStyle.Bold);
+        }
         private void Search_Shown(object sender, EventArgs e)
         {
             txtSearch.Text = "";
             txtSearch.Focus();
             dgvSearchPatient.ColumnHeadersDefaultCellStyle.Alignment=DataGridViewContentAlignment.MiddleCenter;
             dgvSearchPatient.DataSource = _patient.ShowAll();
-            if (dgvSearchPatient.DataSource != null) dgvSearchPatient.Columns[0].Visible = false;
+            if (dgvSearchPatient.DataSource == null) return;
+            CheckOrderDgv(dgvSearchPatient);
+            dgvSearchPatient.Columns[0].Visible = false;
         }
 
         private void dgvSearchPatient_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -58,9 +71,14 @@ namespace PatientManagement
             }
             else
             {
-                var form=new NewPatient{MedicalForm = MedicalsForm};
-                form.ShowDialog();
+                if (Datinglistform != null)
+                {
+                    Close();
+                    return;
+                }
+                var form=new NewPatient{MedicalForm = MedicalsForm,CheckInFrom = CheckInsForm};
                 Close();
+                form.ShowDialog();
             }
             Close();
         }
@@ -74,6 +92,7 @@ namespace PatientManagement
         {
             dgvSearchPatient.DataSource = _patient.Search(txtSearch.Text);
             dgvSearchPatient.Columns[0].Visible = false;
+            CheckOrderDgv(dgvSearchPatient);
             DtgHeaderText();
         }
 

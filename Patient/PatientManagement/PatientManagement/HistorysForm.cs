@@ -105,10 +105,10 @@ namespace PatientManagement
                 KeyService = @"Consultation";
             }
             //AddNodesToTree();
-            var path = AppDomain.CurrentDomain.BaseDirectory;
-            _path = path.Remove(path.Length - 46);
+            //var path = AppDomain.CurrentDomain.BaseDirectory;
+            //_path = path.Remove(path.Length - 46);
             //_path = path;
-            //_path = @"S:\";
+            _path = @"S:\";
             //dgvConsultation.Columns.Clear();
             //dgvLaboratory.Columns.Clear();
             //dgvMedicalImaging.Columns.Clear();
@@ -1659,6 +1659,44 @@ namespace PatientManagement
             }
         }
 
+        private void CheckService()
+        {
+            if (lbService.Text == @"Consultation")
+            {
+                KeyService = @"Consultation";
+                var get = (KeyValuePair<int, string>)cboConCategory.SelectedItem;
+                var key = get.Key;
+                if (key != 0) _keyCategory = key;
+            }
+            if (lbService.Text == @"Laboratory")
+            {
+                KeyService = @"Laboratory";
+                var get = (KeyValuePair<int, string>)cboLabCategory.SelectedItem;
+                var key = get.Key;
+                if (key != 0) _keyCategory = key;
+            }
+            if (lbService.Text == @"MedicalImaging")
+            {
+                KeyService = @"MedicalImaging";
+                var get = (KeyValuePair<int, string>)cboMedCategory.SelectedItem;
+                var key = get.Key;
+                if (key != 0) _keyCategory = key;
+            }
+            if (lbService.Text == @"Prescription")
+            {
+                KeyService = @"Prescription";
+                var get = (KeyValuePair<int, string>)cboPreCategory.SelectedItem;
+                var key = get.Key;
+                if (key != 0) _keyCategory = key;
+            }
+            if (lbService.Text == @"VariousDocument"){
+                KeyService = @"VariousDocument";
+                var get = (KeyValuePair<int, string>)cboVarCategory.SelectedItem;
+                var key = get.Key;
+                if (key != 0) _keyCategory = key;
+            }
+        }
+
         private void btnNewConsultation_Click(object sender, EventArgs e)
         {
             var status = true;
@@ -1679,6 +1717,7 @@ namespace PatientManagement
             txtDescription.Focus();
             NewMedical = true;
             saveToolStripMenuItem.Enabled = true;
+            CheckService();
             if (picHideRight.Name == "picHideRight") picHideRight_Click(this, new EventArgs());
             //if (_category.CheckWaitingList(Patient.Id, _keyCategory) != null)
             //{
@@ -1736,6 +1775,7 @@ namespace PatientManagement
             txtDescription.Focus();
             NewMedical = true; 
             saveToolStripMenuItem.Enabled = true;
+            CheckService();
             if (picHideRight.Name == "picHideRight") picHideRight_Click(this, new EventArgs());
             //if (_category.CheckWaitingList(Patient.Id, _keyCategory) != null)
             //{
@@ -1793,6 +1833,7 @@ namespace PatientManagement
             txtDescription.Focus();
             NewMedical = true;
             saveToolStripMenuItem.Enabled = true;
+            CheckService();
             if (picHideRight.Name == "picHideRight") picHideRight_Click(this, new EventArgs());
             //if (_category.CheckWaitingList(Patient.Id, _keyCategory) != null)
             //{
@@ -1850,6 +1891,7 @@ namespace PatientManagement
             txtDescription.Focus();
             NewMedical = true;
             saveToolStripMenuItem.Enabled = true;
+            CheckService();
             if (picHideRight.Name == "picHideRight") picHideRight_Click(this, new EventArgs());
 
             //if (_category.CheckWaitingList(Patient.Id, _keyCategory) != null)
@@ -1908,6 +1950,7 @@ namespace PatientManagement
             txtDescription.Focus();
             NewMedical = true;
             saveToolStripMenuItem.Enabled = true;
+            CheckService();
             if (picHideRight.Name == "picHideRight") picHideRight_Click(this,new EventArgs());
 
             //if (_category.CheckWaitingList(Patient.Id, _keyCategory) != null)
@@ -1981,7 +2024,7 @@ namespace PatientManagement
         {
             if (txtDescription.Text == "" || KeyService == null || _keyCategory == 0) return;
             string path;
-            if (Directory.Exists(@"S:\"))
+            if (!Directory.Exists(@"S:\"))
             {
                 path = @"D:\ABC soft\";
             }
@@ -2417,26 +2460,22 @@ namespace PatientManagement
 
         private void cboReferrer_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cboReferrer.DataSource == null)
+            if (cboReferrer.DataSource == null||cboReferrer.SelectedItem == null)
             {
                 _keyReferrer = null;
                 return;
             }
-
-            if (cboReferrer.SelectedItem == null) return;
             var get = (KeyValuePair<int, string>)cboReferrer.SelectedItem;
             _keyReferrer = get.Key;
         }
 
         private void cboNurse_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cboNurse.DataSource == null)
+            if (cboNurse.DataSource == null||cboNurse.SelectedItem == null)
             {
                 _keyReferrer = null;
                 return;
             }
-
-            if (cboNurse.SelectedItem == null) return;
             var get = (KeyValuePair<int, string>)cboNurse.SelectedItem;
             _keyNurse = get.Key;
         }
@@ -2447,7 +2486,13 @@ namespace PatientManagement
             {
                 var dicReferrer = Medical.SearchRefferer(cboReferrer.Text);
                 var text = cboReferrer.Text;
-                if (dicReferrer.Count == 0) return;
+                if (dicReferrer.Count == 0)
+                {
+                    cboReferrer.Text = text;
+                    cboReferrer.Select(text.Length, 0);
+                    _keyReferrer = null;
+                    return;
+                }
                 cboReferrer.DataSource = new BindingSource(dicReferrer, null);
                 cboReferrer.DisplayMember = "Value";
                 cboReferrer.ValueMember = "Key";
@@ -2455,6 +2500,8 @@ namespace PatientManagement
                 cboReferrer.SelectedIndex = -1;
                 cboReferrer.Text = text;
                 cboReferrer.Select(text.Length,0);
+                if (cboReferrer.Focused) cboReferrer.DroppedDown = true;
+                Cursor.Current = Cursors.Default;
             }
             else
             {
@@ -2470,13 +2517,22 @@ namespace PatientManagement
             {
                 var dicNurse = Medical.SearchNurse(cboNurse.Text);
                 var text = cboNurse.Text;
-                if (dicNurse.Count == 0) return;
+                if (dicNurse.Count == 0)
+                {
+                    cboNurse.Text = text;
+                    cboNurse.Select(text.Length, 0);
+                    _keyNurse = null;
+                    return;
+                }
                 cboNurse.DataSource = new BindingSource(dicNurse, null);
                 cboNurse.DisplayMember = "Value";
                 cboNurse.ValueMember = "Key";
                 cboNurse.Enabled = true;
+                cboNurse.SelectedIndex = -1;
                 cboNurse.Text = text;
                 cboNurse.Select(text.Length,0);
+                if (cboNurse.Focused) cboNurse.DroppedDown = true;
+                Cursor.Current = Cursors.Default;
             }
             else
             {

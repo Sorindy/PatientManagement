@@ -164,6 +164,7 @@
       <DependentUpon>CheckInsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Class\Account.cs" />
+    <Compile Include="Class\CategoryClass.cs" />
     <Compile Include="Class\CheckIn.cs" />
     <Compile Include="Class\ConsultationCategory.cs" />
     <Compile Include="Class\ConsultationEstimate.cs" />

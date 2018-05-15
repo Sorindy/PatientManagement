@@ -23,13 +23,13 @@ namespace PatientManagement
         private ICategory _category;
         private int _keyCategory;
         private string _keyService;
+        private bool _have;
 
         private void WaitingForm_Shown(object sender, EventArgs e)
         {
             dgvAllWatingList.DataSource = null;
             cboService.SelectedIndex = 0;
             dgvAllWatingList.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-
         }
 
         private void Refreshing()
@@ -52,6 +52,13 @@ namespace PatientManagement
                     cboCategory.DataSource=new BindingSource(dic,null);
                     cboCategory.DisplayMember = "Value";
                     cboCategory.ValueMember = "Key";
+                    _have = true;
+                }
+                else
+                {
+                    _have = false;
+                    cboCategory.DataSource = null;
+                    cboCategory.Items.Clear();
                 }
             }
             if (cboService.Text == @"Laboratory")
@@ -64,6 +71,13 @@ namespace PatientManagement
                     cboCategory.DataSource = new BindingSource(dic, null);
                     cboCategory.DisplayMember = "Value";
                     cboCategory.ValueMember = "Key";
+                    _have = true;
+                }
+                else
+                {
+                    _have = false;
+                    cboCategory.DataSource = null;
+                    cboCategory.Items.Clear();
                 }
             }
             if (cboService.Text == @"Medical Imaging")
@@ -76,6 +90,7 @@ namespace PatientManagement
                     cboCategory.DataSource = new BindingSource(dic, null);
                     cboCategory.DisplayMember = "Value";
                     cboCategory.ValueMember = "Key";
+                    _have = true;
                 }
             }
             if (cboService.Text == @"Prescription")
@@ -88,6 +103,13 @@ namespace PatientManagement
                     cboCategory.DataSource = new BindingSource(dic, null);
                     cboCategory.DisplayMember = "Value";
                     cboCategory.ValueMember = "Key";
+                    _have = true;
+                }
+                else
+                {
+                    _have = false;
+                    cboCategory.DataSource = null;
+                    cboCategory.Items.Clear();
                 }
             }
             if (cboService.Text == @"Various Document")
@@ -100,6 +122,13 @@ namespace PatientManagement
                     cboCategory.DataSource = new BindingSource(dic, null);
                     cboCategory.DisplayMember = "Value";
                     cboCategory.ValueMember = "Key";
+                    _have = true;
+                }
+                else
+                {
+                    _have = false;
+                    cboCategory.DataSource = null;
+                    cboCategory.Items.Clear();
                 }
             }
             Refreshing();
@@ -110,6 +139,8 @@ namespace PatientManagement
             dgvAllWatingList.DataSource = null;
             dgvAllWatingList.Columns.Clear();
             if(cboCategory.DataSource==null)return;
+            if(cboCategory.SelectedItem==null)return;
+            if(_keyCategory==0||_keyService==""||_have==false)return;
             var btnView = new DataGridViewButtonColumn
             {
                 FlatStyle = FlatStyle.Flat,
@@ -240,5 +271,127 @@ namespace PatientManagement
 
         }
 
+        private void cboCategory_TextUpdate(object sender, EventArgs e)
+        {
+            var text = cboCategory.Text;
+            if (cboService.Text == @"Consultation")
+            {
+                _category = new ConsultationCategory();
+                var dic = _category.SearchCategory(Account.WorkerId, cboCategory.Text.ToLower());
+                if (dic.Count != 0)
+                {
+                    cboCategory.DataSource = new BindingSource(dic, null);
+                    cboCategory.DisplayMember = "Value";
+                    cboCategory.ValueMember = "Key";
+                    _have = true;
+                }
+                else
+                {
+                    _have = false;
+                    cboCategory.DataSource = null;
+                    cboCategory.Items.Clear();
+                    cboCategory.Text = text;
+                    cboCategory.Select(text.Length, 0);
+                }
+            }
+            if (cboService.Text == @"Laboratory")
+            {
+                _category = new LaboratoryCategory();
+                var dic = _category.SearchCategory(Account.WorkerId, cboCategory.Text.ToLower());
+                if (dic.Count != 0)
+                {
+                    cboCategory.DataSource = new BindingSource(dic, null);
+                    cboCategory.DisplayMember = "Value";
+                    cboCategory.ValueMember = "Key";
+                    _have = true;
+                }
+                else
+                {
+                    _have = false;
+                    cboCategory.DataSource = null;
+                    cboCategory.Items.Clear();
+                    cboCategory.Text = text;
+                    cboCategory.Select(text.Length, 0);
+                }
+            }
+            if (cboService.Text == @"Medical Imaging")
+            {
+                _category = new MedicalImagingCategory();
+                var dic = _category.SearchCategory(Account.WorkerId, cboCategory.Text.ToLower());
+                if (dic.Count != 0)
+                {
+                    cboCategory.DataSource = new BindingSource(dic, null);
+                    cboCategory.DisplayMember = "Value";
+                    cboCategory.ValueMember = "Key";
+                    _have = true;
+                }
+                else
+                {
+                    _have = false;
+                    cboCategory.DataSource = null;
+                    cboCategory.Items.Clear();
+                    cboCategory.Text = text;
+                    cboCategory.Select(text.Length, 0);
+                }
+            }
+            if (cboService.Text == @"Prescription")
+            {
+                _category = new PrescriptionCategory();
+                var dic = _category.SearchCategory(Account.WorkerId, cboCategory.Text.ToLower());
+                if (dic.Count != 0)
+                {
+                    cboCategory.DataSource = new BindingSource(dic, null);
+                    cboCategory.DisplayMember = "Value";
+                    cboCategory.ValueMember = "Key";
+                    _have = true;
+                }
+                else
+                {
+                    _have = false;
+                    cboCategory.DataSource = null;
+                    cboCategory.Items.Clear();
+                    cboCategory.Text = text;
+                    cboCategory.Select(text.Length, 0);
+                }
+            }
+            if (cboService.Text == @"Various Document" || cboService.Text == @"VariousDocument")
+            {
+                _category = new VariousDocumentCategory();
+                var dic = _category.SearchCategory(Account.WorkerId, cboCategory.Text.ToLower());
+                if (dic.Count != 0)
+                {
+                    cboCategory.DataSource = new BindingSource(dic, null);
+                    cboCategory.DisplayMember = "Value";
+                    cboCategory.ValueMember = "Key";
+                    _have = true;
+                }
+                else
+                {
+                    _have = false;
+                    cboCategory.DataSource = null;
+                    cboCategory.Items.Clear(); 
+                    cboCategory.Text = text;
+                    cboCategory.Select(text.Length, 0);
+                }
+            }
+            try
+            {
+                cboCategory.DroppedDown = false;
+            }
+            catch
+            {
+                //
+            }
+            if (cboCategory.DataSource == null)
+            {
+                return;
+            }
+            if (cboCategory.Focused) cboCategory.DroppedDown = true;
+            Cursor.Current = Cursors.Default;
+            cboCategory.SelectedIndex = -1;
+            cboCategory.Text = text;
+            cboCategory.Select(text.Length, 0);
+        }
+       
     }
 }

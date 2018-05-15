@@ -65,7 +65,7 @@ namespace PatientManagement.Class
 
        public string Search_Title(string title)
        {
-           var getsample = _db.ConsultationSamples.Single(v => v.Title ==title);
+           var getsample = _db.ConsultationSamples.ToList().Single(v => v.Title.ToLower().Contains(title));
            return getsample.Description;
        }
 
@@ -83,6 +83,11 @@ namespace PatientManagement.Class
        {
            var getPath = _db.ConsultationSamples.First(v => v.Id == id);
            return getPath.Description;
+       }
+       public Dictionary<int, string> SearchTitle(int categoy, string title)
+       {
+           var get = _db.ConsultationSamples.Where(v => v.Title.ToLower().Contains(title) && v.CategoryId == categoy);
+           return get.ToList().ToDictionary(item => item.Id, item => item.Title);
        }
    }
 }

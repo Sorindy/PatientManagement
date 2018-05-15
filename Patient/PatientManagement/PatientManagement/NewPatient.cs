@@ -13,6 +13,7 @@ namespace PatientManagement
 
         internal PatientListForm PatientListForm;
         internal MedicalsForm MedicalForm;
+        internal CheckInsForm CheckInFrom;
         private readonly Patient _patient=new Patient();
 
         private void NewPatient_Shown(object sender, EventArgs e)
@@ -111,28 +112,29 @@ namespace PatientManagement
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            short? weight;
+            if (txtWeight.Text.Trim() == "")
+            {
+                weight = null;
+            }
+            else
+            {
+                weight = Convert.ToInt16(txtWeight.Text);
+            }
+            short? height;
+            if (txtHeight.Text.Trim() == "")
+            {
+                height = null;
+            }
+            else
+            {
+                height = Convert.ToInt16(txtHeight.Text);
+            }
             if (PatientListForm != null)
             {
                 try
                 {
-                    short? weight;
-                    if (txtWeight.Text.Trim() == "")
-                    {
-                        weight = 0;
-                    }
-                    else
-                    {
-                        weight= Convert.ToInt16(txtWeight.Text);
-                    }
-                    short? height;
-                    if (txtHeight.Text.Trim() == "")
-                    {
-                        height = 0;
-                    }
-                    else
-                    {
-                        height = Convert.ToInt16(txtHeight.Text);
-                    }
+                    
                     _patient.Insert(txtfName.Text, txtlName.Text, txtkhName.Text, cboGender.Text, dtpDOB.Value, Convert.ToByte(txtAge.Text), txtAddress.Text, txtPhone1.Text,
                         txtPhone2.Text, txtEmail.Text, weight,height );
                     PatientListForm.dgvListPatient.DataSource = null;
@@ -155,7 +157,7 @@ namespace PatientManagement
                     try
                     {
                         var patient = _patient.InsertAndGet(txtfName.Text, txtlName.Text, txtkhName.Text, cboGender.Text, dtpDOB.Value, Convert.ToByte(txtAge.Text), txtAddress.Text, txtPhone1.Text,
-                            txtPhone2.Text, txtEmail.Text, Convert.ToInt16(txtWeight.Text), Convert.ToInt16(txtHeight.Text));
+                            txtPhone2.Text, txtEmail.Text, weight, height);
                         MedicalForm.CatelogForm.pnlFill.Controls.Clear();
                         MedicalForm.CatelogForm.pnlFill.Controls.Add(MedicalForm);
                         MedicalForm.Patient = patient;
@@ -168,13 +170,13 @@ namespace PatientManagement
                         MessageBox.Show(@"Please Checking again !", @"Error");
                     }
                 }
-                if(MedicalForm==null)
+                if(CheckInFrom!=null)
                 {
                     try
                     {
                         var patient= _patient.InsertAndGet(txtfName.Text, txtlName.Text, txtkhName.Text, cboGender.Text, dtpDOB.Value, Convert.ToByte(txtAge.Text), txtAddress.Text, txtPhone1.Text,
-                            txtPhone2.Text, txtEmail.Text, Convert.ToInt16(txtWeight.Text), Convert.ToInt16(txtHeight.Text));
-                        if (MedicalForm != null) MedicalForm.Patient = patient;
+                            txtPhone2.Text, txtEmail.Text, weight, height);
+                        CheckInFrom.Patient = patient;
                         Close();
                     }
                     catch

@@ -70,7 +70,7 @@ namespace PatientManagement.Class
 
        public string Search_Title(string title)
        {
-           var getsample = _db.MedicalImagingSamples.Single(v => v.Title == title);
+           var getsample = _db.MedicalImagingSamples.ToList().Single(v => v.Title.ToLower().Contains(title));
            return getsample.Description;
        }
 
@@ -83,6 +83,12 @@ namespace PatientManagement.Class
                dic.Add(item.Id, item.Title);
            }
            return dic;
+       }
+
+       public Dictionary<int, string> SearchTitle(int categoy, string title)
+       {
+           var get = _db.MedicalImagingSamples.Where(v => v.Title.ToLower().Contains(title) && v.CategoryId == categoy);
+           return get.ToList().ToDictionary(item => item.Id, item => item.Title);
        }
     }
 }

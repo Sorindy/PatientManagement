@@ -43,12 +43,21 @@ namespace PatientManagement
             }
             else
             {
-                _chkIn.SubmitService(this, DateTime.Now.TimeOfDay);
-                var print = new PrintWaitingForm();
-                if (WaitingList != null) print.WaitingList = WaitingList;
-                print.Show();
+                if (_chkIn.CheckWaitinglist(Patient.Id))
+                {
+                    _chkIn.SubmitService(this, DateTime.Now.TimeOfDay);
+                    var print = new PrintWaitingForm();
+                    if (WaitingList != null) print.WaitingList = WaitingList;
+                    print.Show();
+                    ClearControl();
+                }
+                else
+                {
+                  MessageBox.Show(
+                        @"You didn't select any category yet . Please select at least one category to checkin.",
+                        @"Empty Selection");
+                }
             }
-            ClearControl();
         }
 
         private void tblSearch_Click(object sender, EventArgs e)
@@ -95,6 +104,7 @@ namespace PatientManagement
             pnlShowService.Controls.Clear();
             pnlSelection.Enabled = false;
             pnlShowService.Enabled = false;
+            Patient = null;
         }
 
         private void btnClear_Click(object sender, EventArgs e)

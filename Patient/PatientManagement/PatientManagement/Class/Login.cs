@@ -366,7 +366,8 @@ namespace PatientManagement.Class
                             {
                                 TopLevel = false,
                                 Dock = DockStyle.Fill,
-                                AutoScroll = true
+                                AutoScroll = true,
+                                Account = _account
                             };
                             gbo.Controls.Add(selectionForm);
                             selectionForm.Show();
@@ -387,7 +388,8 @@ namespace PatientManagement.Class
                         {
                             TopLevel = false,
                             Dock = DockStyle.Fill,
-                            AutoScroll = true
+                            AutoScroll = true,
+                            Account = _account
                         };
                         gbo.Controls.Add(selectionForm);
                         selectionForm.Show();

@@ -13,5 +13,6 @@ namespace PatientManagement.Interface
         string Search_Title(string  title);
         Dictionary<int, string> ShowDictionary(int categoryId);
         string Path(int value);
+        Dictionary<int, string> SearchTitle(int category,string title);
     }
 }

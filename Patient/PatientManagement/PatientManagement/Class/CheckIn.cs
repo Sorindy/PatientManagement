@@ -458,5 +458,11 @@ namespace PatientManagement.Class
             _db.SaveChanges();
         }
 
+        public bool CheckWaitinglist(int patientId)
+        {
+            var get = _db.TempWaits.Any(v => v.PatientId== patientId);
+            return get;
+        }
+
     }
 }

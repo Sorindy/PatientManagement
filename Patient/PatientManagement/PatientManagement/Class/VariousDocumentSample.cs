@@ -48,7 +48,13 @@ namespace PatientManagement.Class
            return getPath.Description;
        }
 
-        public object Show()
+       public Dictionary<int, string> SearchTitle(int categoy,string title)
+       {
+           var get = _db.VariousDocumentSamples.Where(v => v.Title.ToLower().Contains(title)&&v.CategoryId==categoy);
+           return get.ToList().ToDictionary(item => item.Id, item => item.Title);
+       }
+
+       public object Show()
         {
             var getsample = from v in _db.VariousDocumentSamples 
                 select new
@@ -70,7 +76,7 @@ namespace PatientManagement.Class
 
        public string Search_Title(string title)
        {
-           var getsample = _db.VariousDocumentSamples.Single(v => v.Title == title);
+           var getsample = _db.VariousDocumentSamples.ToList().Single(v => v.Title.ToLower().Contains(title));
            return getsample.Description;
        }
 

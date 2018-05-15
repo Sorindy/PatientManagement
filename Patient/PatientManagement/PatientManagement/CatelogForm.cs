@@ -84,7 +84,7 @@ namespace PatientManagement
         private void timer1_Tick(object sender, EventArgs e)
         
         {
-            lblDatetime.Text = DateTime.Now.ToLongDateString()+@"   " + DateTime.Now.ToLongTimeString();
+            lblDatetime.Text = DateTime.Now.ToString("dddd, dd / MMMM / yyyy")+@"   " + DateTime.Now.ToLongTimeString();
         }
 
         private void tableLayoutPanel1_MouseDown(object sender, MouseEventArgs e)

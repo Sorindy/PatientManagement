@@ -1,23 +1,27 @@
 <html>
 <head>
+
 <style>
-    .Textfont30pt {font-size:30pt;color:#000000;font-family:Arial;font-weight:bold;}
-	.Textfont40pt {font-size:200pt;color:#000000;font-family:Arial;font-weight:bold;}
+    .Textfont30pt {font-size:13pt;color:#000000;font-family:Arial;font-weight:bold;}
+	.Textfont40pt {font-size:25pt;color:#000000;font-family:Arial;font-weight:bold;}
+	@page { size: 58mm 100mm } /* output size */
+    body.receipt .sheet { width: 70mm; height: 25mm } /* sheet size */
+    @media print { body.receipt { width: 58mm } } /* fix for Chrome */
 </style>
 </head>
-<body style="margin:0px 0px 0px 0px;" >
+<body style="margin:0px 0px 0px 0px;position:relative;" class="receipt">
 
 <table>
 <tr>
 <td colspan="2">
-<div style="padding-left:170px;">
-<img alt="Sanine Logo" border="0" src="D:\PatientManagement\Patient\RTF\images\Logo.png" style="width:400px;height:500px;" />
+<div style="padding-left:80px;position:relative;">
+<img alt="Sanine Logo" border="0" src="D:\PatientManagement\Patient\RTF\images\Logo.png" style="width:70px;height:100px;" />
 </div>
 </td>
 </tr>
 
 <tr>
-<td colspan="2" style="Padding-left:230px;padding-bottom:20px;">
+<td colspan="2" style="Padding-left:50px;padding-bottom:20px;position:relative;">
 <div>
 <h1 class="Textfont30pt"> Waiting Number</h1>
 </div>
@@ -25,38 +29,38 @@
 </tr>
 
 <tr >
-<td  style="Padding-left:90px;padding-bottom:10px;">
+<td  style="Padding-left:0px;padding-bottom:10px;position:relative;">
 <div>
 <h1 class="Textfont30pt"> Patient Name :</h1> 
 </div>
 </td>
-<td style="Padding-left:80px;">
+<td style="Padding-left:20px;position:relative;">
 <div>
-<h1 class="Textfont30pt" id="PatientName" style="color:Blue;"> pPatientName</h1>
+<h1 class="Textfont30pt" id="PatientName" style="color:Blue;position:relative;"> pPatientName</h1>
 </div>
 </td>
 </tr>
 
 
 <tr>
-<td style="Padding-left:90px;">
+<td style="Padding-left:0px;position:relative;">
 <div>
 <h1 class="Textfont30pt">Time     :</h1>
 </div>
 </td>
-<td style="Padding-left:80px;">
+<td style="Padding-left:20px;position:relative;">
 <div>
- <h1 class="Textfont30pt" id="Time" style="color:Blue;">pTime</h1>
+ <h1 class="Textfont30pt" id="Time" style="color:Blue;position:relative;">pTime</h1>
 </div>
 </td>
 </tr>
 
 <tr>
-<td colspan="2" style="Padding-left:260px;">
+<td colspan="2" style="Padding-left:90px;position:relative;">
 <div>
 <br></br>
 
-<h1 class="Textfont40pt" id="Number" style="color:Blue;">pNumber</h1>
+<h1 class="Textfont40pt" id="Number" style="color:Blue;position:relative;">pNumber</h1>
 
 </div>
 </td>

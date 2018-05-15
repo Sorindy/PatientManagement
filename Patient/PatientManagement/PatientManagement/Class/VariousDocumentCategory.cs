@@ -71,13 +71,14 @@ namespace PatientManagement.Class
 
         public object Show()
         {
-            var getcategory = from v in _db.VariousDocumentCategories.Where(v => v.Available)
-                select new
-                {
-                    v.Id,
-                    v.Name
-                };
-            _bs.DataSource = getcategory.ToList();
+            var getcategory = _db.VariousDocumentCategories.Where(v => v.Available).ToList();
+            var list = new List<CategoryClass>();
+            for (var i = 0; i < getcategory.Count(); i++)
+            {
+                var no = i + 1;
+                list.Add(new CategoryClass(getcategory[i].Id, no, getcategory[i].Name));
+            }
+            _bs.DataSource = list;
             return _bs;
         }
 
