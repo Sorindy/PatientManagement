@@ -90,5 +90,49 @@ namespace PatientManagement.Class
            }
            return dic;
        }
+
+       public TreeNode AddNodeToService()
+       {
+           var nodeService = new TreeNode
+           {
+               Name = "VariousDocument",
+               Text = @"VariousDocument"
+           };
+           var getCategory = _db.VariousDocumentCategories.Where(v => v.Available).ToList();
+           foreach (var item in getCategory)
+           {
+               var nodeCat = new TreeNode
+               {
+                   Name = item.Id.ToString(),
+                   Text = item.Name
+               };
+               var getSampleByCat = _db.VariousDocumentSamples.Where(v => v.CategoryId == item.Id).ToList();
+               foreach (var sample in getSampleByCat)
+               {
+                   var node = new TreeNode
+                   {
+                       Name = sample.Id.ToString(),
+                       Text = sample.Title
+                   };
+                   nodeCat.Nodes.Add(node);
+               }
+               nodeService.Nodes.Add(nodeCat);
+           }
+           return nodeService;
+       }
+
+       public Dictionary<Dictionary<Dictionary<string, int>, int>, string> SearchTitle(string title)
+       {
+           var searchAllSample = _db.VariousDocumentSamples.ToList()
+               .Where(v => v.Title.ToLower().Contains(title.ToLower()));
+           var dic = new Dictionary<Dictionary<Dictionary<string, int>, int>, string>();
+           foreach (var item in searchAllSample)
+           {
+               var dicSer = new Dictionary<string, int> { { @"VariousDocument", item.CategoryId } };
+               var dicCat = new Dictionary<Dictionary<string, int>, int> { { dicSer, item.Id } };
+               dic.Add(dicCat, item.Title);
+           }
+           return dic;
+       }
    }
 }

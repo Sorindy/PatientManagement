@@ -45,6 +45,7 @@ namespace PatientManagement
         private int? _keyNurse;
         private int? _keyReferrer;
         internal bool Editing;
+        private string _refName;
 
         private static void CheckOrderDgv(DataGridView dgv)
         {
@@ -1120,6 +1121,7 @@ namespace PatientManagement
             if (dgvVariousDocument.CurrentRow == null) return;
             _history = new VariousDocumentHistory();
             txtDescription.Text = "";
+            _refName = dgvVariousDocument.CurrentRow.Cells[4].Value.ToString();
             try
             {
                 txtDescription.Load(_history.GetPath(Convert.ToInt32(dgvVariousDocument.CurrentRow.Cells[0].Value)),
@@ -1285,6 +1287,7 @@ namespace PatientManagement
             if (dgvPrescription.CurrentRow == null) return;
             _history = new PrescriptionHistory();
             txtDescription.Text = "";
+            _refName = dgvPrescription.CurrentRow.Cells[4].Value.ToString();
             try
             {
                 txtDescription.Load(_history.GetPath(Convert.ToInt32(dgvPrescription.CurrentRow.Cells[0].Value)),
@@ -1399,6 +1402,7 @@ namespace PatientManagement
             if (dgvMedicalImaging.CurrentRow == null) return;
             _history = new MedicalImagingHistory();
             txtDescription.Text = "";
+            _refName = dgvMedicalImaging.CurrentRow.Cells[4].Value.ToString();
             try
             {
                 txtDescription.Load(_history.GetPath(Convert.ToInt32(dgvMedicalImaging.CurrentRow.Cells[0].Value)),
@@ -1513,6 +1517,7 @@ namespace PatientManagement
             if (dgvLaboratory.CurrentRow == null) return;
             _history = new LaboratoryHistory();
             txtDescription.Text = "";
+            _refName = dgvLaboratory.CurrentRow.Cells[4].Value.ToString();
             try
             {
                 txtDescription.Load(_history.GetPath(Convert.ToInt32(dgvLaboratory.CurrentRow.Cells[0].Value)),
@@ -1627,6 +1632,7 @@ namespace PatientManagement
             if (dgvConsultation.CurrentRow == null) return;
             _history = new ConsultationHistory();
             txtDescription.Text = "";
+            _refName = dgvConsultation.CurrentRow.Cells[4].Value.ToString();
             try
             {
                 txtDescription.Load(_history.GetPath(Convert.ToInt32(dgvConsultation.CurrentRow.Cells[0].Value)),
@@ -1993,16 +1999,17 @@ namespace PatientManagement
         {
             if (Patient == null)
             {
-                MessageBox.Show(@"Patient Null Refferrent.", @"Error");
+                MessageBox.Show(@"Patient is null.", @"Error");
             }
             if (Account == null)
             {
-                MessageBox.Show(@"Doctor Null Refferrent.", @"Error");
+                MessageBox.Show(@"Doctor is null.", @"Error");
             }
             if (txtDescription.Text == "")
             {
                 MessageBox.Show(@"Document is empty.", @"Empty Document");
             }
+            if (cboReferrer.Text != "" && cboReferrer.SelectedItem != null&&chkBoxReferrer.Checked) _refName = cboReferrer.Text;
             else
             {
                 string html;
@@ -2014,7 +2021,7 @@ namespace PatientManagement
                     Html = html,
                     Patient = Patient,
                     Account = Account,
-                    Refferrer=cboReferrer.Text
+                    Refferrer = _refName
                 };
                 wv.ShowDialog();
             }

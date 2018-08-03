@@ -190,6 +190,12 @@
     <Compile Include="CreateAccount.Designer.cs">
       <DependentUpon>CreateAccount.cs</DependentUpon>
     </Compile>
+    <Compile Include="SampleDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SampleDialog.Designer.cs">
+      <DependentUpon>SampleDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="HistorysForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -403,6 +409,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DatingListForm.resx">
       <DependentUpon>DatingListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleDialog.resx">
+      <DependentUpon>SampleDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HistorysForm.resx">
       <DependentUpon>HistorysForm.cs</DependentUpon>

@@ -27,27 +27,34 @@ namespace PatientManagement
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            if (chkService.Checked || chkDoctor.Checked || chkNurse.Checked || chkRefferrer.Checked ||
-                chkPatient.Checked)
+            try
             {
-                dgvListWorker.DataSource = _report.Searching(dtpFrom.Value.Date, dtpTo.Value.Date, cboService.Text,
-                    cboCategory.Text, cboDoctor.Text,
-                    cboNurse.Text, cboRefferrer.Text, cboPatient.Text);
-            }
-            else
-            {
-                dgvListWorker.DataSource = _report.ShowAll(dtpFrom.Value.Date, dtpTo.Value.Date);
-               
-            }
+                if (chkService.Checked || chkDoctor.Checked || chkNurse.Checked || chkRefferrer.Checked ||
+                    chkPatient.Checked)
+                {
+                    dgvListWorker.DataSource = _report.Searching(dtpFrom.Value.Date, dtpTo.Value.Date, cboService.Text,
+                        cboCategory.Text, cboDoctor.Text,
+                        cboNurse.Text, cboRefferrer.Text, cboPatient.Text);
+                }
+                else
+                {
+                    dgvListWorker.DataSource = _report.ShowAll(dtpFrom.Value.Date, dtpTo.Value.Date);
 
-            if (dgvListWorker.DataSource != null)
+                }
+
+                if (dgvListWorker.DataSource != null)
+                {
+                    dgvListWorker.Columns[0].DefaultCellStyle.Format = @"dd/MM/yyyy";
+                    dgvListWorker.ClearSelection();
+                    dgvListWorker.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    CheckOrderDgv();
+                    dgvListWorker.ColumnHeadersDefaultCellStyle.Font = new Font(@"Arial", 18, FontStyle.Bold);
+                    dgvListWorker.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                }
+            }
+            catch
             {
-                dgvListWorker.Columns[0].DefaultCellStyle.Format = @"dd/MM/yyyy";
-                dgvListWorker.ClearSelection();
-                dgvListWorker.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                CheckOrderDgv();
-                dgvListWorker.ColumnHeadersDefaultCellStyle.Font = new Font(@"Arial", 18, FontStyle.Bold);
-                dgvListWorker.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                MessageBox.Show(@"Please check input value again.", @"Error");
             }
         }
 
@@ -293,10 +300,22 @@ namespace PatientManagement
         {
             var dic = _report.SearchCategory(cboService.SelectedIndex, cboCategory.Text);
             var text = cboCategory.Text;
+            cboCategory.Text = text;
+            cboCategory.Select(text.Length, 0);
+            try
+            {
+                cboCategory.DroppedDown = false;
+            }
+            catch
+            {
+                //
+            }
             if (dic.Count == 0) return;
             cboCategory.DataSource = new BindingSource(dic, null);
             cboCategory.DisplayMember = "Value";
             cboCategory.ValueMember = "Key";
+            cboCategory.DroppedDown = true;
+            Cursor.Current = Cursors.Default;
             cboCategory.SelectedIndex = -1;
             cboCategory.Text = text;
             cboCategory.Select(text.Length, 0);
@@ -311,10 +330,21 @@ namespace PatientManagement
         {
             var dic = _report.SearchDoctor(cboDoctor.Text);
             var text = cboDoctor.Text;
+            cboDoctor.Text = text;
+            cboDoctor.Select(text.Length, 0);
+            try
+            {
+                cboDoctor.DroppedDown = false;
+            }
+            catch             {
+                //
+            }
             if (dic.Count == 0) return;
             cboDoctor.DataSource = new BindingSource(dic, null);
             cboDoctor.DisplayMember = "Value";
             cboDoctor.ValueMember = "Key";
+            cboDoctor.DroppedDown = true;
+            Cursor.Current = Cursors.Default;
             cboDoctor.SelectedIndex = -1;
             cboDoctor.Text = text;
             cboDoctor.Select(text.Length, 0);
@@ -324,10 +354,22 @@ namespace PatientManagement
         {
             var dic = _report.SearchNurse(cboNurse.Text);
             var text = cboNurse.Text;
+            cboNurse.Text = text;
+            cboNurse.Select(text.Length, 0);
+            try
+            {
+                cboNurse.DroppedDown = false;
+            }
+            catch
+            {
+                //
+            }
             if (dic.Count == 0) return;
             cboNurse.DataSource = new BindingSource(dic, null);
             cboNurse.DisplayMember = "Value";
             cboNurse.ValueMember = "Key";
+            cboNurse.DroppedDown = true;
+            Cursor.Current = Cursors.Default;
             cboNurse.SelectedIndex = -1;
             cboNurse.Text = text;
             cboNurse.Select(text.Length, 0);
@@ -337,10 +379,22 @@ namespace PatientManagement
         {
             var dic = _report.SearchRefferrer(cboRefferrer.Text);
             var text = cboRefferrer.Text;
+            cboRefferrer.Text = text;
+            cboRefferrer.Select(text.Length, 0);
+            try
+            {
+                cboRefferrer.DroppedDown = false;
+            }
+            catch
+            {
+             //
+            }
             if (dic.Count == 0) return;
             cboRefferrer.DataSource = new BindingSource(dic, null);
             cboRefferrer.DisplayMember = "Value";
             cboRefferrer.ValueMember = "Key";
+            cboRefferrer.DroppedDown = true;
+            Cursor.Current = Cursors.Default;
             cboRefferrer.SelectedIndex = -1;
             cboRefferrer.Text = text;
             cboRefferrer.Select(text.Length, 0);
@@ -350,10 +404,22 @@ namespace PatientManagement
         {
             var dic = _report.SearchPatient(cboPatient.Text);
             var text = cboPatient.Text;
+            cboPatient.Text = text;
+            cboPatient.Select(text.Length, 0);
+            try
+            {
+                cboPatient.DroppedDown = false;
+            }
+            catch
+            {
+                //
+            }
             if (dic.Count == 0) return;
             cboPatient.DataSource = new BindingSource(dic, null);
             cboPatient.DisplayMember = "Value";
             cboPatient.ValueMember = "Key";
+            cboPatient.DroppedDown = true;
+            Cursor.Current = Cursors.Default;
             cboPatient.SelectedIndex = -1;
             cboPatient.Text = text;
             cboPatient.Select(text.Length, 0);

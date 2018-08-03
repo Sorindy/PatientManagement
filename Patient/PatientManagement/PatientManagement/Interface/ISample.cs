@@ -1,5 +1,6 @@
 ﻿
 using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace PatientManagement.Interface
 {
@@ -14,5 +15,7 @@ namespace PatientManagement.Interface
         Dictionary<int, string> ShowDictionary(int categoryId);
         string Path(int value);
         Dictionary<int, string> SearchTitle(int category,string title);
+        TreeNode AddNodeToService();
+        Dictionary<Dictionary<Dictionary<string, int>, int>, string> SearchTitle(string title);
     }
 }

@@ -142,7 +142,7 @@ namespace PatientManagement
 
         private void cboCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (!_have || cboCategory.Text == "") return;
+            if (!_have || cboCategory.Text == ""||cboCategory.SelectedItem==null) return;
             var get = (KeyValuePair<int, string>) cboCategory.SelectedItem;
             _keyCategory = get.Key;
         }
@@ -167,6 +167,8 @@ namespace PatientManagement
                     _have = false;
                     cboCategory.DataSource = null;
                     cboCategory.Items.Clear();
+                    cboCategory.Text = text;
+                    cboCategory.Select(text.Length, 0);
                 }
                 _keyService = @"Consultation";
             }
@@ -186,6 +188,8 @@ namespace PatientManagement
                     _have = false;
                     cboCategory.DataSource = null;
                     cboCategory.Items.Clear();
+                    cboCategory.Text = text;
+                    cboCategory.Select(text.Length, 0);
                 }
                 _keyService = @"Laboratory";
             }
@@ -205,6 +209,8 @@ namespace PatientManagement
                     _have = false;
                     cboCategory.DataSource = null;
                     cboCategory.Items.Clear();
+                    cboCategory.Text = text;
+                    cboCategory.Select(text.Length, 0);
                 }
                 _keyService = @"MedicalImaging";
             }
@@ -224,6 +230,8 @@ namespace PatientManagement
                     _have = false;
                     cboCategory.DataSource = null;
                     cboCategory.Items.Clear();
+                    cboCategory.Text = text;
+                    cboCategory.Select(text.Length, 0);
                 }
                 _keyService = @"Prescription";
             }
@@ -243,10 +251,27 @@ namespace PatientManagement
                     _have = false;
                     cboCategory.DataSource = null;
                     cboCategory.Items.Clear();
+                    cboCategory.Text = text;
+                    cboCategory.Select(text.Length, 0);
                 }
                 _keyService = @"VariousDocument";
             }
-            if (cboCategory.DataSource == null) return;
+            try
+            {
+                cboCategory.DroppedDown = false;
+                cboCategory.Text = text;
+                cboCategory.Select(text.Length, 0);
+            }
+            catch
+            {
+                //
+            }
+            if (cboCategory.DataSource == null)
+            {
+                return;
+            }
+            if (cboCategory.Focused) cboCategory.DroppedDown = true;
+            Cursor.Current = Cursors.Default;
             cboCategory.SelectedIndex = -1;
             cboCategory.Text = text;
             cboCategory.Select(text.Length, 0);
@@ -260,7 +285,7 @@ namespace PatientManagement
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            if (cboCategory.DataSource == null||cboCategory.Text=="")
+            if (cboCategory.DataSource == null||cboCategory.Text==""||_have)
             {
                 MessageBox.Show(@"Please select available category.", @"Empty category selection");
                 return;

@@ -42,12 +42,12 @@ namespace PatientManagement.Class
             _db.LaboratorySamples.Remove(delete);
             _db.SaveChanges();
         }
-       public string Path(int id)
+        public string Path(int id)
        {
            var getPath = _db.LaboratorySamples.First(v => v.Id == id);
            return getPath.Description;
        }
-
+        
         public object Show()
         {
             var getsample = from v in _db.LaboratorySamples 
@@ -62,19 +62,19 @@ namespace PatientManagement.Class
             return _bs;
         }
 
-       public object Show_Sample_Title()
+        public object Show_Sample_Title()
        {
            var getsample = _db.LaboratorySamples.Select(v => v.Title);
            return getsample.ToList();
        }
 
-       public string Search_Title(string title)
+        public string Search_Title(string title)
        {
            var getsample = _db.LaboratorySamples.ToList().Single(v => v.Title.ToLower().Contains(title));
            return getsample.Description;
        }
 
-       public Dictionary<int, string> ShowDictionary(int categoryId)
+        public Dictionary<int, string> ShowDictionary(int categoryId)
        {
            var getTitle = _db.LaboratorySamples.Where(v => v.CategoryId == categoryId);
            var dic = new Dictionary<int, string>();
@@ -85,10 +85,54 @@ namespace PatientManagement.Class
            return dic;
        }
 
-       public Dictionary<int, string> SearchTitle(int categoy, string title)
+        public Dictionary<int, string> SearchTitle(int categoy, string title)
        {
            var get = _db.LaboratorySamples.Where(v => v.Title.ToLower().Contains(title) && v.CategoryId == categoy);
            return get.ToList().ToDictionary(item => item.Id, item => item.Title);
+       }
+
+       public TreeNode AddNodeToService()
+       {
+           var nodeService = new TreeNode
+           {
+               Name = "Laboratory",
+               Text = @"Laboratory"
+           };
+           var getCategory = _db.LaboratoryCategories.Where(v => v.Available).ToList();
+           foreach (var item in getCategory)
+           {
+               var nodeCat = new TreeNode
+               {
+                   Name = item.Id.ToString(),
+                   Text = item.Name
+               };
+               var getSampleByCat = _db.LaboratorySamples.Where(v => v.CategoryId == item.Id).ToList();
+               foreach (var sample in getSampleByCat)
+               {
+                   var node = new TreeNode
+                   {
+                       Name = sample.Id.ToString(),
+                       Text = sample.Title
+                   };
+                   nodeCat.Nodes.Add(node);
+               }
+               nodeService.Nodes.Add(nodeCat);
+           }
+           return nodeService;
+       }
+
+       public Dictionary<Dictionary<Dictionary<string, int>, int>, string> SearchTitle(string title)
+       {
+           var searchAllSample = _db.LaboratorySamples.ToList()
+               .Where(v => v.Title.ToLower().Contains(title.ToLower()));
+           var dic = new Dictionary<Dictionary<Dictionary<string, int>, int>, string>();
+           foreach (var item in searchAllSample)
+           {
+               var dicSer = new Dictionary<string, int> { { @"Laboratory", item.CategoryId } };
+               var dicCat = new Dictionary<Dictionary<string, int>, int> { { dicSer, item.Id } };
+               dic.Add(dicCat, item.Title);
+           }
+           return dic;
        }
    }
 }

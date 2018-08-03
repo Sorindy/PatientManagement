@@ -36,6 +36,7 @@ namespace PatientManagement
             txtPassword.PasswordChar = '*';
             txtUserName.Focus();
             //_login.DeleteImageFolder();
+            linkForgetPassword.Visible = false;
         }
 
         //private void MaximizeForm()

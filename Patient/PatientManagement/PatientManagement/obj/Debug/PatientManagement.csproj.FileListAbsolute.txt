@@ -80,3 +80,4 @@ E:\Work\PatientManagement\PatientManagement\Patient\PatientManagement\PatientMan
 E:\Work\PatientManagement\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.pdb
 E:\Work\PatientManagement\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.csprojResolveAssemblyReference.cache
 E:\Work\PatientManagement\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.ServiceAndCategegorySelection.resources
+E:\Work\PatientManagement\PatientManagement\Patient\PatientManagement\PatientManagement\obj\Debug\PatientManagement.SampleDialog.resources

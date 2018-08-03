@@ -91,5 +91,48 @@ namespace PatientManagement.Class
            return get.ToList().ToDictionary(item => item.Id, item => item.Title);
        }
 
+       public TreeNode AddNodeToService()
+       {
+           var nodeService = new TreeNode
+           {
+               Name = "Prescription",
+               Text = @"Prescription"
+           };
+           var getCategory = _db.PrescriptionCategories.Where(v => v.Available).ToList();
+           foreach (var item in getCategory)
+           {
+               var nodeCat = new TreeNode
+               {
+                   Name = item.Id.ToString(),
+                   Text = item.Name
+               };
+               var getSampleByCat = _db.PrescriptionSamples.Where(v => v.CategoryId == item.Id).ToList();
+               foreach (var sample in getSampleByCat)
+               {
+                   var node = new TreeNode
+                   {
+                       Name = sample.Id.ToString(),
+                       Text = sample.Title
+                   };
+                   nodeCat.Nodes.Add(node);
+               }
+               nodeService.Nodes.Add(nodeCat);
+           }
+           return nodeService;
+       }
+
+       public Dictionary<Dictionary<Dictionary<string, int>, int>, string> SearchTitle(string title)
+       {
+           var searchAllSample = _db.PrescriptionSamples.ToList()
+               .Where(v => v.Title.ToLower().Contains(title.ToLower()));
+           var dic = new Dictionary<Dictionary<Dictionary<string, int>, int>, string>();
+           foreach (var item in searchAllSample)
+           {
+               var dicSer = new Dictionary<string, int> { { @"Prescription", item.CategoryId } };
+               var dicCat = new Dictionary<Dictionary<string, int>, int> { { dicSer, item.Id } };
+               dic.Add(dicCat, item.Title);
+           }
+           return dic;
+       }
     }
 }

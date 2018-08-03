@@ -90,5 +90,49 @@ namespace PatientManagement.Class
            var get = _db.MedicalImagingSamples.Where(v => v.Title.ToLower().Contains(title) && v.CategoryId == categoy);
            return get.ToList().ToDictionary(item => item.Id, item => item.Title);
        }
+
+       public TreeNode AddNodeToService()
+       {
+           var nodeService = new TreeNode
+           {
+               Name = "MedicalImaging",
+               Text = @"MedicalImaging"
+           };
+           var getCategory = _db.MedicalImagingCategories.Where(v => v.Available).ToList();
+           foreach (var item in getCategory)
+           {
+               var nodeCat = new TreeNode
+               {
+                   Name = item.Id.ToString(),
+                   Text = item.Name
+               };
+               var getSampleByCat = _db.MedicalImagingSamples.Where(v => v.CategoryId == item.Id).ToList();
+               foreach (var sample in getSampleByCat)
+               {
+                   var node = new TreeNode
+                   {
+                       Name = sample.Id.ToString(),
+                       Text = sample.Title
+                   };
+                   nodeCat.Nodes.Add(node);
+               }
+               nodeService.Nodes.Add(nodeCat);
+           }
+           return nodeService;
+       }
+
+       public Dictionary<Dictionary<Dictionary<string, int>, int>, string> SearchTitle(string title)
+       {
+           var searchAllSample = _db.MedicalImagingSamples.ToList()
+               .Where(v => v.Title.ToLower().Contains(title.ToLower()));
+           var dic = new Dictionary<Dictionary<Dictionary<string, int>, int>, string>();
+           foreach (var item in searchAllSample)
+           {
+               var dicSer = new Dictionary<string, int> { { @"MedicalImaging", item.CategoryId } };
+               var dicCat = new Dictionary<Dictionary<string, int>, int> { { dicSer, item.Id } };
+               dic.Add(dicCat, item.Title);
+           }
+           return dic;
+       }
     }
 }
