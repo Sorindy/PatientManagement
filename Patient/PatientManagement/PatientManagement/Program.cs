@@ -10,7 +10,7 @@ namespace PatientManagement
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SampleDialog());
+            Application.Run(new LoginForm());
         }
     }
 }
